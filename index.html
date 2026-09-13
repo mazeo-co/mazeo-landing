@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mazeo — Trouvez vos prochains clients en études, au bon moment</title>
-<meta name="description" content="mazeo connaît toutes les entreprises qui achètent des études en France. Il vous dit lesquelles vous correspondent, quand elles sont prêtes, et vous guide jusqu'au rendez-vous.">
+<title>mazeo — Le market research français, cartographié</title>
+<meta name="description" content="mazeo a cartographié le market research français : plus de 1 000 entreprises scorées, 13 000 contacts avec leur email professionnel et leur portable, les signaux du secteur, et un pipeline guidé jusqu'au rendez-vous.">
 <link rel="canonical" href="https://mazeo.co/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mazeo.co/">
-<meta property="og:title" content="mazeo — Trouvez vos prochains clients en études, au bon moment">
-<meta property="og:description" content="mazeo connaît toutes les entreprises qui achètent des études en France. Il vous dit lesquelles vous correspondent, quand elles sont prêtes, et vous guide jusqu'au rendez-vous.">
+<meta property="og:title" content="mazeo a cartographié le market research français. Vos prochains clients y sont.">
+<meta property="og:description" content="Plus de 1 000 entreprises scorées, 13 000 contacts avec leur email professionnel et leur portable, les signaux du secteur, et un pipeline guidé jusqu'au rendez-vous.">
 <meta property="og:image" content="https://mazeo.co/og-image-v3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -18,8 +18,8 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mazeo — Trouvez vos prochains clients en études, au bon moment">
-<meta name="twitter:description" content="Le marché français des études, profilé. Les bons décideurs, révélés. Le bon moment, détecté. Une séquence guidée jusqu'au rendez-vous.">
+<meta name="twitter:title" content="mazeo a cartographié le market research français. Vos prochains clients y sont.">
+<meta name="twitter:description" content="Plus de 1 000 entreprises scorées, 13 000 contacts, les signaux du secteur, un pipeline guidé jusqu'au rendez-vous.">
 <meta name="twitter:image" content="https://mazeo.co/og-image-v3.png">
 
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -40,7 +40,7 @@
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
   "url": "https://mazeo.co/",
-  "description": "mazeo connaît toutes les entreprises qui achètent des études en France. Il vous dit lesquelles vous correspondent, quand elles sont prêtes, et vous guide jusqu'au rendez-vous.",
+  "description": "mazeo a cartographié le market research français : entreprises scorées, contacts, signaux, et un pipeline guidé jusqu'au rendez-vous.",
   "author": { "@type": "Organization", "name": "mazeo", "url": "https://mazeo.co/" }
 }
 </script>
@@ -49,19 +49,16 @@
 /* ============ Tokens : fiche _context/mazeo-design.md, police de l'app ============ */
 :root {
   --ink: #0A0A0A;
-  --ink-2: #16181D;
   --slate: #3A4250;
   --body: #4A5262;
   --meta: #8A93A2;
   --line: #E5E7EB;
   --line-soft: #EEF0F3;
   --ground: #FFFFFF;
-  --ground-2: #F6F8FB;
   --blue: #007BFF;
   --blue-deep: #0066D6;
   --blue-text: #0062CC;
   --blue-tint: #E6F2FF;
-  --blue-panel: #0A6FE6;
   --green: #00EF8B;
   --green-tint: #E6FFF5;
   --green-text: #006B3F;
@@ -98,10 +95,9 @@ button, input { font: inherit; }
 em { font-style: normal; color: var(--blue); }
 
 .container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
-.section { padding-block: 112px; }
-.section-head { max-width: 780px; }
+.section { padding-block: 104px; border-top: 1px solid var(--line-soft); }
+.section-head { max-width: 800px; }
 .section-head .lead { margin-top: 20px; }
-.center { text-align: center; margin-inline: auto; }
 
 .eyebrow {
   display: inline-flex; align-items: center; gap: 8px;
@@ -109,11 +105,9 @@ em { font-style: normal; color: var(--blue); }
   margin-bottom: 20px;
 }
 .eyebrow::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--green); }
-.title {
-  font-size: clamp(32px, 4.6vw, 52px); line-height: 1.04; font-weight: 800; letter-spacing: -0.03em;
-}
+.title { font-size: clamp(32px, 4.4vw, 50px); line-height: 1.05; font-weight: 800; letter-spacing: -0.03em; }
 .lead { font-size: 20px; line-height: 1.55; color: var(--body); }
-.small { font-size: 14px; color: var(--meta); }
+.lead b { color: var(--ink); font-weight: 600; }
 
 /* ============ Boutons ============ */
 .btn {
@@ -126,26 +120,20 @@ em { font-style: normal; color: var(--blue); }
 .btn:hover { text-decoration: none; }
 .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 6px 18px -8px rgba(0,123,255,.7); }
 .btn-primary:hover { background: var(--blue-deep); transform: translateY(-1px); }
-.btn-primary:active { transform: translateY(0); }
 .btn-ghost { background: transparent; color: var(--slate); border-color: var(--line); }
 .btn-ghost:hover { border-color: #C9CFD8; color: var(--ink); }
 .btn-lg { padding: 15px 26px; font-size: 16px; }
-.btn-white { background: #fff; color: var(--ink); }
-.btn-white:hover { background: #F3F5F8; }
 
 /* ============ Nav ============ */
 .nav {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(255,255,255,.86);
+  background: rgba(255,255,255,.88);
   backdrop-filter: saturate(160%) blur(14px); -webkit-backdrop-filter: saturate(160%) blur(14px);
   border-bottom: 1px solid transparent; transition: border-color .2s ease;
 }
 .nav.scrolled { border-bottom-color: var(--line); }
 .nav-inner { height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.logo {
-  font-weight: 800; font-size: 25px; letter-spacing: -0.035em; color: var(--ink); text-decoration: none;
-  display: inline-flex; align-items: baseline;
-}
+.logo { font-weight: 800; font-size: 25px; letter-spacing: -0.035em; color: var(--ink); text-decoration: none; display: inline-flex; align-items: baseline; }
 .logo:hover { text-decoration: none; }
 .logo .dot { color: var(--green); }
 .nav-links { display: flex; align-items: center; gap: 30px; }
@@ -153,39 +141,20 @@ em { font-style: normal; color: var(--blue); }
 .nav-links a:hover { color: var(--ink); text-decoration: none; }
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .lang { display: inline-flex; border: 1px solid var(--line); border-radius: var(--r-pill); padding: 3px; }
-.lang button {
-  border: 0; background: transparent; color: var(--meta); font-weight: 700; font-size: 12px;
-  padding: 4px 9px; border-radius: var(--r-pill); cursor: pointer; letter-spacing: .05em;
-}
+.lang button { border: 0; background: transparent; color: var(--meta); font-weight: 700; font-size: 12px; padding: 4px 9px; border-radius: var(--r-pill); cursor: pointer; letter-spacing: .05em; }
 .lang button[aria-pressed="true"] { background: var(--ink); color: #fff; }
 @media (max-width: 960px) { .nav-links, .nav-login { display: none; } }
 
 /* ============ Hero ============ */
-.hero { position: relative; padding-block: 84px 0; }
-.hero-glow {
-  position: absolute; inset: auto 0 0 0; height: 720px; pointer-events: none; z-index: 0;
-  background: radial-gradient(60% 55% at 50% 100%, rgba(0,123,255,.16), rgba(0,123,255,0) 70%);
-}
-.hero-copy { position: relative; z-index: 1; max-width: 900px; margin-inline: auto; text-align: center; }
-.badge {
-  display: inline-flex; align-items: center; gap: 9px; padding: 7px 14px 7px 11px; border-radius: var(--r-pill);
-  background: #fff; border: 1px solid var(--line); color: var(--slate); font-size: 13.5px; font-weight: 600;
-}
-.badge .pulse { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 0 rgba(0,239,139,.5); animation: pulse 2.4s ease-out infinite; }
-@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0,239,139,.5); } 70% { box-shadow: 0 0 0 10px rgba(0,239,139,0); } 100% { box-shadow: 0 0 0 0 rgba(0,239,139,0); } }
-.hero h1 {
-  margin-top: 28px; font-size: clamp(42px, 6.6vw, 78px); line-height: .98; font-weight: 800; letter-spacing: -0.04em;
-}
-.hero .lead { margin: 28px auto 0; max-width: 720px; font-size: clamp(18px, 2vw, 21px); }
+.hero { position: relative; padding-block: 88px 0; }
+.hero-glow { position: absolute; inset: auto 0 0 0; height: 720px; pointer-events: none; z-index: 0; background: radial-gradient(60% 55% at 50% 100%, rgba(0,123,255,.14), rgba(0,123,255,0) 70%); }
+.hero-copy { position: relative; z-index: 1; max-width: 920px; margin-inline: auto; text-align: center; }
+.hero h1 { font-size: clamp(36px, 6.2vw, 74px); line-height: 1.0; font-weight: 800; letter-spacing: -0.04em; }
+.hero .lead { margin: 28px auto 0; max-width: 760px; font-size: clamp(18px, 2vw, 21px); }
 
 .signup { margin-top: 34px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.signup-fields {
-  display: flex; gap: 6px; width: 100%; max-width: 700px; padding: 6px;
-  border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow-card);
-}
-.signup-fields input {
-  flex: 1 1 0; min-width: 0; border: 0; background: transparent; padding: 12px 14px; font-size: 16px; color: var(--ink); border-radius: 10px;
-}
+.signup-fields { display: flex; gap: 6px; width: 100%; max-width: 700px; padding: 6px; border: 1px solid var(--line); border-radius: 16px; background: #fff; box-shadow: var(--shadow-card); }
+.signup-fields input { flex: 1 1 0; min-width: 0; border: 0; background: transparent; padding: 12px 14px; font-size: 16px; color: var(--ink); border-radius: 10px; }
 .signup-fields input::placeholder { color: var(--meta); }
 .signup-fields input + input { border-left: 1px solid var(--line-soft); }
 .signup .helper { font-size: 13.5px; color: var(--meta); text-align: center; }
@@ -198,29 +167,23 @@ em { font-style: normal; color: var(--blue); }
   .signup-fields .btn { width: 100%; }
 }
 
-/* la scène : la carte du marché + trois moments produit qui flottent */
+.hero-logos { margin-top: 36px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 12px; }
+.hero-logos .lbl { width: 100%; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--meta); margin-bottom: 4px; }
+.logos figure, .hero-logos figure { margin: 0; display: flex; align-items: center; gap: 9px; padding: 7px 13px 7px 7px; border: 1px solid var(--line-soft); border-radius: 12px; background: #fff; }
+.logos img, .hero-logos img { width: 28px; height: 28px; border-radius: 7px; object-fit: contain; }
+.logos figcaption, .hero-logos figcaption { font-size: 14px; font-weight: 600; color: var(--slate); white-space: nowrap; }
+
 .stage { position: relative; z-index: 1; margin-top: 64px; padding-bottom: 40px; }
-.stage-frame {
-  position: relative; border: 1px solid var(--line); border-radius: var(--r-xl); overflow: hidden; background: #fff;
-  box-shadow: var(--shadow-card);
-}
+.stage-frame { position: relative; border: 1px solid var(--line); border-radius: var(--r-xl); overflow: hidden; background: #fff; box-shadow: var(--shadow-card); }
 .stage-frame img { width: 100%; }
 .stage-frame::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(255,255,255,0) 70%, rgba(255,255,255,.55) 100%); }
-.float {
-  position: absolute; border-radius: 16px; overflow: hidden; background: #fff;
-  border: 1px solid var(--line); box-shadow: var(--shadow-float);
-}
+.float { position: absolute; border-radius: 16px; overflow: hidden; background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-float); }
 .float img { width: 100%; }
 .float.f1 { width: 33%; left: 3.5%; bottom: -6%; }
 .float.f2 { width: 40%; right: 2.5%; bottom: 12%; }
 .float.f3 { width: 26%; right: 6%; top: -6%; }
-@media (max-width: 760px) {
-  .float.f1 { width: 60%; left: 2%; bottom: -8%; }
-  .float.f2 { display: none; }
-  .float.f3 { width: 48%; right: 2%; top: -6%; }
-}
+@media (max-width: 760px) { .float.f1 { width: 60%; left: 2%; bottom: -8%; } .float.f2 { display: none; } .float.f3 { width: 48%; right: 2%; top: -6%; } }
 
-/* entrée du haut de page, puis flottement doux */
 @media (prefers-reduced-motion: no-preference) {
   .rise { animation: rise .6s cubic-bezier(.2,.7,.2,1) both; }
   .rise.d1 { animation-delay: .06s; } .rise.d2 { animation-delay: .14s; } .rise.d3 { animation-delay: .22s; } .rise.d4 { animation-delay: .32s; }
@@ -231,118 +194,71 @@ em { font-style: normal; color: var(--blue); }
   @keyframes hover { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
   html.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
   html.js .reveal.in { opacity: 1; transform: none; }
-  html.js .reveal.d1 { transition-delay: .08s; } html.js .reveal.d2 { transition-delay: .16s; } html.js .reveal.d3 { transition-delay: .24s; }
+  html.js .reveal.d1 { transition-delay: .08s; } html.js .reveal.d2 { transition-delay: .16s; }
 }
 
-/* ============ Logos ============ */
-.strip { padding-block: 72px 24px; text-align: center; }
-.strip p { font-size: 13.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--meta); }
-.logos { margin-top: 24px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 14px; }
-.logos figure { margin: 0; display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border: 1px solid var(--line-soft); border-radius: 12px; background: #fff; transition: border-color .15s ease, transform .15s ease; }
-.logos figure:hover { border-color: var(--line); transform: translateY(-1px); }
-.logos img { width: 30px; height: 30px; border-radius: 7px; object-fit: contain; }
-.logos figcaption { font-size: 14px; font-weight: 600; color: var(--slate); white-space: nowrap; }
+/* ============ Problème / Solution ============ */
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.two .title { font-size: clamp(30px, 3.6vw, 42px); }
+.two p { margin-top: 20px; font-size: 19px; line-height: 1.6; }
+.two p + p { margin-top: 14px; }
+@media (max-width: 900px) { .two { grid-template-columns: 1fr; gap: 40px; } }
 
-/* ============ Comment ça marche : panneau bleu ============ */
-.how { padding-block: 40px 112px; }
-.panel {
-  position: relative; border-radius: var(--r-xl); background: var(--blue-panel); color: #fff; overflow: hidden;
-  padding: 72px 64px 64px;
-  background-image:
-    linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px);
-  background-size: 56px 56px, 56px 56px;
-}
-.panel .eyebrow { color: rgba(255,255,255,.85); }
-.panel .eyebrow::before { background: var(--green); }
-.panel .title { color: #fff; }
-.panel .lead { color: rgba(255,255,255,.85); }
-.steps { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.step {
-  background: #fff; color: var(--body); border-radius: var(--r-card); padding: 28px 28px 0; display: flex; flex-direction: column; gap: 14px;
-  overflow: hidden; transition: transform .2s ease, box-shadow .2s ease;
-}
-.step:hover { transform: translateY(-3px); box-shadow: 0 30px 60px -30px rgba(0,0,0,.35); }
-.step .n { font-size: 13px; font-weight: 800; letter-spacing: .08em; color: var(--blue-text); }
-.step h3 { font-size: 24px; line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; }
-.step p { font-size: 16px; line-height: 1.55; }
-.step .kicker { font-size: 14px; font-weight: 600; color: var(--ink); padding-top: 12px; border-top: 1px solid var(--line-soft); }
-.step .shot { margin-top: 10px; margin-inline: -4px; border: 1px solid var(--line); border-bottom: 0; border-radius: 14px 14px 0 0; overflow: hidden; background: var(--ground-2); }
-.step .shot img { width: 100%; }
-.step .shot.tall { max-height: 260px; }
-@media (max-width: 920px) { .panel { padding: 48px 28px 28px; } .steps { grid-template-columns: 1fr; } }
-
-/* ============ Le produit : blocs ============ */
-.features { display: flex; flex-direction: column; gap: 24px; margin-top: 56px; }
-.feature {
-  display: grid; grid-template-columns: 5fr 7fr; gap: 48px; align-items: center;
-  border: 1px solid var(--line); border-radius: var(--r-xl); padding: 40px; background: #fff;
-  transition: box-shadow .25s ease, transform .25s ease;
-}
-.feature:hover { box-shadow: var(--shadow-card); }
+.feature { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center; }
 .feature.flip .feature-copy { order: 2; }
-.feature-copy .n {
-  display: inline-flex; align-items: center; gap: 8px; padding: 5px 11px; border-radius: var(--r-pill);
-  background: var(--blue-tint); color: var(--blue-text); font-size: 12.5px; font-weight: 800; letter-spacing: .06em;
-}
-.feature-copy h3 { margin-top: 18px; font-size: clamp(26px, 3vw, 34px); line-height: 1.1; font-weight: 800; letter-spacing: -0.025em; }
-.feature-copy p { margin-top: 16px; font-size: 17px; line-height: 1.6; }
-.feature-copy .chips { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; }
+.feature-copy .title { font-size: clamp(28px, 3.4vw, 40px); }
+.feature-copy p { margin-top: 18px; font-size: 18px; line-height: 1.6; }
+.feature-copy p + p { margin-top: 12px; }
+.feature-copy .chips { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px; }
 .chip { display: inline-flex; align-items: center; padding: 5px 11px; border-radius: var(--r-pill); font-size: 12.5px; font-weight: 600; border: 1px solid var(--line); color: var(--slate); background: #fff; }
-.chip.blue { background: var(--blue-tint); color: var(--blue-text); border-color: transparent; }
-.chip.green { background: var(--green-tint); color: var(--green-text); border-color: transparent; }
-.feature-visual { position: relative; }
+.chip.green::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); margin-right: 7px; }
 .shotcard { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: var(--shadow-card); }
 .shotcard img { width: 100%; }
-.shotcard.pad { padding: 10px; background: var(--ground-2); }
-.shotcard.pad img { border-radius: 10px; border: 1px solid var(--line); }
-.feature.wide { grid-template-columns: 1fr; gap: 28px; }
-.feature.wide .feature-copy { max-width: 760px; }
-@media (max-width: 900px) {
-  .feature, .feature.flip { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
-  .feature.flip .feature-copy { order: 0; }
-}
+@media (max-width: 900px) { .feature, .feature.flip { grid-template-columns: 1fr; gap: 28px; } .feature.flip .feature-copy { order: 0; } }
 
-/* ============ Ce que mazeo n'est pas ============ */
-.nots { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.not { border-top: 2px solid var(--ink); padding-top: 20px; }
-.not h3 { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; display: flex; align-items: center; gap: 10px; }
-.not h3 .x { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; background: var(--ink); color: #fff; font-size: 12px; flex: 0 0 auto; }
-.not p { margin-top: 10px; font-size: 16px; line-height: 1.6; }
-@media (max-width: 820px) { .nots { grid-template-columns: 1fr; } }
+/* Scoring : trois lignes d'exemples */
+.axes { margin-top: 24px; display: grid; gap: 0; }
+.axis { display: grid; grid-template-columns: 130px 1fr; gap: 14px; align-items: baseline; padding: 12px 0; border-top: 1px solid var(--line-soft); font-size: 15.5px; }
+.axis:last-child { border-bottom: 1px solid var(--line-soft); }
+.axis b { color: var(--ink); font-weight: 700; }
+.axis b small { display: block; font-weight: 600; color: var(--meta); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+.axis span { color: var(--body); }
 
-/* ============ Données ============ */
-.data-grid { margin-top: 48px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: start; }
-.sources { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.source { border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px 18px; background: #fff; }
-.source b { display: block; font-size: 15px; color: var(--ink); }
-.source span { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.5; color: var(--body); }
-.provenance { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; font-size: 13.5px; color: var(--meta); }
-.provenance code { font-family: var(--font); font-size: 12.5px; padding: 4px 10px; border-radius: 6px; background: var(--ground-2); border: 1px solid var(--line); color: var(--slate); }
-.stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
-.stat { border: 1px solid var(--line); border-radius: var(--r-card); padding: 24px; background: #fff; }
-.stat .v { font-size: 40px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; }
-.stat .l { margin-top: 8px; font-size: 14.5px; font-weight: 600; color: var(--slate); }
-.data-note { margin-top: 14px; font-size: 13px; color: var(--meta); }
-@media (max-width: 900px) { .data-grid { grid-template-columns: 1fr; } }
-@media (max-width: 560px) { .sources, .stats { grid-template-columns: 1fr; } }
+/* Signaux : deux listes */
+.signals { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.siglist h3 { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--meta); margin-bottom: 10px; }
+.siglist ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.siglist li { display: flex; align-items: flex-start; gap: 10px; font-size: 15.5px; color: var(--ink); font-weight: 500; line-height: 1.4; }
+.siglist li::before { content: ""; flex: 0 0 8px; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); margin-top: 7px; }
+.siglist.person li::before { background: var(--green); }
+@media (max-width: 700px) { .signals { grid-template-columns: 1fr; } }
 
-/* ============ Design partners ============ */
-.quote {
-  margin-top: 44px; border: 1px solid var(--line); border-radius: var(--r-xl); background: #fff; padding: 44px 48px;
-  display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;
-}
-.quote blockquote { margin: 0; font-size: clamp(22px, 2.8vw, 32px); line-height: 1.25; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); text-wrap: balance; }
+/* Pipeline : trois étapes */
+.steps { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.step { border: 1px solid var(--line); border-radius: var(--r-card); padding: 26px 26px 28px; background: #fff; transition: transform .2s ease, box-shadow .2s ease; }
+.step:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+.step .n { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: var(--blue); color: #fff; font-weight: 800; font-size: 14px; }
+.step h3 { margin-top: 14px; font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+.step .goal { margin-top: 2px; font-size: 13px; font-weight: 600; color: var(--blue-text); }
+.step p { margin-top: 12px; font-size: 15.5px; line-height: 1.55; }
+@media (max-width: 900px) { .steps { grid-template-columns: 1fr; } }
+.writer { margin-top: 56px; }
+
+/* ============ Preuve ============ */
+.quotes { margin-top: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.quote { border: 1px solid var(--line); border-radius: var(--r-card); background: #fff; padding: 32px 34px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; }
+.quote blockquote { margin: 0; font-size: clamp(19px, 2vw, 23px); line-height: 1.35; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; }
 .quote blockquote::before { content: "« "; color: var(--blue); }
 .quote blockquote::after { content: " »"; color: var(--blue); }
-.quote .who { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
-.quote .who img { width: 46px; height: 46px; border-radius: 10px; border: 1px solid var(--line-soft); object-fit: contain; }
+.quote .who { display: flex; align-items: center; gap: 12px; }
+.quote .who img { width: 42px; height: 42px; border-radius: 10px; border: 1px solid var(--line-soft); object-fit: contain; }
 .quote .who b { display: block; font-size: 15px; color: var(--ink); }
 .quote .who span { font-size: 13.5px; color: var(--meta); }
-@media (max-width: 720px) { .quote { grid-template-columns: 1fr; padding: 28px; } }
+.logos { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 12px; }
+@media (max-width: 760px) { .quotes { grid-template-columns: 1fr; } }
 
 /* ============ FAQ ============ */
-.faq-list { margin-top: 40px; border-top: 1px solid var(--line); max-width: 860px; }
+.faq-list { margin-top: 36px; border-top: 1px solid var(--line); max-width: 860px; }
 .faq-list details { border-bottom: 1px solid var(--line); }
 .faq-list summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; font-size: 18px; font-weight: 700; color: var(--ink); }
 .faq-list summary::-webkit-details-marker { display: none; }
@@ -351,10 +267,8 @@ em { font-style: normal; color: var(--blue); }
 .faq-list .a { padding: 0 0 24px; max-width: 720px; font-size: 16.5px; line-height: 1.65; }
 
 /* ============ Final ============ */
-.final { padding-block: 40px 96px; }
-.final .panel-dark {
-  border-radius: var(--r-xl); background: var(--ink); color: #fff; padding: 80px 48px; text-align: center; position: relative; overflow: hidden;
-}
+.final { padding-block: 24px 96px; }
+.final .panel-dark { border-radius: var(--r-xl); background: var(--ink); color: #fff; padding: 80px 48px; text-align: center; position: relative; overflow: hidden; }
 .final .panel-dark::before { content: ""; position: absolute; inset: -40% -20% auto; height: 120%; background: radial-gradient(50% 50% at 50% 50%, rgba(0,123,255,.35), rgba(0,123,255,0) 70%); pointer-events: none; }
 .final .title { color: #fff; position: relative; }
 .final .lead { color: rgba(255,255,255,.72); margin: 18px auto 0; max-width: 620px; position: relative; }
@@ -383,9 +297,9 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
   <div class="container nav-inner">
     <a class="logo" href="#top" aria-label="mazeo">mazeo<span class="dot">.</span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#comment" data-t="nav.how">Comment ça marche</a>
-      <a href="#produit" data-t="nav.product">Le produit</a>
-      <a href="#donnees" data-t="nav.data">La donnée</a>
+      <a href="#marche">The Market</a>
+      <a href="#signaux" data-t="nav.signals">Signaux</a>
+      <a href="#pipeline">Pipeline</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
@@ -401,15 +315,14 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
 
 <main id="top">
 
-  <!-- ================= HERO ================= -->
+  <!-- ================= HAUT DE PAGE ================= -->
   <section class="hero">
     <div class="hero-glow" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-copy">
-        <span class="badge rise"><i class="pulse" aria-hidden="true"></i><span data-t="hero.badge">Réservé aux prestataires d'études · bêta privée</span></span>
-        <h1 class="rise d1" data-t="hero.h1">Trouvez vos prochains clients en études, <em>au bon moment.</em></h1>
-        <p class="lead rise d2" data-t="hero.lead">mazeo connaît toutes les entreprises qui achètent des études en France. Il vous dit lesquelles vous correspondent, quand elles sont prêtes, et vous guide jusqu'au rendez-vous.</p>
-        <form class="signup rise d3" id="form-hero" novalidate>
+        <h1 class="rise" data-t="hero.h1">mazeo a cartographié le market research français. <em>Vos prochains clients y&nbsp;sont.</em></h1>
+        <p class="lead rise d1" data-t="hero.lead">De l'entreprise qui a besoin de votre offre jusqu'au rendez-vous, mazeo vous guide. Plus de 1&nbsp;000 entreprises scorées, 13&nbsp;000 contacts, avec leur email professionnel et leur portable.</p>
+        <form class="signup rise d2" id="form-hero" novalidate>
           <div class="signup-fields">
             <label for="hero-email" hidden>Email</label>
             <input type="email" id="hero-email" name="email" required autocomplete="email" placeholder="Email professionnel" data-t-ph="form.email">
@@ -417,213 +330,191 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
             <input type="text" id="hero-company" name="company" autocomplete="organization" placeholder="Votre entreprise" data-t-ph="form.company">
             <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander un accès</button>
           </div>
-          <p class="helper" data-t="hero.helper">Ouverture prochainement · les inscrits sont prévenus en premier.</p>
+          <p class="helper" data-t="hero.helper">Bêta privée · ouverture prochainement</p>
           <p class="msg" role="status" aria-live="polite"></p>
         </form>
+        <div class="hero-logos rise d3">
+          <span class="lbl" data-t="hero.logos">Ils utilisent mazeo</span>
+          <figure><img src="assets/dp-episto.jpg" alt="" width="28" height="28"><figcaption>Episto</figcaption></figure>
+          <figure><img src="assets/dp-moai.jpg" alt="" width="28" height="28"><figcaption>Moaï</figcaption></figure>
+          <figure><img src="assets/dp-statmore.png" alt="" width="28" height="28"><figcaption>Stat &amp; More</figcaption></figure>
+          <figure><img src="assets/dp-licter.jpg" alt="" width="28" height="28"><figcaption>Licter</figcaption></figure>
+          <figure><img src="assets/dp-mainframe.png" alt="" width="28" height="28"><figcaption>Main Frame</figcaption></figure>
+          <figure><img src="assets/dp-iligo.jpg" alt="" width="28" height="28"><figcaption>iligo</figcaption></figure>
+          <figure><img src="assets/dp-reperes.jpg" alt="" width="28" height="28"><figcaption>Repères</figcaption></figure>
+        </div>
       </div>
 
       <div class="stage rise d4">
         <div class="stage-frame">
-          <img src="assets/app/market.jpg" width="2400" height="1347" alt="mazeo, Explore : la carte du marché français des études, 1 023 entreprises en quatre catégories" fetchpriority="high">
+          <img src="assets/app/market.jpg" width="2400" height="1347" alt="mazeo, The Market : la carte du market research français, 1 023 entreprises en quatre familles" fetchpriority="high">
         </div>
-        <div class="float f1"><img src="assets/app/pipeline-card.png" width="1400" height="820" alt="Une carte du Pipeline : la personne, l'action à faire, « Essayez LinkedIn », étape 4 sur 6, 5 jours de retard" loading="eager"></div>
-        <div class="float f2"><img src="assets/app/watch-abeille.png" width="2400" height="309" alt="Un signal Recrutement dans la Watch : 1 poste ouvert en études et insights chez Abeille Assurances" loading="eager"></div>
-        <div class="float f3"><img src="assets/app/specialisation.png" width="1400" height="1005" alt="La carte Spécialisation d'une entreprise : ses besoins d'études notés sur 3 par domaine" loading="eager"></div>
+        <div class="float f1"><img src="assets/app/pipeline-card.png" width="1400" height="820" alt="Une carte du Pipeline : la personne, l'action à faire, l'étape et le retard" loading="eager"></div>
+        <div class="float f2"><img src="assets/app/watch-abeille.png" width="2400" height="309" alt="Un signal Recrutement dans la Watch" loading="eager"></div>
+        <div class="float f3"><img src="assets/app/specialisation.png" width="1400" height="1005" alt="La carte Spécialisation d'une entreprise : ses besoins d'études notés sur 3" loading="eager"></div>
       </div>
     </div>
   </section>
 
-  <!-- ================= LOGOS ================= -->
-  <section class="strip reveal">
+  <!-- ================= PROBLÈME / SOLUTION ================= -->
+  <section class="section" id="marche">
     <div class="container">
-      <p data-t="strip.p">Utilisé chaque semaine par 9 prestataires d'études</p>
-      <div class="logos">
-        <figure><img src="assets/dp-episto.jpg" alt="" width="30" height="30"><figcaption>Episto</figcaption></figure>
-        <figure><img src="assets/dp-moai.jpg" alt="" width="30" height="30"><figcaption>Moaï</figcaption></figure>
-        <figure><img src="assets/dp-statmore.png" alt="" width="30" height="30"><figcaption>Stat &amp; More</figcaption></figure>
-        <figure><img src="assets/dp-licter.jpg" alt="" width="30" height="30"><figcaption>Licter</figcaption></figure>
-        <figure><img src="assets/dp-mainframe.png" alt="" width="30" height="30"><figcaption>Main Frame</figcaption></figure>
-        <figure><img src="assets/dp-iligo.jpg" alt="" width="30" height="30"><figcaption>iligo</figcaption></figure>
-        <figure><img src="assets/dp-reperes.jpg" alt="" width="30" height="30"><figcaption>Repères</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= COMMENT ÇA MARCHE ================= -->
-  <section class="how" id="comment">
-    <div class="container">
-      <div class="panel reveal">
-        <div class="section-head">
-          <span class="eyebrow" data-t="how.eyebrow">Comment ça marche</span>
-          <h2 class="title" data-t="how.h2">De votre site web au rendez-vous, en trois étapes.</h2>
-          <p class="lead" data-t="how.p">Pas de fichier à importer, pas de filtres à régler. mazeo connaît déjà le marché ; il lui manque juste vous.</p>
-        </div>
-        <div class="steps">
-          <article class="step reveal d1">
-            <span class="n">01</span>
-            <h3 data-t="s1.h">Dites-nous ce que vous vendez</h3>
-            <p data-t="s1.p">Votre site et votre page LinkedIn suffisent. mazeo en déduit vos domaines d'études, vos méthodes et vos secteurs.</p>
-            <span class="kicker" data-t="s1.k">Aucun paramétrage.</span>
-            <div class="shot tall"><img src="assets/app/identite.png" width="1400" height="1154" loading="lazy" alt="La fiche Identité d'une entreprise dans mazeo : description, catégorie, secteur, taille, effectif, siège"></div>
-          </article>
-          <article class="step reveal d2">
-            <span class="n">02</span>
-            <h3 data-t="s2.h">mazeo vous dit qui contacter, et quand</h3>
-            <p data-t="s2.p">Chaque acheteur d'études est noté par affinité avec votre offre. Les signaux vous disent quand : une équipe qui recrute, un chiffre d'affaires qui progresse, un décideur qui bouge.</p>
-            <span class="kicker" data-t="s2.k">Le bon compte, au bon moment.</span>
-            <div class="shot tall"><img src="assets/app/watch-aso-narrow.jpg" width="1600" height="654" loading="lazy" alt="Deux signaux dans la Watch : une bio mise à jour et une croissance du chiffre d'affaires de 17 %"></div>
-          </article>
-          <article class="step reveal d3">
-            <span class="n">03</span>
-            <h3 data-t="s3.h">Suivez la séquence jusqu'au rendez-vous</h3>
-            <p data-t="s3.p">Profil, invitation, message, relances, appel : chaque étape est datée, et le message est rédigé dans votre ton. Vous l'envoyez vous-même.</p>
-            <span class="kicker" data-t="s3.k">mazeo n'envoie jamais rien à votre place.</span>
-            <div class="shot tall"><img src="assets/app/pipeline-card.png" width="1400" height="820" loading="lazy" alt="Une carte du Pipeline avec l'action à faire et l'échéance"></div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= LE PRODUIT ================= -->
-  <section class="section" id="produit" style="padding-top:40px">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow" data-t="prod.eyebrow">Le produit</span>
-        <h2 class="title" data-t="prod.h2">Tout ce qu'il faut pour vendre des études. <em>Rien d'autre.</em></h2>
-        <p class="lead" data-t="prod.p">Cinq surfaces, une seule question à chaque écran : quelle est la prochaine action, avec qui, et pourquoi maintenant.</p>
-      </div>
-
-      <div class="features">
-        <article class="feature reveal">
-          <div class="feature-copy">
-            <span class="n">1 / 5 · Explore</span>
-            <h3 data-t="f1.h">Tout le marché, noté pour vous.</h3>
-            <p data-t="f1.p">1 000+ acheteurs et prestataires d'études, en quatre catégories. Chaque entreprise est notée sur ce qu'elle achète : innovation, B2B, expérience client, shopper… Vos Matches classent les plus proches de votre offre, avec l'explication.</p>
-            <div class="chips"><span class="chip" data-t="cat.1">Acheteurs d'études</span><span class="chip" data-t="cat.2">Prestataires d'études</span><span class="chip" data-t="cat.3">Terrain &amp; data collection</span><span class="chip" data-t="cat.4">Outils &amp; services tech</span></div>
-          </div>
-          <div class="feature-visual"><div class="shotcard"><img src="assets/app/specialisation.png" width="1400" height="1005" loading="lazy" alt="Spécialisation d'une entreprise : Innovation & Tests produits 3/3, Études B2B 3/3, Segmentation & U&A 2/3…"></div></div>
-        </article>
-
-        <article class="feature flip reveal">
-          <div class="feature-copy">
-            <span class="n">2 / 5 · Contacts</span>
-            <h3 data-t="f2.h">Les bons décideurs, avec leur email.</h3>
-            <p data-t="f2.p">Pour chaque entreprise, les décideurs études et marketing, classés par séniorité et par spécialisation. Email et téléphone révélés en un clic, listes, exports.</p>
-            <div class="chips"><span class="chip">C-Level</span><span class="chip">VP / Executive</span><span class="chip">Director</span><span class="chip">Senior Manager</span><span class="chip blue" data-t="src.li">Source : LinkedIn</span></div>
-          </div>
-          <div class="feature-visual"><div class="shotcard"><img src="assets/app/contacts.jpg" width="2400" height="1544" loading="lazy" alt="Les contacts d'une entreprise dans mazeo, par séniorité, avec email et téléphone à révéler"></div></div>
-        </article>
-
-        <article class="feature reveal">
-          <div class="feature-copy">
-            <span class="n">3 / 5 · Watch</span>
-            <h3 data-t="f3.h">Sachez <em>quand</em> agir.</h3>
-            <p data-t="f3.p">Suivez les entreprises et les contacts qui comptent. Un poste ouvert en études, un chiffre d'affaires qui grimpe, un décideur qui change d'entreprise : mazeo le voit et vous dit pourquoi ça compte. Le mercredi, le résumé par email.</p>
-            <div class="chips"><span class="chip green" data-t="sig.1">Recrutement</span><span class="chip" data-t="sig.2">Mouvements d'équipe</span><span class="chip" data-t="sig.3">CA progresse</span><span class="chip" data-t="sig.4">A changé d'entreprise</span><span class="chip" data-t="sig.5">Nouvelle offre</span><span class="chip" data-t="sig.6">Bio mise à jour</span></div>
-          </div>
-          <div class="feature-visual"><div class="shotcard"><img src="assets/app/watch-body.jpg" width="2400" height="990" loading="lazy" alt="La Watch : les entreprises suivies et leurs signaux, du plus frais au plus ancien"></div></div>
-        </article>
-
-        <article class="feature wide reveal">
-          <div class="feature-copy">
-            <span class="n">4 / 5 · Pipeline</span>
-            <h3 data-t="f4.h">Une séquence qui vous dit quoi faire, et quand.</h3>
-            <p data-t="f4.p">Trois colonnes, un objectif chacune : obtenir une réponse, obtenir un rendez-vous, en faire un client. Chaque étape est datée, chaque retard est visible, chaque action nomme son canal : « Écrivez-leur sur LinkedIn », « Relancez par email », « Appelez-les ».</p>
-          </div>
-          <div class="feature-visual"><div class="shotcard pad"><img src="assets/app/pipeline-board.jpg" width="2400" height="529" loading="lazy" alt="Le Pipeline : Prise de contact, En conversation, Rendez-vous, puis Clients et Abandonnés"></div></div>
-        </article>
-
-        <article class="feature flip reveal">
-          <div class="feature-copy">
-            <span class="n">5 / 5 · Rédacteur</span>
-            <h3 data-t="f5.h">Le message, rédigé dans votre ton.</h3>
-            <p data-t="f5.p">À partir de votre offre et du profil de la personne, mazeo propose le message : formel, direct ou amical. Vous relisez, vous copiez, vous envoyez depuis LinkedIn ou votre boîte mail. Avant un rendez-vous, une fiche de préparation.</p>
-            <div class="chips"><span class="chip" data-t="ton.1">Ton : Formel</span><span class="chip blue" data-t="ton.2">Ton : Direct</span><span class="chip" data-t="ton.3">Ton : Amical</span></div>
-          </div>
-          <div class="feature-visual"><div class="shotcard"><img src="assets/app/redacteur.jpg" width="2000" height="901" loading="lazy" alt="Le rédacteur de mazeo : contexte, proposition de créneaux, message proposé"></div></div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= CE QUE MAZEO N'EST PAS ================= -->
-  <section class="section" id="pas" style="background:var(--ground-2)">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow" data-t="not.eyebrow">Pour être clair</span>
-        <h2 class="title" data-t="not.h2">Ni un annuaire, ni un Sales Navigator, ni un CRM.</h2>
-      </div>
-      <div class="nots">
-        <div class="not reveal d1">
-          <h3><span class="x" aria-hidden="true">✕</span><span data-t="not1.h">Pas un annuaire</span></h3>
-          <p data-t="not1.p">Les annuaires du secteur sont déclaratifs : les entreprises s'y inscrivent. mazeo construit chaque fiche, la note, et la met à jour chaque mois.</p>
-        </div>
-        <div class="not reveal d2">
-          <h3><span class="x" aria-hidden="true">✕</span><span data-t="not2.h">Pas un Sales Navigator</span></h3>
-          <p data-t="not2.p">Un outil générique ne sait pas qui achète des tests produits ou des études B2B. mazeo, si : c'est son seul métier.</p>
-        </div>
-        <div class="not reveal d3">
-          <h3><span class="x" aria-hidden="true">✕</span><span data-t="not3.h">Pas un CRM, pas d'emailing de masse</span></h3>
-          <p data-t="not3.p">Pas d'opportunités ni de prévisions, pas de séquences automatiques. Des messages écrits pour une personne, envoyés par vous.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= LA DONNÉE ================= -->
-  <section class="section" id="donnees">
-    <div class="container">
-      <div class="section-head reveal">
-        <span class="eyebrow" data-t="data.eyebrow">La donnée</span>
-        <h2 class="title" data-t="data.h2">Une base construite, pas déclarée.</h2>
-        <p class="lead" data-t="data.p">Chaque fiche est assemblée à partir des sources publiques du métier, notée par l'IA de mazeo et relue par l'équipe. La provenance est affichée sous chaque information : ce qui est déduit n'est jamais présenté comme un fait.</p>
-      </div>
-      <div class="data-grid">
+      <div class="two">
         <div class="reveal">
-          <div class="sources">
-            <div class="source"><b>LinkedIn</b><span data-t="src1">Profils, intitulés, séniorité, mouvements d'équipe, changements d'entreprise.</span></div>
-            <div class="source"><b data-t="src2.h">Sites des entreprises</b><span data-t="src2">Offre, spécialisations, secteurs, clients cités.</span></div>
-            <div class="source"><b>Pappers</b><span data-t="src3">SIREN, chiffre d'affaires, dirigeants, procédures : le registre officiel.</span></div>
-            <div class="source"><b data-t="src4.h">Offres d'emploi</b><span data-t="src4">Les postes ouverts en études et insights, avec l'offre elle-même.</span></div>
-          </div>
-          <div class="provenance"><span data-t="prov.l">Affiché sous chaque bloc de l'app :</span><code data-t="prov.1">Source : IA mazeo</code><code data-t="prov.2">Source : LinkedIn</code><code data-t="prov.3">Source : Pappers</code></div>
+          <span class="eyebrow" data-t="pb.eyebrow">Le problème</span>
+          <h2 class="title" data-t="pb.h2">Personne n'a la carte du market research.</h2>
+          <p data-t="pb.p">Instituts, cabinets de conseil, panels, sociétés de terrain, éditeurs, et des milliers d'entreprises qui achètent des études. Qui fait quoi, qui achète quoi, qui vient de bouger&nbsp;: personne ne le sait pour tout le secteur. Résultat&nbsp;: des opportunités invisibles, et des prises de contact au mauvais moment.</p>
         </div>
         <div class="reveal d1">
-          <div class="stats">
-            <div class="stat"><div class="v">1 000+</div><div class="l" data-t="st1">entreprises profilées</div></div>
-            <div class="stat"><div class="v">13 000+</div><div class="l" data-t="st2">contacts du métier</div></div>
-            <div class="stat"><div class="v">6</div><div class="l" data-t="st3">types de signaux</div></div>
-            <div class="stat"><div class="v">4</div><div class="l" data-t="st4">catégories d'acteurs</div></div>
+          <span class="eyebrow" data-t="sol.eyebrow">La solution</span>
+          <h2 class="title" data-t="sol.h2">Tout le secteur, sur une seule carte.</h2>
+          <p data-t="sol.p1">Les entreprises qui achètent des études. Celles qui les réalisent. mazeo les a toutes référencées&nbsp;: plus de 1&nbsp;000 entreprises et 13&nbsp;000 contacts.</p>
+          <p data-t="sol.p2">Il connaît le besoin des unes et l'offre des autres, et les note. Pour une offre, il identifie les meilleurs clients possibles&nbsp;; pour un besoin, les meilleurs prestataires.</p>
+          <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:8px">
+            <span class="chip green" data-t="cat.1">Acheteurs d'études</span><span class="chip green" data-t="cat.2">Prestataires d'études</span><span class="chip green" data-t="cat.3">Terrain &amp; data collection</span><span class="chip green" data-t="cat.4">Outils &amp; services tech</span>
           </div>
-          <p class="data-note" data-t="data.note">Relevé du 13 septembre 2026 · mise à jour mensuelle · les chiffres vivants sont dans l'app.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= DESIGN PARTNERS ================= -->
-  <section class="section" id="temoignages" style="background:var(--ground-2)">
+  <!-- ================= SCORING ================= -->
+  <section class="section" id="scoring">
+    <div class="container">
+      <article class="feature reveal">
+        <div class="feature-copy">
+          <span class="eyebrow" data-t="sc.eyebrow">Le scoring</span>
+          <h2 class="title" data-t="sc.h2">Trois axes, une note, un match.</h2>
+          <p data-t="sc.p">Les domaines d'étude, en besoin ou en offre. Les méthodes employées. Les secteurs. Chaque entreprise est notée sur 12 domaines, 8 méthodes et 27 secteurs&nbsp;: une note pour le besoin, une pour l'offre. Le match s'affiche en&nbsp;%, avec ce qui l'explique.</p>
+          <div class="axes">
+            <div class="axis"><b data-t="ax1.b">Domaines<small>12 · ce qu'on étudie</small></b><span data-t="ax1.x">Innovation &amp; tests produits, Expérience client &amp; satisfaction, Marque &amp; communication, Études B2B…</span></div>
+            <div class="axis"><b data-t="ax2.b">Méthodes<small>8 · comment</small></b><span data-t="ax2.x">Quantitatif, qualitatif, analyse sensorielle, terrain &amp; data collection…</span></div>
+            <div class="axis"><b data-t="ax3.b">Secteurs<small>27 · pour quel marché</small></b><span data-t="ax3.x">Automobile, luxe, santé &amp; pharma, banque &amp; assurance…</span></div>
+          </div>
+        </div>
+        <div class="feature-visual"><div class="shotcard"><img src="assets/app/specialisation.png" width="1400" height="1005" loading="lazy" alt="La carte Spécialisation d'une fiche : chaque domaine noté sur 3"></div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= SIGNAUX ET WATCH ================= -->
+  <section class="section" id="signaux">
+    <div class="container">
+      <article class="feature flip reveal">
+        <div class="feature-copy">
+          <span class="eyebrow" data-t="sg.eyebrow">Les signaux</span>
+          <h2 class="title" data-t="sg.h2">mazeo scanne tout le secteur et détecte les signaux.</h2>
+          <p data-t="sg.p">Ce qui bouge dans une entreprise dit si c'est le moment de la contacter. mazeo le repère pour vous.</p>
+          <div class="signals">
+            <div class="siglist">
+              <h3 data-t="sg.co">Côté entreprise</h3>
+              <ul>
+                <li data-t="sg.c1">Recrutement de profils études et insights</li>
+                <li data-t="sg.c2">Arrivées et départs dans les équipes insights</li>
+                <li data-t="sg.c3">Chiffre d'affaires en croissance ou en baisse</li>
+                <li data-t="sg.c4">Changement de gouvernance</li>
+                <li data-t="sg.c5">Appels d'offres publics remportés</li>
+                <li data-t="sg.c6">Entreprise en difficulté</li>
+                <li data-t="sg.c7">Bio LinkedIn mise à jour</li>
+              </ul>
+            </div>
+            <div class="siglist person">
+              <h3 data-t="sg.pe">Côté personne</h3>
+              <ul>
+                <li data-t="sg.p1">Changement d'entreprise</li>
+                <li data-t="sg.p2">Promotion ou évolution de poste</li>
+                <li data-t="sg.p3">Bio LinkedIn mise à jour</li>
+              </ul>
+            </div>
+          </div>
+          <p data-t="sg.watch"><b>Watch.</b> Ajoutez à votre Watch les entreprises et les personnes qui comptent pour vous. Vous n'avez plus à surveiller 1&nbsp;000 entreprises et 13&nbsp;000 profils&nbsp;: mazeo le fait, et vous prévient. Chaque mercredi, le résumé par email.</p>
+        </div>
+        <div class="feature-visual"><div class="shotcard"><img src="assets/app/watch-body.jpg" width="2000" height="1120" loading="lazy" alt="La Watch : les entreprises suivies et leurs signaux, du plus récent au plus ancien"></div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= CONTACTS ================= -->
+  <section class="section" id="contacts">
+    <div class="container">
+      <article class="feature reveal">
+        <div class="feature-copy">
+          <span class="eyebrow" data-t="ct.eyebrow">Les contacts</span>
+          <h2 class="title" data-t="ct.h2">Dans chaque entreprise, les profils études, du dirigeant au chargé d'études.</h2>
+          <p data-t="ct.p">Classés par niveau hiérarchique. Vous trouvez la bonne personne pour votre offre, vous récupérez son email professionnel et son portable en un clic, et vous l'ajoutez au Pipeline. Données conformes au RGPD.</p>
+          <div class="chips"><span class="chip">C-Level</span><span class="chip">VP / Executive</span><span class="chip">Director</span><span class="chip">Senior Manager</span><span class="chip">Senior</span><span class="chip">Junior</span></div>
+        </div>
+        <div class="feature-visual"><div class="shotcard"><img src="assets/app/contacts.jpg" width="2400" height="1544" loading="lazy" alt="Les contacts d'une entreprise, par niveau, avec email et téléphone"></div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= PIPELINE ET RÉDACTEUR ================= -->
+  <section class="section" id="pipeline">
     <div class="container">
       <div class="section-head reveal">
-        <span class="eyebrow" data-t="dp.eyebrow">Design partners</span>
-        <h2 class="title" data-t="dp.h2">Neuf prestataires d'études le testent chaque semaine, sur leur vraie prospection.</h2>
+        <span class="eyebrow" data-t="pl.eyebrow">Le Pipeline</span>
+        <h2 class="title" data-t="pl.h2">De la prise de contact au rendez-vous, mazeo vous guide étape par étape.</h2>
       </div>
-      <div class="quote reveal">
-        <blockquote data-t="quote.t">J'ai une concentration d'informations prémâchées, fiable, à un seul endroit. C'est un vrai gain de temps.</blockquote>
-        <div class="who">
-          <img src="assets/dp-statmore.png" alt="" width="46" height="46">
-          <div><b>Benoît Riou</b><span data-t="quote.role">CEO, Stat &amp; More</span></div>
+      <div class="steps">
+        <article class="step reveal">
+          <span class="n">1</span>
+          <h3 data-t="st1.h">Prise de contact</h3>
+          <div class="goal" data-t="st1.g">Obtenir une réponse</div>
+          <p data-t="st1.p">Ouvrez le profil, ajoutez la personne sur LinkedIn le lendemain, écrivez-lui dès qu'elle accepte. Puis les emails, à deux, trois et cinq jours d'intervalle. mazeo vous propose chaque message au bon moment.</p>
+        </article>
+        <article class="step reveal d1">
+          <span class="n">2</span>
+          <h3 data-t="st2.h">En conversation</h3>
+          <div class="goal" data-t="st2.g">Obtenir un rendez-vous</div>
+          <p data-t="st2.p">Proposez un rendez-vous, relancez, changez de canal, appelez. mazeo vous dit quand, et vous signale les retards.</p>
+        </article>
+        <article class="step reveal d2">
+          <span class="n">3</span>
+          <h3 data-t="st3.h">Rendez-vous</h3>
+          <div class="goal" data-t="st3.g">En faire un client</div>
+          <p data-t="st3.p">Fiche de préparation deux jours avant, confirmation la veille, remerciement le jour même, relance dans les jours qui suivent.</p>
+        </article>
+      </div>
+      <div class="shotcard reveal" style="margin-top:28px"><img src="assets/app/pipeline-board.jpg" width="2400" height="566" loading="lazy" alt="Le Pipeline : Prise de contact, En conversation, Rendez-vous"></div>
+
+      <article class="feature flip writer reveal">
+        <div class="feature-copy">
+          <span class="eyebrow" data-t="wr.eyebrow">Le rédacteur</span>
+          <h2 class="title" data-t="wr.h2">Il écrit. Vous relisez, vous envoyez.</h2>
+          <p data-t="wr.p">Le rédacteur connaît votre offre, et la personne à qui vous écrivez&nbsp;: son poste, son entreprise, ce qui vient de bouger chez elle. Formel, direct ou amical, au choix.</p>
+          <div class="chips"><span class="chip" data-t="ton.1">Formel</span><span class="chip" data-t="ton.2">Direct</span><span class="chip" data-t="ton.3">Amical</span></div>
+        </div>
+        <div class="feature-visual"><div class="shotcard"><img src="assets/app/redacteur.jpg" width="2000" height="901" loading="lazy" alt="Le rédacteur : le message proposé, le ton, « Copier et ouvrir LinkedIn »"></div></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= PREUVE ================= -->
+  <section class="section" id="temoignages">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-t="dp.eyebrow">Ils utilisent mazeo</span>
+        <h2 class="title" data-t="dp.h2">Neuf prestataires d'études utilisent mazeo depuis mars 2026.</h2>
+      </div>
+      <div class="quotes reveal">
+        <div class="quote">
+          <blockquote data-t="q1.t">J'ai une concentration d'informations prémâchées, fiable, à un seul endroit. C'est un vrai gain de temps.</blockquote>
+          <div class="who"><img src="assets/dp-statmore.png" alt="" width="42" height="42"><div><b>Benoît Riou</b><span data-t="q1.r">CEO, Stat &amp; More</span></div></div>
+        </div>
+        <div class="quote">
+          <blockquote data-t="q2.t">En deux semaines, une vingtaine d'instituts qu'on n'avait jamais approchés. Et pour chacun, la bonne personne, au bon moment.</blockquote>
+          <div class="who"><img src="assets/dp-episto.jpg" alt="" width="42" height="42"><div><b>Episto</b><span data-t="q2.r">Témoignage à valider</span></div></div>
         </div>
       </div>
-      <div class="logos reveal" style="margin-top:28px;justify-content:flex-start">
-        <figure><img src="assets/dp-episto.jpg" alt="" width="30" height="30"><figcaption>Episto</figcaption></figure>
-        <figure><img src="assets/dp-moai.jpg" alt="" width="30" height="30"><figcaption>Moaï</figcaption></figure>
-        <figure><img src="assets/dp-statmore.png" alt="" width="30" height="30"><figcaption>Stat &amp; More</figcaption></figure>
-        <figure><img src="assets/dp-licter.jpg" alt="" width="30" height="30"><figcaption>Licter</figcaption></figure>
-        <figure><img src="assets/dp-mainframe.png" alt="" width="30" height="30"><figcaption>Main Frame</figcaption></figure>
-        <figure><img src="assets/dp-iligo.jpg" alt="" width="30" height="30"><figcaption>iligo</figcaption></figure>
-        <figure><img src="assets/dp-reperes.jpg" alt="" width="30" height="30"><figcaption>Repères</figcaption></figure>
+      <div class="logos reveal">
+        <figure><img src="assets/dp-episto.jpg" alt="" width="28" height="28"><figcaption>Episto</figcaption></figure>
+        <figure><img src="assets/dp-moai.jpg" alt="" width="28" height="28"><figcaption>Moaï</figcaption></figure>
+        <figure><img src="assets/dp-statmore.png" alt="" width="28" height="28"><figcaption>Stat &amp; More</figcaption></figure>
+        <figure><img src="assets/dp-licter.jpg" alt="" width="28" height="28"><figcaption>Licter</figcaption></figure>
+        <figure><img src="assets/dp-mainframe.png" alt="" width="28" height="28"><figcaption>Main Frame</figcaption></figure>
+        <figure><img src="assets/dp-iligo.jpg" alt="" width="28" height="28"><figcaption>iligo</figcaption></figure>
+        <figure><img src="assets/dp-reperes.jpg" alt="" width="28" height="28"><figcaption>Repères</figcaption></figure>
       </div>
     </div>
   </section>
@@ -637,35 +528,35 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
       </div>
       <div class="faq-list reveal">
         <details>
-          <summary data-t="q1">Pour qui est-ce fait ?</summary>
-          <div class="a" data-t="a1">Pour ceux qui vendent des études : instituts et agences, terrain et data collection, éditeurs d'outils, cabinets de conseil, indépendants. Le marché français en premier, d'autres pays ensuite.</div>
+          <summary data-t="fq1">Pour qui&nbsp;?</summary>
+          <div class="a" data-t="fa1">Pour ceux qui vendent dans le market research&nbsp;: instituts d'études, cabinets de conseil, agences, panels, sociétés de terrain, éditeurs d'outils et de services. Les acheteurs d'études y sont référencés, côté besoin.</div>
         </details>
         <details>
-          <summary data-t="q2">mazeo envoie-t-il des messages à ma place ?</summary>
-          <div class="a" data-t="a2">Jamais. Il rédige, vous relisez, et vous envoyez vous-même depuis LinkedIn ou votre boîte mail. Votre compte LinkedIn n'est jamais exposé.</div>
+          <summary data-t="fq2">Quelle différence avec LinkedIn Sales Navigator&nbsp;?</summary>
+          <div class="a" data-t="fa2">Sales Navigator connaît les intitulés de poste. mazeo connaît le besoin de chaque entreprise, l'offre de chaque prestataire, et ce qui vient de bouger.</div>
         </details>
         <details>
-          <summary data-t="q3">D'où viennent les données ?</summary>
-          <div class="a" data-t="a3">Des sources publiques du métier : LinkedIn, sites des entreprises, registre Pappers, offres d'emploi. L'IA de mazeo assemble et note ; la provenance est affichée sous chaque information. Conformément au RGPD, toute personne peut demander la consultation ou la suppression de ses données.</div>
+          <summary data-t="fq3">D'où viennent les données&nbsp;?</summary>
+          <div class="a" data-t="fa3">Des sources ouvertes&nbsp;: LinkedIn, sites des entreprises, registre des entreprises via Pappers, offres d'emploi, appels d'offres publics. Les fiches indiquent leur source. Les emails et portables sont trouvés pour la plupart des contacts, pas tous. mazeo est conforme au RGPD.</div>
         </details>
         <details>
-          <summary data-t="q4">Est-ce un CRM ?</summary>
-          <div class="a" data-t="a4">Non. Pas d'opportunités, pas de montants, pas de prévisions. mazeo vous amène jusqu'au rendez-vous ; votre CRM prend le relais.</div>
+          <summary data-t="fq4">Qui envoie les messages&nbsp;?</summary>
+          <div class="a" data-t="fa4">Vous. Le rédacteur écrit, vous relisez, vous envoyez depuis LinkedIn ou votre messagerie.</div>
         </details>
         <details>
-          <summary data-t="q5">Combien ça coûte, et quand peut-on commencer ?</summary>
-          <div class="a" data-t="a5">L'ouverture est prochaine. Le prix sera annoncé à l'ouverture, et les inscrits de la liste d'attente sont prévenus en premier.</div>
+          <summary data-t="fq5">Que se passe-t-il après ma demande&nbsp;?</summary>
+          <div class="a" data-t="fa5">Nous vous répondons sous 48&nbsp;heures et vous prévenons dès l'ouverture de votre accès.</div>
         </details>
       </div>
     </div>
   </section>
 
-  <!-- ================= FINAL ================= -->
+  <!-- ================= FIN DE PAGE ================= -->
   <section class="final" id="acces">
     <div class="container">
       <div class="panel-dark reveal">
         <h2 class="title" data-t="final.h2">Vos prochains clients sont déjà dans mazeo<span style="color:var(--green)">.</span></h2>
-        <p class="lead" data-t="final.p">Ouverture prochainement. Laissez votre email et votre entreprise : vous serez prévenu en premier.</p>
+        <p class="lead" data-t="final.p">Laissez votre email et votre entreprise. Bêta privée, ouverture prochainement.</p>
         <form class="signup" id="form-final" novalidate>
           <div class="signup-fields">
             <label for="final-email" hidden>Email</label>
@@ -686,7 +577,7 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
   <div class="container foot">
     <div class="brand">
       <a class="logo" href="#top" aria-label="mazeo">mazeo<span class="dot">.</span></a>
-      <span data-t="foot.tagline">Le copilote commercial des prestataires d'études.</span>
+      <span data-t="foot.tagline">La plateforme qui cartographie le market research et rapproche acheteurs et prestataires.</span>
     </div>
     <nav aria-label="Liens">
       <a href="https://app.mazeo.co" data-t="nav.login">Se connecter</a>
@@ -695,7 +586,7 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
       <a href="privacy.html" data-t="foot.privacy">Confidentialité</a>
       <a href="terms.html" data-t="foot.terms">Conditions</a>
     </nav>
-    <p class="tag">© 2026 mazeo · <span data-t="foot.claim">Trouvez qui compte. En premier.</span></p>
+    <p class="tag">© 2026 mazeo · Find who matters. First.</p>
   </div>
 </footer>
 
@@ -704,70 +595,62 @@ document.documentElement.classList.add("js");
 (function () {
   /* ---------- Langue : le français est dans le HTML, l'anglais dans ce dictionnaire ---------- */
   var EN = {
-    "nav.how": "How it works", "nav.product": "The product", "nav.data": "The data",
-    "nav.login": "Log in", "nav.cta": "Request early access",
-    "hero.badge": "For Market Research providers · private beta",
-    "hero.h1": "Find your next Market Research clients, <em>at the right time.</em>",
-    "hero.lead": "mazeo knows every company that buys research in France. It tells you which ones fit your offer, when they are ready, and walks you to the meeting.",
+    "nav.signals": "Signals", "nav.login": "Log in", "nav.cta": "Request early access",
+    "hero.h1": "mazeo has mapped French Market Research. <em>Your next clients are in it.</em>",
+    "hero.lead": "From the company that needs your offer to the meeting, mazeo guides you. 1,000+ companies scored, 13,000 contacts, with their work email and mobile number.",
     "form.email": "Work email", "form.company": "Your company", "form.submit": "Request early access",
-    "hero.helper": "Opening soon · people on the list hear first.",
-    "strip.p": "Used every week by 9 Market Research providers",
-    "how.eyebrow": "How it works",
-    "how.h2": "From your website to the meeting, in three steps.",
-    "how.p": "No file to import, no filters to set. mazeo already knows the market; the only thing missing is you.",
-    "s1.h": "Tell us what you sell", "s1.p": "Your website and LinkedIn page are enough. mazeo works out your research domains, methods and sectors.", "s1.k": "No setup.",
-    "s2.h": "mazeo tells you who to contact, and when", "s2.p": "Every research buyer is scored by fit with your offer. Signals tell you when: a team hiring, growing revenue, a decision-maker on the move.", "s2.k": "The right account, at the right time.",
-    "s3.h": "Follow the sequence to the meeting", "s3.p": "Profile, invitation, message, follow-ups, call: every step is dated, and the message is written in your tone. You send it yourself.", "s3.k": "mazeo never sends anything on your behalf.",
-    "prod.eyebrow": "The product",
-    "prod.h2": "Everything you need to sell research. <em>Nothing else.</em>",
-    "prod.p": "Five surfaces, one question on every screen: what's the next action, with whom, and why now.",
-    "f1.h": "The whole market, scored for you.",
-    "f1.p": "1,000+ research buyers and providers, in four categories. Every company is scored on what it buys: innovation, B2B, customer experience, shopper… Your Matches rank the closest to your offer, with the reason why.",
+    "hero.helper": "Private beta · opening soon",
+    "hero.logos": "They use mazeo",
+    "pb.eyebrow": "The problem",
+    "pb.h2": "Nobody has the map of Market Research.",
+    "pb.p": "Institutes, consultancies, panels, fieldwork companies, software vendors, and thousands of companies that buy research. Who does what, who buys what, who just moved: nobody knows it for the whole industry. The result: opportunities you never see, and outreach at the wrong time.",
+    "sol.eyebrow": "The solution",
+    "sol.h2": "The whole industry, on one map.",
+    "sol.p1": "The companies that buy research. The ones that deliver it. mazeo has referenced them all: 1,000+ companies and 13,000 contacts.",
+    "sol.p2": "It knows the needs of the buyers and the offer of the providers, and scores both. For an offer, it identifies the best possible clients; for a need, the best providers.",
     "cat.1": "Research buyers", "cat.2": "Research providers", "cat.3": "Fieldwork &amp; data collection", "cat.4": "Tech tools &amp; services",
-    "f2.h": "The right decision-makers, with their email.",
-    "f2.p": "For every company, the research and marketing decision-makers, by seniority and specialisation. Email and phone revealed in one click, lists, exports.",
-    "src.li": "Source: LinkedIn",
-    "f3.h": "Know <em>when</em> to act.",
-    "f3.p": "Follow the companies and contacts that matter. An open research position, revenue climbing, a decision-maker changing company: mazeo sees it and tells you why it matters. On Wednesdays, the summary by email.",
-    "sig.1": "Hiring", "sig.2": "Team movements", "sig.3": "Revenue growing", "sig.4": "Changed company", "sig.5": "New job post", "sig.6": "Bio updated",
-    "f4.h": "A sequence that tells you what to do, and when.",
-    "f4.p": "Three columns, one objective each: get a reply, get a meeting, turn them into a client. Every step is dated, every delay is visible, every action names its channel: “Write to them on LinkedIn”, “Follow up by email”, “Call them”.",
-    "f5.h": "The message, written in your tone.",
-    "f5.p": "From your offer and the person's profile, mazeo drafts the message: formal, direct or friendly. You review, copy and send from LinkedIn or your mailbox. Before a meeting, a preparation sheet.",
-    "ton.1": "Tone: Formal", "ton.2": "Tone: Direct", "ton.3": "Tone: Friendly",
-    "not.eyebrow": "To be clear",
-    "not.h2": "Not a directory, not a Sales Navigator, not a CRM.",
-    "not1.h": "Not a directory", "not1.p": "Industry directories are declarative: companies list themselves. mazeo builds every profile, scores it, and updates it every month.",
-    "not2.h": "Not a Sales Navigator", "not2.p": "A generic tool doesn't know who buys product tests or B2B research. mazeo does: it's the only thing it does.",
-    "not3.h": "Not a CRM, not mass emailing", "not3.p": "No opportunities or forecasts, no automated sequences. Messages written for one person, sent by you.",
-    "data.eyebrow": "The data",
-    "data.h2": "A database that is built, not declared.",
-    "data.p": "Every profile is assembled from the trade's public sources, scored by mazeo's AI and reviewed by the team. The source is shown under every piece of information: what is inferred is never presented as a fact.",
-    "src1": "Profiles, titles, seniority, team movements, company changes.",
-    "src2.h": "Company websites", "src2": "Offer, specialisations, sectors, named clients.",
-    "src3": "SIREN, revenue, executives, proceedings: the official French register.",
-    "src4.h": "Job posts", "src4": "Open positions in research and insights, with the post itself.",
-    "prov.l": "Shown under every block of the app:", "prov.1": "Source: mazeo AI", "prov.2": "Source: LinkedIn", "prov.3": "Source: Pappers",
-    "st1": "companies profiled", "st2": "contacts from the trade", "st3": "types of signals", "st4": "categories of players",
-    "data.note": "As of 13 September 2026 · updated monthly · live figures are in the app.",
-    "dp.eyebrow": "Design partners",
-    "dp.h2": "Nine Market Research providers test it every week, on their real prospecting.",
-    "quote.t": "I have reliable, pre-digested information concentrated in one place. It really is a time saver.",
-    "quote.role": "CEO, Stat &amp; More",
+    "sc.eyebrow": "Scoring",
+    "sc.h2": "Three axes, one score, one match.",
+    "sc.p": "The research domains, as a need or as an offer. The methods used. The sectors. Every company is scored on 12 domains, 8 methods and 27 sectors: one score for the need, one for the offer. The match shows as a %, with what explains it.",
+    "ax1.b": "Domains<small>12 · what is studied</small>", "ax1.x": "Innovation &amp; product testing, Customer experience &amp; satisfaction, Brand &amp; communication, B2B research…",
+    "ax2.b": "Methods<small>8 · how</small>", "ax2.x": "Quantitative, qualitative, sensory analysis, fieldwork &amp; data collection…",
+    "ax3.b": "Sectors<small>27 · for which market</small>", "ax3.x": "Automotive, luxury, healthcare &amp; pharma, banking &amp; insurance…",
+    "sg.eyebrow": "Signals",
+    "sg.h2": "mazeo scans the whole industry and detects the signals.",
+    "sg.p": "What moves inside a company tells you whether it is the moment to reach out. mazeo spots it for you.",
+    "sg.co": "Company side", "sg.c1": "Hiring of research and insights profiles", "sg.c2": "Arrivals and departures in insights teams", "sg.c3": "Revenue growing or falling", "sg.c4": "Change of leadership", "sg.c5": "Public tenders won", "sg.c6": "Company in difficulty", "sg.c7": "LinkedIn bio updated",
+    "sg.pe": "People side", "sg.p1": "Changed company", "sg.p2": "Promotion or new role", "sg.p3": "LinkedIn bio updated",
+    "sg.watch": "<b>Watch.</b> Add to your Watch the companies and people that matter to you. You no longer have to keep an eye on 1,000 companies and 13,000 profiles: mazeo does it, and tells you. Every Wednesday, the summary by email.",
+    "ct.eyebrow": "Contacts",
+    "ct.h2": "In every company, the research profiles, from the executive to the research manager.",
+    "ct.p": "Ranked by seniority. You find the right person for your offer, you get their work email and mobile number in one click, and you add them to the Pipeline. GDPR-compliant data.",
+    "pl.eyebrow": "The Pipeline",
+    "pl.h2": "From first contact to the meeting, mazeo guides you step by step.",
+    "st1.h": "Reaching out", "st1.g": "Get a reply", "st1.p": "Open the profile, connect on LinkedIn the next day, write as soon as they accept. Then the emails, two, three and five days apart. mazeo proposes each message at the right moment.",
+    "st2.h": "In conversation", "st2.g": "Get a meeting", "st2.p": "Propose a meeting, follow up, switch channel, call. mazeo tells you when, and flags what is late.",
+    "st3.h": "Meeting", "st3.g": "Turn them into a client", "st3.p": "Preparation sheet two days before, confirmation the day before, thank-you on the day, follow-up in the days after.",
+    "wr.eyebrow": "The writer",
+    "wr.h2": "It writes. You review, you send.",
+    "wr.p": "The writer knows your offer, and the person you are writing to: their role, their company, what just moved there. Formal, direct or friendly, your choice.",
+    "ton.1": "Formal", "ton.2": "Direct", "ton.3": "Friendly",
+    "dp.eyebrow": "They use mazeo",
+    "dp.h2": "Nine research providers have used mazeo since March 2026.",
+    "q1.t": "I have reliable, pre-digested information concentrated in one place. It really is a time saver.", "q1.r": "CEO, Stat &amp; More",
+    "q2.t": "In two weeks, twenty institutes we had never approached. And for each one, the right person, at the right time.", "q2.r": "Quote to be validated",
     "faq.h2": "The questions we get asked.",
-    "q1": "Who is it for?", "a1": "For the people who sell research: institutes and agencies, fieldwork and data collection, tech vendors, consultancies, independents. The French market first, other countries next.",
-    "q2": "Does mazeo send messages on my behalf?", "a2": "Never. It drafts, you review, and you send it yourself from LinkedIn or your mailbox. Your LinkedIn account is never exposed.",
-    "q3": "Where does the data come from?", "a3": "From the trade's public sources: LinkedIn, company websites, the Pappers register, job posts. mazeo's AI assembles and scores; the source is shown under every piece of information. In line with GDPR, anyone can ask to see or delete their data.",
-    "q4": "Is it a CRM?", "a4": "No. No opportunities, no amounts, no forecasts. mazeo takes you to the meeting; your CRM takes over from there.",
-    "q5": "How much does it cost, and when can I start?", "a5": "We're opening soon. Pricing will be announced at launch, and people on the waiting list hear first.",
+    "fq1": "Who is it for?", "fa1": "For those who sell in Market Research: research institutes, consultancies, agencies, panels, fieldwork companies, tool and service vendors. Research buyers are referenced on the demand side.",
+    "fq2": "How is it different from LinkedIn Sales Navigator?", "fa2": "Sales Navigator knows job titles. mazeo knows the need of every company, the offer of every provider, and what just moved.",
+    "fq3": "Where does the data come from?", "fa3": "From open sources: LinkedIn, company websites, the company register via Pappers, job posts, public tenders. Profiles show their source. Emails and mobile numbers are found for most contacts, not all. mazeo is GDPR-compliant.",
+    "fq4": "Who sends the messages?", "fa4": "You do. The writer drafts, you review, you send from LinkedIn or your mailbox.",
+    "fq5": "What happens after my request?", "fa5": "We answer within 48 hours and let you know as soon as your access opens.",
     "final.h2": "Your next clients are already in mazeo<span style=\"color:var(--green)\">.</span>",
-    "final.p": "Opening soon. Leave your email and your company: you'll hear first.",
-    "foot.tagline": "The sales copilot for Market Research providers.",
-    "foot.privacy": "Privacy", "foot.terms": "Terms", "foot.claim": "Find who matters. First."
+    "final.p": "Leave your email and your company. Private beta, opening soon.",
+    "foot.tagline": "The platform that maps Market Research and connects buyers and providers.",
+    "foot.privacy": "Privacy", "foot.terms": "Terms"
   };
   var META = {
-    fr: { title: "mazeo — Trouvez vos prochains clients en études, au bon moment", desc: "mazeo connaît toutes les entreprises qui achètent des études en France. Il vous dit lesquelles vous correspondent, quand elles sont prêtes, et vous guide jusqu'au rendez-vous." },
-    en: { title: "mazeo — Find your next Market Research clients, at the right time", desc: "mazeo knows every company that buys research in France. It tells you which ones fit your offer, when they are ready, and walks you to the meeting." }
+    fr: { title: "mazeo — Le market research français, cartographié", desc: "mazeo a cartographié le market research français : plus de 1 000 entreprises scorées, 13 000 contacts avec leur email professionnel et leur portable, les signaux du secteur, et un pipeline guidé jusqu'au rendez-vous." },
+    en: { title: "mazeo — French Market Research, mapped", desc: "mazeo has mapped the French Market Research industry: 1,000+ companies scored, 13,000 contacts with their work email and mobile number, the industry's signals, and a guided pipeline to the meeting." }
   };
   var FR = {}; var lang = "fr";
   var nodes = document.querySelectorAll("[data-t]"); var phNodes = document.querySelectorAll("[data-t-ph]");
@@ -795,18 +678,18 @@ document.documentElement.classList.add("js");
   function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
   window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
-  /* ---------- Apparition au défilement (tout reste visible sans JavaScript) ---------- */
+  /* ---------- Apparition au défilement ---------- */
   var reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) { entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }); }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
     reveals.forEach(function (el) { io.observe(el); });
   } else { reveals.forEach(function (el) { el.classList.add("in"); }); }
 
-  /* ---------- Formulaires : même fonction que l'ancienne page ---------- */
+  /* ---------- Formulaires : fonction waitlist-signup ---------- */
   var FN = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/waitlist-signup";
   var MSG = {
-    fr: { ok: "C'est noté. Un email de confirmation arrive, et vous serez prévenu en premier à l'ouverture.", bad: "Entrez une adresse email valide.", err: "Ça n'a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co." },
-    en: { ok: "Noted. A confirmation email is on its way, and you'll hear first when we open.", bad: "Please enter a valid email address.", err: "That didn't work. Try again in a moment, or write to romain.barbet@mazeo.co." }
+    fr: { ok: "C'est noté. Un email de confirmation arrive, et nous vous répondons sous 48 heures.", bad: "Entrez une adresse email valide.", err: "Ça n'a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co." },
+    en: { ok: "Noted. A confirmation email is on its way, and we answer within 48 hours.", bad: "Please enter a valid email address.", err: "That didn't work. Try again in a moment, or write to romain.barbet@mazeo.co." }
   };
   function wire(form) {
     if (!form) return;
