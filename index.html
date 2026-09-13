@@ -1,2689 +1,928 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mazeo — Find your next Market Research clients</title>
-<meta name="description" content="The intelligent market map for Market Research professionals. 1,200+ companies profiled, AI-powered matching, real-time signals.">
-<!-- Open Graph -->
+<title>mazeo — Trouvez vos prochains clients en études</title>
+<meta name="description" content="Le copilote commercial des prestataires d'études : le marché français profilé, les bons décideurs révélés, le bon moment détecté, une séquence d'approche guidée jusqu'au rendez-vous.">
+<link rel="canonical" href="https://mazeo.co/">
+
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mazeo.co/">
-<meta property="og:title" content="mazeo — Find your next Market Research clients, partners & suppliers">
-<meta property="og:description" content="The intelligent market map for Market Research. 1,200+ companies profiled, AI-powered matching, real-time signals, and the decision-makers you need to reach.">
-<meta property="og:image" content="https://mazeo.co/og-image-v2.png">
+<meta property="og:title" content="mazeo — Vos prochains clients en études sont déjà dans mazeo.">
+<meta property="og:description" content="Le copilote commercial des prestataires d'études : le marché français profilé, les bons décideurs révélés, le bon moment détecté, une séquence d'approche guidée jusqu'au rendez-vous.">
+<meta property="og:image" content="https://mazeo.co/og-image-v3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="mazeo">
-<meta property="og:locale" content="en_US">
-<!-- Twitter Card -->
+<meta property="og:locale" content="fr_FR">
+<meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="mazeo — Find your next Market Research clients">
-<meta name="twitter:description" content="The intelligent market map for Market Research. 1,200+ companies, AI matching, real-time signals.">
-<meta name="twitter:image" content="https://mazeo.co/og-image-v2.png">
-<link rel="canonical" href="https://mazeo.co/">
+<meta name="twitter:title" content="mazeo — Vos prochains clients en études sont déjà dans mazeo.">
+<meta name="twitter:description" content="Le copilote commercial des prestataires d'études. Marché français profilé, décideurs révélés, bon moment détecté, séquence guidée jusqu'au rendez-vous.">
+<meta name="twitter:image" content="https://mazeo.co/og-image-v3.png">
+
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap">
 
-:root {
-  --blue-primary: #007BFF;
-  --blue-dark: #0056b3;
-  --blue-light: #E6F2FF;
-  --blue-bg: #F0F7FF;
-  --green: #00EF8B;
-  --green-dark: #00C472;
-  --green-light: #E6FFF5;
-  --red: #FF374E;
-  --red-light: #FFF0F1;
-  --gray-50: #F8F9FA;
-  --gray-100: #F3F4F6;
-  --gray-200: #E5E7EB;
-  --gray-400: #9CA3AF;
-  --gray-500: #6B7280;
-  --gray-700: #374151;
-  --gray-900: #000000;
-  --white: #FFFFFF;
-}
-
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--gray-900);
-  line-height: 1.6;
-  overflow-x: hidden;
-  background: var(--white);
-}
-
-/* ===== NAV ===== */
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--gray-200);
-  transition: box-shadow 0.3s;
-}
-nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.06); }
-.nav-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.nav-logo {
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--gray-900);
-  text-decoration: none;
-  letter-spacing: -0.5px;
-}
-.nav-logo span { color: var(--green); }
-.nav-links { display: flex; align-items: center; gap: 32px; }
-.nav-links a {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--gray-500);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--gray-900); }
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
-  background: var(--blue-primary);
-  color: white;
-  border: none;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.btn-primary:hover { background: #0077E6; transform: translateY(-1px); box-shadow: 0 4px 16px rgba(26,140,255,0.3); }
-.btn-outline {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
-  background: transparent;
-  color: var(--gray-700);
-  border: 1.5px solid var(--gray-200);
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s;
-}
-.btn-outline:hover { border-color: var(--blue-primary); color: var(--blue-primary); }
-.nav-cta { display: flex; align-items: center; gap: 12px; }
-/* Hamburger button — hidden on desktop */
-.nav-hamburger {
-  display: none;
-  width: 36px;
-  height: 36px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  padding: 6px;
-  position: relative;
-  z-index: 201;
-}
-.nav-hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--gray-900);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-  margin: 5px auto;
-}
-.nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-/* Mobile drawer */
-.nav-mobile {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 200;
-  background: rgba(255,255,255,0.98);
-  backdrop-filter: blur(20px);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-.nav-mobile.open {
-  display: flex;
-  opacity: 1;
-  pointer-events: auto;
-}
-.nav-mobile-close {
-  position: absolute;
-  top: 16px; right: 16px;
-  width: 36px; height: 36px;
-  border: none; background: none; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-}
-.nav-mobile-close svg {
-  width: 22px; height: 22px;
-  stroke: var(--gray-700);
-  stroke-width: 2.5;
-}
-.nav-mobile a.mobile-link {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--gray-700);
-  text-decoration: none;
-  padding: 8px 0;
-  transition: color 0.2s;
-}
-.nav-mobile a.mobile-link:hover { color: var(--blue-primary); }
-.nav-mobile .mobile-cta {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 16px;
-  width: 240px;
-}
-.nav-mobile .mobile-cta .btn-primary,
-.nav-mobile .mobile-cta .btn-outline {
-  width: 100%;
-  justify-content: center;
-  padding: 12px 20px;
-  font-size: 14px;
-}
-
-/* ===== HERO ===== */
-.hero {
-  padding: 140px 24px 80px;
-  text-align: center;
-  background: linear-gradient(180deg, var(--blue-bg) 0%, rgba(232,244,255,0.3) 60%, var(--white) 100%);
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  top: -200px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 800px;
-  background: radial-gradient(circle, rgba(26,140,255,0.08) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  background: var(--green-light);
-  color: #006B3F;
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 32px;
-  animation: fadeInUp 0.6s ease;
-}
-.hero-badge .dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: pulse-dot 2s infinite;
-}
-@keyframes pulse-dot {
-  0% { box-shadow: 0 0 0 0 rgba(0,239,139,0.5); }
-  70% { box-shadow: 0 0 0 6px rgba(0,239,139,0); }
-  100% { box-shadow: 0 0 0 0 rgba(0,239,139,0); }
-}
-
-.hero h1 {
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -1.5px;
-  max-width: 800px;
-  margin: 0 auto 24px;
-  animation: fadeInUp 0.6s ease 0.1s both;
-}
-.hero h1 .highlight { color: var(--blue-primary); }
-.hero-nowrap { white-space: nowrap; }
-.hero h1 .comma { margin-left: -0.15em; }
-
-/* Hero word rotator */
-.hero-rotating-wrapper {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  height: 1.15em;
-  vertical-align: text-bottom;
-  transition: width 0.3s ease;
-}
-.hero-rotating-word {
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  white-space: nowrap;
-  font-weight: 800;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-.hero-rotating-word.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-.hero-rotating-word.exit-up {
-  opacity: 0;
-  transform: translateY(-100%);
-}
-.hero .subtitle {
-  font-size: clamp(16px, 2vw, 20px);
-  color: var(--gray-500);
-  max-width: 600px;
-  margin: 0 auto 40px;
-  line-height: 1.6;
-  animation: fadeInUp 0.6s ease 0.2s both;
-}
-
-.hero-cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-bottom: 16px;
-  animation: fadeInUp 0.6s ease 0.3s both;
-}
-.hero-email {
-  display: flex;
-  align-items: center;
-  background: var(--white);
-  border: 1.5px solid var(--gray-200);
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.hero-email:focus-within {
-  border-color: var(--blue-primary);
-  box-shadow: 0 0 0 3px rgba(26,140,255,0.12);
-}
-.hero-email.highlight-pulse {
-  animation: emailPulse 2s ease-in-out;
-}
-@keyframes emailPulse {
-  0%   { box-shadow: 0 0 0 0 rgba(0,123,255,0); }
-  20%  { box-shadow: 0 0 0 6px rgba(0,123,255,0.25); border-color: var(--blue-primary); }
-  50%  { box-shadow: 0 0 0 10px rgba(0,123,255,0.1); }
-  100% { box-shadow: 0 0 0 0 rgba(0,123,255,0); border-color: var(--gray-200); }
-}
-.hero-email input {
-  border: none;
-  outline: none;
-  padding: 14px 20px;
-  font-size: 15px;
-  font-family: inherit;
-  width: 280px;
-  background: transparent;
-}
-.hero-email input::placeholder { color: var(--gray-400); }
-.hero-email .btn-primary { border-radius: 0 10px 10px 0; padding: 14px 28px; }
-
-.hero-note {
-  font-size: 13px;
-  color: var(--gray-400);
-  animation: fadeInUp 0.6s ease 0.4s both;
-}
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ===== HERO SCREENSHOT ===== */
-.hero-visual {
-  max-width: 1100px;
-  margin: 60px auto 0;
-  padding: 0 24px;
-  animation: fadeInUp 0.8s ease 0.5s both;
-}
-.screenshot-wrapper {
-  background: linear-gradient(145deg, var(--blue-primary), #0066CC);
-  border-radius: 16px;
-  padding: 3px;
-  box-shadow: 0 20px 60px rgba(26,140,255,0.2), 0 4px 20px rgba(0,0,0,0.08);
-}
-.screenshot-inner {
-  background: var(--gray-50);
-  border-radius: 14px;
-  overflow: hidden;
-  position: relative;
-}
-.screenshot-bar {
-  background: var(--white);
-  padding: 10px 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid var(--gray-200);
-}
-.screenshot-bar .dot-group { display: flex; gap: 6px; }
-.screenshot-bar .dot-group span {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  display: block;
-}
-.screenshot-bar .dot-group span:nth-child(1) { background: #FF5F57; }
-.screenshot-bar .dot-group span:nth-child(2) { background: #FFBD2E; }
-.screenshot-bar .dot-group span:nth-child(3) { background: #28C840; }
-.screenshot-bar .url-bar {
-  flex: 1;
-  background: var(--gray-100);
-  border-radius: 6px;
-  padding: 5px 12px;
-  font-size: 12px;
-  color: var(--gray-500);
-  text-align: center;
-}
-.screenshot-content {
-  aspect-ratio: 16/9;
-  background: linear-gradient(135deg, #f8fafc 0%, #eef5ff 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-/* Simulated app — faithful to real MVP layout */
-.app-mockup {
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column;
-}
-/* App header bar */
-.mock-header {
-  display: flex; align-items: center; gap: 8px;
-  padding: 8px 14px; background: var(--white);
-  border-bottom: 1px solid var(--gray-200);
-  flex-shrink: 0; height: 40px;
-}
-.mock-header .logo-text { font-weight: 800; font-size: 14px; margin-right: 12px; white-space: nowrap; }
-.mock-header .logo-text span { color: var(--green); }
-.mock-pill {
-  padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 600;
-  border: 1.5px solid var(--gray-200); color: var(--gray-400); white-space: nowrap;
-}
-.mock-pill.clients { border-color: var(--blue-primary); color: var(--blue-primary); }
-.mock-pill.agencies { border-color: var(--green); color: #059669; }
-.mock-pill.data { border-color: var(--red); color: var(--red); }
-.mock-pill.software { border-color: #000; color: #000; }
-.mock-view-btns { margin-left: auto; display: flex; gap: 2px; background: var(--gray-100); padding: 2px; border-radius: 5px; }
-.mock-view-btn { padding: 3px 8px; border-radius: 3px; font-size: 9px; font-weight: 600; color: var(--gray-400); }
-.mock-view-btn.active { background: var(--blue-primary); color: white; }
-.mock-view-btn.ai { background: linear-gradient(135deg, #007BFF, #6C5CE7); color: white; font-size: 8px; }
-/* Quadrant grid */
-.mock-body { display: flex; flex: 1; min-height: 0; position: relative; }
-.mock-quadrants {
-  flex: 1; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr;
-  gap: 1px; padding: 10px; background: #f5f5f5;
-}
-.mock-quad {
-  background: var(--white); padding: 8px;
-  display: flex; flex-direction: column; gap: 4px; overflow: hidden;
-}
-.mock-quad-title {
-  font-size: 8px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.5px; color: var(--gray-400);
-}
-.mock-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); gap: 6px; flex: 1; align-content: start; }
-.mock-card {
-  aspect-ratio: 1; border-radius: 6px;
-  background: var(--white); border: 1px solid var(--gray-200);
-  display: flex; align-items: center; justify-content: center;
-  opacity: 0; transform: scale(0.9); overflow: hidden;
-  animation: cardAppear 0.4s ease-out forwards;
-}
-.mock-card img { width: 75%; height: 75%; object-fit: contain; border-radius: 3px; }
-.mock-card.selected img { width: 150%; height: 150%; }
-.mock-card-more {
-  width: 36px; height: 36px; border-radius: 6px;
-  background: var(--gray-50); border: 1px dashed var(--gray-300);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 7.5px; font-weight: 700; color: var(--gray-400);
-  letter-spacing: -0.2px;
-}
-.mock-card.selected {
-  border-color: var(--blue-primary); background: var(--blue-light);
-  box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
-  animation: cardAppear 0.4s ease-out forwards, cardSelect 36s ease-in-out infinite;
-}
-@keyframes cardAppear { to { opacity: 1; transform: scale(1); } }
-@keyframes cardSelect {
-  0%,7% { box-shadow: none; border-color: var(--gray-200); background: var(--white); }
-  9% { box-shadow: 0 0 0 2px rgba(0,123,255,0.3); border-color: var(--blue-primary); background: var(--blue-light); }
-  80% { box-shadow: 0 0 0 2px rgba(0,123,255,0.15); border-color: var(--blue-primary); background: var(--blue-light); }
-  84% { box-shadow: none; border-color: var(--gray-200); background: var(--white); }
-  100% { box-shadow: none; border-color: var(--gray-200); background: var(--white); }
-}
-/* Staggered card appearance */
-.mock-card:nth-child(n) { animation-delay: calc((var(--n, 0)) * 0.02s); }
-.mock-card:nth-child(1){--n:1}.mock-card:nth-child(2){--n:2}.mock-card:nth-child(3){--n:3}.mock-card:nth-child(4){--n:4}.mock-card:nth-child(5){--n:5}
-.mock-card:nth-child(6){--n:6}.mock-card:nth-child(7){--n:7}.mock-card:nth-child(8){--n:8}.mock-card:nth-child(9){--n:9}.mock-card:nth-child(10){--n:10}
-.mock-card:nth-child(11){--n:11}.mock-card:nth-child(12){--n:12}.mock-card:nth-child(13){--n:13}.mock-card:nth-child(14){--n:14}.mock-card:nth-child(15){--n:15}
-.mock-card:nth-child(16){--n:16}.mock-card:nth-child(17){--n:17}.mock-card:nth-child(18){--n:18}.mock-card:nth-child(19){--n:19}.mock-card:nth-child(20){--n:20}
-.mock-card:nth-child(21){--n:21}.mock-card:nth-child(22){--n:22}.mock-card:nth-child(23){--n:23}.mock-card:nth-child(24){--n:24}.mock-card:nth-child(25){--n:25}
-.mock-card:nth-child(26){--n:26}.mock-card:nth-child(27){--n:27}.mock-card:nth-child(28){--n:28}.mock-card:nth-child(29){--n:29}.mock-card:nth-child(30){--n:30}
-.mock-card:nth-child(31){--n:31}.mock-card:nth-child(32){--n:32}.mock-card:nth-child(33){--n:33}.mock-card:nth-child(34){--n:34}.mock-card:nth-child(35){--n:35}
-.mock-card:nth-child(36){--n:36}.mock-card:nth-child(37){--n:37}.mock-card:nth-child(38){--n:38}.mock-card:nth-child(39){--n:39}.mock-card:nth-child(40){--n:40}
-
-/* Right detail panel */
-.mock-panel {
-  width: 390px; background: var(--white); border-left: 1px solid var(--gray-200);
-  padding: 16px; position: absolute; right: 0; top: 0; height: 100%;
-  transform: translateX(100%); opacity: 0;
-  animation: panelSlide 36s ease-in-out infinite;
-  display: flex; flex-direction: column; gap: 6px; overflow-y: auto;
-  text-align: left;
-}
-/* Timeline 36s: 0-6% cursor enters, 7-8% click P&G, 8-80% browse tabs, 80-84% exit, 84-100% pause */
-@keyframes panelSlide {
-  0%,7% { transform: translateX(100%); opacity: 0; }
-  9% { transform: translateX(0); opacity: 1; }
-  80% { transform: translateX(0); opacity: 1; }
-  84% { transform: translateX(100%); opacity: 0; }
-  100% { transform: translateX(100%); opacity: 0; }
-}
-.mock-panel-header { display: flex; align-items: flex-start; gap: 8px; }
-.mock-panel-avatar {
-  width: 52px; height: 52px; border-radius: 10px;
-  background: var(--white); border: 1px solid var(--gray-200);
-  display: flex; align-items: center; justify-content: center;
-  overflow: hidden; flex-shrink: 0;
-}
-.mock-panel-name { font-size: 13px; font-weight: 700; text-align: left; }
-.mock-panel-cat { font-size: 9.5px; color: var(--gray-400); text-align: left; }
-.mock-badge {
-  display: inline-block; padding: 3px 8px; border-radius: 4px;
-  font-size: 9.5px; font-weight: 700;
-}
-.mock-badge.high { background: var(--green-light); color: #006B3F; }
-/* ===== INFO TAB - General + SUB-TABS ===== */
-.mock-page-title {
-  font-size: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px;
-  color: var(--gray-400); margin-bottom: 2px;
-}
-/* General content (company info overview) — shown when General sub-tab active */
-.mock-info-overview {
-  display: flex; flex-direction: column; gap: 5px;
-  opacity: 0; max-height: 0; overflow: hidden;
-  animation: infoOverview 36s ease infinite;
-}
-@keyframes infoOverview {
-  0%,8% { opacity: 0; max-height: 0; }
-  10% { opacity: 1; max-height: 300px; }
-  22% { opacity: 1; max-height: 300px; }
-  23% { opacity: 0; max-height: 0; }
-  100% { opacity: 0; max-height: 0; }
-}
-.mock-info-desc {
-  font-size: 8.5px; color: var(--gray-500); line-height: 1.35;
-}
-.mock-info-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 2px 8px;
-}
-.mock-info-field-label {
-  font-size: 6.5px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.4px; color: var(--gray-400);
-}
-.mock-info-field-value {
-  font-size: 9px; font-weight: 600; color: var(--gray-700); margin-bottom: 3px;
-}
-.mock-hiring-badge {
-  display: flex; align-items: center; gap: 5px;
-  padding: 4px 8px; border-radius: 5px;
-  background: var(--green-light); border: 1px solid rgba(0,239,139,0.3);
-  font-size: 8.5px; font-weight: 600; color: #065F46;
-}
-.mock-hiring-badge .signal-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--green); animation: pulse-dot 2s infinite;
-}
-.mock-tag-row { display: flex; gap: 4px; flex-wrap: wrap; }
-.mock-tag {
-  padding: 2px 6px; border-radius: 3px; font-size: 7.5px;
-  font-weight: 600; background: var(--gray-100); color: var(--gray-500);
-}
-
-/* Sub-tabs row (General | MR Strength | Financial Health | MR Recruitment) */
-.mock-subtabs {
-  display: flex; gap: 0; border-bottom: 1px solid var(--gray-200);
-  margin-bottom: 3px;
-  opacity: 0; max-height: 0; overflow: hidden;
-  animation: subtabsVis 36s ease infinite;
-}
-@keyframes subtabsVis {
-  0%,8% { opacity: 0; max-height: 0; }
-  10% { opacity: 1; max-height: 30px; }
-  55% { opacity: 1; max-height: 30px; }
-  57% { opacity: 0; max-height: 0; }
-  100% { opacity: 0; max-height: 0; }
-}
-.mock-subtab {
-  flex: 1; padding: 3px 0; text-align: center;
-  font-size: 7px; font-weight: 600; color: var(--gray-400);
-  border-bottom: 1.5px solid transparent; cursor: default;
-  white-space: nowrap;
-}
-/* General sub-tab — active first when panel opens */
-.mock-subtab.st-general { animation: stGeneral 36s ease infinite; }
-@keyframes stGeneral {
-  0%,8% { color: var(--gray-400); border-bottom-color: transparent; }
-  10% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  22% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  23% { color: var(--gray-400); border-bottom-color: transparent; }
-  100% { color: var(--gray-400); border-bottom-color: transparent; }
-}
-.mock-subtab.st-strength { animation: stStrength 36s ease infinite; }
-@keyframes stStrength {
-  0%,22.5% { color: var(--gray-400); border-bottom-color: transparent; }
-  23% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  33.5% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  34% { color: var(--gray-400); border-bottom-color: transparent; }
-  100% { color: var(--gray-400); border-bottom-color: transparent; }
-}
-.mock-subtab.st-financial { animation: stFinancial 36s ease infinite; }
-@keyframes stFinancial {
-  0%,33.5% { color: var(--gray-400); border-bottom-color: transparent; }
-  34% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  44.5% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  45% { color: var(--gray-400); border-bottom-color: transparent; }
-  100% { color: var(--gray-400); border-bottom-color: transparent; }
-}
-.mock-subtab.st-recruitment { animation: stRecruitment 36s ease infinite; }
-@keyframes stRecruitment {
-  0%,44.5% { color: var(--gray-400); border-bottom-color: transparent; }
-  45% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  54% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  55% { color: var(--gray-400); border-bottom-color: transparent; }
-  100% { color: var(--gray-400); border-bottom-color: transparent; }
-}
-
-/* SUB-PAGE: MR Strength (specializations) */
-.mock-page-spec {
-  display: flex; flex-direction: column; gap: 5px;
-  opacity: 0; max-height: 0; overflow: hidden;
-  animation: pageSpec 36s ease infinite;
-}
-@keyframes pageSpec {
-  0%,22.5% { opacity: 0; max-height: 0; }
-  24% { opacity: 1; max-height: 200px; }
-  33.5% { opacity: 1; max-height: 200px; }
-  34% { opacity: 0; max-height: 0; }
-  100% { opacity: 0; max-height: 0; }
-}
-.mock-spec-row { display: flex; align-items: center; gap: 6px; }
-.mock-spec-label { font-size: 8px; font-weight: 600; color: var(--gray-500); width: 85px; flex-shrink: 0; text-align: right; }
-.mock-spec-bar { flex: 1; height: 6px; background: var(--gray-100); border-radius: 3px; overflow: hidden; }
-.mock-spec-bar-fill {
-  height: 100%; border-radius: 3px; background: var(--blue-primary); width: 0;
-  animation: barGrow 36s ease-out infinite;
-}
-.mock-spec-bar-fill.bar-85 { --target: 85%; }
-.mock-spec-bar-fill.bar-72 { --target: 72%; animation-delay: 0.15s; }
-.mock-spec-bar-fill.bar-68 { --target: 68%; animation-delay: 0.3s; }
-.mock-spec-bar-fill.bar-90 { --target: 90%; animation-delay: 0.08s; }
-@keyframes barGrow {
-  0%,23.5% { width: 0; }
-  26% { width: var(--target); }
-  33.5% { width: var(--target); }
-  34% { width: 0; }
-  100% { width: 0; }
-}
-.mock-spec-pct { font-size: 8px; font-weight: 700; color: var(--gray-700); width: 24px; }
-
-/* SUB-PAGE: Financial Health */
-.mock-page-financial {
-  display: flex; flex-direction: column; gap: 5px;
-  opacity: 0; max-height: 0; overflow: hidden;
-  animation: pageFin 36s ease infinite;
-}
-@keyframes pageFin {
-  0%,33.5% { opacity: 0; max-height: 0; }
-  35% { opacity: 1; max-height: 200px; }
-  44% { opacity: 1; max-height: 200px; }
-  45% { opacity: 0; max-height: 0; }
-  100% { opacity: 0; max-height: 0; }
-}
-.mock-health-badge {
-  display: flex; align-items: center; gap: 6px;
-  padding: 6px 8px; border-radius: 6px;
-  background: var(--green-light); border: 1px solid rgba(0,239,139,0.3);
-}
-.mock-health-icon { font-size: 12px; }
-.mock-health-text { font-size: 9.5px; font-weight: 700; color: #065F46; }
-.mock-health-sub { font-size: 8px; color: #065F46; opacity: 0.7; }
-.mock-metric-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
-.mock-metric-item {
-  padding: 5px 8px; border-radius: 5px;
-  background: var(--gray-50); border: 1px solid var(--gray-200);
-}
-.mock-metric-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px; color: var(--gray-400); }
-.mock-metric-value { font-size: 10px; font-weight: 700; color: var(--gray-700); display: flex; align-items: center; gap: 3px; }
-.mock-metric-trend { font-size: 7.5px; font-weight: 700; color: #059669; }
-.mock-metric-trend.up::before { content: '▲ '; font-size: 5px; }
-
-/* SUB-PAGE: MR Recruitment */
-.mock-page-signals {
-  display: flex; flex-direction: column; gap: 5px;
-  opacity: 0; max-height: 0; overflow: hidden;
-  animation: pageSig 36s ease infinite;
-}
-@keyframes pageSig {
-  0%,44.5% { opacity: 0; max-height: 0; }
-  46% { opacity: 1; max-height: 200px; }
-  54% { opacity: 1; max-height: 200px; }
-  56% { opacity: 0; max-height: 0; }
-  100% { opacity: 0; max-height: 0; }
-}
-.mock-signal-badge {
-  display: flex; align-items: center; gap: 5px;
-  padding: 5px 8px; border-radius: 6px;
-  background: var(--green-light); border: 1px solid rgba(0,239,139,0.3);
-  font-size: 9px; font-weight: 600; color: #065F46;
-}
-.mock-signal-badge .signal-dot {
-  width: 5px; height: 5px; border-radius: 50%;
-  background: var(--green); animation: pulse-dot 2s infinite;
-}
-.mock-job-item {
-  display: flex; align-items: center; gap: 6px;
-  padding: 4px 8px; border-radius: 5px;
-  background: var(--gray-50); border: 1px solid var(--gray-200);
-}
-.mock-job-icon {
-  width: 16px; height: 16px; border-radius: 3px;
-  background: var(--blue-primary); display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.mock-job-icon svg { width: 9px; height: 9px; }
-.mock-job-title { font-size: 8.5px; font-weight: 600; color: var(--gray-700); }
-.mock-job-date { font-size: 7.5px; color: var(--gray-400); }
-/* Panel tabs (Info / Contacts) */
-.mock-panel-tabs { display: flex; gap: 0; border-bottom: 1px solid var(--gray-200); margin-bottom: 4px; }
-.mock-panel-tab {
-  flex: 1; padding: 5px 0; text-align: center; font-size: 10px; font-weight: 600;
-  color: var(--gray-400); border-bottom: 2px solid transparent; cursor: default;
-}
-.mock-panel-tab.active { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-/* Info tab content — visible for General + sub-tabs cycle */
-.mock-tab-info { display: flex; flex-direction: column; gap: 0; overflow: hidden; animation: tabInfoVis 36s ease infinite; }
-@keyframes tabInfoVis {
-  0%,8% { opacity: 0; max-height: 0; }
-  10% { opacity: 1; max-height: 500px; }
-  55% { opacity: 1; max-height: 500px; }
-  57% { opacity: 0; max-height: 0; }
-  100% { opacity: 0; max-height: 0; }
-}
-/* Contacts tab content */
-.mock-tab-contacts { display: flex; flex-direction: column; gap: 6px; opacity: 0; max-height: 0; overflow: hidden; animation: tabContactsVis 36s ease infinite; }
-@keyframes tabContactsVis {
-  0%,56% { opacity: 0; max-height: 0; }
-  58% { opacity: 1; max-height: 300px; }
-  78% { opacity: 1; max-height: 300px; }
-  82% { opacity: 0; max-height: 0; }
-  100% { opacity: 0; max-height: 0; }
-}
-.mock-contact-row {
-  display: flex; align-items: center; gap: 8px; padding: 7px 8px;
-  border-radius: 6px; background: var(--gray-50); border: 1px solid var(--gray-200);
-}
-.mock-contact-avatar {
-  width: 26px; height: 26px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--blue-primary), var(--green));
-  display: flex; align-items: center; justify-content: center;
-  color: white; font-size: 8.5px; font-weight: 700; flex-shrink: 0;
-  overflow: hidden;
-}
-.mock-contact-avatar img { width: 100%; height: 100%; object-fit: cover; }
-.mock-contact-info { flex: 1; min-width: 0; }
-.mock-contact-name { font-size: 10px; font-weight: 700; color: var(--gray-700); }
-.mock-contact-role { font-size: 8.5px; color: var(--gray-400); }
-.mock-contact-email {
-  font-size: 8.5px; color: var(--blue-primary); font-weight: 600;
-  opacity: 0; max-height: 0; overflow: hidden;
-  animation: emailReveal 36s ease infinite;
-}
-.mock-contact-row:nth-child(1) .mock-contact-email { animation-delay: 0s; }
-.mock-contact-row:nth-child(2) .mock-contact-email { animation-delay: 0.3s; }
-.mock-contact-row:nth-child(3) .mock-contact-email { animation-delay: 0.6s; }
-.mock-see-more {
-  margin-top: 6px;
-  padding: 7px 10px;
-  background: var(--gray-50);
-  border: 1px dashed var(--gray-200);
-  border-radius: 6px;
-  text-align: center;
-  cursor: pointer;
-}
-.mock-see-more-text {
-  font-size: 9px;
-  font-weight: 600;
-  color: var(--primary);
-  letter-spacing: 0.2px;
-}
-@keyframes emailReveal {
-  0%,68.5% { opacity: 0; max-height: 0; }
-  70% { opacity: 1; max-height: 20px; }
-  78% { opacity: 1; max-height: 20px; }
-  82% { opacity: 0; max-height: 0; }
-  100% { opacity: 0; max-height: 0; }
-}
-.mock-reveal-btn {
-  padding: 5px 12px; border-radius: 5px; font-size: 9.5px; font-weight: 700;
-  background: var(--blue-primary); color: white; align-self: flex-start;
-  cursor: default; opacity: 0; animation: revealBtnAnim 36s ease infinite;
-}
-@keyframes revealBtnAnim {
-  0%,57% { opacity: 0; transform: scale(0.9); }
-  59% { opacity: 1; transform: scale(1); }
-  67% { opacity: 1; transform: scale(1); }
-  68% { opacity: 0.6; transform: scale(0.95); }
-  70% { opacity: 1; transform: scale(1); }
-  78% { opacity: 1; }
-  82% { opacity: 0; }
-  100% { opacity: 0; }
-}
-/* Tab switching animation for the tab labels */
-.mock-panel-tab.tab-info { animation: tabInfoActive 36s ease infinite; }
-@keyframes tabInfoActive {
-  0%,8% { color: var(--gray-400); border-bottom-color: transparent; }
-  10% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  55% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  57% { color: var(--gray-400); border-bottom-color: transparent; }
-  100% { color: var(--gray-400); border-bottom-color: transparent; }
-}
-.mock-panel-tab.tab-contacts { animation: tabContactsActive 36s ease infinite; }
-@keyframes tabContactsActive {
-  0%,56% { color: var(--gray-400); border-bottom-color: transparent; }
-  58% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  80% { color: var(--blue-primary); border-bottom-color: var(--blue-primary); }
-  82% { color: var(--gray-400); border-bottom-color: transparent; }
-  100% { color: var(--gray-400); border-bottom-color: transparent; }
-}
-/* Cursor — 36s timeline: P&G→General→Strength→Financial→Recruitment→Contacts→Reveal */
-.mock-cursor {
-  position: absolute; width: 28px; height: 28px; z-index: 10;
-  opacity: 0; pointer-events: none;
-  animation: cursorAnim 36s ease-in-out infinite;
-  filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.35));
-}
-.mock-cursor svg { width: 28px; height: 28px; }
-@keyframes cursorAnim {
-  /* Cursor enters from bottom-left of mockup */
-  0% { opacity: 0; top: 85%; left: 10%; }
-  2% { opacity: 1; top: 85%; left: 10%; }
-  6% { opacity: 1; top: 40%; left: 26%; }
-  /* Click on P&G */
-  7% { opacity: 1; top: 40%; left: 26%; transform: scale(0.8); }
-  8% { opacity: 1; top: 40%; left: 26%; transform: scale(1); }
-  /* Move into panel, browse General info */
-  12% { opacity: 1; top: 40%; left: 75%; }
-  20% { opacity: 1; top: 40%; left: 75%; }
-  22% { opacity: 1; top: 29%; left: 76%; }
-  /* Click Strength */
-  23% { opacity: 1; top: 29%; left: 76%; transform: scale(0.8); }
-  24% { opacity: 1; top: 29%; left: 76%; transform: scale(1); }
-  32% { opacity: 1; top: 29%; left: 76%; }
-  33.5% { opacity: 1; top: 29%; left: 82%; }
-  /* Click Financial Health */
-  34% { opacity: 1; top: 29%; left: 82%; transform: scale(0.8); }
-  35% { opacity: 1; top: 29%; left: 82%; transform: scale(1); }
-  43% { opacity: 1; top: 29%; left: 82%; }
-  44.5% { opacity: 1; top: 29%; left: 92%; }
-  /* Click MR Recruitment */
-  45% { opacity: 1; top: 29%; left: 92%; transform: scale(0.8); }
-  46% { opacity: 1; top: 29%; left: 92%; transform: scale(1); }
-  54% { opacity: 1; top: 29%; left: 92%; }
-  56% { opacity: 1; top: 23%; left: 89%; }
-  /* Click on Contacts tab */
-  57% { opacity: 1; top: 23%; left: 89%; transform: scale(0.8); }
-  58% { opacity: 1; top: 23%; left: 89%; transform: scale(1); }
-  64% { opacity: 1; top: 23%; left: 89%; }
-  /* Move to Reveal emails button */
-  66% { opacity: 1; top: 67%; left: 72%; }
-  68% { opacity: 1; top: 67%; left: 72%; }
-  /* Click on Reveal */
-  68.5% { opacity: 1; top: 67%; left: 72%; transform: scale(0.8); }
-  69.5% { opacity: 1; top: 67%; left: 72%; transform: scale(1); }
-  78% { opacity: 1; top: 67%; left: 72%; }
-  /* Cursor exits toward bottom */
-  82% { opacity: 1; top: 85%; left: 10%; }
-  84% { opacity: 0; top: 85%; left: 10%; }
-  100% { opacity: 0; top: 85%; left: 10%; }
-}
-.mock-click-ripple {
-  position: absolute; width: 20px; height: 20px; border-radius: 50%;
-  background: rgba(0,239,139,0.4); z-index: 9; opacity: 0; pointer-events: none;
-  animation: rippleAnim 36s ease-out infinite;
-}
-@keyframes rippleAnim {
-  /* Ripple on P&G logo */
-  0%,6.5% { top: 40%; left: 26%; opacity: 0; transform: scale(0); }
-  7% { top: 40%; left: 26%; opacity: 0.7; transform: scale(1); }
-  9% { top: 40%; left: 26%; opacity: 0; transform: scale(3.5); }
-  /* Ripple on Strength sub-tab */
-  22.5% { top: 29%; left: 76%; opacity: 0; transform: scale(0); }
-  23% { top: 29%; left: 76%; opacity: 0.6; transform: scale(1); }
-  25% { top: 29%; left: 76%; opacity: 0; transform: scale(3); }
-  /* Ripple on Financial Health sub-tab */
-  33.5% { top: 29%; left: 82%; opacity: 0; transform: scale(0); }
-  34% { top: 29%; left: 82%; opacity: 0.6; transform: scale(1); }
-  36% { top: 29%; left: 82%; opacity: 0; transform: scale(3); }
-  /* Ripple on MR Recruitment sub-tab */
-  44.5% { top: 29%; left: 92%; opacity: 0; transform: scale(0); }
-  45% { top: 29%; left: 92%; opacity: 0.6; transform: scale(1); }
-  47% { top: 29%; left: 92%; opacity: 0; transform: scale(3); }
-  /* Ripple on Contacts tab */
-  56.5% { top: 23%; left: 89%; opacity: 0; transform: scale(0); }
-  57% { top: 23%; left: 89%; opacity: 0.7; transform: scale(1); }
-  59% { top: 23%; left: 89%; opacity: 0; transform: scale(3.5); }
-  /* Ripple on Reveal button */
-  68% { top: 67%; left: 72%; opacity: 0; transform: scale(0); }
-  68.5% { top: 67%; left: 72%; opacity: 0.7; transform: scale(1); }
-  70.5% { top: 67%; left: 72%; opacity: 0; transform: scale(3.5); }
-  100% { opacity: 0; }
-}
-
-/* ===== LOGOS BAR ===== */
-.logos-section {
-  padding: 80px 24px 80px;
-  text-align: center;
-  background: var(--white);
-  overflow: hidden;
-}
-.logos-section .label {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--gray-400);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 24px;
-}
-.logos-row-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--gray-400);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 20px;
-  margin-top: 40px;
-}
-.logos-row-label:first-of-type { margin-top: 0; }
-
-.marquee-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-}
-.marquee-track {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  width: max-content;
-  animation: marquee-scroll 40s linear infinite;
-}
-.marquee-track:hover { animation-play-state: paused; }
-.marquee-track.reverse { animation-name: marquee-scroll-reverse; }
-
-@keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes marquee-scroll-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0); }
-}
-
-.logo-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-  padding: 8px 16px;
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  border-radius: 12px;
-  transition: all 0.3s;
-}
-.logo-item:hover {
-  border-color: var(--blue-primary);
-  box-shadow: 0 2px 12px rgba(26,140,255,0.1);
-}
-.logo-item img {
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  object-fit: contain;
-  background: var(--white);
-}
-.logo-item span {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--gray-700);
-  white-space: nowrap;
-}
-
-/* ===== STATS ===== */
-.stats-section {
-  padding: 60px 24px;
-  background: var(--gray-50);
-}
-.stats-grid {
-  max-width: 1000px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-.stat-card {
-  text-align: center;
-  padding: 32px 16px;
-  background: var(--white);
-  border-radius: 16px;
-  border: 1px solid var(--gray-200);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-.stat-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
-.stat-number {
-  font-size: 40px;
-  font-weight: 800;
-  color: var(--blue-primary);
-  letter-spacing: -1px;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.stat-label {
-  font-size: 14px;
-  color: var(--gray-500);
-  font-weight: 500;
-}
-.stat-france { background: linear-gradient(135deg, #f0f7ff 0%, #e6fff5 100%); border-color: rgba(0,123,255,0.15); }
-.stat-france-inner { display: flex; align-items: center; gap: 14px; justify-content: center; }
-.france-flag { font-size: 28px; }
-.stat-france-title { font-size: 16px; font-weight: 700; color: var(--gray-900); }
-.stat-france-sub { font-size: 13px; color: var(--gray-500); font-weight: 500; }
-
-/* ===== HOW IT WORKS ===== */
-.how-section {
-  padding: 100px 24px;
-  background: var(--white);
-}
-.section-header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 64px;
-}
-.section-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  background: var(--blue-light);
-  color: var(--blue-primary);
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-.section-header h2 {
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 800;
-  letter-spacing: -1px;
-  line-height: 1.15;
-  margin-bottom: 16px;
-}
-.section-header p {
-  font-size: 17px;
-  color: var(--gray-500);
-  line-height: 1.6;
-}
-
-.steps-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-.step-card {
-  padding: 36px 28px;
-  border-radius: 20px;
-  border: 1px solid var(--gray-200);
-  background: var(--white);
-  transition: all 0.3s;
-  position: relative;
-  opacity: 0;
-  transform: translateY(30px);
-}
-.step-card.visible {
-  animation: stepFadeIn 0.7s ease-out forwards;
-}
-.step-card.visible:nth-child(1) { animation-delay: 0.1s; }
-.step-card.visible:nth-child(2) { animation-delay: 0.35s; }
-.step-card.visible:nth-child(3) { animation-delay: 0.6s; }
-@keyframes stepFadeIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-.step-card:hover { border-color: var(--blue-primary); box-shadow: 0 8px 32px rgba(26,140,255,0.08); }
-.step-number {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  background: var(--blue-light);
-  color: var(--blue-primary);
-  font-size: 16px;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.step-card h3 {
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  letter-spacing: -0.3px;
-}
-.step-card p {
-  font-size: 15px;
-  color: var(--gray-500);
-  line-height: 1.6;
-}
-.step-visual {
-  margin-top: 20px;
-  padding: 16px;
-  background: var(--gray-50);
-  border-radius: 12px;
-  border: 1px solid var(--gray-200);
-}
-.step-visual .mini-tag {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
-  background: var(--blue-light);
-  color: var(--blue-primary);
-  margin: 2px;
-}
-.step-visual .mini-score {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 700;
-}
-.step-visual .mini-score.high { background: var(--green-light); color: #065F46; }
-.step-visual .mini-score.med { background: #FEF3C7; color: #92400E; }
-
-/* ===== FEATURES ===== */
-.features-section {
-  padding: 100px 24px;
-  background: var(--gray-50);
-}
-.features-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.feature-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-}
-.feature-card {
-  padding: 40px 36px;
-  border-radius: 20px;
-  background: var(--white);
-  border: 1px solid var(--gray-200);
-  transition: all 0.3s;
-}
-.feature-card:hover { border-color: var(--blue-primary); box-shadow: 0 8px 32px rgba(26,140,255,0.06); }
-.feature-card.wide { grid-column: span 2; }
-.feature-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  margin-bottom: 20px;
-}
-.feature-icon svg { width: 24px; height: 24px; }
-.feature-icon.blue { background: var(--blue-light); color: var(--blue-primary); }
-.feature-icon.green { background: var(--green-light); color: var(--green-dark); }
-.feature-icon.orange { background: var(--red-light); color: var(--red); }
-.feature-icon.purple { background: #F0F0F0; color: var(--gray-700); }
-.feature-card h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  letter-spacing: -0.3px;
-}
-.feature-card p {
-  font-size: 15px;
-  color: var(--gray-500);
-  line-height: 1.7;
-}
-.feature-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 16px;
-}
-.feature-tags .tag {
-  padding: 4px 10px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  background: var(--gray-100);
-  color: var(--gray-500);
-}
-
-/* AI Prompt Carousel */
-.ai-prompts {
-  margin-top: 20px;
-  position: relative;
-  height: 52px;
-  overflow: hidden;
-}
-.ai-prompt {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 22px;
-  border-radius: 26px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--white);
-  width: fit-content;
-  cursor: default;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translate(-50%, -50%) translateY(8px);
-  box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
-  background-size: 200% 200%;
-}
-.ai-prompt .prompt-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.2);
-  flex-shrink: 0;
-}
-.ai-prompt .prompt-icon svg {
-  width: 13px;
-  height: 13px;
-}
-
-/* Gradient per prompt — all from brand palette */
-.ai-prompt:nth-child(1) {
-  background: linear-gradient(135deg, var(--blue-primary), #0066CC, var(--blue-dark));
-  animation: promptCycle 12s ease-in-out infinite;
-}
-.ai-prompt:nth-child(2) {
-  background: linear-gradient(135deg, #0066CC, var(--green-dark), var(--green));
-  animation: promptCycle 12s ease-in-out 4s infinite;
-}
-.ai-prompt:nth-child(3) {
-  background: linear-gradient(135deg, var(--green-dark), var(--blue-primary), #0066CC);
-  animation: promptCycle 12s ease-in-out 8s infinite;
-}
-
-@keyframes promptCycle {
-  0%       { opacity: 0; transform: translate(-50%, -50%) translateY(10px) scale(0.97); }
-  5%       { opacity: 1; transform: translate(-50%, -50%) translateY(0) scale(1); }
-  28%      { opacity: 1; transform: translate(-50%, -50%) translateY(0) scale(1); }
-  33%      { opacity: 0; transform: translate(-50%, -50%) translateY(-10px) scale(0.97); }
-  100%     { opacity: 0; transform: translate(-50%, -50%) translateY(10px) scale(0.97); }
-}
-
-/* ===== SIGNALS SECTION ===== */
-.signals-section {
-  padding: 100px 24px;
-  background: var(--white);
-}
-.signals-content {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: center;
-}
-.signals-text h2 {
-  font-size: clamp(28px, 4vw, 40px);
-  font-weight: 800;
-  letter-spacing: -1px;
-  line-height: 1.15;
-  margin-bottom: 20px;
-}
-.signals-text h2 .highlight { color: var(--green-dark); }
-.signals-text > p {
-  font-size: 17px;
-  color: var(--gray-500);
-  line-height: 1.7;
-  margin-bottom: 32px;
-}
-.signal-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 16px 0;
-  border-bottom: 1px solid var(--gray-100);
-}
-.signal-item:last-child { border-bottom: none; }
-.signal-icon {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
-.signal-icon svg { width: 20px; height: 20px; }
-.signal-icon.green-bg { background: var(--green-light); color: var(--green-dark); }
-.signal-icon.blue-bg { background: var(--blue-light); color: var(--blue-primary); }
-.signal-icon.orange-bg { background: #FEF3C7; color: #D97706; }
-.signal-icon.purple-bg { background: #EDE9FE; color: #7C3AED; }
-.signal-item h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
-.signal-item p { font-size: 13px; color: var(--gray-500); line-height: 1.5; }
-
-.signals-visual {
-  background: var(--white);
-  border-radius: 20px;
-  border: 1px solid var(--gray-200);
-  padding: 24px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-}
-.signal-card-demo {
-  padding: 16px;
-  border-radius: 12px;
-  background: var(--green-light);
-  border: 1px solid rgba(0,239,139,0.3);
-  margin-bottom: 16px;
-  animation: signalGlow 4s ease-in-out infinite;
-}
-@keyframes signalGlow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0,239,139,0); }
-  50% { box-shadow: 0 0 20px 2px rgba(0,239,139,0.12); }
-}
-.signal-card-header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-.signal-card-header .dot-green {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--green);
-  animation: pulse-dot 2s infinite;
-}
-.signal-card-header span {
-  font-size: 14px;
-  font-weight: 700;
-  color: #006B3F;
-}
-.signal-card-body { font-size: 13px; color: #006B3F; line-height: 1.5; }
-.signal-card-body strong { font-weight: 700; }
-
-.signal-jobs {
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--gray-200);
-}
-.signal-jobs-header {
-  padding: 10px 16px;
-  background: var(--gray-50);
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--gray-400);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.signal-job-row {
-  padding: 10px 16px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 8px;
-  font-size: 13px;
-  border-top: 1px solid var(--gray-100);
-  align-items: center;
-  opacity: 0;
-  transform: translateX(-10px);
-  animation: jobRowSlide 6s ease-in-out infinite;
-}
-.signal-job-row:nth-child(2) { animation-delay: 0.4s; }
-.signal-job-row:nth-child(3) { animation-delay: 0.8s; }
-@keyframes jobRowSlide {
-  0%       { opacity: 0; transform: translateX(-10px); }
-  8%, 85%  { opacity: 1; transform: translateX(0); }
-  95%, 100% { opacity: 0; transform: translateX(-10px); }
-}
-.signal-job-title { font-weight: 600; color: var(--blue-primary); }
-.signal-job-level { color: var(--gray-500); }
-.signal-job-type { color: var(--gray-500); }
-
-/* ===== USE CASES ===== */
-.usecases-section {
-  padding: 100px 24px;
-  background: linear-gradient(180deg, #007BFF 0%, #0056b3 100%);
-  color: white;
-}
-.usecases-section .section-header { color: white; }
-.usecases-section .section-pill { background: rgba(255,255,255,0.15); color: white; }
-.usecases-section .section-header h2 { color: white; }
-.usecases-section .section-header p { color: rgba(255,255,255,0.7); }
-
-.usecase-grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-.usecase-card {
-  padding: 36px 30px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.2);
-  backdrop-filter: blur(12px);
-  transition: all 0.35s ease;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: ucCardIn 0.7s ease-out forwards;
-}
-.usecase-card:nth-child(2) { animation-delay: 0.15s; }
-.usecase-card:nth-child(3) { animation-delay: 0.3s; }
-@keyframes ucCardIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-.usecase-card:hover {
-  background: rgba(255,255,255,0.2);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
-  border-color: rgba(255,255,255,0.3);
-}
-.usecase-card .uc-icon {
-  width: 56px;
-  height: 56px;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  color: rgba(255,255,255,0.9);
-  transition: transform 0.35s ease, background 0.35s ease;
-}
-.usecase-card:hover .uc-icon {
-  transform: scale(1.08);
-  background: rgba(255,255,255,0.22);
-}
-.usecase-card .uc-icon svg { width: 26px; height: 26px; stroke: white; }
-.usecase-card h3 {
-  font-size: 21px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-.usecase-card p {
-  font-size: 14.5px;
-  color: rgba(255,255,255,0.8);
-  line-height: 1.65;
-}
-.usecase-card .uc-for {
-  margin-top: 18px;
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255,255,255,0.45);
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding-top: 16px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-/* ===== FOUNDER ===== */
-.founder-section {
-  padding: 100px 24px;
-  background: var(--white);
-}
-.founder-content {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
-.founder-quote {
-  font-size: clamp(18px, 2.5vw, 24px);
-  font-weight: 600;
-  line-height: 1.6;
-  color: var(--gray-700);
-  margin-bottom: 32px;
-  font-style: italic;
-}
-.founder-quote strong { color: var(--gray-900); font-style: normal; }
-.founder-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-.founder-avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-.founder-avatar img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.founder-name { font-size: 16px; font-weight: 700; }
-.founder-title { font-size: 14px; color: var(--gray-500); }
-.founder-link {
-  font-size: 13px;
-  color: var(--blue-primary);
-  text-decoration: none;
-  font-weight: 600;
-}
-.founder-link:hover { text-decoration: underline; }
-
-/* ===== FINAL CTA ===== */
-.final-cta {
-  padding: 100px 24px;
-  background: var(--gray-50);
-  text-align: center;
-}
-.final-cta h2 {
-  font-size: clamp(28px, 4vw, 44px);
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin-bottom: 16px;
-}
-.final-cta h2 .highlight { color: var(--blue-primary); }
-
-/* Rotating words in CTA */
-.cta-rotating-wrapper {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  height: 1.35em;
-  vertical-align: top;
-  margin-top: 0.01em;
-  transition: width 0.4s ease;
-}
-.cta-rotating-word {
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  white-space: nowrap;
-  font-weight: 800;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.cta-rotating-word.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-.cta-rotating-word.exit-up {
-  opacity: 0;
-  transform: translateY(-100%);
-}
-.final-cta p {
-  font-size: 17px;
-  color: var(--gray-500);
-  margin-bottom: 36px;
-}
-.final-cta .hero-email {
-  display: inline-flex;
-  margin: 0 auto;
-}
-
-/* ===== FOOTER ===== */
-footer {
-  padding: 40px 24px;
-  background: var(--white);
-  border-top: 1px solid var(--gray-200);
-}
-.footer-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.footer-logo {
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--gray-900);
-}
-.footer-logo span { color: var(--green); }
-.footer-tagline {
-  font-size: 13px;
-  color: var(--gray-400);
-  margin-top: 2px;
-}
-.footer-links {
-  display: flex;
-  gap: 24px;
-}
-.footer-links a {
-  font-size: 13px;
-  color: var(--gray-500);
-  text-decoration: none;
-}
-.footer-links a:hover { color: var(--blue-primary); }
-.footer-copy {
-  font-size: 13px;
-  color: var(--gray-400);
-}
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
-  /* ---- NAV ---- */
-  .nav-links { display: none; }
-  .nav-cta { display: none; }
-  .nav-hamburger { display: block; }
-  .nav-inner { padding: 0 12px; height: 56px; }
-
-  /* ---- HERO TITLE ---- */
-  .hero { padding: 120px 16px 60px; }
-  .hero h1 { font-size: 24px; letter-spacing: -0.5px; line-height: 1.2; }
-  .hero h1 .desktop-only { display: none; }
-  .hero-nowrap { white-space: normal !important; }
-
-  /* ---- STATS ---- */
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 8px; }
-  .stat-card { padding: 20px 10px; }
-  .stat-number { font-size: 28px; }
-  .stat-label { font-size: 13px; }
-
-  /* ---- LAYOUT ---- */
-  .steps-grid { grid-template-columns: 1fr; }
-  .feature-row { grid-template-columns: 1fr; }
-  .feature-card.wide { grid-column: span 1; }
-  .signals-content { grid-template-columns: 1fr; }
-  .usecase-grid { grid-template-columns: 1fr; }
-  .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
-
-  /* ---- HERO FORM ---- */
-  .hero-email { flex-direction: column; align-items: center; gap: 8px; overflow: visible; border: none; box-shadow: none; background: transparent; }
-  .hero-email input { width: 100%; max-width: 300px; border: 1.5px solid var(--gray-200); border-radius: 10px; background: var(--white); }
-  .hero-email .btn-primary { border-radius: 10px; width: 100%; max-width: 300px; justify-content: center; white-space: nowrap; }
-
-  /* ---- MOCKUP ---- */
-  .hero-visual { margin-top: 40px; padding: 0 8px; }
-  .screenshot-content {
-    aspect-ratio: 16/9;
-    overflow: hidden;
-    position: relative;
-  }
-  .app-mockup {
-    position: absolute;
-    top: 0; left: 0;
-    width: 1000px;
-    height: 562px;
-    transform-origin: top left;
-  }
-
-  /* ---- PROMPT BUBBLES ---- */
-  .feature-card { overflow: hidden; }
-  .ai-prompts {
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-  }
-  .ai-prompt {
-    position: absolute;
-    left: 8px; right: 8px;
-    top: 50%;
-    width: auto;
-    max-width: none;
-    font-size: 12px;
-    padding: 10px 14px;
-    gap: 8px;
-    white-space: normal;
-    line-height: 1.35;
-    border-radius: 14px;
-    text-align: center;
-  }
-  .ai-prompt:nth-child(1) { animation-name: promptCycleMobile; }
-  .ai-prompt:nth-child(2) { animation-name: promptCycleMobile; }
-  .ai-prompt:nth-child(3) { animation-name: promptCycleMobile; }
-
-  /* ---- CTA BOTTOM TITLE ---- */
-  .final-cta h2 { font-size: 21px; letter-spacing: -0.5px; }
-  .cta-rotating-wrapper { height: 1.25em; }
-}
-
-@keyframes promptCycleMobile {
-  0%       { opacity: 0; transform: translateY(calc(-50% + 10px)) scale(0.97); }
-  5%       { opacity: 1; transform: translateY(-50%) scale(1); }
-  28%      { opacity: 1; transform: translateY(-50%) scale(1); }
-  33%      { opacity: 0; transform: translateY(calc(-50% - 10px)) scale(0.97); }
-  100%     { opacity: 0; transform: translateY(calc(-50% + 10px)) scale(0.97); }
-}
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "SoftwareApplication",
   "name": "mazeo",
-  "url": "https://mazeo.co",
-  "logo": "https://mazeo.co/favicon-180.png",
-  "description": "The intelligent market map for Market Research. 1,200+ companies profiled, AI-powered matching, real-time signals, and the decision-makers you need to reach.",
-  "founder": {
-    "@type": "Person",
-    "name": "Romain Barbet",
-    "jobTitle": "Founder",
-    "url": "https://www.linkedin.com/in/romain-barbet/"
-  },
-  "sameAs": [
-    "https://www.linkedin.com/company/mazeo-tech/"
-  ],
-  "foundingDate": "2025"
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "url": "https://mazeo.co/",
+  "description": "Le copilote commercial des prestataires d'études de marché : le marché français profilé, les décideurs révélés, le bon moment détecté, une séquence d'approche guidée jusqu'au rendez-vous.",
+  "author": { "@type": "Organization", "name": "mazeo", "url": "https://mazeo.co/" }
 }
 </script>
+
+<style>
+/* ---------- Tokens (fiche _context/mazeo-design.md, colonne landing, police de l'app) ---------- */
+:root {
+  --ink: #0A0A0A;
+  --slate: #3A4250;
+  --body: #4A5262;
+  --meta: #8A93A2;
+  --line: #E5E7EB;
+  --line-soft: #EEF0F3;
+  --ground: #FFFFFF;
+  --ground-2: #F7F8FA;
+  --blue: #007BFF;
+  --blue-deep: #0066D6;
+  --blue-text: #0062CC;
+  --blue-tint: #E6F2FF;
+  --green: #00EF8B;
+  --green-tint: #E6FFF5;
+  --green-text: #006B3F;
+  --red: #DC2626;
+  --red-tint: #FEF2F2;
+  --red-line: #FCA5A5;
+  --amber-tint: #FFF4E5;
+  --amber-text: #9A5B00;
+  --violet-tint: #F1ECFF;
+  --violet-text: #5B3DB5;
+
+  --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --r-card: 20px;
+  --r-frame: 16px;
+  --r-btn: 10px;
+  --r-pill: 100px;
+  --container: 1160px;
+  --gutter: 24px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--body);
+  background: var(--ground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--blue-text); text-decoration: none; }
+a:hover { text-decoration: underline; }
+h1, h2, h3, h4 { color: var(--ink); margin: 0; text-wrap: balance; }
+p { margin: 0; }
+button, input { font: inherit; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
+
+.container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
+.narrow { max-width: 760px; }
+.center { text-align: center; margin-inline: auto; }
+
+.eyebrow {
+  display: inline-block;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--blue-text);
+  margin-bottom: 16px;
+}
+h2.title {
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.lead { font-size: 20px; line-height: 1.6; color: var(--body); }
+.section { padding-block: 96px; }
+.section.tint { background: var(--ground-2); }
+.section-head { max-width: 760px; margin-bottom: 48px; }
+.section-head .lead { margin-top: 18px; }
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--r-btn);
+  font-weight: 600; font-size: 15px; line-height: 1.2;
+  border: 1px solid transparent;
+  cursor: pointer; white-space: nowrap;
+  transition: background-color .15s ease, border-color .15s ease, transform .15s ease;
+  text-decoration: none;
+}
+.btn:hover { text-decoration: none; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: var(--blue-deep); }
+.btn-primary:active { transform: translateY(1px); }
+.btn-ghost { background: transparent; color: var(--slate); border-color: var(--line); }
+.btn-ghost:hover { border-color: #CBD1DA; color: var(--ink); }
+.btn-lg { padding: 15px 26px; font-size: 16px; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+.nav.scrolled { border-bottom-color: var(--line); }
+.nav-inner {
+  height: 68px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
+.logo {
+  font-weight: 800; font-size: 24px; letter-spacing: -0.03em; color: var(--ink);
+  text-decoration: none; display: inline-flex; align-items: baseline;
+}
+.logo:hover { text-decoration: none; }
+.logo .dot { color: var(--green); }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-links a { color: var(--slate); font-weight: 500; font-size: 15px; }
+.nav-links a:hover { color: var(--ink); text-decoration: none; }
+.nav-right { display: flex; align-items: center; gap: 12px; }
+.lang {
+  display: inline-flex; border: 1px solid var(--line); border-radius: var(--r-pill); padding: 3px;
+}
+.lang button {
+  border: 0; background: transparent; color: var(--meta); font-weight: 600; font-size: 12.5px;
+  padding: 4px 9px; border-radius: var(--r-pill); cursor: pointer; letter-spacing: .04em;
+}
+.lang button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .nav-login { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.hero { padding-block: 72px 0; overflow: hidden; }
+.hero-copy { max-width: 860px; margin-inline: auto; text-align: center; }
+.badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 14px 6px 10px; border-radius: var(--r-pill);
+  background: var(--green-tint); color: var(--green-text);
+  font-size: 13px; font-weight: 600;
+}
+.badge .pulse {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--green);
+  box-shadow: 0 0 0 0 rgba(0,239,139,.45);
+  animation: pulse 2.2s ease-out infinite;
+}
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0,239,139,.45); } 70% { box-shadow: 0 0 0 9px rgba(0,239,139,0); } 100% { box-shadow: 0 0 0 0 rgba(0,239,139,0); } }
+.hero h1 {
+  margin-top: 26px;
+  font-size: clamp(40px, 6.2vw, 72px);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}
+.hero h1 .brand { white-space: nowrap; }
+.hero h1 .brand .dot { color: var(--green); }
+.hero .lead { margin: 26px auto 0; max-width: 720px; font-size: clamp(18px, 2vw, 21px); }
+
+.signup { margin-top: 34px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.signup-fields {
+  display: flex; gap: 8px; width: 100%; max-width: 720px;
+  padding: 6px; border: 1px solid var(--line); border-radius: 14px; background: #fff;
+}
+.signup-fields input {
+  flex: 1 1 0; min-width: 0;
+  border: 0; background: transparent; padding: 11px 14px; font-size: 16px; color: var(--ink);
+  border-radius: 8px;
+}
+.signup-fields input::placeholder { color: var(--meta); }
+.signup-fields input + input { border-left: 1px solid var(--line-soft); }
+.signup-fields .btn { flex: 0 0 auto; }
+.signup .helper { font-size: 13.5px; color: var(--meta); max-width: 560px; text-align: center; }
+.signup .msg { display: none; font-size: 15px; font-weight: 500; padding: 12px 16px; border-radius: 10px; max-width: 560px; text-align: center; }
+.signup .msg.ok { display: block; background: var(--green-tint); color: var(--green-text); }
+.signup .msg.err { display: block; background: var(--red-tint); color: var(--red); }
+@media (max-width: 640px) {
+  .signup-fields { flex-direction: column; padding: 8px; }
+  .signup-fields input + input { border-left: 0; border-top: 1px solid var(--line-soft); }
+  .signup-fields .btn { width: 100%; }
+}
+
+.frame-wrap { margin-top: 64px; }
+.frame {
+  border: 1px solid var(--line);
+  border-radius: var(--r-frame);
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 30px 80px -40px rgba(10,10,10,.22);
+}
+.frame-bar {
+  height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 14px;
+  border-bottom: 1px solid var(--line-soft); background: #FBFBFC;
+}
+.frame-bar i { width: 10px; height: 10px; border-radius: 50%; background: #E3E6EB; display: block; }
+.frame-bar .url {
+  margin-left: 10px; font-size: 12.5px; color: var(--meta); font-weight: 500;
+  padding: 4px 12px; border-radius: 6px; background: #fff; border: 1px solid var(--line-soft);
+}
+.frame img { width: 100%; }
+.frame-caption {
+  margin-top: 18px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px;
+  font-size: 14px; color: var(--meta);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 5px 11px; border-radius: var(--r-pill);
+  border: 1px solid var(--line); background: #fff; color: var(--slate);
+  font-size: 13px; font-weight: 600; white-space: nowrap;
+}
+.chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+
+/* Hero entrance (courte, depuis un état visible en cas de mouvement réduit) */
+@media (prefers-reduced-motion: no-preference) {
+  .rise { animation: rise .55s cubic-bezier(.2,.7,.2,1) both; }
+  .rise.d1 { animation-delay: .06s; } .rise.d2 { animation-delay: .14s; } .rise.d3 { animation-delay: .22s; } .rise.d4 { animation-delay: .34s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+}
+
+/* ---------- Proof strip ---------- */
+.strip { padding-block: 56px 8px; }
+.strip p { text-align: center; font-size: 13.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--meta); }
+.logos { margin-top: 26px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 18px; }
+.logos figure { margin: 0; display: flex; align-items: center; gap: 10px; padding: 8px 14px 8px 8px; border: 1px solid var(--line-soft); border-radius: 12px; background: #fff; }
+.logos img { width: 30px; height: 30px; border-radius: 7px; object-fit: contain; background: #fff; }
+.logos figcaption { font-size: 14px; font-weight: 600; color: var(--slate); white-space: nowrap; }
+
+/* ---------- Who / positioning ---------- */
+.nots { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.nots > div { border-top: 2px solid var(--ink); padding-top: 20px; }
+.nots h3 { font-size: 19px; font-weight: 700; letter-spacing: -0.01em; }
+.nots h3 span { color: var(--meta); font-weight: 600; margin-right: 6px; }
+.nots p { margin-top: 10px; font-size: 16px; line-height: 1.6; }
+@media (max-width: 820px) { .nots { grid-template-columns: 1fr; gap: 28px; } }
+
+/* ---------- Loop (product) ---------- */
+.steps { display: flex; flex-direction: column; gap: 96px; margin-top: 16px; }
+.step {
+  display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center;
+}
+.step.flip .step-copy { order: 2; }
+.step-copy .num {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12.5px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--blue-text);
+}
+.step-copy .num b { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: var(--blue-tint); color: var(--blue-text); font-size: 12px; letter-spacing: 0; }
+.step-copy h3 { margin-top: 16px; font-size: clamp(24px, 2.6vw, 30px); line-height: 1.15; font-weight: 800; letter-spacing: -0.02em; }
+.step-copy p { margin-top: 16px; font-size: 17px; line-height: 1.65; }
+.step-copy p + p { margin-top: 12px; }
+.step-visual .frame { box-shadow: none; }
+.frag { margin-top: 22px; }
+
+/* fragments d'interface (vocabulaire réel de l'app, sans données) */
+.ui { font-size: 13px; color: var(--slate); }
+.ui .row { display: grid; grid-template-columns: 170px 1fr 34px; align-items: center; gap: 12px; padding: 8px 0; border-top: 1px solid var(--line-soft); }
+.ui .row:last-child { border-bottom: 1px solid var(--line-soft); }
+.ui .row .lab { font-weight: 600; color: var(--ink); }
+.ui .bars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+.ui .bars i { display: block; height: 7px; border-radius: 3px; background: var(--line); }
+.ui .bars i.on { background: var(--blue); }
+.ui .row .sc { font-weight: 700; color: var(--slate); text-align: right; font-variant-numeric: tabular-nums; }
+.ui .src { margin-top: 8px; font-size: 12px; color: var(--meta); }
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: var(--r-pill); font-size: 12.5px; font-weight: 600; }
+.pill.blue { background: var(--blue-tint); color: var(--blue-text); }
+.pill.green { background: var(--green-tint); color: var(--green-text); }
+.pill.amber { background: var(--amber-tint); color: var(--amber-text); }
+.pill.violet { background: var(--violet-tint); color: var(--violet-text); }
+.pill.grey { background: var(--ground-2); color: var(--slate); border: 1px solid var(--line); }
+.cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.col { border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; background: #fff; }
+.col .h { font-size: 13.5px; font-weight: 700; color: var(--ink); display: flex; align-items: center; gap: 8px; }
+.col .h i { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+.col .o { margin-top: 4px; font-size: 12px; color: var(--meta); }
+.cta-mini { margin-top: 12px; display: inline-flex; align-items: center; gap: 8px; }
+.cta-mini .btn { padding: 8px 14px; font-size: 13px; pointer-events: none; }
+.cta-mini .stepn { font-size: 12.5px; color: var(--meta); font-variant-numeric: tabular-nums; }
+@media (max-width: 900px) {
+  .step, .step.flip { grid-template-columns: 1fr; gap: 28px; }
+  .step.flip .step-copy { order: 0; }
+  .steps { gap: 72px; }
+  .cols { grid-template-columns: 1fr; }
+}
+
+.home-block { margin-top: 96px; display: grid; grid-template-columns: 1fr; gap: 28px; }
+.home-block .frame { box-shadow: none; }
+
+/* ---------- Data ---------- */
+.sources { margin-top: 48px; display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; }
+.sources > div { border-top: 1px solid var(--line); padding-top: 18px; }
+.sources h3 { font-size: 16px; font-weight: 700; }
+.sources p { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: var(--body); }
+.provenance { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; font-size: 14px; color: var(--meta); }
+.provenance code { font-family: var(--font); font-size: 12.5px; padding: 4px 10px; border-radius: 6px; background: #fff; border: 1px solid var(--line); color: var(--slate); }
+.stats { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.stat { background: #fff; border: 1px solid var(--line); border-radius: var(--r-card); padding: 26px 28px; }
+.stat .n { font-size: 44px; font-weight: 800; letter-spacing: -0.03em; color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; }
+.stat .l { margin-top: 10px; font-size: 15px; font-weight: 600; color: var(--slate); }
+.stat .s { margin-top: 4px; font-size: 13.5px; color: var(--meta); }
+.data-note { margin-top: 16px; font-size: 13px; color: var(--meta); }
+@media (max-width: 980px) { .sources { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 720px) { .stats { grid-template-columns: 1fr; } .sources { grid-template-columns: 1fr; } }
+
+/* ---------- Testimonial ---------- */
+.quote {
+  margin-top: 40px;
+  border: 1px solid var(--line); border-radius: var(--r-card); background: #fff;
+  padding: 40px 44px;
+  display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;
+}
+.quote blockquote { margin: 0; font-size: clamp(22px, 2.6vw, 30px); line-height: 1.3; font-weight: 700; letter-spacing: -0.015em; color: var(--ink); text-wrap: balance; }
+.quote blockquote::before { content: "« "; color: var(--blue); }
+.quote blockquote::after { content: " »"; color: var(--blue); }
+.quote .who { display: flex; align-items: center; gap: 12px; white-space: nowrap; }
+.quote .who img { width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line-soft); object-fit: contain; }
+.quote .who b { display: block; font-size: 15px; color: var(--ink); }
+.quote .who span { font-size: 13.5px; color: var(--meta); }
+@media (max-width: 720px) { .quote { grid-template-columns: 1fr; padding: 28px; } }
+
+/* ---------- Story ---------- */
+.story { display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: start; }
+.story img { width: 200px; height: 200px; border-radius: var(--r-card); object-fit: cover; }
+.story blockquote { margin: 0; font-size: 20px; line-height: 1.6; color: var(--slate); }
+.story .sig { margin-top: 20px; font-size: 15px; }
+.story .sig b { color: var(--ink); }
+@media (max-width: 720px) { .story { grid-template-columns: 1fr; } .story img { width: 120px; height: 120px; } }
+
+/* ---------- FAQ ---------- */
+.faq-list { margin-top: 40px; border-top: 1px solid var(--line); }
+.faq-list details { border-bottom: 1px solid var(--line); }
+.faq-list summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px;
+  padding: 22px 0; font-size: 18px; font-weight: 700; color: var(--ink);
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::after { content: "+"; font-size: 24px; font-weight: 400; color: var(--meta); flex: 0 0 auto; transition: transform .2s ease; }
+.faq-list details[open] summary::after { transform: rotate(45deg); }
+.faq-list .a { padding: 0 0 24px; max-width: 720px; font-size: 16.5px; line-height: 1.65; }
+
+/* ---------- Final CTA ---------- */
+.final { padding-block: 104px; text-align: center; }
+.final .lead { margin: 18px auto 0; max-width: 620px; }
+.final .signup { margin-top: 32px; }
+
+/* ---------- Footer ---------- */
+footer { border-top: 1px solid var(--line); padding-block: 40px; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px 32px; font-size: 14px; color: var(--meta); }
+.foot .brand { display: flex; align-items: center; gap: 14px; }
+.foot .brand .logo { font-size: 20px; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 10px 22px; }
+.foot nav a { color: var(--slate); font-weight: 500; }
+.foot nav a:hover { color: var(--ink); text-decoration: none; }
+.foot .tag { width: 100%; font-size: 13px; }
+</style>
 </head>
-<body id="top">
+<body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="javascript:window.scrollTo({top:0,behavior:'smooth'})" class="nav-logo">mazeo<span>.</span></a>
-    <div class="nav-links">
-      <a href="#how">How it works</a>
-      <a href="#features">Features</a>
-      <a href="#signals">Signals</a>
-      <a href="#usecases">Use cases</a>
-      <a href="#story">Our story</a>
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#top" aria-label="mazeo">mazeo<span class="dot">.</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#produit" data-t="nav.product">Produit</a>
+      <a href="#donnees" data-t="nav.data">Données</a>
+      <a href="#temoignages" data-t="nav.proof">Design partners</a>
+      <a href="#histoire" data-t="nav.story">Notre histoire</a>
+      <a href="#faq" data-t="nav.faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Langue / Language">
+        <button type="button" id="lang-fr" aria-pressed="true">FR</button>
+        <button type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn-ghost nav-login" href="https://app.mazeo.co" data-t="nav.login">Se connecter</a>
+      <a class="btn btn-primary" href="#acces" data-t="nav.cta">Demander un accès</a>
     </div>
-    <div class="nav-cta" style="position:relative;">
-      <a href="https://app.mazeo.co" class="btn-outline" id="navLoginBtn">Log in</a>
-      <a href="javascript:void(0)" class="btn-primary" id="navCtaBtn">Request early access</a>
-    </div>
-    <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu">
-      <span></span><span></span><span></span>
-    </button>
   </div>
-</nav>
-<!-- Mobile navigation drawer -->
-<div class="nav-mobile" id="mobileNav">
-  <button class="nav-mobile-close" id="mobileCloseBtn" aria-label="Close menu">
-    <svg viewBox="0 0 24 24" fill="none"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
-  </button>
-  <a href="#how" class="mobile-link">How it works</a>
-  <a href="#features" class="mobile-link">Features</a>
-  <a href="#signals" class="mobile-link">Signals</a>
-  <a href="#usecases" class="mobile-link">Use cases</a>
-  <a href="#story" class="mobile-link">Our story</a>
-  <div class="mobile-cta" style="position:relative;">
-    <a href="https://app.mazeo.co" class="btn-outline" id="mobileLoginBtn">Log in</a>
-    <a href="javascript:void(0)" class="btn-primary" onclick="document.getElementById('hamburgerBtn').click(); setTimeout(function(){document.getElementById('navCtaBtn').click();},350);">Request early access</a>
-  </div>
-</div>
+</header>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-badge">
-    <span class="dot"></span>
-    Now in private beta
-  </div>
-  <h1>
-    Find your next<br class="desktop-only"> <span class="hero-nowrap">Market Research <span class="hero-rotating-wrapper" id="heroRotator"><span class="hero-rotating-word" style="color:#FF374E;">partners</span><span class="hero-rotating-word" style="color:#00EF8B;">suppliers</span><span class="hero-rotating-word" style="color:#000000;">clients</span></span><span class="comma">,</span></span><br>
-    <span class="highlight">at the right time.</span>
-  </h1>
-  <p class="subtitle">
-    The intelligent market map for Market Research professionals. AI-powered matching, real-time signals, and the decision-makers you need to reach.
-  </p>
-  <div class="hero-cta">
-    <form class="hero-email waitlist-form" id="heroForm">
-      <input type="email" placeholder="your@email.com" required>
-      <button class="btn-primary" type="submit">Request early access →</button>
-    </form>
-  </div>
-  <p class="hero-note">Occasional updates on what we're building</p>
+<main id="top">
 
-  <!-- SCREENSHOT MOCKUP -->
-  <div class="hero-visual">
-    <div class="screenshot-wrapper">
-      <div class="screenshot-inner">
-        <div class="screenshot-bar">
-          <div class="dot-group"><span></span><span></span><span></span></div>
-          <div class="url-bar">app.mazeo.co</div>
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-copy">
+        <span class="badge rise"><i class="pulse" aria-hidden="true"></i><span data-t="hero.badge">Bêta privée · ouverture prochainement</span></span>
+        <h1 class="rise d1" data-t="hero.h1">Vos prochains clients en études sont déjà dans <span class="brand">mazeo<span class="dot">.</span></span></h1>
+        <p class="lead rise d2" data-t="hero.lead">Le copilote commercial des prestataires d'études. Tout le marché français profilé, les bons décideurs révélés, le bon moment détecté, et une séquence d'approche guidée jusqu'au rendez-vous.</p>
+
+        <form class="signup rise d3" id="form-hero" novalidate>
+          <div class="signup-fields">
+            <label class="sr-only" for="hero-email" hidden>Email</label>
+            <input type="email" id="hero-email" name="email" required autocomplete="email" placeholder="Email professionnel" data-t-ph="form.email">
+            <label class="sr-only" for="hero-company" hidden>Entreprise</label>
+            <input type="text" id="hero-company" name="company" autocomplete="organization" placeholder="Votre entreprise" data-t-ph="form.company">
+            <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander un accès</button>
+          </div>
+          <p class="helper" data-t="hero.helper">Ouverture prochainement. Les inscrits sont prévenus en premier, et reçoivent de temps en temps des nouvelles de ce qu'on construit.</p>
+          <p class="msg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+
+      <div class="frame-wrap rise d4">
+        <div class="frame">
+          <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">app.mazeo.co</span></div>
+          <img src="assets/02-explore-market-map.jpg" width="1502" height="812" alt="mazeo, Explore : la carte du marché français des études, par catégorie, avec les logos des entreprises" fetchpriority="high">
         </div>
-        <div class="screenshot-content" data-nosnippet>
-          <!-- Animated cursor -->
-          <div class="mock-cursor"><svg viewBox="0 0 24 24" fill="#00EF8B" stroke="white" stroke-width="1.5"><path d="M5 3l14 8-6.5 1.5L11 19z"/></svg></div>
-          <div class="mock-click-ripple"></div>
-          <div class="app-mockup">
-            <!-- App header -->
-            <div class="mock-header">
-              <div class="logo-text">mazeo<span>.</span></div>
-              <div class="mock-pill clients">End Clients</div>
-              <div class="mock-pill agencies">MR Agencies</div>
-              <div class="mock-pill data">Data Collection</div>
-              <div class="mock-pill software">Tech & Software</div>
-              <div class="mock-view-btns">
-                <div class="mock-view-btn active">Map</div>
-                <div class="mock-view-btn">List</div>
-                <div class="mock-view-btn ai">AI mazeo</div>
-              </div>
-            </div>
-            <!-- Quadrant map + panel -->
-            <div class="mock-body">
-              <div class="mock-quadrants">
-                <div class="mock-quad q-clients">
-                  <div class="mock-quad-title">End Clients · 825</div>
-                  <div class="mock-cards">
-                    <div class="mock-card"><img src="https://img.logo.dev/loreal.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="L'Oréal"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/danone.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Danone"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/orange.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Orange"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/renaultgroup.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Renault"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/lvmh.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="LVMH"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/nestle.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Nestlé"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/chanel.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Chanel"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/bnpparibas.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="BNP Paribas"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/totalenergies.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="TotalEnergies"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/airbus.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Airbus"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/carrefour.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Carrefour"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/engie.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Engie"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/adidas.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Adidas"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/se.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Schneider"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/thalesgroup.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Thales"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/stellantis.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Stellantis"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/sncf.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="SNCF"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/ubisoft.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Ubisoft"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/3m.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="3M"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/saint-gobain.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Saint-Gobain"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/axa.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="AXA"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/bouygues.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Bouygues"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/pernod-ricard.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Pernod Ricard"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/societegeneral.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="SocGen"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/accor.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Accor"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/sanofi.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Sanofi"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/dior.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Dior"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/hermes.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Hermès"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/michelin.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Michelin"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/decathlon.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Decathlon"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/edf.fr?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="EDF"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/legrand.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Legrand"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/capgemini.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Capgemini"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/publicisgroupe.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Publicis"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/safran-group.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Safran"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/veolia.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Veolia"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/kering.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Kering"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/unilever.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Unilever"></div>
-                    <div class="mock-card selected"><img src="https://img.logo.dev/pg.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="P&G"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/colgatepalmolive.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Colgate"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/jnj.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="J&J"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/mars.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Mars"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/mondelezinternational.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Mondelez"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/reckitt.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Reckitt"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/samsung.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Samsung"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/philips.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Philips"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/coca-cola.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Coca-Cola"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/pepsico.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="PepsiCo"></div>
-                    <div class="mock-card-more">+777</div>
-                  </div>
-                </div>
-                <div class="mock-quad q-agencies">
-                  <div class="mock-quad-title">MR Agencies · 341</div>
-                  <div class="mock-cards">
-                    <div class="mock-card"><img src="https://img.logo.dev/ipsos.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Ipsos"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/kantar.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Kantar"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/nielsen.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Nielsen"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/bva-group.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="BVA"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/dynata.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Dynata"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/gfk.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="GfK"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/yougov.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="YouGov"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/ifop.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Ifop"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/opinionway.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="OpinionWay"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/behaviorally.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Behaviorally"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/artefact.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Artefact"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/bainandcompany.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Bain"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/mckinsey.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="McKinsey"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/accenture.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Accenture"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/cision.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Cision"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/harrisinteractive.fr?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Harris Interactive"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/censuswide.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Censuswide"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/savanta.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Savanta"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/forrester.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Forrester"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/gartner.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Gartner"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/euromonitor.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Euromonitor"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/mintel.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Mintel"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/comscore.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="comScore"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/similarsites.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="SimilarWeb"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/circana.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Circana"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/walkerinfo.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Walker"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/jdpower.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="J.D. Power"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/woodmackenzie.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Wood Mac"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/morningconsult.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Morning C."></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/brandwatch.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Brandwatch"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/meltwater.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Meltwater"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/sprinklr.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Sprinklr"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/deloitte.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Deloitte"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/ey.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="EY"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/bcg.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="BCG"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/wpp.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="WPP"></div>
-                    <div class="mock-card-more">+305</div>
-                  </div>
-                </div>
-                <div class="mock-quad q-data">
-                  <div class="mock-quad-title">Data Collection · 47</div>
-                  <div class="mock-cards">
-                    <div class="mock-card"><img src="https://img.logo.dev/toluna.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Toluna"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/bilendi.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Bilendi"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/cint.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Cint"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/dynata.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Dynata"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/appinio.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Appinio"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/norstatgroup.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Norstat"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/sago.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Sago"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/alida.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Alida"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/potloc.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Potloc"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/roamler.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Roamler"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/guidepoint.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Guidepoint"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/testapic.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Testapic"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/testingtime.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="TestingTime"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/purespectrum.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="PureSpectrum"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/boltinsight.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Bolt Insight"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/mis-group.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="MIS Group"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/fairgen.ai?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Fairgen"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/tgmresearch.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="TGM Research"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/worldpanel.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Worldpanel"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/callson.fr?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Callson"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/airpanel.io?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Airpanel"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/mcmresearch.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="MCM Research"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/areyounet.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="AreYouNet"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/wesharetrust.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="WeShareTrust"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/episto.io?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Episto"></div>
-                    <div class="mock-card-more">+22</div>
-                  </div>
-                </div>
-                <div class="mock-quad q-software">
-                  <div class="mock-quad-title">Tech Tools · 42</div>
-                  <div class="mock-cards">
-                    <div class="mock-card"><img src="https://img.logo.dev/qualtrics.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Qualtrics"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/medallia.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Medallia"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/contentsquare.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Contentsquare"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/criteo.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Criteo"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/meltwater.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Meltwater"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/talkwalker.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Talkwalker"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/metrixlab.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="MetrixLab"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/teads.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Teads"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/happydemics.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Happydemics"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/usertesting.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="UserTesting"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/confirmit.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Confirmit"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/launchmetrics.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Launchmetrics"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/askia.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Askia"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/feedier.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Feedier"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/luxurynsight.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Luxurynsight"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/eloquant.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Eloquant"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/vocaza.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Vocaza"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/onclusive.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Onclusive"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/linkfluence.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Linkfluence"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/datelia.io?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Datelia"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/azira.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Azira"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/trajaan.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Trajaan"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/wisersolutions.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Wiser Solutions"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/lesphinx-developpement.fr?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Le Sphinx"></div>
-                    <div class="mock-card"><img src="https://img.logo.dev/licter.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Licter"></div>
-                    <div class="mock-card-more">+17</div>
-                  </div>
-                </div>
-              </div>
-              <!-- Right detail panel -->
-              <div class="mock-panel">
-                <div class="mock-panel-header">
-                  <div class="mock-panel-avatar"><img src="https://img.logo.dev/pg.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Procter & Gamble" style="width:100%;height:100%;object-fit:contain;"></div>
-                  <div>
-                    <div class="mock-panel-name">Procter & Gamble</div>
-                    <div class="mock-panel-cat">End Client · FMCG</div>
-                  </div>
-                </div>
-                <span class="mock-badge high">High match · 92%</span>
-                <div class="mock-panel-tabs">
-                  <div class="mock-panel-tab tab-info">Info</div>
-                  <div class="mock-panel-tab tab-contacts">Contacts</div>
-                </div>
-                <div class="mock-tab-info">
-                  <div class="mock-subtabs">
-                    <div class="mock-subtab st-general">General</div>
-                    <div class="mock-subtab st-strength">Strength</div>
-                    <div class="mock-subtab st-financial">Financial Health</div>
-                    <div class="mock-subtab st-recruitment">MR Recruitment</div>
-                  </div>
-                  <div class="mock-info-overview">
-                    <div class="mock-info-desc">Global FMCG leader — Beauty, Grooming, Health Care, Fabric & Home Care, Baby & Family Care. Major buyer of consumer insights & market research.</div>
-                    <div class="mock-info-grid">
-                      <div><div class="mock-info-field-label">Headquarters</div><div class="mock-info-field-value">Cincinnati, US</div></div>
-                      <div><div class="mock-info-field-label">Size</div><div class="mock-info-field-value">Grand Groupe</div></div>
-                      <div><div class="mock-info-field-label">Employees</div><div class="mock-info-field-value">109 000</div></div>
-                      <div><div class="mock-info-field-label">Founded</div><div class="mock-info-field-value">1837</div></div>
-                      <div><div class="mock-info-field-label">Contacts</div><div class="mock-info-field-value">1 247</div></div>
-                      <div><div class="mock-info-field-label">Presence</div><div class="mock-info-field-value">70 countries</div></div>
-                    </div>
-                    <div class="mock-hiring-badge"><span class="signal-dot"></span> Actively hiring 5 Insights roles</div>
-                    <div class="mock-tag-row">
-                      <span class="mock-tag">1 247 contacts</span>
-                      <span class="mock-tag">Grand Groupe</span>
-                      <span class="mock-tag">FMCG</span>
-                    </div>
-                  </div>
-                  <div class="mock-page-spec">
-                    <div class="mock-spec-row"><div class="mock-spec-label">Consumer Segmentation</div><div class="mock-spec-bar"><div class="mock-spec-bar-fill bar-90"></div></div><div class="mock-spec-pct">3/3</div></div>
-                    <div class="mock-spec-row"><div class="mock-spec-label">Brand Communications</div><div class="mock-spec-bar"><div class="mock-spec-bar-fill bar-90"></div></div><div class="mock-spec-pct">3/3</div></div>
-                    <div class="mock-spec-row"><div class="mock-spec-label">Innovation & Product Test</div><div class="mock-spec-bar"><div class="mock-spec-bar-fill bar-90"></div></div><div class="mock-spec-pct">3/3</div></div>
-                    <div class="mock-spec-row"><div class="mock-spec-label">Shopper & Retail</div><div class="mock-spec-bar"><div class="mock-spec-bar-fill bar-85"></div></div><div class="mock-spec-pct">3/3</div></div>
-                  </div>
-                  <div class="mock-page-financial">
-                    <div class="mock-health-badge"><span class="mock-health-icon">✅</span><div><div class="mock-health-text">Healthy</div><div class="mock-health-sub">Growing &amp; profitable</div></div></div>
-                    <div class="mock-metric-row">
-                      <div class="mock-metric-item"><div class="mock-metric-label">Revenue</div><div class="mock-metric-value">$84.3B <span class="mock-metric-trend up">+2%</span></div></div>
-                      <div class="mock-metric-item"><div class="mock-metric-label">Op. Margin</div><div class="mock-metric-value">23.9% <span class="mock-metric-trend up">+0.8pt</span></div></div>
-                    </div>
-                    <div class="mock-metric-row">
-                      <div class="mock-metric-item"><div class="mock-metric-label">Headcount</div><div class="mock-metric-value">107 000 <span class="mock-metric-trend neutral">~</span></div></div>
-                      <div class="mock-metric-item"><div class="mock-metric-label">Score</div><div class="mock-metric-value">A+ <span style="font-size:8px;color:#059669;">Strong</span></div></div>
-                    </div>
-                  </div>
-                  <div class="mock-page-signals">
-                    <div class="mock-signal-badge"><span class="signal-dot"></span> Actively hiring — 5 Insights roles open</div>
-                    <div class="mock-job-item"><div class="mock-job-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div><div class="mock-job-title">Consumer Insights Manager</div><div class="mock-job-date">Posted 2d ago</div></div></div>
-                    <div class="mock-job-item"><div class="mock-job-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div><div class="mock-job-title">Brand Research Lead</div><div class="mock-job-date">Posted 4d ago</div></div></div>
-                    <div class="mock-job-item"><div class="mock-job-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div><div class="mock-job-title">Data Analytics – Shopper</div><div class="mock-job-date">Posted 1w ago</div></div></div>
-                  </div>
-                </div>
-                <div class="mock-tab-contacts">
-                  <div class="mock-contact-row">
-                    <div class="mock-contact-avatar"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Claire&backgroundColor=b6e3f4" alt="CM"></div>
-                    <div class="mock-contact-info"><div class="mock-contact-name">Claire Martin</div><div class="mock-contact-role">VP Consumer Insights</div><div class="mock-contact-email">c.martin@pg.com</div></div>
-                  </div>
-                  <div class="mock-contact-row">
-                    <div class="mock-contact-avatar"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Thomas&backgroundColor=c0aede" alt="TD"></div>
-                    <div class="mock-contact-info"><div class="mock-contact-name">Thomas Durand</div><div class="mock-contact-role">Director Market Research</div><div class="mock-contact-email">t.durand@pg.com</div></div>
-                  </div>
-                  <div class="mock-contact-row">
-                    <div class="mock-contact-avatar"><img src="https://api.dicebear.com/9.x/personas/svg?seed=Sophie&backgroundColor=ffd5dc" alt="SL"></div>
-                    <div class="mock-contact-info"><div class="mock-contact-name">Sophie Leroux</div><div class="mock-contact-role">Head of Analytics EMEA</div><div class="mock-contact-email">s.leroux@pg.com</div></div>
-                  </div>
-                  <div class="mock-see-more"><span class="mock-see-more-text">See 412 others →</span></div>
-                  <div class="mock-reveal-btn">Reveal emails</div>
-                </div>
-              </div>
-            </div>
+        <div class="frame-caption">
+          <span data-t="hero.caption">Explore · The Market — le marché français des études, en quatre catégories.</span>
+          <div class="chips">
+            <span class="chip" data-t="cat.1">Acheteurs d'études</span>
+            <span class="chip" data-t="cat.2">Prestataires d'études</span>
+            <span class="chip" data-t="cat.3">Terrain &amp; data collection</span>
+            <span class="chip" data-t="cat.4">Outils &amp; services tech</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- LOGOS -->
-<section class="logos-section">
-  <div class="label">Companies already mapped in Mazeo</div>
+  <!-- ============ DESIGN PARTNERS STRIP ============ -->
+  <section class="strip">
+    <div class="container">
+      <p data-t="strip.p">En bêta privée avec 9 prestataires d'études depuis mars 2026</p>
+      <div class="logos">
+        <figure><img src="assets/dp-episto.jpg" alt="" width="30" height="30"><figcaption>Episto</figcaption></figure>
+        <figure><img src="assets/dp-moai.jpg" alt="" width="30" height="30"><figcaption>Moaï</figcaption></figure>
+        <figure><img src="assets/dp-statmore.png" alt="" width="30" height="30"><figcaption>Stat &amp; More</figcaption></figure>
+        <figure><img src="assets/dp-licter.jpg" alt="" width="30" height="30"><figcaption>Licter</figcaption></figure>
+        <figure><img src="assets/dp-mainframe.png" alt="" width="30" height="30"><figcaption>Main Frame</figcaption></figure>
+        <figure><img src="assets/dp-iligo.jpg" alt="" width="30" height="30"><figcaption>iligo</figcaption></figure>
+        <figure><img src="assets/dp-reperes.jpg" alt="" width="30" height="30"><figcaption>Repères</figcaption></figure>
+      </div>
+    </div>
+  </section>
 
-  <div class="logos-row-label">End Clients</div>
-  <div class="marquee-container">
-    <div class="marquee-track" id="marquee-clients">
-      <!-- Row 1: End Clients — duplicated for seamless loop -->
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/loreal.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="L'Oréal"><span>L'Oréal</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/orange.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Orange"><span>Orange</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/se.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Schneider Electric"><span>Schneider Electric</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/renaultgroup.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Renault"><span>Renault</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/engie.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="ENGIE"><span>ENGIE</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/airbus.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Airbus"><span>Airbus</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/thalesgroup.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Thales"><span>Thales</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/stellantis.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Stellantis"><span>Stellantis</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/chanel.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="CHANEL"><span>CHANEL</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/danone.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Danone"><span>Danone</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/sncf-voyageurs.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="SNCF"><span>SNCF</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/bpifrance.fr?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Bpifrance"><span>Bpifrance</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/carrefour.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Carrefour"><span>Carrefour</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/ubisoft.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Ubisoft"><span>Ubisoft</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/lvmh.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="LVMH"><span>LVMH</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/bnpparibas.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="BNP Paribas"><span>BNP Paribas</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/totalenergies.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="TotalEnergies"><span>TotalEnergies</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/lapostegroupe.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="La Poste"><span>La Poste</span></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/loreal.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="L'Oréal"><span>L'Oréal</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/orange.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Orange"><span>Orange</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/se.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Schneider Electric"><span>Schneider Electric</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/renaultgroup.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Renault"><span>Renault</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/engie.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="ENGIE"><span>ENGIE</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/airbus.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Airbus"><span>Airbus</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/thalesgroup.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Thales"><span>Thales</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/stellantis.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Stellantis"><span>Stellantis</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/chanel.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="CHANEL"><span>CHANEL</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/danone.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Danone"><span>Danone</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/sncf-voyageurs.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="SNCF"><span>SNCF</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/bpifrance.fr?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Bpifrance"><span>Bpifrance</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/carrefour.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Carrefour"><span>Carrefour</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/ubisoft.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Ubisoft"><span>Ubisoft</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/lvmh.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="LVMH"><span>LVMH</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/bnpparibas.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="BNP Paribas"><span>BNP Paribas</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/totalenergies.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="TotalEnergies"><span>TotalEnergies</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/lapostegroupe.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="La Poste"><span>La Poste</span></div>
-    </div>
-  </div>
-
-  <div class="logos-row-label">Market Research Agencies</div>
-  <div class="marquee-container">
-    <div class="marquee-track reverse" id="marquee-agencies">
-      <!-- Row 2: MR Agencies — duplicated for seamless loop -->
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/ipsos.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Ipsos"><span>Ipsos</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/nielseniq.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="GfK / NielsenIQ"><span>GfK / NielsenIQ</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/kantar.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Kantar"><span>Kantar</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/iqvia.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="IQVIA"><span>IQVIA</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/ifop.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Ifop"><span>Ifop</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/mediametrie.fr?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Médiamétrie"><span>Médiamétrie</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/circana.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Circana"><span>Circana</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/opinion-way.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="OpinionWay"><span>OpinionWay</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/csa.eu?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="CSA"><span>CSA</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/enov.fr?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Enov"><span>Enov</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/eurofins.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Eurofins"><span>Eurofins</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/qualimetrie.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Qualimétrie"><span>Qualimétrie</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/toluna.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Toluna"><span>Toluna</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/dynata.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Dynata"><span>Dynata</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/qualtrics.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Qualtrics"><span>Qualtrics</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/norstatgroup.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Norstat"><span>Norstat</span></div>
-      <!-- Duplicate for seamless loop -->
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/ipsos.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Ipsos"><span>Ipsos</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/nielseniq.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="GfK / NielsenIQ"><span>GfK / NielsenIQ</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/kantar.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Kantar"><span>Kantar</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/iqvia.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="IQVIA"><span>IQVIA</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/ifop.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Ifop"><span>Ifop</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/mediametrie.fr?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Médiamétrie"><span>Médiamétrie</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/circana.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Circana"><span>Circana</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/opinion-way.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="OpinionWay"><span>OpinionWay</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/csa.eu?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="CSA"><span>CSA</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/enov.fr?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Enov"><span>Enov</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/eurofins.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Eurofins"><span>Eurofins</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/qualimetrie.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Qualimétrie"><span>Qualimétrie</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/toluna.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Toluna"><span>Toluna</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/dynata.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Dynata"><span>Dynata</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/qualtrics.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Qualtrics"><span>Qualtrics</span></div>
-      <div class="logo-item"><img loading="lazy" src="https://img.logo.dev/norstatgroup.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="Norstat"><span>Norstat</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="stats-section">
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-number">1,200+</div>
-      <div class="stat-label">Companies profiled</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">5,000+</div>
-      <div class="stat-label">Decision-makers identified</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">17</div>
-      <div class="stat-label">Specialization dimensions</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-number">9</div>
-      <div class="stat-label">Industry categories</div>
-    </div>
-    <div class="stat-card stat-france" style="grid-column: 1 / -1;">
-      <div class="stat-france-inner">
-        <span class="france-flag">&#127467;&#127479;</span>
+  <!-- ============ WHO / POSITIONING ============ -->
+  <section class="section" id="pour-qui">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-t="who.eyebrow">Pour qui</span>
+        <h2 class="title" data-t="who.h2">Construit pour ceux qui vendent des études.</h2>
+        <p class="lead" data-t="who.p">Instituts et agences, terrain et data collection, éditeurs d'outils, cabinets de conseil, indépendants : mazeo est réservé au market research. Il connaît votre métier, son vocabulaire, ses acheteurs et ses signaux.</p>
+      </div>
+      <div class="nots">
         <div>
-          <div class="stat-france-title">French Market Research — mapped first</div>
-          <div class="stat-france-sub">More countries coming soon</div>
+          <h3><span>✕</span><span data-t="not1.h">Pas un annuaire</span></h3>
+          <p data-t="not1.p">Les annuaires du secteur sont déclaratifs : les entreprises s'y inscrivent. mazeo construit chaque fiche, la note et la met à jour.</p>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how">
-  <div class="section-header">
-    <div class="section-pill">How it works</div>
-    <h2>From market map to pipeline in 3 steps</h2>
-    <p>No more spreadsheets, no more guesswork. Mazeo does the heavy lifting so you can focus on closing deals.</p>
-  </div>
-
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-number">1</div>
-      <h3>Tell us who you are</h3>
-      <p>Enter your company — we analyze your website, LinkedIn, and media presence to build your MR profile and identify your specializations automatically.</p>
-      <div class="step-visual">
-        <div class="mini-tag">Brand & Communication</div>
-        <div class="mini-tag">CX & Satisfaction</div>
-        <div class="mini-tag">Innovation</div>
-        <div class="mini-tag">Qualitative</div>
-        <div class="mini-tag">B2B Research</div>
-      </div>
-    </div>
-    <div class="step-card">
-      <div class="step-number">2</div>
-      <h3>Get matched prospects</h3>
-      <p>Our engine calculates relevance scores across 17 specialization dimensions. You get a ranked list of your best-fit clients or partners — scored High, Medium or Low.</p>
-      <div class="step-visual" style="display: flex; flex-direction: column; gap: 6px;">
-        <div class="mini-score high">● High match — L'Oréal, Danone, Unilever</div>
-        <div class="mini-score med">● Medium — Nestlé, P&G, Colgate</div>
-      </div>
-    </div>
-    <div class="step-card">
-      <div class="step-number">3</div>
-      <h3>Build your pipeline</h3>
-      <p>Add prospects to your Dashboard, track status, reveal the emails of the right decision-makers, and act on real-time signals — like revenue growth, leadership changes, or MR hiring activity.</p>
-      <div class="step-visual" style="display: flex; gap: 6px; flex-wrap: wrap;">
-        <span style="padding: 3px 8px; border-radius: 5px; font-size: 10px; font-weight: 600; background: var(--green-light); color: #006B3F;">To contact</span>
-        <span style="padding: 3px 8px; border-radius: 5px; font-size: 10px; font-weight: 600; background: #FEF3C7; color: #92400E;">Contacted</span>
-        <span style="padding: 3px 8px; border-radius: 5px; font-size: 10px; font-weight: 600; background: var(--blue-light); color: var(--blue-primary);">Reveal email</span>
-        <span style="padding: 3px 8px; border-radius: 5px; font-size: 10px; font-weight: 600; background: #FEE2E2; color: #991B1B;">📈 Revenue growth</span>
-        <span style="padding: 3px 8px; border-radius: 5px; font-size: 10px; font-weight: 600; background: #FFF7ED; color: #9A3412;">🔍 Hiring MR</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features-section" id="features">
-  <div class="section-header">
-    <div class="section-pill">Features</div>
-    <h2>Everything you need to find the right match</h2>
-    <p>Purpose-built for the Market Research industry. Not another generic sales tool.</p>
-  </div>
-
-  <div class="features-grid">
-    <div class="feature-row">
-      <div class="feature-card">
-        <div class="feature-icon blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg></div>
-        <h3>Interactive Market Map</h3>
-        <p>Explore the entire Market Research ecosystem visually. 1,200+ companies organized by category — End Clients, MR Agencies, Data Collection, Tech Tools, Consulting, Media, Institutionals. Click any company for deep insights.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon green"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-        <h3>AI-Powered Matching</h3>
-        <p>Our engine scores every company pair across 17 specialization dimensions — from Brand & Communication to Healthcare & Pharma. Each match comes with a relevance score and an explanation of why it fits. The AI also recommends which contact to reach out to based on your context and objectives.</p>
-      </div>
-    </div>
-    <div class="feature-row">
-      <div class="feature-card">
-        <div class="feature-icon orange"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="8" y1="9" x2="16" y2="9"/><line x1="8" y1="13" x2="14" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/></svg></div>
-        <h3>Dashboard</h3>
-        <p>Manage your pipeline with status tracking, notes, and prioritized lists. Search by similarity — find companies that match the profile of your best clients or providers. Create multiple pools and export up to 20 contacts per batch.</p>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon purple"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Key Contacts</h3>
-        <p>For each company, access the relevant decision-makers with their role, seniority, specialization, and direct LinkedIn profile. Reveal any prospect's professional email in one click. 5,000+ professionals already identified and classified.</p>
-      </div>
-    </div>
-    <div class="feature-row">
-      <div class="feature-card wide">
-        <div class="feature-icon blue"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
-        <h3>AI-Powered Search & Chat</h3>
-        <p>Ask Mazeo anything in natural language — "Show me MR agencies strong in healthcare with more than 50 employees" or "Which end clients are growing their insights team?". The AI queries the entire database and returns structured results instantly.</p>
-        <div class="ai-prompts">
-          <div class="ai-prompt"><span class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span> "Show me MR agencies specialized in Healthcare with 50+ employees"</div>
-          <div class="ai-prompt"><span class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span> "Which end clients are growing their insights team?"</div>
-          <div class="ai-prompt"><span class="prompt-icon"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span> "Show me P&amp;G's top research partners and their specializations"</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SIGNALS -->
-<section class="signals-section" id="signals">
-  <div class="signals-content">
-    <div class="signals-text">
-      <div class="section-pill">New</div>
-      <h2>Know <span class="highlight">when</span> to act</h2>
-      <p>Mazeo detects weak signals to help you reach the right companies at the right moment. Starting with recruitment — more signals coming soon.</p>
-
-      <div class="signal-item">
-        <div class="signal-icon green-bg"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg></div>
         <div>
-          <h4>Insights team hiring</h4>
-          <p>Open positions signal a growing need for Market Research services and partners.</p>
+          <h3><span>✕</span><span data-t="not2.h">Pas un Sales Navigator</span></h3>
+          <p data-t="not2.p">Un outil générique ne sait pas qui achète des études B2B ou des tests produits. mazeo, si : c'est son seul métier.</p>
         </div>
-      </div>
-      <div class="signal-item">
-        <div class="signal-icon blue-bg"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <div>
-          <h4>Budget growing</h4>
-          <p>Increasing insights investment means more capacity to buy studies and tools. <em>Coming soon</em></p>
+          <h3><span>✕</span><span data-t="not3.h">Pas un CRM, pas d'emailing de masse</span></h3>
+          <p data-t="not3.p">Pas d'opportunités ni de prévisions, pas de séquences automatiques. Des messages écrits pour une personne, envoyés par vous.</p>
         </div>
       </div>
-      <div class="signal-item">
-        <div class="signal-icon orange-bg"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+    </div>
+  </section>
+
+  <!-- ============ PRODUCT LOOP ============ -->
+  <section class="section tint" id="produit">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-t="loop.eyebrow">Comment ça marche</span>
+        <h2 class="title" data-t="loop.h2">De la carte du marché au rendez-vous.</h2>
+        <p class="lead" data-t="loop.p">Quatre surfaces, une boucle. Chaque écran répond à la même question : quelle est la prochaine action, sur qui, et pourquoi maintenant.</p>
+      </div>
+
+      <div class="steps">
+
+        <!-- 1 · Explore -->
+        <article class="step">
+          <div class="step-copy">
+            <span class="num"><b>1</b> Explore</span>
+            <h3 data-t="s1.h">Tout le marché, classé et noté.</h3>
+            <p data-t="s1.p1">1 000+ entreprises du market research français, en quatre catégories. Chaque fiche est profilée par l'IA de mazeo : catégorie, secteur, taille, effectif, et les études qu'elle achète, notées sur 3 par domaine.</p>
+            <p data-t="s1.p2">Vos Matches classent les entreprises par affinité avec votre offre, avec un score en pourcentage et son explication.</p>
+            <div class="frag ui" aria-label="Exemple de notation des besoins d'études">
+              <div class="row"><span class="lab" data-t="dom.1">Innovation &amp; Tests produits</span><span class="bars"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="sc">3/3</span></div>
+              <div class="row"><span class="lab" data-t="dom.2">Études B2B</span><span class="bars"><i class="on"></i><i class="on"></i><i></i></span><span class="sc">2/3</span></div>
+              <div class="row"><span class="lab" data-t="dom.3">CX &amp; Satisfaction</span><span class="bars"><i class="on"></i><i></i><i></i></span><span class="sc">1/3</span></div>
+              <div class="src" data-t="src.ai">Besoins d'études · Source : IA mazeo</div>
+            </div>
+          </div>
+          <div class="step-visual">
+            <div class="frame">
+              <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">app.mazeo.co</span></div>
+              <img src="assets/03-fiche-entreprise-3m.jpg" width="1502" height="812" loading="lazy" alt="Fiche entreprise dans mazeo : identité, spécialisations notées sur 3, signaux et contacts">
+            </div>
+          </div>
+        </article>
+
+        <!-- 2 · Contacts -->
+        <article class="step flip">
+          <div class="step-copy">
+            <span class="num"><b>2</b> Contacts</span>
+            <h3 data-t="s2.h">Les bons décideurs, révélés.</h3>
+            <p data-t="s2.p1">Pour chaque entreprise, les personnes qui comptent pour vous : intitulé, séniorité, spécialisation, profil LinkedIn. Révélez leur email et leur téléphone en un clic, rangez-les en listes, exportez.</p>
+            <p data-t="s2.p2">10 000+ contacts du métier, mis à jour chaque mois.</p>
+            <div class="frag pills" aria-label="Niveaux de séniorité">
+              <span class="pill grey">C-Level</span><span class="pill grey">VP / Executive</span><span class="pill grey">Director</span><span class="pill grey">Senior Manager</span><span class="pill grey">Senior</span>
+            </div>
+            <div class="cta-mini"><span class="btn btn-ghost" data-t="ui.email">Email</span><span class="btn btn-ghost" data-t="ui.phone">Téléphone</span><span class="stepn" data-t="src.li">Source : LinkedIn</span></div>
+          </div>
+          <div class="step-visual">
+            <div class="frame">
+              <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">app.mazeo.co</span></div>
+              <img src="assets/05-lists-contacts.jpg" width="1502" height="812" loading="lazy" alt="Listes de contacts dans mazeo : entreprise, signal, email et téléphone révélés, spécialisations">
+            </div>
+          </div>
+        </article>
+
+        <!-- 3 · Watch -->
+        <article class="step">
+          <div class="step-copy">
+            <span class="num"><b>3</b> Watch</span>
+            <h3 data-t="s3.h">Le bon moment, détecté.</h3>
+            <p data-t="s3.p1">Suivez les entreprises et les contacts qui comptent. mazeo lit les signaux qui font le bon moment : une équipe études qui recrute, avec l'offre ; des mouvements d'équipe ; un chiffre d'affaires qui progresse ; un décideur qui change d'entreprise.</p>
+            <p data-t="s3.p2">Chaque signal dit en une phrase pourquoi il compte. Le mercredi, un résumé par email.</p>
+            <div class="frag pills" aria-label="Types de signaux">
+              <span class="pill blue" data-t="sig.1">Recrutement</span>
+              <span class="pill violet" data-t="sig.2">Mouvements d'équipe</span>
+              <span class="pill green" data-t="sig.3">CA progresse</span>
+              <span class="pill amber" data-t="sig.4">A changé d'entreprise</span>
+              <span class="pill grey" data-t="sig.5">Nouvelle offre</span>
+              <span class="pill grey" data-t="sig.6">Bio mise à jour</span>
+            </div>
+          </div>
+          <div class="step-visual">
+            <div class="frame">
+              <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">app.mazeo.co</span></div>
+              <img src="assets/04-watch-signaux.jpg" width="1502" height="812" loading="lazy" alt="Watch dans mazeo : les signaux des entreprises suivies, du plus frais au plus ancien">
+            </div>
+          </div>
+        </article>
+
+        <!-- 4 · Pipeline -->
+        <article class="step flip">
+          <div class="step-copy">
+            <span class="num"><b>4</b> Pipeline</span>
+            <h3 data-t="s4.h">Une séquence guidée, jusqu'au rendez-vous.</h3>
+            <p data-t="s4.p1">Trois colonnes, chacune avec son objectif. À chaque étape, mazeo vous dit quoi faire, sur quel canal et quand : ouvrir le profil, ajouter sur LinkedIn, écrire, relancer par email, appeler. Il rédige le message dans votre ton. Vous l'envoyez vous-même : mazeo n'envoie jamais rien à votre place.</p>
+            <p data-t="s4.p2">Avant le rendez-vous, une fiche de préparation. Après, les relances datées.</p>
+            <div class="frag cols" aria-label="Les trois colonnes du pipeline">
+              <div class="col"><div class="h"><i></i><span data-t="col1.h">Prise de contact</span></div><div class="o" data-t="col1.o">Obtenir une réponse</div></div>
+              <div class="col"><div class="h"><i></i><span data-t="col2.h">En conversation</span></div><div class="o" data-t="col2.o">Obtenir un rendez-vous</div></div>
+              <div class="col"><div class="h"><i></i><span data-t="col3.h">Rendez-vous</span></div><div class="o" data-t="col3.o">En faire un client</div></div>
+            </div>
+            <div class="cta-mini"><span class="btn btn-primary" data-t="ui.write">Écrivez-leur sur LinkedIn</span><span class="stepn" data-t="ui.step">étape 3 sur 6</span></div>
+          </div>
+          <div class="step-visual">
+            <div class="frame">
+              <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">app.mazeo.co</span></div>
+              <img src="assets/06-pipeline-kanban-net.png" width="1512" height="806" loading="lazy" alt="Pipeline dans mazeo : trois colonnes avec leur objectif, une carte par personne, l'action à faire et l'échéance">
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="home-block">
+        <div class="section-head" style="margin-bottom:0">
+          <span class="eyebrow" data-t="home.eyebrow">Chaque matin</span>
+          <h3 class="title" style="font-size:clamp(26px,3vw,34px)" data-t="home.h">Ce qui demande votre attention aujourd'hui.</h3>
+          <p class="lead" data-t="home.p">Les étapes en retard, les entreprises de votre Watch qui ont bougé, les nouveaux contacts, vos Matches du moment. Le lundi, un point sur votre pipeline par email ; le mercredi, les signaux de la semaine.</p>
+        </div>
+        <div class="frame">
+          <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">app.mazeo.co</span></div>
+          <img src="assets/01-home.jpg" width="1502" height="812" loading="lazy" alt="Page d'accueil de mazeo : ce qui demande votre attention aujourd'hui, entreprises issues de vos Matches, contacts sélectionnés pour vous">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DATA ============ -->
+  <section class="section" id="donnees">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-t="data.eyebrow">La donnée</span>
+        <h2 class="title" data-t="data.h2">Une base construite, pas déclarée.</h2>
+        <p class="lead" data-t="data.p">Chaque fiche est assemblée à partir des sources publiques du métier, notée par l'IA de mazeo et relue par l'équipe. La provenance est affichée sous chaque information : ce qui est inféré n'est jamais présenté comme un fait.</p>
+      </div>
+
+      <div class="sources">
+        <div><h3>LinkedIn</h3><p data-t="src1.p">Profils, intitulés, séniorité, mouvements d'équipe, changements d'entreprise.</p></div>
+        <div><h3 data-t="src2.h">Sites des entreprises</h3><p data-t="src2.p">Offre, spécialisations, secteurs, clients cités.</p></div>
+        <div><h3>Pappers</h3><p data-t="src3.p">SIREN, chiffre d'affaires, dirigeants, procédures : le registre officiel.</p></div>
+        <div><h3 data-t="src4.h">Offres d'emploi</h3><p data-t="src4.p">Les postes ouverts en études et insights, avec l'offre elle-même.</p></div>
+        <div><h3 data-t="src5.h">IA mazeo</h3><p data-t="src5.p">Profil, besoins d'études notés sur 3, résumé, explication de chaque match.</p></div>
+      </div>
+
+      <div class="provenance">
+        <span data-t="prov.l">Affiché sous chaque bloc de l'app :</span>
+        <code data-t="prov.1">Source : IA mazeo</code>
+        <code data-t="prov.2">Source : LinkedIn</code>
+        <code data-t="prov.3">Source : Pappers</code>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="n">1 000+</div><div class="l" data-t="st1.l">entreprises profilées</div><div class="s" data-t="st1.s">le marché français des études, en quatre catégories</div></div>
+        <div class="stat"><div class="n">10 000+</div><div class="l" data-t="st2.l">contacts du métier</div><div class="s" data-t="st2.s">décideurs et professionnels des études, avec leur séniorité</div></div>
+        <div class="stat"><div class="n">6</div><div class="l" data-t="st3.l">types de signaux</div><div class="s" data-t="st3.s">trois sur l'entreprise, trois sur le contact, expliqués un par un</div></div>
+      </div>
+      <p class="data-note" data-t="data.note">Relevé du 13 septembre 2026 · mise à jour mensuelle · les chiffres vivants sont dans l'app.</p>
+    </div>
+  </section>
+
+  <!-- ============ DESIGN PARTNERS ============ -->
+  <section class="section tint" id="temoignages">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:0">
+        <span class="eyebrow" data-t="proof.eyebrow">Design partners</span>
+        <h2 class="title" data-t="proof.h2">Ils testent mazeo depuis mars.</h2>
+        <p class="lead" data-t="proof.p">Neuf prestataires d'études utilisent mazeo en bêta privée, chaque semaine, sur leur vraie prospection. Ce qu'ils nous disent façonne le produit.</p>
+      </div>
+      <div class="quote">
+        <blockquote data-t="quote.t">J'ai une concentration d'informations prémâchées, fiable, à un seul endroit. C'est un vrai gain de temps.</blockquote>
+        <div class="who">
+          <img src="assets/dp-statmore.png" alt="" width="44" height="44">
+          <div><b>Benoît Riou</b><span data-t="quote.role">CEO, Stat &amp; More</span></div>
+        </div>
+      </div>
+      <div class="logos" style="margin-top:28px">
+        <figure><img src="assets/dp-episto.jpg" alt="" width="30" height="30"><figcaption>Episto</figcaption></figure>
+        <figure><img src="assets/dp-moai.jpg" alt="" width="30" height="30"><figcaption>Moaï</figcaption></figure>
+        <figure><img src="assets/dp-statmore.png" alt="" width="30" height="30"><figcaption>Stat &amp; More</figcaption></figure>
+        <figure><img src="assets/dp-licter.jpg" alt="" width="30" height="30"><figcaption>Licter</figcaption></figure>
+        <figure><img src="assets/dp-mainframe.png" alt="" width="30" height="30"><figcaption>Main Frame</figcaption></figure>
+        <figure><img src="assets/dp-iligo.jpg" alt="" width="30" height="30"><figcaption>iligo</figcaption></figure>
+        <figure><img src="assets/dp-reperes.jpg" alt="" width="30" height="30"><figcaption>Repères</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY ============ -->
+  <section class="section" id="histoire">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow" data-t="story.eyebrow">Notre histoire</span>
+        <h2 class="title" data-t="story.h2">Un métier bâti sur la connaissance, incapable de se cartographier.</h2>
+      </div>
+      <div class="story">
+        <img src="assets/founder.jpg" width="200" height="200" loading="lazy" alt="Romain Barbet, fondateur de mazeo">
         <div>
-          <h4>Revenue growing</h4>
-          <p>A growing company has more investment capacity for market research. <em>Coming soon</em></p>
-        </div>
-      </div>
-      <div class="signal-item">
-        <div class="signal-icon purple-bg"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"/><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M3 22v-6h6"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/></svg></div>
-        <div>
-          <h4>Organizational change</h4>
-          <p>New leadership or restructuring — the right time to reconnect. <em>Coming soon</em></p>
+          <blockquote data-t="story.q">J'ai passé cinq ans au cœur des études en Europe. Une industrie de plusieurs milliards, bâtie sur la connaissance, et incapable de se cartographier elle-même. Les acheteurs fonctionnent au bouche-à-oreille, les prestataires prospectent à l'aveugle. Personne n'a une vue claire de qui fait quoi. mazeo est l'outil dont ce métier avait besoin sans jamais l'avoir eu : chaque entreprise profilée, chaque spécialisation identifiée, chaque bon contact révélé.</blockquote>
+          <p class="sig"><b>Romain Barbet</b>, <span data-t="story.role">fondateur de mazeo</span> · <a href="https://www.linkedin.com/in/romain-barbet/" rel="noopener" target="_blank">LinkedIn</a></p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="signals-visual">
-      <div class="signal-card-demo">
-        <div class="signal-card-header">
-          <span class="dot-green"></span>
-          <span>Actively hiring</span>
-        </div>
-        <div class="signal-card-body">
-          The Insights & Market Research team at <strong>Danone</strong> is currently hiring <strong>3 people</strong>.
-        </div>
+  <!-- ============ FAQ ============ -->
+  <section class="section tint" id="faq">
+    <div class="container">
+      <div class="section-head" style="margin-bottom:0">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="title" data-t="faq.h2">Les questions qu'on nous pose.</h2>
       </div>
-      <div class="signal-jobs">
-        <div class="signal-jobs-header">
-          <span>Job title</span>
-          <span>Seniority</span>
-          <span>Type</span>
-        </div>
-        <div class="signal-job-row">
-          <span class="signal-job-title">Consumer Insights Manager</span>
-          <span class="signal-job-level">Mid-Senior</span>
-          <span class="signal-job-type">Full-time</span>
-        </div>
-        <div class="signal-job-row">
-          <span class="signal-job-title">Market Research Analyst</span>
-          <span class="signal-job-level">Entry level</span>
-          <span class="signal-job-type">Full-time</span>
-        </div>
-        <div class="signal-job-row">
-          <span class="signal-job-title">Head of Insights EMEA</span>
-          <span class="signal-job-level">Director</span>
-          <span class="signal-job-type">Full-time</span>
-        </div>
-      </div>
-      <p style="font-size: 11px; color: var(--gray-400); margin-top: 12px; text-align: center;">Source: LinkedIn · Updated daily</p>
-    </div>
-  </div>
-</section>
-
-<!-- USE CASES -->
-<section class="usecases-section" id="usecases">
-  <div class="section-header">
-    <div class="section-pill">Use cases</div>
-    <h2>Built for every player in Market Research</h2>
-    <p>Whether you sell studies, collect data, or buy insights — Mazeo helps you find the right match.</p>
-  </div>
-
-  <div class="usecase-grid">
-    <div class="usecase-card">
-      <div class="uc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
-      <h3>Find clients</h3>
-      <p>Identify companies that buy studies, panels, or tech solutions — with their budgets, decision-makers, and the best time to reach out.</p>
-      <div class="uc-for">For MR Agencies, Consulting Firms, Data Collection, Tech Tools</div>
-    </div>
-    <div class="usecase-card">
-      <div class="uc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
-      <h3>Find partners</h3>
-      <p>Spot complementary players for strategic partnerships — agencies with different specializations, or data companies covering your blind spots.</p>
-      <div class="uc-for">For MR Agencies, Consulting Firms, End Clients</div>
-    </div>
-    <div class="usecase-card">
-      <div class="uc-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-      <h3>Prioritize actions</h3>
-      <p>Focus your efforts on accounts in motion — growing budgets, active hiring, leadership changes. Stop wasting time on cold leads.</p>
-      <div class="uc-for">For all Market Research professionals</div>
-    </div>
-  </div>
-</section>
-
-<!-- FOUNDER -->
-<section class="founder-section" id="story">
-  <div class="founder-content">
-    <div class="section-pill" style="margin-bottom: 32px;">Why we're building this</div>
-    <p class="founder-quote">
-      "I spent 5 years at the heart of market research in Europe. A multi-billion dollar industry built on knowledge — yet unable to map itself. Buyers rely on word of mouth, suppliers prospect blind. No one has a clear picture of who does what. <strong>Mazeo is the tool the entire industry needs but never had: every company profiled, every specialization identified, every right contact revealed.</strong>"
-    </p>
-    <div class="founder-info">
-      <div class="founder-avatar"><img loading="lazy" src="Profile picture Linkedin.png" alt="Romain Barbet"></div>
-      <div style="text-align: left;">
-        <div class="founder-name">Romain Barbet</div>
-        <div class="founder-title">Founder, mazeo</div>
-        <a href="https://www.linkedin.com/in/romain-barbet/" target="_blank" class="founder-link">LinkedIn profile →</a>
+      <div class="faq-list">
+        <details>
+          <summary data-t="q1">mazeo est-il un CRM ?</summary>
+          <div class="a" data-t="a1">Non. Pas d'opportunités, pas de montants, pas de prévisions. mazeo vous amène jusqu'au rendez-vous ; votre CRM prend le relais.</div>
+        </details>
+        <details>
+          <summary data-t="q2">mazeo envoie-t-il des messages à ma place ?</summary>
+          <div class="a" data-t="a2">Jamais. Il rédige, vous relisez, et vous envoyez vous-même depuis LinkedIn ou votre boîte mail. Votre compte LinkedIn n'est jamais exposé.</div>
+        </details>
+        <details>
+          <summary data-t="q3">D'où viennent les données ?</summary>
+          <div class="a" data-t="a3">Des sources publiques du métier : LinkedIn, sites des entreprises, registre Pappers, offres d'emploi. L'IA de mazeo assemble et note ; la provenance est affichée sous chaque information. Conformément au RGPD, toute personne peut demander la consultation ou la suppression de ses données.</div>
+        </details>
+        <details>
+          <summary data-t="q4">Pour qui est-ce fait ?</summary>
+          <div class="a" data-t="a4">Les prestataires d'études : instituts et agences, terrain et data collection, éditeurs d'outils, cabinets de conseil, indépendants. Le marché français en premier, d'autres pays ensuite.</div>
+        </details>
+        <details>
+          <summary data-t="q5">Combien ça coûte, et quand peut-on commencer ?</summary>
+          <div class="a" data-t="a5">L'ouverture est prochaine. Le prix sera annoncé à l'ouverture, et les inscrits de la liste d'attente sont prévenus en premier.</div>
+        </details>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FINAL CTA -->
-<section class="final-cta" id="access">
-  <h2>Ready to find your next Market Research <span class="cta-rotating-wrapper" id="ctaRotator"><span class="cta-rotating-word" style="color: #007BFF;">clients</span><span class="cta-rotating-word" style="color: #00EF8B;">partners</span><span class="cta-rotating-word" style="color: #FF374E;">suppliers</span></span>?</h2>
-  <p>Join the private beta. Get early access and shape the product with us.</p>
-  <form class="hero-email waitlist-form" style="display: inline-flex;" id="ctaForm">
-    <input type="email" placeholder="your@email.com" required>
-    <button class="btn-primary" type="submit">Request early access →</button>
-  </form>
-</section>
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final" id="acces">
+    <div class="container">
+      <span class="eyebrow" data-t="final.eyebrow">Ouverture prochainement</span>
+      <h2 class="title" data-t="final.h2">Prenez place avant l'ouverture.</h2>
+      <p class="lead" data-t="final.p">Laissez votre email et votre entreprise : vous serez prévenu en premier, avec un accès en avance sur l'ouverture publique.</p>
+      <form class="signup" id="form-final" novalidate>
+        <div class="signup-fields">
+          <label for="final-email" hidden>Email</label>
+          <input type="email" id="final-email" name="email" required autocomplete="email" placeholder="Email professionnel" data-t-ph="form.email">
+          <label for="final-company" hidden>Entreprise</label>
+          <input type="text" id="final-company" name="company" autocomplete="organization" placeholder="Votre entreprise" data-t-ph="form.company">
+          <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander un accès</button>
+        </div>
+        <p class="msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
-  <div class="footer-inner">
-    <div>
-      <a href="javascript:window.scrollTo({top:0,behavior:'smooth'})" class="footer-logo" style="text-decoration:none;color:inherit;">mazeo<span>.</span></a>
-      <div class="footer-tagline">Find who matters. First.</div>
+  <div class="container foot">
+    <div class="brand">
+      <a class="logo" href="#top" aria-label="mazeo">mazeo<span class="dot">.</span></a>
+      <span data-t="foot.tagline">Le copilote commercial des prestataires d'études.</span>
     </div>
-    <div class="footer-links">
+    <nav aria-label="Liens">
+      <a href="https://app.mazeo.co" data-t="nav.login">Se connecter</a>
       <a href="mailto:romain.barbet@mazeo.co">Contact</a>
-      <a href="https://www.linkedin.com/company/mazeo-tech/" target="_blank">LinkedIn</a>
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="terms.html">Terms</a>
-    </div>
-    <div class="footer-copy">© 2026 mazeo. All rights reserved.</div>
+      <a href="https://www.linkedin.com/company/mazeo-tech/" rel="noopener" target="_blank">LinkedIn</a>
+      <a href="privacy.html" data-t="foot.privacy">Confidentialité</a>
+      <a href="terms.html" data-t="foot.terms">Conditions</a>
+    </nav>
+    <p class="tag">© 2026 mazeo · <span data-t="foot.claim">Trouvez qui compte. En premier.</span></p>
   </div>
 </footer>
 
 <script>
-// Nav scroll effect
-const nav = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 20);
-});
+(function () {
+  /* ---------- Langue : FR dans le HTML, EN dans ce dictionnaire ---------- */
+  var EN = {
+    "nav.product": "Product", "nav.data": "Data", "nav.proof": "Design partners", "nav.story": "Our story", "nav.faq": "FAQ",
+    "nav.login": "Log in", "nav.cta": "Request early access",
+    "hero.badge": "Private beta · opening soon",
+    "hero.h1": "Your next Market Research clients are already in <span class=\"brand\">mazeo<span class=\"dot\">.</span></span>",
+    "hero.lead": "The sales copilot for Market Research providers. The whole French market profiled, the right decision-makers revealed, the right moment detected, and a guided outreach sequence all the way to the meeting.",
+    "form.email": "Work email", "form.company": "Your company", "form.submit": "Request early access",
+    "hero.helper": "Opening soon. People on the list hear first, plus the occasional update on what we're building.",
+    "hero.caption": "Explore · The Market — the French Market Research market, in four categories.",
+    "cat.1": "Research buyers", "cat.2": "Research providers", "cat.3": "Fieldwork &amp; data collection", "cat.4": "Tech tools &amp; services",
+    "strip.p": "In private beta with 9 Market Research providers since March 2026",
+    "who.eyebrow": "Who it's for",
+    "who.h2": "Built for the people who sell research.",
+    "who.p": "Institutes and agencies, fieldwork and data collection, tech vendors, consultancies, independents: mazeo is reserved for Market Research. It knows your trade, its vocabulary, its buyers and its signals.",
+    "not1.h": "Not a directory", "not1.p": "Industry directories are declarative: companies list themselves. mazeo builds every profile, scores it and keeps it up to date.",
+    "not2.h": "Not a Sales Navigator", "not2.p": "A generic tool doesn't know who buys B2B research or product tests. mazeo does: it's the only thing it does.",
+    "not3.h": "Not a CRM, not mass emailing", "not3.p": "No opportunities or forecasts, no automated sequences. Messages written for one person, sent by you.",
+    "loop.eyebrow": "How it works",
+    "loop.h2": "From the market map to the meeting.",
+    "loop.p": "Four surfaces, one loop. Every screen answers the same question: what's the next action, with whom, and why now.",
+    "s1.h": "The whole market, classified and scored.",
+    "s1.p1": "1,000+ companies from the French Market Research market, in four categories. Every profile is built by mazeo's AI: category, sector, size, headcount, and the research it buys, scored out of 3 per domain.",
+    "s1.p2": "Your Matches rank companies by fit with your offer, with a percentage score and the reason behind it.",
+    "dom.1": "Innovation &amp; product testing", "dom.2": "B2B research", "dom.3": "CX &amp; satisfaction",
+    "src.ai": "Research needs · Source: mazeo AI",
+    "s2.h": "The right decision-makers, revealed.",
+    "s2.p1": "For every company, the people who matter to you: title, seniority, specialisation, LinkedIn profile. Reveal their email and phone in one click, organise them in lists, export.",
+    "s2.p2": "10,000+ contacts from the trade, updated every month.",
+    "ui.email": "Email", "ui.phone": "Phone", "src.li": "Source: LinkedIn",
+    "s3.h": "The right moment, detected.",
+    "s3.p1": "Follow the companies and contacts that matter. mazeo reads the signals that make the moment: an insights team hiring, with the job post; team movements; growing revenue; a decision-maker changing company.",
+    "s3.p2": "Every signal says in one sentence why it matters. On Wednesdays, a summary by email.",
+    "sig.1": "Hiring", "sig.2": "Team movements", "sig.3": "Revenue growing", "sig.4": "Changed company", "sig.5": "New job post", "sig.6": "Bio updated",
+    "s4.h": "A guided sequence, all the way to the meeting.",
+    "s4.p1": "Three columns, each with its objective. At every step, mazeo tells you what to do, on which channel and when: open the profile, connect on LinkedIn, write, follow up by email, call. It drafts the message in your tone. You send it yourself: mazeo never sends anything on your behalf.",
+    "s4.p2": "Before the meeting, a preparation sheet. After it, dated follow-ups.",
+    "col1.h": "Reaching out", "col1.o": "Get a reply", "col2.h": "In conversation", "col2.o": "Get a meeting", "col3.h": "Meeting", "col3.o": "Turn them into a client",
+    "ui.write": "Write to them on LinkedIn", "ui.step": "step 3 of 6",
+    "home.eyebrow": "Every morning",
+    "home.h": "What needs your attention today.",
+    "home.p": "Overdue steps, companies in your Watch that moved, new contacts, your Matches of the moment. On Mondays, a pipeline check-in by email; on Wednesdays, the week's signals.",
+    "data.eyebrow": "The data",
+    "data.h2": "A database that is built, not declared.",
+    "data.p": "Every profile is assembled from the trade's public sources, scored by mazeo's AI and reviewed by the team. The source is shown under every piece of information: what is inferred is never presented as a fact.",
+    "src1.p": "Profiles, titles, seniority, team movements, company changes.",
+    "src2.h": "Company websites", "src2.p": "Offer, specialisations, sectors, named clients.",
+    "src3.p": "SIREN, revenue, executives, proceedings: the official French register.",
+    "src4.h": "Job posts", "src4.p": "Open positions in research and insights, with the post itself.",
+    "src5.h": "mazeo AI", "src5.p": "Profile, research needs scored out of 3, summary, the reason behind every match.",
+    "prov.l": "Shown under every block of the app:", "prov.1": "Source: mazeo AI", "prov.2": "Source: LinkedIn", "prov.3": "Source: Pappers",
+    "st1.l": "companies profiled", "st1.s": "the French Market Research market, in four categories",
+    "st2.l": "contacts from the trade", "st2.s": "research decision-makers and professionals, with their seniority",
+    "st3.l": "types of signals", "st3.s": "three on the company, three on the contact, each one explained",
+    "data.note": "As of 13 September 2026 · updated monthly · live figures are in the app.",
+    "proof.eyebrow": "Design partners",
+    "proof.h2": "Testing mazeo since March.",
+    "proof.p": "Nine Market Research providers use mazeo in private beta, every week, on their real prospecting. What they tell us shapes the product.",
+    "quote.t": "I have reliable, pre-digested information concentrated in one place. It really is a time saver.",
+    "quote.role": "CEO, Stat &amp; More",
+    "story.eyebrow": "Our story",
+    "story.h2": "An industry built on knowledge, unable to map itself.",
+    "story.q": "I spent five years at the heart of market research in Europe. A multi-billion industry built on knowledge, yet unable to map itself. Buyers rely on word of mouth, suppliers prospect blind. No one has a clear picture of who does what. mazeo is the tool the entire industry needed but never had: every company profiled, every specialisation identified, every right contact revealed.",
+    "story.role": "founder of mazeo",
+    "faq.h2": "The questions we get asked.",
+    "q1": "Is mazeo a CRM?", "a1": "No. No opportunities, no amounts, no forecasts. mazeo takes you to the meeting; your CRM takes over from there.",
+    "q2": "Does mazeo send messages on my behalf?", "a2": "Never. It drafts, you review, and you send it yourself from LinkedIn or your mailbox. Your LinkedIn account is never exposed.",
+    "q3": "Where does the data come from?", "a3": "From the trade's public sources: LinkedIn, company websites, the Pappers register, job posts. mazeo's AI assembles and scores; the source is shown under every piece of information. In line with GDPR, anyone can ask to see or delete their data.",
+    "q4": "Who is it for?", "a4": "Market Research providers: institutes and agencies, fieldwork and data collection, tech vendors, consultancies, independents. The French market first, other countries next.",
+    "q5": "How much does it cost, and when can I start?", "a5": "We're opening soon. Pricing will be announced at launch, and people on the waiting list hear first.",
+    "final.eyebrow": "Opening soon",
+    "final.h2": "Take your seat before we open.",
+    "final.p": "Leave your email and your company: you'll hear first, with access ahead of the public launch.",
+    "foot.tagline": "The sales copilot for Market Research providers.",
+    "foot.privacy": "Privacy", "foot.terms": "Terms",
+    "foot.claim": "Find who matters. First."
+  };
+  var META = {
+    fr: { title: "mazeo — Trouvez vos prochains clients en études", desc: "Le copilote commercial des prestataires d'études : le marché français profilé, les bons décideurs révélés, le bon moment détecté, une séquence d'approche guidée jusqu'au rendez-vous." },
+    en: { title: "mazeo — Find your next Market Research clients", desc: "The sales copilot for Market Research providers: the French market profiled, the right decision-makers revealed, the right moment detected, a guided outreach sequence all the way to the meeting." }
+  };
+  var FR = {};
+  var lang = "fr";
+  var nodes = document.querySelectorAll("[data-t]");
+  var phNodes = document.querySelectorAll("[data-t-ph]");
+  for (var i = 0; i < nodes.length; i++) { var k = nodes[i].getAttribute("data-t"); if (!(k in FR)) FR[k] = nodes[i].innerHTML; }
+  for (var j = 0; j < phNodes.length; j++) { var kp = phNodes[j].getAttribute("data-t-ph"); if (!(kp in FR)) FR[kp] = phNodes[j].getAttribute("placeholder"); }
 
-// Hamburger menu
-(function() {
-  var btn = document.getElementById('hamburgerBtn');
-  var drawer = document.getElementById('mobileNav');
-  var closeBtn = document.getElementById('mobileCloseBtn');
-  if (!btn || !drawer) return;
-  function closeDrawer() {
-    btn.classList.remove('open');
-    drawer.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  btn.addEventListener('click', function() {
-    btn.classList.toggle('open');
-    drawer.classList.toggle('open');
-    document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
-  });
-  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
-  // Close drawer on link click
-  drawer.querySelectorAll('.mobile-link').forEach(function(link) {
-    link.addEventListener('click', closeDrawer);
-  });
-})();
-
-// Smooth scroll for nav links
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
-
-// Intersection Observer for fade-in animations
-const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1';
-      entry.target.style.transform = 'translateY(0)';
+  function setLang(l, persist) {
+    lang = l === "en" ? "en" : "fr";
+    document.documentElement.lang = lang;
+    for (var i = 0; i < nodes.length; i++) {
+      var k = nodes[i].getAttribute("data-t");
+      var v = lang === "en" ? (EN[k] !== undefined ? EN[k] : FR[k]) : FR[k];
+      if (nodes[i].innerHTML !== v) nodes[i].innerHTML = v;
     }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.stat-card, .step-card, .feature-card, .usecase-card, .signal-item').forEach(el => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  observer.observe(el);
-});
-</script>
-
-<script>
-// Rotating words — reusable
-function initRotator(id) {
-  var wrapper = document.getElementById(id);
-  if (!wrapper) return;
-  var words = wrapper.querySelectorAll('.cta-rotating-word');
-  var current = 0;
-
-  function setWidth(word) {
-    word.style.position = 'relative';
-    word.style.visibility = 'hidden';
-    word.style.opacity = '1';
-    var w = word.offsetWidth;
-    word.style.position = '';
-    word.style.visibility = '';
-    word.style.opacity = '';
-    wrapper.style.width = (w + 6) + 'px';
+    for (var j = 0; j < phNodes.length; j++) {
+      var kp = phNodes[j].getAttribute("data-t-ph");
+      phNodes[j].setAttribute("placeholder", lang === "en" ? (EN[kp] || FR[kp]) : FR[kp]);
+    }
+    document.title = META[lang].title;
+    var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute("content", META[lang].desc);
+    document.getElementById("lang-fr").setAttribute("aria-pressed", lang === "fr" ? "true" : "false");
+    document.getElementById("lang-en").setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+    if (persist) { try { localStorage.setItem("mazeo-lang", lang); } catch (e) {} }
   }
+  var saved = null;
+  try { saved = localStorage.getItem("mazeo-lang"); } catch (e) {}
+  var browser = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
+  setLang(saved || browser, false);
+  document.getElementById("lang-fr").addEventListener("click", function () { setLang("fr", true); });
+  document.getElementById("lang-en").addEventListener("click", function () { setLang("en", true); });
 
-  words[0].classList.add('active');
-  setWidth(words[0]);
+  /* ---------- Nav : bordure au défilement ---------- */
+  var nav = document.getElementById("nav");
+  function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
+  window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 
-  setInterval(function() {
-    var prev = current;
-    current = (current + 1) % words.length;
-    words[prev].classList.remove('active');
-    words[prev].classList.add('exit-up');
-    setTimeout(function() { words[prev].classList.remove('exit-up'); }, 450);
-    setWidth(words[current]);
-    words[current].classList.add('active');
-  }, 2500);
-}
-
-// Hero rotator: partners → suppliers → clients (5s pause) → loop
-(function() {
-  var wrapper = document.getElementById('heroRotator');
-  if (!wrapper) return;
-  var words = wrapper.querySelectorAll('.hero-rotating-word');
-  var total = words.length; // 3: partners, suppliers, clients
-  var current = 0;
-
-  function setWidth(word) {
-    word.style.position = 'relative';
-    word.style.visibility = 'hidden';
-    word.style.opacity = '1';
-    var w = word.offsetWidth;
-    word.style.position = '';
-    word.style.visibility = '';
-    word.style.opacity = '';
-    wrapper.style.width = (w + 6) + 'px';
-  }
-
-  function showWord(index) {
-    words[index].classList.add('active');
-    setWidth(words[index]);
-  }
-
-  function hideWord(index) {
-    words[index].classList.remove('active');
-    words[index].classList.add('exit-up');
-    setTimeout(function() { words[index].classList.remove('exit-up'); }, 350);
-  }
-
-  // Start with partners
-  showWord(0);
-
-  function cycle() {
-    var prev = current;
-    current = (current + 1) % total;
-    hideWord(prev);
-    setTimeout(function() {
-      showWord(current);
-      // If we landed on clients (last word, index 2), pause 5s then continue
-      var delay = (current === total - 1) ? 5000 : 900;
-      setTimeout(cycle, delay);
-    }, 50);
-  }
-
-  setTimeout(cycle, 900);
-})();
-
-initRotator('ctaRotator');
-</script>
-
-<script>
-// Waitlist form submission
-document.querySelectorAll('.waitlist-form').forEach(function(form) {
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    var btn = form.querySelector('button');
-    var input = form.querySelector('input');
-    var email = input.value.trim();
-
-    if (!email) return;
-
-    btn.disabled = true;
-    btn.textContent = 'Sending...';
-
-    fetch('https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/waitlist-signup', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email })
-    })
-    .then(function(res) { return res.json().then(function(data) { return { ok: res.ok, data: data }; }); })
-    .then(function(result) {
-      if (result.ok && result.data.success) {
-        input.value = '';
-        btn.textContent = "You're on the list!";
-        btn.style.background = '#00EF8B';
-        setTimeout(function() {
-          btn.textContent = 'Request early access →';
-          btn.style.background = '';
-          btn.disabled = false;
-        }, 4000);
-      } else {
-        throw new Error('fail');
-      }
-    })
-    .catch(function() {
-      btn.textContent = 'Error — try again';
-      btn.style.background = '#FF374E';
-      setTimeout(function() {
-        btn.textContent = 'Request early access →';
-        btn.style.background = '';
-        btn.disabled = false;
-      }, 3000);
+  /* ---------- Formulaires : même fonction que l'ancienne page (waitlist-signup) ---------- */
+  var FN = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/waitlist-signup";
+  var MSG = {
+    fr: { ok: "C'est noté. Un email de confirmation arrive, et vous serez prévenu en premier à l'ouverture.", bad: "Entrez une adresse email valide.", err: "Ça n'a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co." },
+    en: { ok: "Noted. A confirmation email is on its way, and you'll hear first when we open.", bad: "Please enter a valid email address.", err: "That didn't work. Try again in a moment, or write to romain.barbet@mazeo.co." }
+  };
+  function wire(form) {
+    if (!form) return;
+    var msg = form.querySelector(".msg");
+    var btn = form.querySelector("button[type=submit]");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var email = (form.email.value || "").trim();
+      var company = (form.company.value || "").trim();
+      msg.className = "msg";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = MSG[lang].bad; msg.classList.add("err"); form.email.focus(); return; }
+      btn.disabled = true; btn.style.opacity = ".7";
+      fetch(FN, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept-Language": lang === "fr" ? "fr-FR,fr;q=0.9" : "en-US,en;q=0.9" },
+        body: JSON.stringify({ email: email, company: company, lang: lang, source: "landing-2026-09" })
+      }).then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok && d.ok !== false, d: d }; }); })
+        .then(function (res) {
+          if (res.ok) { msg.textContent = MSG[lang].ok; msg.classList.add("ok"); form.querySelector(".signup-fields").style.display = "none"; var h = form.querySelector(".helper"); if (h) h.style.display = "none"; }
+          else { msg.textContent = MSG[lang].err; msg.classList.add("err"); btn.disabled = false; btn.style.opacity = ""; }
+        })
+        .catch(function () { msg.textContent = MSG[lang].err; msg.classList.add("err"); btn.disabled = false; btn.style.opacity = ""; });
     });
-  });
-});
-
-// Nav CTA button: scroll to visible form + highlight
-document.getElementById('navCtaBtn').addEventListener('click', function(e) {
-  e.preventDefault();
-  e.stopPropagation();
-  var heroForm = document.getElementById('heroForm');
-  var ctaForm = document.getElementById('ctaForm');
-  var rect = heroForm.getBoundingClientRect();
-  var isHeroVisible = rect.top >= -50 && rect.top < window.innerHeight;
-
-  var targetForm = isHeroVisible ? heroForm : ctaForm;
-
-  if (!isHeroVisible) {
-    targetForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
-
-  setTimeout(function() {
-    targetForm.classList.remove('highlight-pulse');
-    void targetForm.offsetWidth; // force reflow
-    targetForm.classList.add('highlight-pulse');
-    targetForm.querySelector('input').focus();
-    setTimeout(function() { targetForm.classList.remove('highlight-pulse'); }, 2100);
-  }, isHeroVisible ? 0 : 600);
-});
-</script>
-
-<script>
-/* Mobile mockup scaling: scale the fixed-width mockup to fit its container */
-(function() {
-  var mockup = document.querySelector('.app-mockup');
-  var container = document.querySelector('.screenshot-content');
-  if (!mockup || !container) return;
-  function scaleMockup() {
-    var cw = container.offsetWidth;
-    if (cw < 1000) {
-      var s = cw / 1000;
-      mockup.style.transform = 'scale(' + s + ')';
-    } else {
-      mockup.style.transform = '';
-      mockup.style.position = '';
-      mockup.style.width = '';
-      mockup.style.height = '';
-    }
-  }
-  scaleMockup();
-  window.addEventListener('resize', scaleMockup);
+  wire(document.getElementById("form-hero"));
+  wire(document.getElementById("form-final"));
 })();
 </script>
-<script>
-const stepObs = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); stepObs.unobserve(e.target); } });
-}, { threshold: 0.2 });
-document.querySelectorAll('.step-card').forEach(c => stepObs.observe(c));
-</script>
-
 </body>
 </html>
