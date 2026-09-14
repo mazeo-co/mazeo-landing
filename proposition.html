@@ -200,7 +200,7 @@ html.js .tiles.anim .tile { opacity: 0; transform: scale(.7); }
 html.js .tiles.anim .tile.in { opacity: 1; transform: none; transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1.1); }
 .map-note { margin-top: 16px; font-size: 14px; color: var(--meta); }
 .tile img { width: 68%; height: 68%; object-fit: contain; border-radius: 4px; }
-.tile.flag::before { content: ""; position: absolute; top: -3px; left: -3px; width: 10px; height: 10px; border-radius: 50%; background: var(--green); border: 2px solid #fff; }
+.tile.flag-off::before { content: ""; position: absolute; top: -3px; left: -3px; width: 10px; height: 10px; border-radius: 50%; background: var(--green); border: 2px solid #fff; }
 .tile.more { border-color: var(--blue); background: var(--blue-tint); color: var(--blue-text); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; font-weight: 700; font-size: 15px; line-height: 1.1; }
 .tile.more small { font-size: 10.5px; font-weight: 600; }
 @media (max-width: 900px) { .mmap { grid-template-columns: 1fr; } .quad:nth-child(odd) { border-right: 0; } .quad:nth-child(n+3) { border-bottom: 1px solid var(--line-soft); } .quad:last-child { border-bottom: 0; } .tiles { grid-template-columns: repeat(6, 1fr); } .tile:nth-child(n+18):not(.more) { display: none; } }
@@ -417,7 +417,8 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 24px 32px; font-size: 14px; color: var(--meta); }
 .foot .brand { display: flex; flex-direction: column; gap: 8px; }
 .foot .brand .logo { font-size: 22px; }
-.foot .brand span { font-size: 14px; color: var(--slate); }
+.foot .brand > span { font-size: 14px; color: var(--slate); }
+.foot .brand .logo span { color: var(--green); font-size: inherit; }
 .foot nav { display: flex; flex-wrap: wrap; gap: 10px 22px; padding-top: 6px; }
 .foot nav a { color: var(--slate); font-weight: 600; }
 .foot nav a:hover { color: var(--ink); text-decoration: none; }
@@ -532,8 +533,12 @@ h3 { line-height: 1.1; }
 .builtfor { text-align: left; margin-inline: 0; max-width: var(--m-lead); }
 @media (max-width: 760px) { .quote { grid-template-columns: 1fr; gap: 20px; } }
 /* la carte : le nom au survol, les points verts qui tombent un par un */
-.tile[title]:hover::after { content: attr(title); position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); padding: 4px 8px; background: var(--ink); color: #fff; font-size: 11.5px; border-radius: var(--r-xs); white-space: nowrap; z-index: 3; pointer-events: none; }
-.tile { overflow: visible; }
+.tile[data-name]:hover::after { content: attr(data-name); position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); padding: 4px 8px; background: var(--ink); color: #fff; font-size: 11.5px; border-radius: var(--r-xs); white-space: nowrap; z-index: 3; pointer-events: none; }
+.tile { overflow: visible; transition: transform .18s ease, box-shadow .18s ease; }
+.tile:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 10px 22px -12px rgba(10,10,10,.35); z-index: 3; }
+html.js .tiles.anim .tile.in:hover { transform: translateY(-3px) scale(1.08); transition: transform .18s ease; }
+.mmap { overflow: visible; }
+.tile.more:hover::after { content: none; }
 .tile img { border-radius: var(--r-xs); }
 .tile.flag::before { transform: scale(0); }
 html.js .tiles.anim .tile.flag.dot::before { transform: scale(1); transition: transform .3s cubic-bezier(.2,.8,.2,1.3); }
@@ -647,7 +652,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
     <div class="scoring">
       <div class="container reveal">
         <h3 data-t="sc.h3">Un scoring fait par des professionnels du métier, pour des professionnels du métier.</h3>
-        <p class="lead" data-t="sc.p">Chaque entreprise est scorée afin de déterminer son offre ou son besoin en matière d'études.</p>
+        <p class="lead" data-t="sc.p">Chaque entreprise est scorée afin de déterminer son offre ou son besoin en matière d'études.<br>Ce score sert au matching et aux recommandations&nbsp;: votre offre face au besoin de chaque entreprise.</p>
         <div class="scards">
           <div class="scard"><b>12<em data-t="ax1.b">domaines</em></b><small data-t="ax1.s">Ce qui est étudié</small><div class="chips">
             <span class="chip">Segmentation &amp; U&amp;A</span><span class="chip">Marque &amp; Communication</span><span class="chip">CX &amp; Satisfaction</span><span class="chip">UX &amp; Digital</span><span class="chip">Innovation &amp; Tests produits</span><span class="chip">Shopper &amp; Retail</span><span class="chip">Médias &amp; Audiences</span><span class="chip">Pricing &amp; Analytics</span><span class="chip">Opinion &amp; Affaires publiques</span><span class="chip">Études RH &amp; Collaborateurs</span><span class="chip">Études B2B</span><span class="chip">Intelligence stratégique</span>
@@ -718,7 +723,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
               <span class="ov-signal-pill at_risk" data-t="sp.6">En difficulté</span>
               <span class="ov-signal-pill bio_co" data-t="sp.7">Changement de positionnement</span>
             </div></div>
-            <div><span class="lbl" data-t="sg.pe">Côté personne</span><div class="pills">
+            <div><span class="lbl" data-t="sg.pe">Côté contact</span><div class="pills">
               <span class="ov-signal-pill changed_job" data-t="sp.8">A changé d'entreprise</span>
               <span class="ov-signal-pill new_role" data-t="sp.9">Évolution hiérarchique</span>
               <span class="ov-signal-pill bio" data-t="sp.10">Évolution des compétences</span>
@@ -906,7 +911,7 @@ document.documentElement.classList.add("js");
     "mm.q1": "Research buyers <span>796</span>", "mm.q2": "Research providers <span>386</span>", "mm.q3": "Fieldwork &amp; data collection <span>63</span>", "mm.q4": "Tools &amp; tech services <span>55</span>", "mm.note": "The whole French market research industry. More markets coming soon.",
     "sol.eyebrow": "The solution", "sol.h3": "So mazeo built it.", "sol.p": "The whole market research industry on one map: the companies that buy research, and those that deliver it. mazeo knows the needs of the former and the offer of the latter, and scores both. A simple, clear view of the market: your competitors, your suppliers, and above all your next clients.",
     "sc.h3": "Scoring built by industry professionals, for industry professionals.",
-    "sc.p": "Every company is scored to determine its offer or its need in research.",
+    "sc.p": "Every company is scored to determine its offer or its need in research.<br>That score powers matching and recommendations: your offer against each company's need.",
     "ax1.b": "domains", "ax1.s": "What is studied", "ax2.b": "methods", "ax2.s": "Through which methodology", "ax3.b": "sectors", "ax3.s": "On which market",
     "mt.h3": "The right prospect, and the right person.",
     "mt.p1": "mazeo understands what you offer and how you stand out from the rest of the market. It then suggests the most relevant companies. A ranking and a score in&nbsp;%, simple to read.",
@@ -919,7 +924,7 @@ document.documentElement.classList.add("js");
     "sg.eyebrow": "Signals",
     "sg.h2": "The right moment to reach out.",
     "sg.p": "The right company, the right person: all that's left is the right moment. mazeo scans the industry in real time and detects 10+ signals that give you <b>the</b> right moment to get in touch.",
-    "sg.co": "Company side", "sg.pe": "People side",
+    "sg.co": "Company side", "sg.pe": "Contact side",
     "sp.1": "Hiring insight profiles", "sp.2": "Team turnover", "sp.3": "Revenue change", "sp.4": "Governance change", "sp.5": "Public tender in the industry", "sp.6": "At risk", "sp.7": "Repositioning", "sp.8": "Changed job", "sp.9": "Promotion", "sp.10": "New skills",
     "sg.watch": "<b>The Watch.</b> Follow the companies and people that matter to you. An email summary every Wednesday.",
     "n.sig": "signals tracked", "n.det": "signals detected since July 2026", "sg.note": "Illustrative examples",
@@ -987,7 +992,7 @@ document.documentElement.classList.add("js");
     Object.keys(COUNTS).forEach(function (q) {
       var el = document.querySelector('.tiles[data-q="' + q + '"]'); if (!el) return; var html = "";
       var list = (data[q] || []).slice(0, 35);
-      list.forEach(function (c, i) { html += '<div class="tile' + (i % 5 === 1 ? ' flag' : '') + '" title="' + c[0].replace(/"/g, "&quot;") + '"><img src="' + c[1] + '" alt="" width="40" height="40" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.style.display=\'none\'"></div>'; });
+      list.forEach(function (c, i) { html += '<div class="tile" data-name="' + c[0].replace(/"/g, "&quot;") + '"><img src="' + c[1] + '" alt="" width="40" height="40" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.style.display=\'none\'"></div>'; });
       html += '<div class="tile more">+' + (COUNTS[q] - list.length) + '<small>' + MORE[lang] + '</small></div>';
       el.innerHTML = html;
     });
