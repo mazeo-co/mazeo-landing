@@ -144,7 +144,12 @@ button, input { font: inherit; }
 .stage { margin-top: 64px; }
 .video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: var(--ink); display: grid; place-items: center; isolation: isolate; }
 .video-frame::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 110%, rgba(0,123,255,.55), rgba(0,123,255,0) 70%); }
-.video-play { position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; color: #fff; }
+.video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.video-frame.playing::before { content: none; }
+.video-frame.playing .video-play { display: none; }
+.video-play { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 16px; color: #fff; background: none; border: 0; cursor: pointer; padding: 0; font: inherit; }
+.video-play:hover .disc { transform: scale(1.06); }
+.video-play .disc { transition: transform .18s ease; }
 .video-play .disc { width: 88px; height: 88px; border-radius: 50%; background: #fff; display: grid; place-items: center; }
 .video-play .disc::after { content: ""; width: 0; height: 0; border-left: 26px solid var(--ink); border-top: 15px solid transparent; border-bottom: 15px solid transparent; margin-left: 6px; }
 .video-play span { font-size: 16px; font-weight: 600; }
@@ -473,9 +478,12 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       </form>
 
       <div class="stage">
-        <!-- Emplacement vidéo : remplacer .video-frame par l'iframe le jour venu -->
-        <div class="video-frame" role="img" aria-label="Vidéo de présentation, à venir">
-          <div class="video-play"><div class="disc" aria-hidden="true"></div><span data-t="video.t">mazeo en deux minutes</span><small data-t="video.s">Vidéo prochainement</small></div>
+        <!-- Film produit v4 (14/09/2026) : fabriqué en code dans ~/dev/video-mazeo -->
+        <div class="video-frame" id="video-frame">
+          <video id="film" preload="metadata" playsinline poster="assets/mazeo-film-poster.jpg" aria-label="mazeo en une minute">
+            <source src="assets/mazeo-film.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="video-play" id="video-play" aria-label="Lire la vidéo"><div class="disc" aria-hidden="true"></div><span data-t="video.t">mazeo en une minute</span><small data-t="video.s">67 secondes · avec le son</small></button>
         </div>
       </div>
     </div>
@@ -759,6 +767,12 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 <script>
 document.documentElement.classList.add("js");
 (function () {
+  var f = document.getElementById("video-frame"), v = document.getElementById("film"), b = document.getElementById("video-play");
+  if (!f || !v || !b) return;
+  b.addEventListener("click", function () { f.classList.add("playing"); v.controls = true; v.play(); });
+  v.addEventListener("ended", function () { v.controls = false; f.classList.remove("playing"); v.load(); });
+})();
+(function () {
   /* ---------- Langue : le français est dans le HTML, l'anglais dans ce dictionnaire ; choix automatique selon le navigateur ---------- */
   var EN = {
     "nav.signals": "Signals", "nav.login": "Log in", "nav.cta": "Request access",
@@ -767,7 +781,7 @@ document.documentElement.classList.add("js");
     "form.email": "Work email", "form.company": "Your company", "form.submit": "Request access",
     "hero.helper": "Private beta · opening soon",
     "hero.dp": "Already in private beta at 9&nbsp;research providers", "dp.more": "+ 2 more",
-    "video.t": "mazeo in two minutes", "video.s": "Video coming soon", "video.aria": "Product video, coming soon",
+    "video.t": "mazeo in one minute", "video.s": "67 seconds · with sound", "video.aria": "Product video",
     "pb.eyebrow": "The problem",
     "pb.h2": "No tool gave an exhaustive view of the players in market research.",
     "pb.p1": "Reaching new companies whose needs match your offer, in 3&nbsp;clicks: impossible until now. So mazeo built it.",
