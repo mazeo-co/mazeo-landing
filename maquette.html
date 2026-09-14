@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Instrument+Serif&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Instrument+Serif&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=DM+Serif+Display&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=Gloock&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Manrope:wght@600;700;800&display=swap">
 <style>
 /* ============ Tokens mazeo (fiche _context/mazeo-design.md) + une police de titre ============ */
 :root {
@@ -25,6 +25,16 @@
   --container: 1280px; --gutter: 32px;
 }
 html.f-instrument { --display: 'Instrument Serif', Georgia, 'Times New Roman', serif; }
+html.f-fraunces { --display: 'Fraunces', Georgia, serif; }
+html.f-dmserif { --display: 'DM Serif Display', Georgia, serif; }
+html.f-sourceserif { --display: 'Source Serif 4', Georgia, serif; }
+html.f-gloock { --display: 'Gloock', Georgia, serif; }
+html.f-bricolage { --display: 'Bricolage Grotesque', var(--font); }
+html.f-manrope { --display: 'Manrope', var(--font); }
+html.f-bricolage h1, html.f-bricolage h2, html.f-bricolage h3, html.f-bricolage .bignum b { font-weight: 700; letter-spacing: -0.035em; }
+html.f-manrope h1, html.f-manrope h2, html.f-manrope h3, html.f-manrope .bignum b { font-weight: 800; letter-spacing: -0.04em; }
+html.f-bricolage .hero h1 em, html.f-manrope .hero h1 em { font-style: normal; color: var(--blue); }
+html.f-dmserif h1, html.f-dmserif h2 { letter-spacing: 0; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
@@ -39,7 +49,7 @@ button, input { font: inherit; }
 .container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
 
 /* ---- Bascule des polices de titre (outil de validation, pas dans la page finale) ---- */
-.fontpick { position: fixed; right: 16px; bottom: 16px; z-index: 100; display: inline-flex; gap: 2px; padding: 3px; background: #fff; border: 1px solid var(--line-strong); border-radius: 10px; box-shadow: 0 8px 30px -12px rgba(10,10,10,.35); font-size: 13px; }
+.fontpick { position: fixed; right: 16px; bottom: 16px; z-index: 100; display: flex; flex-wrap: wrap; max-width: 420px; justify-content: flex-end; gap: 2px; padding: 3px; background: #fff; border: 1px solid var(--line-strong); border-radius: 10px; box-shadow: 0 8px 30px -12px rgba(10,10,10,.35); font-size: 13px; }
 .fontpick button { border: 0; background: transparent; padding: 7px 12px; border-radius: 7px; cursor: pointer; color: var(--slate); font-weight: 600; }
 .fontpick button.on { background: var(--ink); color: #fff; }
 
@@ -166,6 +176,12 @@ button, input { font: inherit; }
 <div class="fontpick" role="group" aria-label="Police de titre">
   <button type="button" data-f="newsreader" class="on">Newsreader</button>
   <button type="button" data-f="instrument">Instrument Serif</button>
+  <button type="button" data-f="fraunces">Fraunces</button>
+  <button type="button" data-f="dmserif">DM Serif</button>
+  <button type="button" data-f="sourceserif">Source Serif</button>
+  <button type="button" data-f="gloock">Gloock</button>
+  <button type="button" data-f="bricolage">Bricolage</button>
+  <button type="button" data-f="manrope">Manrope</button>
 </div>
 
 <header class="nav" id="nav">
