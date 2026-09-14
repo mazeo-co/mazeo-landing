@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>mazeo — Le seul outil de prospection dédié au market research</title>
-<meta name="description" content="L'intégralité du marché, acheteurs et prestataires d'études, référencée, notée et mise à jour en temps réel. Trouvez vos 5 prochains clients : la bonne entreprise, la bonne personne, au bon moment.">
+<meta name="description" content="L'intégralité du secteur : acheteurs et vendeurs, scorés et mis à jour en temps réel. Vos 5 prochains clients sont sur mazeo : la bonne entreprise, la bonne personne, au bon moment.">
 <link rel="canonical" href="https://mazeo.co/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mazeo.co/">
 <meta property="og:title" content="Le seul outil de prospection dédié au market research">
-<meta property="og:description" content="L'intégralité du marché, acheteurs et prestataires d'études, référencée, notée et mise à jour en temps réel. Trouvez vos 5 prochains clients.">
+<meta property="og:description" content="L'intégralité du secteur : acheteurs et vendeurs, scorés et mis à jour en temps réel. Vos 5 prochains clients sont sur mazeo.">
 <meta property="og:image" content="https://mazeo.co/og-image-v3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -19,7 +19,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Le seul outil de prospection dédié au market research">
-<meta name="twitter:description" content="L'intégralité du marché, acheteurs et prestataires d'études, référencée, notée et mise à jour en temps réel.">
+<meta name="twitter:description" content="L'intégralité du secteur : acheteurs et vendeurs, scorés et mis à jour en temps réel.">
 <meta name="twitter:image" content="https://mazeo.co/og-image-v3.png">
 <meta name="twitter:image:alt" content="mazeo, le seul outil de prospection dédié au market research">
 <meta name="theme-color" content="#FFFFFF">
@@ -78,8 +78,9 @@ button, input { font: inherit; }
 .container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
 @media (max-width: 480px) { :root { --gutter: 20px; } }
 
-.eyebrow, .trusted .lbl, .wall .row-lbl, .who-band .lbl, .pillgroup .lbl { font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
+.eyebrow, .trusted .lbl, .who-band .lbl, .pillgroup .lbl, .axisrow small { font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
 .eyebrow { display: block; margin-bottom: 22px; }
+.eyebrow .n { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 8px; background: var(--ink); color: #fff; font-size: 13px; margin-right: 10px; vertical-align: middle; letter-spacing: 0; }
 .title { font-size: clamp(36px, 4.6vw, 64px); }
 .lead { font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; color: var(--slate); text-wrap: pretty; }
 .lead b { color: var(--ink); font-weight: 600; }
@@ -94,6 +95,7 @@ button, input { font: inherit; }
 .split { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: center; }
 .split.flip { grid-template-columns: 7fr 5fr; }
 .split.flip .split-copy { order: 2; }
+.split h3 { font-size: clamp(30px, 3.2vw, 44px); }
 @media (max-width: 960px) { .split, .split.flip { grid-template-columns: 1fr; gap: 40px; } .split.flip .split-copy { order: 0; } .section { padding-block: 84px; } }
 
 /* ---- Boutons, formulaire ---- */
@@ -129,18 +131,14 @@ button, input { font: inherit; }
 .nav-links a { color: var(--slate); font-weight: 600; font-size: 15px; }
 .nav-links a:hover { color: var(--ink); text-decoration: none; }
 .nav-right { display: flex; align-items: center; gap: 10px; }
-.lang { display: inline-flex; border: 1px solid var(--line-strong); border-radius: var(--r-pill); padding: 3px; }
-.lang button { border: 0; background: transparent; color: var(--meta); font-weight: 700; font-size: 12px; padding: 4px 9px; border-radius: var(--r-pill); cursor: pointer; letter-spacing: .05em; }
-.lang button[aria-pressed="true"] { background: #fff; color: var(--blue-text); box-shadow: inset 0 0 0 1px var(--blue); }
 @media (max-width: 960px) { .nav-links { display: none; } .nav-login { padding: 9px 12px; font-size: 14px; } .nav-right .btn-primary { padding: 9px 14px; font-size: 14px; } }
-@media (max-width: 420px) { .nav-inner { gap: 12px; } .nav-right { gap: 8px; } .nav-login { display: none; } .logo { font-size: 24px; } .nav-right .btn-primary { padding: 9px 12px; font-size: 13px; } .lang button { padding: 4px 7px; } }
-@media (max-width: 340px) { .lang { display: none; } }
+@media (max-width: 420px) { .nav-inner { gap: 12px; } .nav-right { gap: 8px; } .nav-login { display: none; } .logo { font-size: 24px; } .nav-right .btn-primary { padding: 9px 12px; font-size: 13px; } }
 
 /* ============ Premier écran ============ */
 .hero { padding-block: 96px 0; text-align: center; }
 .hero h1 { font-size: clamp(42px, 7.4vw, 104px); max-width: 1180px; margin-inline: auto; }
 .hero h1 em { font-style: normal; color: var(--blue); }
-.hero .lead { margin: 30px auto 0; max-width: 820px; }
+.hero .lead { margin: 30px auto 0; max-width: 900px; }
 .stage { margin-top: 64px; }
 .video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: var(--ink); display: grid; place-items: center; isolation: isolate; }
 .video-frame::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 110%, rgba(0,123,255,.55), rgba(0,123,255,0) 70%); }
@@ -151,62 +149,72 @@ button, input { font: inherit; }
 .video-play small { font-size: 13px; color: rgba(255,255,255,.6); margin-top: -8px; }
 @media (max-width: 640px) { .hero { padding-top: 56px; } .video-frame { border-radius: 16px; } .video-play .disc { width: 64px; height: 64px; } }
 
-/* La bande des clients, pleine largeur, gris clair, logos en gris */
+/* La bande des clients, pleine largeur, gris clair, logos en gris répartis sur la ligne */
 .trusted { margin-top: 72px; background: var(--soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
-.trusted-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding-block: 28px; }
-.trusted .lbl { flex: 0 0 220px; text-align: left; line-height: 1.4; color: var(--slate); }
-.trusted .logos { flex: 1 1 auto; display: flex; align-items: center; gap: 14px 24px; flex-wrap: wrap; justify-content: flex-end; }
-.trusted figure, .dp-row figure { margin: 0; display: flex; align-items: center; gap: 9px; }
-.trusted figure { filter: grayscale(1); opacity: .72; transition: filter .2s, opacity .2s; }
+.trusted-inner { display: flex; align-items: center; gap: 48px; padding-block: 30px; }
+.trusted .lbl { flex: 0 0 200px; text-align: left; line-height: 1.4; color: var(--slate); }
+.trusted .logos { flex: 1 1 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; }
+.trusted figure { margin: 0; display: flex; align-items: center; gap: 10px; filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s; }
 .trusted figure:hover { filter: none; opacity: 1; }
-.trusted img, .dp-row img { width: 26px; height: 26px; border-radius: 6px; object-fit: contain; }
-.trusted figcaption, .dp-row figcaption { font-size: 14px; font-weight: 700; color: var(--ink); white-space: nowrap; letter-spacing: -0.01em; }
-.trusted .more { font-size: 13px; color: var(--meta); font-weight: 600; }
-@media (max-width: 960px) { .trusted-inner { flex-direction: column; align-items: flex-start; gap: 18px; } .trusted .lbl { flex: 0 0 auto; } .trusted .logos { justify-content: flex-start; gap: 20px 24px; } }
+.trusted img { width: 34px; height: 34px; border-radius: 8px; object-fit: contain; }
+.trusted figcaption { font-size: 16px; font-weight: 700; color: var(--ink); white-space: nowrap; letter-spacing: -0.01em; }
+@media (max-width: 960px) { .trusted-inner { flex-direction: column; align-items: flex-start; gap: 18px; } .trusted .lbl { flex: 0 0 auto; } .trusted .logos { justify-content: flex-start; gap: 16px 24px; } }
 
 /* ============ Problème : la grande phrase ============ */
 .problem { padding-bottom: 32px; }
 .problem .title { font-size: clamp(36px, 5vw, 72px); max-width: 1080px; }
 .problem .copy { font-size: clamp(18px, 1.6vw, 22px); line-height: 1.5; max-width: 860px; color: var(--slate); }
-#faq { padding-bottom: 32px; }
-#faq .container { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
-@media (max-width: 960px) { #faq .container { grid-template-columns: 1fr; gap: 32px; } }
 
-/* ============ The Market ============ */
-.wall { margin-top: 56px; display: grid; gap: 28px; }
-.wall .row-lbl { margin: 0 0 14px; text-align: center; }
-.wall .row { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px 34px; }
-.wall figure { margin: 0; display: flex; align-items: center; gap: 9px; filter: grayscale(1); opacity: .8; transition: filter .2s, opacity .2s; }
-.wall figure:hover { filter: none; opacity: 1; }
-.wall img { width: 30px; height: 30px; border-radius: 7px; object-fit: contain; }
-.wall figcaption { font-size: 14.5px; font-weight: 700; color: var(--ink); white-space: nowrap; letter-spacing: -0.01em; }
-.market-split { margin-top: 96px; }
-.split h3 { font-size: clamp(30px, 3.2vw, 44px); }
-.axes { margin-top: 24px; display: grid; }
-.axis { display: grid; grid-template-columns: 160px 1fr; gap: 14px; align-items: baseline; padding: 13px 0; border-top: 1px solid var(--line); font-size: 16px; }
-.axis:last-child { border-bottom: 1px solid var(--line); }
-.axis b { color: var(--ink); font-weight: 700; }
-.axis b small { display: block; font-weight: 600; color: var(--meta); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
-@media (max-width: 380px) { .axis { grid-template-columns: 1fr; gap: 4px; } }
-
-/* La fiche : une fenêtre de l'app */
+/* ============ 1 · The Market : la carte ============ */
 .screen { background: #fff; border-radius: 18px; border: 1px solid var(--line); overflow: hidden; color: var(--ink); }
 .screen.raised { border: 0; box-shadow: 0 40px 90px -40px rgba(0,0,0,.55); }
-.screen-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.screen-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
 .screen-top .t { font-size: 15px; font-weight: 700; color: var(--ink); }
-.screen-top .t small { font-weight: 500; color: var(--meta); margin-left: 8px; font-size: 13px; }
+.screen-top .t small { font-weight: 600; color: var(--meta); margin-left: 8px; font-size: 12.5px; }
 .screen-top .dots { display: flex; gap: 6px; }
 .screen-top .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
+.seg-toggle { display: inline-flex; padding: 3px; background: var(--soft); border: 1px solid var(--line); border-radius: 8px; font-size: 12px; font-weight: 700; }
+.seg-toggle span { padding: 4px 12px; border-radius: 6px; color: var(--meta); }
+.seg-toggle span.on { background: #fff; color: var(--ink); box-shadow: 0 1px 2px rgba(0,0,0,.08); }
+.mmap { display: grid; grid-template-columns: 1fr 1fr; }
+.quad { padding: 12px 14px 14px; border-bottom: 1px solid var(--line-soft); }
+.quad:nth-child(odd) { border-right: 1px solid var(--line-soft); }
+.quad:nth-child(n+3) { border-bottom: 0; }
+.quad-h { display: flex; align-items: baseline; gap: 8px; margin-bottom: 10px; font-size: 13px; font-weight: 700; color: var(--ink); }
+.quad-h span { font-weight: 600; color: var(--meta); font-size: 12px; }
+.tiles { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; }
+.tile { position: relative; aspect-ratio: 1; border: 1px solid var(--line); border-radius: 9px; background: #fff; display: grid; place-items: center; overflow: hidden; }
+.tile img { width: 62%; height: 62%; object-fit: contain; }
+.tile.sig::before { content: ""; position: absolute; top: -3px; left: -3px; width: 9px; height: 9px; border-radius: 50%; background: var(--green); border: 2px solid #fff; }
+.tile.more { border-color: var(--blue); background: var(--blue-tint); color: var(--blue-text); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1px; font-weight: 700; font-size: 13px; line-height: 1.1; }
+.tile.more small { font-size: 9.5px; font-weight: 600; }
+@media (max-width: 640px) { .tiles { grid-template-columns: repeat(4, 1fr); } }
+
+/* Le scoring : trois axes en chips */
+.scoring { margin-top: 96px; }
+.scoring h3 { font-size: clamp(30px, 3.6vw, 52px); max-width: 980px; }
+.scoring .lead { margin-top: 18px; max-width: 760px; }
+.axes { margin-top: 44px; border-top: 1px solid var(--line); }
+.axisrow { display: grid; grid-template-columns: 240px 1fr; gap: 28px; padding: 26px 0; border-bottom: 1px solid var(--line); align-items: start; }
+.axisrow b { display: block; font-family: var(--display); font-weight: 700; font-size: 34px; letter-spacing: -0.03em; line-height: 1; color: var(--ink); }
+.axisrow small { display: block; margin-top: 8px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { display: inline-flex; align-items: center; padding: 7px 14px; border-radius: var(--r-pill); font-size: 14.5px; font-weight: 500; border: 1px solid var(--line-strong); color: var(--slate); background: #fff; white-space: nowrap; }
+.chip.more { border-style: dashed; color: var(--blue-text); font-weight: 700; }
+@media (max-width: 760px) { .axisrow { grid-template-columns: 1fr; gap: 14px; } }
+.match-split { margin-top: 80px; }
+
+/* La fiche : une fenêtre de l'app */
 .fiche { padding: 22px 24px 20px; }
 .fiche-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line-soft); }
 .fiche-id { display: flex; align-items: center; gap: 12px; }
-.fiche-logo { width: 46px; height: 46px; border-radius: 10px; border: 1px solid var(--line-soft); display: grid; place-items: center; font-weight: 700; color: var(--ink); background: var(--soft); flex: 0 0 auto; }
+.fiche-logo { width: 46px; height: 46px; border-radius: 10px; border: 1px solid var(--line-soft); display: grid; place-items: center; background: #fff; flex: 0 0 auto; }
+.fiche-logo img { width: 70%; height: 70%; object-fit: contain; }
 .fiche-id b { display: block; font-size: 16px; }
 .fiche-id span { font-size: 13px; color: var(--meta); }
 .match { text-align: right; line-height: 1; }
-.match b { display: block; white-space: nowrap; font-family: var(--display); font-size: 40px; font-weight: 700; color: var(--blue-text); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.match b { display: block; white-space: nowrap; font-family: var(--display); font-size: 40px; font-weight: 700; color: var(--blue); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
 .match span { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--meta); }
-@media (max-width: 380px) { .match b { font-size: 32px; } .fiche-head { gap: 10px; } }
 .fiche-why { margin-top: 12px; font-size: 14px; color: var(--body); }
 .fiche-why b { color: var(--ink); font-weight: 600; }
 .fiche-axes { margin-top: 14px; display: grid; gap: 9px; }
@@ -217,13 +225,14 @@ button, input { font: inherit; }
 .seg i.on { background: var(--ink); }
 .frow .n { font-size: 12.5px; color: var(--meta); font-variant-numeric: tabular-nums; width: 26px; text-align: right; }
 .fiche-contact { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-soft); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--blue-tint); color: var(--blue-text); font-weight: 700; font-size: 13px; display: grid; place-items: center; flex: 0 0 auto; }
+.fiche-contact img.face { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
 .fiche-contact .who { flex: 1 1 200px; }
 .fiche-contact .who b { display: block; font-size: 15px; }
 .fiche-contact .who span { font-size: 12.5px; color: var(--meta); }
-.reveal-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid var(--green-text); border-radius: 7px; font-size: 12.5px; font-weight: 600; color: var(--green-text); background: var(--green-tint); }
+.reveal-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--blue); border-radius: 7px; font-size: 12.5px; font-weight: 700; color: var(--blue-text); background: #fff; }
 .fiche-src { margin-top: 12px; font-size: 12px; color: var(--meta); }
 .screen-foot { padding: 10px 18px; border-top: 1px solid var(--line-soft); font-size: 12px; color: var(--meta); background: #fff; text-align: right; }
+@media (max-width: 380px) { .match b { font-size: 32px; } .fiche-head { gap: 10px; } }
 
 /* Les chiffres, en bande grise, cartes blanches, chiffres géants */
 .stats { margin-top: 96px; background: var(--soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); padding-block: 48px; }
@@ -241,15 +250,18 @@ button, input { font: inherit; }
 .panel-ink { background: var(--ink); color: #fff; }
 .panel-ink::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 50% at 0% 100%, rgba(0,123,255,.35), rgba(0,123,255,0) 70%); pointer-events: none; }
 .panel .eyebrow { color: rgba(255,255,255,.7); }
+.panel .eyebrow .n { background: #fff; color: var(--ink); }
 .panel .title, .panel h3 { color: #fff; }
 .panel .lead { color: rgba(255,255,255,.86); }
 .panel .copy { color: rgba(255,255,255,.86); }
 .panel .copy b, .panel .lead b { color: #fff; }
 .panel-blue .eyebrow, .panel-blue .lead, .panel-blue .copy, .panel-blue .watchline, .panel-blue .bignum span, .panel-blue .pillgroup .lbl { color: #fff; }
+.panel-blue .eyebrow .n { background: #fff; color: var(--blue-text); }
 .panel-blue .screen.raised { box-shadow: 0 30px 60px -30px rgba(0,30,80,.45); }
+.panel-blue .title { font-size: clamp(36px, 4.2vw, 58px); }
 @media (max-width: 960px) { .panel { padding-block: 84px; } }
 
-/* ---- Signaux ---- */
+/* ---- 2 · Signaux ---- */
 .pillgroup { margin-top: 26px; display: grid; gap: 14px; }
 .pillgroup .lbl { display: block; margin-bottom: 8px; }
 .pills { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -260,8 +272,8 @@ button, input { font: inherit; }
 .bignum b { font-family: var(--display); font-weight: 700; font-size: clamp(56px, 6vw, 88px); line-height: 1; letter-spacing: -0.04em; color: #fff; font-variant-numeric: tabular-nums; }
 .bignum span { margin-top: 10px; font-size: 17px; font-weight: 600; }
 @media (max-width: 640px) { .bignum { gap: 28px 40px; } .bignum span { max-width: 170px; } }
-.feed-list { height: 520px; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 10px; background: var(--soft); -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent); mask-image: linear-gradient(to bottom, #000 82%, transparent); }
-.sigw { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .55s cubic-bezier(.2,.7,.2,1), opacity .55s ease, margin-bottom .55s ease; }
+.feed-list { height: 540px; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 10px; background: var(--soft); -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent); mask-image: linear-gradient(to bottom, #000 82%, transparent); }
+.sigw { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .6s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-bottom .6s ease; }
 .sigw > div { min-height: 0; overflow: hidden; }
 .sigw.enter, .sigw.leave { grid-template-rows: 0fr; opacity: 0; margin-bottom: -10px; }
 .sig { border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; grid-template-areas: "pill time" "body body" "co co"; gap: 8px 14px; align-items: center; }
@@ -273,6 +285,8 @@ button, input { font: inherit; }
 .sig .w b { color: var(--ink); font-weight: 600; }
 .sig .co { grid-area: co; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--meta); }
 .sig .co img { width: 18px; height: 18px; border-radius: 4px; object-fit: contain; }
+.sig .co img.face { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
+.sig .co b { color: var(--ink); font-weight: 600; }
 .sig .co .ini { width: 18px; height: 18px; border-radius: 4px; background: var(--line); color: var(--slate); font-size: 10px; font-weight: 700; display: grid; place-items: center; }
 @media (prefers-reduced-motion: reduce) { .sigw.enter, .sigw.leave { grid-template-rows: 1fr; opacity: 1; margin-bottom: 0; } }
 
@@ -292,31 +306,39 @@ button, input { font: inherit; }
 .pills .ov-signal-pill { font-size: 12.5px; padding: 4px 10px; }
 .sig .ov-signal-pill { font-size: 12px; padding: 3px 8px; }
 
-/* ---- Pipeline (panneau noir) ---- */
-.flow { margin-top: 56px; padding: 28px 28px 24px; }
-.stages { display: grid; grid-template-columns: 10fr 7fr 9fr; gap: 24px; min-width: 860px; }
-.flow-scroll { overflow-x: auto; }
-.stage-h { display: flex; align-items: baseline; gap: 10px; padding-bottom: 14px; border-bottom: 1px solid var(--line-soft); margin-bottom: 18px; }
-.stage-h .k { width: 24px; height: 24px; border-radius: 7px; background: var(--blue-tint); color: var(--blue-text); font-size: 12px; font-weight: 700; display: grid; place-items: center; flex: 0 0 auto; position: relative; top: 4px; }
-.stage-h b { font-size: 16px; color: var(--ink); font-weight: 700; }
-.stage-h span { font-size: 13px; color: var(--meta); }
-.steps { display: flex; align-items: flex-start; position: relative; }
-.steps::before { content: ""; position: absolute; left: 20px; right: 20px; top: 20px; height: 2px; background: var(--line); }
-.steps .prog { position: absolute; left: 20px; top: 20px; height: 2px; background: var(--blue); width: 0; transition: width .5s ease; }
-.step { position: relative; flex: 1 1 0; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; min-width: 0; }
-.node { width: 40px; height: 40px; border-radius: 50%; background: #fff; border: 2px solid var(--line-strong); display: grid; place-items: center; color: var(--slate); transition: border-color .3s, color .3s, box-shadow .3s; }
-.node svg { width: 17px; height: 17px; }
-.node.in { font-weight: 700; font-size: 12px; letter-spacing: -0.02em; }
-.step.done .node { border-color: var(--blue); color: var(--blue-text); }
-.step.on .node { border-color: var(--blue); background: var(--blue); color: #fff; box-shadow: 0 0 0 6px rgba(0,123,255,.15); }
-.step .lbl { font-size: 12.5px; font-weight: 600; color: var(--ink); line-height: 1.3; padding-inline: 2px; min-height: calc(3 * 1.3em); }
-.step .when { font-size: 12.5px; font-weight: 600; color: var(--slate); margin-top: -4px; }
-.step.on .when { color: var(--blue-text); }
-.flow-foot { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: 13.5px; color: var(--meta); }
-.flow-foot b { color: var(--ink); font-weight: 600; }
-.flow-foot .late { color: var(--red); font-weight: 600; }
-@media (max-width: 980px) { .stages { grid-template-columns: 1fr; min-width: 0; gap: 30px; } .flow { padding: 20px 16px 18px; } .step .lbl { min-height: 0; } }
-@media (max-width: 640px) { .steps { flex-direction: column; gap: 10px; } .steps::before, .steps .prog { display: none; } .step { flex-direction: row; align-items: center; text-align: left; gap: 12px; } .node { width: 32px; height: 32px; flex: 0 0 auto; } .node svg { width: 15px; height: 15px; } .step .lbl { padding: 0; } .step .when { margin: 0 0 0 auto; white-space: nowrap; } }
+/* ---- 3 · Pipeline : le kanban ---- */
+.kanban { margin-top: 56px; }
+.kb-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.kb-top .t { font-size: 15px; font-weight: 700; color: var(--ink); }
+.kb-top .t small { font-weight: 600; color: var(--meta); margin-left: 8px; font-size: 12.5px; }
+.kb-alert { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid #FCA5A5; border-radius: 8px; background: var(--red-tint); color: #B91C1C; font-size: 12.5px; font-weight: 700; }
+.kb-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; background: var(--soft); }
+.kcol { padding: 16px 14px 18px; border-right: 1px solid var(--line-soft); min-height: 460px; }
+.kcol:last-child { border-right: 0; }
+.kcol-h { display: flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 700; color: var(--ink); }
+.kcol-h .cnt { display: inline-grid; place-items: center; min-width: 20px; height: 20px; padding: 0 6px; border-radius: 6px; background: #fff; border: 1px solid var(--line); color: var(--meta); font-size: 11.5px; font-weight: 700; }
+.kcol-g { font-size: 12.5px; color: var(--meta); margin: 2px 0 14px; }
+.kcards { display: flex; flex-direction: column; gap: 10px; }
+.kw { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .6s cubic-bezier(.2,.7,.2,1), opacity .6s ease, margin-bottom .6s ease; }
+.kw > div { min-height: 0; overflow: hidden; }
+.kw.enter, .kw.leave { grid-template-rows: 0fr; opacity: 0; margin-bottom: -10px; }
+.kcard { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px 12px 12px; }
+.kcard.hot { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,123,255,.15); }
+.kco { display: flex; align-items: center; gap: 9px; padding-bottom: 10px; border-bottom: 1px solid var(--line-soft); }
+.kco img { width: 28px; height: 28px; border-radius: 7px; object-fit: contain; border: 1px solid var(--line-soft); }
+.kco b { display: block; font-size: 13.5px; color: var(--ink); }
+.kco span { font-size: 11.5px; color: var(--meta); }
+.kp { display: flex; align-items: center; gap: 9px; margin-top: 10px; }
+.kp img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+.kp b { display: block; font-size: 13.5px; color: var(--ink); }
+.kp span { font-size: 11.5px; color: var(--meta); }
+.kcta { margin-top: 10px; display: block; text-align: center; padding: 8px 10px; border-radius: 8px; background: var(--blue); color: #fff; font-size: 12.5px; font-weight: 700; }
+.kcta.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line-strong); }
+.kprog { margin-top: 8px; display: flex; justify-content: space-between; gap: 8px; font-size: 11.5px; color: var(--meta); }
+.kprog b { color: var(--ink); font-weight: 600; }
+.kprog .late { color: var(--red); font-weight: 700; }
+.kprog .today { color: var(--blue-text); font-weight: 700; }
+@media (max-width: 900px) { .kb-cols { grid-template-columns: 1fr; } .kcol { border-right: 0; border-bottom: 1px solid var(--line-soft); min-height: 0; } .kcol:last-child { border-bottom: 0; } }
 .writer-split { margin-top: 96px; align-items: start; }
 .mail { padding: 0; }
 .mail-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line-soft); background: var(--soft); font-size: 13px; color: var(--meta); flex-wrap: wrap; }
@@ -332,8 +354,9 @@ button, input { font: inherit; }
 
 /* ---- Preuve ---- */
 .dp-row { margin-top: 32px; display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 14px 32px; }
-.dp-row img { width: 34px; height: 34px; border-radius: 8px; }
-.dp-row figcaption { font-size: 15px; }
+.dp-row figure { margin: 0; display: flex; align-items: center; gap: 9px; }
+.dp-row img { width: 34px; height: 34px; border-radius: 8px; object-fit: contain; }
+.dp-row figcaption { font-size: 15px; font-weight: 700; color: var(--ink); white-space: nowrap; }
 .dp-row .more { font-size: 14px; color: var(--meta); font-weight: 600; }
 .quotes { margin-top: 44px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .quote { background: #fff; border: 1px solid var(--line); border-radius: var(--r-card); padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
@@ -346,7 +369,10 @@ button, input { font: inherit; }
 @media (max-width: 760px) { .quotes { grid-template-columns: 1fr; } }
 
 /* ---- FAQ ---- */
-.faq-list { margin-top: 0; border-top: 1px solid var(--line); }
+#faq { padding-bottom: 32px; }
+#faq .container { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
+@media (max-width: 960px) { #faq .container { grid-template-columns: 1fr; gap: 32px; } }
+.faq-list { border-top: 1px solid var(--line); }
 .faq-list details { border-bottom: 1px solid var(--line); }
 .faq-list summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 22px 0; font-family: var(--display); font-size: 20px; font-weight: 600; letter-spacing: -0.02em; color: var(--ink); }
 .faq-list summary::-webkit-details-marker { display: none; }
@@ -399,10 +425,6 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
-      <div class="lang" role="group" aria-label="Langue / Language">
-        <button type="button" id="lang-fr" aria-pressed="true">FR</button>
-        <button type="button" id="lang-en" aria-pressed="false">EN</button>
-      </div>
       <a class="btn btn-ghost nav-login" href="https://app.mazeo.co" data-t="nav.login">Se connecter</a>
       <a class="btn btn-primary" href="#acces" data-t="nav.cta">Demander un accès</a>
     </div>
@@ -415,7 +437,7 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
   <section class="hero">
     <div class="container">
       <h1 data-t="hero.h1">Le seul outil de prospection <em>dédié au market research.</em></h1>
-      <p class="lead" data-t="hero.lead">L'intégralité du marché, acheteurs et prestataires d'études, référencée, notée et mise à jour en temps réel. Trouvez vos 5&nbsp;prochains clients&nbsp;: la bonne entreprise, la bonne personne, au bon moment.</p>
+      <p class="lead" data-t="hero.lead">L'intégralité du secteur&nbsp;: acheteurs &amp; vendeurs. Scorés &amp; mis à jour en temps réel.<br>Vos 5&nbsp;prochains clients sont sur mazeo&nbsp;: la bonne entreprise, la bonne personne, au bon moment.</p>
       <form class="signup" id="form-hero" novalidate>
         <div class="signup-fields">
           <label for="hero-email" class="sr-only" data-t="form.email">Email professionnel</label>
@@ -456,41 +478,59 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
   <section class="section problem" id="probleme">
     <div class="container reveal">
       <span class="eyebrow" data-t="pb.eyebrow">Le problème</span>
-      <h2 class="title" data-t="pb.h2">Aucun outil ne donnait une vision exhaustive du market research.</h2>
-      <p class="copy" data-t="pb.p1">Trouver de nouvelles entreprises cibles, ouvrir de nouveaux secteurs, atteindre la bonne personne en 3&nbsp;clics&nbsp;: jusqu'ici, impossible.</p>
-      <p class="copy" data-t="pb.p2">mazeo l'a fait. Une vision claire et simple de l'intégralité du marché&nbsp;: vos concurrents, vos fournisseurs, et surtout vos prochains clients.</p>
+      <h2 class="title" data-t="pb.h2">Aucun outil ne donnait une vision exhaustive des acteurs du market research.</h2>
+      <p class="copy" data-t="pb.p1">Avoir accès à de nouvelles entreprises ayant un besoin correspondant à son offre en 3&nbsp;clics&nbsp;: c'était impossible jusqu'à présent. Alors mazeo l'a fait.</p>
+      <p class="copy" data-t="pb.p2">Une vision simple et claire du marché&nbsp;: vos concurrents, vos fournisseurs, et surtout vos prochains clients.</p>
     </div>
   </section>
 
-  <!-- ================= THE MARKET ================= -->
+  <!-- ================= 1 · THE MARKET ================= -->
   <section class="section" id="market" style="padding-bottom:0">
     <div class="container">
-      <div class="head center reveal">
-        <span class="eyebrow" lang="en">The Market</span>
-        <h2 class="title" data-t="mk.h2">Tout le secteur, cartographié et noté.</h2>
-        <p class="lead" data-t="mk.lead">mazeo référence l'ensemble des acteurs du market research en France, les entreprises et leurs équipes. Tout ce qui est public est collecté et analysé&nbsp;: LinkedIn, sites web, registre des entreprises, offres d'emploi, appels d'offres.</p>
-      </div>
-      <div class="wall reveal" id="wall">
-        <div><p class="row-lbl" data-t="mk.row1">Acheteurs d'études</p><div class="row" id="wall-buyers"></div></div>
-        <div><p class="row-lbl" data-t="mk.row2">Prestataires d'études</p><div class="row" id="wall-providers"></div></div>
+      <div class="split reveal">
+        <div class="split-copy">
+          <span class="eyebrow"><span class="n">1</span><span lang="en">The Market</span></span>
+          <h2 class="title" data-t="mk.h2">Tout le secteur, cartographié et scoré.</h2>
+          <p class="lead" style="margin-top:22px" data-t="mk.lead">Nous collectons et analysons l'ensemble des informations publiques disponibles&nbsp;: LinkedIn, sites web, registre des entreprises, offres d'emploi, appels d'offres publics, réseaux sociaux, et bien d'autres sources.</p>
+        </div>
+        <div class="screen" aria-hidden="true" id="mmap">
+          <div class="screen-top"><span class="t" lang="en">The Market<small data-t="mm.count">1&nbsp;023 entreprises · 13&nbsp;203 contacts</small></span><span class="seg-toggle"><span class="on" data-t="mm.map">Carte</span><span data-t="mm.list">Liste</span></span></div>
+          <div class="mmap">
+            <div class="quad"><div class="quad-h" data-t="mm.q1">Acheteurs d'études <span>622</span></div><div class="tiles" data-q="buyers"></div></div>
+            <div class="quad"><div class="quad-h" data-t="mm.q2">Prestataires d'études <span>302</span></div><div class="tiles" data-q="providers"></div></div>
+            <div class="quad"><div class="quad-h" data-t="mm.q3">Terrain &amp; data collection <span>49</span></div><div class="tiles" data-q="field"></div></div>
+            <div class="quad"><div class="quad-h" data-t="mm.q4">Outils &amp; services tech <span>43</span></div><div class="tiles" data-q="tools"></div></div>
+          </div>
+        </div>
       </div>
 
-      <div class="split market-split reveal">
+      <div class="scoring reveal">
+        <h3 data-t="sc.h3">Un scoring fait par des professionnels du métier, pour des professionnels du métier.</h3>
+        <p class="lead" data-t="sc.p">Chaque entreprise est scorée afin de déterminer son offre ou son besoin en matière d'études.</p>
+        <div class="axes">
+          <div class="axisrow"><div><b data-t="ax1.b">12 domaines</b><small data-t="ax1.s">Ce qui est étudié</small></div><div class="chips">
+            <span class="chip">Segmentation &amp; U&amp;A</span><span class="chip">Marque &amp; Communication</span><span class="chip">CX &amp; Satisfaction</span><span class="chip">UX &amp; Digital</span><span class="chip">Innovation &amp; Tests produits</span><span class="chip">Shopper &amp; Retail</span><span class="chip">Médias &amp; Audiences</span><span class="chip">Pricing &amp; Analytics</span><span class="chip">Opinion &amp; Affaires publiques</span><span class="chip">Études RH &amp; Collaborateurs</span><span class="chip">Études B2B</span><span class="chip">Intelligence stratégique</span>
+          </div></div>
+          <div class="axisrow"><div><b data-t="ax2.b">8 méthodes</b><small data-t="ax2.s">Via quelle méthodologie</small></div><div class="chips">
+            <span class="chip">Quantitatif</span><span class="chip">Qualitatif</span><span class="chip">Advanced Analytics / Data Science</span><span class="chip">Data passive &amp; comportementale</span><span class="chip">Analyse sensorielle</span><span class="chip">Neuro &amp; Biométrie</span><span class="chip">Terrain &amp; Panels</span><span class="chip">Desk Research</span>
+          </div></div>
+          <div class="axisrow"><div><b data-t="ax3.b">27 secteurs</b><small data-t="ax3.s">Sur quel marché</small></div><div class="chips">
+            <span class="chip">Automobile</span><span class="chip">Cosmétique &amp; Beauté</span><span class="chip">Luxe</span><span class="chip">Mode &amp; Habillement</span><span class="chip">Banque &amp; Assurance</span><span class="chip">Immobilier &amp; Construction</span><span class="chip">Énergie &amp; Environnement</span><span class="chip">Transport &amp; Tourisme</span><span class="chip">FMCG / CPG</span><span class="chip">Agriculture &amp; Agroalimentaire</span><span class="chip more">+ 17</span>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="split match-split reveal">
         <div class="split-copy">
-          <h3 data-t="sc.h3">Trois axes, une note, un match.</h3>
-          <p class="copy" data-t="sc.p">Chaque entreprise est notée sur trois axes, côté besoin comme côté offre.</p>
-          <div class="axes">
-            <div class="axis"><b data-t="ax1.b">Le quoi<small>12 domaines</small></b><span data-t="ax1.x">De Marque &amp; Communication à Shopper &amp; Retail.</span></div>
-            <div class="axis"><b data-t="ax2.b">Le comment<small>8 méthodes</small></b><span data-t="ax2.x">Du Quantitatif à l'Analyse sensorielle.</span></div>
-            <div class="axis"><b data-t="ax3.b">Pour quel marché<small>27 secteurs</small></b><span data-t="ax3.x">De l'Automobile au Luxe.</span></div>
-          </div>
-          <p class="copy" data-t="sc.p2">mazeo comprend votre offre et vous propose les entreprises qui en ont le plus besoin&nbsp;: un match en&nbsp;%, expliqué. Dans chacune, la bonne personne, du dirigeant au chargé d'études, avec son email professionnel et son portable en un clic. Conforme au RGPD.</p>
+          <h3 data-t="mt.h3">Le bon prospect, et la bonne personne.</h3>
+          <p class="copy" data-t="mt.p1">mazeo comprend ce que vous avez à offrir et en quoi vous vous démarquez du reste du marché. Et vous propose les entreprises les plus pertinentes en conséquence. Un classement et un score en&nbsp;%, simples à comprendre.</p>
+          <p class="copy" data-t="mt.p2">Et au sein de ces entreprises, la personne la plus indiquée pour entrer en contact, avec un accès à son email et à son portable en un clic. Conforme au RGPD.</p>
         </div>
         <div class="screen" aria-hidden="true">
-          <div class="screen-top"><span class="t" data-t="fi.top">Fiche entreprise<small>Spécialisation · Contacts</small></span><span class="dots"><i></i><i></i><i></i></span></div>
+          <div class="screen-top"><span class="t" data-t="fi.top">Fiche entreprise</span><span class="dots"><i></i><i></i><i></i></span></div>
           <div class="fiche">
             <div class="fiche-head">
-              <div class="fiche-id"><div class="fiche-logo">D</div><div><b data-t="fi.name">Groupe agroalimentaire</b><span data-t="fi.meta">Acheteur d'études · Grand groupe · FMCG</span></div></div>
+              <div class="fiche-id"><div class="fiche-logo"><img src="https://img.logo.dev/kelloggs.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="" width="32" height="32" decoding="async" onerror="this.style.visibility='hidden'"></div><div><b>Kellogg's</b><span data-t="fi.meta">Acheteur d'études · Grand groupe · FMCG</span></div></div>
               <div class="match"><b>92&nbsp;%</b><span>MATCH</span></div>
             </div>
             <p class="fiche-why" data-t="fi.why"><b>Pourquoi ce match&nbsp;:</b> forts besoins en tests produits et U&amp;A, votre offre couvre les deux, secteur FMCG en commun.</p>
@@ -501,12 +541,12 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
               <div class="frow"><span data-t="fi.a4">FMCG / CPG <small>· secteur</small></span><span class="seg"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="n">3/3</span></div>
             </div>
             <div class="fiche-contact">
-              <div class="avatar">CM</div>
-              <div class="who"><b data-t="fi.who">Directrice des études consommateurs</b><span data-t="fi.lvl">Director · équipe insights de 6 personnes</span></div>
-              <span class="reveal-btn">✓ Email</span>
-              <span class="reveal-btn">✓ <span data-t="fi.tel">Téléphone</span></span>
+              <img class="face" src="assets/people/women-50.jpg" alt="" width="40" height="40">
+              <div class="who"><b>Camille Moreau</b><span data-t="fi.who">Directrice des études consommateurs · Director</span></div>
+              <span class="reveal-btn">Email</span>
+              <span class="reveal-btn" data-t="fi.tel">Téléphone</span>
             </div>
-            <p class="fiche-src" data-t="fi.src">Source&nbsp;: IA mazeo · LinkedIn · Pappers. Fiche illustrative.</p>
+            <p class="fiche-src" data-t="fi.src">Fiche illustrative.</p>
           </div>
         </div>
       </div>
@@ -514,46 +554,46 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
 
     <div class="stats reveal">
       <div class="container stats-grid">
-        <div class="stat"><b>1 000+</b><span data-t="n.co">entreprises référencées</span></div>
-        <div class="stat"><b>13 000</b><span data-t="n.ct">contacts, du dirigeant au chargé d'études</span></div>
-        <div class="stat"><b>27</b><span data-t="n.sect">secteurs, 12 domaines, 8 méthodes</span></div>
+        <div class="stat"><b>1&nbsp;300+</b><span data-t="n.co">entreprises référencées</span></div>
+        <div class="stat"><b>13&nbsp;000+</b><span data-t="n.ct">contacts, du dirigeant au chargé d'études</span></div>
+        <div class="stat"><b data-t="n.fr">France</b><span data-t="n.frs">d'autres marchés arrivent</span></div>
       </div>
     </div>
   </section>
 
-  <!-- ================= SIGNAUX : PANNEAU BLEU ================= -->
+  <!-- ================= 2 · SIGNAUX : PANNEAU BLEU ================= -->
   <section class="panel panel-blue" id="signaux">
     <div class="container">
       <div class="split">
         <div class="split-copy">
-          <span class="eyebrow" data-t="sg.eyebrow">Les signaux</span>
+          <span class="eyebrow"><span class="n">2</span><span data-t="sg.eyebrow">Les signaux</span></span>
           <h2 class="title" data-t="sg.h2">Le bon moment pour les contacter.</h2>
-          <p class="lead" data-t="sg.p" style="margin-top:22px">La bonne entreprise, la bonne personne&nbsp;: reste le bon moment. mazeo scanne le secteur en temps réel et détecte 10&nbsp;signaux.</p>
+          <p class="lead" data-t="sg.p" style="margin-top:22px">La bonne entreprise, la bonne personne&nbsp;: reste le bon moment. mazeo scanne le secteur en temps réel et détecte plus de 10&nbsp;signaux qui vous donnent <b>le</b> bon moment pour entrer en contact.</p>
           <div class="pillgroup">
             <div><span class="lbl" data-t="sg.co">Côté entreprise</span><div class="pills">
-              <span class="ov-signal-pill hiring" data-t="sp.1">Recrutement</span>
+              <span class="ov-signal-pill hiring" data-t="sp.1">Recrutement de profils insight</span>
               <span class="ov-signal-pill turnover" data-t="sp.2">Mouvements d'équipe</span>
               <span class="ov-signal-pill revenue" data-t="sp.3">Évolution du chiffre d'affaires</span>
               <span class="ov-signal-pill governance" data-t="sp.4">Changement de gouvernance</span>
-              <span class="ov-signal-pill tenders" data-t="sp.5">Appels d'offres publics</span>
+              <span class="ov-signal-pill tenders" data-t="sp.5">Appel d'offres public en lien avec le secteur</span>
               <span class="ov-signal-pill at_risk" data-t="sp.6">En difficulté</span>
-              <span class="ov-signal-pill bio_co" data-t="sp.7">Bio mise à jour</span>
+              <span class="ov-signal-pill bio_co" data-t="sp.7">Changement de positionnement</span>
             </div></div>
             <div><span class="lbl" data-t="sg.pe">Côté personne</span><div class="pills">
               <span class="ov-signal-pill changed_job" data-t="sp.8">A changé d'entreprise</span>
-              <span class="ov-signal-pill new_role" data-t="sp.9">Évolution de poste</span>
-              <span class="ov-signal-pill bio" data-t="sp.10">Bio mise à jour</span>
+              <span class="ov-signal-pill new_role" data-t="sp.9">Évolution hiérarchique</span>
+              <span class="ov-signal-pill bio" data-t="sp.10">Évolution des compétences</span>
             </div></div>
           </div>
           <p class="watchline" data-t="sg.watch"><b>La Watch.</b> Suivez les entreprises et les personnes qui comptent pour vous. Résumé par email chaque mercredi.</p>
           <div class="bignum">
-            <div><b>10</b><span data-t="n.sig">signaux suivis</span></div>
-            <div><b>5 000</b><span data-t="n.det">signaux détectés depuis juillet 2026</span></div>
+            <div><b>10+</b><span data-t="n.sig">signaux suivis</span></div>
+            <div><b>5&nbsp;000+</b><span data-t="n.det">signaux détectés depuis juillet 2026</span></div>
           </div>
         </div>
         <div>
           <div class="screen raised" aria-hidden="true">
-            <div class="screen-top"><span class="t" data-t="sg.top">Watch<small>7 signaux d'entreprise · 3 signaux de contact</small></span><span class="dots"><i></i><i></i><i></i></span></div>
+            <div class="screen-top"><span class="t">Watch</span><span class="dots"><i></i><i></i><i></i></span></div>
             <div class="feed-list" id="feed"></div>
             <div class="screen-foot" data-t="sg.note">Exemples illustratifs</div>
           </div>
@@ -562,21 +602,18 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
     </div>
   </section>
 
-  <!-- ================= PIPELINE : PANNEAU NOIR ================= -->
+  <!-- ================= 3 · PIPELINE : PANNEAU NOIR ================= -->
   <section class="panel panel-ink" id="pipeline">
     <div class="container">
       <div class="head">
-        <span class="eyebrow" data-t="pl.eyebrow">Le Pipeline</span>
+        <span class="eyebrow"><span class="n">3</span><span data-t="pl.eyebrow">Le Pipeline</span></span>
         <h2 class="title" data-t="pl.h2">De la prise de contact au rendez-vous, étape par étape.</h2>
         <p class="lead" data-t="pl.lead">mazeo vous accompagne jusqu'au rendez-vous, dans un parcours pensé pour notre métier. À chaque étape, il vous dit quoi faire et quand, et signale les retards.</p>
       </div>
 
-      <div class="screen raised flow">
-        <div class="flow-scroll"><div class="stages" id="stages" aria-hidden="true"></div></div>
-        <div class="flow-foot">
-          <span><b data-t="fl.f1">Un objectif par étape&nbsp;:</b> <span data-t="fl.f1b">une réponse, un rendez-vous, un client.</span></span>
-          <span><b data-t="fl.f2">Chaque tâche a son délai&nbsp;:</b> <span data-t="fl.f2b">mazeo vous le rappelle, et signale</span> <span class="late" data-t="fl.late">les retards</span>.</span>
-        </div>
+      <div class="screen raised kanban" aria-hidden="true">
+        <div class="kb-top"><span class="t">Pipeline<small data-t="kb.sub">4 personnes en mouvement</small></span><span class="kb-alert" data-t="kb.alert">À traiter · 1 étape en retard</span></div>
+        <div class="kb-cols" id="kanban"></div>
       </div>
 
       <div class="split flip writer-split">
@@ -586,7 +623,7 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
           <p class="copy" data-t="wr.p">Le rédacteur écrit les premiers messages. Il connaît votre offre, et la personne&nbsp;: son poste, son entreprise, ses signaux. Formel, direct ou amical.</p>
         </div>
         <div class="screen raised mail" aria-hidden="true">
-          <div class="mail-top"><span data-t="ml.to"><b>À&nbsp;:</b> Camille · Directrice des études consommateurs</span><div class="tones" id="tones"></div></div>
+          <div class="mail-top"><span data-t="ml.to"><b>À&nbsp;:</b> Camille Moreau · Directrice des études consommateurs</span><div class="tones" id="tones"></div></div>
           <div class="mail-body" id="mail-body"></div>
           <div class="mail-foot"><span data-t="ml.ctx">Contexte&nbsp;: connectés sur LinkedIn · signal Recrutement</span><span class="btn btn-primary static" data-t="ml.btn">Copier et ouvrir LinkedIn</span></div>
         </div>
@@ -635,11 +672,11 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
       <div class="faq-list reveal">
         <details>
           <summary data-t="fq1">D'où viennent les données&nbsp;?</summary>
-          <div class="a" data-t="fa1">De sources publiques&nbsp;: LinkedIn, sites web, registre des entreprises, offres d'emploi, appels d'offres. Mises à jour en temps réel. Email professionnel et portable pour la plupart des contacts. Conforme au RGPD.</div>
+          <div class="a" data-t="fa1">De sources publiques&nbsp;: LinkedIn, sites web, registre des entreprises, offres d'emploi, appels d'offres publics, réseaux sociaux. Mises à jour en temps réel. Email professionnel et portable pour la plupart des contacts. Conforme au RGPD.</div>
         </details>
         <details>
           <summary data-t="fq2">Quelle différence avec LinkedIn Sales Navigator&nbsp;?</summary>
-          <div class="a" data-t="fa2">Sales Navigator couvre tous les secteurs et connaît les intitulés de poste. mazeo couvre un seul métier, le market research&nbsp;: chaque entreprise notée sur son besoin et son offre, ses signaux, la bonne personne avec ses coordonnées.</div>
+          <div class="a" data-t="fa2">Sales Navigator couvre tous les secteurs et connaît les intitulés de poste. mazeo couvre un seul métier, le market research&nbsp;: chaque entreprise scorée sur son besoin et son offre, ses signaux, la bonne personne avec ses coordonnées.</div>
         </details>
         <details>
           <summary data-t="fq3">Qui envoie les messages&nbsp;?</summary>
@@ -656,7 +693,7 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
   <!-- ================= FIN DE PAGE ================= -->
   <section class="final" id="acces">
     <div class="container reveal">
-      <h2 class="title" data-t="final.h2">Vos 5&nbsp;prochains clients sont déjà <em>dans mazeo.</em></h2>
+      <h2 class="title" data-t="final.h2">Vos 5&nbsp;prochains clients sont déjà <em>sur mazeo.</em></h2>
       <p class="lead" data-t="final.p">Laissez votre email et le nom de votre entreprise. Bêta privée, ouverture prochainement.</p>
       <form class="signup" id="form-final" novalidate>
         <div class="signup-fields">
@@ -672,7 +709,7 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
   </section>
   <div class="who-band">
     <div class="container">
-      <span class="lbl" data-t="who.lbl">Qui vous trouverez dans <span class="lc">mazeo</span></span>
+      <span class="lbl" data-t="who.lbl">Qui vous trouverez sur <span class="lc">mazeo</span></span>
       <div class="who-list">
         <div class="persona"><img src="assets/people/women-68.jpg" alt="" width="38" height="38"><div><b>CMI</b><span data-t="who.1">Grand groupe · Cosmétique</span></div></div>
         <div class="persona"><img src="assets/people/men-75.jpg" alt="" width="38" height="38"><div><b>CMO</b><span data-t="who.2">ETI · Agroalimentaire</span></div></div>
@@ -706,130 +743,132 @@ footer { border-top: 1px solid var(--line); padding-block: 40px; }
 <script>
 document.documentElement.classList.add("js");
 (function () {
-  /* ---------- Langue : le français est dans le HTML, l'anglais dans ce dictionnaire ---------- */
+  /* ---------- Langue : le français est dans le HTML, l'anglais dans ce dictionnaire ; choix automatique selon le navigateur ---------- */
   var EN = {
     "nav.signals": "Signals", "nav.login": "Log in", "nav.cta": "Request access",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
-    "hero.lead": "The entire market, research buyers and providers, mapped, scored and updated in real time. Find your next 5&nbsp;clients: the right company, the right person, at the right time.",
+    "hero.lead": "The entire industry: buyers &amp; vendors. Scored &amp; updated in real time.<br>Your next 5&nbsp;clients are on mazeo: the right company, the right person, at the right time.",
     "form.email": "Work email", "form.company": "Your company", "form.submit": "Request access",
     "hero.helper": "Private beta · opening soon",
     "hero.dp": "Already in private beta at 9&nbsp;research providers", "dp.more": "+ 2 more",
     "video.t": "mazeo in two minutes", "video.s": "Video coming soon", "video.aria": "Product video, coming soon",
     "pb.eyebrow": "The problem",
-    "pb.h2": "No tool gave an exhaustive view of market research.",
-    "pb.p1": "Finding new target companies, opening new sectors, reaching the right person in 3&nbsp;clicks: until now, impossible.",
-    "pb.p2": "mazeo changes that. A clear, simple view of the entire market: your competitors, your suppliers, and above all your next clients.",
+    "pb.h2": "No tool gave an exhaustive view of the players in market research.",
+    "pb.p1": "Reaching new companies whose needs match your offer, in 3&nbsp;clicks: impossible until now. So mazeo built it.",
+    "pb.p2": "A simple, clear view of the market: your competitors, your suppliers, and above all your next clients.",
     "mk.h2": "The whole industry, mapped and scored.",
-    "mk.lead": "mazeo maps every player in French market research, the companies and their teams. Everything public is collected and analysed: LinkedIn, websites, the company register, job posts, tenders.",
-    "mk.row1": "Research buyers", "mk.row2": "Research providers",
-    "sc.h3": "Three axes, one score, one match.",
-    "sc.p": "Every company is scored on three axes, on both the demand and the supply side.",
-    "ax1.b": "The what<small>12 domains</small>", "ax1.x": "From Brand &amp; Communication to Shopper &amp; Retail.",
-    "ax2.b": "The how<small>8 methods</small>", "ax2.x": "From Quantitative to Sensory analysis.",
-    "ax3.b": "For which market<small>27 sectors</small>", "ax3.x": "From Automotive to Luxury.",
-    "sc.p2": "mazeo understands your offer and suggests the companies that need it most: a match in %, explained. In each one, the right person, from the CEO to the research executive, with their work email and mobile number in one click. GDPR-compliant.",
-    "fi.top": "Company profile<small>Specialisation · Contacts</small>",
-    "fi.name": "Food &amp; beverage group", "fi.meta": "Research buyer · Large group · FMCG",
+    "mk.lead": "We collect and analyse every public piece of information available: LinkedIn, websites, the company register, job posts, public tenders, social networks, and many more sources.",
+    "mm.count": "1,023 companies · 13,203 contacts", "mm.map": "Map", "mm.list": "List",
+    "mm.q1": "Research buyers <span>622</span>", "mm.q2": "Research providers <span>302</span>", "mm.q3": "Fieldwork &amp; data collection <span>49</span>", "mm.q4": "Tools &amp; tech services <span>43</span>",
+    "sc.h3": "Scoring built by industry professionals, for industry professionals.",
+    "sc.p": "Every company is scored to determine its offer or its need in research.",
+    "ax1.b": "12 domains", "ax1.s": "What is studied", "ax2.b": "8 methods", "ax2.s": "Through which methodology", "ax3.b": "27 sectors", "ax3.s": "On which market",
+    "mt.h3": "The right prospect, and the right person.",
+    "mt.p1": "mazeo understands what you offer and how you stand out from the rest of the market. It then suggests the most relevant companies. A ranking and a score in&nbsp;%, simple to read.",
+    "mt.p2": "And within those companies, the best person to get in touch with, with their email and mobile number one click away. GDPR-compliant.",
+    "fi.top": "Company profile", "fi.meta": "Research buyer · Large group · FMCG",
     "fi.why": "<b>Why this match:</b> strong needs in product testing and U&amp;A, your offer covers both, FMCG sector in common.",
     "fi.a1": "Innovation &amp; Product testing <small>· need</small>", "fi.a2": "Segmentation &amp; U&amp;A <small>· need</small>", "fi.a3": "Quantitative <small>· method</small>", "fi.a4": "FMCG / CPG <small>· sector</small>",
-    "fi.who": "Head of Consumer Research", "fi.lvl": "Director · insights team of 6", "fi.tel": "Phone",
-    "fi.src": "Source: mazeo AI · LinkedIn · Pappers. Illustrative profile.",
-    "sg.co": "Company side", "sg.pe": "People side",
-    "n.co": "companies mapped", "n.ct": "contacts, from the CEO to the research executive", "n.sect": "sectors, 12 domains, 8 methods",
+    "fi.who": "Head of Consumer Research · Director", "fi.tel": "Phone", "fi.src": "Illustrative profile.",
+    "n.co": "companies mapped", "n.ct": "contacts, from the CEO to the research executive", "n.fr": "France", "n.frs": "more markets coming",
     "sg.eyebrow": "Signals",
     "sg.h2": "The right moment to reach out.",
-    "sg.p": "The right company, the right person: all that's left is the right moment. mazeo scans the industry in real time and detects 10&nbsp;signals.",
-    "sp.1": "Hiring", "sp.2": "Team turnover", "sp.3": "Revenue change", "sp.4": "Governance change", "sp.5": "Public tenders", "sp.6": "At risk", "sp.7": "Bio updated", "sp.8": "Changed job", "sp.9": "Career move", "sp.10": "Bio updated",
+    "sg.p": "The right company, the right person: all that's left is the right moment. mazeo scans the industry in real time and detects 10+ signals that give you <b>the</b> right moment to get in touch.",
+    "sg.co": "Company side", "sg.pe": "People side",
+    "sp.1": "Hiring insight profiles", "sp.2": "Team turnover", "sp.3": "Revenue change", "sp.4": "Governance change", "sp.5": "Public tender in the industry", "sp.6": "At risk", "sp.7": "Repositioning", "sp.8": "Changed job", "sp.9": "Promotion", "sp.10": "New skills",
     "sg.watch": "<b>The Watch.</b> Follow the companies and people that matter to you. An email summary every Wednesday.",
-    "n.sig": "signals tracked", "n.det": "signals detected since July 2026",
-    "sg.top": "Watch<small>7 company signals · 3 contact signals</small>", "sg.note": "Illustrative examples",
+    "n.sig": "signals tracked", "n.det": "signals detected since July 2026", "sg.note": "Illustrative examples",
     "pl.eyebrow": "The Pipeline",
     "pl.h2": "From first contact to the meeting, step by step.",
     "pl.lead": "mazeo guides you to the meeting, through a sequence designed for our industry. At every step it tells you what to do and when, and flags what is late.",
-    "fl.f1": "One goal per stage:", "fl.f1b": "a reply, a meeting, a client.", "fl.f2": "Every task has a deadline:", "fl.f2b": "mazeo reminds you, and flags", "fl.late": "delays",
+    "kb.sub": "4 people in motion", "kb.alert": "To do · 1 step late",
     "wr.eyebrow": "The writer",
     "wr.h2": "It writes. You review, you send.",
     "wr.p": "The writer drafts the first messages. It knows your offer, and the person: their role, their company, their signals. Formal, direct or friendly.",
-    "ml.to": "<b>To:</b> Camille · Head of Consumer Research", "ml.ctx": "Context: connected on LinkedIn · Hiring signal", "ml.btn": "Copy and open LinkedIn",
+    "ml.to": "<b>To:</b> Camille Moreau · Head of Consumer Research", "ml.ctx": "Context: connected on LinkedIn · Hiring signal", "ml.btn": "Copy and open LinkedIn",
     "dp.eyebrow": "They use <span class=\"lc\">mazeo</span>",
     "dp.h2": "In private beta since March&nbsp;2026 at 9&nbsp;research providers.",
     "q1.t": "“I have reliable, ready-to-use information concentrated in one place. It really is a time saver.”", "q1.r": "CEO, Stat &amp; More",
     "q2.t": "“In two weeks, twenty research agencies we had never approached. And for each one, the right person, at the right time.”", "q2.n": "First Last", "q2.r": "Role, Episto · quote to be validated",
     "dp.for": "Built for salespeople, research directors, founders and executives in market research.",
     "faq.h2": "The questions we get asked.",
-    "fq1": "Where does the data come from?", "fa1": "From public sources: LinkedIn, websites, the company register, job posts, tenders. Updated in real time. Work email and mobile number for most contacts. GDPR-compliant.",
+    "fq1": "Where does the data come from?", "fa1": "From public sources: LinkedIn, websites, the company register, job posts, public tenders, social networks. Updated in real time. Work email and mobile number for most contacts. GDPR-compliant.",
     "fq2": "How is it different from LinkedIn Sales Navigator?", "fa2": "Sales Navigator covers every industry and knows job titles. mazeo covers one field, market research: every company scored on its needs and its offer, its signals, the right person with their contact details.",
     "fq3": "Who sends the messages?", "fa3": "You do. The writer drafts, you review, you send from LinkedIn or your email.",
     "fq4": "How do I get access?", "fa4": "mazeo is in private beta, opening soon. Request access and we will get back to you.",
-    "final.h2": "Your next 5&nbsp;clients are already <em>in mazeo.</em>",
+    "final.h2": "Your next 5&nbsp;clients are already <em>on mazeo.</em>",
     "final.p": "Leave your email and company name. Private beta, opening soon.",
-    "who.lbl": "Who you will find in <span class=\"lc\">mazeo</span>",
+    "who.lbl": "Who you will find on <span class=\"lc\">mazeo</span>",
     "who.1": "Large group · Cosmetics", "who.2": "Mid-sized company · Food &amp; beverage", "who.3b": "Research Director", "who.3": "Large group · Banking", "who.4": "Large group · Automotive", "who.5b": "Research Executive", "who.5": "Mid-sized company · Retail", "who.6b": "Marketing Director", "who.6": "Mid-sized company · Energy",
     "foot.tagline": "The only prospecting tool built for market research.",
     "foot.privacy": "Privacy", "foot.terms": "Terms", "foot.logos": "Company logos:"
   };
   var META = {
-    fr: { title: "mazeo — Le seul outil de prospection dédié au market research", desc: "L'intégralité du marché, acheteurs et prestataires d'études, référencée, notée et mise à jour en temps réel. Trouvez vos 5 prochains clients : la bonne entreprise, la bonne personne, au bon moment." },
-    en: { title: "mazeo — The only prospecting tool built for market research", desc: "The entire market research industry, buyers and providers, mapped, scored and updated in real time. Find your next 5 clients: the right company, the right person, at the right time." }
+    fr: { title: "mazeo — Le seul outil de prospection dédié au market research", desc: "L'intégralité du secteur : acheteurs et vendeurs, scorés et mis à jour en temps réel. Vos 5 prochains clients sont sur mazeo : la bonne entreprise, la bonne personne, au bon moment." },
+    en: { title: "mazeo — The only prospecting tool built for market research", desc: "The entire industry: buyers and vendors, scored and updated in real time. Your next 5 clients are on mazeo: the right company, the right person, at the right time." }
   };
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var visible = { feed: false, flow: false, mail: false };
+  var visible = { feed: false, kanban: false, mail: false };
   var FR = {}; var lang = "fr";
   var nodes = document.querySelectorAll("[data-t]"); var phNodes = document.querySelectorAll("[data-t-ph]");
   for (var i = 0; i < nodes.length; i++) { var k = nodes[i].getAttribute("data-t"); if (!(k in FR)) FR[k] = nodes[i].innerHTML; }
   for (var j = 0; j < phNodes.length; j++) { var kp = phNodes[j].getAttribute("data-t-ph"); if (!(kp in FR)) FR[kp] = phNodes[j].getAttribute("placeholder"); }
-  function setLang(l, persist) {
+  function setLang(l) {
     lang = l === "en" ? "en" : "fr";
     document.documentElement.lang = lang;
     for (var i = 0; i < nodes.length; i++) { var k = nodes[i].getAttribute("data-t"); var v = lang === "en" ? (EN[k] !== undefined ? EN[k] : FR[k]) : FR[k]; if (nodes[i].innerHTML !== v) nodes[i].innerHTML = v; }
     for (var j = 0; j < phNodes.length; j++) { var kp = phNodes[j].getAttribute("data-t-ph"); phNodes[j].setAttribute("placeholder", lang === "en" ? (EN[kp] || FR[kp]) : FR[kp]); }
     document.title = META[lang].title;
     var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute("content", META[lang].desc);
-    document.getElementById("lang-fr").setAttribute("aria-pressed", lang === "fr" ? "true" : "false");
-    document.getElementById("lang-en").setAttribute("aria-pressed", lang === "en" ? "true" : "false");
     var vf = document.querySelector(".video-frame"); if (vf) vf.setAttribute("aria-label", lang === "en" ? EN["video.aria"] : "Vidéo de présentation, à venir");
-    if (persist) { try { localStorage.setItem("mazeo-lang", lang); } catch (e) {} }
-    renderFeed(); renderStages(); renderMail(true);
-    if (!visible.feed) feedStop(); if (!visible.flow) stagesStop(); if (!visible.mail) mailStop();
+    renderFeed(); renderKanban(); renderMail(true);
+    if (!visible.feed) feedStop(); if (!visible.kanban) kanbanStop(); if (!visible.mail) mailStop();
   }
 
-  /* ---------- The Market : le mur de logos (Logo.dev, comme la page précédente) ---------- */
+  /* ---------- 1 · The Market : la carte, quatre cadrans de logos (Logo.dev, comme la page précédente) ---------- */
   var LOGO = function (d) { return "https://img.logo.dev/" + d + "?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64"; };
-  var BUYERS = [["loreal.com","L'Oréal"],["orange.com","Orange"],["se.com","Schneider Electric"],["renaultgroup.com","Renault"],["engie.com","ENGIE"],["airbus.com","Airbus"],["thalesgroup.com","Thales"],["stellantis.com","Stellantis"],["chanel.com","CHANEL"],["danone.com","Danone"],["carrefour.com","Carrefour"],["lvmh.com","LVMH"],["bnpparibas.com","BNP Paribas"],["totalenergies.com","TotalEnergies"]];
-  var PROVIDERS = [["ipsos.com","Ipsos"],["kantar.com","Kantar"],["nielseniq.com","NielsenIQ"],["iqvia.com","IQVIA"],["ifop.com","Ifop"],["mediametrie.fr","Médiamétrie"],["circana.com","Circana"],["opinion-way.com","OpinionWay"],["csa.eu","CSA"],["toluna.com","Toluna"],["dynata.com","Dynata"],["qualtrics.com","Qualtrics"],["bva-group.com","BVA"],["harris-interactive.fr","Harris Interactive"]];
-  function fillWall(id, list) {
-    var t = document.getElementById(id); if (!t) return; var html = "";
-    list.forEach(function (c) { html += '<figure><img src="' + LOGO(c[0]) + '" alt="" width="26" height="26" decoding="async" onerror="this.style.visibility=\'hidden\'"><figcaption>' + c[1] + '</figcaption></figure>'; });
-    t.innerHTML = html;
+  var MAP = {
+    buyers: { more: 575, d: ["3m.com","loreal.com","orange.com","se.com","renaultgroup.com","airbus.com","danone.com","carrefour.com","lvmh.com","bnpparibas.com","adidas.com"] },
+    providers: { more: 255, d: ["ipsos.com","kantar.com","nielseniq.com","iqvia.com","ifop.com","mediametrie.fr","circana.com","opinion-way.com","csa.eu","bva-group.com","harris-interactive.fr"] },
+    field: { more: 32, d: ["bilendi.com","cint.com","dynata.com","toluna.com","norstatgroup.com","alida.com","respondi.com","potloc.com","appinio.com","prolific.com","pureprofile.com"] },
+    tools: { more: 26, d: ["qualtrics.com","medallia.com","forsta.com","askia.com","alchemer.com","surveymonkey.com","typeform.com","vocaza.com","lesphinx.eu","displayr.com","sprinklr.com"] }
+  };
+  var MORE = { fr: "Tout voir", en: "See all" };
+  function fillMap() {
+    Object.keys(MAP).forEach(function (q) {
+      var el = document.querySelector('.tiles[data-q="' + q + '"]'); if (!el) return; var html = "";
+      MAP[q].d.forEach(function (d, i) { html += '<div class="tile' + (i % 4 === 1 ? ' sig' : '') + '"><img src="' + LOGO(d) + '" alt="" width="32" height="32" decoding="async" onerror="this.style.visibility=\'hidden\'"></div>'; });
+      html += '<div class="tile more">+' + MAP[q].more + '<small>' + MORE[lang] + '</small></div>';
+      el.innerHTML = html;
+    });
   }
-  function fillAll() { fillWall("wall-buyers", BUYERS); fillWall("wall-providers", PROVIDERS); }
-  var wall = document.getElementById("wall");
-  if (wall && "IntersectionObserver" in window) { var wio = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { fillAll(); wio.disconnect(); } }, { rootMargin: "900px 0px" }); wio.observe(wall); } else { fillAll(); }
+  var mmapEl = document.getElementById("mmap");
+  if (mmapEl && "IntersectionObserver" in window) { var mio = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { fillMap(); mio.disconnect(); } }, { rootMargin: "900px 0px" }); mio.observe(mmapEl); } else { fillMap(); }
 
-  /* ---------- Signaux : un fil où les cartes arrivent et repartent, avec les pastilles de l'app ---------- */
+  /* ---------- 2 · Signaux : un fil où les cartes arrivent et repartent, avec les pastilles de l'app ---------- */
   var SIGNALS = {
     fr: [
-      { k: "revenue", p: "Croissance du CA", t: "Danone : chiffre d'affaires +17 % sur l'exercice", w: "Les budgets marketing augmentent. <b>Le moment de les contacter.</b>", d: "danone.com", c: "Danone" },
-      { k: "new_role", p: "Évolution de poste", t: "Votre contact chez Coca-Cola vient d'être promu CMO", w: "Nouveau périmètre, nouveau budget. <b>Le moment de le contacter.</b>", d: "coca-cola.com", c: "Coca-Cola" },
-      { k: "tenders", p: "Appels d'offres publics", t: "Ifop remporte un appel d'offres public : étude Gen Z", w: "Le sujet est ouvert chez leurs concurrents. <b>Le moment de vous positionner.</b>", d: "ifop.com", c: "Ifop" },
-      { k: "hiring", p: "Recrutement", t: "L'Oréal recrute un Head of Consumer Insights", w: "Une équipe qui grandit achète des études. <b>Le moment d'écrire, avant la prise de poste.</b>", d: "loreal.com", c: "L'Oréal" },
+      { k: "revenue", p: "Évolution du chiffre d'affaires", t: "Danone : chiffre d'affaires +17 % sur l'exercice", w: "Les budgets marketing augmentent. <b>Le moment de les contacter.</b>", d: "danone.com", c: "Danone" },
+      { k: "new_role", p: "Évolution hiérarchique", t: "Sophie Marchand est promue Head of Consumer Insights", w: "Nouveau périmètre, nouveau budget. <b>Le moment de la contacter.</b>", d: "loreal.com", c: "L'Oréal", who: "Sophie Marchand", face: "women-65" },
+      { k: "tenders", p: "Appel d'offres public en lien avec le secteur", t: "Ifop remporte un appel d'offres public : étude Gen Z", w: "Le sujet est ouvert chez leurs concurrents. <b>Le moment de vous positionner.</b>", d: "ifop.com", c: "Ifop" },
+      { k: "hiring", p: "Recrutement de profils insight", t: "Carrefour recrute un Head of Consumer Insights", w: "Une équipe qui grandit achète des études. <b>Le moment d'écrire, avant la prise de poste.</b>", d: "carrefour.com", c: "Carrefour" },
+      { k: "changed_job", p: "A changé d'entreprise", t: "Karim Benali quitte Ipsos pour Kantar", w: "Il connaît déjà votre offre. <b>Le moment de le suivre chez son nouvel employeur.</b>", d: "kantar.com", c: "Kantar", who: "Karim Benali", face: "men-22" },
       { k: "turnover", p: "Mouvements d'équipe", t: "Orange : arrivée d'une nouvelle directrice des études", w: "Nouveau décideur, nouveaux fournisseurs. <b>Le moment de vous présenter.</b>", d: "orange.com", c: "Orange" },
-      { k: "governance", p: "Changement de gouvernance", t: "Carrefour change de directeur marketing", w: "Les priorités vont changer. <b>Le moment de proposer un point.</b>", d: "carrefour.com", c: "Carrefour" },
-      { k: "changed_job", p: "A changé d'entreprise", t: "Votre contact chez Renault rejoint Stellantis", w: "Il connaît déjà votre offre. <b>Le moment de le suivre chez son nouvel employeur.</b>", d: "stellantis.com", c: "Stellantis" },
-      { k: "bio", p: "Bio mise à jour", t: "Ubisoft : « désormais en charge des études UX »", w: "Un nouveau périmètre, un nouveau besoin. <b>Le moment d'en parler.</b>", d: "ubisoft.com", c: "Ubisoft" },
-      { k: "revenue", p: "Baisse du CA", t: "Un distributeur perd 9 % de chiffre d'affaires", w: "Il cherche à comprendre ses clients. <b>Le moment de proposer une étude.</b>", d: null, c: "Distribution" },
+      { k: "bio", p: "Évolution des compétences", t: "Léa Fontaine ajoute « UX research » à ses compétences", w: "Un nouveau périmètre, un nouveau besoin. <b>Le moment d'en parler.</b>", d: "renaultgroup.com", c: "Renault", who: "Léa Fontaine", face: "women-33" },
+      { k: "governance", p: "Changement de gouvernance", t: "BVA change de directeur général", w: "Les priorités vont changer. <b>Le moment de proposer un point.</b>", d: "bva-group.com", c: "BVA" },
+      { k: "bio_co", p: "Changement de positionnement", t: "OpinionWay se repositionne sur les études B2B", w: "Une nouvelle offre, de nouveaux besoins terrain. <b>Le moment de proposer un partenariat.</b>", d: "opinion-way.com", c: "OpinionWay" },
       { k: "at_risk", p: "En difficulté", t: "Un équipementier entre en procédure de sauvegarde", w: "Ses fournisseurs vont être revus. <b>Le moment d'adapter l'offre.</b>", d: null, c: "Industrie" }
     ],
     en: [
-      { k: "revenue", p: "Revenue growth", t: "Danone: revenue +17% over the year", w: "Marketing budgets are rising. <b>Time to reach out.</b>", d: "danone.com", c: "Danone" },
-      { k: "new_role", p: "Career move", t: "Your contact at Coca-Cola was just promoted to CMO", w: "New scope, new budget. <b>Time to reach out.</b>", d: "coca-cola.com", c: "Coca-Cola" },
-      { k: "tenders", p: "Public tenders", t: "Ifop wins a public tender: Gen Z study", w: "The topic is open at their competitors. <b>Time to position yourself.</b>", d: "ifop.com", c: "Ifop" },
-      { k: "hiring", p: "Hiring", t: "L'Oréal is hiring a Head of Consumer Insights", w: "A growing team buys research. <b>Write before they start.</b>", d: "loreal.com", c: "L'Oréal" },
+      { k: "revenue", p: "Revenue change", t: "Danone: revenue +17% over the year", w: "Marketing budgets are rising. <b>Time to reach out.</b>", d: "danone.com", c: "Danone" },
+      { k: "new_role", p: "Promotion", t: "Sophie Marchand promoted to Head of Consumer Insights", w: "New scope, new budget. <b>Time to reach out.</b>", d: "loreal.com", c: "L'Oréal", who: "Sophie Marchand", face: "women-65" },
+      { k: "tenders", p: "Public tender in the industry", t: "Ifop wins a public tender: Gen Z study", w: "The topic is open at their competitors. <b>Time to position yourself.</b>", d: "ifop.com", c: "Ifop" },
+      { k: "hiring", p: "Hiring insight profiles", t: "Carrefour is hiring a Head of Consumer Insights", w: "A growing team buys research. <b>Write before they start.</b>", d: "carrefour.com", c: "Carrefour" },
+      { k: "changed_job", p: "Changed job", t: "Karim Benali leaves Ipsos for Kantar", w: "He already knows your offer. <b>Follow him to his new employer.</b>", d: "kantar.com", c: "Kantar", who: "Karim Benali", face: "men-22" },
       { k: "turnover", p: "Team turnover", t: "Orange: a new Research Director has arrived", w: "New decision-maker, new suppliers. <b>Time to introduce yourself.</b>", d: "orange.com", c: "Orange" },
-      { k: "governance", p: "Governance change", t: "Carrefour has a new Marketing Director", w: "Priorities will change. <b>Time to propose a call.</b>", d: "carrefour.com", c: "Carrefour" },
-      { k: "changed_job", p: "Changed job", t: "Your contact from Renault joins Stellantis", w: "They already know your offer. <b>Follow them to their new employer.</b>", d: "stellantis.com", c: "Stellantis" },
-      { k: "bio", p: "Bio updated", t: "Ubisoft: “now in charge of UX research”", w: "New scope, new need. <b>Time to talk.</b>", d: "ubisoft.com", c: "Ubisoft" },
-      { k: "revenue", p: "Revenue decline", t: "A retailer loses 9% of revenue", w: "They need to understand their customers. <b>Time to propose a study.</b>", d: null, c: "Retail" },
+      { k: "bio", p: "New skills", t: "Léa Fontaine adds “UX research” to her skills", w: "New scope, new need. <b>Time to talk.</b>", d: "renaultgroup.com", c: "Renault", who: "Léa Fontaine", face: "women-33" },
+      { k: "governance", p: "Governance change", t: "BVA has a new CEO", w: "Priorities will change. <b>Time to propose a call.</b>", d: "bva-group.com", c: "BVA" },
+      { k: "bio_co", p: "Repositioning", t: "OpinionWay repositions on B2B research", w: "A new offer, new fieldwork needs. <b>Time to propose a partnership.</b>", d: "opinion-way.com", c: "OpinionWay" },
       { k: "at_risk", p: "At risk", t: "A manufacturer enters safeguard proceedings", w: "Its suppliers will be reviewed. <b>Time to adapt your offer.</b>", d: null, c: "Industry" }
     ]
   };
@@ -837,7 +876,8 @@ document.documentElement.classList.add("js");
   var feed = document.getElementById("feed"); var feedIdx = 0; var feedTimer = null; var VISIBLE = 4;
   function sigHTML(s, ago) {
     var logo = s.d ? '<img src="' + LOGO(s.d) + '" alt="" width="18" height="18" decoding="async" onerror="this.style.visibility=\'hidden\'">' : '<span class="ini">' + s.c.charAt(0) + '</span>';
-    return '<div><div class="sig"><span class="ov-signal-pill ' + s.k + '">' + s.p + '</span><div><div class="t">' + s.t + '</div><div class="w">' + s.w + '</div></div><span class="ago">' + ago + '</span><div class="co">' + logo + s.c + '</div></div></div>';
+    var co = s.who ? '<img class="face" src="assets/people/' + s.face + '.jpg" alt="" width="24" height="24"><b>' + s.who + '</b> · ' + logo + s.c : logo + s.c;
+    return '<div><div class="sig"><span class="ov-signal-pill ' + s.k + '">' + s.p + '</span><div><div class="t">' + s.t + '</div><div class="w">' + s.w + '</div></div><span class="ago">' + ago + '</span><div class="co">' + co + '</div></div></div>';
   }
   function feedStop() { clearInterval(feedTimer); feedTimer = null; }
   function renderFeed() {
@@ -853,54 +893,60 @@ document.documentElement.classList.add("js");
       var kids = feed.children;
       for (var i = 1; i < kids.length; i++) { var t = kids[i].querySelector(".ago"); if (t && AGO[lang][i]) t.textContent = AGO[lang][i]; }
       requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.remove("enter"); }); });
-      if (kids.length > VISIBLE) { var last = kids[kids.length - 1]; last.classList.add("leave"); setTimeout(function () { if (last.parentNode) last.parentNode.removeChild(last); }, 560); }
-    }, 2800);
+      if (kids.length > VISIBLE) { var last = kids[kids.length - 1]; last.classList.add("leave"); setTimeout(function () { if (last.parentNode) last.parentNode.removeChild(last); }, 620); }
+    }, 4600);
   }
 
-  /* ---------- Pipeline : trois étapes, les tâches et leurs délais ---------- */
-  var ICO = {
-    in: '<span>in</span>',
-    mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>',
-    tel: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>',
-    doc: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>',
-    cal: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'
+  /* ---------- 3 · Pipeline : trois colonnes comme dans l'app, une carte qui avance ---------- */
+  var KB = {
+    fr: {
+      cols: [["Prise de contact", "Obtenir une réponse"], ["En conversation", "Obtenir un rendez-vous"], ["Rendez-vous", "En faire un client"]],
+      fixed: [
+        [{ d: "loreal.com", c: "L'Oréal", ct: "Annonceur · Grand groupe", who: "Julie Lambert", role: "Head of Consumer Insights", face: "women-65", cta: "Ajoutez-les sur LinkedIn", step: "étape 1 sur 6", due: "à faire aujourd'hui", cls: "today" }],
+        [{ d: "carrefour.com", c: "Carrefour", ct: "Annonceur · Grand groupe", who: "Marc Dupont", role: "Directeur marketing", face: "men-57", cta: "Essayez le téléphone", step: "étape 4 sur 6", due: "2 jours de retard", cls: "late" }],
+        [{ d: "orange.com", c: "Orange", ct: "Annonceur · Grand groupe", who: "Inès Martin", role: "Directrice des études", face: "women-21", cta: "Préparez le rendez-vous", step: "jeudi 10 h", due: "dans 2 jours", cls: "", ghost: true }]
+      ],
+      mover: { d: "kelloggs.com", c: "Kellogg's", ct: "Annonceur · Grand groupe", who: "Camille Moreau", role: "Directrice des études consommateurs", face: "women-50",
+        states: [{ cta: "Écrivez-leur sur LinkedIn", step: "étape 2 sur 6", due: "à faire aujourd'hui", cls: "today" }, { cta: "Contactez-la par email", step: "étape 1 sur 3", due: "à faire aujourd'hui", cls: "today" }, { cta: "Fiche de préparation", step: "mardi 14 h", due: "dans 2 jours", cls: "", ghost: true }] }
+    },
+    en: {
+      cols: [["Reaching out", "Get a reply"], ["In conversation", "Get a meeting"], ["Meeting", "Turn them into a client"]],
+      fixed: [
+        [{ d: "loreal.com", c: "L'Oréal", ct: "Buyer · Large group", who: "Julie Lambert", role: "Head of Consumer Insights", face: "women-65", cta: "Connect on LinkedIn", step: "step 1 of 6", due: "due today", cls: "today" }],
+        [{ d: "carrefour.com", c: "Carrefour", ct: "Buyer · Large group", who: "Marc Dupont", role: "Marketing Director", face: "men-57", cta: "Try the phone", step: "step 4 of 6", due: "2 days late", cls: "late" }],
+        [{ d: "orange.com", c: "Orange", ct: "Buyer · Large group", who: "Inès Martin", role: "Research Director", face: "women-21", cta: "Prepare the meeting", step: "Thursday 10am", due: "in 2 days", cls: "", ghost: true }]
+      ],
+      mover: { d: "kelloggs.com", c: "Kellogg's", ct: "Buyer · Large group", who: "Camille Moreau", role: "Head of Consumer Research", face: "women-50",
+        states: [{ cta: "Write to her on LinkedIn", step: "step 2 of 6", due: "due today", cls: "today" }, { cta: "Email her", step: "step 1 of 3", due: "due today", cls: "today" }, { cta: "Preparation sheet", step: "Tuesday 2pm", due: "in 2 days", cls: "", ghost: true }] }
+    }
   };
-  var STAGES = {
-    fr: [
-      { n: "Prise de contact", g: "Obtenir une réponse", s: [["in", "Ajout LinkedIn", "J+1"], ["in", "Message", "à l'acceptation"], ["mail", "Email", "J+2"], ["mail", "Relance", "J+3"], ["mail", "Dernier email", "J+5"]] },
-      { n: "En conversation", g: "Obtenir un rendez-vous", s: [["cal", "Proposition de rendez-vous", "dès la réponse"], ["in", "Relance LinkedIn", "J+2"], ["tel", "Appel", "J+4"]] },
-      { n: "Rendez-vous", g: "En faire un client", s: [["doc", "Fiche de préparation", "J-2"], ["mail", "Confirmation", "J-1"], ["mail", "Remerciement", "le jour même"], ["mail", "Relance", "J+3"]] }
-    ],
-    en: [
-      { n: "Reaching out", g: "Get a reply", s: [["in", "LinkedIn connect", "D+1"], ["in", "Message", "on acceptance"], ["mail", "Email", "D+2"], ["mail", "Follow-up", "D+3"], ["mail", "Last email", "D+5"]] },
-      { n: "In conversation", g: "Get a meeting", s: [["cal", "Meeting proposal", "on reply"], ["in", "LinkedIn follow-up", "D+2"], ["tel", "Call", "D+4"]] },
-      { n: "Meeting", g: "Turn them into a client", s: [["doc", "Preparation sheet", "D-2"], ["mail", "Confirmation", "D-1"], ["mail", "Thank-you", "same day"], ["mail", "Follow-up", "D+3"]] }
-    ]
-  };
-  var stagesEl = document.getElementById("stages"); var stepTimer = null;
-  function stagesStop() { clearInterval(stepTimer); stepTimer = null; }
-  function renderStages() {
-    if (!stagesEl) return; stagesStop();
+  var kanbanEl = document.getElementById("kanban"); var kbTimer = null; var kbPos = 0;
+  function cardHTML(c, st, hot) {
+    var s = st || c;
+    return '<div class="kcard' + (hot ? ' hot' : '') + '"><div class="kco"><img src="' + LOGO(c.d) + '" alt="" width="28" height="28" decoding="async" onerror="this.style.visibility=\'hidden\'"><div><b>' + c.c + '</b><span>' + c.ct + '</span></div></div><div class="kp"><img src="assets/people/' + c.face + '.jpg" alt="" width="30" height="30"><div><b>' + c.who + '</b><span>' + c.role + '</span></div></div><span class="kcta' + (s.ghost ? ' ghost' : '') + '">' + s.cta + '</span><div class="kprog"><b>' + s.step + '</b><span class="' + s.cls + '">' + s.due + '</span></div></div>';
+  }
+  function kanbanStop() { clearInterval(kbTimer); kbTimer = null; }
+  function renderKanban() {
+    if (!kanbanEl) return; kanbanStop(); var K = KB[lang]; kbPos = 0;
     var html = "";
-    STAGES[lang].forEach(function (st, si) {
-      html += '<div class="stage"><div class="stage-h"><span class="k">' + (si + 1) + '</span><div><b>' + st.n + '</b><br><span>' + st.g + '</span></div></div><div class="steps"><span class="prog"></span>';
-      st.s.forEach(function (s) { html += '<div class="step"><div class="node ' + (s[0] === "in" ? "in" : "") + '">' + ICO[s[0]] + '</div><div class="lbl">' + s[1] + '</div><div class="when">' + s[2] + '</div></div>'; });
+    K.cols.forEach(function (col, i) {
+      html += '<div class="kcol"><div class="kcol-h">' + col[0] + '<span class="cnt">' + (K.fixed[i].length + (i === 0 ? 1 : 0)) + '</span></div><div class="kcol-g">' + col[1] + '</div><div class="kcards" data-col="' + i + '">';
+      if (i === 0) html += '<div class="kw" data-mover="1">' + cardHTML(K.mover, K.mover.states[0], true) + '</div>';
+      K.fixed[i].forEach(function (c) { html += '<div class="kw">' + cardHTML(c, null, false) + '</div>'; });
       html += '</div></div>';
     });
-    stagesEl.innerHTML = html;
-    var steps = Array.prototype.slice.call(stagesEl.querySelectorAll(".step")); var cur = 0;
-    function paint() {
-      steps.forEach(function (s, i) { s.classList.toggle("done", i < cur); s.classList.toggle("on", i === cur); });
-      var groups = stagesEl.querySelectorAll(".steps"); var seen = 0;
-      Array.prototype.forEach.call(groups, function (g) {
-        var n = g.querySelectorAll(".step").length; var prog = g.querySelector(".prog");
-        var local = Math.min(Math.max(cur - seen, 0), n - 1); var pct = n > 1 ? local / (n - 1) : 0;
-        prog.style.width = "calc((100% - 40px) * " + pct.toFixed(3) + ")"; seen += n;
-      });
-    }
-    paint();
-    if (reduced) { cur = 3; paint(); return; }
-    stepTimer = setInterval(function () { cur = (cur + 1) % steps.length; paint(); }, 1500);
+    kanbanEl.innerHTML = html;
+    if (reduced) return;
+    kbTimer = setInterval(function () {
+      var from = kbPos; kbPos = (kbPos + 1) % 3;
+      var old = kanbanEl.querySelector('[data-mover="1"]'); if (old) { old.classList.add("leave"); setTimeout(function () { if (old.parentNode) old.parentNode.removeChild(old); }, 620); old.removeAttribute("data-mover"); }
+      var dest = kanbanEl.querySelector('.kcards[data-col="' + kbPos + '"]');
+      var el = document.createElement("div"); el.className = "kw enter"; el.setAttribute("data-mover", "1"); el.innerHTML = cardHTML(K.mover, K.mover.states[kbPos], true);
+      dest.insertBefore(el, dest.firstChild);
+      requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.remove("enter"); }); });
+      var cnts = kanbanEl.querySelectorAll(".kcol-h .cnt");
+      cnts.forEach(function (n, i) { n.textContent = K.fixed[i].length + (i === kbPos ? 1 : 0); });
+    }, 4200);
   }
 
   /* ---------- Le rédacteur : trois tons, le message s'écrit ---------- */
@@ -943,15 +989,12 @@ document.documentElement.classList.add("js");
     io.observe(el);
   }
   watchAnim("feed", document.getElementById("feed"), function () { if (!feedTimer) renderFeed(); }, feedStop);
-  watchAnim("flow", document.querySelector(".flow"), function () { if (!stepTimer) renderStages(); }, stagesStop);
+  watchAnim("kanban", kanbanEl, function () { if (!kbTimer) renderKanban(); }, kanbanStop);
   watchAnim("mail", document.querySelector(".mail"), function () { renderMail(false); }, mailStop);
 
-  /* ---------- Démarrage ---------- */
-  var saved = null; try { saved = localStorage.getItem("mazeo-lang"); } catch (e) {}
+  /* ---------- Démarrage : la langue suit celle du navigateur ---------- */
   var browser = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
-  setLang(saved || browser, false);
-  document.getElementById("lang-fr").addEventListener("click", function () { setLang("fr", true); });
-  document.getElementById("lang-en").addEventListener("click", function () { setLang("en", true); });
+  setLang(browser);
 
   var nav = document.getElementById("nav");
   function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
