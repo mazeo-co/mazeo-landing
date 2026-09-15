@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>mazeo — Le seul outil de prospection dédié au market research</title>
+<title>mazeo — proposition design</title>
+<meta name="robots" content="noindex">
 <meta name="description" content="L’intégralité du secteur, scoré et mis à jour en temps réel. Vos prochains clients sont sur mazeo : la bonne entreprise, la bonne personne, au bon moment.">
 <link rel="canonical" href="https://mazeo.co/">
 
@@ -34,6 +35,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@800&text=mazeo.&display=swap">
 <script src="assets/market-logos.js" defer></script>
+<!-- Page de proposition : les corrections de design de l'audit du 14/09, à choisir. Le texte est celui de index.html. -->
 
 <script type="application/ld+json">
 {
@@ -162,12 +164,7 @@ button, input { font: inherit; }
 .video-panel .inner { width: min(100vw - 48px, 1400px); margin: 28px 0 4px 50%; transform: translateX(-50%); }
 .video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: var(--ink); display: grid; place-items: center; isolation: isolate; }
 .video-frame::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 110%, rgba(0,123,255,.55), rgba(0,123,255,0) 70%); }
-.video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
-.video-frame.playing::before { content: none; }
-.video-frame.playing .video-play { display: none; }
-.video-play { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 16px; color: #fff; background: none; border: 0; cursor: pointer; padding: 0; font: inherit; }
-.video-play:hover .disc { transform: scale(1.06); }
-.video-play .disc { transition: transform .18s ease; }
+.video-play { position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; color: #fff; }
 .video-play .disc { width: 88px; height: 88px; border-radius: 50%; background: #fff; display: grid; place-items: center; }
 .video-play .disc::after { content: ""; width: 0; height: 0; border-left: 26px solid var(--ink); border-top: 15px solid transparent; border-bottom: 15px solid transparent; margin-left: 6px; }
 .video-play span { font-size: 16px; font-weight: 600; }
@@ -253,16 +250,12 @@ button, input { font: inherit; }
 .quad-h { display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px; font-size: 14px; font-weight: 700; color: var(--ink); }
 .quad-h span { font-weight: 600; color: var(--meta); font-size: 12.5px; }
 .tiles { display: grid; grid-template-columns: repeat(9, 1fr); gap: 10px; }
-.tile { position: relative; aspect-ratio: 1; border: 1px solid var(--line); border-radius: 10px; background: #fff; display: grid; place-items: center; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
-.tile:hover { transform: translateY(-3px) scale(1.08); border-color: var(--line-strong); box-shadow: 0 10px 22px -12px rgba(10,10,10,.35); z-index: 3; }
-.tile[data-name]:hover::after { content: attr(data-name); position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translateX(-50%); padding: 5px 9px; background: var(--ink); color: #fff; font-size: 11.5px; font-weight: 600; border-radius: 6px; white-space: nowrap; pointer-events: none; }
-.tile.more:hover::after { content: none; }
+.tile { position: relative; aspect-ratio: 1; border: 1px solid var(--line); border-radius: 10px; background: #fff; display: grid; place-items: center; overflow: hidden; }
 html.js .tiles.pre .tile { opacity: 0; transform: scale(.7); }
 html.js .tiles.pre .tile.in { opacity: 1; transform: none; transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1.1); }
-html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); transition: transform .18s ease, box-shadow .18s ease; }
-.mmap { overflow: visible; }
 .map-note { margin-top: 16px; font-size: 14px; color: var(--meta); }
 .tile img { width: 68%; height: 68%; object-fit: contain; border-radius: 4px; }
+.tile.flag-off::before { content: ""; position: absolute; top: -3px; left: -3px; width: 10px; height: 10px; border-radius: 50%; background: var(--green); border: 2px solid #fff; }
 .tile.more { border-color: var(--blue); background: var(--blue-tint); color: var(--blue-text); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2px; font-weight: 700; font-size: 15px; line-height: 1.1; }
 .tile.more small { font-size: 10.5px; font-weight: 600; }
 @media (max-width: 900px) { .mmap { grid-template-columns: 1fr; } .quad:nth-child(odd) { border-right: 0; } .quad:nth-child(n+3) { border-bottom: 1px solid var(--line-soft); } .quad:last-child { border-bottom: 0; } .tiles { grid-template-columns: repeat(6, 1fr); } .tile:nth-child(n+18):not(.more) { display: none; } }
@@ -479,13 +472,11 @@ html[lang="en"] .pills .ov-signal-pill[data-def-en]:hover::after { content: attr
 .dp-row img { width: 36px; height: 36px; border-radius: 9px; object-fit: contain; }
 .dp-row figcaption { font-size: 15.5px; font-weight: 700; color: var(--ink); white-space: nowrap; }
 .dp-row .more { font-size: 14px; color: var(--meta); font-weight: 600; }
-.carousel { margin-top: 48px; position: relative; }
-@media (max-width: 960px) { .quote { flex-basis: calc((100% - 20px) / 2); } }
-@media (max-width: 640px) { .quote { flex-basis: 86vw; } }
+.carousel { margin-top: 56px; position: relative; }
 .car-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 4px 4px 12px; scrollbar-width: none; -ms-overflow-style: none; }
 .car-track::-webkit-scrollbar { display: none; }
-.quote { flex: 0 0 calc((100% - 40px) / 3); scroll-snap-align: start; background: #fff; border: 1px solid var(--line); border-radius: var(--r-card); padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 26px; min-height: 260px; }
-.quote blockquote { margin: 0; font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.32; letter-spacing: -0.02em; color: var(--ink); text-wrap: pretty; }
+.quote { flex: 0 0 min(440px, 86vw); scroll-snap-align: start; background: #fff; border: 1px solid var(--line); border-radius: var(--r-card); padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 26px; min-height: 260px; }
+.quote blockquote { margin: 0; font-family: var(--display); font-weight: 600; font-size: 21px; line-height: 1.32; letter-spacing: -0.02em; color: var(--ink); text-wrap: pretty; }
 .quote .who { display: flex; align-items: center; gap: 12px; }
 .quote .who img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
 .quote .who b { display: block; font-size: 15px; color: var(--ink); }
@@ -529,6 +520,127 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .foot nav a:hover { color: var(--ink); text-decoration: none; }
 .foot .tag { width: 100%; font-size: 12.5px; }
 
+/* ============ PROPOSITION : rythme, échelle, à-plats, composants de l'app ============ */
+:root {
+  --s-3: 64px; --s-4: 96px; --s-5: 144px;
+  --t-hero: clamp(44px, 7vw, 96px); --t-h2: clamp(36px, 4.6vw, 64px); --t-h3: clamp(28px, 3vw, 44px);
+  --m-title: 26ch; --m-lead: 66ch; --m-copy: 62ch;
+  --r-xs: 5px; --r-sm: 9px; --r-md: 14px;
+  --line-strong: #E5E7EB;
+}
+@media (max-width: 960px) { :root { --s-3: 40px; --s-4: 64px; --s-5: 96px; } }
+body { font-size: 17px; color: var(--slate); }
+.copy { font-size: 17px; color: var(--slate); max-width: var(--m-copy); }
+.lead, .hero .lead, .head .lead, .final .lead, .scoring .lead { max-width: var(--m-lead); font-size: clamp(18px, 1.4vw, 20px); }
+.hero .lead { margin-inline: auto; }
+.title, .problem .title, .panel-blue .title, .final .title { font-size: var(--t-h2); max-width: var(--m-title); }
+.final .title { margin-inline: auto; }
+.hero h1 { font-size: var(--t-hero); max-width: none; }
+.split h3, .scoring h3, .pbsol .sol h3 { font-size: var(--t-h3); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; max-width: var(--m-title); }
+h3 { line-height: 1.1; }
+.section { padding-block: var(--s-5); }
+.section-soft, .panel { padding-block: var(--s-4); }
+.problem { padding-bottom: var(--s-4); }
+#faq { padding-bottom: var(--s-4); }
+.scoring, .match-split, .writer-split { margin-top: var(--s-4); }
+.match-split { margin-bottom: var(--s-4); }
+.mmap-screen, .kanban { margin-top: var(--s-3); }
+.head .lead { margin-top: 20px; }
+/* à plat : plus de halo, plus de grande ombre */
+.video-frame::before, .panel-blue::before, .panel-ink::before { display: none; }
+.screen.raised { border: 1px solid rgba(255,255,255,.22); box-shadow: none; }
+.panel-blue .screen.raised { box-shadow: none; }
+/* trois rayons, deux gris */
+.video-frame, .screen, .signup-fields, .quote { border-radius: var(--r-md); }
+.kcard, .sig, .tile, .fiche-logo, .kb-alert, .kcta, .seg-toggle, .tones, .signup-fields input, .reveal-btn, .chip, .btn, .kw.ghost::before { border-radius: var(--r-sm); }
+.ov-signal-pill, .kco img, .sig .co img, .sig .co .ini, .tile img, .match span { border-radius: var(--r-xs); }
+/* les chapitres : le numéro est la signature */
+.chapter { display: flex; align-items: baseline; gap: 18px; margin-bottom: 26px; }
+.chapter-n { font-family: var(--display); font-weight: 700; font-size: 96px; line-height: 1; letter-spacing: -0.04em; color: var(--blue); }
+.chapter-name { font-size: 18px; font-weight: 600; color: var(--slate); }
+.panel .chapter-n { color: #fff; }
+.panel .chapter-name { color: rgba(255,255,255,.85); }
+.eyebrow { font-size: 12px; letter-spacing: .08em; }
+.nav-links .nn { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 5px; background: var(--ink); color: #fff; font-size: 11px; font-weight: 700; margin-right: 4px; vertical-align: 1px; }
+/* la ligne de relevé remplace les chiffres géants */
+.releve { margin-top: 22px; font-size: 14px; color: var(--meta); font-variant-numeric: tabular-nums; }
+.panel-blue .releve { color: rgba(255,255,255,.85); border-top: 1px solid rgba(255,255,255,.35); padding-top: 18px; margin-top: 26px; }
+.map-note { margin-top: 16px; }
+/* le scoring en nomenclature : trois colonnes, des filets, des entrées numérotées */
+.scoring { background: none; border: 0; padding-block: 0; margin-top: var(--s-4); }
+.scards { gap: 0; margin-top: 40px; border-block: 1px solid var(--line); }
+.scard { background: none; border: 0; border-radius: 0; border-right: 1px solid var(--line); padding: 28px 28px 28px 0; margin-right: 28px; }
+.scard:last-child { border-right: 0; margin-right: 0; padding-right: 0; }
+.scard b { font-size: var(--t-h3); }
+.scard b em { font-size: .5em; }
+.scard small { font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; color: var(--meta); margin: 6px 0 16px; }
+.scard .chips { display: grid; gap: 7px; counter-reset: n; }
+.scard .chip { border: 0; padding: 0; border-radius: 0; font-size: 15px; font-weight: 500; color: var(--ink); background: none; white-space: normal; }
+.scard .chip::before { counter-increment: n; content: counter(n, decimal-leading-zero); color: var(--meta); font-variant-numeric: tabular-nums; font-size: 12.5px; font-weight: 600; margin-right: 12px; width: 20px; }
+.scard .chip.more { color: var(--blue-text); font-weight: 700; }
+.scard .chip.more::before { content: ""; }
+.pillgroup .lbl { font-size: 13px; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.scoring .lead { max-width: none; }
+@media (max-width: 960px) { .scard { border-right: 0; margin-right: 0; border-bottom: 1px solid var(--line); padding: 24px 0; } .scard:last-child { border-bottom: 0; } }
+/* la barre de l'app en tête de chaque écran */
+.app-bar { height: 44px; display: flex; align-items: center; gap: 22px; padding: 0 16px; border-bottom: 1px solid var(--line); font-size: 12.5px; background: #fff; }
+.app-bar .logo { font-size: 15px; }
+.app-bar nav { display: flex; gap: 16px; height: 100%; }
+.app-bar nav span { display: inline-flex; align-items: center; height: 44px; font-weight: 600; color: var(--slate); border-bottom: 2px solid transparent; }
+.app-bar nav span.on { color: var(--ink); border-bottom-color: var(--blue); }
+.app-bar nav span i { display: inline-grid; place-items: center; min-width: 16px; height: 16px; padding: 0 4px; margin-left: 5px; border-radius: 8px; background: var(--blue); color: #fff; font-size: 10px; font-style: normal; font-weight: 700; }
+.app-bar .srch { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid var(--line); border-radius: var(--r-sm); color: var(--meta); font-weight: 500; }
+.app-bar .srch svg { width: 12px; height: 12px; }
+.app-bar .av { width: 26px; height: 26px; border-radius: 50%; background: var(--ink); color: #fff; font-size: 10.5px; font-weight: 700; display: grid; place-items: center; }
+@media (max-width: 640px) { .app-bar nav, .app-bar .srch { display: none; } }
+.screen-top .note { display: none; }
+.caption { margin-top: 10px; font-size: 12.5px; color: var(--meta); }
+.panel .caption { color: rgba(255,255,255,.75); }
+/* la fiche : actions, sous-navigation, provenance, barres fines */
+.fiche-actions { display: flex; align-items: center; gap: 8px; margin-top: 14px; }
+.fiche-actions .ib { width: 30px; height: 30px; border: 1px solid var(--line); border-radius: var(--r-xs); display: grid; place-items: center; color: var(--slate); font-size: 11px; font-weight: 700; }
+.fiche-actions .st { padding: 6px 11px; border: 1px solid var(--line); border-radius: var(--r-xs); font-size: 12.5px; font-weight: 600; color: var(--slate); background: #fff; }
+.fiche-actions .st.on { border-color: var(--blue); color: var(--blue-text); border-radius: 8px; }
+.fiche-nav { display: flex; gap: 18px; margin-top: 14px; border-bottom: 1px solid var(--line); font-size: 12.5px; font-weight: 600; color: var(--slate); }
+.fiche-nav span { padding: 8px 0; border-bottom: 2px solid transparent; }
+.fiche-nav span.on { color: var(--ink); border-bottom-color: var(--blue); }
+.fiche-nav i { display: inline-grid; place-items: center; min-width: 18px; height: 18px; padding: 0 5px; margin-left: 5px; border-radius: 9px; background: var(--soft); border: 1px solid var(--line); font-style: normal; font-size: 11px; color: var(--meta); }
+.src { display: block; margin-top: 10px; font-size: 11.5px; color: var(--meta); }
+.seg { gap: 0; width: 60px; height: 4px; border-radius: 2px; background: var(--line); overflow: hidden; }
+.seg i { width: 33.33%; height: 100%; border-radius: 0; background: transparent; }
+.seg i.on { background: var(--blue); }
+.fiche-head { padding-bottom: 14px; border-bottom: 0; }
+/* la Watch : des lignes, pas des cartes */
+.sig { border: 0; border-top: 1px solid var(--line); border-radius: 0; padding: 12px 4px; background: #fff; }
+.sigw.enter, .sigw.leave { margin-bottom: 0; }
+.feed-list { gap: 0; background: #fff; padding: 0 14px 14px; }
+.feed-sep { padding: 10px 4px 6px; font-size: 12px; font-weight: 600; color: var(--meta); }
+/* le rédacteur : le message reste lisible */
+.mail-body { min-height: 250px; transition: opacity .25s ease, transform .25s ease; }
+.mail-body.swap { opacity: 0; transform: translateY(4px); }
+.mail-ctx { font-size: 12px; color: var(--meta); padding: 0 20px 14px; }
+/* les témoignages : une seule preuve, à gauche, sans cadre */
+.quote.pending, .car-nav, #temoignages .dp-row { display: none; }
+.carousel { margin-top: 40px; }
+.car-track { display: block; overflow: visible; padding: 0; }
+.quote { flex: none; border: 0; border-radius: 0; background: none; padding: 0; min-height: 0; display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: end; max-width: none; }
+.quote blockquote { font-size: clamp(26px, 2.6vw, 36px); line-height: 1.22; font-weight: 600; }
+.quote .who { justify-self: start; }
+.builtfor { text-align: left; margin-inline: 0; max-width: var(--m-lead); }
+@media (max-width: 760px) { .quote { grid-template-columns: 1fr; gap: 20px; } }
+/* la carte : le nom au survol, les points verts qui tombent un par un */
+.tile[data-name]:hover::after { content: attr(data-name); position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); padding: 4px 8px; background: var(--ink); color: #fff; font-size: 11.5px; border-radius: var(--r-xs); white-space: nowrap; z-index: 3; pointer-events: none; }
+.tile { overflow: visible; transition: transform .18s ease, box-shadow .18s ease; }
+.tile:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 10px 22px -12px rgba(10,10,10,.35); z-index: 3; }
+html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); transition: transform .18s ease; }
+.mmap { overflow: visible; }
+.tile.more:hover::after { content: none; }
+.tile img { border-radius: var(--r-xs); }
+.tile.flag::before { transform: scale(0); }
+html.js .tiles.pre .tile.flag.dot::before { transform: scale(1); transition: transform .3s cubic-bezier(.2,.8,.2,1.3); }
+/* plus d'apparition au défilement */
+html.js .reveal { opacity: 1; transform: none; transition: none; }
+
 /* ---- Apparition au défilement ---- */
 @media (prefers-reduced-motion: no-preference) {
   html.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
@@ -563,9 +675,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <div class="container nav-inner">
     <a class="logo" href="#top" aria-label="mazeo">mazeo<span>.</span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#market" data-t="nav.market">Le marché</a>
-      <a href="#signaux" data-t="nav.signals">Les signaux</a>
-      <a href="#pipeline" data-t="nav.pipeline">Le Pipeline</a>
+      <a href="#market"><span class="nn">1</span> <span data-t="nav.market">Le marché</span></a>
+      <a href="#signaux"><span class="nn">2</span> <span data-t="nav.signals">Les signaux</span></a>
+      <a href="#pipeline"><span class="nn">3</span> Pipeline</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
@@ -631,12 +743,13 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <!-- ================= 1 · THE MARKET ================= -->
   <section class="section" id="market" style="padding-bottom:0">
     <div class="container">
-      <div class="marker reveal"><span class="n">1</span><span class="name" data-t="mk.name">Le marché</span></div>
       <div class="head reveal">
+        <div class="chapter"><span class="chapter-n">1</span><span class="chapter-name" data-t="mk.name">Le marché</span></div>
         <h2 class="title" data-t="mk.h2">Tout le secteur, cartographié.</h2>
         <p class="lead" data-t="mk.lead">mazeo lit en temps réel l’ensemble des informations publiques du secteur&nbsp;: LinkedIn, sites web, registre des entreprises, offres d’emploi, appels d’offres publics, réseaux sociaux. Il s’en sert pour catégoriser chaque entreprise, la scorer et la matcher avec votre offre.</p>
       </div>
       <div class="screen mmap-screen reveal" aria-hidden="true" id="mmap">
+        <div class="app-bar" aria-hidden="true"><span class="logo">mazeo<span>.</span></span><nav><span class="">Home</span><span class="on">Explore</span><span class="">Lists</span><span class="">Watch</span><span class="">Pipeline</span></nav><span class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Rechercher…</span><span class="av">RB</span></div>
         <div class="screen-top"><span class="t" lang="en">The Market<small data-t="mm.count">1&nbsp;300+ entreprises · 13&nbsp;000+ contacts</small></span><span class="seg-toggle"><span class="on" data-t="mm.map">Carte</span><span data-t="mm.list">Liste</span></span></div>
         <div class="mmap">
           <div class="quad"><div class="quad-h" data-t="mm.q1">Acheteurs d’études <span>796</span></div><div class="tiles" data-q="buyers"></div></div>
@@ -646,6 +759,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         </div>
       </div>
       <p class="map-note" data-t="mm.note">Tout le secteur du market research en France. D’autres pays à venir.</p>
+      <p class="releve" data-t="mm.releve">1&nbsp;300+ entreprises · 13&nbsp;000+ contacts · 27 secteurs · relevé du 14&nbsp;septembre 2026 · sources&nbsp;: LinkedIn, registre des entreprises, sites web, offres d’emploi, appels d’offres</p>
     </div>
 
     <div class="scoring">
@@ -674,8 +788,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
           <p class="copy" data-t="mt.p2">Pour chacune, la personne à contacter, avec son email et son portable en un clic.</p>
         </div>
         <div class="screen fiche-screen" aria-hidden="true" id="fiche-screen">
-          <div class="screen-top"><span class="t" data-t="fi.top">Fiche entreprise</span><span class="note" data-t="fi.src">À titre indicatif</span></div>
-          <div class="fiche" id="fiche"></div>
+          <div class="app-bar" aria-hidden="true"><span class="logo">mazeo<span>.</span></span><nav><span class="">Home</span><span class="on">Explore</span><span class="">Lists</span><span class="">Watch</span><span class="">Pipeline</span></nav><span class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Rechercher…</span><span class="av">RB</span></div>
+          <div class="screen-top"><span class="t" data-t="fi.top">Fiche entreprise</span><span class="seg-toggle"><span data-t="fi.save" class="on">Saved</span><span>Watch</span><span>Similar</span></span></div>
+          <div class="fiche" id="fiche" data-rich="1"></div>
           <div class="fiche-dots" id="fiche-dots"></div>
         </div>
       </div>
@@ -686,9 +801,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <!-- ================= 2 · SIGNAUX : PANNEAU BLEU ================= -->
   <section class="panel panel-blue" id="signaux">
     <div class="container">
-      <div class="marker"><span class="n">2</span><span class="name" data-t="sg.eyebrow">Les signaux</span></div>
       <div class="split">
         <div class="split-copy">
+          <div class="chapter"><span class="chapter-n">2</span><span class="chapter-name" data-t="sg.eyebrow">Les signaux</span></div>
           <h2 class="title" data-t="sg.h2">Le bon moment pour les contacter.</h2>
           <p class="lead" data-t="sg.p" style="margin-top:22px">La bonne entreprise, la bonne personne&nbsp;: reste le bon moment. mazeo scanne le secteur en temps réel et détecte dix types de signaux qui vous informent du meilleur moment pour entrer en contact.</p>
           <div class="pillgroup">
@@ -708,16 +823,16 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             </div></div>
           </div>
           <p class="watchline" data-t="sg.watch"><b>La Watch.</b> Suivez les entreprises et les personnes qui comptent pour vous. Résumé par email chaque mercredi.</p>
-          <div class="bignum">
-            <div><b>10+</b><span data-t="n.sig">types de signaux</span></div>
-            <div><b>5&nbsp;000+</b><span data-t="n.det">signaux détectés depuis juillet 2026</span></div>
-          </div>
+          <p class="releve" data-t="sg.releve">Près de 5&nbsp;000 signaux détectés depuis juillet 2026 · 10 types de signaux · relevé du 14&nbsp;septembre 2026</p>
         </div>
         <div>
           <div class="screen raised" aria-hidden="true">
-            <div class="screen-top"><span class="t">Watch</span><span class="note" data-t="sg.note">À titre indicatif</span></div>
+            <div class="app-bar" aria-hidden="true"><span class="logo">mazeo<span>.</span></span><nav><span class="">Home</span><span class="">Explore</span><span class="">Lists</span><span class="on">Watch</span><span class="">Pipeline</span></nav><span class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Rechercher…</span><span class="av">RB</span></div>
+            <div class="screen-top"><span class="t">Watch<small data-t="ws.all">Toutes les entreprises de la Watch</small></span><span class="seg-toggle"><span class="on" data-t="ws.co">Entreprises</span><span data-t="ws.ct">Contacts</span></span></div>
+            <div class="feed-sep" data-t="ws.new">Nouveaux depuis votre dernière visite · mardi</div>
             <div class="feed-list" id="feed"></div>
           </div>
+          <p class="caption" data-t="sg.note">À titre indicatif</p>
         </div>
       </div>
     </div>
@@ -726,13 +841,14 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <!-- ================= 3 · PIPELINE : PANNEAU NOIR ================= -->
   <section class="panel panel-ink" id="pipeline">
     <div class="container">
-      <div class="marker"><span class="n">3</span><span class="name" data-t="pl.eyebrow">Le Pipeline</span></div>
       <div class="head">
+        <div class="chapter"><span class="chapter-n">3</span><span class="chapter-name" data-t="pl.eyebrow">Le Pipeline</span></div>
         <h2 class="title" data-t="pl.h2">De la prise de contact au rendez-vous, étape par étape.</h2>
         <p class="lead" data-t="pl.lead">mazeo vous accompagne jusqu’au rendez-vous, dans un parcours pensé pour notre métier. À chaque étape, il vous suggère quoi faire et quand, et vous prévient dès qu’une tâche est en retard.</p>
       </div>
 
       <div class="screen raised kanban" aria-hidden="true" id="kanban-screen">
+        <div class="app-bar" aria-hidden="true"><span class="logo">mazeo<span>.</span></span><nav><span class="">Home</span><span class="">Explore</span><span class="">Lists</span><span class="">Watch</span><span class="on">Pipeline<i>4</i></span></nav><span class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Rechercher…</span><span class="av">RB</span></div>
         <div class="kb-top"><span class="t">Pipeline<small data-t="kb.sub">4 personnes en mouvement</small></span><span class="note" data-t="kb.note">À titre indicatif</span><span class="kb-alert" data-t="kb.alert">À traiter · 1 étape en retard</span></div>
         <div class="kb-cols" id="kanban"></div>
       </div>
@@ -744,8 +860,10 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
           <p class="copy" data-t="wr.p">Le rédacteur écrit les premiers messages. Il a tout le contexte de votre relation, et il connaît le parcours de la personne à qui vous écrivez&nbsp;: son poste, son entreprise, ses signaux. Sur un ton formel, direct ou amical.</p>
         </div>
         <div class="screen raised mail" aria-hidden="true">
+          <div class="app-bar" aria-hidden="true"><span class="logo">mazeo<span>.</span></span><nav><span class="">Home</span><span class="">Explore</span><span class="">Lists</span><span class="">Watch</span><span class="on">Pipeline<i>4</i></span></nav><span class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Rechercher…</span><span class="av">RB</span></div>
           <div class="mail-top"><span class="to"><img src="assets/people/women-50.jpg" alt="" width="26" height="26"><span data-t="ml.to"><b>À&nbsp;:</b> Camille Moreau · Directrice des études consommateurs</span></span><div class="tones" id="tones"></div></div>
           <div class="mail-body" id="mail-body"></div>
+          <p class="mail-ctx" data-t="ml.ctx2">Écrit avec&nbsp;: signal Recrutement · étape 2 sur 6 · Camille Moreau, Directrice des études consommateurs, Kellogg’s</p>
           <div class="mail-foot"><span data-t="ml.ctx">Contexte&nbsp;: connectés sur LinkedIn · signal Recrutement</span><span class="btn btn-primary static" data-t="ml.btn">Copier et ouvrir LinkedIn</span></div>
         </div>
       </div>
@@ -755,8 +873,18 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <!-- ================= PREUVE ================= -->
   <section class="section section-soft" id="temoignages">
     <div class="container">
-      <div class="head center reveal">
+      <div class="head reveal">
         <h2 class="title" data-t="dp.h2">En bêta privée depuis mars&nbsp;2026 chez 9&nbsp;prestataires d’études.</h2>
+      </div>
+      <div class="dp-row reveal">
+        <figure><img src="assets/dp-episto.jpg" alt=""><figcaption>Episto</figcaption></figure>
+        <figure><img src="assets/dp-moai.jpg" alt=""><figcaption>Moaï</figcaption></figure>
+        <figure><img src="assets/dp-statmore.png" alt=""><figcaption>Stat &amp; More</figcaption></figure>
+        <figure><img src="assets/dp-licter.jpg" alt=""><figcaption>Licter</figcaption></figure>
+        <figure><img src="assets/dp-mainframe.png" alt=""><figcaption>Main Frame</figcaption></figure>
+        <figure><img src="assets/dp-iligo.jpg" alt=""><figcaption>iligo</figcaption></figure>
+        <figure><img src="assets/dp-reperes.jpg" alt=""><figcaption>Repères</figcaption></figure>
+        <span class="more" data-t="dp.more">+ 2 autres</span>
       </div>
       <div class="carousel reveal">
         <div class="car-track" id="car">
@@ -764,19 +892,19 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             <blockquote data-t="q1.t">«&nbsp;J’ai une concentration d’informations prémâchées, fiable, à un seul endroit. C’est un vrai gain de temps.&nbsp;»</blockquote>
             <div class="who"><img src="assets/people/men-32.jpg" alt="" width="46" height="46"><div><b>Benoît Riou</b><span data-t="q1.r">CEO, Stat &amp; More</span></div></div>
           </div>
-          <div class="quote">
+          <div class="quote pending">
             <blockquote data-t="q2.t">«&nbsp;En deux semaines, une vingtaine d’instituts qu’on n’avait jamais approchés. Et pour chacun, la bonne personne, au bon moment.&nbsp;»</blockquote>
             <div class="who"><img src="assets/people/women-44.jpg" alt="" width="46" height="46"><div><b data-t="q.n">Prénom Nom</b><span data-t="q2.r">Poste, Episto · témoignage à valider</span></div></div>
           </div>
-          <div class="quote">
+          <div class="quote pending">
             <blockquote data-t="q3.t">«&nbsp;Les signaux changent tout&nbsp;: on écrit quand il se passe quelque chose chez le client, pas au hasard.&nbsp;»</blockquote>
             <div class="who"><img src="assets/people/men-64.jpg" alt="" width="46" height="46"><div><b data-t="q.n">Prénom Nom</b><span data-t="q3.r">Poste, Moaï · témoignage à valider</span></div></div>
           </div>
-          <div class="quote">
+          <div class="quote pending">
             <blockquote data-t="q4.t">«&nbsp;Le Pipeline nous dit quoi faire chaque matin. Plus de relance oubliée, plus de rendez-vous perdu.&nbsp;»</blockquote>
             <div class="who"><img src="assets/people/women-12.jpg" alt="" width="46" height="46"><div><b data-t="q.n">Prénom Nom</b><span data-t="q4.r">Poste, Licter · témoignage à valider</span></div></div>
           </div>
-          <div class="quote">
+          <div class="quote pending">
             <blockquote data-t="q5.t">«&nbsp;Le scoring parle notre langue. On voit tout de suite qui a besoin de nous, et pourquoi.&nbsp;»</blockquote>
             <div class="who"><img src="assets/people/men-36.jpg" alt="" width="46" height="46"><div><b data-t="q.n">Prénom Nom</b><span data-t="q5.r">Poste, iligo · témoignage à valider</span></div></div>
           </div>
@@ -794,7 +922,6 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <section class="section" id="faq">
     <div class="container">
       <div class="head reveal">
-        <span class="eyebrow">FAQ</span>
         <h2 class="title" data-t="faq.h2">Les questions qu’on nous pose.</h2>
       </div>
       <div class="faq-list reveal">
@@ -923,7 +1050,10 @@ document.documentElement.classList.add("js");
     "final.h2": "Your next clients are already <em>on mazeo.</em>",
     "final.p": "Private beta. Request access and we will get back to you.",
     "foot.tagline": "The only prospecting tool built for market research.", "foot.eu": "Data hosted in the European Union", "foot.rgpd": "GDPR-compliant",
-    "foot.privacy": "Privacy", "foot.legal": "Legal notice", "foot.terms": "Terms of use"
+    "foot.privacy": "Privacy", "foot.terms": "Terms of use", "foot.legal": "Legal notice",
+    "mm.releve": "1,300+ companies · 13,000+ contacts · 27 sectors · as of 14 September 2026 · sources: LinkedIn, company register, websites, job posts, tenders", "sg.releve": "Nearly 5,000 signals detected since July 2026 · 10 signal types · as of 14 September 2026",
+    "fi.save": "Saved", "fn.1": "Identity", "fn.2": "Specialisations", "fn.3": "Signals<i>2</i>", "fn.4": "Contacts<i>12</i>", "src.ai": "Source: mazeo AI", "src.li": "Source: LinkedIn",
+    "ws.new": "New since your last visit · Tuesday", "ml.ctx2": "Written with: Hiring signal · step 2 of 6 · Camille Moreau, Head of Consumer Research, Kellogg’s"
   };
   var META = {
     fr: { title: "mazeo — Le seul outil de prospection dédié au market research", desc: "L’intégralité du secteur : acheteurs et vendeurs, scorés et mis à jour en temps réel. Vos prochains clients sont sur mazeo : la bonne entreprise, la bonne personne, au bon moment." },
@@ -1006,9 +1136,12 @@ document.documentElement.classList.add("js");
   var ficheEl = document.getElementById("fiche"); var ficheDots = document.getElementById("fiche-dots"); var ficheIdx = 0; var ficheTimer = null; var ficheHover = false;
   function ficheHTML(f) {
     var rows = f.rows.map(function (r) { var segs = ""; for (var i = 0; i < 3; i++) segs += '<i class="' + (i < r[2] ? "on" : "") + '"></i>'; return '<div class="frow"><span>' + r[0] + ' <small>· ' + r[1] + '</small></span><span class="seg">' + segs + '</span><span class="n">' + r[2] + '/3</span></div>'; }).join("");
-    return '<div class="fiche-head"><div class="fiche-id"><div class="fiche-logo"><img src="' + LOGO(f.d) + '" alt="" width="32" height="32" decoding="async" onerror="this.style.visibility=\'hidden\'"></div><div><b>' + f.n + '</b><span>' + f.meta + '</span></div></div><div class="match"><b>' + f.pct + '\u00a0%</b><span>MATCH</span></div></div>'
-      + '<p class="fiche-why"><b>' + FI[lang].why + (lang === "fr" ? '\u00a0:' : ':') + '</b> ' + f.why + '</p><div class="fiche-axes">' + rows + '</div>'
-      + '<div class="fiche-contact"><img class="face" src="assets/people/' + f.face + '.jpg" alt="" width="40" height="40"><div class="who"><b>' + f.who + '</b><span>' + f.role + '</span></div><span class="reveal-btn">' + FI[lang].email + '</span><span class="reveal-btn">' + FI[lang].tel + '</span></div>';
+    var rich = ficheEl && ficheEl.dataset.rich; var FN = lang === "fr" ? ["Identité", "Spécialisations", "Signaux", "Contacts"] : ["Identity", "Specialisations", "Signals", "Contacts"];
+    var nav = rich ? '<div class="fiche-nav"><span>' + FN[0] + '</span><span class="on">' + FN[1] + '</span><span>' + FN[2] + '<i>2</i></span><span>' + FN[3] + '<i>12</i></span></div>' : "";
+    var src1 = rich ? '<span class="src">' + (lang === "fr" ? "Source\u00a0: IA mazeo" : "Source: mazeo AI") + '</span>' : ""; var src2 = rich ? '<span class="src">' + (lang === "fr" ? "Source\u00a0: LinkedIn" : "Source: LinkedIn") + '</span>' : "";
+    return '<div class="fiche-head"><div class="fiche-id"><div class="fiche-logo"><img src="' + LOGO(f.d) + '" alt="" width="32" height="32" decoding="async" onerror="this.style.visibility=\'hidden\'"></div><div><b>' + f.n + '</b><span>' + f.meta + '</span></div></div><div class="match"><b>' + f.pct + '\u00a0%</b><span>MATCH</span></div></div>' + nav
+      + '<p class="fiche-why"><b>' + FI[lang].why + (lang === "fr" ? '\u00a0:' : ':') + '</b> ' + f.why + '</p><div class="fiche-axes">' + rows + '</div>' + src1
+      + '<div class="fiche-contact"><img class="face" src="assets/people/' + f.face + '.jpg" alt="" width="40" height="40"><div class="who"><b>' + f.who + '</b><span>' + f.role + '</span></div><span class="reveal-btn">' + FI[lang].email + '</span><span class="reveal-btn">' + FI[lang].tel + '</span></div>' + src2;
   }
   function showFiche(i, animate) {
     if (!ficheEl) return; ficheIdx = i; var f = FICHES[lang][i];
@@ -1185,20 +1318,30 @@ document.documentElement.classList.add("js");
   var mailBody = document.getElementById("mail-body"); var tonesEl = document.getElementById("tones"); var mailTimer = null; var mailCycle = null; var toneIdx = 1; var manualTone = false;
   function mailStop() { clearTimeout(mailTimer); clearTimeout(mailCycle); }
   function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+  var mailWritten = false;
   function renderMail(reset) {
     if (!mailBody) return; mailStop();
-    if (reset) { toneIdx = 1; manualTone = false; }
+    if (reset) { toneIdx = 1; manualTone = false; mailWritten = false; }
     var set = MAILS[lang];
     tonesEl.innerHTML = set.map(function (m, i) { return '<span class="' + (i === toneIdx ? "on" : "") + '">' + m[0] + '</span>'; }).join("");
     var text = set[toneIdx][1];
-    if (reduced) { mailBody.innerHTML = esc(text).replace(/\n/g, "<br>"); return; }
-    var i = 0; mailBody.innerHTML = '<span class="caret"></span>';
-    function tick() {
-      i += 2; mailBody.innerHTML = esc(text.slice(0, i)).replace(/\n/g, "<br>") + '<span class="caret"></span>';
-      if (i < text.length) mailTimer = setTimeout(tick, 22);
-      else if (!manualTone) mailCycle = setTimeout(function () { toneIdx = (toneIdx + 1) % set.length; renderMail(false); }, 5200);
+    var show = function () { mailBody.innerHTML = esc(text).replace(/\n/g, "<br>"); };
+    var next = function () { if (!manualTone) mailCycle = setTimeout(function () { toneIdx = (toneIdx + 1) % set.length; renderMail(false); }, 7000); };
+    if (reduced) { show(); return; }
+    if (mailWritten) {
+      /* fondu enchaîné : le lecteur a toujours un message complet sous les yeux */
+      mailBody.classList.add("swap");
+      mailTimer = setTimeout(function () { show(); mailBody.classList.remove("swap"); next(); }, 260);
+      return;
     }
-    mailTimer = setTimeout(tick, 400);
+    /* première fois : le message s'écrit une fois, mot par mot, à un rythme humain */
+    var words = text.split(/(\s+)/); var i = 0; mailBody.innerHTML = "";
+    function tick() {
+      i += 2; mailBody.innerHTML = esc(words.slice(0, i).join("")).replace(/\n/g, "<br>");
+      if (i < words.length) mailTimer = setTimeout(tick, 45 + Math.random() * 25);
+      else { mailWritten = true; next(); }
+    }
+    mailTimer = setTimeout(tick, 300);
   }
   if (tonesEl) tonesEl.addEventListener("click", function (e) { var spans = tonesEl.querySelectorAll("span"); for (var i = 0; i < spans.length; i++) if (spans[i] === e.target) { toneIdx = i; manualTone = true; renderMail(false); } });
 

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr" class="f-newsreader">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mazeo — maquette v5 : premier écran et Signaux</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&family=Newsreader:opsz,wght@6..72,400;6..72,500&family=Instrument+Serif&family=Fraunces:opsz,wght@9..144,400;9..144,500&family=DM+Serif+Display&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&family=Gloock&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Manrope:wght@600;700;800&display=swap">
+<style>
+/* ============ Tokens mazeo (fiche _context/mazeo-design.md) + une police de titre ============ */
+:root {
+  --ink: #0A0A0A; --slate: #3A4250; --body: #4A5262; --meta: #6B7280;
+  --line: #E5E7EB; --line-strong: #DDE1E9; --line-soft: #EEF0F3;
+  --ground: #FFFFFF; --soft: #F8F9FA;
+  --blue: #007BFF; --blue-deep: #0066D6; --blue-text: #0062CC; --blue-tint: #E6F2FF;
+  --green: #00EF8B; --green-tint: #E6FFF5; --green-text: #006B3F;
+  --red: #DC2626;
+  --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --logo-font: 'Inter', var(--font);
+  --r-card: 14px; --r-btn: 9px; --r-pill: 100px;
+  --container: 1280px; --gutter: 32px;
+}
+html.f-instrument { --display: 'Instrument Serif', Georgia, 'Times New Roman', serif; }
+html.f-fraunces { --display: 'Fraunces', Georgia, serif; }
+html.f-dmserif { --display: 'DM Serif Display', Georgia, serif; }
+html.f-sourceserif { --display: 'Source Serif 4', Georgia, serif; }
+html.f-gloock { --display: 'Gloock', Georgia, serif; }
+html.f-bricolage { --display: 'Bricolage Grotesque', var(--font); }
+html.f-manrope { --display: 'Manrope', var(--font); }
+html.f-bricolage h1, html.f-bricolage h2, html.f-bricolage h3, html.f-bricolage .bignum b { font-weight: 700; letter-spacing: -0.035em; }
+html.f-manrope h1, html.f-manrope h2, html.f-manrope h3, html.f-manrope .bignum b { font-weight: 800; letter-spacing: -0.04em; }
+html.f-bricolage .hero h1 em, html.f-manrope .hero h1 em { font-style: normal; color: var(--blue); }
+html.f-dmserif h1, html.f-dmserif h2 { letter-spacing: 0; }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; font-family: var(--font); font-size: 18px; line-height: 1.55; color: var(--body); background: var(--ground); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--blue-text); text-decoration: none; }
+h1, h2, h3 { margin: 0; color: var(--ink); font-family: var(--display); font-weight: 400; letter-spacing: -0.02em; text-wrap: balance; }
+html.f-instrument h1, html.f-instrument h2, html.f-instrument h3 { letter-spacing: -0.01em; }
+p { margin: 0; }
+button, input { font: inherit; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+.container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
+
+/* ---- Bascule des polices de titre (outil de validation, pas dans la page finale) ---- */
+.fontpick { position: fixed; right: 16px; bottom: 16px; z-index: 100; display: flex; flex-wrap: wrap; max-width: 420px; justify-content: flex-end; gap: 2px; padding: 3px; background: #fff; border: 1px solid var(--line-strong); border-radius: 10px; box-shadow: 0 8px 30px -12px rgba(10,10,10,.35); font-size: 13px; }
+.fontpick button { border: 0; background: transparent; padding: 7px 12px; border-radius: 7px; cursor: pointer; color: var(--slate); font-weight: 600; }
+.fontpick button.on { background: var(--ink); color: #fff; }
+
+/* ---- Boutons ---- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: var(--r-btn); font-weight: 600; font-size: 15.5px; line-height: 1.2; border: 1px solid transparent; cursor: pointer; white-space: nowrap; text-decoration: none; transition: background-color .15s, border-color .15s; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: var(--blue-deep); }
+.btn-ghost { background: #fff; color: var(--ink); border-color: var(--line-strong); }
+.btn-ghost:hover { border-color: #B9C0CB; }
+.btn-lg { padding: 16px 26px; font-size: 17px; }
+
+/* ---- Barre ---- */
+.nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid transparent; }
+.nav.scrolled { border-bottom-color: var(--line); }
+.nav-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { font-family: var(--logo-font); font-weight: 800; font-size: 26px; letter-spacing: -0.5px; color: var(--ink); text-decoration: none; }
+.logo span { color: var(--green); }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { color: var(--slate); font-weight: 500; font-size: 15px; }
+.nav-links a:hover { color: var(--ink); }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+@media (max-width: 960px) { .nav-links { display: none; } }
+
+/* ============ Premier écran : l'échelle d'Apollo ============ */
+.hero { padding-block: 96px 0; text-align: center; }
+.hero h1 { font-size: clamp(48px, 7.4vw, 104px); line-height: .98; max-width: 1180px; margin-inline: auto; }
+.hero h1 em { font-style: italic; color: var(--ink); }
+.hero .lead { margin: 30px auto 0; max-width: 820px; font-size: clamp(18px, 1.7vw, 22px); line-height: 1.5; color: var(--slate); }
+.signup { margin: 36px auto 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.signup-fields { display: flex; gap: 6px; width: 100%; max-width: 720px; padding: 6px; border: 1px solid var(--line-strong); border-radius: 14px; background: #fff; }
+.signup-fields input { flex: 1 1 0; min-width: 0; border: 0; background: transparent; padding: 14px 16px; font-size: 17px; color: var(--ink); border-radius: 9px; }
+.signup-fields input::placeholder { color: var(--meta); }
+.signup-fields input + input { border-left: 1px solid var(--line-strong); }
+.signup-fields input:focus { background: var(--soft); }
+.signup .helper { font-size: 14px; color: var(--meta); }
+@media (max-width: 640px) { .signup-fields { flex-direction: column; padding: 8px; } .signup-fields input + input { border-left: 0; border-top: 1px solid var(--line-strong); } .signup-fields .btn { width: 100%; } }
+
+/* Le grand cadre vidéo, pleine largeur du conteneur, sombre */
+.stage { margin-top: 64px; }
+.video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: var(--ink); display: grid; place-items: center; isolation: isolate; }
+.video-frame::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 110%, rgba(0,123,255,.55), rgba(0,123,255,0) 70%); }
+.video-play { position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; color: #fff; }
+.video-play .disc { width: 88px; height: 88px; border-radius: 50%; background: #fff; display: grid; place-items: center; }
+.video-play .disc::after { content: ""; width: 0; height: 0; border-left: 26px solid var(--ink); border-top: 15px solid transparent; border-bottom: 15px solid transparent; margin-left: 6px; }
+.video-play span { font-size: 16px; font-weight: 600; }
+.video-play small { font-size: 13px; color: rgba(255,255,255,.6); margin-top: -8px; }
+
+/* La bande des clients, à la Apollo : pleine largeur, gris clair, logos en gris */
+.trusted { margin-top: 72px; background: var(--soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+.trusted-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding-block: 28px; }
+.trusted .lbl { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--slate); white-space: nowrap; }
+.trusted .logos { display: flex; align-items: center; gap: 36px; flex-wrap: wrap; justify-content: flex-end; }
+.trusted figure { margin: 0; display: flex; align-items: center; gap: 9px; filter: grayscale(1); opacity: .72; transition: filter .2s, opacity .2s; }
+.trusted figure:hover { filter: none; opacity: 1; }
+.trusted img { width: 26px; height: 26px; border-radius: 6px; object-fit: contain; }
+.trusted figcaption { font-size: 14px; font-weight: 700; color: var(--ink); white-space: nowrap; letter-spacing: -0.01em; }
+@media (max-width: 900px) { .trusted-inner { flex-direction: column; align-items: flex-start; gap: 18px; } .trusted .logos { justify-content: flex-start; gap: 22px; } }
+
+/* ============ Signaux : le panneau bleu, à la lemlist ============ */
+.panel-blue { margin-top: 0; background: var(--blue); color: #fff; padding-block: 112px; position: relative; overflow: hidden; }
+.panel-blue::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 60% at 100% 0%, rgba(255,255,255,.14), rgba(255,255,255,0) 70%); pointer-events: none; }
+.panel-blue .container { position: relative; }
+.eyebrow { display: block; font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 22px; }
+.panel-blue .eyebrow { color: rgba(255,255,255,.7); }
+.panel-blue h2 { color: #fff; font-size: clamp(40px, 5vw, 72px); line-height: 1.02; }
+.panel-blue .lead { margin-top: 24px; font-size: clamp(18px, 1.5vw, 21px); color: rgba(255,255,255,.86); max-width: 560px; }
+.split { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: center; }
+@media (max-width: 960px) { .split { grid-template-columns: 1fr; gap: 40px; } }
+.panel-blue .list { margin-top: 30px; display: grid; gap: 12px; font-size: 17px; color: rgba(255,255,255,.92); }
+.panel-blue .list b { color: #fff; font-weight: 700; }
+.panel-blue .watchline { margin-top: 30px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,.28); font-size: 17px; color: rgba(255,255,255,.92); }
+.panel-blue .watchline b { color: #fff; }
+.bignum { margin-top: 48px; display: flex; gap: 64px; flex-wrap: wrap; }
+.bignum div { display: flex; flex-direction: column; }
+.bignum b { font-family: var(--display); font-weight: 400; font-size: clamp(56px, 6vw, 88px); line-height: 1; letter-spacing: -0.02em; color: #fff; font-variant-numeric: tabular-nums; }
+.bignum span { margin-top: 10px; font-size: 15px; color: rgba(255,255,255,.75); }
+
+/* L'écran de la Watch : une fenêtre de l'app, pas une vignette */
+.screen { background: #fff; border-radius: 18px; box-shadow: 0 40px 90px -40px rgba(0,0,0,.55); overflow: hidden; color: var(--ink); }
+.screen-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.screen-top .t { font-size: 15px; font-weight: 700; color: var(--ink); }
+.screen-top .t small { font-weight: 500; color: var(--meta); margin-left: 8px; font-size: 13px; }
+.screen-top .dots { display: flex; gap: 6px; }
+.screen-top .dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--line-strong); }
+.feed-list { height: 520px; overflow: hidden; padding: 14px; display: flex; flex-direction: column; gap: 10px; background: var(--soft); -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent); mask-image: linear-gradient(to bottom, #000 82%, transparent); }
+.sigw { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .55s cubic-bezier(.2,.7,.2,1), opacity .55s ease, margin-bottom .55s ease; }
+.sigw > div { min-height: 0; overflow: hidden; }
+.sigw.enter, .sigw.leave { grid-template-rows: 0fr; opacity: 0; margin-bottom: -10px; }
+.sig { border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 14px 16px 14px; display: grid; grid-template-columns: 1fr auto; grid-template-areas: "pill time" "body body" "co co"; gap: 8px 14px; align-items: center; }
+.sig .ov-signal-pill { grid-area: pill; justify-self: start; }
+.sig .ago { grid-area: time; font-size: 12.5px; color: var(--meta); white-space: nowrap; }
+.sig > div:not(.co) { grid-area: body; }
+.sig .t { font-size: 16px; font-weight: 600; color: var(--ink); line-height: 1.35; }
+.sig .w { font-size: 14.5px; color: var(--body); margin-top: 3px; }
+.sig .w b { color: var(--blue-text); font-weight: 600; }
+.sig .co { grid-area: co; display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--meta); }
+.sig .co img { width: 18px; height: 18px; border-radius: 4px; object-fit: contain; }
+.sig .co .ini { width: 18px; height: 18px; border-radius: 4px; background: var(--line); color: var(--slate); font-size: 10px; font-weight: 700; display: grid; place-items: center; }
+
+/* ---- La pastille de signal de l'app, reprise telle quelle (index.html de mazeo-app, .ov-signal-pill) ---- */
+.ov-signal-pill { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border: 1px solid var(--sig-main, #9CA3AF); border-radius: 5px; font-size: 11px; font-weight: 600; line-height: 1.3; color: var(--sig-text, #374151); background: #fff; white-space: nowrap; }
+.ov-signal-pill::before { content: ''; width: 10px; height: 10px; flex-shrink: 0; background-color: var(--sig-main, #9CA3AF); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/%3E%3C/svg%3E") center/contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/%3E%3C/svg%3E") center/contain no-repeat; }
+.ov-signal-pill.hiring     { --sig-main:#059669; --sig-text:#047857; }
+.ov-signal-pill.governance { --sig-main:#EA580C; --sig-text:#C2410C; }
+.ov-signal-pill.tenders    { --sig-main:#2563EB; --sig-text:#1D4ED8; }
+.ov-signal-pill.revenue    { --sig-main:#4F46E5; --sig-text:#4338CA; }
+.ov-signal-pill.turnover   { --sig-main:#475569; --sig-text:#334155; }
+.ov-signal-pill.bio_co     { --sig-main:#0EA5E9; --sig-text:#0369A1; }
+.ov-signal-pill.at_risk    { --sig-main:#DC2626; --sig-text:#B91C1C; }
+.ov-signal-pill.new_role   { --sig-main:#D97706; --sig-text:#B45309; }
+.ov-signal-pill.changed_job{ --sig-main:#C026D3; --sig-text:#A21CAF; }
+.ov-signal-pill.bio        { --sig-main:#65A30D; --sig-text:#4D7C0F; }
+/* dans le panneau bleu, la même pastille sur fond blanc : inchangée */
+.pills { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
+.panel-blue .pills .ov-signal-pill { font-size: 12.5px; padding: 4px 10px; }
+
+/* ---- Fin de maquette ---- */
+.endnote { padding-block: 64px; text-align: center; font-size: 14px; color: var(--meta); }
+@media (prefers-reduced-motion: reduce) { .sigw.enter, .sigw.leave { grid-template-rows: 1fr; opacity: 1; margin-bottom: 0; } }
+</style>
+</head>
+<body>
+
+<div class="fontpick" role="group" aria-label="Police de titre">
+  <button type="button" data-f="newsreader" class="on">Newsreader</button>
+  <button type="button" data-f="instrument">Instrument Serif</button>
+  <button type="button" data-f="fraunces">Fraunces</button>
+  <button type="button" data-f="dmserif">DM Serif</button>
+  <button type="button" data-f="sourceserif">Source Serif</button>
+  <button type="button" data-f="gloock">Gloock</button>
+  <button type="button" data-f="bricolage">Bricolage</button>
+  <button type="button" data-f="manrope">Manrope</button>
+</div>
+
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#top">mazeo<span>.</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#">The Market</a><a href="#signaux">Signaux</a><a href="#">Pipeline</a><a href="#">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-ghost" href="https://app.mazeo.co">Se connecter</a>
+      <a class="btn btn-primary" href="#">Demander un accès</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ PREMIER ÉCRAN ============ -->
+  <section class="hero">
+    <div class="container">
+      <h1>Le seul outil d'intelligence commerciale <em>dédié au market research.</em></h1>
+      <p class="lead">L'intégralité du marché, acheteurs et prestataires d'études, référencée, notée et mise à jour en temps réel. Trouvez vos 5 prochains clients&nbsp;: la bonne entreprise, la bonne personne, au bon moment.</p>
+      <form class="signup" novalidate onsubmit="return false">
+        <div class="signup-fields">
+          <label for="m-email" hidden>Email</label>
+          <input type="email" id="m-email" placeholder="Email professionnel">
+          <label for="m-co" hidden>Entreprise</label>
+          <input type="text" id="m-co" placeholder="Votre entreprise">
+          <button class="btn btn-primary btn-lg" type="submit">Demander un accès</button>
+        </div>
+        <p class="helper">Bêta privée · ouverture prochainement</p>
+      </form>
+
+      <div class="stage">
+        <!-- Emplacement vidéo : remplacer par l'iframe le jour venu -->
+        <div class="video-frame" role="img" aria-label="Vidéo de présentation, à venir">
+          <div class="video-play"><div class="disc" aria-hidden="true"></div><span>mazeo en deux minutes</span><small>Vidéo prochainement</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trusted">
+      <div class="container trusted-inner">
+        <span class="lbl">Déjà en bêta privée chez 9 prestataires d'études</span>
+        <div class="logos">
+          <figure><img src="assets/dp-episto.jpg" alt=""><figcaption>Episto</figcaption></figure>
+          <figure><img src="assets/dp-moai.jpg" alt=""><figcaption>Moaï</figcaption></figure>
+          <figure><img src="assets/dp-statmore.png" alt=""><figcaption>Stat &amp; More</figcaption></figure>
+          <figure><img src="assets/dp-licter.jpg" alt=""><figcaption>Licter</figcaption></figure>
+          <figure><img src="assets/dp-mainframe.png" alt=""><figcaption>Main Frame</figcaption></figure>
+          <figure><img src="assets/dp-iligo.jpg" alt=""><figcaption>iligo</figcaption></figure>
+          <figure><img src="assets/dp-reperes.jpg" alt=""><figcaption>Repères</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIGNAUX : PANNEAU BLEU ============ -->
+  <section class="panel-blue" id="signaux">
+    <div class="container">
+      <div class="split">
+        <div>
+          <span class="eyebrow">Les signaux</span>
+          <h2>Le bon moment pour contacter.</h2>
+          <p class="lead">La bonne entreprise, la bonne personne&nbsp;: reste le bon moment. mazeo scanne le secteur en temps réel et détecte 10 signaux.</p>
+          <div class="pills" aria-label="Les dix signaux">
+            <span class="ov-signal-pill hiring">Recrutement</span>
+            <span class="ov-signal-pill turnover">Mouvements d'équipe</span>
+            <span class="ov-signal-pill revenue">Évolution du chiffre d'affaires</span>
+            <span class="ov-signal-pill governance">Changement de gouvernance</span>
+            <span class="ov-signal-pill tenders">Appels d'offres publics</span>
+            <span class="ov-signal-pill at_risk">En difficulté</span>
+            <span class="ov-signal-pill bio_co">Bio mise à jour</span>
+            <span class="ov-signal-pill changed_job">A changé d'entreprise</span>
+            <span class="ov-signal-pill new_role">Évolution de poste</span>
+            <span class="ov-signal-pill bio">Bio mise à jour</span>
+          </div>
+          <p class="watchline"><b>La Watch.</b> Suivez les entreprises et les personnes qui comptent pour vous. Résumé par email chaque mercredi.</p>
+          <div class="bignum">
+            <div><b>10</b><span>signaux suivis</span></div>
+            <div><b>5 000</b><span>signaux détectés depuis juillet 2026</span></div>
+          </div>
+        </div>
+        <div class="screen" aria-hidden="true">
+          <div class="screen-top"><span class="t">Watch<small>2 signaux d'entreprise · 1 signal de contact</small></span><span class="dots"><i></i><i></i><i></i></span></div>
+          <div class="feed-list" id="feed"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <p class="endnote">Fin de la maquette : premier écran et section Signaux. Le reste suit la même logique une fois la direction validée.</p>
+</main>
+
+<script>
+(function () {
+  /* bascule de la police de titre */
+  var pick = document.querySelector(".fontpick");
+  pick.addEventListener("click", function (e) {
+    var b = e.target.closest("button"); if (!b) return;
+    document.documentElement.className = "f-" + b.getAttribute("data-f");
+    pick.querySelectorAll("button").forEach(function (x) { x.classList.toggle("on", x === b); });
+    try { localStorage.setItem("mazeo-display", b.getAttribute("data-f")); } catch (err) {}
+  });
+  try { var sv = localStorage.getItem("mazeo-display"); if (sv) { var bb = pick.querySelector('[data-f="' + sv + '"]'); if (bb) bb.click(); } } catch (err) {}
+
+  var nav = document.getElementById("nav");
+  window.addEventListener("scroll", function () { nav.classList.toggle("scrolled", window.scrollY > 8); }, { passive: true });
+
+  /* le fil des signaux, avec les pastilles de l'app */
+  var LOGO = function (d) { return "https://img.logo.dev/" + d + "?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64"; };
+  var S = [
+    { k: "revenue", p: "Croissance du CA", t: "Danone : chiffre d'affaires +17 % sur l'exercice", w: "Les budgets marketing augmentent. <b>Le moment de les contacter.</b>", d: "danone.com", c: "Danone" },
+    { k: "new_role", p: "Évolution de poste", t: "Votre contact chez Coca-Cola vient d'être promu CMO", w: "Nouveau périmètre, nouveau budget. <b>Le moment de le contacter.</b>", d: "coca-cola.com", c: "Coca-Cola" },
+    { k: "tenders", p: "Appels d'offres publics", t: "Ifop remporte un appel d'offres public : étude Gen Z", w: "Le sujet est ouvert chez leurs concurrents. <b>Le moment de vous positionner.</b>", d: "ifop.com", c: "Ifop" },
+    { k: "hiring", p: "Recrutement", t: "L'Oréal recrute un Head of Consumer Insights", w: "Une équipe qui grandit achète des études. <b>Le moment d'écrire, avant la prise de poste.</b>", d: "loreal.com", c: "L'Oréal" },
+    { k: "turnover", p: "Mouvements d'équipe", t: "Orange : arrivée d'une nouvelle directrice des études", w: "Nouveau décideur, nouveaux fournisseurs. <b>Le moment de vous présenter.</b>", d: "orange.com", c: "Orange" },
+    { k: "governance", p: "Changement de gouvernance", t: "Carrefour change de directeur marketing", w: "Les priorités vont changer. <b>Le moment de proposer un point.</b>", d: "carrefour.com", c: "Carrefour" },
+    { k: "changed_job", p: "A changé d'entreprise", t: "Votre contact chez Renault rejoint Stellantis", w: "Il connaît déjà votre offre. <b>Le moment de le suivre chez son nouvel employeur.</b>", d: "stellantis.com", c: "Stellantis" },
+    { k: "bio", p: "Bio mise à jour", t: "Ubisoft : « désormais en charge des études UX »", w: "Un nouveau périmètre, un nouveau besoin. <b>Le moment d'en parler.</b>", d: "ubisoft.com", c: "Ubisoft" },
+    { k: "revenue", p: "Baisse du CA", t: "Un distributeur perd 9 % de chiffre d'affaires", w: "Il cherche à comprendre ses clients. <b>Le moment de proposer une étude.</b>", d: null, c: "Distribution" },
+    { k: "at_risk", p: "En difficulté", t: "Un équipementier entre en procédure de sauvegarde", w: "Ses fournisseurs vont être revus. <b>Le moment d'adapter l'offre.</b>", d: null, c: "Industrie" }
+  ];
+  var AGO = ["à l'instant", "il y a 2 h", "hier", "il y a 2 jours", "il y a 3 jours"];
+  var feed = document.getElementById("feed"); var idx = 0; var VISIBLE = 4;
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function html(s, ago) {
+    var logo = s.d ? '<img src="' + LOGO(s.d) + '" alt="" width="18" height="18" decoding="async">' : '<span class="ini">' + s.c.charAt(0) + '</span>';
+    return '<div><div class="sig"><span class="ov-signal-pill ' + s.k + '">' + s.p + '</span><div><div class="t">' + s.t + '</div><div class="w">' + s.w + '</div></div><span class="ago">' + ago + '</span><div class="co">' + logo + s.c + '</div></div></div>';
+  }
+  for (var i = 0; i < VISIBLE; i++) { var el = document.createElement("div"); el.className = "sigw"; el.innerHTML = html(S[i], AGO[i]); feed.appendChild(el); }
+  idx = VISIBLE;
+  if (!reduced) setInterval(function () {
+    var s = S[idx % S.length]; idx++;
+    var el = document.createElement("div"); el.className = "sigw enter"; el.innerHTML = html(s, AGO[0]);
+    feed.insertBefore(el, feed.firstChild);
+    var kids = feed.children;
+    for (var i = 1; i < kids.length; i++) { var t = kids[i].querySelector(".ago"); if (t && AGO[i]) t.textContent = AGO[i]; }
+    requestAnimationFrame(function () { requestAnimationFrame(function () { el.classList.remove("enter"); }); });
+    if (kids.length > VISIBLE) { var last = kids[kids.length - 1]; last.classList.add("leave"); setTimeout(function () { if (last.parentNode) last.parentNode.removeChild(last); }, 560); }
+  }, 2800);
+})();
+</script>
+</body>
+</html>
