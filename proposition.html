@@ -400,7 +400,6 @@ html[lang="en"] .chip[data-def-en]:hover::after { content: attr(data-def-en); }
 .pills .ov-signal-pill[data-def] { position: relative; }
 .pills .ov-signal-pill[data-def]:hover::after { content: attr(data-def); position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%); width: max-content; max-width: 300px; white-space: normal; padding: 9px 12px; background: var(--ink); color: #fff; font-size: 12.5px; font-weight: 500; line-height: 1.45; border-radius: 8px; text-align: left; pointer-events: none; z-index: 6; box-shadow: 0 10px 24px -12px rgba(0,0,0,.5); }
 html[lang="en"] .pills .ov-signal-pill[data-def-en]:hover::after { content: attr(data-def-en); }
-.sigw > div:first-child { overflow: visible; }
 .kb-top .note { margin-left: auto; font-size: 11px; color: #A3A9B4; font-weight: 500; }
 
 .kb-alert { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border: 1px solid #FCA5A5; border-radius: 8px; background: var(--red-tint); color: #B91C1C; font-size: 12.5px; font-weight: 700; }
@@ -647,6 +646,27 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
   html.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
   html.js .reveal.in { opacity: 1; transform: none; }
 }
+
+/* Mobile v17 (16/09) : audit sur dix formats. Colonnes qui ne peuvent plus dépasser l'écran, témoignages pleine largeur, lecteur compact, carte iPad, cibles tactiles */
+@media (min-width: 901px) and (max-width: 1100px) { .tiles { grid-template-columns: repeat(8, 1fr); } .tile:nth-child(n+32):not(.more) { display: none; } }
+@media (max-width: 960px) { .split, .split.flip, .split.even { grid-template-columns: minmax(0, 1fr); } .split > * { min-width: 0; } }
+@media (max-width: 640px) {
+  .quote { flex-basis: calc(100% - 16px); padding: 22px 20px; min-height: 0; }
+  .quote blockquote { font-size: 17px; }
+  .video-panel.open .vf-pill { top: 10px; left: 10px; bottom: auto; padding: 3px 4px; gap: 0; }
+  .video-panel.open .vf-pill .vf-btn { width: 30px; height: 30px; }
+  .video-panel.open .vf-time { font-size: 11.5px; padding: 0 6px; }
+}
+@media (max-width: 400px) {
+  .pills .ov-signal-pill { white-space: normal; text-align: left; line-height: 1.25; }
+  .sig { flex-wrap: wrap; row-gap: 6px; }
+  .sig .ov-signal-pill { white-space: normal; text-align: left; }
+  .bignum b { font-size: 52px; }
+}
+.tile.more small { font-size: 11px; }
+.fiche-dots i { position: relative; }
+.fiche-dots i::after { content: ""; position: absolute; inset: -9px; }
+@media (pointer: coarse) { .tones span { padding: 6px 10px; } .nav-links a { display: inline-block; padding: 8px 0; } .car-nav button { width: 44px; height: 44px; } }
 </style>
 </head>
 <body>
