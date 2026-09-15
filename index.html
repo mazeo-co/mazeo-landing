@@ -168,6 +168,26 @@ button, input { font: inherit; }
 .video-play .disc::after { content: ""; width: 0; height: 0; border-left: 26px solid var(--ink); border-top: 15px solid transparent; border-bottom: 15px solid transparent; margin-left: 6px; }
 .video-play span { font-size: 16px; font-weight: 600; }
 .video-play small { font-size: 13px; color: rgba(255,255,255,.6); margin-top: -8px; }
+/* Lecteur (v15, 15/09) : cadre plus étroit, coins qui tiennent sur Safari, contrôles à la charte, croix pour fermer */
+.video-panel .inner { width: min(100vw - 64px, 1160px); }
+.video-frame { border-radius: 20px; box-shadow: 0 0 0 1px var(--line), 0 40px 80px -44px rgba(10,10,10,.5); }
+.video-frame video { border-radius: inherit; cursor: pointer; }
+.video-frame:fullscreen { border-radius: 0; box-shadow: none; background: #000; }
+.video-frame:fullscreen video { object-fit: contain; }
+.vf-close, .vf-pill, .vf-progress { display: none; }
+.video-panel.open .vf-close { position: absolute; top: 14px; right: 14px; z-index: 4; width: 38px; height: 38px; border-radius: 50%; border: 0; background: rgba(255,255,255,.94); color: var(--ink); display: grid; place-items: center; cursor: pointer; box-shadow: 0 6px 18px -8px rgba(0,0,0,.4); transition: transform .15s ease, opacity .25s ease; }
+.video-panel.open .vf-close:hover { transform: scale(1.06); }
+.vf-close svg { width: 16px; height: 16px; }
+.video-panel.open .vf-pill { position: absolute; left: 18px; bottom: 18px; z-index: 4; display: inline-flex; align-items: center; gap: 2px; padding: 4px 6px 4px 4px; border-radius: 999px; background: rgba(255,255,255,.94); box-shadow: 0 8px 24px -10px rgba(0,0,0,.45); transition: opacity .25s ease; }
+.vf-btn { width: 34px; height: 34px; border-radius: 50%; border: 0; background: transparent; color: var(--ink); display: grid; place-items: center; cursor: pointer; padding: 0; }
+.vf-btn:hover { background: var(--soft); }
+.vf-btn svg { width: 16px; height: 16px; }
+.vf-time { font-size: 12.5px; font-weight: 600; color: var(--slate); font-variant-numeric: tabular-nums; padding: 0 8px; white-space: nowrap; }
+.video-panel.open .vf-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(10,10,10,.14); z-index: 4; cursor: pointer; display: block; }
+.vf-progress i { display: block; height: 100%; width: 0; background: var(--blue); transition: width .15s linear; }
+.video-frame.vf-idle .vf-pill, .video-frame.vf-idle .vf-close { opacity: 0; pointer-events: none; }
+@media (max-width: 640px) { .video-panel .inner { width: calc(100vw - 32px); } .video-panel.open .vf-pill { bottom: 12px; left: 12px; } .video-panel.open .vf-close { top: 10px; right: 10px; width: 34px; height: 34px; } }
+
 @media (max-width: 640px) { .hero { padding-top: 56px; } .video-frame { border-radius: 16px; } .video-play .disc { width: 64px; height: 64px; } .video-panel .inner { width: calc(100vw - 32px); } }
 
 /* La bande des clients */
@@ -544,6 +564,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         <!-- Film produit v4 (14/09/2026) : fabriqué en code dans ~/dev/video-mazeo -->
         <div class="video-frame" id="video-frame">
           <video id="film" preload="metadata" playsinline poster="assets/mazeo-film-poster.jpg" aria-label="mazeo en une minute"><source src="assets/mazeo-film.mp4" type="video/mp4"></video>
+          <button class="vf-close" type="button" id="vf-close" aria-label="Fermer la vidéo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          <div class="vf-pill" id="vf-pill"><button type="button" class="vf-btn" id="vf-toggle" aria-label="Pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button><span class="vf-time" id="vf-time">0:00 / 1:08</span><button type="button" class="vf-btn" id="vf-mute" aria-label="Couper le son"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l4 4V6L7 10H4z" fill="currentColor"/><path d="M15 9.5a4 4 0 0 1 0 5"/><path d="M17.5 7a7.5 7.5 0 0 1 0 10"/></svg></button><button type="button" class="vf-btn" id="vf-full" aria-label="Plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button></div>
+          <div class="vf-progress" id="vf-progress" aria-hidden="true"><i id="vf-bar"></i></div>
         </div>
       </div></div></div>
       <form class="signup" id="form-hero" novalidate>
@@ -1183,17 +1206,42 @@ document.documentElement.classList.add("js");
   var browser = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
   setLang(browser);
 
-  /* ---------- Le film : le bouton ouvre le panneau et lance la lecture ; refermer met en pause ---------- */
-  var playBtn = document.getElementById("play"); var videoPanel = document.getElementById("video-panel"); var film = document.getElementById("film");
-  if (playBtn && videoPanel) playBtn.addEventListener("click", function () {
-    var open = !videoPanel.classList.contains("open");
+  /* ---------- Le film (v15) : le bouton ouvre le panneau et lance la lecture ; croix, Échap ou le bouton referment ; contrôles maison ---------- */
+  var playBtn = document.getElementById("play"); var videoPanel = document.getElementById("video-panel"); var film = document.getElementById("film"); var frame = document.getElementById("video-frame");
+  var vfClose = document.getElementById("vf-close"), vfToggle = document.getElementById("vf-toggle"), vfMute = document.getElementById("vf-mute"), vfFull = document.getElementById("vf-full"), vfTime = document.getElementById("vf-time"), vfProg = document.getElementById("vf-progress"), vfBar = document.getElementById("vf-bar");
+  var ICO = { play: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>', pause: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>', on: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l4 4V6L7 10H4z" fill="currentColor"/><path d="M15 9.5a4 4 0 0 1 0 5"/><path d="M17.5 7a7.5 7.5 0 0 1 0 10"/></svg>', off: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l4 4V6L7 10H4z" fill="currentColor"/><path d="M16 9l5 5M21 9l-5 5"/></svg>' };
+  var idleTimer = null;
+  function fmt(t) { t = Math.max(0, Math.floor(t || 0)); return Math.floor(t / 60) + ":" + ("0" + (t % 60)).slice(-2); }
+  function syncIcon() { if (!film || !vfToggle) return; vfToggle.innerHTML = film.paused ? ICO.play : ICO.pause; vfToggle.setAttribute("aria-label", film.paused ? "Lecture" : "Pause"); }
+  function wake() { if (!frame) return; frame.classList.remove("vf-idle"); clearTimeout(idleTimer); if (film && !film.paused) idleTimer = setTimeout(function () { frame.classList.add("vf-idle"); }, 2600); }
+  function setPanel(open) {
     videoPanel.classList.toggle("open", open); playBtn.setAttribute("aria-expanded", open ? "true" : "false");
     var pw = document.getElementById("play-wrap"); if (pw) pw.classList.toggle("open", open);
     if (!film) return;
-    if (open) { film.controls = true; var p = film.play(); if (p && p.catch) p.catch(function () {}); setTimeout(function () { videoPanel.scrollIntoView({ behavior: "smooth", block: "center" }); }, 250); }
-    else { film.pause(); }
-  });
-  if (film) film.addEventListener("ended", function () { film.controls = false; film.load(); });
+    if (open) { var p = film.play(); if (p && p.catch) p.catch(function () {}); setTimeout(function () { videoPanel.scrollIntoView({ behavior: "smooth", block: "center" }); syncIcon(); }, 250); wake(); }
+    else { film.pause(); if (document.fullscreenElement) document.exitFullscreen(); }
+  }
+  if (playBtn && videoPanel) playBtn.addEventListener("click", function () { setPanel(!videoPanel.classList.contains("open")); });
+  if (vfClose) vfClose.addEventListener("click", function () { setPanel(false); });
+  if (film) {
+    var toggle = function () { if (film.paused) { var p = film.play(); if (p && p.catch) p.catch(function () {}); } else film.pause(); };
+    film.addEventListener("click", toggle); if (vfToggle) vfToggle.addEventListener("click", toggle);
+    film.addEventListener("play", function () { if (frame) frame.classList.add("playing"); if (vfToggle) { vfToggle.innerHTML = ICO.pause; vfToggle.setAttribute("aria-label", "Pause"); } wake(); });
+    film.addEventListener("pause", function () { if (frame) frame.classList.remove("playing", "vf-idle"); clearTimeout(idleTimer); if (vfToggle) { vfToggle.innerHTML = ICO.play; vfToggle.setAttribute("aria-label", "Lecture"); } });
+    film.addEventListener("timeupdate", function () { if (vfBar && film.duration) vfBar.style.width = (film.currentTime / film.duration * 100) + "%"; if (vfTime) vfTime.textContent = fmt(film.currentTime) + " / " + fmt(film.duration); });
+    film.addEventListener("loadedmetadata", function () { if (vfTime) vfTime.textContent = "0:00 / " + fmt(film.duration); });
+    film.addEventListener("ended", function () { film.load(); if (vfBar) vfBar.style.width = "0%"; });
+    if (vfProg) vfProg.addEventListener("click", function (e) { var r = vfProg.getBoundingClientRect(); if (film.duration) film.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * film.duration; });
+    if (vfMute) vfMute.addEventListener("click", function () { film.muted = !film.muted; vfMute.innerHTML = film.muted ? ICO.off : ICO.on; vfMute.setAttribute("aria-label", film.muted ? "Remettre le son" : "Couper le son"); });
+    if (vfFull) vfFull.addEventListener("click", function () { if (document.fullscreenElement) document.exitFullscreen(); else if (frame && frame.requestFullscreen) frame.requestFullscreen(); else if (film.webkitEnterFullscreen) film.webkitEnterFullscreen(); });
+    if (frame) { frame.addEventListener("mousemove", wake); frame.addEventListener("touchstart", wake, { passive: true }); frame.addEventListener("mouseleave", function () { if (!film.paused) frame.classList.add("vf-idle"); }); }
+    document.addEventListener("keydown", function (e) {
+      if (!videoPanel.classList.contains("open")) return; var tag = (e.target && e.target.tagName) || "";
+      if (e.key === "Escape") { setPanel(false); return; }
+      if (tag === "INPUT" || tag === "TEXTAREA") return;
+      if (e.key === " " || e.key === "k") { e.preventDefault(); toggle(); } else if (e.key === "m") { vfMute && vfMute.click(); }
+    });
+  }
 
   var nav = document.getElementById("nav");
   function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
