@@ -489,6 +489,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .foot .brand .logo { font-size: 22px; }
 .foot .brand > span { font-size: 14px; color: var(--slate); }
 .foot .brand .logo span { color: var(--green); font-size: inherit; }
+.foot .trust { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 4px 0 0; padding: 0; font-size: 12.5px; font-weight: 600; color: var(--meta); }
+.foot .trust li { display: inline-flex; align-items: center; gap: 6px; }
+.foot .trust svg { width: 15px; height: 15px; flex: none; }
 .foot nav { display: flex; flex-wrap: wrap; gap: 10px 22px; padding-top: 6px; }
 .foot nav a { color: var(--slate); font-weight: 600; }
 .foot nav a:hover { color: var(--ink); text-decoration: none; }
@@ -635,7 +638,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
     </nav>
     <div class="nav-right">
       <a class="btn btn-ghost nav-login" href="https://app.mazeo.co" data-t="nav.login">Se connecter</a>
-      <a class="btn btn-primary" href="#acces" data-t="nav.cta">Demander une démo</a>
+      <a class="btn btn-primary" href="#acces" data-t="nav.cta">Demander un accès</a>
     </div>
   </div>
 </header>
@@ -661,7 +664,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
           <input type="email" id="hero-email" name="email" required autocomplete="email" placeholder="Email professionnel" data-t-ph="form.email">
           <label for="hero-company" class="sr-only" data-t="form.company">Votre entreprise</label>
           <input type="text" id="hero-company" name="company" autocomplete="organization" placeholder="Votre entreprise" data-t-ph="form.company">
-          <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander une démo</button>
+          <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander un accès</button>
         </div>
         <p class="helper" data-t="hero.helper">Bêta privée · ouverture prochainement</p>
         <p class="msg" id="hero-msg" role="status" aria-live="polite"></p>
@@ -675,7 +678,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
         <div class="who"><img src="assets/people/men-41.jpg" alt="" width="36" height="36"><b>Jérémy Lefebvre</b><span data-t="tq.r">· CEO, Episto</span></div>
       </div>
       <div class="container trusted-inner">
-        <span class="lbl" data-t="hero.dp">Déjà chez 9&nbsp;prestataires d’études</span>
+        <span class="lbl" data-t="hero.dp">Conçu avec 9&nbsp;prestataires d’études</span>
         <div class="logos">
           <figure><img src="assets/dp-episto.jpg" alt=""><figcaption>Episto</figcaption></figure>
           <figure><img src="assets/dp-moai.jpg" alt=""><figcaption>Moaï</figcaption></figure>
@@ -714,7 +717,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
     <div class="scoring">
       <div class="container reveal">
         <h3 data-t="sc.h3">Un scoring fait par des professionnels du métier, pour des professionnels du métier.</h3>
-        <p class="lead" data-t="sc.p">Chaque entreprise est scorée afin de déterminer son offre ou son besoin en matière d’études.<br>Ce score sert au matching et aux recommandations&nbsp;: votre offre face au besoin de chaque entreprise.</p>
+        <p class="lead" data-t="sc.p">Chaque entreprise est scorée afin de déterminer son offre ou son besoin en matière d’études.<br>Ce score sert au matching et aux recommandations&nbsp;: votre offre face au besoin de chaque entreprise.<br>Toutes les entreprises du secteur sont scorées sur les trois mêmes axes&nbsp;: domaines, méthodes, secteurs.</p>
         <div class="scards">
           <div class="scard"><b>12<em data-t="ax1.b">domaines</em></b><small data-t="ax1.s">Ce qu’on étudie</small><div class="chips">
             <span class="chip" data-def="Comprendre les consommateurs : segmentation, études U&amp;A, typologies, insights." data-def-en="Understanding consumers: segmentation, U&amp;A studies, typologies, insights.">Segmentation &amp; U&amp;A</span><span class="chip" data-def="Marque et communication : brand tracking, pré/post-tests publicitaires, copy testing, notoriété et image." data-def-en="Brand &amp; communication: brand tracking, ad pre/post-testing, copy testing, awareness and image.">Marque &amp; Communication</span><span class="chip" data-def="Expérience et satisfaction client : NPS, voix du client, parcours client, visites mystère." data-def-en="Customer experience &amp; satisfaction: NPS, voice of customer, customer journey, mystery shopping.">CX &amp; Satisfaction</span><span class="chip" data-def="UX des produits digitaux : tests d’utilisabilité, exploration utilisateur, tests A/B." data-def-en="Digital product UX: usability testing, user discovery, A/B testing.">UX &amp; Digital</span><span class="chip" data-def="Innovation &amp; tests produits : NPD, tests de concept / packaging, CLT / HUT." data-def-en="Innovation &amp; product testing: NPD, concept / pack tests, CLT / HUT.">Innovation &amp; Tests produits</span><span class="chip" data-def="Shopper en magasin : parcours shopper, category management, merchandising." data-def-en="In-store shopper: shopper journey, category management, merchandising.">Shopper &amp; Retail</span><span class="chip" data-def="Audience et conversations médias : mesure d’audience, e-réputation, veille médias." data-def-en="Media audience &amp; conversations: audience measurement, e-reputation, media monitoring.">Médias &amp; Audiences</span><span class="chip" data-def="Prix : études de prix, sensibilité au prix, consentement à payer, élasticité." data-def-en="Pricing: price studies, price sensitivity, willingness-to-pay, elasticity.">Pricing &amp; Analytics</span><span class="chip" data-def="Opinion publique : sondages, baromètres politiques / institutionnels, consultations publiques." data-def-en="Public opinion: polls, political / institutional barometers, public consultations.">Opinion &amp; Affaires publiques</span><span class="chip" data-def="Salariés : engagement, baromètres de climat interne, marque employeur, qualité de vie au travail." data-def-en="Employees: engagement, internal climate barometers, employer branding, quality of life at work.">Études RH &amp; Collaborateurs</span><span class="chip" data-def="Décideurs B2B : études d’experts, parcours d’achat B2B, études auprès des médecins et des professionnels." data-def-en="B2B decision-makers: expert studies, B2B buyer journey, research with physicians and professionals.">Études B2B</span><span class="chip" data-def="Marché et concurrence : dimensionnement de marché, veille concurrentielle, benchmarking." data-def-en="Market &amp; competition: market sizing, competitive intelligence, benchmarking.">Intelligence stratégique</span>
@@ -723,7 +726,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
             <span class="chip" data-def="Enquêtes, trackers, questionnaires, analyse quantitative." data-def-en="Surveys, trackers, questionnaires, quantitative analysis.">Quantitatif</span><span class="chip" data-def="Focus groups, entretiens, ethnographie, communautés en ligne / MROC, sémiotique." data-def-en="Focus groups, interviews, ethnography, online communities / MROC, semiotics.">Qualitatif</span><span class="chip" data-def="Modélisation et data science : conjoint, PSM, MMM, économétrie, ML, données synthétiques." data-def-en="Modelling &amp; data science: conjoint, PSM, MMM, econometrics, ML, synthetic data.">Advanced Analytics / Data Science</span><span class="chip" data-def="Données comportementales sans questionner : social listening, web analytics, données transactionnelles." data-def-en="Behavioral data without asking questions: social listening, web analytics, transactional data.">Data passive &amp; comportementale</span><span class="chip" data-def="Analyse sensorielle : panels entraînés, profils descriptifs, tests hédoniques." data-def-en="Sensory analysis: trained panels, descriptive profiling, hedonic tests.">Analyse sensorielle</span><span class="chip" data-def="Neuro et biométrie : eye tracking, facial coding, neuromarketing." data-def-en="Neuro &amp; biometrics: eye tracking, facial coding, neuromarketing.">Neuro &amp; Biométrie</span><span class="chip" data-def="Terrain et opérations : collecte de données, recrutement de répondants, gestion de panels, programmation de questionnaires." data-def-en="Fieldwork &amp; ops: data collection, respondent recruitment, panel management, survey programming.">Terrain &amp; Panels</span><span class="chip" data-def="Sources secondaires : desk research, veille, benchmarks sans collecte primaire." data-def-en="Secondary sources: desk research, monitoring, benchmarks without primary data collection.">Desk Research</span>
           </div></div>
           <div class="scard"><b>27<em data-t="ax3.b">secteurs</em></b><small data-t="ax3.s">Pour quel marché</small><div class="chips">
-            <span class="chip" data-def="Constructeurs, équipementiers automobiles, mobilité." data-def-en="Carmakers, automotive suppliers, mobility.">Automobile</span><span class="chip" data-def="Soin, maquillage, parfumerie." data-def-en="Skincare, makeup, perfumery.">Cosmétique &amp; Beauté</span><span class="chip" data-def="Maisons de luxe, haute couture, horlogerie et joaillerie." data-def-en="Luxury houses, haute couture, watches &amp; jewellery.">Luxe</span><span class="chip" data-def="Marques et distributeurs de mode grand public et premium (hors luxe)." data-def-en="Mass-market and premium fashion brands and retailers (non-luxury).">Mode &amp; Habillement</span><span class="chip" data-def="Établissements de dépôt : banque de détail, assureurs, mutuelles." data-def-en="Deposit institutions: retail banking, insurers, mutual insurers.">Banque &amp; Assurance</span><span class="chip" data-def="Promoteurs, construction, sociétés immobilières." data-def-en="Property developers, construction, real-estate companies.">Immobilier &amp; Construction</span><span class="chip" data-def="Énergéticiens, renouvelables, déchets / eau." data-def-en="Energy companies, renewables, waste / water.">Énergie &amp; Environnement</span><span class="chip" data-def="Se déplacer : ferroviaire, compagnies aériennes, mobilité, tour-opérateurs." data-def-en="Getting around: rail, airlines, mobility, tour operators.">Transport &amp; Tourisme</span><span class="chip" data-def="Tous les produits de grande consommation : alimentaire, boissons, hygiène, entretien. Hors beauté, alcool et ingrédients B2B." data-def-en="All fast-moving consumer goods: food, beverages, hygiene, household care. Excludes beauty, alcohol and B2B ingredients.">FMCG / CPG</span><span class="chip" data-def="Agriculture amont, coopératives, transformation alimentaire." data-def-en="Upstream agriculture, cooperatives, food processing.">Agriculture &amp; Agroalimentaire</span><span class="chip more">+ 17</span>
+            <span class="chip" data-def="Constructeurs, équipementiers automobiles, mobilité." data-def-en="Carmakers, automotive suppliers, mobility.">Automobile</span><span class="chip" data-def="Soin, maquillage, parfumerie." data-def-en="Skincare, makeup, perfumery.">Cosmétique &amp; Beauté</span><span class="chip" data-def="Maisons de luxe, haute couture, horlogerie et joaillerie." data-def-en="Luxury houses, haute couture, watches &amp; jewellery.">Luxe</span><span class="chip" data-def="Marques et distributeurs de mode grand public et premium (hors luxe)." data-def-en="Mass-market and premium fashion brands and retailers (non-luxury).">Mode &amp; Habillement</span><span class="chip" data-def="Établissements de dépôt : banque de détail, assureurs, mutuelles." data-def-en="Deposit institutions: retail banking, insurers, mutual insurers.">Banque &amp; Assurance</span><span class="chip" data-def="Promoteurs, construction, sociétés immobilières." data-def-en="Property developers, construction, real-estate companies.">Immobilier &amp; Construction</span><span class="chip" data-def="Énergéticiens, renouvelables, déchets / eau." data-def-en="Energy companies, renewables, waste / water.">Énergie &amp; Environnement</span><span class="chip" data-def="Se déplacer : ferroviaire, compagnies aériennes, mobilité, tour-opérateurs." data-def-en="Getting around: rail, airlines, mobility, tour operators.">Transport &amp; Tourisme</span><span class="chip" data-def="Tous les produits de grande consommation : alimentaire, boissons, hygiène, entretien. Hors beauté, alcool et ingrédients B2B." data-def-en="All fast-moving consumer goods: food, beverages, hygiene, household care. Excludes beauty, alcohol and B2B ingredients.">FMCG / CPG</span><span class="chip" data-def="Agriculture amont, coopératives, transformation alimentaire." data-def-en="Upstream agriculture, cooperatives, food processing.">Agriculture &amp; Agroalimentaire</span><span class="chip" data-def="Études patients, professionnels de santé, market access." data-def-en="Patient studies, HCPs, market access.">Santé &amp; Pharma</span><span class="chip" data-def="Enseignes de distribution, e-commerce, commerce spécialisé." data-def-en="Retail chains, e-commerce, specialty retail.">Retail &amp; Distribution</span><span class="chip" data-def="Éditeurs de logiciels, plateformes, informatique." data-def-en="Software vendors, platforms, IT.">Tech &amp; Digital</span><span class="chip" data-def="Chaînes TV, presse, régies publicitaires, agences de publicité." data-def-en="TV channels, press, ad sales houses, ad agencies.">Médias &amp; Publicité</span><span class="chip more">+ 13</span>
           </div></div>
         </div>
       </div>
@@ -733,8 +736,8 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
       <div class="split match-split reveal">
         <div class="split-copy">
           <h3 data-t="mt.h3">La bonne entreprise. La bonne personne.</h3>
-          <p class="copy" data-t="mt.p1">mazeo comprend votre offre et ce qui vous distingue. Il vous propose les entreprises les plus pertinentes, classées, avec un score en&nbsp;%.</p>
-          <p class="copy" data-t="mt.p2">Dans chacune, la personne à contacter, avec son email et son portable en un clic.</p>
+          <p class="copy" data-t="mt.p1">mazeo comprend votre offre et ce qui vous distingue. Il vous propose les entreprises les plus pertinentes, pour vous, classées, avec un score en&nbsp;%.</p>
+          <p class="copy" data-t="mt.p2">Pour chacune, la personne à contacter, avec son email et son portable en un clic.</p>
         </div>
         <div class="screen fiche-screen" aria-hidden="true" id="fiche-screen">
           <div class="app-bar" aria-hidden="true"><span class="logo">mazeo<span>.</span></span><nav><span class="">Home</span><span class="on">Explore</span><span class="">Lists</span><span class="">Watch</span><span class="">Pipeline</span></nav><span class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Rechercher…</span><span class="av">RB</span></div>
@@ -757,7 +760,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
           <p class="lead" data-t="sg.p" style="margin-top:22px">La bonne entreprise, la bonne personne&nbsp;: reste le bon moment. mazeo scanne le secteur en temps réel et détecte dix types de signaux qui vous informent du meilleur moment pour entrer en contact.</p>
           <div class="pillgroup">
             <div><span class="lbl" data-t="sg.co">Côté entreprise</span><div class="pills">
-              <span class="ov-signal-pill hiring" data-def="L’entreprise recrute un profil études, insights ou consumer data. Source : offres d’emploi." data-def-en="The company is hiring a research, insights or consumer data profile. Source: job posts." data-t="sp.1">Recrutement de profils insight</span>
+              <span class="ov-signal-pill hiring" data-def="L’entreprise recrute un profil études ou insights, au sens large&nbsp;: market research, connaissance client, data consommateur, CX. Source&nbsp;: offres d’emploi." data-def-en="The company is hiring a research or insights profile, broadly: market research, consumer knowledge, consumer data, CX. Source: job posts." data-t="sp.1">Recrutement de profils insight</span>
               <span class="ov-signal-pill turnover" data-def="Arrivées et départs dans les équipes études et marketing sur les six derniers mois." data-def-en="Arrivals and departures in the research and marketing teams over the last six months." data-t="sp.2">Mouvements d’équipe</span>
               <span class="ov-signal-pill revenue" data-def="Hausse ou baisse du chiffre d’affaires d’un exercice à l’autre. Source : comptes publiés." data-def-en="Revenue up or down from one fiscal year to the next. Source: published accounts." data-t="sp.3">Évolution du chiffre d’affaires</span>
               <span class="ov-signal-pill governance" data-def="Nouveau dirigeant ou changement de direction dans les douze derniers mois. Source : registre des entreprises." data-def-en="New executive or change of leadership in the last twelve months. Source: company register." data-t="sp.4">Changement de gouvernance</span>
@@ -793,7 +796,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
       <div class="head">
         <div class="chapter"><span class="chapter-n">3</span><span class="chapter-name" data-t="pl.eyebrow">Le Pipeline</span></div>
         <h2 class="title" data-t="pl.h2">De la prise de contact au rendez-vous, étape par étape.</h2>
-        <p class="lead" data-t="pl.lead">mazeo vous accompagne jusqu’au rendez-vous, dans un parcours pensé pour notre métier. À chaque étape, il vous suggère quoi faire et quand, et signale les retards.</p>
+        <p class="lead" data-t="pl.lead">mazeo vous accompagne jusqu’au rendez-vous, dans un parcours pensé pour notre métier. À chaque étape, il vous suggère quoi faire et quand, et vous prévient dès qu’une tâche est en retard.</p>
       </div>
 
       <div class="screen raised kanban" aria-hidden="true" id="kanban-screen">
@@ -888,7 +891,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
         </details>
         <details>
           <summary data-t="fq4">Comment y accéder&nbsp;?</summary>
-          <div class="a" data-t="fa4">Demandez une démo&nbsp;: vingt minutes, sur votre marché. Puis nous ouvrons votre accès.</div>
+          <div class="a" data-t="fa4">mazeo est en bêta privée. Demandez un accès, nous revenons vers vous pour vous le présenter et ouvrir votre compte.</div>
         </details>
       </div>
     </div>
@@ -898,14 +901,14 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
   <section class="final" id="acces">
     <div class="container reveal">
       <h2 class="title" data-t="final.h2">Vos prochains clients sont déjà <em>sur mazeo.</em></h2>
-      <p class="lead" data-t="final.p">Une démo de vingt minutes, sur votre marché.</p>
+      <p class="lead" data-t="final.p">Bêta privée. Demandez un accès, nous revenons vers vous.</p>
       <form class="signup" id="form-final" novalidate>
         <div class="signup-fields">
           <label for="final-email" class="sr-only" data-t="form.email">Email professionnel</label>
           <input type="email" id="final-email" name="email" required autocomplete="email" placeholder="Email professionnel" data-t-ph="form.email">
           <label for="final-company" class="sr-only" data-t="form.company">Votre entreprise</label>
           <input type="text" id="final-company" name="company" autocomplete="organization" placeholder="Votre entreprise" data-t-ph="form.company">
-          <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander une démo</button>
+          <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander un accès</button>
         </div>
         <p class="msg" id="final-msg" role="status" aria-live="polite"></p>
       </form>
@@ -919,6 +922,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
     <div class="brand">
       <a class="logo" href="#top" aria-label="mazeo">mazeo<span>.</span></a>
       <span data-t="foot.tagline">Le seul outil de prospection dédié au market research.</span>
+      <ul class="trust"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span data-t="foot.rgpd">Conforme au RGPD</span></li><li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="20" cy="12" r="1.7"/><circle cx="18.93" cy="16" r="1.7"/><circle cx="16" cy="18.93" r="1.7"/><circle cx="12" cy="20" r="1.7"/><circle cx="8" cy="18.93" r="1.7"/><circle cx="5.07" cy="16" r="1.7"/><circle cx="4" cy="12" r="1.7"/><circle cx="5.07" cy="8" r="1.7"/><circle cx="8" cy="5.07" r="1.7"/><circle cx="12" cy="4" r="1.7"/><circle cx="16" cy="5.07" r="1.7"/><circle cx="18.93" cy="8" r="1.7"/></svg><span data-t="foot.eu">Données hébergées dans l’Union européenne</span></li></ul>
     </div>
     <nav aria-label="Liens">
       <a href="https://app.mazeo.co" data-t="nav.login">Se connecter</a>
@@ -937,13 +941,13 @@ document.documentElement.classList.add("js");
 (function () {
   /* ---------- Langue : le français est dans le HTML, l'anglais dans ce dictionnaire ; choix automatique selon le navigateur ---------- */
   var EN = {
-    "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Book a demo",
+    "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Request access",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
     "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "nav.market": "The Market", "mk.name": "The Market",
     "tq.t": "“Before mazeo, no tool gave an overall view of our industry. Finding a new prospect, and <em>the right moment to reach out</em>, took hours of research.”", "tq.r": "· CEO, Episto",
-    "form.email": "Work email", "form.company": "Your company", "form.submit": "Book a demo",
+    "form.email": "Work email", "form.company": "Your company", "form.submit": "Request access",
     "hero.helper": "Private beta · opening soon",
-    "hero.dp": "Already used by 9&nbsp;research providers", "dp.more": "+ 2 more",
+    "hero.dp": "Built with 9&nbsp;research providers", "dp.more": "+ 2 more",
     "video.aria": "Product video",
     "pb.eyebrow": "The problem",
     "pb.h2": "No tool gave an exhaustive view of the players in market research.",
@@ -955,11 +959,11 @@ document.documentElement.classList.add("js");
     "mm.q1": "Research buyers <span>796</span>", "mm.q2": "Research providers <span>386</span>", "mm.q3": "Fieldwork &amp; data collection <span>63</span>", "mm.q4": "Tools &amp; tech services <span>55</span>", "mm.note": "The whole French market research industry. More countries to come.",
     "sol.eyebrow": "The solution", "sol.h3": "So mazeo built it.", "sol.p": "The whole market research industry on one map: the companies that buy research, and those that deliver it. mazeo knows the needs of the former and the offer of the latter, and scores both. A simple, clear view of the market: your competitors, your suppliers, and above all your next clients.",
     "sc.h3": "Scoring built by industry professionals, for industry professionals.",
-    "sc.p": "Every company is scored to determine its offer or its need in research.<br>That score powers matching and recommendations: your offer against each company’s need.",
+    "sc.p": "Every company is scored to determine its offer or its research needs.<br>That score powers matching and recommendations: your offer against each company’s need.<br>Every company in the industry is scored on the same three axes: domains, methods, sectors.",
     "ax1.b": "domains", "ax1.s": "What is studied", "ax2.b": "methods", "ax2.s": "How it is studied", "ax3.b": "sectors", "ax3.s": "For which market",
     "mt.h3": "The right company. The right person.",
-    "mt.p1": "mazeo understands your offer and what sets you apart. It proposes the most relevant companies, ranked, with a score in&nbsp;%.",
-    "mt.p2": "In each one, the person to contact, with their email and mobile number in one click.",
+    "mt.p1": "mazeo understands your offer and what sets you apart. It proposes the most relevant companies for you, ranked, with a score in&nbsp;%.",
+    "mt.p2": "For each one, the person to contact, with their email and mobile number in one click.",
     "fi.top": "Company profile", "fi.src": "For illustration", "fi.meta": "Research buyer · Large group · FMCG",
     "fi.why": "<b>Why this match:</b> strong needs in product testing and U&amp;A, your offer covers both, FMCG sector in common.",
     "fi.a1": "Innovation &amp; Product testing <small>· need</small>", "fi.a2": "Segmentation &amp; U&amp;A <small>· need</small>", "fi.a3": "Quantitative <small>· method</small>", "fi.a4": "FMCG / CPG <small>· sector</small>",
@@ -975,7 +979,7 @@ document.documentElement.classList.add("js");
     "ws.co": "Companies", "ws.ct": "Contacts", "ws.search": "Search…", "ws.lbl": "Companies (7)", "ws.all": "All companies in the Watch", "ws.sort": "Newest first",
     "pl.eyebrow": "The Pipeline",
     "pl.h2": "From first contact to the meeting, step by step.",
-    "pl.lead": "mazeo guides you to the meeting, through a sequence designed for our industry. At every step it suggests what to do and when, and flags what is late.",
+    "pl.lead": "mazeo takes you all the way to the meeting, in a journey designed for our profession. At every step, it tells you what to do and when, and warns you as soon as a task is late.",
     "kb.sub": "4 people in motion", "kb.alert": "To do · 1 step late", "kb.note": "For illustration",
     "wr.eyebrow": "The writer",
     "wr.h2": "It writes. You review, you send.",
@@ -994,10 +998,10 @@ document.documentElement.classList.add("js");
     "fq1": "Where does the data come from?", "fa1": "From public sources: LinkedIn, websites, the company register, job posts, public tenders, social networks. Updated in real time. Work email and mobile number for most contacts. GDPR-compliant: anyone listed in mazeo can access, correct or remove their data by writing to us.",
     "fq2": "How is it different from LinkedIn Sales Navigator?", "fa2": "Sales Navigator and other generalist tools do not understand the specifics of market research. They make it hard to find the right companies and the right people. mazeo is built for this field: every company scored on its needs and its offer, its signals, and the right person with their contact details.",
     "fq3": "Who sends the messages?", "fa3": "You do. The writer drafts, you review, you send from LinkedIn or your email.",
-    "fq4": "How do I get access?", "fa4": "Book a demo: twenty minutes, on your market. Then we open your access.",
+    "fq4": "How do I get access?", "fa4": "mazeo is in private beta. Request access and we will get back to you to walk you through it and open your account.",
     "final.h2": "Your next clients are already <em>on mazeo.</em>",
-    "final.p": "A twenty-minute demo, on your market.",
-    "foot.tagline": "The only prospecting tool built for market research.",
+    "final.p": "Private beta. Request access and we will get back to you.",
+    "foot.tagline": "The only prospecting tool built for market research.", "foot.eu": "Data hosted in the European Union", "foot.rgpd": "GDPR-compliant",
     "foot.privacy": "Privacy", "foot.terms": "Terms of use", "foot.legal": "Legal notice",
     "mm.releve": "1,300+ companies · 13,000+ contacts · 27 sectors · as of 14 September 2026 · sources: LinkedIn, company register, websites, job posts, tenders", "sg.releve": "Nearly 5,000 signals detected since July 2026 · 10 signal types · as of 14 September 2026",
     "fi.save": "Saved", "fn.1": "Identity", "fn.2": "Specialisations", "fn.3": "Signals<i>2</i>", "fn.4": "Contacts<i>12</i>", "src.ai": "Source: mazeo AI", "src.li": "Source: LinkedIn",
@@ -1066,14 +1070,18 @@ document.documentElement.classList.add("js");
     fr: [
       { d: "kelloggs.com", n: "Kellogg’s", meta: "Acheteur d’études · Grand groupe · FMCG", pct: 92, why: "forts besoins en tests produits et U&A, votre offre couvre les deux, secteur FMCG en commun.", rows: [["Innovation & Tests produits", "besoin", 3], ["Segmentation & U&A", "besoin", 3], ["Quantitatif", "méthode", 2], ["FMCG / CPG", "secteur", 3]], who: "Camille Moreau", role: "Directrice des études consommateurs", face: "women-50" },
       { d: "loreal.com", n: "L’Oréal", meta: "Acheteur d’études · Grand groupe · Cosmétique", pct: 88, why: "besoins marqués en brand tracking et tests de concept, votre expertise quali, secteur beauté en commun.", rows: [["Marque & Communication", "besoin", 3], ["Innovation & Tests produits", "besoin", 2], ["Qualitatif", "méthode", 3], ["Cosmétique & Beauté", "secteur", 3]], who: "Thomas Renard", role: "Head of Consumer & Market Insights", face: "men-36" },
-      { d: "decathlon.com", n: "Decathlon", meta: "Acheteur d’études · Grand groupe · Retail", pct: 84, why: "études shopper et parcours client en magasin, votre offre terrain, secteur sport & retail en commun.", rows: [["Shopper & Retail", "besoin", 3], ["CX & Satisfaction", "besoin", 2], ["Terrain & Panels", "méthode", 3], ["Sport, Loisirs & Culture", "secteur", 2]], who: "Léa Fontaine", role: "Responsable études shopper", face: "women-33" },
-      { d: "axa.com", n: "AXA", meta: "Acheteur d’études · Grand groupe · Assurance", pct: 79, why: "programmes CX et baromètres de satisfaction, votre offre quanti, secteur assurance en commun.", rows: [["CX & Satisfaction", "besoin", 3], ["Marque & Communication", "besoin", 2], ["Quantitatif", "méthode", 3], ["Banque & Assurance", "secteur", 2]], who: "Nicolas Perrin", role: "Directeur expérience client", face: "men-64" }
+      { d: "nocibe.fr", n: "Nocibé", meta: "Acheteur d’études · ETI · Beauté", pct: 86, why: "études shopper et satisfaction en magasin, votre offre quanti et terrain, secteur beauté en commun.", rows: [["Shopper & Retail", "besoin", 3], ["CX & Satisfaction", "besoin", 3], ["Quantitatif", "méthode", 2], ["Cosmétique & Beauté", "secteur", 3]], who: "Inès Garnier", role: "Responsable études & insights", face: "women-44" },
+      { d: "fleurymichon.fr", n: "Fleury Michon", meta: "Acheteur d’études · ETI · Agroalimentaire", pct: 83, why: "tests produits et analyse sensorielle, votre expertise sensorielle, secteur agroalimentaire en commun.", rows: [["Innovation & Tests produits", "besoin", 3], ["Segmentation & U&A", "besoin", 2], ["Analyse sensorielle", "méthode", 3], ["Agriculture & Agroalimentaire", "secteur", 3]], who: "Julien Morel", role: "Directeur marketing", face: "men-41" },
+      { d: "maisonsdumonde.com", n: "Maisons du Monde", meta: "Acheteur d’études · Grand groupe · Ameublement", pct: 81, why: "parcours client omnicanal et notoriété de marque, votre offre CX, secteur retail en commun.", rows: [["CX & Satisfaction", "besoin", 3], ["Marque & Communication", "besoin", 2], ["Quantitatif", "méthode", 3], ["Retail & Distribution", "secteur", 3]], who: "Claire Dubois", role: "Head of Customer Insights", face: "women-68" },
+      { d: "salomon.com", n: "Salomon", meta: "Acheteur d’études · ETI · Sport", pct: 77, why: "tests produits auprès des pratiquants et U&A, votre offre terrain, secteur sport en commun.", rows: [["Innovation & Tests produits", "besoin", 3], ["Segmentation & U&A", "besoin", 2], ["Terrain & Panels", "méthode", 2], ["Sport, Loisirs & Culture", "secteur", 3]], who: "Antoine Weber", role: "Consumer Insights Manager", face: "men-22" }
     ],
     en: [
       { d: "kelloggs.com", n: "Kellogg’s", meta: "Research buyer · Large group · FMCG", pct: 92, why: "strong needs in product testing and U&A, your offer covers both, FMCG sector in common.", rows: [["Innovation & Product testing", "need", 3], ["Segmentation & U&A", "need", 3], ["Quantitative", "method", 2], ["FMCG / CPG", "sector", 3]], who: "Camille Moreau", role: "Head of Consumer Research", face: "women-50" },
       { d: "loreal.com", n: "L’Oréal", meta: "Research buyer · Large group · Cosmetics", pct: 88, why: "strong needs in brand tracking and concept testing, your qualitative expertise, beauty sector in common.", rows: [["Brand & Communication", "need", 3], ["Innovation & Product testing", "need", 2], ["Qualitative", "method", 3], ["Cosmetics & Beauty", "sector", 3]], who: "Thomas Renard", role: "Head of Consumer & Market Insights", face: "men-36" },
-      { d: "decathlon.com", n: "Decathlon", meta: "Research buyer · Large group · Retail", pct: 84, why: "shopper and in-store journey studies, your fieldwork offer, sports & retail sector in common.", rows: [["Shopper & Retail", "need", 3], ["CX & Satisfaction", "need", 2], ["Fieldwork & Panels", "method", 3], ["Sports, Leisure & Culture", "sector", 2]], who: "Léa Fontaine", role: "Shopper research manager", face: "women-33" },
-      { d: "axa.com", n: "AXA", meta: "Research buyer · Large group · Insurance", pct: 79, why: "CX programmes and satisfaction barometers, your quantitative offer, insurance sector in common.", rows: [["CX & Satisfaction", "need", 3], ["Brand & Communication", "need", 2], ["Quantitative", "method", 3], ["Banking & Insurance", "sector", 2]], who: "Nicolas Perrin", role: "Customer experience director", face: "men-64" }
+      { d: "nocibe.fr", n: "Nocibé", meta: "Research buyer · Mid-sized company · Beauty", pct: 86, why: "shopper and in-store satisfaction studies, your quantitative and fieldwork offer, beauty sector in common.", rows: [["Shopper & Retail", "need", 3], ["CX & Satisfaction", "need", 3], ["Quantitative", "method", 2], ["Cosmetics & Beauty", "sector", 3]], who: "Inès Garnier", role: "Research & insights manager", face: "women-44" },
+      { d: "fleurymichon.fr", n: "Fleury Michon", meta: "Research buyer · Mid-sized company · Food", pct: 83, why: "product testing and sensory analysis, your sensory expertise, agrifood sector in common.", rows: [["Innovation & Product testing", "need", 3], ["Segmentation & U&A", "need", 2], ["Sensory analysis", "method", 3], ["Agriculture & Agrifood", "sector", 3]], who: "Julien Morel", role: "Marketing director", face: "men-41" },
+      { d: "maisonsdumonde.com", n: "Maisons du Monde", meta: "Research buyer · Large group · Home furnishing", pct: 81, why: "omnichannel customer journey and brand awareness, your CX offer, retail sector in common.", rows: [["CX & Satisfaction", "need", 3], ["Brand & Communication", "need", 2], ["Quantitative", "method", 3], ["Retail & Distribution", "sector", 3]], who: "Claire Dubois", role: "Head of Customer Insights", face: "women-68" },
+      { d: "salomon.com", n: "Salomon", meta: "Research buyer · Mid-sized company · Sports", pct: 77, why: "product tests with athletes and U&A, your fieldwork offer, sports sector in common.", rows: [["Innovation & Product testing", "need", 3], ["Segmentation & U&A", "need", 2], ["Fieldwork & Panels", "method", 2], ["Sports, Leisure & Culture", "sector", 3]], who: "Antoine Weber", role: "Consumer Insights Manager", face: "men-22" }
     ]
   };
   var FI = { fr: { why: "Pourquoi ce match", email: "Email", tel: "Téléphone" }, en: { why: "Why this match", email: "Email", tel: "Phone" } };
@@ -1343,8 +1351,8 @@ document.documentElement.classList.add("js");
   /* ---------- Formulaires : fonction waitlist-signup ---------- */
   var FN = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/waitlist-signup";
   var MSG = {
-    fr: { ok: "C’est noté. Un email de confirmation arrive, et nous revenons vers vous pour caler la démo.", bad: "Entrez une adresse email valide.", err: "Ça n’a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co." },
-    en: { ok: "Noted. A confirmation email is on its way, and we will get back to you to schedule the demo.", bad: "Please enter a valid email address.", err: "That didn’t work. Try again in a moment, or write to romain.barbet@mazeo.co." }
+    fr: { ok: "C’est noté. Un email de confirmation arrive, et nous revenons vers vous rapidement.", bad: "Entrez une adresse email valide.", err: "Ça n’a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co." },
+    en: { ok: "Noted. A confirmation email is on its way, and we will get back to you shortly.", bad: "Please enter a valid email address.", err: "That didn’t work. Try again in a moment, or write to romain.barbet@mazeo.co." }
   };
   function wire(form) {
     if (!form) return;
