@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>mazeo — proposition design</title>
 <meta name="robots" content="noindex">
-<meta name="description" content="L'intégralité du secteur : acheteurs et vendeurs, scorés et mis à jour en temps réel. Vos 5 prochains clients sont sur mazeo : la bonne entreprise, la bonne personne, au bon moment.">
+<meta name="description" content="L'intégralité du secteur, scoré et mis à jour en temps réel. Vos prochains clients sont sur mazeo : la bonne entreprise, la bonne personne, au bon moment.">
 <link rel="canonical" href="https://mazeo.co/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://mazeo.co/">
 <meta property="og:title" content="Le seul outil de prospection dédié au market research">
-<meta property="og:description" content="L'intégralité du secteur : acheteurs et vendeurs, scorés et mis à jour en temps réel. Vos 5 prochains clients sont sur mazeo.">
+<meta property="og:description" content="L'intégralité du secteur, scoré et mis à jour en temps réel. Vos prochains clients sont sur mazeo.">
 <meta property="og:image" content="https://mazeo.co/og-image-v3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,7 +20,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Le seul outil de prospection dédié au market research">
-<meta name="twitter:description" content="L'intégralité du secteur : acheteurs et vendeurs, scorés et mis à jour en temps réel.">
+<meta name="twitter:description" content="L'intégralité du secteur, scoré et mis à jour en temps réel.">
 <meta name="twitter:image" content="https://mazeo.co/og-image-v3.png">
 <meta name="twitter:image:alt" content="mazeo, le seul outil de prospection dédié au market research">
 <meta name="theme-color" content="#FFFFFF">
@@ -143,7 +143,18 @@ button, input { font: inherit; }
 .hero h1 { font-size: clamp(42px, 7.4vw, 104px); max-width: 1180px; margin-inline: auto; }
 .hero h1 em { font-style: normal; color: var(--blue); }
 .hero .lead { margin: 30px auto 0; max-width: 900px; }
-.stage { margin-top: 64px; }
+.hero .promise { margin-top: 16px; }
+.hero .promise b { color: var(--ink); font-weight: 700; }
+.play-btn { margin: 34px auto 0; display: inline-flex; align-items: center; gap: 14px; padding: 8px 22px 8px 8px; border: 1px solid var(--line-strong); border-radius: 100px; background: #fff; cursor: pointer; color: var(--ink); font-weight: 600; font-size: 15px; transition: border-color .15s, box-shadow .15s; }
+.play-btn:hover { border-color: #B9C0CB; box-shadow: 0 8px 20px -12px rgba(10,10,10,.3); }
+.play-btn .disc { width: 44px; height: 44px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; flex: 0 0 auto; }
+.play-btn .disc::after { content: ""; width: 0; height: 0; border-left: 13px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px; }
+.play-btn[aria-expanded="true"] .disc::after { border: 0; width: 12px; height: 12px; background: #fff; border-radius: 2px; margin: 0; }
+.play-btn small { display: block; font-weight: 500; font-size: 12.5px; color: var(--meta); }
+.video-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s cubic-bezier(.2,.7,.2,1); }
+.video-panel > div { min-height: 0; overflow: hidden; }
+.video-panel.open { grid-template-rows: 1fr; }
+.video-panel .inner { width: min(100vw - 48px, 1400px); margin: 36px 0 8px 50%; transform: translateX(-50%); }
 .video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: var(--ink); display: grid; place-items: center; isolation: isolate; }
 .video-frame::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 110%, rgba(0,123,255,.55), rgba(0,123,255,0) 70%); }
 .video-play { position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; color: #fff; }
@@ -151,11 +162,18 @@ button, input { font: inherit; }
 .video-play .disc::after { content: ""; width: 0; height: 0; border-left: 26px solid var(--ink); border-top: 15px solid transparent; border-bottom: 15px solid transparent; margin-left: 6px; }
 .video-play span { font-size: 16px; font-weight: 600; }
 .video-play small { font-size: 13px; color: rgba(255,255,255,.6); margin-top: -8px; }
-@media (max-width: 640px) { .hero { padding-top: 56px; } .video-frame { border-radius: 16px; } .video-play .disc { width: 64px; height: 64px; } }
+@media (max-width: 640px) { .hero { padding-top: 56px; } .video-frame { border-radius: 16px; } .video-play .disc { width: 64px; height: 64px; } .video-panel .inner { width: calc(100vw - 32px); } }
 
 /* La bande des clients */
 .trusted { margin-top: 72px; background: var(--soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
 .trusted-inner { display: flex; align-items: center; gap: 48px; padding-block: 30px; }
+.trusted-quote { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end; padding: 24px 0 64px; border-top: 1px solid var(--line); text-align: left; }
+.trusted-quote blockquote { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(24px, 2.6vw, 38px); line-height: 1.22; letter-spacing: -0.025em; color: var(--ink); text-wrap: pretty; max-width: 26ch; }
+.trusted-quote .who { display: flex; align-items: center; gap: 12px; }
+.trusted-quote .who img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+.trusted-quote .who b { display: block; font-size: 15px; color: var(--ink); }
+.trusted-quote .who span { font-size: 13px; color: var(--meta); }
+@media (max-width: 760px) { .trusted-quote { grid-template-columns: 1fr; gap: 20px; padding-bottom: 48px; } }
 .trusted .lbl { flex: 0 0 200px; text-align: left; line-height: 1.4; color: var(--slate); }
 .trusted .logos { flex: 1 1 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; }
 .trusted figure { margin: 0; display: flex; align-items: center; gap: 10px; filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s; }
@@ -163,6 +181,13 @@ button, input { font: inherit; }
 .trusted img { width: 34px; height: 34px; border-radius: 8px; object-fit: contain; }
 .trusted figcaption { font-size: 16px; font-weight: 700; color: var(--ink); white-space: nowrap; letter-spacing: -0.01em; }
 @media (max-width: 960px) { .trusted-inner { flex-direction: column; align-items: flex-start; gap: 18px; } .trusted .lbl { flex: 0 0 auto; } .trusted .logos { justify-content: flex-start; gap: 16px 24px; } }
+.marker { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 44px; }
+.marker .n { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--ink); color: #fff; font-family: var(--display); font-size: 18px; font-weight: 700; }
+.marker .name { font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
+.panel .marker .n { background: #fff; color: var(--ink); }
+.panel-blue .marker .n { color: var(--blue-text); }
+.panel .marker .name { color: rgba(255,255,255,.85); }
+#market .head .title { font-size: clamp(30px, 3.6vw, 52px); }
 
 /* ============ Problème ============ */
 .problem { padding-bottom: 32px; }
@@ -558,7 +583,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
   <div class="container nav-inner">
     <a class="logo" href="#top" aria-label="mazeo">mazeo<span>.</span></a>
     <nav class="nav-links" aria-label="Sections">
-      <a href="#market"><span class="nn">1</span> <span lang="en">The Market</span></a>
+      <a href="#market"><span class="nn">1</span> <span data-t="nav.market">Le marché</span></a>
       <a href="#signaux"><span class="nn">2</span> <span data-t="nav.signals">Signaux</span></a>
       <a href="#pipeline"><span class="nn">3</span> Pipeline</a>
       <a href="#faq">FAQ</a>
@@ -576,7 +601,15 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
   <section class="hero">
     <div class="container">
       <h1 data-t="hero.h1">Le seul outil de prospection <em>dédié au market research.</em></h1>
-      <p class="lead" data-t="hero.lead">L'intégralité du secteur&nbsp;: acheteurs &amp; vendeurs. Scorés &amp; mis à jour en temps réel.<br>Vos 5&nbsp;prochains clients sont sur mazeo&nbsp;: la bonne entreprise, la bonne personne, au bon moment.</p>
+      <p class="lead" data-t="hero.lead">L'intégralité du secteur, scoré &amp; mis à jour en temps réel.</p>
+      <p class="lead promise" data-t="hero.promise"><b>Vos prochains clients sont sur mazeo&nbsp;: la bonne entreprise, la bonne personne, au bon moment.</b></p>
+      <button class="play-btn" type="button" id="play" aria-expanded="false" aria-controls="video-panel"><span class="disc" aria-hidden="true"></span><span><span data-t="video.t">mazeo en une minute</span><small data-t="video.s">67 secondes · avec le son</small></span></button>
+      <div class="video-panel" id="video-panel"><div><div class="inner">
+        <!-- Film produit v4 (14/09/2026) : fabriqué en code dans ~/dev/video-mazeo -->
+        <div class="video-frame" id="video-frame">
+          <video id="film" preload="metadata" playsinline poster="assets/mazeo-film-poster.jpg" aria-label="mazeo en une minute"><source src="assets/mazeo-film.mp4" type="video/mp4"></video>
+        </div>
+      </div></div></div>
       <form class="signup" id="form-hero" novalidate>
         <div class="signup-fields">
           <label for="hero-email" class="sr-only" data-t="form.email">Email professionnel</label>
@@ -589,12 +622,6 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
         <p class="msg" id="hero-msg" role="status" aria-live="polite"></p>
       </form>
 
-      <div class="stage">
-        <!-- Emplacement vidéo : remplacer .video-frame par l'iframe le jour venu -->
-        <div class="video-frame" role="img" aria-label="Vidéo de présentation, à venir">
-          <div class="video-play"><div class="disc" aria-hidden="true"></div><span data-t="video.t">mazeo en deux minutes</span><small data-t="video.s">Vidéo prochainement</small></div>
-        </div>
-      </div>
     </div>
 
     <div class="trusted">
@@ -610,19 +637,9 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
           <figure><img src="assets/dp-reperes.jpg" alt=""><figcaption>Repères</figcaption></figure>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= PROBLÈME ================= -->
-  <section class="section problem" id="probleme">
-    <div class="container pbsol reveal">
-      <div>
-        <h2 class="title" data-t="pb.h2">Aucun outil ne donnait une vision exhaustive des acteurs du market research.</h2>
-        <p class="copy" data-t="pb.p1">Avoir accès à de nouvelles entreprises ayant un besoin correspondant à son offre en 3&nbsp;clics&nbsp;: c'était impossible jusqu'à présent.</p>
-      </div>
-      <div class="sol">
-        <h3 data-t="sol.h3">Alors mazeo l'a fait.</h3>
-        <p class="copy" data-t="sol.p">Tout le secteur du market research sur une seule carte&nbsp;: les entreprises qui achètent des études, et celles qui les réalisent. mazeo connaît le besoin des unes et l'offre des autres, et les score. Une vision simple et claire du marché&nbsp;: vos concurrents, vos fournisseurs, et surtout vos prochains clients.</p>
+      <div class="container trusted-quote">
+        <blockquote data-t="tq.t">«&nbsp;Avant mazeo, aucun outil ne donnait une vision d'ensemble de notre secteur. Trouver un nouveau prospect, et le bon moment pour le contacter, demandait des heures de recherche.&nbsp;»</blockquote>
+        <div class="who"><img src="assets/people/men-41.jpg" alt="" width="48" height="48"><div><b>Jérémy Lefebvre</b><span data-t="tq.r">CEO, Episto</span></div></div>
       </div>
     </div>
   </section>
@@ -631,8 +648,8 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
   <section class="section" id="market" style="padding-bottom:0">
     <div class="container">
       <div class="head reveal">
-        <div class="chapter"><span class="chapter-n">1</span><span class="chapter-name" lang="en">The Market</span></div>
-        <h2 class="title" data-t="mk.h2">Tout le secteur, cartographié et scoré.</h2>
+        <div class="chapter"><span class="chapter-n">1</span><span class="chapter-name" data-t="mk.name">Le marché</span></div>
+        <h2 class="title" data-t="mk.h2">Tout le secteur, cartographié.</h2>
         <p class="lead" data-t="mk.lead">Nous collectons et analysons l'ensemble des informations publiques disponibles&nbsp;: LinkedIn, sites web, registre des entreprises, offres d'emploi, appels d'offres publics, réseaux sociaux, et bien d'autres sources.</p>
       </div>
       <div class="screen mmap-screen reveal" aria-hidden="true" id="mmap">
@@ -855,7 +872,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
   <!-- ================= FIN DE PAGE ================= -->
   <section class="final" id="acces">
     <div class="container reveal">
-      <h2 class="title" data-t="final.h2">Vos 5&nbsp;prochains clients sont déjà <em>sur mazeo.</em></h2>
+      <h2 class="title" data-t="final.h2">Vos prochains clients sont déjà <em>sur mazeo.</em></h2>
       <p class="lead" data-t="final.p">Laissez votre email et le nom de votre entreprise. Bêta privée, ouverture prochainement.</p>
       <form class="signup" id="form-final" novalidate>
         <div class="signup-fields">
@@ -896,16 +913,17 @@ document.documentElement.classList.add("js");
   var EN = {
     "nav.signals": "Signals", "nav.login": "Log in", "nav.cta": "Request access",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
-    "hero.lead": "The entire industry: buyers &amp; vendors. Scored &amp; updated in real time.<br>Your next 5&nbsp;clients are on mazeo: the right company, the right person, at the right time.",
+    "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "<b>Your next clients are on mazeo: the right company, the right person, at the right time.</b>", "nav.market": "The Market", "mk.name": "The Market",
+    "tq.t": "“Before mazeo, no tool gave an overall view of our industry. Finding a new prospect, and the right moment to reach out, took hours of research.”", "tq.r": "CEO, Episto",
     "form.email": "Work email", "form.company": "Your company", "form.submit": "Request access",
     "hero.helper": "Private beta · opening soon",
     "hero.dp": "Already in private beta at 9&nbsp;research providers", "dp.more": "+ 2 more",
-    "video.t": "mazeo in two minutes", "video.s": "Video coming soon", "video.aria": "Product video, coming soon",
+    "video.t": "mazeo in one minute", "video.s": "67 seconds · with sound", "video.aria": "Product video",
     "pb.eyebrow": "The problem",
     "pb.h2": "No tool gave an exhaustive view of the players in market research.",
     "pb.p1": "Reaching new companies whose needs match your offer, in 3&nbsp;clicks: impossible until now. So mazeo built it.",
     "pb.p2": "A simple, clear view of the market: your competitors, your suppliers, and above all your next clients.",
-    "mk.h2": "The whole industry, mapped and scored.",
+    "mk.h2": "The whole industry, mapped.",
     "mk.lead": "We collect and analyse every public piece of information available: LinkedIn, websites, the company register, job posts, public tenders, social networks, and many more sources.",
     "mm.count": "1,300+ companies · 13,000+ contacts", "mm.map": "Map", "mm.list": "List",
     "mm.q1": "Research buyers <span>796</span>", "mm.q2": "Research providers <span>386</span>", "mm.q3": "Fieldwork &amp; data collection <span>63</span>", "mm.q4": "Tools &amp; tech services <span>55</span>", "mm.note": "The whole French market research industry. More markets coming soon.",
@@ -951,7 +969,7 @@ document.documentElement.classList.add("js");
     "fq2": "How is it different from LinkedIn Sales Navigator?", "fa2": "Sales Navigator and other generalist tools do not understand the specifics of market research. They make it hard to find the right companies and the right people. mazeo is built for this field: every company scored on its needs and its offer, its signals, and the right person with their contact details.",
     "fq3": "Who sends the messages?", "fa3": "You do. The writer drafts, you review, you send from LinkedIn or your email.",
     "fq4": "How do I get access?", "fa4": "mazeo is in private beta, opening soon. Request access and we will get back to you.",
-    "final.h2": "Your next 5&nbsp;clients are already <em>on mazeo.</em>",
+    "final.h2": "Your next clients are already <em>on mazeo.</em>",
     "final.p": "Leave your email and company name. Private beta, opening soon.",
     "foot.tagline": "The only prospecting tool built for market research.",
     "foot.privacy": "Privacy", "foot.terms": "Terms",
@@ -976,7 +994,7 @@ document.documentElement.classList.add("js");
     for (var j = 0; j < phNodes.length; j++) { var kp = phNodes[j].getAttribute("data-t-ph"); phNodes[j].setAttribute("placeholder", lang === "en" ? (EN[kp] || FR[kp]) : FR[kp]); }
     document.title = META[lang].title;
     var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute("content", META[lang].desc);
-    var vf = document.querySelector(".video-frame"); if (vf) vf.setAttribute("aria-label", lang === "en" ? EN["video.aria"] : "Vidéo de présentation, à venir");
+    var vf = document.getElementById("film"); if (vf) vf.setAttribute("aria-label", lang === "en" ? "mazeo in one minute" : "mazeo en une minute");
     renderFeed(); renderKanban(); renderMail(true);
     if (!visible.feed) feedStop(); if (!visible.kanban) kanbanStop(); if (!visible.mail) mailStop();
   }
@@ -1228,6 +1246,17 @@ document.documentElement.classList.add("js");
   /* ---------- Démarrage : la langue suit celle du navigateur ---------- */
   var browser = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
   setLang(browser);
+
+  /* ---------- Le film : le bouton ouvre le panneau et lance la lecture ; refermer met en pause ---------- */
+  var playBtn = document.getElementById("play"); var videoPanel = document.getElementById("video-panel"); var film = document.getElementById("film");
+  if (playBtn && videoPanel) playBtn.addEventListener("click", function () {
+    var open = !videoPanel.classList.contains("open");
+    videoPanel.classList.toggle("open", open); playBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    if (!film) return;
+    if (open) { film.controls = true; var p = film.play(); if (p && p.catch) p.catch(function () {}); setTimeout(function () { videoPanel.scrollIntoView({ behavior: "smooth", block: "center" }); }, 250); }
+    else { film.pause(); }
+  });
+  if (film) film.addEventListener("ended", function () { film.controls = false; film.load(); });
 
   var nav = document.getElementById("nav");
   function onScroll() { nav.classList.toggle("scrolled", window.scrollY > 8); }
