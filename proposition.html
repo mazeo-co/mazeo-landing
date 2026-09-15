@@ -151,6 +151,10 @@ button, input { font: inherit; }
 .play-btn:hover { transform: scale(1.06); }
 .play-btn::after { content: ""; width: 0; height: 0; border-left: 22px solid #fff; border-top: 13px solid transparent; border-bottom: 13px solid transparent; margin-left: 6px; }
 .play-btn[aria-expanded="true"]::after { border: 0; width: 18px; height: 18px; background: #fff; border-radius: 3px; margin: 0; }
+.play-label { margin: 14px auto 0; text-align: center; font-size: 14px; font-weight: 600; color: var(--meta); letter-spacing: -0.01em; }
+.play-label span:last-child { display: none; }
+.play-wrap.open + .play-label span:first-child { display: none; }
+.play-wrap.open + .play-label span:last-child { display: inline; }
 .play-wrap .wave { position: absolute; width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid var(--ink); opacity: 0; pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) { .play-wrap .wave { animation: wave 2.6s ease-out infinite; } .play-wrap .wave.w2 { animation-delay: 1.3s; } .play-wrap.open .wave { animation: none; } }
 @keyframes wave { 0% { transform: scale(1); opacity: .5; } 100% { transform: scale(1.72); opacity: 0; } }
@@ -191,7 +195,7 @@ button, input { font: inherit; }
 .trusted { margin-top: 72px; background: var(--soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
 .trusted-inner { display: flex; flex-direction: column; align-items: center; gap: 26px; padding-block: 30px; }
 .trusted-quote { text-align: center; padding: 88px 0 56px; }
-.trusted-quote blockquote { margin: 0 auto; font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4vw, 58px); line-height: 1.08; letter-spacing: -0.035em; color: var(--ink); text-wrap: balance; max-width: 1080px; }
+.trusted-quote blockquote { margin: 0 auto; font-family: var(--display); font-weight: 700; font-size: clamp(26.4px, 3.52vw, 51.04px); line-height: 1.08; letter-spacing: -0.035em; color: var(--ink); text-wrap: balance; max-width: 1080px; }
 .trusted-quote blockquote em { font-style: normal; color: var(--blue); }
 .trusted-quote .who { margin-top: 26px; display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: var(--meta); }
 .trusted-quote .who img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
@@ -672,6 +676,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
       <p class="promise" data-t="hero.promise">Vos prochains clients sont déjà sur mazeo.</p>
       <p class="lead promise2" data-t="hero.promise2">La bonne entreprise, la bonne personne, au bon moment.</p>
       <div class="play-wrap" id="play-wrap"><span class="wave w1" aria-hidden="true"></span><span class="wave w2" aria-hidden="true"></span><button class="play-btn" type="button" id="play" aria-expanded="false" aria-controls="video-panel" aria-label="Lire la vidéo"></button></div>
+      <p class="play-label"><span data-t="hero.play">Découvrir mazeo en vidéo</span><span data-t="hero.playClose">Fermer la vidéo</span></p>
       <div class="video-panel" id="video-panel"><div><div class="inner">
         <!-- Film produit v4 (14/09/2026) : fabriqué en code dans ~/dev/video-mazeo -->
         <div class="video-frame" id="video-frame">
@@ -697,7 +702,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
 
     <div class="trusted">
       <div class="container trusted-quote">
-        <blockquote data-t="tq.t">«&nbsp;Avant mazeo, aucun outil ne donnait une vision d’ensemble de notre secteur. Trouver un nouveau prospect, et <em>le bon moment pour le contacter</em>, demandait des heures de recherche.&nbsp;»</blockquote>
+        <blockquote data-t="tq.t">«&nbsp;Avant mazeo, aucun outil ne donnait <em>une vision d’ensemble de notre secteur</em>. Trouver un nouveau prospect, et le bon moment pour le contacter, demandait des heures de recherche.&nbsp;»</blockquote>
         <div class="who"><img src="assets/people/men-41.jpg" alt="" width="36" height="36"><b>Jérémy Lefebvre</b><span data-t="tq.r">· CEO, Episto</span></div>
       </div>
       <div class="container trusted-inner">
@@ -721,7 +726,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
       <div class="head reveal">
         <div class="chapter"><span class="chapter-n">1</span><span class="chapter-name" data-t="mk.name">Le marché</span></div>
         <h2 class="title" data-t="mk.h2">Tout le secteur, cartographié.</h2>
-        <p class="lead" data-t="mk.lead">L’intégralité du secteur, scorée et mise à jour en temps réel. mazeo collecte et analyse l’ensemble des informations publiques&nbsp;: LinkedIn, sites web, registre des entreprises, offres d’emploi, appels d’offres publics, réseaux sociaux. Il s’en nourrit pour catégoriser chaque entreprise, la scorer et la matcher avec votre offre.</p>
+        <p class="lead" data-t="mk.lead">mazeo lit en temps réel l’ensemble des informations publiques du secteur&nbsp;: LinkedIn, sites web, registre des entreprises, offres d’emploi, appels d’offres publics, réseaux sociaux. Il s’en sert pour catégoriser chaque entreprise, la scorer et la matcher avec votre offre.</p>
       </div>
       <div class="screen mmap-screen reveal" aria-hidden="true" id="mmap">
         <div class="app-bar" aria-hidden="true"><span class="logo">mazeo<span>.</span></span><nav><span class="">Home</span><span class="on">Explore</span><span class="">Lists</span><span class="">Watch</span><span class="">Pipeline</span></nav><span class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Rechercher…</span><span class="av">RB</span></div>
@@ -966,8 +971,8 @@ document.documentElement.classList.add("js");
   var EN = {
     "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Request access",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
-    "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "nav.market": "The Market", "mk.name": "The Market",
-    "tq.t": "“Before mazeo, no tool gave an overall view of our industry. Finding a new prospect, and <em>the right moment to reach out</em>, took hours of research.”", "tq.r": "· CEO, Episto",
+    "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "hero.playClose": "Close the video", "hero.play": "Discover mazeo on video", "nav.market": "The Market", "mk.name": "The Market",
+    "tq.t": "“Before mazeo, no tool gave <em>an overall view of our industry</em>. Finding a new prospect, and the right moment to reach out, took hours of research.”", "tq.r": "· CEO, Episto",
     "form.email": "Work email", "form.company": "Your company", "form.submit": "Request access",
     "hero.helper": "Private beta · opening soon",
     "hero.dp": "Built with 9&nbsp;research providers", "dp.more": "+ 2 more",
@@ -977,7 +982,7 @@ document.documentElement.classList.add("js");
     "pb.p1": "Reaching new companies whose needs match your offer, in 3&nbsp;clicks: impossible until now. So mazeo built it.",
     "pb.p2": "A simple, clear view of the market: your competitors, your suppliers, and above all your next clients.",
     "mk.h2": "The whole industry, mapped.",
-    "mk.lead": "The entire industry, scored and updated in real time. mazeo collects and analyses all public information: LinkedIn, websites, the company register, job posts, public tenders, social networks. It feeds on that data to categorise each company, score it, and match it with your offer.",
+    "mk.lead": "mazeo reads all the industry’s public information in real time: LinkedIn, websites, the company register, job posts, public tenders, social networks. It uses it to categorise each company, score it, and match it with your offer.",
     "mm.count": "1,300+ companies · 13,000+ contacts", "mm.map": "Map", "mm.list": "List",
     "mm.q1": "Research buyers <span>796</span>", "mm.q2": "Research providers <span>386</span>", "mm.q3": "Fieldwork &amp; data collection <span>63</span>", "mm.q4": "Tools &amp; tech services <span>55</span>", "mm.note": "The whole French market research industry. More countries to come.",
     "sol.eyebrow": "The solution", "sol.h3": "So mazeo built it.", "sol.p": "The whole market research industry on one map: the companies that buy research, and those that deliver it. mazeo knows the needs of the former and the offer of the latter, and scores both. A simple, clear view of the market: your competitors, your suppliers, and above all your next clients.",
