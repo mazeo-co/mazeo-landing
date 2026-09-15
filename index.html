@@ -143,20 +143,19 @@ button, input { font: inherit; }
 .hero .lead { margin: 30px auto 0; max-width: 900px; }
 .hero .promise { margin-top: 18px; font-family: var(--display); font-weight: 700; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.15; letter-spacing: -0.025em; color: var(--ink); }
 .hero .promise2 { margin-top: 8px; color: var(--slate); }
-.play-wrap { position: relative; width: 112px; height: 112px; margin: 40px auto 0; display: grid; place-items: center; }
-.play-btn { position: relative; z-index: 2; width: 72px; height: 72px; border-radius: 50%; background: var(--ink); border: 0; cursor: pointer; display: grid; place-items: center; box-shadow: 0 0 0 10px #fff, 0 0 0 11px var(--line); transition: transform .18s ease; }
+.play-wrap { position: relative; width: 124px; height: 124px; margin: 44px auto 0; display: grid; place-items: center; }
+.play-wrap::before { content: ""; position: absolute; width: 96px; height: 96px; border-radius: 50%; border: 1px solid var(--line); }
+.play-btn { position: relative; z-index: 2; width: 72px; height: 72px; border-radius: 50%; background: var(--ink); border: 0; cursor: pointer; display: grid; place-items: center; transition: transform .18s ease; }
 .play-btn:hover { transform: scale(1.06); }
 .play-btn::after { content: ""; width: 0; height: 0; border-left: 22px solid #fff; border-top: 13px solid transparent; border-bottom: 13px solid transparent; margin-left: 6px; }
 .play-btn[aria-expanded="true"]::after { border: 0; width: 18px; height: 18px; background: #fff; border-radius: 3px; margin: 0; }
-.play-wrap .wave { position: absolute; inset: 20px; border-radius: 50%; border: 1.5px solid var(--ink); opacity: 0; pointer-events: none; }
+.play-wrap .wave { position: absolute; width: 72px; height: 72px; border-radius: 50%; border: 1.5px solid var(--ink); opacity: 0; pointer-events: none; }
 @media (prefers-reduced-motion: no-preference) { .play-wrap .wave { animation: wave 2.6s ease-out infinite; } .play-wrap .wave.w2 { animation-delay: 1.3s; } .play-wrap.open .wave { animation: none; } }
-@keyframes wave { 0% { transform: scale(.72); opacity: .45; } 100% { transform: scale(1.55); opacity: 0; } }
-.play-lbl { margin-top: 12px; font-size: 13.5px; font-weight: 600; color: var(--slate); }
-.play-lbl small { color: var(--meta); font-weight: 500; }
+@keyframes wave { 0% { transform: scale(1); opacity: .5; } 100% { transform: scale(1.72); opacity: 0; } }
 .video-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s cubic-bezier(.2,.7,.2,1); }
 .video-panel > div { min-height: 0; overflow: hidden; }
 .video-panel.open { grid-template-rows: 1fr; }
-.video-panel .inner { width: min(100vw - 48px, 1400px); margin: 32px 0 12px 50%; transform: translateX(-50%); }
+.video-panel .inner { width: min(100vw - 48px, 1400px); margin: 28px 0 4px 50%; transform: translateX(-50%); }
 .video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: var(--ink); display: grid; place-items: center; isolation: isolate; }
 .video-frame::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 110%, rgba(0,123,255,.55), rgba(0,123,255,0) 70%); }
 .video-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
@@ -530,17 +529,16 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <section class="hero">
     <div class="container">
       <h1 data-t="hero.h1">Le seul outil de prospection <em>dédié au market research.</em></h1>
+      <p class="lead" data-t="hero.lead">L'intégralité du secteur, scoré &amp; mis à jour en temps réel.</p>
+      <p class="promise" data-t="hero.promise">Vos prochains clients sont déjà sur mazeo.</p>
+      <p class="lead promise2" data-t="hero.promise2">La bonne entreprise, la bonne personne, au bon moment.</p>
       <div class="play-wrap" id="play-wrap"><span class="wave w1" aria-hidden="true"></span><span class="wave w2" aria-hidden="true"></span><button class="play-btn" type="button" id="play" aria-expanded="false" aria-controls="video-panel" aria-label="Lire la vidéo"></button></div>
-      <p class="play-lbl"><span data-t="video.t">mazeo en une minute</span> <small data-t="video.s">· 68 secondes, avec le son</small></p>
       <div class="video-panel" id="video-panel"><div><div class="inner">
         <!-- Film produit v4 (14/09/2026) : fabriqué en code dans ~/dev/video-mazeo -->
         <div class="video-frame" id="video-frame">
           <video id="film" preload="metadata" playsinline poster="assets/mazeo-film-poster.jpg" aria-label="mazeo en une minute"><source src="assets/mazeo-film.mp4" type="video/mp4"></video>
         </div>
       </div></div></div>
-      <p class="lead" data-t="hero.lead">L'intégralité du secteur, scoré &amp; mis à jour en temps réel.</p>
-      <p class="promise" data-t="hero.promise">Vos prochains clients sont déjà sur mazeo.</p>
-      <p class="lead promise2" data-t="hero.promise2">La bonne entreprise, la bonne personne, au bon moment.</p>
       <form class="signup" id="form-hero" novalidate>
         <div class="signup-fields">
           <label for="hero-email" class="sr-only" data-t="form.email">Email professionnel</label>
@@ -814,7 +812,7 @@ document.documentElement.classList.add("js");
     "form.email": "Work email", "form.company": "Your company", "form.submit": "Request access",
     "hero.helper": "Private beta · opening soon",
     "hero.dp": "Already in private beta at 9&nbsp;research providers", "dp.more": "+ 2 more",
-    "video.t": "mazeo in one minute", "video.s": "· 68 seconds, with sound", "video.aria": "Product video",
+    "video.aria": "Product video",
     "pb.eyebrow": "The problem",
     "pb.h2": "No tool gave an exhaustive view of the players in market research.",
     "pb.p1": "Reaching new companies whose needs match your offer, in 3&nbsp;clicks: impossible until now. So mazeo built it.",
