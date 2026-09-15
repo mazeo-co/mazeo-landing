@@ -526,6 +526,8 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .foot .trust svg { width: 15px; height: 15px; flex: none; }
 .foot nav { display: flex; flex-wrap: wrap; gap: 10px 22px; padding-top: 6px; }
 .foot nav a { color: var(--slate); font-weight: 600; }
+.foot nav .lang-switch { color: var(--meta); font-weight: 600; }
+.foot nav .lang-switch:hover { color: var(--ink); }
 .foot nav a:hover { color: var(--ink); text-decoration: none; }
 .foot .tag { width: 100%; font-size: 12.5px; }
 
@@ -852,6 +854,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <a href="mentions-legales.html" data-t="foot.legal">Mentions légales</a>
       <a href="privacy.html" data-t="foot.privacy">Confidentialité</a>
       <a href="terms.html" data-t="foot.terms">Conditions d’utilisation</a>
+      <a href="?lang=en" id="lang-switch" class="lang-switch" hreflang="en" lang="en" data-t="foot.lang">English</a>
     </nav>
     <p class="tag">© 2026 mazeo</p>
   </div>
@@ -1227,9 +1230,22 @@ document.documentElement.classList.add("js");
   watchAnim("kanban", kanbanEl, function () { if (!kbTimer) renderKanban(); }, kanbanStop);
   watchAnim("mail", document.querySelector(".mail"), function () { renderMail(false); }, mailStop);
 
-  /* ---------- Démarrage : la langue suit celle du navigateur ---------- */
+  /* ---------- Démarrage : ?lang=en ou ?lang=fr dans l'adresse, sinon le choix mémorisé, sinon la langue du navigateur ---------- */
   var browser = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
-  setLang(browser);
+  var qsLang = /[?&]lang=(en|fr)\b/i.exec(location.search); var storedLang = null; try { storedLang = localStorage.getItem("mazeo_lang"); } catch (e) {}
+  var startLang = qsLang ? qsLang[1].toLowerCase() : ((storedLang === "en" || storedLang === "fr") ? storedLang : browser);
+  if (qsLang) { try { localStorage.setItem("mazeo_lang", startLang); } catch (e) {} }
+  setLang(startLang);
+  var langSwitch = document.getElementById("lang-switch");
+  function syncLangSwitch() { if (!langSwitch) return; var other = lang === "fr" ? "en" : "fr"; langSwitch.setAttribute("href", "?lang=" + other); langSwitch.setAttribute("hreflang", other); langSwitch.setAttribute("lang", other); }
+  syncLangSwitch();
+  if (langSwitch) langSwitch.addEventListener("click", function (e) {
+    e.preventDefault(); var other = lang === "fr" ? "en" : "fr"; setLang(other);
+    try { localStorage.setItem("mazeo_lang", other); } catch (err) {}
+    try { history.replaceState(null, "", location.pathname + "?lang=" + other + location.hash); } catch (err) {}
+    var mores = document.querySelectorAll(".tile.more small"); for (var i = 0; i < mores.length; i++) mores[i].textContent = MORE[lang];
+    syncLangSwitch();
+  });
 
   /* ---------- Le film (v15) : le bouton ouvre le panneau et lance la lecture ; croix, Échap ou le bouton referment ; contrôles maison ---------- */
   var playBtn = document.getElementById("play"); var videoPanel = document.getElementById("video-panel"); var film = document.getElementById("film"); var frame = document.getElementById("video-frame");
