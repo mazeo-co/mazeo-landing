@@ -110,7 +110,7 @@ button, input { font: inherit; }
 .btn-ghost { background: #fff; color: var(--ink); border-color: var(--line-strong); }
 .btn-ghost:hover { border-color: #B9C0CB; }
 .btn-lg { padding: 16px 26px; font-size: 17px; }
-.btn.static { pointer-events: none; }
+.btn.static { cursor: pointer; }
 .signup { margin: 36px auto 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .signup-fields { display: flex; gap: 6px; width: 100%; max-width: 720px; padding: 6px; border: 1px solid var(--line-strong); border-radius: 14px; background: #fff; }
 .signup-fields input { flex: 1 1 0; min-width: 0; border: 0; background: transparent; padding: 14px 16px; font-size: 17px; color: var(--ink); border-radius: 9px; }
@@ -143,18 +143,22 @@ button, input { font: inherit; }
 .hero h1 { font-size: clamp(42px, 7.4vw, 104px); max-width: 1180px; margin-inline: auto; }
 .hero h1 em { font-style: normal; color: var(--blue); }
 .hero .lead { margin: 30px auto 0; max-width: 900px; }
-.hero .promise { margin-top: 16px; }
-.hero .promise b { color: var(--ink); font-weight: 700; }
-.play-btn { margin: 34px auto 0; display: inline-flex; align-items: center; gap: 14px; padding: 8px 22px 8px 8px; border: 1px solid var(--line-strong); border-radius: 100px; background: #fff; cursor: pointer; color: var(--ink); font-weight: 600; font-size: 15px; transition: border-color .15s, box-shadow .15s; }
-.play-btn:hover { border-color: #B9C0CB; box-shadow: 0 8px 20px -12px rgba(10,10,10,.3); }
-.play-btn .disc { width: 44px; height: 44px; border-radius: 50%; background: var(--blue); display: grid; place-items: center; flex: 0 0 auto; }
-.play-btn .disc::after { content: ""; width: 0; height: 0; border-left: 13px solid #fff; border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 3px; }
-.play-btn[aria-expanded="true"] .disc::after { border: 0; width: 12px; height: 12px; background: #fff; border-radius: 2px; margin: 0; }
-.play-btn small { display: block; font-weight: 500; font-size: 12.5px; color: var(--meta); }
+.hero .promise { margin-top: 18px; font-family: var(--display); font-weight: 700; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.15; letter-spacing: -0.025em; color: var(--ink); }
+.hero .promise2 { margin-top: 8px; color: var(--slate); }
+.play-wrap { position: relative; width: 112px; height: 112px; margin: 40px auto 0; display: grid; place-items: center; }
+.play-btn { position: relative; z-index: 2; width: 72px; height: 72px; border-radius: 50%; background: var(--ink); border: 0; cursor: pointer; display: grid; place-items: center; box-shadow: 0 0 0 10px #fff, 0 0 0 11px var(--line); transition: transform .18s ease; }
+.play-btn:hover { transform: scale(1.06); }
+.play-btn::after { content: ""; width: 0; height: 0; border-left: 22px solid #fff; border-top: 13px solid transparent; border-bottom: 13px solid transparent; margin-left: 6px; }
+.play-btn[aria-expanded="true"]::after { border: 0; width: 18px; height: 18px; background: #fff; border-radius: 3px; margin: 0; }
+.play-wrap .wave { position: absolute; inset: 20px; border-radius: 50%; border: 1.5px solid var(--ink); opacity: 0; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) { .play-wrap .wave { animation: wave 2.6s ease-out infinite; } .play-wrap .wave.w2 { animation-delay: 1.3s; } .play-wrap.open .wave { animation: none; } }
+@keyframes wave { 0% { transform: scale(.72); opacity: .45; } 100% { transform: scale(1.55); opacity: 0; } }
+.play-lbl { margin-top: 12px; font-size: 13.5px; font-weight: 600; color: var(--slate); }
+.play-lbl small { color: var(--meta); font-weight: 500; }
 .video-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .6s cubic-bezier(.2,.7,.2,1); }
 .video-panel > div { min-height: 0; overflow: hidden; }
 .video-panel.open { grid-template-rows: 1fr; }
-.video-panel .inner { width: min(100vw - 48px, 1400px); margin: 36px 0 8px 50%; transform: translateX(-50%); }
+.video-panel .inner { width: min(100vw - 48px, 1400px); margin: 32px 0 12px 50%; transform: translateX(-50%); }
 .video-frame { position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: var(--ink); display: grid; place-items: center; isolation: isolate; }
 .video-frame::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 80% at 50% 110%, rgba(0,123,255,.55), rgba(0,123,255,0) 70%); }
 .video-play { position: relative; display: flex; flex-direction: column; align-items: center; gap: 16px; color: #fff; }
@@ -166,27 +170,30 @@ button, input { font: inherit; }
 
 /* La bande des clients */
 .trusted { margin-top: 72px; background: var(--soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
-.trusted-inner { display: flex; align-items: center; gap: 48px; padding-block: 30px; }
-.trusted-quote { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: end; padding: 24px 0 64px; border-top: 1px solid var(--line); text-align: left; }
-.trusted-quote blockquote { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(24px, 2.6vw, 38px); line-height: 1.22; letter-spacing: -0.025em; color: var(--ink); text-wrap: pretty; max-width: 26ch; }
-.trusted-quote .who { display: flex; align-items: center; gap: 12px; }
-.trusted-quote .who img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
-.trusted-quote .who b { display: block; font-size: 15px; color: var(--ink); }
-.trusted-quote .who span { font-size: 13px; color: var(--meta); }
-@media (max-width: 760px) { .trusted-quote { grid-template-columns: 1fr; gap: 20px; padding-bottom: 48px; } }
-.trusted .lbl { flex: 0 0 200px; text-align: left; line-height: 1.4; color: var(--slate); }
-.trusted .logos { flex: 1 1 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; }
+.trusted-inner { display: flex; flex-direction: column; align-items: center; gap: 26px; padding-block: 30px; }
+.trusted-quote { text-align: center; padding: 88px 0 56px; }
+.trusted-quote blockquote { margin: 0 auto; font-family: var(--display); font-weight: 700; font-size: clamp(30px, 4vw, 58px); line-height: 1.08; letter-spacing: -0.035em; color: var(--ink); text-wrap: balance; max-width: 1080px; }
+.trusted-quote blockquote em { font-style: normal; color: var(--blue); }
+.trusted-quote .who { margin-top: 26px; display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: var(--meta); }
+.trusted-quote .who img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+.trusted-quote .who b { color: var(--slate); font-weight: 600; }
+.trusted .trusted-inner { border-top: 1px solid var(--line); padding-block: 34px 40px; }
+@media (max-width: 760px) { .trusted-quote { padding: 56px 0 36px; } }
+.trusted .lbl { text-align: center; line-height: 1.4; color: var(--slate); }
+.trusted .logos { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; }
 .trusted figure { margin: 0; display: flex; align-items: center; gap: 10px; filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s; }
 .trusted figure:hover { filter: none; opacity: 1; }
 .trusted img { width: 34px; height: 34px; border-radius: 8px; object-fit: contain; }
 .trusted figcaption { font-size: 16px; font-weight: 700; color: var(--ink); white-space: nowrap; letter-spacing: -0.01em; }
-@media (max-width: 960px) { .trusted-inner { flex-direction: column; align-items: flex-start; gap: 18px; } .trusted .lbl { flex: 0 0 auto; } .trusted .logos { justify-content: flex-start; gap: 16px 24px; } }
-.marker { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 44px; }
-.marker .n { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 11px; background: var(--ink); color: #fff; font-family: var(--display); font-size: 18px; font-weight: 700; }
-.marker .name { font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
+@media (max-width: 960px) { .trusted-inner { gap: 18px; } .trusted .logos { justify-content: center; gap: 16px 28px; } }
+.marker { display: flex; align-items: center; gap: 22px; margin-bottom: 56px; }
+.marker::before, .marker::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.marker .n { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--ink); color: #fff; font-family: var(--display); font-size: 19px; font-weight: 700; margin-right: -8px; }
+.marker .name { font-size: 15px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
+.panel .marker::before, .panel .marker::after { background: rgba(255,255,255,.35); }
 .panel .marker .n { background: #fff; color: var(--ink); }
 .panel-blue .marker .n { color: var(--blue-text); }
-.panel .marker .name { color: rgba(255,255,255,.85); }
+.panel .marker .name { color: #fff; }
 #market .head .title { font-size: clamp(30px, 3.6vw, 52px); }
 
 /* ============ Problème ============ */
@@ -221,8 +228,8 @@ button, input { font: inherit; }
 .quad-h span { font-weight: 600; color: var(--meta); font-size: 12.5px; }
 .tiles { display: grid; grid-template-columns: repeat(9, 1fr); gap: 10px; }
 .tile { position: relative; aspect-ratio: 1; border: 1px solid var(--line); border-radius: 10px; background: #fff; display: grid; place-items: center; overflow: hidden; }
-html.js .tiles.anim .tile { opacity: 0; transform: scale(.7); }
-html.js .tiles.anim .tile.in { opacity: 1; transform: none; transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1.1); }
+html.js .tiles.pre .tile { opacity: 0; transform: scale(.7); }
+html.js .tiles.pre .tile.in { opacity: 1; transform: none; transition: opacity .35s ease, transform .35s cubic-bezier(.2,.8,.2,1.1); }
 .map-note { margin-top: 16px; font-size: 14px; color: var(--meta); }
 .tile img { width: 68%; height: 68%; object-fit: contain; border-radius: 4px; }
 .tile.flag-off::before { content: ""; position: absolute; top: -3px; left: -3px; width: 10px; height: 10px; border-radius: 50%; background: var(--green); border: 2px solid #fff; }
@@ -241,14 +248,25 @@ html.js .tiles.anim .tile.in { opacity: 1; transform: none; transition: opacity 
 .scard b em { font-style: normal; font-size: .42em; letter-spacing: -0.02em; margin-left: 8px; color: var(--ink); }
 .scard small { display: block; margin: 8px 0 18px; }
 .chips { display: flex; flex-wrap: wrap; gap: 7px; }
-.chip { display: inline-flex; align-items: center; padding: 6px 12px; border-radius: var(--r-pill); font-size: 13.5px; font-weight: 500; border: 1px solid var(--line-strong); color: var(--slate); background: #fff; white-space: nowrap; }
+.chip { position: relative; display: inline-flex; align-items: center; padding: 6px 12px; border-radius: var(--r-pill); font-size: 13.5px; font-weight: 500; border: 1px solid var(--line-strong); color: var(--slate); background: #fff; white-space: nowrap; cursor: default; transition: transform .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease; }
+.chip[data-def]:hover { transform: translateY(-2px); border-color: var(--blue); color: var(--ink); box-shadow: 0 8px 18px -12px rgba(0,123,255,.6); z-index: 4; }
+.chip[data-def]:hover::after { content: attr(data-def); position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translateX(-50%); width: max-content; max-width: 300px; white-space: normal; padding: 9px 12px; background: var(--ink); color: #fff; font-size: 12.5px; font-weight: 500; line-height: 1.45; border-radius: 8px; text-align: left; pointer-events: none; z-index: 5; }
+.chip[data-def]:hover::before { content: ""; position: absolute; left: 50%; bottom: calc(100% + 4px); transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--ink); border-bottom: 0; z-index: 5; }
+html[lang="en"] .chip[data-def-en]:hover::after { content: attr(data-def-en); }
+.scard { overflow: visible; }
 .chip.more { border-style: dashed; color: var(--blue-text); font-weight: 700; }
 @media (max-width: 960px) { .scards { grid-template-columns: 1fr; } }
 
 /* Le match : texte et fiche */
 .match-split { margin-top: 96px; margin-bottom: 120px; }
 @media (max-width: 960px) { .match-split { margin-bottom: 84px; } }
-.fiche { padding: 22px 24px 20px; }
+.fiche { padding: 22px 24px 20px; transition: opacity .35s ease, transform .35s ease; }
+.fiche.swap { opacity: 0; transform: translateY(6px); }
+.fiche-dots { display: flex; justify-content: center; gap: 6px; padding: 0 0 14px; }
+.fiche-dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--line-strong); transition: background .2s, transform .2s; cursor: pointer; }
+.fiche-dots i.on { background: var(--blue); transform: scale(1.25); }
+.screen.fiche-screen { transition: box-shadow .2s ease, transform .2s ease; }
+.screen.fiche-screen:hover { box-shadow: 0 24px 50px -30px rgba(10,10,10,.35); }
 .fiche-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line-soft); }
 .fiche-id { display: flex; align-items: center; gap: 12px; }
 .fiche-logo { width: 46px; height: 46px; border-radius: 10px; border: 1px solid var(--line-soft); display: grid; place-items: center; background: #fff; flex: 0 0 auto; }
@@ -262,18 +280,25 @@ html.js .tiles.anim .tile.in { opacity: 1; transform: none; transition: opacity 
 .fiche-why { margin-top: 12px; font-size: 14px; color: var(--body); }
 .fiche-why b { color: var(--ink); font-weight: 600; }
 .fiche-axes { margin-top: 14px; display: grid; gap: 9px; }
-.frow { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; font-size: 14.5px; color: var(--ink); }
+.frow { display: grid; grid-template-columns: 1fr auto auto; gap: 12px; align-items: center; font-size: 14.5px; color: var(--ink); margin: 0 -8px; padding: 3px 8px; border-radius: 7px; transition: background .15s ease; }
+.frow:hover { background: var(--blue-tint); }
 .frow small { color: var(--meta); font-size: 12px; }
 .seg { display: inline-flex; gap: 3px; }
 .seg i { width: 22px; height: 6px; border-radius: 3px; background: var(--line); }
-.seg i.on { background: var(--ink); }
+.seg i.on { background: var(--ink); transition: background .2s ease; }
+.frow:hover .seg i.on { background: var(--blue); }
+.fiche.reveal-bars .seg i.on { animation: barin .5s ease both; }
+@keyframes barin { from { transform: scaleX(0); transform-origin: left; } to { transform: none; } }
 .frow .n { font-size: 12.5px; color: var(--meta); font-variant-numeric: tabular-nums; width: 26px; text-align: right; }
 .fiche-contact { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-soft); display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .fiche-contact img.face { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; flex: 0 0 auto; }
 .fiche-contact .who { flex: 1 1 200px; line-height: 1.25; }
 .fiche-contact .who b { display: block; font-size: 15px; }
 .fiche-contact .who span { display: block; font-size: 12.5px; color: var(--meta); margin-top: 1px; }
-.reveal-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--blue); border-radius: 7px; font-size: 12.5px; font-weight: 700; color: var(--blue-text); background: #fff; }
+.reveal-btn { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: 1px solid var(--blue); border-radius: 7px; font-size: 12.5px; font-weight: 700; color: var(--blue-text); background: #fff; cursor: pointer; transition: background .15s ease, color .15s ease, transform .15s ease; }
+.reveal-btn:hover { background: var(--blue); color: #fff; transform: translateY(-1px); }
+.match b { transition: transform .2s ease; }
+.fiche-head:hover .match b { transform: scale(1.06); }
 @media (max-width: 380px) { .match b { font-size: 32px; } .fiche-head { gap: 10px; } }
 
 
@@ -311,7 +336,8 @@ html.js .tiles.anim .tile.in { opacity: 1; transform: none; transition: opacity 
 .sigw { display: grid; grid-template-rows: 1fr; transition: grid-template-rows .8s cubic-bezier(.2,.7,.2,1), opacity .8s ease, margin-bottom .8s ease; }
 .sigw > div { min-height: 0; overflow: hidden; }
 .sigw.enter, .sigw.leave { grid-template-rows: 0fr; opacity: 0; margin-bottom: -10px; }
-.sig { border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; grid-template-areas: "pill time" "body body" "co co"; gap: 8px 14px; align-items: center; }
+.sig { border: 1px solid var(--line); border-radius: 12px; background: #fff; padding: 14px 16px; display: grid; grid-template-columns: 1fr auto; grid-template-areas: "pill time" "body body" "co co"; gap: 8px 14px; align-items: center; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.sig:hover { transform: translateY(-2px); border-color: var(--line-strong); box-shadow: 0 14px 28px -18px rgba(10,10,10,.4); }
 .sig .ov-signal-pill { grid-area: pill; justify-self: start; }
 .sig .ago { grid-area: time; font-size: 12.5px; color: var(--meta); white-space: nowrap; }
 .sig > div:not(.co) { grid-area: body; }
@@ -338,7 +364,9 @@ html.js .tiles.anim .tile.in { opacity: 1; transform: none; transition: opacity 
 .ov-signal-pill.new_role   { --sig-main:#D97706; --sig-text:#B45309; }
 .ov-signal-pill.changed_job{ --sig-main:#C026D3; --sig-text:#A21CAF; }
 .ov-signal-pill.bio        { --sig-main:#65A30D; --sig-text:#4D7C0F; }
-.pills .ov-signal-pill { font-size: 12.5px; padding: 4px 10px; }
+.pills .ov-signal-pill { font-size: 12.5px; padding: 4px 10px; cursor: default; transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease; }
+.pills .ov-signal-pill:hover { transform: translateY(-2px); background: var(--sig-main); color: #fff; box-shadow: 0 8px 18px -10px rgba(0,0,0,.45); }
+.pills .ov-signal-pill:hover::before { background-color: #fff; }
 .sig .ov-signal-pill { font-size: 12px; padding: 3px 8px; }
 
 /* ---- 3 · Pipeline : le kanban et le glisser-déposer ---- */
@@ -361,7 +389,9 @@ html.js .tiles.anim .tile.in { opacity: 1; transform: none; transition: opacity 
 .kw.ghost .kcard { visibility: hidden; }
 .kw.ghost::before { content: ""; position: absolute; inset: 0; border: 1.5px dashed var(--blue); border-radius: 12px; background: var(--blue-tint); opacity: .7; }
 .kw.fade .kcard { opacity: 0; transition: opacity .35s ease; }
-.kcard { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+.kcard { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.kcard:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: 0 16px 32px -20px rgba(10,10,10,.45); }
+.kcard.hot:hover { border-color: var(--blue); }
 .kcard.hot { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(0,123,255,.15); }
 .kco { display: flex; align-items: center; gap: 9px; padding-bottom: 10px; border-bottom: 1px solid var(--line-soft); line-height: 1.25; }
 .kco img { width: 28px; height: 28px; border-radius: 7px; object-fit: contain; border: 1px solid var(--line-soft); }
@@ -371,8 +401,14 @@ html.js .tiles.anim .tile.in { opacity: 1; transform: none; transition: opacity 
 .kp img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
 .kp b { display: block; font-size: 13.5px; color: var(--ink); }
 .kp span { display: block; margin-top: 2px; font-size: 11.5px; color: var(--meta); }
-.kcta { margin-top: 10px; display: block; text-align: center; padding: 8px 10px; border-radius: 8px; background: var(--blue); color: #fff; font-size: 12.5px; font-weight: 700; }
+.kcta { margin-top: 10px; display: block; text-align: center; padding: 8px 10px; border-radius: 8px; background: var(--blue); color: #fff; font-size: 12.5px; font-weight: 700; cursor: pointer; transition: background .15s ease, transform .15s ease; }
+.kcta:hover { background: var(--blue-deep); transform: translateY(-1px); }
 .kcta.ghost { background: #fff; color: var(--ink); border: 1px solid var(--line-strong); }
+.kcta.ghost:hover { background: #fff; border-color: var(--blue); color: var(--blue-text); }
+.kcol-h .cnt { transition: background .15s, color .15s; }
+.kcol:hover .kcol-h .cnt { background: var(--blue-tint); color: var(--blue-text); border-color: var(--blue-tint); }
+.kp img, .kco img { transition: transform .18s ease; }
+.kcard:hover .kp img { transform: scale(1.08); }
 .kprog { margin-top: 8px; display: flex; justify-content: space-between; gap: 8px; font-size: 11.5px; color: var(--meta); }
 .kprog b { color: var(--ink); font-weight: 600; }
 .kprog .late { color: var(--red); font-weight: 700; }
@@ -390,7 +426,12 @@ html.js .tiles.anim .tile.in { opacity: 1; transform: none; transition: opacity 
 .mail-top .to { display: inline-flex; align-items: center; gap: 8px; }
 .mail-top .to img { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; }
 .tones { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
-.tones span { padding: 3px 9px; border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--meta); cursor: pointer; }
+.tones span { padding: 3px 9px; border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--meta); cursor: pointer; transition: background .15s, color .15s; }
+.tones span:hover { background: var(--soft); color: var(--ink); }
+.screen.mail { transition: transform .2s ease, box-shadow .2s ease; }
+.screen.mail:hover { transform: translateY(-3px); }
+.mail-top .to img { transition: transform .18s ease; }
+.mail-top:hover .to img { transform: scale(1.12); }
 .tones span.on { background: #fff; color: var(--blue-text); box-shadow: inset 0 0 0 1px var(--blue); }
 .mail-body { padding: 18px 20px 20px; font-size: 15.5px; line-height: 1.6; color: var(--ink); min-height: 320px; }
 .caret { display: inline-block; width: 2px; height: 1em; background: var(--blue); vertical-align: -2px; margin-left: 1px; animation: blink 1s steps(2) infinite; }
@@ -561,12 +602,12 @@ h3 { line-height: 1.1; }
 .tile[data-name]:hover::after { content: attr(data-name); position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); padding: 4px 8px; background: var(--ink); color: #fff; font-size: 11.5px; border-radius: var(--r-xs); white-space: nowrap; z-index: 3; pointer-events: none; }
 .tile { overflow: visible; transition: transform .18s ease, box-shadow .18s ease; }
 .tile:hover { transform: translateY(-3px) scale(1.08); box-shadow: 0 10px 22px -12px rgba(10,10,10,.35); z-index: 3; }
-html.js .tiles.anim .tile.in:hover { transform: translateY(-3px) scale(1.08); transition: transform .18s ease; }
+html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); transition: transform .18s ease; }
 .mmap { overflow: visible; }
 .tile.more:hover::after { content: none; }
 .tile img { border-radius: var(--r-xs); }
 .tile.flag::before { transform: scale(0); }
-html.js .tiles.anim .tile.flag.dot::before { transform: scale(1); transition: transform .3s cubic-bezier(.2,.8,.2,1.3); }
+html.js .tiles.pre .tile.flag.dot::before { transform: scale(1); transition: transform .3s cubic-bezier(.2,.8,.2,1.3); }
 /* plus d'apparition au défilement */
 html.js .reveal { opacity: 1; transform: none; transition: none; }
 
@@ -601,15 +642,17 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
   <section class="hero">
     <div class="container">
       <h1 data-t="hero.h1">Le seul outil de prospection <em>dédié au market research.</em></h1>
-      <p class="lead" data-t="hero.lead">L'intégralité du secteur, scoré &amp; mis à jour en temps réel.</p>
-      <p class="lead promise" data-t="hero.promise"><b>Vos prochains clients sont sur mazeo&nbsp;: la bonne entreprise, la bonne personne, au bon moment.</b></p>
-      <button class="play-btn" type="button" id="play" aria-expanded="false" aria-controls="video-panel"><span class="disc" aria-hidden="true"></span><span><span data-t="video.t">mazeo en une minute</span><small data-t="video.s">67 secondes · avec le son</small></span></button>
+      <div class="play-wrap" id="play-wrap"><span class="wave w1" aria-hidden="true"></span><span class="wave w2" aria-hidden="true"></span><button class="play-btn" type="button" id="play" aria-expanded="false" aria-controls="video-panel" aria-label="Lire la vidéo"></button></div>
+      <p class="play-lbl"><span data-t="video.t">mazeo en une minute</span> <small data-t="video.s">· 67 secondes, avec le son</small></p>
       <div class="video-panel" id="video-panel"><div><div class="inner">
         <!-- Film produit v4 (14/09/2026) : fabriqué en code dans ~/dev/video-mazeo -->
         <div class="video-frame" id="video-frame">
           <video id="film" preload="metadata" playsinline poster="assets/mazeo-film-poster.jpg" aria-label="mazeo en une minute"><source src="assets/mazeo-film.mp4" type="video/mp4"></video>
         </div>
       </div></div></div>
+      <p class="lead" data-t="hero.lead">L'intégralité du secteur, scoré &amp; mis à jour en temps réel.</p>
+      <p class="promise" data-t="hero.promise">Vos prochains clients sont déjà sur mazeo.</p>
+      <p class="lead promise2" data-t="hero.promise2">La bonne entreprise, la bonne personne, au bon moment.</p>
       <form class="signup" id="form-hero" novalidate>
         <div class="signup-fields">
           <label for="hero-email" class="sr-only" data-t="form.email">Email professionnel</label>
@@ -625,6 +668,10 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
     </div>
 
     <div class="trusted">
+      <div class="container trusted-quote">
+        <blockquote data-t="tq.t">«&nbsp;Avant mazeo, aucun outil ne donnait une vision d'ensemble de notre secteur. Trouver un nouveau prospect, et <em>le bon moment pour le contacter</em>, demandait des heures de recherche.&nbsp;»</blockquote>
+        <div class="who"><img src="assets/people/men-41.jpg" alt="" width="36" height="36"><b>Jérémy Lefebvre</b><span data-t="tq.r">· CEO, Episto</span></div>
+      </div>
       <div class="container trusted-inner">
         <span class="lbl" data-t="hero.dp">Déjà en bêta privée chez 9&nbsp;prestataires d'études</span>
         <div class="logos">
@@ -636,10 +683,6 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
           <figure><img src="assets/dp-iligo.jpg" alt=""><figcaption>iligo</figcaption></figure>
           <figure><img src="assets/dp-reperes.jpg" alt=""><figcaption>Repères</figcaption></figure>
         </div>
-      </div>
-      <div class="container trusted-quote">
-        <blockquote data-t="tq.t">«&nbsp;Avant mazeo, aucun outil ne donnait une vision d'ensemble de notre secteur. Trouver un nouveau prospect, et le bon moment pour le contacter, demandait des heures de recherche.&nbsp;»</blockquote>
-        <div class="who"><img src="assets/people/men-41.jpg" alt="" width="48" height="48"><div><b>Jérémy Lefebvre</b><span data-t="tq.r">CEO, Episto</span></div></div>
       </div>
     </div>
   </section>
@@ -672,13 +715,13 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
         <p class="lead" data-t="sc.p">Chaque entreprise est scorée afin de déterminer son offre ou son besoin en matière d'études.<br>Ce score sert au matching et aux recommandations&nbsp;: votre offre face au besoin de chaque entreprise.</p>
         <div class="scards">
           <div class="scard"><b>12<em data-t="ax1.b">domaines</em></b><small data-t="ax1.s">Ce qui est étudié</small><div class="chips">
-            <span class="chip">Segmentation &amp; U&amp;A</span><span class="chip">Marque &amp; Communication</span><span class="chip">CX &amp; Satisfaction</span><span class="chip">UX &amp; Digital</span><span class="chip">Innovation &amp; Tests produits</span><span class="chip">Shopper &amp; Retail</span><span class="chip">Médias &amp; Audiences</span><span class="chip">Pricing &amp; Analytics</span><span class="chip">Opinion &amp; Affaires publiques</span><span class="chip">Études RH &amp; Collaborateurs</span><span class="chip">Études B2B</span><span class="chip">Intelligence stratégique</span>
+            <span class="chip" data-def="Comprendre les consommateurs : segmentation, études U&amp;A, typologies, insights." data-def-en="Understanding consumers: segmentation, U&amp;A studies, typologies, insights.">Segmentation &amp; U&amp;A</span><span class="chip" data-def="Marque et communication : brand tracking, pré/post-tests publicitaires, copy testing, notoriété et image." data-def-en="Brand &amp; communication: brand tracking, ad pre/post-testing, copy testing, awareness and image.">Marque &amp; Communication</span><span class="chip" data-def="Expérience et satisfaction client : NPS, voix du client, parcours client, visites mystère." data-def-en="Customer experience &amp; satisfaction: NPS, voice of customer, customer journey, mystery shopping.">CX &amp; Satisfaction</span><span class="chip" data-def="UX des produits digitaux : tests d'utilisabilité, exploration utilisateur, tests A/B." data-def-en="Digital product UX: usability testing, user discovery, A/B testing.">UX &amp; Digital</span><span class="chip" data-def="Innovation &amp; tests produits : NPD, tests de concept / packaging, CLT / HUT." data-def-en="Innovation &amp; product testing: NPD, concept / pack tests, CLT / HUT.">Innovation &amp; Tests produits</span><span class="chip" data-def="Shopper en magasin : parcours shopper, category management, merchandising." data-def-en="In-store shopper: shopper journey, category management, merchandising.">Shopper &amp; Retail</span><span class="chip" data-def="Audience et conversations médias : mesure d'audience, e-réputation, veille médias." data-def-en="Media audience &amp; conversations: audience measurement, e-reputation, media monitoring.">Médias &amp; Audiences</span><span class="chip" data-def="Prix : études de prix, sensibilité au prix, consentement à payer, élasticité." data-def-en="Pricing: price studies, price sensitivity, willingness-to-pay, elasticity.">Pricing &amp; Analytics</span><span class="chip" data-def="Opinion publique : sondages, baromètres politiques / institutionnels, consultations publiques." data-def-en="Public opinion: polls, political / institutional barometers, public consultations.">Opinion &amp; Affaires publiques</span><span class="chip" data-def="Salariés : engagement, baromètres de climat interne, marque employeur, qualité de vie au travail." data-def-en="Employees: engagement, internal climate barometers, employer branding, quality of life at work.">Études RH &amp; Collaborateurs</span><span class="chip" data-def="Décideurs B2B : études d'experts, parcours d'achat B2B, études auprès des médecins et des professionnels." data-def-en="B2B decision-makers: expert studies, B2B buyer journey, research with physicians and professionals.">Études B2B</span><span class="chip" data-def="Marché et concurrence : dimensionnement de marché, veille concurrentielle, benchmarking." data-def-en="Market &amp; competition: market sizing, competitive intelligence, benchmarking.">Intelligence stratégique</span>
           </div></div>
           <div class="scard"><b>8<em data-t="ax2.b">méthodes</em></b><small data-t="ax2.s">Via quelle méthodologie</small><div class="chips">
-            <span class="chip">Quantitatif</span><span class="chip">Qualitatif</span><span class="chip">Advanced Analytics / Data Science</span><span class="chip">Data passive &amp; comportementale</span><span class="chip">Analyse sensorielle</span><span class="chip">Neuro &amp; Biométrie</span><span class="chip">Terrain &amp; Panels</span><span class="chip">Desk Research</span>
+            <span class="chip" data-def="Enquêtes, trackers, questionnaires, analyse quantitative." data-def-en="Surveys, trackers, questionnaires, quantitative analysis.">Quantitatif</span><span class="chip" data-def="Focus groups, entretiens, ethnographie, communautés en ligne / MROC, sémiotique." data-def-en="Focus groups, interviews, ethnography, online communities / MROC, semiotics.">Qualitatif</span><span class="chip" data-def="Modélisation et data science : conjoint, PSM, MMM, économétrie, ML, données synthétiques." data-def-en="Modelling &amp; data science: conjoint, PSM, MMM, econometrics, ML, synthetic data.">Advanced Analytics / Data Science</span><span class="chip" data-def="Données comportementales sans questionner : social listening, web analytics, données transactionnelles." data-def-en="Behavioral data without asking questions: social listening, web analytics, transactional data.">Data passive &amp; comportementale</span><span class="chip" data-def="Analyse sensorielle : panels entraînés, profils descriptifs, tests hédoniques." data-def-en="Sensory analysis: trained panels, descriptive profiling, hedonic tests.">Analyse sensorielle</span><span class="chip" data-def="Neuro et biométrie : eye tracking, facial coding, neuromarketing." data-def-en="Neuro &amp; biometrics: eye tracking, facial coding, neuromarketing.">Neuro &amp; Biométrie</span><span class="chip" data-def="Terrain et opérations : collecte de données, recrutement de répondants, gestion de panels, programmation de questionnaires." data-def-en="Fieldwork &amp; ops: data collection, respondent recruitment, panel management, survey programming.">Terrain &amp; Panels</span><span class="chip" data-def="Sources secondaires : desk research, veille, benchmarks sans collecte primaire." data-def-en="Secondary sources: desk research, monitoring, benchmarks without primary data collection.">Desk Research</span>
           </div></div>
           <div class="scard"><b>27<em data-t="ax3.b">secteurs</em></b><small data-t="ax3.s">Sur quel marché</small><div class="chips">
-            <span class="chip">Automobile</span><span class="chip">Cosmétique &amp; Beauté</span><span class="chip">Luxe</span><span class="chip">Mode &amp; Habillement</span><span class="chip">Banque &amp; Assurance</span><span class="chip">Immobilier &amp; Construction</span><span class="chip">Énergie &amp; Environnement</span><span class="chip">Transport &amp; Tourisme</span><span class="chip">FMCG / CPG</span><span class="chip">Agriculture &amp; Agroalimentaire</span><span class="chip more">+ 17</span>
+            <span class="chip" data-def="Constructeurs, équipementiers automobiles, mobilité." data-def-en="Carmakers, automotive suppliers, mobility.">Automobile</span><span class="chip" data-def="Soin, maquillage, parfumerie." data-def-en="Skincare, makeup, perfumery.">Cosmétique &amp; Beauté</span><span class="chip" data-def="Maisons de luxe, haute couture, horlogerie et joaillerie." data-def-en="Luxury houses, haute couture, watches &amp; jewellery.">Luxe</span><span class="chip" data-def="Marques et distributeurs de mode grand public et premium (hors luxe)." data-def-en="Mass-market and premium fashion brands and retailers (non-luxury).">Mode &amp; Habillement</span><span class="chip" data-def="Établissements de dépôt : banque de détail, assureurs, mutuelles." data-def-en="Deposit institutions: retail banking, insurers, mutual insurers.">Banque &amp; Assurance</span><span class="chip" data-def="Promoteurs, construction, sociétés immobilières." data-def-en="Property developers, construction, real-estate companies.">Immobilier &amp; Construction</span><span class="chip" data-def="Énergéticiens, renouvelables, déchets / eau." data-def-en="Energy companies, renewables, waste / water.">Énergie &amp; Environnement</span><span class="chip" data-def="Se déplacer : ferroviaire, compagnies aériennes, mobilité, tour-opérateurs." data-def-en="Getting around: rail, airlines, mobility, tour operators.">Transport &amp; Tourisme</span><span class="chip" data-def="Tous les produits de grande consommation : alimentaire, boissons, hygiène, entretien. Hors beauté, alcool et ingrédients B2B." data-def-en="All fast-moving consumer goods: food, beverages, hygiene, household care. Excludes beauty, alcohol and B2B ingredients.">FMCG / CPG</span><span class="chip" data-def="Agriculture amont, coopératives, transformation alimentaire." data-def-en="Upstream agriculture, cooperatives, food processing.">Agriculture &amp; Agroalimentaire</span><span class="chip more">+ 17</span>
           </div></div>
         </div>
       </div>
@@ -691,31 +734,11 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
           <p class="copy" data-t="mt.p1">mazeo comprend ce que vous avez à offrir et en quoi vous vous démarquez du reste du marché. Et vous propose les entreprises les plus pertinentes en conséquence. Un classement et un score en&nbsp;%, simples à comprendre.</p>
           <p class="copy" data-t="mt.p2">Et au sein de ces entreprises, la personne la plus indiquée pour entrer en contact, avec un accès à son email et à son portable en un clic. Conforme au RGPD.</p>
         </div>
-        <div class="screen" aria-hidden="true">
+        <div class="screen fiche-screen" aria-hidden="true" id="fiche-screen">
           <div class="app-bar" aria-hidden="true"><span class="logo">mazeo<span>.</span></span><nav><span class="">Home</span><span class="on">Explore</span><span class="">Lists</span><span class="">Watch</span><span class="">Pipeline</span></nav><span class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Rechercher…</span><span class="av">RB</span></div>
           <div class="screen-top"><span class="t" data-t="fi.top">Fiche entreprise</span><span class="seg-toggle"><span data-t="fi.save" class="on">Saved</span><span>Watch</span><span>Similar</span></span></div>
-          <div class="fiche">
-            <div class="fiche-head">
-              <div class="fiche-id"><div class="fiche-logo"><img src="https://img.logo.dev/kelloggs.com?token=pk_dlUkKFWUSDmKZbwaAq3BkQ&size=64" alt="" width="32" height="32" decoding="async" onerror="this.style.visibility='hidden'"></div><div><b>Kellogg's</b><span data-t="fi.meta">Acheteur d'études · Grand groupe · FMCG</span></div></div>
-              <div class="match"><b>92&nbsp;%</b><span>MATCH</span></div>
-            </div>
-            <div class="fiche-nav"><span data-t="fn.1">Identité</span><span class="on" data-t="fn.2">Spécialisations</span><span data-t="fn.3">Signaux<i>2</i></span><span data-t="fn.4">Contacts<i>12</i></span></div>
-            <p class="fiche-why" data-t="fi.why"><b>Pourquoi ce match&nbsp;:</b> forts besoins en tests produits et U&amp;A, votre offre couvre les deux, secteur FMCG en commun.</p>
-            <div class="fiche-axes">
-              <div class="frow"><span data-t="fi.a1">Innovation &amp; Tests produits <small>· besoin</small></span><span class="seg"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="n">3/3</span></div>
-              <div class="frow"><span data-t="fi.a2">Segmentation &amp; U&amp;A <small>· besoin</small></span><span class="seg"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="n">3/3</span></div>
-              <div class="frow"><span data-t="fi.a3">Quantitatif <small>· méthode</small></span><span class="seg"><i class="on"></i><i class="on"></i><i></i></span><span class="n">2/3</span></div>
-              <div class="frow"><span data-t="fi.a4">FMCG / CPG <small>· secteur</small></span><span class="seg"><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="n">3/3</span></div>
-            </div>
-            <span class="src" data-t="src.ai">Source&nbsp;: IA mazeo</span>
-            <div class="fiche-contact">
-              <img class="face" src="assets/people/women-50.jpg" alt="" width="40" height="40">
-              <div class="who"><b>Camille Moreau</b><span data-t="fi.who">Directrice des études consommateurs</span></div>
-              <span class="reveal-btn">Email</span>
-              <span class="reveal-btn" data-t="fi.tel">Téléphone</span>
-            </div>
-            <span class="src" data-t="src.li">Source&nbsp;: LinkedIn</span>
-          </div>
+          <div class="fiche" id="fiche" data-rich="1"></div>
+          <div class="fiche-dots" id="fiche-dots"></div>
         </div>
       </div>
     </div>
@@ -913,12 +936,12 @@ document.documentElement.classList.add("js");
   var EN = {
     "nav.signals": "Signals", "nav.login": "Log in", "nav.cta": "Request access",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
-    "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "<b>Your next clients are on mazeo: the right company, the right person, at the right time.</b>", "nav.market": "The Market", "mk.name": "The Market",
-    "tq.t": "“Before mazeo, no tool gave an overall view of our industry. Finding a new prospect, and the right moment to reach out, took hours of research.”", "tq.r": "CEO, Episto",
+    "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "nav.market": "The Market", "mk.name": "The Market",
+    "tq.t": "“Before mazeo, no tool gave an overall view of our industry. Finding a new prospect, and <em>the right moment to reach out</em>, took hours of research.”", "tq.r": "· CEO, Episto",
     "form.email": "Work email", "form.company": "Your company", "form.submit": "Request access",
     "hero.helper": "Private beta · opening soon",
     "hero.dp": "Already in private beta at 9&nbsp;research providers", "dp.more": "+ 2 more",
-    "video.t": "mazeo in one minute", "video.s": "67 seconds · with sound", "video.aria": "Product video",
+    "video.t": "mazeo in one minute", "video.s": "· 67 seconds, with sound", "video.aria": "Product video",
     "pb.eyebrow": "The problem",
     "pb.h2": "No tool gave an exhaustive view of the players in market research.",
     "pb.p1": "Reaching new companies whose needs match your offer, in 3&nbsp;clicks: impossible until now. So mazeo built it.",
@@ -934,7 +957,7 @@ document.documentElement.classList.add("js");
     "mt.h3": "The right prospect, and the right person.",
     "mt.p1": "mazeo understands what you offer and how you stand out from the rest of the market. It then suggests the most relevant companies. A ranking and a score in&nbsp;%, simple to read.",
     "mt.p2": "And within those companies, the best person to get in touch with, with their email and mobile number one click away. GDPR-compliant.",
-    "fi.top": "Company profile", "fi.src": "Illustrative profile", "fi.meta": "Research buyer · Large group · FMCG",
+    "fi.top": "Company profile", "fi.src": "Illustrative profiles", "fi.meta": "Research buyer · Large group · FMCG",
     "fi.why": "<b>Why this match:</b> strong needs in product testing and U&amp;A, your offer covers both, FMCG sector in common.",
     "fi.a1": "Innovation &amp; Product testing <small>· need</small>", "fi.a2": "Segmentation &amp; U&amp;A <small>· need</small>", "fi.a3": "Quantitative <small>· method</small>", "fi.a4": "FMCG / CPG <small>· sector</small>",
     "fi.who": "Head of Consumer Research", "fi.tel": "Phone",
@@ -982,7 +1005,7 @@ document.documentElement.classList.add("js");
     en: { title: "mazeo — The only prospecting tool built for market research", desc: "The entire industry: buyers and vendors, scored and updated in real time. Your next 5 clients are on mazeo: the right company, the right person, at the right time." }
   };
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  var visible = { feed: false, kanban: false, mail: false };
+  var visible = { feed: false, kanban: false, mail: false, fiche: false };
   var FR = {}; var lang = "fr";
   var nodes = document.querySelectorAll("[data-t]"); var phNodes = document.querySelectorAll("[data-t-ph]");
   for (var i = 0; i < nodes.length; i++) { var k = nodes[i].getAttribute("data-t"); if (!(k in FR)) FR[k] = nodes[i].innerHTML; }
@@ -995,7 +1018,7 @@ document.documentElement.classList.add("js");
     document.title = META[lang].title;
     var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute("content", META[lang].desc);
     var vf = document.getElementById("film"); if (vf) vf.setAttribute("aria-label", lang === "en" ? "mazeo in one minute" : "mazeo en une minute");
-    renderFeed(); renderKanban(); renderMail(true);
+    renderFeed(); renderKanban(); renderMail(true); renderFiche();
     if (!visible.feed) feedStop(); if (!visible.kanban) kanbanStop(); if (!visible.mail) mailStop();
   }
 
@@ -1004,34 +1027,78 @@ document.documentElement.classList.add("js");
   /* Les logos sont ceux de l'app (assets/market-logos.js, relevé du 14/09/2026) ; les comptes suivent les 1 300 entreprises. */
   var COUNTS = { buyers: 796, providers: 386, field: 63, tools: 55 };
   var MORE = { fr: "Tout voir", en: "See all" };
-  var mapFilled = false;
+  var mapState = 0; /* 0 vide · 1 remplie, tuiles cachées · 2 animée */
+  function whenMarketData(cb) {
+    if (window.MAZEO_MARKET) return cb();
+    var tries = 0; var t = setInterval(function () { tries++; if (window.MAZEO_MARKET) { clearInterval(t); cb(); } else if (tries > 200) clearInterval(t); }, 100);
+  }
   function fillMap() {
-    var data = window.MAZEO_MARKET; if (!data || mapFilled) return; mapFilled = true;
+    var data = window.MAZEO_MARKET; if (!data || mapState > 0) return; mapState = 1;
     Object.keys(COUNTS).forEach(function (q) {
       var el = document.querySelector('.tiles[data-q="' + q + '"]'); if (!el) return; var html = "";
       var list = (data[q] || []).slice(0, 35);
       list.forEach(function (c, i) { html += '<div class="tile" data-name="' + c[0].replace(/"/g, "&quot;") + '"><img src="' + c[1] + '" alt="" width="40" height="40" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.style.display=\'none\'"></div>'; });
       html += '<div class="tile more">+' + (COUNTS[q] - list.length) + '<small>' + MORE[lang] + '</small></div>';
+      if (!reduced) el.classList.add("pre");
       el.innerHTML = html;
     });
   }
   /* À l'arrivée sur la carte, les tuiles apparaissent une par une */
   function animateMap() {
+    if (mapState !== 1) return; mapState = 2;
     if (reduced) return;
     document.querySelectorAll("#mmap .tiles").forEach(function (t) {
-      t.classList.add("anim");
       var tiles = t.querySelectorAll(".tile");
       tiles.forEach(function (tile, i) { setTimeout(function () { tile.classList.add("in"); }, 120 + i * 45); });
-      var dots = t.querySelectorAll(".tile.flag"); var base = 120 + tiles.length * 45 + 300;
-      dots.forEach(function (d, i) { setTimeout(function () { d.classList.add("dot"); }, base + i * 380); });
     });
   }
   var mmapEl = document.getElementById("mmap");
   if (mmapEl && "IntersectionObserver" in window) {
-    var mio = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { fillMap(); mio.disconnect(); } }, { rootMargin: "900px 0px" }); mio.observe(mmapEl);
-    var aio = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { fillMap(); animateMap(); aio.disconnect(); } }, { threshold: 0.25 }); aio.observe(mmapEl);
-  } else { fillMap(); }
-  if (document.readyState === "complete") fillMap(); else window.addEventListener("load", function () { if (mmapEl && mmapEl.getBoundingClientRect().top < window.innerHeight + 900) fillMap(); });
+    var mio = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { mio.disconnect(); whenMarketData(fillMap); } }, { rootMargin: "900px 0px" }); mio.observe(mmapEl);
+    var aio = new IntersectionObserver(function (e) { if (e[0].isIntersecting) { aio.disconnect(); whenMarketData(function () { fillMap(); animateMap(); }); } }, { threshold: 0.2 }); aio.observe(mmapEl);
+  } else { whenMarketData(function () { fillMap(); animateMap(); }); }
+
+  /* ---------- 1 · Le match : quatre fiches d'entreprises, qui défilent ---------- */
+  var FICHES = {
+    fr: [
+      { d: "kelloggs.com", n: "Kellogg's", meta: "Acheteur d'études · Grand groupe · FMCG", pct: 92, why: "forts besoins en tests produits et U&A, votre offre couvre les deux, secteur FMCG en commun.", rows: [["Innovation & Tests produits", "besoin", 3], ["Segmentation & U&A", "besoin", 3], ["Quantitatif", "méthode", 2], ["FMCG / CPG", "secteur", 3]], who: "Camille Moreau", role: "Directrice des études consommateurs", face: "women-50" },
+      { d: "loreal.com", n: "L'Oréal", meta: "Acheteur d'études · Grand groupe · Cosmétique", pct: 88, why: "besoins marqués en brand tracking et tests de concept, votre expertise quali, secteur beauté en commun.", rows: [["Marque & Communication", "besoin", 3], ["Innovation & Tests produits", "besoin", 2], ["Qualitatif", "méthode", 3], ["Cosmétique & Beauté", "secteur", 3]], who: "Thomas Renard", role: "Head of Consumer & Market Insights", face: "men-36" },
+      { d: "decathlon.com", n: "Decathlon", meta: "Acheteur d'études · Grand groupe · Retail", pct: 84, why: "études shopper et parcours client en magasin, votre offre terrain, secteur sport & retail en commun.", rows: [["Shopper & Retail", "besoin", 3], ["CX & Satisfaction", "besoin", 2], ["Terrain & Panels", "méthode", 3], ["Sport, Loisirs & Culture", "secteur", 2]], who: "Léa Fontaine", role: "Responsable études shopper", face: "women-33" },
+      { d: "axa.com", n: "AXA", meta: "Acheteur d'études · Grand groupe · Assurance", pct: 79, why: "programmes CX et baromètres de satisfaction, votre offre quanti, secteur assurance en commun.", rows: [["CX & Satisfaction", "besoin", 3], ["Marque & Communication", "besoin", 2], ["Quantitatif", "méthode", 3], ["Banque & Assurance", "secteur", 2]], who: "Nicolas Perrin", role: "Directeur expérience client", face: "men-64" }
+    ],
+    en: [
+      { d: "kelloggs.com", n: "Kellogg's", meta: "Research buyer · Large group · FMCG", pct: 92, why: "strong needs in product testing and U&A, your offer covers both, FMCG sector in common.", rows: [["Innovation & Product testing", "need", 3], ["Segmentation & U&A", "need", 3], ["Quantitative", "method", 2], ["FMCG / CPG", "sector", 3]], who: "Camille Moreau", role: "Head of Consumer Research", face: "women-50" },
+      { d: "loreal.com", n: "L'Oréal", meta: "Research buyer · Large group · Cosmetics", pct: 88, why: "strong needs in brand tracking and concept testing, your qualitative expertise, beauty sector in common.", rows: [["Brand & Communication", "need", 3], ["Innovation & Product testing", "need", 2], ["Qualitative", "method", 3], ["Cosmetics & Beauty", "sector", 3]], who: "Thomas Renard", role: "Head of Consumer & Market Insights", face: "men-36" },
+      { d: "decathlon.com", n: "Decathlon", meta: "Research buyer · Large group · Retail", pct: 84, why: "shopper and in-store journey studies, your fieldwork offer, sports & retail sector in common.", rows: [["Shopper & Retail", "need", 3], ["CX & Satisfaction", "need", 2], ["Fieldwork & Panels", "method", 3], ["Sports, Leisure & Culture", "sector", 2]], who: "Léa Fontaine", role: "Shopper research manager", face: "women-33" },
+      { d: "axa.com", n: "AXA", meta: "Research buyer · Large group · Insurance", pct: 79, why: "CX programmes and satisfaction barometers, your quantitative offer, insurance sector in common.", rows: [["CX & Satisfaction", "need", 3], ["Brand & Communication", "need", 2], ["Quantitative", "method", 3], ["Banking & Insurance", "sector", 2]], who: "Nicolas Perrin", role: "Customer experience director", face: "men-64" }
+    ]
+  };
+  var FI = { fr: { why: "Pourquoi ce match", email: "Email", tel: "Téléphone" }, en: { why: "Why this match", email: "Email", tel: "Phone" } };
+  var ficheEl = document.getElementById("fiche"); var ficheDots = document.getElementById("fiche-dots"); var ficheIdx = 0; var ficheTimer = null; var ficheHover = false;
+  function ficheHTML(f) {
+    var rows = f.rows.map(function (r) { var segs = ""; for (var i = 0; i < 3; i++) segs += '<i class="' + (i < r[2] ? "on" : "") + '"></i>'; return '<div class="frow"><span>' + r[0] + ' <small>· ' + r[1] + '</small></span><span class="seg">' + segs + '</span><span class="n">' + r[2] + '/3</span></div>'; }).join("");
+    var rich = ficheEl && ficheEl.dataset.rich; var FN = lang === "fr" ? ["Identité", "Spécialisations", "Signaux", "Contacts"] : ["Identity", "Specialisations", "Signals", "Contacts"];
+    var nav = rich ? '<div class="fiche-nav"><span>' + FN[0] + '</span><span class="on">' + FN[1] + '</span><span>' + FN[2] + '<i>2</i></span><span>' + FN[3] + '<i>12</i></span></div>' : "";
+    var src1 = rich ? '<span class="src">' + (lang === "fr" ? "Source\u00a0: IA mazeo" : "Source: mazeo AI") + '</span>' : ""; var src2 = rich ? '<span class="src">' + (lang === "fr" ? "Source\u00a0: LinkedIn" : "Source: LinkedIn") + '</span>' : "";
+    return '<div class="fiche-head"><div class="fiche-id"><div class="fiche-logo"><img src="' + LOGO(f.d) + '" alt="" width="32" height="32" decoding="async" onerror="this.style.visibility=\'hidden\'"></div><div><b>' + f.n + '</b><span>' + f.meta + '</span></div></div><div class="match"><b>' + f.pct + '\u00a0%</b><span>MATCH</span></div></div>' + nav
+      + '<p class="fiche-why"><b>' + FI[lang].why + (lang === "fr" ? '\u00a0:' : ':') + '</b> ' + f.why + '</p><div class="fiche-axes">' + rows + '</div>' + src1
+      + '<div class="fiche-contact"><img class="face" src="assets/people/' + f.face + '.jpg" alt="" width="40" height="40"><div class="who"><b>' + f.who + '</b><span>' + f.role + '</span></div><span class="reveal-btn">' + FI[lang].email + '</span><span class="reveal-btn">' + FI[lang].tel + '</span></div>' + src2;
+  }
+  function showFiche(i, animate) {
+    if (!ficheEl) return; ficheIdx = i; var f = FICHES[lang][i];
+    var paint = function () { ficheEl.innerHTML = ficheHTML(f); ficheEl.classList.remove("swap"); ficheEl.classList.add("reveal-bars"); setTimeout(function () { ficheEl.classList.remove("reveal-bars"); }, 700); };
+    if (animate && !reduced) { ficheEl.classList.add("swap"); setTimeout(paint, 320); } else paint();
+    if (ficheDots) ficheDots.innerHTML = FICHES[lang].map(function (_, k) { return '<i class="' + (k === i ? "on" : "") + '"></i>'; }).join("");
+  }
+  function ficheStop() { clearInterval(ficheTimer); ficheTimer = null; }
+  function renderFiche() {
+    if (!ficheEl) return; ficheStop(); showFiche(0, false);
+    if (reduced) return;
+    ficheTimer = setInterval(function () { if (!ficheHover) showFiche((ficheIdx + 1) % FICHES[lang].length, true); }, 7000);
+  }
+  var ficheScreen = document.getElementById("fiche-screen");
+  if (ficheScreen) { ficheScreen.addEventListener("mouseenter", function () { ficheHover = true; }); ficheScreen.addEventListener("mouseleave", function () { ficheHover = false; }); }
+  if (ficheDots) ficheDots.addEventListener("click", function (e) { var dots = ficheDots.querySelectorAll("i"); for (var i = 0; i < dots.length; i++) if (dots[i] === e.target) showFiche(i, true); });
 
   /* ---------- 2 · Signaux : la colonne de la Watch et le fil ---------- */
   var SIGNALS = {
@@ -1240,6 +1307,7 @@ document.documentElement.classList.add("js");
     io.observe(el);
   }
   watchAnim("feed", document.getElementById("feed"), function () { if (!feedTimer) renderFeed(); }, feedStop);
+  watchAnim("fiche", ficheScreen, function () { if (!ficheTimer) renderFiche(); }, ficheStop);
   watchAnim("kanban", kanbanEl, function () { if (!kbTimer) renderKanban(); }, kanbanStop);
   watchAnim("mail", document.querySelector(".mail"), function () { renderMail(false); }, mailStop);
 
@@ -1252,6 +1320,7 @@ document.documentElement.classList.add("js");
   if (playBtn && videoPanel) playBtn.addEventListener("click", function () {
     var open = !videoPanel.classList.contains("open");
     videoPanel.classList.toggle("open", open); playBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    var pw = document.getElementById("play-wrap"); if (pw) pw.classList.toggle("open", open);
     if (!film) return;
     if (open) { film.controls = true; var p = film.play(); if (p && p.catch) p.catch(function () {}); setTimeout(function () { videoPanel.scrollIntoView({ behavior: "smooth", block: "center" }); }, 250); }
     else { film.pause(); }
