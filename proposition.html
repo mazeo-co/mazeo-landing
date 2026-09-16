@@ -110,7 +110,7 @@ button, input { font: inherit; }
 .btn-ghost { background: #fff; color: var(--ink); border-color: var(--line-strong); }
 .btn-ghost:hover { border-color: #B9C0CB; }
 .btn-lg { padding: 16px 26px; font-size: 17px; }
-.btn.static, .reveal-btn, .kcta, .seg-toggle, .tile.more, .chip.more { pointer-events: none; cursor: default; }
+.btn.static, .reveal-btn, .kcta, .seg-toggle, .tile.more { pointer-events: none; cursor: default; }
 .signup { margin: 36px auto 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
 .signup-fields { display: flex; gap: 6px; width: 100%; max-width: 720px; padding: 6px; border: 1px solid var(--line-strong); border-radius: 14px; background: #fff; }
 .signup-fields input { flex: 1 1 0; min-width: 0; border: 0; background: transparent; padding: 14px 16px; font-size: 17px; color: var(--ink); border-radius: 9px; }
@@ -278,6 +278,14 @@ html.js .tiles.pre .tile.in { opacity: 1; transform: none; transition: opacity .
 html[lang="en"] .chip[data-def-en]:hover::after { content: attr(data-def-en); }
 .scard { overflow: visible; }
 .chip.more { border-style: dashed; color: var(--blue-text); font-weight: 700; }
+/* « + 13 » : la liste des secteurs restants s'ouvre sous les chips, sur toute la largeur de la carte (16/09) */
+.scard .chips { position: relative; }
+.chip.more[data-def] { position: static; cursor: default; }
+.chip.more[data-def]:hover, .chip.more[data-def]:focus { transform: none; border-color: var(--blue); border-style: solid; box-shadow: 0 8px 18px -12px rgba(0,123,255,.6); outline: none; }
+.chip.more[data-def]:hover::after, .chip.more[data-def]:focus::after { content: attr(data-def); position: absolute; left: 0; right: 0; top: calc(100% + 10px); bottom: auto; transform: none; width: auto; max-width: none; padding: 11px 13px; background: var(--ink); color: #fff; font-size: 12.5px; font-weight: 500; line-height: 1.6; border-radius: 10px; text-align: left; white-space: normal; pointer-events: none; z-index: 6; box-shadow: 0 12px 28px -14px rgba(0,0,0,.55); }
+.chip.more[data-def]:hover::before, .chip.more[data-def]:focus::before { content: none; }
+html[lang="en"] .chip.more[data-def-en]:hover::after, html[lang="en"] .chip.more[data-def-en]:focus::after { content: attr(data-def-en); }
+
 @media (max-width: 960px) { .scards { grid-template-columns: 1fr; } }
 
 /* Le match : texte et fiche */
@@ -481,7 +489,6 @@ html[lang="en"] .pills .ov-signal-pill[data-def-en]:hover::after { content: attr
 .quote .who img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
 .quote .who img { box-shadow: 0 0 0 1px var(--line); }
 .quote .who span { display: block; line-height: 1.4; margin-top: 2px; }
-.quote .who .tbv { display: block; margin-top: 3px; font-size: 11.5px; font-weight: 600; line-height: 1.3; color: #A3A9B4; }
 .quote .who b { display: block; font-size: 15px; color: var(--ink); }
 .quote .who span { font-size: 13px; color: var(--meta); }
 .car-nav { margin-top: 18px; display: flex; justify-content: center; gap: 10px; }
@@ -703,11 +710,11 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
       <div class="play-wrap" id="play-wrap"><span class="wave w1" aria-hidden="true"></span><span class="wave w2" aria-hidden="true"></span><button class="play-btn" type="button" id="play" aria-expanded="false" aria-controls="video-panel" aria-label="Lire la vidéo"></button></div>
       <p class="play-label"><span data-t="hero.play">Découvrir mazeo en vidéo</span><span data-t="hero.playClose">Fermer la vidéo</span></p>
       <div class="video-panel" id="video-panel"><div><div class="inner">
-        <!-- Film produit v11 (16/09/2026, 72,5 s, français seulement pour l’instant) : fabriqué en code dans ~/dev/video-mazeo -->
+        <!-- Film produit v13 (16/09/2026, 74,5 s, français seulement pour l’instant) : fabriqué en code dans ~/dev/video-mazeo -->
         <div class="video-frame" id="video-frame">
           <video id="film" preload="metadata" playsinline poster="assets/mazeo-film-poster.jpg" aria-label="mazeo en une minute"><source src="assets/mazeo-film.mp4" type="video/mp4"></video>
           <button class="vf-close" type="button" id="vf-close" aria-label="Fermer la vidéo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-          <div class="vf-pill" id="vf-pill"><button type="button" class="vf-btn" id="vf-toggle" aria-label="Pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button><span class="vf-time" id="vf-time">0:00 / 1:12</span><button type="button" class="vf-btn" id="vf-mute" aria-label="Couper le son"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l4 4V6L7 10H4z" fill="currentColor"/><path d="M15 9.5a4 4 0 0 1 0 5"/><path d="M17.5 7a7.5 7.5 0 0 1 0 10"/></svg></button><button type="button" class="vf-btn" id="vf-full" aria-label="Plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button></div>
+          <div class="vf-pill" id="vf-pill"><button type="button" class="vf-btn" id="vf-toggle" aria-label="Pause"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg></button><span class="vf-time" id="vf-time">0:00 / 1:14</span><button type="button" class="vf-btn" id="vf-mute" aria-label="Couper le son"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l4 4V6L7 10H4z" fill="currentColor"/><path d="M15 9.5a4 4 0 0 1 0 5"/><path d="M17.5 7a7.5 7.5 0 0 1 0 10"/></svg></button><button type="button" class="vf-btn" id="vf-full" aria-label="Plein écran"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M15 4h5v5M20 15v5h-5M9 20H4v-5"/></svg></button></div>
           <div class="vf-progress" id="vf-progress" aria-hidden="true"><i id="vf-bar"></i></div>
         </div>
       </div></div></div>
@@ -728,7 +735,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
     <div class="trusted">
       <div class="container trusted-quote">
         <blockquote data-t="tq.t">«&nbsp;Avant mazeo, aucun outil ne donnait <em>une vision d’ensemble de notre secteur</em>. Trouver un nouveau prospect, et le bon moment pour le contacter, demandait des heures de recherche.&nbsp;»</blockquote>
-        <div class="who"><img src="assets/people/men-41.jpg" alt="" width="36" height="36"><b>Jérémy Lefebvre</b><span data-t="tq.r">· CEO, Episto</span></div>
+        <div class="who"><img src="assets/people/jeremy-lefebvre.jpg" alt="" width="36" height="36"><b>Jérémy Lefebvre</b><span data-t="tq.r">· CEO, Episto</span></div>
       </div>
       <div class="container trusted-inner">
         <span class="lbl" data-t="hero.dp">Conçu avec 9&nbsp;prestataires d’études</span>
@@ -779,7 +786,7 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
             <span class="chip" data-def="Enquêtes, trackers, questionnaires, analyse quantitative." data-def-en="Surveys, trackers, questionnaires, quantitative analysis.">Quantitatif</span><span class="chip" data-def="Focus groups, entretiens, ethnographie, communautés en ligne / MROC, sémiotique." data-def-en="Focus groups, interviews, ethnography, online communities / MROC, semiotics.">Qualitatif</span><span class="chip" data-def="Modélisation et data science : conjoint, PSM, MMM, économétrie, ML, données synthétiques." data-def-en="Modelling &amp; data science: conjoint, PSM, MMM, econometrics, ML, synthetic data.">Advanced Analytics / Data Science</span><span class="chip" data-def="Données comportementales sans questionner : social listening, web analytics, données transactionnelles." data-def-en="Behavioral data without asking questions: social listening, web analytics, transactional data.">Data passive &amp; comportementale</span><span class="chip" data-def="Analyse sensorielle : panels entraînés, profils descriptifs, tests hédoniques." data-def-en="Sensory analysis: trained panels, descriptive profiling, hedonic tests.">Analyse sensorielle</span><span class="chip" data-def="Neuro et biométrie : eye tracking, facial coding, neuromarketing." data-def-en="Neuro &amp; biometrics: eye tracking, facial coding, neuromarketing.">Neuro &amp; Biométrie</span><span class="chip" data-def="Terrain et opérations : collecte de données, recrutement de répondants, gestion de panels, programmation de questionnaires." data-def-en="Fieldwork &amp; ops: data collection, respondent recruitment, panel management, survey programming.">Terrain &amp; Panels</span><span class="chip" data-def="Sources secondaires : desk research, veille, benchmarks sans collecte primaire." data-def-en="Secondary sources: desk research, monitoring, benchmarks without primary data collection.">Desk Research</span>
           </div></div>
           <div class="scard"><b>27<em data-t="ax3.b">secteurs</em></b><small data-t="ax3.s">Pour quel marché</small><div class="chips">
-            <span class="chip" data-def="Constructeurs, équipementiers automobiles, mobilité." data-def-en="Carmakers, automotive suppliers, mobility.">Automobile</span><span class="chip" data-def="Soin, maquillage, parfumerie." data-def-en="Skincare, makeup, perfumery.">Cosmétique &amp; Beauté</span><span class="chip" data-def="Maisons de luxe, haute couture, horlogerie et joaillerie." data-def-en="Luxury houses, haute couture, watches &amp; jewellery.">Luxe</span><span class="chip" data-def="Marques et distributeurs de mode grand public et premium (hors luxe)." data-def-en="Mass-market and premium fashion brands and retailers (non-luxury).">Mode &amp; Habillement</span><span class="chip" data-def="Établissements de dépôt : banque de détail, assureurs, mutuelles." data-def-en="Deposit institutions: retail banking, insurers, mutual insurers.">Banque &amp; Assurance</span><span class="chip" data-def="Promoteurs, construction, sociétés immobilières." data-def-en="Property developers, construction, real-estate companies.">Immobilier &amp; Construction</span><span class="chip" data-def="Énergéticiens, renouvelables, déchets / eau." data-def-en="Energy companies, renewables, waste / water.">Énergie &amp; Environnement</span><span class="chip" data-def="Se déplacer : ferroviaire, compagnies aériennes, mobilité, tour-opérateurs." data-def-en="Getting around: rail, airlines, mobility, tour operators.">Transport &amp; Tourisme</span><span class="chip" data-def="Tous les produits de grande consommation : alimentaire, boissons, hygiène, entretien. Hors beauté, alcool et ingrédients B2B." data-def-en="All fast-moving consumer goods: food, beverages, hygiene, household care. Excludes beauty, alcohol and B2B ingredients.">FMCG / CPG</span><span class="chip" data-def="Agriculture amont, coopératives, transformation alimentaire." data-def-en="Upstream agriculture, cooperatives, food processing.">Agriculture &amp; Agroalimentaire</span><span class="chip" data-def="Études patients, professionnels de santé, market access." data-def-en="Patient studies, HCPs, market access.">Santé &amp; Pharma</span><span class="chip" data-def="Enseignes de distribution, e-commerce, commerce spécialisé." data-def-en="Retail chains, e-commerce, specialty retail.">Retail &amp; Distribution</span><span class="chip" data-def="Éditeurs de logiciels, plateformes, informatique." data-def-en="Software vendors, platforms, IT.">Tech &amp; Digital</span><span class="chip" data-def="Chaînes TV, presse, régies publicitaires, agences de publicité." data-def-en="TV channels, press, ad sales houses, ad agencies.">Médias &amp; Publicité</span><span class="chip more">+ 13</span>
+            <span class="chip" data-def="Constructeurs, équipementiers automobiles, mobilité." data-def-en="Carmakers, automotive suppliers, mobility.">Automobile</span><span class="chip" data-def="Soin, maquillage, parfumerie." data-def-en="Skincare, makeup, perfumery.">Cosmétique &amp; Beauté</span><span class="chip" data-def="Maisons de luxe, haute couture, horlogerie et joaillerie." data-def-en="Luxury houses, haute couture, watches &amp; jewellery.">Luxe</span><span class="chip" data-def="Marques et distributeurs de mode grand public et premium (hors luxe)." data-def-en="Mass-market and premium fashion brands and retailers (non-luxury).">Mode &amp; Habillement</span><span class="chip" data-def="Établissements de dépôt : banque de détail, assureurs, mutuelles." data-def-en="Deposit institutions: retail banking, insurers, mutual insurers.">Banque &amp; Assurance</span><span class="chip" data-def="Promoteurs, construction, sociétés immobilières." data-def-en="Property developers, construction, real-estate companies.">Immobilier &amp; Construction</span><span class="chip" data-def="Énergéticiens, renouvelables, déchets / eau." data-def-en="Energy companies, renewables, waste / water.">Énergie &amp; Environnement</span><span class="chip" data-def="Se déplacer : ferroviaire, compagnies aériennes, mobilité, tour-opérateurs." data-def-en="Getting around: rail, airlines, mobility, tour operators.">Transport &amp; Tourisme</span><span class="chip" data-def="Tous les produits de grande consommation : alimentaire, boissons, hygiène, entretien. Hors beauté, alcool et ingrédients B2B." data-def-en="All fast-moving consumer goods: food, beverages, hygiene, household care. Excludes beauty, alcohol and B2B ingredients.">FMCG / CPG</span><span class="chip" data-def="Agriculture amont, coopératives, transformation alimentaire." data-def-en="Upstream agriculture, cooperatives, food processing.">Agriculture &amp; Agroalimentaire</span><span class="chip" data-def="Études patients, professionnels de santé, market access." data-def-en="Patient studies, HCPs, market access.">Santé &amp; Pharma</span><span class="chip" data-def="Enseignes de distribution, e-commerce, commerce spécialisé." data-def-en="Retail chains, e-commerce, specialty retail.">Retail &amp; Distribution</span><span class="chip" data-def="Éditeurs de logiciels, plateformes, informatique." data-def-en="Software vendors, platforms, IT.">Tech &amp; Digital</span><span class="chip" data-def="Chaînes TV, presse, régies publicitaires, agences de publicité." data-def-en="TV channels, press, ad sales houses, ad agencies.">Médias &amp; Publicité</span><span class="chip more" tabindex="0" data-def="Vins &amp; Spiritueux&nbsp;· Télécoms&nbsp;· Gaming &amp; Divertissement&nbsp;· Sport, Loisirs &amp; Culture&nbsp;· Défense &amp; Sécurité&nbsp;· Industrie &amp; B2B&nbsp;· Chimie &amp; Matériaux&nbsp;· Vétérinaire &amp; Santé animale&nbsp;· Éducation &amp; Formation&nbsp;· Secteur public&nbsp;· Hôtellerie &amp; Restauration&nbsp;· Services financiers&nbsp;· Services aux entreprises" data-def-en="Wines &amp; Spirits&nbsp;· Telecom&nbsp;· Gaming &amp; Entertainment&nbsp;· Sports, Leisure &amp; Culture&nbsp;· Defense &amp; Security&nbsp;· Industrial &amp; B2B&nbsp;· Chemicals &amp; Materials&nbsp;· Veterinary &amp; Animal Health&nbsp;· Education &amp; Training&nbsp;· Public Sector&nbsp;· Hospitality &amp; Restaurants&nbsp;· Financial Services&nbsp;· Professional Services">+ 13</span>
           </div></div>
         </div>
       </div>
@@ -895,23 +902,19 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
         <div class="car-track" id="car">
           <div class="quote">
             <blockquote data-t="q1.t">«&nbsp;J’ai une concentration d’informations prémâchées, fiable, à un seul endroit. C’est un vrai gain de temps.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/men-32.jpg" alt="" width="46" height="46"><div><b>Benoît Riou</b><span data-t="q1.r">CEO, Stat &amp; More</span></div></div>
+            <div class="who"><img src="assets/people/benoit-riou.jpg" alt="" width="46" height="46"><div><b>Benoît Riou</b><span data-t="q1.r">CEO, Stat &amp; More</span></div></div>
           </div>
-          <div class="quote pending">
+          <div class="quote">
             <blockquote data-t="q2.t">«&nbsp;En deux semaines, une vingtaine d’instituts qu’on n’avait jamais approchés. Et pour chacun, la bonne personne, au bon moment.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/tom-longeron.jpg" alt="" width="46" height="46"><div><b>Tom Longeron</b><span data-t="q2.r">Head of Sales, Norstat France</span><small class="tbv" data-t="q.tbv">Témoignage à valider</small></div></div>
+            <div class="who"><img src="assets/people/tom-longeron.jpg" alt="" width="46" height="46"><div><b>Tom Longeron</b><span data-t="q2.r">Head of Sales, Norstat France</span></div></div>
           </div>
-          <div class="quote pending">
+          <div class="quote">
             <blockquote data-t="q3.t">«&nbsp;Les signaux changent tout&nbsp;: on écrit quand il se passe quelque chose chez le client, pas au hasard.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/johan-le-douce.jpg" alt="" width="46" height="46"><div><b>Johan Le Douce</b><span data-t="q3.r">Fondateur, JLD Insights</span><small class="tbv" data-t="q.tbv">Témoignage à valider</small></div></div>
+            <div class="who"><img src="assets/people/johan-le-douce.jpg" alt="" width="46" height="46"><div><b>Johan Le Douce</b><span data-t="q3.r">Fondateur, JLD Insights</span></div></div>
           </div>
-          <div class="quote pending">
-            <blockquote data-t="q4.t">«&nbsp;Le Pipeline nous dit quoi faire chaque matin. Plus de relance oubliée, plus de rendez-vous perdu.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/women-12.jpg" alt="" width="46" height="46"><div><b data-t="q.n">Prénom Nom</b><span data-t="q4.r">Poste, Licter</span><small class="tbv" data-t="q.tbv">Témoignage à valider</small></div></div>
-          </div>
-          <div class="quote pending">
+          <div class="quote">
             <blockquote data-t="q5.t">«&nbsp;Le scoring parle notre langue. On voit tout de suite qui a besoin de nous, et pourquoi.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/men-36.jpg" alt="" width="46" height="46"><div><b data-t="q.n">Prénom Nom</b><span data-t="q5.r">Poste, iligo</span><small class="tbv" data-t="q.tbv">Témoignage à valider</small></div></div>
+            <div class="who"><img src="assets/people/celine-pasquier.jpg" alt="" width="46" height="46"><div><b>Céline Pasquier</b><span data-t="q5.r">COO, iligo</span></div></div>
           </div>
         </div>
         <div class="car-nav">
@@ -1041,12 +1044,10 @@ document.documentElement.classList.add("js");
     "ml.to": "<b>To:</b> Camille Moreau · Head of Consumer Research", "ml.ctx": "Context: connected on LinkedIn · Hiring signal", "ml.btn": "Copy and open LinkedIn",
     "dp.eyebrow": "They use <span class=\"lc\">mazeo</span>",
     "dp.h2": "In private beta since March&nbsp;2026 at 9&nbsp;research providers.",
-    "q1.t": "“I have reliable, ready-to-use information concentrated in one place. It really is a time saver.”", "q1.r": "CEO, Stat &amp; More", "q.tbv": "Quote to be validated",
-    "q.n": "First Last",
+    "q1.t": "“I have reliable, ready-to-use information concentrated in one place. It really is a time saver.”", "q1.r": "CEO, Stat &amp; More",
     "q2.t": "“In two weeks, twenty research agencies we had never approached. And for each one, the right person, at the right time.”", "q2.r": "Head of Sales, Norstat France",
     "q3.t": "“Signals change everything: we write when something happens at the client, not at random.”", "q3.r": "Founder, JLD Insights",
-    "q4.t": "“The Pipeline tells us what to do every morning. No forgotten follow-up, no lost meeting.”", "q4.r": "Role, Licter",
-    "q5.t": "“The scoring speaks our language. We see right away who needs us, and why.”", "q5.r": "Role, iligo",
+    "q5.t": "“The scoring speaks our language. We see right away who needs us, and why.”", "q5.r": "COO, iligo",
     "dp.for": "Built for salespeople, research directors, founders and executives in market research.",
     "faq.h2": "The questions we get asked.",
     "fq1": "Where does the data come from?", "fa1": "From public sources: LinkedIn, websites, the company register, job posts, public tenders, social networks. Updated in real time. Work email and mobile number for most contacts. GDPR-compliant: anyone listed in mazeo can access, correct or remove their data by writing to us.",
