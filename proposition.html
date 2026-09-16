@@ -480,6 +480,8 @@ html[lang="en"] .pills .ov-signal-pill[data-def-en]:hover::after { content: attr
 .quote .who { display: flex; align-items: center; gap: 12px; }
 .quote .who img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
 .quote .who img { box-shadow: 0 0 0 1px var(--line); }
+.quote .who span { display: block; line-height: 1.4; margin-top: 2px; }
+.quote .who .tbv { display: block; margin-top: 3px; font-size: 11.5px; font-weight: 600; line-height: 1.3; color: #A3A9B4; }
 .quote .who b { display: block; font-size: 15px; color: var(--ink); }
 .quote .who span { font-size: 13px; color: var(--meta); }
 .car-nav { margin-top: 18px; display: flex; justify-content: center; gap: 10px; }
@@ -897,19 +899,19 @@ html.js .reveal { opacity: 1; transform: none; transition: none; }
           </div>
           <div class="quote pending">
             <blockquote data-t="q2.t">«&nbsp;En deux semaines, une vingtaine d’instituts qu’on n’avait jamais approchés. Et pour chacun, la bonne personne, au bon moment.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/tom-longeron.jpg" alt="" width="46" height="46"><div><b>Tom Longeron</b><span data-t="q2.r">Head of Sales, Norstat France · témoignage à valider</span></div></div>
+            <div class="who"><img src="assets/people/tom-longeron.jpg" alt="" width="46" height="46"><div><b>Tom Longeron</b><span data-t="q2.r">Head of Sales, Norstat France</span><small class="tbv" data-t="q.tbv">Témoignage à valider</small></div></div>
           </div>
           <div class="quote pending">
             <blockquote data-t="q3.t">«&nbsp;Les signaux changent tout&nbsp;: on écrit quand il se passe quelque chose chez le client, pas au hasard.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/johan-le-douce.jpg" alt="" width="46" height="46"><div><b>Johan Le Douce</b><span data-t="q3.r">Fondateur, JLD Insights · témoignage à valider</span></div></div>
+            <div class="who"><img src="assets/people/johan-le-douce.jpg" alt="" width="46" height="46"><div><b>Johan Le Douce</b><span data-t="q3.r">Fondateur, JLD Insights</span><small class="tbv" data-t="q.tbv">Témoignage à valider</small></div></div>
           </div>
           <div class="quote pending">
             <blockquote data-t="q4.t">«&nbsp;Le Pipeline nous dit quoi faire chaque matin. Plus de relance oubliée, plus de rendez-vous perdu.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/women-12.jpg" alt="" width="46" height="46"><div><b data-t="q.n">Prénom Nom</b><span data-t="q4.r">Poste, Licter · témoignage à valider</span></div></div>
+            <div class="who"><img src="assets/people/women-12.jpg" alt="" width="46" height="46"><div><b data-t="q.n">Prénom Nom</b><span data-t="q4.r">Poste, Licter</span><small class="tbv" data-t="q.tbv">Témoignage à valider</small></div></div>
           </div>
           <div class="quote pending">
             <blockquote data-t="q5.t">«&nbsp;Le scoring parle notre langue. On voit tout de suite qui a besoin de nous, et pourquoi.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/men-36.jpg" alt="" width="46" height="46"><div><b data-t="q.n">Prénom Nom</b><span data-t="q5.r">Poste, iligo · témoignage à valider</span></div></div>
+            <div class="who"><img src="assets/people/men-36.jpg" alt="" width="46" height="46"><div><b data-t="q.n">Prénom Nom</b><span data-t="q5.r">Poste, iligo</span><small class="tbv" data-t="q.tbv">Témoignage à valider</small></div></div>
           </div>
         </div>
         <div class="car-nav">
@@ -1039,12 +1041,12 @@ document.documentElement.classList.add("js");
     "ml.to": "<b>To:</b> Camille Moreau · Head of Consumer Research", "ml.ctx": "Context: connected on LinkedIn · Hiring signal", "ml.btn": "Copy and open LinkedIn",
     "dp.eyebrow": "They use <span class=\"lc\">mazeo</span>",
     "dp.h2": "In private beta since March&nbsp;2026 at 9&nbsp;research providers.",
-    "q1.t": "“I have reliable, ready-to-use information concentrated in one place. It really is a time saver.”", "q1.r": "CEO, Stat &amp; More",
+    "q1.t": "“I have reliable, ready-to-use information concentrated in one place. It really is a time saver.”", "q1.r": "CEO, Stat &amp; More", "q.tbv": "Quote to be validated",
     "q.n": "First Last",
-    "q2.t": "“In two weeks, twenty research agencies we had never approached. And for each one, the right person, at the right time.”", "q2.r": "Head of Sales, Norstat France · quote to be validated",
-    "q3.t": "“Signals change everything: we write when something happens at the client, not at random.”", "q3.r": "Founder, JLD Insights · quote to be validated",
-    "q4.t": "“The Pipeline tells us what to do every morning. No forgotten follow-up, no lost meeting.”", "q4.r": "Role, Licter · quote to be validated",
-    "q5.t": "“The scoring speaks our language. We see right away who needs us, and why.”", "q5.r": "Role, iligo · quote to be validated",
+    "q2.t": "“In two weeks, twenty research agencies we had never approached. And for each one, the right person, at the right time.”", "q2.r": "Head of Sales, Norstat France",
+    "q3.t": "“Signals change everything: we write when something happens at the client, not at random.”", "q3.r": "Founder, JLD Insights",
+    "q4.t": "“The Pipeline tells us what to do every morning. No forgotten follow-up, no lost meeting.”", "q4.r": "Role, Licter",
+    "q5.t": "“The scoring speaks our language. We see right away who needs us, and why.”", "q5.r": "Role, iligo",
     "dp.for": "Built for salespeople, research directors, founders and executives in market research.",
     "faq.h2": "The questions we get asked.",
     "fq1": "Where does the data come from?", "fa1": "From public sources: LinkedIn, websites, the company register, job posts, public tenders, social networks. Updated in real time. Work email and mobile number for most contacts. GDPR-compliant: anyone listed in mazeo can access, correct or remove their data by writing to us.",
