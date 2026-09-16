@@ -955,6 +955,10 @@ document.documentElement.classList.add("js");
     document.title = META[lang].title;
     var md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute("content", META[lang].desc);
     var vf = document.getElementById("film"); if (vf) vf.setAttribute("aria-label", lang === "en" ? "mazeo in one minute" : "mazeo en une minute");
+    /* une vidéo par langue : la source et l'image d'attente suivent la langue ; une lecture en cours repart du début */
+    if (vf) { var vsrc = lang === "en" ? "assets/mazeo-film-en.mp4" : "assets/mazeo-film.mp4"; var vs = vf.querySelector("source");
+      if (vs && vs.getAttribute("src") !== vsrc) { vf.pause(); vs.setAttribute("src", vsrc); vf.setAttribute("poster", lang === "en" ? "assets/mazeo-film-poster-en.jpg" : "assets/mazeo-film-poster.jpg"); vf.load();
+        var vb = document.getElementById("vf-bar"); if (vb) vb.style.width = "0%"; var vt = document.getElementById("vf-time"); if (vt) vt.textContent = "0:00 / 0:52"; } }
     var ariaEn = document.querySelectorAll("[data-aria-en]"); for (var ae = 0; ae < ariaEn.length; ae++) { var aq = ariaEn[ae]; if (!aq.hasAttribute("data-aria-fr")) aq.setAttribute("data-aria-fr", aq.getAttribute("aria-label")); aq.setAttribute("aria-label", aq.getAttribute(lang === "en" ? "data-aria-en" : "data-aria-fr")); }
     var chipsEn = document.querySelectorAll(".chip[data-en]"); for (var ce = 0; ce < chipsEn.length; ce++) { var cq = chipsEn[ce]; if (!cq.hasAttribute("data-fr")) cq.setAttribute("data-fr", cq.textContent); cq.textContent = cq.getAttribute(lang === "en" ? "data-en" : "data-fr"); }
     if (typeof tipHide === "function") tipHide();
