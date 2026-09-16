@@ -571,6 +571,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 /* Bloc de la fiche : colonne de texte un peu plus large pour que « et la bonne personne, » tienne sur une ligne à 52 px (16/09) */
 @media (min-width: 961px) { .match-split { grid-template-columns: 6.4fr 5.6fr; } }
 @media (max-width: 340px) { .match-split h3 { font-size: 28px; } }
+@media (max-width: 760px) { .d-br { display: none; } }
 </style>
 </head>
 <body>
@@ -626,7 +627,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 
     <div class="trusted">
       <div class="container trusted-quote">
-        <blockquote data-t="tq.t">«&nbsp;La prospection nous prenait des heures. Avec mazeo, <em>on sait où trouver de nouveaux clients</em>.&nbsp;»</blockquote>
+        <blockquote data-t="tq.t">«&nbsp;La prospection nous prenait des heures. Avec mazeo, <em>on sait où trouver de nouveaux clients.</em>&nbsp;»</blockquote>
         <div class="who"><img src="assets/people/jeremy-lefebvre.jpg" alt="" width="36" height="36"><b>Jérémy Lefebvre</b><span data-t="tq.r">· CEO, Episto</span></div>
       </div>
       <div class="container trusted-inner">
@@ -706,7 +707,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <div class="split">
         <div class="split-copy">
           <h2 class="title" data-t="sg.h2">Le bon moment, détecté en temps réel.</h2>
-          <p class="lead" data-t="sg.p" style="margin-top:20px">mazeo scanne le secteur en temps réel et détecte dix types de signaux qui vous informent du meilleur moment pour entrer en contact.</p>
+          <p class="lead" data-t="sg.p" style="margin-top:20px">mazeo scanne le secteur en continu et détecte dix types de signaux qui vous indiquent le meilleur moment pour entrer en contact.</p>
           <div class="pillgroup">
             <div><span class="lbl" data-t="sg.co">Côté entreprise</span><div class="pills">
               <span class="ov-signal-pill hiring" data-def="L’entreprise recrute un profil études ou insights, au sens large&nbsp;: market research, connaissance client, data consommateur, CX. Source&nbsp;: offres d’emploi." data-def-en="The company is hiring a research or insights profile, broadly: market research, consumer knowledge, consumer data, CX. Source: job posts." data-t="sp.1">Recrutement de profils insight</span>
@@ -745,7 +746,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <div class="marker"><span class="n">3</span><span class="name" data-t="pl.eyebrow">Le Pipeline</span></div>
       <div class="head">
         <h2 class="title" data-t="pl.h2">Le <span class="nw">rendez-vous</span>, obtenu étape par étape.</h2>
-        <p class="lead" data-t="pl.lead">Pensé pour notre métier, le Pipeline vous suggère quoi faire et quand, et vous prévient dès qu’une tâche est en retard.</p>
+        <p class="lead" data-t="pl.lead">Pensé pour notre métier, le Pipeline vous guide du premier contact au rendez-vous.<br class="d-br"> Chaque étape vous est suggérée au bon moment, avec une alerte en cas de retard.</p>
       </div>
 
       <div class="screen raised kanban" aria-hidden="true" id="kanban-screen">
@@ -757,7 +758,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         <div class="split-copy">
           <span class="eyebrow" data-t="wr.eyebrow">Le rédacteur</span>
           <h3 data-t="wr.h2">Il écrit. Vous relisez, vous envoyez.</h3>
-          <p class="copy" data-t="wr.p">Le rédacteur écrit les premiers messages. Il a tout le contexte de votre relation, et il connaît le parcours de la personne à qui vous écrivez&nbsp;: son poste, son entreprise, ses signaux. Sur un ton formel, direct ou amical.</p>
+          <p class="copy" data-t="wr.p">Le rédacteur écrit vos messages à chaque étape&nbsp;: premier contact, relances, proposition de rendez-vous. Il a tout le contexte de votre relation, et il connaît le parcours de la personne à qui vous écrivez&nbsp;: son poste, son entreprise, ses signaux. Sur un ton formel, direct ou amical.</p>
         </div>
         <div class="screen raised mail" aria-hidden="true">
           <div class="mail-top"><span class="to"><img src="assets/people/women-50.jpg" alt="" width="26" height="26"><span data-t="ml.to"><b>À&nbsp;:</b> Camille Moreau · Directrice des études consommateurs</span></span><div class="tones" id="tones"></div></div>
@@ -878,7 +879,7 @@ document.documentElement.classList.add("js");
     "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Request access",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
     "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "hero.playClose": "Close the video", "hero.play": "Discover mazeo on video", "nav.market": "The Market", "mk.name": "The Market",
-    "tq.t": "“Prospecting used to take us hours. With mazeo, <em>we know where to find new clients</em>.”", "tq.r": "· CEO, Episto",
+    "tq.t": "“Prospecting used to take us hours. With mazeo, <em>we know where to find new clients.</em>”", "tq.r": "· CEO, Episto",
     "form.email": "Work email", "form.company": "Your company", "form.submit": "Request access",
     "hero.helper": "Private beta · opening soon",
     "hero.dp": "Built with 9&nbsp;research providers", "dp.more": "+ 2 more",
@@ -905,7 +906,7 @@ document.documentElement.classList.add("js");
     "n.co": "companies mapped", "n.ct": "contacts, from the CEO to the research executive", "n.sect": "sectors · 12 domains · 8 methods", "n.note": "French market. More markets coming.",
     "sg.eyebrow": "Signals",
     "sg.h2": "The right moment, detected in real time.",
-    "sg.p": "mazeo scans the industry in real time and detects ten types of signals that tell you the best moment to get in touch.",
+    "sg.p": "mazeo scans the industry continuously and detects ten types of signals that show you the best moment to get in touch.",
     "sg.co": "Company side", "sg.pe": "Contact side",
     "sp.1": "Hiring insight profiles", "sp.2": "Team turnover", "sp.3": "Revenue change", "sp.4": "Governance change", "sp.5": "Public tender", "sp.6": "At risk", "sp.7": "Repositioning", "sp.8": "Changed job", "sp.9": "Promotion", "sp.10": "New skills",
     "sg.watch": "<b>The Watch.</b> Follow the companies and people that matter to you. Every Wednesday, an email sums up their signals of the week.",
@@ -913,11 +914,11 @@ document.documentElement.classList.add("js");
     "ws.co": "Companies", "ws.ct": "Contacts", "ws.search": "Search…", "ws.lbl": "Companies (7)", "ws.all": "All companies in the Watch", "ws.sort": "Newest first",
     "pl.eyebrow": "The Pipeline",
     "pl.h2": "The meeting, booked step by step.",
-    "pl.lead": "Designed for our profession, the Pipeline tells you what to do and when, and warns you as soon as a task is late.",
+    "pl.lead": "Designed for our profession, the Pipeline guides you from first contact to meeting.<br class=\"d-br\"> Each step is suggested at the right time, with an alert if anything runs late.",
     "kb.sub": "4 people in motion", "kb.alert": "To do · 1 step late", "kb.note": "For illustration",
     "wr.eyebrow": "The writer",
     "wr.h2": "It writes. You review, you send.",
-    "wr.p": "The writer drafts the first messages. It has the full context of your relationship, and it knows the career of the person you are writing to: their role, their company, their signals. In a formal, direct or friendly tone.",
+    "wr.p": "The writer drafts your messages at every step: first contact, follow-ups, meeting request. It has the full context of your relationship, and it knows the career of the person you are writing to: their role, their company, their signals. In a formal, direct or friendly tone.",
     "ml.to": "<b>To:</b> Camille Moreau · Head of Consumer Research", "ml.ctx": "Context: connected on LinkedIn · Hiring signal", "ml.btn": "Copy and open LinkedIn",
     "dp.eyebrow": "They use <span class=\"lc\">mazeo</span>",
     "dp.h2": "In private beta since March&nbsp;2026 at 9&nbsp;research providers.",
