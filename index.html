@@ -220,7 +220,6 @@ button, input { font: inherit; }
 .panel .marker .n { background: #fff; color: var(--ink); }
 .panel-blue .marker .n { color: var(--blue-text); }
 .panel .marker .name { color: #fff; }
-#market .head .title { font-size: clamp(30px, 3.6vw, 52px); }
 
 /* ============ Problème ============ */
 .problem { padding-bottom: 32px; }
@@ -355,7 +354,6 @@ html[lang="en"] .chip.more[data-def-en]:hover::after, html[lang="en"] .chip.more
 .panel-blue .eyebrow, .panel-blue .lead, .panel-blue .copy, .panel-blue .watchline, .panel-blue .bignum span, .panel-blue .pillgroup .lbl { color: #fff; }
 .panel-blue .eyebrow .n { background: #fff; color: var(--blue-text); }
 .panel-blue .screen.raised { box-shadow: 0 30px 60px -30px rgba(0,30,80,.45); }
-.panel-blue .title { font-size: clamp(36px, 4.2vw, 58px); }
 @media (max-width: 960px) { .panel { padding-block: 84px; } }
 
 /* ---- 2 · Signaux ---- */
@@ -567,6 +565,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .fiche-dots i { position: relative; }
 .fiche-dots i::after { content: ""; position: absolute; inset: -9px; }
 @media (pointer: coarse) { .tones span { padding: 6px 10px; } .nav-links a { display: inline-block; padding: 8px 0; } .car-nav button { width: 44px; height: 44px; } }
+.nw { white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -598,7 +597,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <div class="play-wrap" id="play-wrap"><span class="wave w1" aria-hidden="true"></span><span class="wave w2" aria-hidden="true"></span><button class="play-btn" type="button" id="play" aria-expanded="false" aria-controls="video-panel" aria-label="Lire la vidéo"></button></div>
       <p class="play-label"><span data-t="hero.play">Découvrir mazeo en vidéo</span><span data-t="hero.playClose">Fermer la vidéo</span></p>
       <div class="video-panel" id="video-panel"><div><div class="inner">
-        <!-- Film produit v16 (16/09/2026, version courte de 52 s, français seulement pour l’instant) : fabriqué en code dans ~/dev/video-mazeo -->
+        <!-- Film produit v17 (16/09/2026, version courte de 52 s, français seulement pour l’instant) : fabriqué en code dans ~/dev/video-mazeo -->
         <div class="video-frame" id="video-frame">
           <video id="film" preload="metadata" playsinline poster="assets/mazeo-film-poster.jpg" aria-label="mazeo en une minute"><source src="assets/mazeo-film.mp4" type="video/mp4"></video>
           <button class="vf-close" type="button" id="vf-close" aria-label="Fermer la vidéo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
@@ -646,7 +645,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <div class="marker reveal"><span class="n">1</span><span class="name" data-t="mk.name">Le marché</span></div>
       <div class="head reveal">
         <h2 class="title" data-t="mk.h2">Tout le secteur, cartographié.</h2>
-        <p class="lead" data-t="mk.lead">mazeo lit en temps réel l’ensemble des informations publiques du secteur&nbsp;: LinkedIn, sites web, registre des entreprises, offres d’emploi, appels d’offres publics, réseaux sociaux. Il s’en sert pour catégoriser chaque entreprise, la scorer et la matcher avec votre offre.</p>
+        <p class="lead" data-t="mk.lead">mazeo lit en temps réel l’ensemble des informations publiques du secteur, et classe chaque entreprise dans sa famille&nbsp;: acheteurs, prestataires, terrain, outils.</p>
       </div>
       <div class="screen mmap-screen reveal" aria-hidden="true" id="mmap">
         <div class="screen-top"><span class="t" lang="en">The Market<small data-t="mm.count">1&nbsp;300+ entreprises · 13&nbsp;000+ contacts</small></span><span class="seg-toggle"><span class="on" data-t="mm.map">Carte</span><span data-t="mm.list">Liste</span></span></div>
@@ -662,7 +661,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 
     <div class="scoring">
       <div class="container reveal">
-        <h3 data-t="sc.h3">Un scoring fait par des professionnels du métier, pour des professionnels du métier.</h3>
+        <h3 data-t="sc.h3">Chaque entreprise, scorée par des professionnels du métier.</h3>
         <p class="lead" data-t="sc.p">Toutes les entreprises du secteur sont scorées sur les trois mêmes axes&nbsp;: domaines, méthodes, secteurs.<br>Ce score sert aux recommandations&nbsp;: votre offre face au besoin de chaque entreprise.</p>
         <div class="scards">
           <div class="scard"><b>12<em data-t="ax1.b">domaines</em></b><small data-t="ax1.s">Ce qu’on étudie</small><div class="chips">
@@ -681,9 +680,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     <div class="container">
       <div class="split match-split reveal">
         <div class="split-copy">
-          <h3 data-t="mt.h3">La bonne entreprise. La bonne personne.</h3>
-          <p class="copy" data-t="mt.p1">mazeo comprend votre offre et ce qui vous distingue. Il vous propose les entreprises les plus pertinentes, pour vous, classées, avec un score en&nbsp;%.</p>
-          <p class="copy" data-t="mt.p2">Pour chacune, la personne à contacter, avec son email et son portable en un clic.</p>
+          <h3 data-t="mt.h3">La bonne entreprise, recommandée.<br>La bonne personne, identifiée.</h3>
+          <p class="copy" data-t="mt.p1">mazeo comprend votre offre et ce qui vous distingue. Il vous recommande les entreprises qui en ont le plus besoin, avec un score en&nbsp;%.</p>
+          <p class="copy" data-t="mt.p2">Pour chacune, il sélectionne pour vous les personnes à contacter, et vous dit pourquoi. Leur email et leur portable s’affichent en un clic.</p>
         </div>
         <div class="screen fiche-screen" aria-hidden="true" id="fiche-screen">
           <div class="screen-top"><span class="t" data-t="fi.top">Fiche entreprise</span><span class="note" data-t="fi.src">À titre indicatif</span></div>
@@ -701,8 +700,8 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <div class="marker"><span class="n">2</span><span class="name" data-t="sg.eyebrow">Les signaux</span></div>
       <div class="split">
         <div class="split-copy">
-          <h2 class="title" data-t="sg.h2">Le bon moment pour les contacter.</h2>
-          <p class="lead" data-t="sg.p" style="margin-top:22px">La bonne entreprise, la bonne personne&nbsp;: reste le bon moment. mazeo scanne le secteur en temps réel et détecte dix types de signaux qui vous informent du meilleur moment pour entrer en contact.</p>
+          <h2 class="title" data-t="sg.h2">Le bon moment, détecté en temps réel.</h2>
+          <p class="lead" data-t="sg.p" style="margin-top:22px">mazeo scanne le secteur en temps réel et détecte dix types de signaux qui vous informent du meilleur moment pour entrer en contact.</p>
           <div class="pillgroup">
             <div><span class="lbl" data-t="sg.co">Côté entreprise</span><div class="pills">
               <span class="ov-signal-pill hiring" data-def="L’entreprise recrute un profil études ou insights, au sens large&nbsp;: market research, connaissance client, data consommateur, CX. Source&nbsp;: offres d’emploi." data-def-en="The company is hiring a research or insights profile, broadly: market research, consumer knowledge, consumer data, CX. Source: job posts." data-t="sp.1">Recrutement de profils insight</span>
@@ -719,7 +718,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
               <span class="ov-signal-pill bio" data-def="Le contact a mis à jour sa présentation ou ses compétences." data-def-en="The contact updated their profile or skills." data-t="sp.10">Évolution des compétences</span>
             </div></div>
           </div>
-          <p class="watchline" data-t="sg.watch"><b>La Watch.</b> Suivez les entreprises et les personnes qui comptent pour vous. Résumé par email chaque mercredi.</p>
+          <p class="watchline" data-t="sg.watch"><b>La Watch.</b> Suivez les entreprises et les personnes qui comptent pour vous. Chaque mercredi, un email résume leurs signaux de la semaine.</p>
           <div class="bignum">
             <div><b>10+</b><span data-t="n.sig">types de signaux</span></div>
             <div><b>5&nbsp;000+</b><span data-t="n.det">signaux détectés depuis juillet 2026</span></div>
@@ -740,8 +739,8 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     <div class="container">
       <div class="marker"><span class="n">3</span><span class="name" data-t="pl.eyebrow">Le Pipeline</span></div>
       <div class="head">
-        <h2 class="title" data-t="pl.h2">De la prise de contact au rendez-vous, étape par étape.</h2>
-        <p class="lead" data-t="pl.lead">mazeo vous accompagne jusqu’au rendez-vous, dans un parcours pensé pour notre métier. À chaque étape, il vous suggère quoi faire et quand, et vous prévient dès qu’une tâche est en retard.</p>
+        <h2 class="title" data-t="pl.h2">Le <span class="nw">rendez-vous</span>, obtenu étape par étape.</h2>
+        <p class="lead" data-t="pl.lead">Pensé pour notre métier, le Pipeline vous suggère quoi faire et quand, et vous prévient dès qu’une tâche est en retard.</p>
       </div>
 
       <div class="screen raised kanban" aria-hidden="true" id="kanban-screen">
@@ -884,32 +883,32 @@ document.documentElement.classList.add("js");
     "pb.p1": "Reaching new companies whose needs match your offer, in 3&nbsp;clicks: impossible until now. So mazeo built it.",
     "pb.p2": "A simple, clear view of the market: your competitors, your suppliers, and above all your next clients.",
     "mk.h2": "The whole industry, mapped.",
-    "mk.lead": "mazeo reads all the industry’s public information in real time: LinkedIn, websites, the company register, job posts, public tenders, social networks. It uses it to categorise each company, score it, and match it with your offer.",
+    "mk.lead": "mazeo reads all the industry’s public information in real time, and sorts each company into its family: buyers, providers, fieldwork, tools.",
     "mm.count": "1,300+ companies · 13,000+ contacts", "mm.map": "Map", "mm.list": "List",
     "mm.q1": "Research buyers <span>796</span>", "mm.q2": "Research providers <span>386</span>", "mm.q3": "Fieldwork &amp; data collection <span>63</span>", "mm.q4": "Tools &amp; tech services <span>55</span>", "mm.note": "The whole French market research industry. More countries to come.",
     "sol.eyebrow": "The solution", "sol.h3": "So mazeo built it.", "sol.p": "The whole market research industry on one map: the companies that buy research, and those that deliver it. mazeo knows the needs of the former and the offer of the latter, and scores both. A simple, clear view of the market: your competitors, your suppliers, and above all your next clients.",
-    "sc.h3": "Scoring built by industry professionals, for industry professionals.",
+    "sc.h3": "Every company, scored by industry professionals.",
     "sc.p": "Every company in the industry is scored on the same three axes: domains, methods, sectors.<br>That score powers the recommendations: your offer against each company’s need.",
     "ax1.b": "domains", "ax1.s": "What is studied", "ax2.b": "methods", "ax2.s": "How it is studied", "ax3.b": "sectors", "ax3.s": "For which market",
-    "mt.h3": "The right company. The right person.",
-    "mt.p1": "mazeo understands your offer and what sets you apart. It proposes the most relevant companies for you, ranked, with a score in&nbsp;%.",
-    "mt.p2": "For each one, the person to contact, with their email and mobile number in one click.",
+    "mt.h3": "The right company, recommended.<br>The right person, identified.",
+    "mt.p1": "mazeo understands your offer and what sets you apart. It recommends the companies that need it most, with a score in&nbsp;%.",
+    "mt.p2": "For each one, it selects the people to contact for you, and tells you why. Their email and mobile number appear in one click.",
     "fi.top": "Company profile", "fi.src": "For illustration", "fi.meta": "Research buyer · Large group · FMCG",
     "fi.why": "<b>Why this match:</b> strong needs in product testing and U&amp;A, your offer covers both, FMCG sector in common.",
     "fi.a1": "Innovation &amp; Product testing <small>· need</small>", "fi.a2": "Segmentation &amp; U&amp;A <small>· need</small>", "fi.a3": "Quantitative <small>· method</small>", "fi.a4": "FMCG / CPG <small>· sector</small>",
     "fi.who": "Head of Consumer Research", "fi.tel": "Phone",
     "n.co": "companies mapped", "n.ct": "contacts, from the CEO to the research executive", "n.sect": "sectors · 12 domains · 8 methods", "n.note": "French market. More markets coming.",
     "sg.eyebrow": "Signals",
-    "sg.h2": "The right moment to reach out.",
-    "sg.p": "The right company, the right person: what remains is the right moment. mazeo scans the industry in real time and detects ten types of signals that tell you the best moment to get in touch.",
+    "sg.h2": "The right moment, detected in real time.",
+    "sg.p": "mazeo scans the industry in real time and detects ten types of signals that tell you the best moment to get in touch.",
     "sg.co": "Company side", "sg.pe": "Contact side",
     "sp.1": "Hiring insight profiles", "sp.2": "Team turnover", "sp.3": "Revenue change", "sp.4": "Governance change", "sp.5": "Public tender", "sp.6": "At risk", "sp.7": "Repositioning", "sp.8": "Changed job", "sp.9": "Promotion", "sp.10": "New skills",
-    "sg.watch": "<b>The Watch.</b> Follow the companies and people that matter to you. An email summary every Wednesday.",
+    "sg.watch": "<b>The Watch.</b> Follow the companies and people that matter to you. Every Wednesday, an email sums up their signals of the week.",
     "n.sig": "signal types", "n.det": "signals detected since July 2026", "sg.note": "For illustration",
     "ws.co": "Companies", "ws.ct": "Contacts", "ws.search": "Search…", "ws.lbl": "Companies (7)", "ws.all": "All companies in the Watch", "ws.sort": "Newest first",
     "pl.eyebrow": "The Pipeline",
-    "pl.h2": "From first contact to the meeting, step by step.",
-    "pl.lead": "mazeo takes you all the way to the meeting, in a journey designed for our profession. At every step, it tells you what to do and when, and warns you as soon as a task is late.",
+    "pl.h2": "The meeting, booked step by step.",
+    "pl.lead": "Designed for our profession, the Pipeline tells you what to do and when, and warns you as soon as a task is late.",
     "kb.sub": "4 people in motion", "kb.alert": "To do · 1 step late", "kb.note": "For illustration",
     "wr.eyebrow": "The writer",
     "wr.h2": "It writes. You review, you send.",
