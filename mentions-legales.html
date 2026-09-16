@@ -33,17 +33,30 @@
   .center { text-align: center; padding-top: 120px; }
   .btn { display: inline-block; margin-top: 28px; padding: 14px 24px; border-radius: 999px; background: #007BFF; color: #fff; font-weight: 600; text-decoration: none; }
   .btn:hover { background: #0062CC; }
+  html[lang="en"] [data-lang="fr"], html[lang="fr"] [data-lang="en"] { display: none; }
+  footer .lang-switch { font-weight: 600; }
+  .updated:has(+ .updated) { margin-bottom: 4px; }
 </style>
+<script>
+  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le navigateur (16/09) */
+  (function () {
+    var q = /[?&]lang=(en|fr)\b/i.exec(location.search), s = null; try { s = localStorage.getItem("mazeo_lang"); } catch (e) {}
+    var b = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
+    var l = q ? q[1].toLowerCase() : (s === "en" || s === "fr" ? s : b);
+    if (q) { try { localStorage.setItem("mazeo_lang", l); } catch (e) {} }
+    document.documentElement.lang = l;
+  })();
+</script>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo">mazeo<span>.</span></a>
-    <a href="/" class="nav-back">← Retour à l’accueil</a>
+    <a href="/" class="nav-back" data-en="← Back to home">← Retour à l’accueil</a>
   </div>
 </nav>
 
-<div class="content">
+<div class="content" data-lang="fr">
   <h1>Mentions légales</h1>
   <p class="updated">Mises à jour le 15 septembre 2026</p>
 
@@ -65,12 +78,55 @@
   <p>Le traitement des données personnelles est décrit dans la <a href="privacy.html">politique de confidentialité</a>.</p>
 </div>
 
+<div class="content" data-lang="en" lang="en">
+  <h1>Legal notice</h1>
+  <p class="updated">Updated on September 15, 2026</p>
+  <p class="updated">This English version is provided for convenience. The French version prevails.</p>
+
+  <h2>Publisher</h2>
+  <p>The mazeo.co website is published by <strong>MAZEO</strong>, a French simplified joint-stock company with a single shareholder (SASU) with a share capital of €5,000, registered with the Paris Trade and Companies Register (RCS) under number 102 028 396, whose registered office is at 60 rue François Ier, 75008 Paris, France.</p>
+  <p>EU VAT number: FR51 102 028 396.</p>
+  <p>Publication director: Romain Barbet, President.</p>
+  <p>Contact: <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a></p>
+
+  <h2>Hosting</h2>
+  <p>The website is hosted by Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, United States (<a href="https://vercel.com" rel="noopener" target="_blank">vercel.com</a>).</p>
+  <p>The application data is hosted by Supabase Inc. on servers located in the European Union.</p>
+
+  <h2>Intellectual property</h2>
+  <p>The entire website, including its texts, design, code, logo and content, is the property of MAZEO and is protected by intellectual property law. Any full or partial reproduction or representation without written permission is prohibited.</p>
+  <p>Third-party company logos and trademarks shown on the website belong to their respective owners. They indicate that these companies are included in the mazeo database and do not imply any partnership with or endorsement by them. Some logos are provided by the Logo.dev service.</p>
+
+  <h2>Personal data</h2>
+  <p>The processing of personal data is described in the <a href="privacy.html">privacy policy</a>.</p>
+</div>
+
 <footer>
   © 2026 mazeo ·
-  <a href="mentions-legales.html">Mentions légales</a> ·
-  <a href="privacy.html">Confidentialité</a> ·
-  <a href="terms.html">Conditions d’utilisation</a>
+  <a href="mentions-legales.html" data-en="Legal notice">Mentions légales</a> ·
+  <a href="privacy.html" data-en="Privacy">Confidentialité</a> ·
+  <a href="terms.html" data-en="Terms of use">Conditions d’utilisation</a> ·
+  <a href="?lang=en" id="lang-switch" class="lang-switch" hreflang="en" lang="en">English</a>
 </footer>
+<script>
+  (function () {
+    var fr = document.title, en = "Legal notice — mazeo";
+    function apply() {
+      var l = document.documentElement.lang === "en" ? "en" : "fr";
+      document.title = l === "en" ? en : fr;
+      document.querySelectorAll("[data-en]").forEach(function (e) { if (!e.hasAttribute("data-fr")) e.setAttribute("data-fr", e.textContent); e.textContent = e.getAttribute(l === "en" ? "data-en" : "data-fr"); });
+      var sw = document.getElementById("lang-switch"), o = l === "en" ? "fr" : "en";
+      sw.textContent = o === "en" ? "English" : "Français"; sw.setAttribute("href", "?lang=" + o); sw.setAttribute("hreflang", o); sw.setAttribute("lang", o);
+    }
+    apply();
+    document.getElementById("lang-switch").addEventListener("click", function (e) {
+      e.preventDefault(); var o = document.documentElement.lang === "en" ? "fr" : "en";
+      document.documentElement.lang = o; try { localStorage.setItem("mazeo_lang", o); } catch (err) {}
+      try { history.replaceState(null, "", location.pathname + "?lang=" + o); } catch (err) {}
+      apply();
+    });
+  })();
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

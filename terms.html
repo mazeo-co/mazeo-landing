@@ -33,17 +33,30 @@
   .center { text-align: center; padding-top: 120px; }
   .btn { display: inline-block; margin-top: 28px; padding: 14px 24px; border-radius: 999px; background: #007BFF; color: #fff; font-weight: 600; text-decoration: none; }
   .btn:hover { background: #0062CC; }
+  html[lang="en"] [data-lang="fr"], html[lang="fr"] [data-lang="en"] { display: none; }
+  footer .lang-switch { font-weight: 600; }
+  .updated:has(+ .updated) { margin-bottom: 4px; }
 </style>
+<script>
+  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le navigateur (16/09) */
+  (function () {
+    var q = /[?&]lang=(en|fr)\b/i.exec(location.search), s = null; try { s = localStorage.getItem("mazeo_lang"); } catch (e) {}
+    var b = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
+    var l = q ? q[1].toLowerCase() : (s === "en" || s === "fr" ? s : b);
+    if (q) { try { localStorage.setItem("mazeo_lang", l); } catch (e) {} }
+    document.documentElement.lang = l;
+  })();
+</script>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo">mazeo<span>.</span></a>
-    <a href="/" class="nav-back">← Retour à l’accueil</a>
+    <a href="/" class="nav-back" data-en="← Back to home">← Retour à l’accueil</a>
   </div>
 </nav>
 
-<div class="content">
+<div class="content" data-lang="fr">
   <h1>Conditions d’utilisation</h1>
   <p class="updated">Mises à jour le 15 septembre 2026</p>
 
@@ -81,12 +94,71 @@
   <p><a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a></p>
 </div>
 
+<div class="content" data-lang="en" lang="en">
+  <h1>Terms of use</h1>
+  <p class="updated">Updated on September 15, 2026</p>
+  <p class="updated">This English version is provided for convenience. The French version prevails.</p>
+
+  <h2>1. About mazeo</h2>
+  <p>mazeo is a prospecting tool built for market research, published by MAZEO, SASU, 60 rue François Ier, 75008 Paris, France, RCS Paris 102 028 396. By using the mazeo.co website, you accept these terms.</p>
+
+  <h2>2. Demo and access</h2>
+  <p>mazeo is in private beta. By leaving your email, you request a demo or access. This request does not bind either party. Granting access remains at mazeo's discretion.</p>
+
+  <h2>3. Intellectual property</h2>
+  <p>The website, the application, and their texts, design, code and data are the property of MAZEO. Any reproduction, extraction or reuse without written permission is prohibited.</p>
+
+  <h2>4. Use of the service</h2>
+  <p>By accessing mazeo, including during the beta, you agree to:</p>
+  <ul>
+    <li>use the service in a strictly professional context and in compliance with the law, in particular the GDPR;</li>
+    <li>not extract, copy or resell data from the platform;</li>
+    <li>not share your login credentials;</li>
+    <li>not use the platform for mass or unsolicited mailings.</li>
+  </ul>
+
+  <h2>5. Data accuracy</h2>
+  <p>mazeo aggregates public information about companies and professionals. We do our best to keep it accurate, without guaranteeing that it is complete or up to date. It should not be the sole basis for any decision.</p>
+
+  <h2>6. Liability</h2>
+  <p>The service is provided as is. MAZEO cannot be held liable for any indirect damage resulting from its use.</p>
+
+  <h2>7. Changes</h2>
+  <p>These terms may be changed at any time. Continued use of the service constitutes acceptance of the version in force.</p>
+
+  <h2>8. Governing law</h2>
+  <p>These terms are governed by French law. Any dispute falls under the jurisdiction of the competent courts of Paris.</p>
+
+  <h2>9. Contact</h2>
+  <p><a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a></p>
+</div>
+
 <footer>
   © 2026 mazeo ·
-  <a href="mentions-legales.html">Mentions légales</a> ·
-  <a href="privacy.html">Confidentialité</a> ·
-  <a href="terms.html">Conditions d’utilisation</a>
+  <a href="mentions-legales.html" data-en="Legal notice">Mentions légales</a> ·
+  <a href="privacy.html" data-en="Privacy">Confidentialité</a> ·
+  <a href="terms.html" data-en="Terms of use">Conditions d’utilisation</a> ·
+  <a href="?lang=en" id="lang-switch" class="lang-switch" hreflang="en" lang="en">English</a>
 </footer>
+<script>
+  (function () {
+    var fr = document.title, en = "Terms of use — mazeo";
+    function apply() {
+      var l = document.documentElement.lang === "en" ? "en" : "fr";
+      document.title = l === "en" ? en : fr;
+      document.querySelectorAll("[data-en]").forEach(function (e) { if (!e.hasAttribute("data-fr")) e.setAttribute("data-fr", e.textContent); e.textContent = e.getAttribute(l === "en" ? "data-en" : "data-fr"); });
+      var sw = document.getElementById("lang-switch"), o = l === "en" ? "fr" : "en";
+      sw.textContent = o === "en" ? "English" : "Français"; sw.setAttribute("href", "?lang=" + o); sw.setAttribute("hreflang", o); sw.setAttribute("lang", o);
+    }
+    apply();
+    document.getElementById("lang-switch").addEventListener("click", function (e) {
+      e.preventDefault(); var o = document.documentElement.lang === "en" ? "fr" : "en";
+      document.documentElement.lang = o; try { localStorage.setItem("mazeo_lang", o); } catch (err) {}
+      try { history.replaceState(null, "", location.pathname + "?lang=" + o); } catch (err) {}
+      apply();
+    });
+  })();
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
