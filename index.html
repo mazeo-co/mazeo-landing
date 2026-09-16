@@ -97,7 +97,8 @@ button, input { font: inherit; }
 .split.flip { grid-template-columns: 7fr 5fr; }
 .split.flip .split-copy { order: 2; }
 .split.even { grid-template-columns: 1fr 1fr; align-items: start; }
-.split h3 { font-size: clamp(30px, 3.6vw, 52px); }
+.split h3 { font-size: clamp(36px, 4.6vw, 64px); }
+.writer-split h3 { font-size: clamp(32px, 4vw, 56px); }
 @media (max-width: 960px) { .split, .split.flip, .split.even { grid-template-columns: 1fr; gap: 40px; } .split.flip .split-copy { order: 0; } .section { padding-block: 84px; } }
 
 /* ---- Boutons, formulaire ---- */
@@ -269,7 +270,7 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 
 /* Le scoring : une bande grise, trois cartes */
 .scoring { margin-top: 96px; background: var(--soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); padding-block: 88px; }
-.scoring h3 { font-size: clamp(30px, 3.6vw, 52px); max-width: 1000px; }
+.scoring h3 { font-size: clamp(36px, 4.6vw, 64px); max-width: 1000px; }
 .scoring .lead { margin-top: 20px; max-width: none; }
 .scards { margin-top: 44px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .scard { background: #fff; border: 1px solid var(--line); border-radius: var(--r-card); padding: 26px 26px 24px; }
@@ -568,7 +569,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .nw { white-space: nowrap; }
 
 /* Bloc de la fiche : colonne de texte un peu plus large pour que « et la bonne personne, » tienne sur une ligne à 52 px (16/09) */
-@media (min-width: 961px) { .match-split { grid-template-columns: 5.2fr 6.8fr; } }
+@media (min-width: 961px) { .match-split { grid-template-columns: 6.4fr 5.6fr; } }
 @media (max-width: 340px) { .match-split h3 { font-size: 28px; } }
 </style>
 </head>
