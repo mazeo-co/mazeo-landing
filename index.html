@@ -1386,8 +1386,8 @@ document.documentElement.classList.add("js");
 
 /* Filigrane du hero : le secteur en réseau (variante B · Constellation de la maquette « Filigrane hero mazeo »).
    Le motif est dessiné à la taille réelle du bloc, et redessiné si la fenêtre change.
-   Seuls quelques nœuds sont des carrés : chacun porte le logo d'un institut ou d'un annonceur de la carte, une seule fois,
-   à distance du texte. Le point vert reprend celui du logo. */
+   Chaque carré porte le logo d'un institut ou d'un annonceur de la carte, une seule fois, à distance du texte ;
+   un fil léger les relie. Le point vert reprend celui du logo. */
 (function () {
   var wrap = document.getElementById("hero-bg"), host = document.getElementById("hero-bg-in");
   var hero = wrap && wrap.closest(".hero"), trusted = hero && hero.querySelector(".trusted");
@@ -1401,7 +1401,7 @@ document.documentElement.classList.add("js");
 
   function drawTile(t) {
     var size = t.s * 0.66, pad = (t.s - size) / 2;
-    var inner = '<image href="assets/logo-' + t.logo + '.png" x="' + (t.x + pad) + '" y="' + (t.y + pad) + '" width="' + size + '" height="' + size + '" preserveAspectRatio="xMidYMid meet" opacity=".5"/>';
+    var inner = '<image href="assets/logo-' + t.logo + '.png" x="' + (t.x + pad) + '" y="' + (t.y + pad) + '" width="' + size + '" height="' + size + '" preserveAspectRatio="xMidYMid meet" opacity="' + (0.3 + (t.s - 40) / 22 * 0.25).toFixed(2) + '"/>';
     return '<g><rect x="' + t.x + '" y="' + t.y + '" width="' + t.s + '" height="' + t.s + '" rx="' + (t.s * .26) + '" fill="#fff" stroke="' + LINE2 + '" stroke-width="1.3"/>' + inner + '</g>';
   }
 
@@ -1440,16 +1440,17 @@ document.documentElement.classList.add("js");
     return zones;
   }
 
-  /* Un seul exemplaire par logo, sur des emplacements équilibrés (5 à gauche, 5 à droite, en quinconce).
-     Si un emplacement touche le texte (écran étroit), le logo glisse vers le bord ; s'il ne trouve pas de place, il n'est pas affiché. */
-  var SLOTS = [[.05, .25], [.95, .27], [.19, .39], [.81, .41], [.07, .56], [.93, .58], [.26, .64], [.74, .64], [.14, .74], [.86, .74]];
+  /* Un seul exemplaire par logo, sur des emplacements équilibrés (5 à gauche, 5 à droite, en quinconce), de tailles variées :
+     les plus grands semblent plus près, tout en restant légers. Si un emplacement touche le texte (écran étroit),
+     le logo glisse vers le bord ; s'il ne trouve pas de place, il n'est pas affiché. */
+  var SLOTS = [[.05, .25, 58], [.95, .27, 44], [.19, .39, 42], [.81, .41, 60], [.07, .56, 50], [.93, .58, 54], [.26, .64, 62], [.74, .64, 40], [.14, .74, 46], [.86, .74, 52]];
   function placeLogos() {
     var zones = textZones(), out = [], n = 0;
-    function free(x, y) {
-      if (x - 23 < 8 || x + 23 > W - 8) return false;
+    function free(x, y, h2) {
+      if (x - h2 < 8 || x + h2 > W - 8) return false;
       for (var z = 0; z < zones.length; z++) {
         var q = zones[z];
-        if (x + 23 > q.l && x - 23 < q.r && y + 23 > q.t && y - 23 < q.b) return false;
+        if (x + h2 > q.l && x - h2 < q.r && y + h2 > q.t && y - h2 < q.b) return false;
       }
       for (var k = 0; k < out.length; k++) {
         if (Math.abs(out[k].x - x) < 110 && Math.abs(out[k].y - y) < 90) return false;
@@ -1457,39 +1458,32 @@ document.documentElement.classList.add("js");
       return true;
     }
     for (var s = 0; s < SLOTS.length && n < LOGOS.length; s++) {
-      var x = SLOTS[s][0] * W, y = SLOTS[s][1] * H, dir = SLOTS[s][0] < .5 ? -1 : 1;
-      while (!free(x, y) && x - 23 >= 8 && x + 23 <= W - 8) x += dir * 16;
-      if (free(x, y)) out.push({ x: x, y: y, logo: LOGOS[n++] });
+      var x = SLOTS[s][0] * W, y = SLOTS[s][1] * H, size = SLOTS[s][2], dir = SLOTS[s][0] < .5 ? -1 : 1;
+      while (!free(x, y, size / 2) && x - size / 2 >= 8 && x + size / 2 <= W - 8) x += dir * 16;
+      if (free(x, y, size / 2)) out.push({ x: x, y: y, s: size, left: SLOTS[s][0] < .5, logo: LOGOS[n++] });
     }
     return out;
   }
 
+  /* Un réseau simple : de chaque côté, un fil relie les logos de haut en bas, et quelques points s'y accrochent. */
+  function line(x1, y1, x2, y2) { return '<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="' + LINE + '" stroke-width="1.2"/>'; }
+  function dot(x, y, rad) { return '<circle cx="' + x + '" cy="' + y + '" r="' + rad + '" fill="#fff" stroke="' + LINE2 + '" stroke-width="1.3"/>'; }
   function constellation() {
-    var r = rng(21), pts = [], step = 124, back = "", tiles = [];
-    var cols = Math.ceil(W / step) + 1, rows = Math.ceil(H / step) + 1;
-    for (var gy = 0; gy < rows; gy++) for (var gx = 0; gx < cols; gx++) {
-      pts.push({ x: gx * step + 24 + (r() - .5) * 70, y: gy * step + 24 + (r() - .5) * 70, big: r() < .28 });
-    }
-    for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
-      var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y;
-      if (dx * dx + dy * dy < 150 * 150) back += '<line x1="' + pts[a].x + '" y1="' + pts[a].y + '" x2="' + pts[b].x + '" y2="' + pts[b].y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
-    }
-    var logos = placeLogos();
+    var r = rng(21), links = "", dots = "", tiles = [], logos = placeLogos();
+    [true, false].forEach(function (side) {
+      var col = logos.filter(function (l) { return l.left === side; }).sort(function (u, v) { return u.y - v.y; });
+      for (var i = 1; i < col.length; i++) links += line(col[i - 1].x, col[i - 1].y, col[i].x, col[i].y);
+    });
     for (var j = 0; j < logos.length; j++) {
-      var L = logos[j], near = pts.slice().sort(function (u, v) { return (u.x - L.x) * (u.x - L.x) + (u.y - L.y) * (u.y - L.y) - (v.x - L.x) * (v.x - L.x) - (v.y - L.y) * (v.y - L.y); });
-      for (var m = 0, c = 0; m < near.length && c < 2; m++) {
-        if (Math.abs(near[m].x - L.x) < 40 && Math.abs(near[m].y - L.y) < 40) continue;
-        back += '<line x1="' + L.x + '" y1="' + L.y + '" x2="' + near[m].x + '" y2="' + near[m].y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
-        c++;
+      var L = logos[j];
+      if (r() < .7) {
+        var ang = (L.left ? Math.PI : 0) + (r() - .5) * 1.6, dist = L.s / 2 + 34 + r() * 30;
+        var dx = L.x + Math.cos(ang) * dist, dy = L.y + Math.sin(ang) * dist;
+        if (dx > 6 && dx < W - 6) { links += line(L.x, L.y, dx, dy); dots += dot(dx, dy, 3.5 + r() * 2.5); }
       }
-      tiles.push({ x: L.x - 23, y: L.y - 23, s: 46, logo: L.logo });
+      tiles.push({ x: L.x - L.s / 2, y: L.y - L.s / 2, s: L.s, logo: L.logo });
     }
-    for (var i = 0; i < pts.length; i++) {
-      var p = pts[i], rad = p.big ? (r(), 6) : 4.5 + r() * 3, hidden = false;
-      for (var q = 0; q < logos.length; q++) if (Math.abs(logos[q].x - p.x) < 40 && Math.abs(logos[q].y - p.y) < 40) hidden = true;
-      if (!hidden) back += '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + rad + '" fill="#fff" stroke="' + LINE2 + '" stroke-width="1.3"/>';
-    }
-    return { tiles: tiles, back: back };
+    return { tiles: tiles, back: links + dots };
   }
 
   function measure() {
