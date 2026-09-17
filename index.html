@@ -785,7 +785,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
           </div>
           <div class="quote">
             <blockquote data-t="q2.t">«&nbsp;En deux semaines, mazeo nous a fait découvrir une vingtaine d’instituts qu’on n’avait jamais contactés. Pour chacun, on savait qui appeler.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/tom-longeron.jpg" alt="" width="46" height="46"><div><b>Tom Longeron</b><span data-t="q2.r">Head of Sales, Norstat France</span></div></div>
+            <div class="who"><img src="assets/people/tom-longeron.jpg" alt="" width="46" height="46"><div><b>Tom Longeron</b><span data-t="q2.r">Directeur commercial, Norstat France</span></div></div>
           </div>
           <div class="quote">
             <blockquote data-t="q3.t">«&nbsp;Les signaux changent tout&nbsp;: on écrit quand il se passe quelque chose chez le client, pas au hasard.&nbsp;»</blockquote>
@@ -1468,26 +1468,52 @@ document.documentElement.classList.add("js");
     for (var gy2 = 0; gy2 < rows; gy2++) ghosts.push({ x: -100 + (r2() - .5) * 70, y: gy2 * step + 24 + (r2() - .5) * 70, ghost: true });
     var all = pts.concat(ghosts);
     /* au-dessus du titre, pas de traits : la bande sous le menu reste nette */
+    var edges = [];
     for (var a = 0; a < all.length; a++) for (var b = a + 1; b < all.length; b++) {
       var A = all[a], B = all[b], dx = A.x - B.x, dy = A.y - B.y;
       if (A.ghost && B.ghost) continue;
       if (A.off || B.off || Math.min(A.y, B.y) < top) continue;
-      if (dx * dx + dy * dy < 150 * 150) {
-        back += '<line x1="' + A.x + '" y1="' + A.y + '" x2="' + B.x + '" y2="' + B.y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
-        if (A.y < B.y - 40) B.up = true; else if (B.y < A.y - 40) A.up = true;
-      }
+      if (dx * dx + dy * dy < 150 * 150) edges.push([A, B]);
     }
-    /* un logo sans trait qui monte en reçoit un seul, discret, vers le point le plus proche au-dessus de lui (même au-dessus du titre) */
-    for (var g = 0; g < pts.length; g++) {
-      var L = pts[g];
-      if (!L.logo || L.up) continue;
+    function linked(A, B) { for (var e = 0; e < edges.length; e++) if ((edges[e][0] === A && edges[e][1] === B) || (edges[e][0] === B && edges[e][1] === A)) return e; return -1; }
+    function d2(A, B) { return (A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y); }
+    function hasUp(A) { for (var e = 0; e < edges.length; e++) { var o = edges[e][0] === A ? edges[e][1] : edges[e][1] === A ? edges[e][0] : null; if (o && o.y < A.y - 40) return true; } return false; }
+    function upTo(A) {
       var best = null, bd = 260 * 260;
       for (var o = 0; o < pts.length; o++) {
-        var P = pts[o], ex = P.x - L.x, ey = P.y - L.y;
-        if (P.logo || P.off || ey > -40 || ex * ex + ey * ey >= bd) continue;
-        bd = ex * ex + ey * ey; best = P;
+        var P = pts[o];
+        if (P.logo || P.off || P.y > A.y - 40 || d2(P, A) >= bd) continue;
+        bd = d2(P, A); best = P;
       }
-      if (best) back += '<line x1="' + L.x + '" y1="' + L.y + '" x2="' + best.x + '" y2="' + best.y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
+      if (best) edges.push([A, best]);
+      return best;
+    }
+    var logoPts = pts.filter(function (q) { return q.logo; });
+    /* un logo sans trait qui monte en reçoit un seul, discret, vers le point le plus proche au-dessus de lui (même au-dessus du titre) ;
+       le point au-dessus d'un logo continue lui aussi vers le haut */
+    for (var g = 0; g < logoPts.length; g++) {
+      var L = logoPts[g], U = null;
+      for (var e = 0; e < edges.length; e++) {
+        var o = edges[e][0] === L ? edges[e][1] : edges[e][1] === L ? edges[e][0] : null;
+        if (o && !o.logo && !o.ghost && o.y < L.y - 40) { U = o; break; }
+      }
+      if (!U) U = upTo(L);
+      if (U && !hasUp(U)) upTo(U);
+    }
+    /* deux logos reliés par un même point : ils sont reliés directement, et le logo le plus éloigné de ce point perd son trait vers lui */
+    for (var u = 0; u < logoPts.length; u++) for (var v = u + 1; v < logoPts.length; v++) {
+      var X = logoPts[u], Y = logoPts[v];
+      if (d2(X, Y) > 360 * 360) continue;
+      for (var n = 0; n < pts.length; n++) {
+        var N = pts[n], ex = linked(X, N), ey = linked(Y, N);
+        if (N.logo || ex < 0 || ey < 0) continue;
+        edges.splice(d2(X, N) > d2(Y, N) ? ex : ey, 1);
+        if (linked(X, Y) < 0) edges.push([X, Y]);
+      }
+    }
+    for (var e2 = 0; e2 < edges.length; e2++) {
+      var P1 = edges[e2][0], P2 = edges[e2][1];
+      back += '<line x1="' + P1.x + '" y1="' + P1.y + '" x2="' + P2.x + '" y2="' + P2.y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
     }
     for (var i = 0; i < pts.length; i++) {
       var p = pts[i], rad = p.big ? (r(), 4.5 + ((i * 7) % 10) / 10 * 3) : 4.5 + r() * 3;
