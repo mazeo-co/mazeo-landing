@@ -1412,7 +1412,7 @@ document.documentElement.classList.add("js");
 
   /* Zones de texte à ne jamais couvrir d'un logo, en coordonnées du bloc */
   function textZones() {
-    var base = wrap.getBoundingClientRect(), m = 44, zones = [];
+    var base = wrap.getBoundingClientRect(), m = W < 640 ? 12 : 44, zones = [];
     function add(r) { if (r.width && r.height) zones.push({ l: r.left - base.left - m, r: r.right - base.left + m, t: r.top - base.top - m, b: r.bottom - base.top + m }); }
     [].forEach.call(hero.querySelectorAll(".container > h1, .container > .promise, .container > .promise2, .play-label, .signup .helper"), function (el) {
       var range = document.createRange(); range.selectNodeContents(el);
@@ -1435,10 +1435,12 @@ document.documentElement.classList.add("js");
         if (p.x + h2 > q.l && p.x - h2 < q.r && p.y + h2 > q.t && p.y - h2 < q.b) return false;
       }
       for (var k = 0; k < taken.length; k++) {
-        if (Math.abs(taken[k].x - p.x) < 110 && Math.abs(taken[k].y - p.y) < 100) return false;
+        var gap = W < 640 ? 70 : 0;
+        if (Math.abs(taken[k].x - p.x) < (gap || 110) && Math.abs(taken[k].y - p.y) < (gap || 100)) return false;
       }
       return true;
     }
+    if (W < 640) return placeLogosMobile(pts, free, taken);
     for (var s = 0; s < SLOTS.length && n < LOGOS.length; s++) {
       var tx = SLOTS[s][0] * W, ty = SLOTS[s][1] * H, size = SLOTS[s][2], best = null, bd = (W * .15) * (W * .15);
       for (var i = 0; i < pts.length; i++) {
@@ -1446,6 +1448,40 @@ document.documentElement.classList.add("js");
         if (d < bd && !pts[i].logo && free(pts[i], size / 2)) { bd = d; best = pts[i]; }
       }
       if (best) { best.logo = LOGOS[n++]; best.s = size; taken.push(best); }
+    }
+  }
+
+  /* Sur téléphone, le texte occupe toute la largeur : les logos se logent à côté de la ligne la plus courte du titre, du bouton vidéo et de sa légende.
+     Le point du réseau le plus proche est déplacé à cet endroit, les traits le suivent. */
+  function placeLogosMobile(pts, free, taken) {
+    var base = wrap.getBoundingClientRect(), n = 0, targets = [];
+    function box(el) { var r = el.getBoundingClientRect(); return { l: r.left - base.left, r: r.right - base.left, t: r.top - base.top, b: r.bottom - base.top }; }
+    var play = hero.querySelector(".play-wrap"), h1 = hero.querySelector(".container > h1");
+    if (h1) {
+      var range = document.createRange(), shortest = null; range.selectNodeContents(h1);
+      [].forEach.call(range.getClientRects(), function (q) { if (q.width > 20 && (!shortest || q.width < shortest.width)) shortest = q; });
+      if (shortest) {
+        var c = { l: shortest.left - base.left, r: shortest.right - base.left, y: (shortest.top + shortest.bottom) / 2 - base.top };
+        targets.push([c.l / 2, c.y, 40], [(c.r + W) / 2, c.y + 6, 36]);
+      }
+    }
+    if (play) {
+      var pb = box(play), py = (pb.t + pb.b) / 2;
+      targets.push([pb.l / 2, py - 18, 44], [(pb.r + W) / 2, py + 22, 40]);
+    }
+    var label = hero.querySelector(".play-label span");
+    if (label && label.offsetParent) {
+      var lr = label.getBoundingClientRect(), ly = (lr.top + lr.bottom) / 2 - base.top;
+      targets.push([(lr.right - base.left + W) / 2, ly + 12, 36], [(lr.left - base.left) / 2, ly + 12, 38]);
+    }
+    for (var s = 0; s < targets.length && n < LOGOS.length; s++) {
+      var spot = { x: targets[s][0], y: targets[s][1] }, size = targets[s][2], best = null, bd = 140 * 140;
+      if (!free(spot, size / 2)) continue;
+      for (var i = 0; i < pts.length; i++) {
+        var dx = pts[i].x - spot.x, dy = pts[i].y - spot.y, d = dx * dx + dy * dy;
+        if (d < bd && !pts[i].logo) { bd = d; best = pts[i]; }
+      }
+      if (best) { best.x = spot.x; best.y = spot.y; best.logo = LOGOS[n++]; best.s = size; taken.push(best); }
     }
   }
 
