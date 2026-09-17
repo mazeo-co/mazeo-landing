@@ -1472,14 +1472,29 @@ document.documentElement.classList.add("js");
     for (var gy = 0; gy < rows; gy++) for (var gx = 0; gx < cols; gx++) {
       pts.push({ x: gx * step + 24 + (r() - .5) * 70, y: gy * step + 24 + (r() - .5) * 70, big: r() < .28 });
     }
+    placeLogos(pts);
     /* au-dessus du titre, pas de traits : la bande sous le menu reste nette */
     var h1 = hero.querySelector(".container > h1"), top = h1 ? h1.getBoundingClientRect().top - wrap.getBoundingClientRect().top + 20 : 0;
     for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
       var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y;
       if (Math.min(pts[a].y, pts[b].y) < top) continue;
-      if (dx * dx + dy * dy < 150 * 150) back += '<line x1="' + pts[a].x + '" y1="' + pts[a].y + '" x2="' + pts[b].x + '" y2="' + pts[b].y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
+      if (dx * dx + dy * dy < 150 * 150) {
+        back += '<line x1="' + pts[a].x + '" y1="' + pts[a].y + '" x2="' + pts[b].x + '" y2="' + pts[b].y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
+        if (pts[a].y < pts[b].y - 40) pts[b].up = true; else if (pts[b].y < pts[a].y - 40) pts[a].up = true;
+      }
     }
-    placeLogos(pts);
+    /* un logo sans trait qui monte en reçoit un seul, discret, vers le point le plus proche au-dessus de lui (même au-dessus du titre) */
+    for (var g = 0; g < pts.length; g++) {
+      var L = pts[g];
+      if (!L.logo || L.up) continue;
+      var best = null, bd = 260 * 260;
+      for (var o = 0; o < pts.length; o++) {
+        var P = pts[o], ex = P.x - L.x, ey = P.y - L.y;
+        if (P.logo || ey > -40 || ex * ex + ey * ey >= bd) continue;
+        bd = ex * ex + ey * ey; best = P;
+      }
+      if (best) back += '<line x1="' + L.x + '" y1="' + L.y + '" x2="' + best.x + '" y2="' + best.y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
+    }
     for (var i = 0; i < pts.length; i++) {
       var p = pts[i], rad = p.big ? (r(), 4.5 + ((i * 7) % 10) / 10 * 3) : 4.5 + r() * 3;
       if (p.logo) tiles.push({ x: p.x - p.s / 2, y: p.y - p.s / 2, s: p.s, logo: p.logo });
