@@ -964,6 +964,8 @@ document.documentElement.classList.add("js");
         var vb = document.getElementById("vf-bar"); if (vb) vb.style.width = "0%"; var vt = document.getElementById("vf-time"); if (vt) vt.textContent = "0:00 / 0:52"; } }
     var ariaEn = document.querySelectorAll("[data-aria-en]"); for (var ae = 0; ae < ariaEn.length; ae++) { var aq = ariaEn[ae]; if (!aq.hasAttribute("data-aria-fr")) aq.setAttribute("data-aria-fr", aq.getAttribute("aria-label")); aq.setAttribute("aria-label", aq.getAttribute(lang === "en" ? "data-aria-en" : "data-aria-fr")); }
     var chipsEn = document.querySelectorAll(".chip[data-en]"); for (var ce = 0; ce < chipsEn.length; ce++) { var cq = chipsEn[ce]; if (!cq.hasAttribute("data-fr")) cq.setAttribute("data-fr", cq.textContent); cq.textContent = cq.getAttribute(lang === "en" ? "data-en" : "data-fr"); }
+    /* les liens « Se connecter » emmènent la langue de la page vers l'app : app.mazeo.co lit ?hl=fr|en à l'arrivée (17/09) */
+    var appLinks = document.querySelectorAll('a[href^="https://app.mazeo.co"]'); for (var al = 0; al < appLinks.length; al++) appLinks[al].setAttribute("href", "https://app.mazeo.co/?hl=" + lang);
     if (typeof tipHide === "function") tipHide();
     renderFeed(); renderKanban(); renderMail(true); renderFiche();
     if (!visible.feed) feedStop(); if (!visible.kanban) kanbanStop(); if (!visible.mail) mailStop();
