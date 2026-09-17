@@ -1520,6 +1520,24 @@ document.documentElement.classList.add("js");
         if (linked(X, Y) < 0) edges.push([X, Y]);
       }
     }
+    /* entre Kantar et IQVIA, un seul point : si la chaîne en compte deux, celui qui touche Kantar disparaît (avec ses traits) et Kantar rejoint l'autre */
+    var kan = null, iqv = null;
+    logoPts.forEach(function (q) { if (q.logo === "kantar") kan = q; if (q.logo === "iqvia") iqv = q; });
+    if (kan && iqv) {
+      var pickN = null, pickM = null;
+      pts.forEach(function (N) {
+        if (N.logo || N.off || linked(kan, N) < 0) return;
+        pts.forEach(function (M) {
+          if (M === N || M.logo || M.off || linked(N, M) < 0 || linked(M, iqv) < 0) return;
+          if (!pickN || d2(kan, N) < d2(kan, pickN)) { pickN = N; pickM = M; }
+        });
+      });
+      if (pickN) {
+        pickN.off = true;
+        edges = edges.filter(function (e) { return e[0] !== pickN && e[1] !== pickN; });
+        if (linked(kan, pickM) < 0) edges.push([kan, pickM]);
+      }
+    }
     /* Air France et Ifop sont reliés */
     var ifop = null, af = null;
     logoPts.forEach(function (q) { if (q.logo === "ifop") ifop = q; if (q.logo === "airfrance") af = q; });
