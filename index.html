@@ -111,7 +111,7 @@ button, input { font: inherit; }
 .btn-lg { padding: 16px 26px; font-size: 17px; }
 .btn.static, .reveal-btn, .kcta, .seg-toggle, .tile.more { pointer-events: none; cursor: default; }
 .signup { margin: 36px auto 0; display: flex; flex-direction: column; align-items: center; gap: 12px; }
-.signup-fields { display: flex; gap: 6px; width: 100%; max-width: 720px; padding: 6px; border: 1px solid var(--line-strong); border-radius: 14px; background: #fff; }
+.signup-fields { display: flex; gap: 6px; width: 100%; max-width: 560px; padding: 6px; border: 1px solid var(--line-strong); border-radius: 14px; background: #fff; }
 .signup-fields input { flex: 1 1 0; min-width: 0; border: 0; background: transparent; padding: 14px 16px; font-size: 17px; color: var(--ink); border-radius: 9px; }
 .signup-fields input::placeholder { color: var(--meta); }
 .signup-fields input + input { border-left: 1px solid var(--line-strong); }
@@ -212,14 +212,7 @@ button, input { font: inherit; }
 /* La bande des clients */
 .trusted { margin-top: 72px; background: var(--soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
 .trusted-inner { display: flex; flex-direction: column; align-items: center; gap: 26px; padding-block: 30px; }
-.trusted-quote { text-align: center; padding: 88px 0 56px; }
-.trusted-quote blockquote { margin: 0 auto; font-family: var(--display); font-weight: 700; font-size: clamp(26.4px, 3.52vw, 51.04px); line-height: 1.08; letter-spacing: -0.035em; color: var(--ink); text-wrap: balance; max-width: 1080px; }
-.trusted-quote blockquote em { font-style: normal; color: var(--blue); }
-.trusted-quote .who { margin-top: 26px; display: inline-flex; align-items: center; gap: 10px; font-size: 15px; color: var(--meta); }
-.trusted-quote .who img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
-.trusted-quote .who b { color: var(--slate); font-weight: 600; }
-.trusted .trusted-inner { border-top: 1px solid var(--line); padding-block: 34px 40px; }
-@media (max-width: 760px) { .trusted-quote { padding: 56px 0 36px; } }
+.trusted .trusted-inner { padding-block: 34px 40px; }
 .trusted .lbl { text-align: center; line-height: 1.4; color: var(--slate); }
 .trusted .logos { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; }
 .trusted figure { margin: 0; display: flex; align-items: center; gap: 10px; filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s; }
@@ -513,6 +506,7 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .quote .who b { display: block; font-size: 15px; color: var(--ink); }
 .quote .who span { font-size: 13px; color: var(--meta); }
 .car-nav { margin-top: 18px; display: flex; justify-content: center; gap: 10px; }
+.car-nav[hidden] { display: none; }
 .car-nav button { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-strong); background: #fff; color: var(--ink); cursor: pointer; display: grid; place-items: center; }
 .car-nav button:hover { border-color: #B9C0CB; }
 .car-nav svg { width: 18px; height: 18px; }
@@ -629,8 +623,6 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         <div class="signup-fields">
           <label for="hero-email" class="sr-only" data-t="form.email">Email professionnel</label>
           <input type="email" id="hero-email" name="email" required autocomplete="email" placeholder="Email professionnel" data-t-ph="form.email">
-          <label for="hero-company" class="sr-only" data-t="form.company">Votre entreprise</label>
-          <input type="text" id="hero-company" name="company" autocomplete="organization" placeholder="Votre entreprise" data-t-ph="form.company">
           <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander un accès</button>
         </div>
         <p class="helper" data-t="hero.helper">Bêta privée · ouverture prochainement</p>
@@ -640,10 +632,6 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     </div>
 
     <div class="trusted">
-      <div class="container trusted-quote">
-        <blockquote data-t="tq.t">«&nbsp;Enfin un outil de prospection qui connaît notre métier. <em>Il sait ce que nous vendons, et nous montre chaque jour les clients à aller chercher.</em>&nbsp;»</blockquote>
-        <div class="who"><img src="assets/people/jeremy-lefebvre.jpg" alt="" width="36" height="36"><b>Jérémy Lefebvre</b><span data-t="tq.r">· CEO, Episto</span></div>
-      </div>
       <div class="container trusted-inner">
         <span class="lbl" data-t="hero.dp">Conçu avec 9&nbsp;prestataires d’études</span>
         <div class="logos">
@@ -803,10 +791,6 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             <blockquote data-t="q3.t">«&nbsp;Les signaux changent tout&nbsp;: on écrit quand il se passe quelque chose chez le client, pas au hasard.&nbsp;»</blockquote>
             <div class="who"><img src="assets/people/johan-le-douce.jpg" alt="" width="46" height="46"><div><b>Johan Le Douce</b><span data-t="q3.r">Fondateur, JLD Insights</span></div></div>
           </div>
-          <div class="quote">
-            <blockquote data-t="q5.t">«&nbsp;Le scoring parle notre langue. On voit tout de suite qui a besoin de nous, et pourquoi.&nbsp;»</blockquote>
-            <div class="who"><img src="assets/people/celine-pasquier.jpg" alt="" width="46" height="46"><div><b>Céline Pasquier</b><span data-t="q5.r">COO, iligo</span></div></div>
-          </div>
         </div>
         <div class="car-nav">
           <button type="button" id="car-prev" aria-label="Témoignage précédent" data-aria-en="Previous testimonial"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
@@ -854,8 +838,6 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         <div class="signup-fields">
           <label for="final-email" class="sr-only" data-t="form.email">Email professionnel</label>
           <input type="email" id="final-email" name="email" required autocomplete="email" placeholder="Email professionnel" data-t-ph="form.email">
-          <label for="final-company" class="sr-only" data-t="form.company">Votre entreprise</label>
-          <input type="text" id="final-company" name="company" autocomplete="organization" placeholder="Votre entreprise" data-t-ph="form.company">
           <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander un accès</button>
         </div>
         <p class="msg" id="final-msg" role="status" aria-live="polite"></p>
@@ -893,8 +875,7 @@ document.documentElement.classList.add("js");
     "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Request access",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
     "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "hero.playClose": "Close the video", "hero.play": "Discover mazeo on video", "nav.market": "The Market", "mk.name": "The Market",
-    "tq.t": "“Finally, a prospecting tool that understands our business. <em>It knows what we sell, and every day it shows us the clients to go after.</em>”", "tq.r": "· CEO, Episto",
-    "form.email": "Work email", "form.company": "Your company", "form.submit": "Request access",
+    "form.email": "Work email", "form.submit": "Request access",
     "hero.helper": "Private beta · opening soon",
     "hero.dp": "Built with 9&nbsp;research providers", "dp.more": "+ 2 more",
     "video.aria": "Product video",
@@ -939,7 +920,6 @@ document.documentElement.classList.add("js");
     "q1.t": "“I have reliable, ready-to-use information concentrated in one place. It really is a time saver.”", "q1.r": "CEO, Stat &amp; More",
     "q2.t": "“In two weeks, mazeo introduced us to some twenty research agencies we had never contacted. For each one, we knew who to call.”", "q2.r": "Head of Sales, Norstat France",
     "q3.t": "“Signals change everything: we write when something happens at the client, not at random.”", "q3.r": "Founder, JLD Insights",
-    "q5.t": "“The scoring speaks our language. We see right away who needs us, and why.”", "q5.r": "COO, iligo",
     "dp.for": "Built for salespeople, research directors, founders and executives in market research.",
     "faq.h2": "The questions we get asked.",
     "fq1": "Where does the data come from?", "fa1": "From public sources: LinkedIn, websites, the company register, job posts, public tenders, social networks. Updated in real time. Work email and mobile number for most contacts. GDPR-compliant: anyone listed in mazeo can access, correct or remove their data by writing to us.",
@@ -1278,6 +1258,9 @@ document.documentElement.classList.add("js");
     document.getElementById("car-next").addEventListener("click", function () { carStopFn(); carNext(); });
     document.getElementById("car-prev").addEventListener("click", function () { carStopFn(); car.scrollBy({ left: -step() }); });
     car.addEventListener("mouseenter", carStopFn); car.addEventListener("mouseleave", carStart);
+    var carNav = document.querySelector(".car-nav");
+    var carFits = function () { if (carNav) carNav.hidden = car.scrollWidth <= car.clientWidth + 4; };
+    carFits(); window.addEventListener("resize", carFits);
     if ("IntersectionObserver" in window) { var cio = new IntersectionObserver(function (e) { if (e[0].isIntersecting) carStart(); else carStopFn(); }, { threshold: 0.2 }); cio.observe(car); } else { carStart(); }
   }
 
@@ -1367,12 +1350,12 @@ document.documentElement.classList.add("js");
     var msg = form.querySelector(".msg"); var btn = form.querySelector("button[type=submit]");
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      var email = (form.email.value || "").trim(); var company = (form.company.value || "").trim();
+      var email = (form.email.value || "").trim();
       msg.className = "msg"; form.email.removeAttribute("aria-invalid"); form.email.removeAttribute("aria-describedby");
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = MSG[lang].bad; msg.classList.add("err"); form.email.setAttribute("aria-invalid", "true"); form.email.setAttribute("aria-describedby", msg.id); form.email.focus(); return; }
       btn.disabled = true; btn.style.opacity = ".7";
       var ac = ("AbortController" in window) ? new AbortController() : null; if (ac) setTimeout(function () { ac.abort(); }, 15000);
-      fetch(FN, { signal: ac ? ac.signal : undefined, method: "POST", headers: { "Content-Type": "application/json", "Accept-Language": lang === "fr" ? "fr-FR,fr;q=0.9" : "en-US,en;q=0.9" }, body: JSON.stringify({ email: email, company: company, lang: lang, source: "landing-2026-09" }) })
+      fetch(FN, { signal: ac ? ac.signal : undefined, method: "POST", headers: { "Content-Type": "application/json", "Accept-Language": lang === "fr" ? "fr-FR,fr;q=0.9" : "en-US,en;q=0.9" }, body: JSON.stringify({ email: email, lang: lang, source: "landing-2026-09" }) })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok && d.ok !== false }; }); })
         .then(function (res) {
           if (res.ok) { msg.textContent = MSG[lang].ok; msg.classList.add("ok"); form.querySelector(".signup-fields").style.display = "none"; var h = form.querySelector(".helper"); if (h) h.style.display = "none"; msg.tabIndex = -1; msg.focus(); }
@@ -1472,15 +1455,26 @@ document.documentElement.classList.add("js");
     for (var gy = 0; gy < rows; gy++) for (var gx = 0; gx < cols; gx++) {
       pts.push({ x: gx * step + 24 + (r() - .5) * 70, y: gy * step + 24 + (r() - .5) * 70, big: r() < .28 });
     }
-    placeLogos(pts);
-    /* au-dessus du titre, pas de traits : la bande sous le menu reste nette */
     var h1 = hero.querySelector(".container > h1"), top = h1 ? h1.getBoundingClientRect().top - wrap.getBoundingClientRect().top + 20 : 0;
-    for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
-      var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y;
-      if (Math.min(pts[a].y, pts[b].y) < top) continue;
+    placeLogos(pts);
+    /* sur les lignes du titre, ni point ni trait */
+    var wtop = wrap.getBoundingClientRect(), range = document.createRange(), title = [];
+    if (h1) { range.selectNodeContents(h1); [].forEach.call(range.getClientRects(), function (q) { title.push({ l: q.left - wtop.left - 12, r: q.right - wtop.left + 12, t: q.top - wtop.top - 12, b: q.bottom - wtop.top + 12 }); }); }
+    for (var s = 0; s < pts.length; s++) {
+      for (var z = 0; z < title.length; z++) if (!pts[s].logo && pts[s].x > title[z].l && pts[s].x < title[z].r && pts[s].y > title[z].t && pts[s].y < title[z].b) pts[s].off = true;
+    }
+    /* une colonne de points hors écran à gauche : les points du bord semblent reliés au-delà (tirage à part, le réseau visible ne bouge pas) */
+    var r2 = rng(77), ghosts = [];
+    for (var gy2 = 0; gy2 < rows; gy2++) ghosts.push({ x: -100 + (r2() - .5) * 70, y: gy2 * step + 24 + (r2() - .5) * 70, ghost: true });
+    var all = pts.concat(ghosts);
+    /* au-dessus du titre, pas de traits : la bande sous le menu reste nette */
+    for (var a = 0; a < all.length; a++) for (var b = a + 1; b < all.length; b++) {
+      var A = all[a], B = all[b], dx = A.x - B.x, dy = A.y - B.y;
+      if (A.ghost && B.ghost) continue;
+      if (A.off || B.off || Math.min(A.y, B.y) < top) continue;
       if (dx * dx + dy * dy < 150 * 150) {
-        back += '<line x1="' + pts[a].x + '" y1="' + pts[a].y + '" x2="' + pts[b].x + '" y2="' + pts[b].y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
-        if (pts[a].y < pts[b].y - 40) pts[b].up = true; else if (pts[b].y < pts[a].y - 40) pts[a].up = true;
+        back += '<line x1="' + A.x + '" y1="' + A.y + '" x2="' + B.x + '" y2="' + B.y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
+        if (A.y < B.y - 40) B.up = true; else if (B.y < A.y - 40) A.up = true;
       }
     }
     /* un logo sans trait qui monte en reçoit un seul, discret, vers le point le plus proche au-dessus de lui (même au-dessus du titre) */
@@ -1490,7 +1484,7 @@ document.documentElement.classList.add("js");
       var best = null, bd = 260 * 260;
       for (var o = 0; o < pts.length; o++) {
         var P = pts[o], ex = P.x - L.x, ey = P.y - L.y;
-        if (P.logo || ey > -40 || ex * ex + ey * ey >= bd) continue;
+        if (P.logo || P.off || ey > -40 || ex * ex + ey * ey >= bd) continue;
         bd = ex * ex + ey * ey; best = P;
       }
       if (best) back += '<line x1="' + L.x + '" y1="' + L.y + '" x2="' + best.x + '" y2="' + best.y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
@@ -1498,7 +1492,7 @@ document.documentElement.classList.add("js");
     for (var i = 0; i < pts.length; i++) {
       var p = pts[i], rad = p.big ? (r(), 4.5 + ((i * 7) % 10) / 10 * 3) : 4.5 + r() * 3;
       if (p.logo) tiles.push({ x: p.x - p.s / 2, y: p.y - p.s / 2, s: p.s, logo: p.logo });
-      else back += '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + rad + '" fill="#fff" stroke="' + LINE2 + '" stroke-width="1.3"/>';
+      else if (!p.off) back += '<circle cx="' + p.x + '" cy="' + p.y + '" r="' + rad + '" fill="#fff" stroke="' + LINE2 + '" stroke-width="1.3"/>';
     }
     return { tiles: tiles, back: back };
   }
