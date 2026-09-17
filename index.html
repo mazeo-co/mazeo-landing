@@ -1472,8 +1472,11 @@ document.documentElement.classList.add("js");
     for (var gy = 0; gy < rows; gy++) for (var gx = 0; gx < cols; gx++) {
       pts.push({ x: gx * step + 24 + (r() - .5) * 70, y: gy * step + 24 + (r() - .5) * 70, big: r() < .28 });
     }
+    /* au-dessus du titre, pas de traits : la bande sous le menu reste nette */
+    var h1 = hero.querySelector(".container > h1"), top = h1 ? h1.getBoundingClientRect().top - wrap.getBoundingClientRect().top + 20 : 0;
     for (var a = 0; a < pts.length; a++) for (var b = a + 1; b < pts.length; b++) {
       var dx = pts[a].x - pts[b].x, dy = pts[a].y - pts[b].y;
+      if (Math.min(pts[a].y, pts[b].y) < top) continue;
       if (dx * dx + dy * dy < 150 * 150) back += '<line x1="' + pts[a].x + '" y1="' + pts[a].y + '" x2="' + pts[b].x + '" y2="' + pts[b].y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
     }
     placeLogos(pts);
