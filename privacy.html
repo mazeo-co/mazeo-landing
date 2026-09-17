@@ -1,117 +1,164 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policy — mazeo</title>
+<title>Politique de confidentialité — mazeo</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Inter', -apple-system, sans-serif;
-    color: #000;
-    line-height: 1.7;
-    background: #fff;
-  }
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
-    border-bottom: 1px solid #E5E7EB;
-  }
-  .nav-inner {
-    max-width: 800px; margin: 0 auto; padding: 0 24px; height: 64px;
-    display: flex; align-items: center;
-  }
-  .nav-logo {
-    font-size: 26px; font-weight: 800; color: #000;
-    text-decoration: none; letter-spacing: -0.5px;
-  }
+  body { font-family: 'Hanken Grotesk', -apple-system, sans-serif; color: #0A0A0A; line-height: 1.7; background: #fff; -webkit-font-smoothing: antialiased; }
+  nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid #E5E7EB; }
+  .nav-inner { max-width: 800px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .nav-logo { font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 800; color: #0A0A0A; text-decoration: none; letter-spacing: -0.5px; }
   .nav-logo span { color: #00EF8B; }
-  .content {
-    max-width: 800px; margin: 0 auto; padding: 120px 24px 80px;
-  }
-  h1 {
-    font-size: 32px; font-weight: 800; letter-spacing: -1px;
-    margin-bottom: 8px;
-  }
-  .updated {
-    font-size: 14px; color: #9CA3AF; margin-bottom: 40px;
-  }
-  h2 {
-    font-size: 20px; font-weight: 700; margin-top: 36px; margin-bottom: 12px;
-  }
-  p {
-    font-size: 15px; color: #374151; margin-bottom: 16px;
-  }
-  ul {
-    margin: 0 0 16px 24px; font-size: 15px; color: #374151;
-  }
+  .nav-back { font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; }
+  .nav-back:hover { color: #0A0A0A; }
+  .content { max-width: 800px; margin: 0 auto; padding: 72px 24px 80px; }
+  h1 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 40px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 10px; }
+  .updated { font-size: 14px; color: #9CA3AF; margin-bottom: 40px; }
+  h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 21px; font-weight: 700; letter-spacing: -0.4px; margin-top: 40px; margin-bottom: 12px; }
+  p, li { font-size: 16px; color: #374151; }
+  p { margin-bottom: 16px; }
+  ul { margin: 0 0 16px 22px; }
   li { margin-bottom: 6px; }
   a { color: #007BFF; }
-  footer {
-    padding: 40px 24px; border-top: 1px solid #E5E7EB; text-align: center;
-    font-size: 13px; color: #9CA3AF;
-  }
+  .lead { font-size: 18px; color: #4B5563; }
+  footer { padding: 40px 24px; border-top: 1px solid #E5E7EB; text-align: center; font-size: 13px; color: #9CA3AF; }
+  footer a { color: #6B7280; text-decoration: none; margin: 0 8px; }
+  .big { font-family: 'Bricolage Grotesque', sans-serif; font-size: clamp(64px, 14vw, 140px); font-weight: 800; letter-spacing: -4px; line-height: 1; color: #007BFF; margin-bottom: 8px; }
+  .center { text-align: center; padding-top: 120px; }
+  .btn { display: inline-block; margin-top: 28px; padding: 14px 24px; border-radius: 999px; background: #007BFF; color: #fff; font-weight: 600; text-decoration: none; }
+  .btn:hover { background: #0062CC; }
+  html[lang="en"] [data-lang="fr"], html[lang="fr"] [data-lang="en"] { display: none; }
+  footer .lang-switch { font-weight: 600; }
+  .updated:has(+ .updated) { margin-bottom: 4px; }
 </style>
+<script>
+  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le navigateur (16/09) */
+  (function () {
+    var q = /[?&]lang=(en|fr)\b/i.exec(location.search), s = null; try { s = localStorage.getItem("mazeo_lang"); } catch (e) {}
+    var b = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
+    var l = q ? q[1].toLowerCase() : (s === "en" || s === "fr" ? s : b);
+    if (q) { try { localStorage.setItem("mazeo_lang", l); } catch (e) {} }
+    document.documentElement.lang = l;
+  })();
+</script>
 </head>
 <body>
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo">mazeo<span>.</span></a>
+    <a href="/" class="nav-back" data-en="← Back to home">← Retour à l’accueil</a>
   </div>
 </nav>
 
-<div class="content">
-  <h1>Privacy Policy</h1>
-  <p class="updated">Last updated: March 8, 2026</p>
+<div class="content" data-lang="fr">
+  <h1>Politique de confidentialité</h1>
+  <p class="updated">Mise à jour le 15 septembre 2026</p>
+  <p class="lead">mazeo est un outil de prospection réservé aux professionnels du market research. Il traite des données de professionnels, dans un cadre strictement professionnel. Cette page explique quelles données, pourquoi, combien de temps, et comment exercer vos droits.</p>
 
-  <h2>1. Who we are</h2>
-  <p>mazeo ("we", "us") is operated by Romain Barbet. Our website is <a href="https://mazeo.co">mazeo.co</a>. For any question regarding your data, contact us at <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>.</p>
+  <h2>1. Responsable du traitement</h2>
+  <p>MAZEO, SASU au capital de 5 000 €, 60 rue François Ier, 75008 Paris, RCS Paris 102 028 396. Contact pour toute question relative à vos données : <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>.</p>
 
-  <h2>2. Data we collect</h2>
-  <p>When you request early access via our waitlist form, we collect:</p>
+  <h2>2. Les visiteurs du site mazeo.co</h2>
+  <p>Lorsque vous demandez une démo ou un accès, nous collectons votre adresse email professionnelle, le nom de votre entreprise, ainsi que la date et l’heure de votre demande. Ces données servent uniquement à vous répondre, à organiser la démo et à vous tenir informé de l’ouverture de mazeo. Base légale : votre consentement, que vous pouvez retirer à tout moment.</p>
+  <p>Le site ne dépose aucun cookie. La mesure d’audience repose sur Vercel Web Analytics, qui fonctionne sans cookie et sans identifiant personnel : elle compte les visites et les pages vues, sans suivre les personnes.</p>
+
+  <h2>3. Les professionnels présents dans mazeo</h2>
+  <p>mazeo constitue une base des entreprises et des professionnels du secteur des études en France. Les données proviennent exclusivement de sources publiques : profils professionnels publics, sites web des entreprises, registre du commerce et des sociétés, offres d’emploi, appels d’offres publics, réseaux sociaux professionnels. Les coordonnées professionnelles (adresse email professionnelle, numéro de téléphone professionnel) sont obtenues auprès d’un prestataire spécialisé, sous contrat, à la demande d’un utilisateur.</p>
+  <p>Données traitées : identité, poste, entreprise, parcours professionnel public, spécialisations déduites du parcours, signaux d’actualité professionnelle (changement de poste, recrutement, appel d’offres, évolution de l’entreprise), coordonnées professionnelles.</p>
+  <p>Finalité : permettre à des prestataires du secteur d’identifier et de contacter, à titre professionnel, les entreprises et les décideurs susceptibles d’avoir besoin de leurs services.</p>
+  <p>Base légale : l’intérêt légitime (article 6.1.f du RGPD), à savoir la prospection entre professionnels dans un même secteur d’activité, limitée aux données en rapport avec la fonction exercée. Vous pouvez vous y opposer à tout moment, sans motif.</p>
+  <p>Conservation : les données sont mises à jour régulièrement et supprimées lorsque la personne n’exerce plus dans le secteur, ou dès qu’elle en fait la demande.</p>
+
+  <h2>4. Destinataires et sous-traitants</h2>
   <ul>
-    <li>Your email address</li>
-    <li>The date and time of your submission</li>
+    <li>Les utilisateurs de mazeo, professionnels du secteur des études, qui s’engagent contractuellement à un usage strictement professionnel et conforme au RGPD.</li>
+    <li>Supabase Inc., hébergement de la base de données, serveurs situés dans l’Union européenne.</li>
+    <li>Vercel Inc., hébergement du site et mesure d’audience, États-Unis, encadré par les clauses contractuelles types de la Commission européenne.</li>
+    <li>Un prestataire de recherche de coordonnées professionnelles, sous contrat de sous-traitance.</li>
   </ul>
-  <p>We do not collect any other personal data. We do not use cookies for tracking purposes.</p>
+  <p>Aucune donnée n’est vendue ni louée à des tiers.</p>
 
-  <h2>3. Why we collect it</h2>
-  <p>We use your email address solely to:</p>
+  <h2>5. Vos droits</h2>
+  <p>Vous disposez d’un droit d’accès, de rectification, d’effacement, d’opposition, de limitation du traitement et de portabilité de vos données. Pour les exercer, écrivez à <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>. Nous répondons sous un mois. Vous pouvez également saisir la CNIL (<a href="https://www.cnil.fr" rel="noopener" target="_blank">cnil.fr</a>).</p>
+
+  <h2>6. Sécurité</h2>
+  <p>L’accès à la base est réservé à l’équipe mazeo et aux utilisateurs authentifiés. Les coordonnées sont affichées à la demande, utilisateur par utilisateur, et chaque affichage est tracé.</p>
+
+  <h2>7. Modifications</h2>
+  <p>Cette politique peut évoluer. La date en haut de page indique la dernière version.</p>
+</div>
+
+<div class="content" data-lang="en" lang="en">
+  <h1>Privacy policy</h1>
+  <p class="updated">Updated on September 15, 2026</p>
+  <p class="updated">This English version is provided for convenience. The French version prevails.</p>
+  <p class="lead">mazeo is a prospecting tool reserved for market research professionals. It processes data about professionals, in a strictly professional context. This page explains which data we process, why, for how long, and how to exercise your rights.</p>
+
+  <h2>1. Data controller</h2>
+  <p>MAZEO, SASU with a share capital of €5,000, 60 rue François Ier, 75008 Paris, France, RCS Paris 102 028 396. For any question about your data: <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>.</p>
+
+  <h2>2. Visitors to mazeo.co</h2>
+  <p>When you request a demo or access, we collect your work email address, your company name, and the date and time of your request. This data is used only to reply to you, organize the demo and keep you informed when mazeo opens. Legal basis: your consent, which you can withdraw at any time.</p>
+  <p>The website sets no cookies. Audience measurement relies on Vercel Web Analytics, which works without cookies or personal identifiers: it counts visits and page views without tracking individuals.</p>
+
+  <h2>3. Professionals listed in mazeo</h2>
+  <p>mazeo builds a database of companies and professionals in the French market research industry. The data comes exclusively from public sources: public professional profiles, company websites, the French Trade and Companies Register, job postings, public tenders and professional social networks. Professional contact details (work email address, work phone number) are obtained from a specialized provider, under contract, at a user's request.</p>
+  <p>Data processed: identity, job title, company, public career history, specializations inferred from that history, professional news signals (job change, hiring, tender, company developments), professional contact details.</p>
+  <p>Purpose: to enable service providers in the industry to identify and contact, in a professional capacity, the companies and decision-makers who may need their services.</p>
+  <p>Legal basis: legitimate interest (Article 6(1)(f) GDPR), namely business-to-business prospecting within the same industry, limited to data related to the position held. You may object at any time, without giving a reason.</p>
+  <p>Retention: the data is updated regularly and deleted when the person no longer works in the industry, or as soon as they request it.</p>
+
+  <h2>4. Recipients and processors</h2>
   <ul>
-    <li>Send you updates about mazeo's development and launch</li>
-    <li>Notify you when your early access is ready</li>
+    <li>mazeo users, market research professionals, who contractually commit to strictly professional, GDPR-compliant use.</li>
+    <li>Supabase Inc., database hosting, servers located in the European Union.</li>
+    <li>Vercel Inc., website hosting and audience measurement, United States, covered by the European Commission's standard contractual clauses.</li>
+    <li>A provider of professional contact details, under a data processing agreement.</li>
   </ul>
+  <p>No data is sold or rented to third parties.</p>
 
-  <h2>4. How we store it</h2>
-  <p>Your email is stored securely in our database hosted on Supabase (servers located in the EU). Access is restricted to the mazeo team.</p>
+  <h2>5. Your rights</h2>
+  <p>You have the right to access, rectify and erase your data, to object to and restrict its processing, and to data portability. To exercise these rights, write to <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>. We reply within one month. You can also lodge a complaint with the CNIL, the French data protection authority (<a href="https://www.cnil.fr" rel="noopener" target="_blank">cnil.fr</a>).</p>
 
-  <h2>5. Third parties</h2>
-  <p>We do not sell, rent, or share your email address with any third party. The only third-party service processing your data is Supabase, our database provider, which acts as a data processor on our behalf.</p>
+  <h2>6. Security</h2>
+  <p>Access to the database is restricted to the mazeo team and authenticated users. Contact details are displayed on request, user by user, and every display is logged.</p>
 
-  <h2>6. Your rights (GDPR)</h2>
-  <p>Under the General Data Protection Regulation (GDPR), you have the right to:</p>
-  <ul>
-    <li>Access the data we hold about you</li>
-    <li>Request correction or deletion of your data</li>
-    <li>Withdraw your consent at any time</li>
-    <li>Request data portability</li>
-  </ul>
-  <p>To exercise any of these rights, email us at <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>. We will respond within 30 days.</p>
-
-  <h2>7. Data retention</h2>
-  <p>We retain your email address until you request its deletion, or until 2 years after your last interaction with mazeo, whichever comes first.</p>
-
-  <h2>8. Changes to this policy</h2>
-  <p>We may update this policy from time to time. The "last updated" date at the top of this page will be revised accordingly.</p>
+  <h2>7. Changes</h2>
+  <p>This policy may change. The date at the top of the page shows the latest version.</p>
 </div>
 
 <footer>
-  © 2026 mazeo. All rights reserved.
+  © 2026 mazeo ·
+  <a href="mentions-legales.html" data-en="Legal notice">Mentions légales</a> ·
+  <a href="privacy.html" data-en="Privacy">Confidentialité</a> ·
+  <a href="terms.html" data-en="Terms of use">Conditions d’utilisation</a> ·
+  <a href="?lang=en" id="lang-switch" class="lang-switch" hreflang="en" lang="en">English</a>
 </footer>
-<script>window.scrollTo(0,0);</script>
+<script>
+  (function () {
+    var fr = document.title, en = "Privacy policy — mazeo";
+    function apply() {
+      var l = document.documentElement.lang === "en" ? "en" : "fr";
+      document.title = l === "en" ? en : fr;
+      document.querySelectorAll("[data-en]").forEach(function (e) { if (!e.hasAttribute("data-fr")) e.setAttribute("data-fr", e.textContent); e.textContent = e.getAttribute(l === "en" ? "data-en" : "data-fr"); });
+      var sw = document.getElementById("lang-switch"), o = l === "en" ? "fr" : "en";
+      sw.textContent = o === "en" ? "English" : "Français"; sw.setAttribute("href", "?lang=" + o); sw.setAttribute("hreflang", o); sw.setAttribute("lang", o);
+    }
+    apply();
+    document.getElementById("lang-switch").addEventListener("click", function (e) {
+      e.preventDefault(); var o = document.documentElement.lang === "en" ? "fr" : "en";
+      document.documentElement.lang = o; try { localStorage.setItem("mazeo_lang", o); } catch (err) {}
+      try { history.replaceState(null, "", location.pathname + "?lang=" + o); } catch (err) {}
+      apply();
+    });
+  })();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
