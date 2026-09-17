@@ -138,7 +138,9 @@ button, input { font: inherit; }
 @media (max-width: 420px) { .nav-inner { gap: 12px; } .nav-right { gap: 8px; } .nav-login { display: none; } .logo { font-size: 24px; } .nav-right .btn-primary { padding: 9px 12px; font-size: 13px; } }
 
 /* ============ Premier écran ============ */
-.hero { padding-block: 96px 0; text-align: center; }
+.hero { position: relative; z-index: 0; padding-block: 96px 0; text-align: center; background-image: linear-gradient(rgba(15,23,42,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,.055) 1px, transparent 1px); background-size: 120px 120px; background-position: 0 var(--grid-offset, 0px); }
+.hero-squares { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+.hero-squares span { position: absolute; width: 120px; height: 120px; background: #0A0A0A; }
 .hero h1 { font-size: clamp(42px, 7.4vw, 104px); max-width: 1180px; margin-inline: auto; }
 .hero h1 em { font-style: normal; color: var(--blue); }
 .hero .lead { margin: 30px auto 0; max-width: 900px; }
@@ -595,6 +597,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 
   <!-- ================= PREMIER ÉCRAN ================= -->
   <section class="hero">
+    <div class="hero-squares" id="hero-squares" aria-hidden="true"></div>
     <div class="container">
       <h1 data-t="hero.h1">Le seul outil de prospection <em>dédié au market research.</em></h1>
       <p class="promise" data-t="hero.promise">Vos prochains clients sont déjà sur mazeo.</p>
@@ -1367,6 +1370,45 @@ document.documentElement.classList.add("js");
     });
   }
   wire(document.getElementById("form-hero")); wire(document.getElementById("form-final"));
+})();
+
+/* Quadrillage du hero : quelques carrés d'un gris à peine visible, posés sur la grille, comme dans le film produit (~/dev/video-mazeo) */
+(function () {
+  var host = document.getElementById("hero-squares");
+  var hero = document.querySelector(".hero");
+  if (!host || !hero) return;
+  function paint() {
+    var heroRect = hero.getBoundingClientRect();
+    var w = heroRect.width, h = heroRect.height;
+    /* la grille doit finir pile sur une ligne à la jonction avec le verbatim (fond gris juste en dessous), pas sur un carré coupé */
+    var trusted = hero.querySelector(".trusted");
+    var offset = 0;
+    if (trusted) {
+      var trustedTop = trusted.getBoundingClientRect().top - heroRect.top;
+      offset = ((trustedTop % 120) + 120) % 120;
+    }
+    hero.style.setProperty("--grid-offset", offset + "px");
+    var cols = Math.ceil(w / 120), rows = Math.ceil((h - offset) / 120);
+    /* quelques carrés au hasard, n'importe où dans la section : discret avant tout */
+    var count = Math.min(22, Math.max(10, Math.round((cols * rows) * 0.065)));
+    var used = {};
+    var html = "";
+    var tries = 0, placed = 0;
+    while (placed < count && tries < count * 10) {
+      tries++;
+      var cx = Math.floor(Math.random() * cols), cy = Math.floor(Math.random() * rows);
+      var key = cx + "_" + cy;
+      if (used[key]) continue;
+      used[key] = true;
+      placed++;
+      var opacity = (0.01 + Math.random() * 0.016).toFixed(3);
+      html += '<span style="left:' + (cx * 120) + 'px;top:' + (cy * 120 + offset) + 'px;opacity:' + opacity + '"></span>';
+    }
+    host.innerHTML = html;
+  }
+  paint();
+  var t;
+  window.addEventListener("resize", function () { clearTimeout(t); t = setTimeout(paint, 200); });
 })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
