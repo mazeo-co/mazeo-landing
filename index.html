@@ -1489,6 +1489,15 @@ document.documentElement.classList.add("js");
       return best;
     }
     var logoPts = pts.filter(function (q) { return q.logo; });
+    /* Ifop : pas de point juste à côté de lui (ni le point, ni ses traits) */
+    pts.forEach(function (L) {
+      if (L.logo !== "ifop") return;
+      pts.forEach(function (N) {
+        if (N.logo || Math.abs(N.y - L.y) >= 60 || Math.abs(N.x - L.x) >= 130 || linked(L, N) < 0) return;
+        N.off = true;
+        edges = edges.filter(function (e) { return e[0] !== N && e[1] !== N; });
+      });
+    });
     /* un logo sans trait qui monte en reçoit un seul, discret, vers le point le plus proche au-dessus de lui (même au-dessus du titre) ;
        le point au-dessus d'un logo continue lui aussi vers le haut */
     for (var g = 0; g < logoPts.length; g++) {
