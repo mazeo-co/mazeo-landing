@@ -1520,6 +1520,10 @@ document.documentElement.classList.add("js");
         if (linked(X, Y) < 0) edges.push([X, Y]);
       }
     }
+    /* Air France et Ifop sont reliés */
+    var ifop = null, af = null;
+    logoPts.forEach(function (q) { if (q.logo === "ifop") ifop = q; if (q.logo === "airfrance") af = q; });
+    if (ifop && af && d2(ifop, af) < 420 * 420 && linked(ifop, af) < 0) edges.push([ifop, af]);
     for (var e2 = 0; e2 < edges.length; e2++) {
       var P1 = edges[e2][0], P2 = edges[e2][1];
       back += '<line x1="' + P1.x + '" y1="' + P1.y + '" x2="' + P2.x + '" y2="' + P2.y + '" stroke="' + LINE + '" stroke-width="1.2"/>';
