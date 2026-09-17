@@ -202,8 +202,13 @@ button, input { font: inherit; }
 .vf-btn:hover { background: var(--soft); }
 .vf-btn svg { width: 16px; height: 16px; }
 .vf-time { font-size: 12.5px; font-weight: 600; color: var(--slate); font-variant-numeric: tabular-nums; padding: 0 8px; white-space: nowrap; }
-.video-panel.open .vf-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: rgba(10,10,10,.14); z-index: 4; cursor: pointer; display: block; }
-.vf-progress i { display: block; height: 100%; width: 0; background: var(--blue); transition: width .15s linear; }
+.video-panel.open .vf-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: rgba(10,10,10,.18); z-index: 4; cursor: pointer; display: block; touch-action: none; transition: height .15s ease; }
+.video-panel.open .vf-progress::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 10px; }
+.video-panel.open .vf-progress:hover, .video-panel.open .vf-progress.dragging { height: 12px; }
+.vf-progress i { position: relative; display: block; height: 100%; width: 0; background: var(--blue); transition: width .15s linear; }
+.vf-progress.dragging i { transition: none; }
+.vf-progress i::after { content: ""; position: absolute; right: -8px; top: 50%; width: 16px; height: 16px; border-radius: 50%; background: var(--blue); box-shadow: 0 0 0 3px #fff, 0 2px 8px rgba(0,0,0,.3); transform: translateY(-50%) scale(0); transition: transform .15s ease; }
+.vf-progress:hover i::after, .vf-progress.dragging i::after { transform: translateY(-50%) scale(1); }
 .video-frame.vf-idle .vf-pill, .video-frame.vf-idle .vf-close { opacity: 0; pointer-events: none; }
 @media (max-width: 640px) { .video-panel .inner { width: calc(100vw - 32px); } .video-panel.open .vf-pill { bottom: 12px; left: 12px; } .video-panel.open .vf-close { top: 10px; right: 10px; width: 34px; height: 34px; } }
 
@@ -1317,7 +1322,13 @@ document.documentElement.classList.add("js");
     film.addEventListener("timeupdate", function () { if (vfBar && film.duration) vfBar.style.width = (film.currentTime / film.duration * 100) + "%"; if (vfTime) vfTime.textContent = fmt(film.currentTime) + " / " + fmt(film.duration); });
     film.addEventListener("loadedmetadata", function () { if (vfTime) vfTime.textContent = "0:00 / " + fmt(film.duration); });
     film.addEventListener("ended", function () { film.load(); if (vfBar) vfBar.style.width = "0%"; });
-    if (vfProg) vfProg.addEventListener("click", function (e) { var r = vfProg.getBoundingClientRect(); if (film.duration) film.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * film.duration; });
+    if (vfProg) {
+      var seekTo = function (e) { var r = vfProg.getBoundingClientRect(), f = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)); if (vfBar) vfBar.style.width = (f * 100) + "%"; if (film.duration) film.currentTime = f * film.duration; };
+      vfProg.addEventListener("pointerdown", function (e) { e.preventDefault(); vfProg.classList.add("dragging"); try { vfProg.setPointerCapture(e.pointerId); } catch (err) {} seekTo(e); wake(); });
+      vfProg.addEventListener("pointermove", function (e) { if (vfProg.classList.contains("dragging")) { seekTo(e); wake(); } });
+      var endDrag = function () { vfProg.classList.remove("dragging"); };
+      vfProg.addEventListener("pointerup", endDrag); vfProg.addEventListener("pointercancel", endDrag);
+    }
     if (vfMute) vfMute.addEventListener("click", function () { film.muted = !film.muted; vfMute.innerHTML = film.muted ? ICO.off : ICO.on; vfMute.setAttribute("aria-label", film.muted ? T("Remettre le son", "Unmute") : T("Couper le son", "Mute")); });
     if (vfFull) vfFull.addEventListener("click", function () { if (document.fullscreenElement) document.exitFullscreen(); else if (frame && frame.requestFullscreen) frame.requestFullscreen(); else if (film.webkitEnterFullscreen) film.webkitEnterFullscreen(); });
     if (frame) { frame.addEventListener("mousemove", wake); frame.addEventListener("touchstart", wake, { passive: true }); frame.addEventListener("mouseleave", function () { if (!film.paused) frame.classList.add("vf-idle"); }); }
