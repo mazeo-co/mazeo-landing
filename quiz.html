@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Grand Quiz des Études · présenté par mazeo</title>
+<meta name="description" content="Dix questions sur l’histoire, les méthodes et les coulisses des études de marché. Votre score, et votre rang face aux professionnels du secteur. Présenté par mazeo.">
+<link rel="canonical" href="https://www.mazeo.co/quiz.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mazeo">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.mazeo.co/quiz.html">
+<meta property="og:title" content="Le Grand Quiz des Études">
+<meta property="og:description" content="Dix questions sur l’histoire, les méthodes et les coulisses des études de marché. Votre score, et votre rang face aux professionnels du secteur. Présenté par mazeo.">
+<meta property="og:image" content="https://www.mazeo.co/og-quiz.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Le Grand Quiz des Études, présenté par mazeo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Le Grand Quiz des Études">
+<meta name="twitter:description" content="Dix questions sur l’histoire, les méthodes et les coulisses des études de marché. Votre score, et votre rang face aux professionnels du secteur. Présenté par mazeo.">
+<meta name="twitter:image" content="https://www.mazeo.co/og-quiz.png">
+<meta name="theme-color" content="#06080C">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&display=swap">
+<style>
+/* Un seul univers, du début à la fin : le plateau de nuit. Le vert mazeo sert de lumière. */
+:root {
+  color-scheme: dark;
+  --ground: #06080C; --card: #0D1119; --soft: #121826;
+  --ink: #F5F7FB; --slate: #CBD2DE; --body: #AEB7C6; --meta: #8A94A6;
+  --line: #1F2635; --line-strong: #2C3548; --line-soft: #171D2A;
+  --blue: #2B8FFF; --blue-deep: #1F7DEB; --blue-text: #7DBBFF; --blue-tint: rgba(43,143,255,.16);
+  --green: #00EF8B; --green-tint: rgba(0,239,139,.13); --green-text: #00EF8B;
+  --red: #FF5C5C; --red-tint: rgba(255,92,92,.14); --red-text: #FF8F8F;
+  --amber: #FFC24B; --amber-tint: rgba(255,194,75,.13); --amber-text: #FFC24B;
+  --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --title: 'Bricolage Grotesque', var(--font);
+  --show: 'Big Shoulders Display', 'Arial Narrow', var(--font);
+  --logo-font: 'Inter', var(--font);
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+body { margin: 0; color: var(--body); font-family: var(--font); font-size: 17px; line-height: 1.55; -webkit-font-smoothing: antialiased;
+  background: radial-gradient(ellipse 90% 55% at 50% -8%, rgba(43,143,255,.20), transparent 62%), radial-gradient(ellipse 50% 40% at 50% 108%, rgba(0,239,139,.08), transparent 70%), var(--ground); background-attachment: fixed; }
+h1, h2 { margin: 0; color: var(--ink); font-family: var(--title); font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+button, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+#confetti, #flash { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 50; }
+#flash { z-index: 49; background: var(--red); opacity: 0; }
+
+.shell { min-height: 100%; display: flex; flex-direction: column; padding-inline: 24px; }
+.foot-page { width: 100%; max-width: 1180px; margin-inline: auto; padding-block: 18px 28px; border-top: 1px solid var(--line); display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.foot-page .mz { font-size: 20px; }
+.foot-page .base { font-size: 13.5px; color: var(--meta); }
+.foot-page .site { margin-left: auto; font-size: 13.5px; color: var(--meta); text-decoration: none; }
+.foot-page .site:hover { color: var(--ink); }
+.strip { border-bottom: 1px solid var(--line); }
+.strip-in { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%; max-width: 1180px; margin-inline: auto; padding-block: 8px; flex-wrap: wrap; }
+.strip .who { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.strip .who .base { font-size: 13px; color: var(--meta); }
+@media (max-width: 700px) { .strip .who .base { display: none; } }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 14px; width: 100%; max-width: 1180px; margin-inline: auto; padding-block: 18px 6px; flex-wrap: wrap; }
+.brand { display: flex; flex-direction: column; gap: 2px; }
+.brand .name { font-family: var(--show); font-weight: 900; font-size: 34px; letter-spacing: .02em; text-transform: uppercase; color: var(--ink); line-height: 1.15; }
+.brand .name a { color: inherit; text-decoration: none; }
+.brand .name em { font-style: normal; color: var(--green); }
+.by { font-size: 12.5px; color: var(--meta); display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+.mzblock { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; margin-left: 10px; padding-left: 18px; border-left: 1px solid var(--line-strong); }
+.mzblock .mz { font-size: 22px; }
+.mzblock .base { font-size: 12px; color: var(--meta); white-space: nowrap; }
+@media (max-width: 760px) { .mzblock .base { display: none; } }
+a.mz, a.mz:hover { text-decoration: none; }
+.mz { font-family: var(--logo-font); font-weight: 800; letter-spacing: -0.4px; color: var(--ink); font-size: 15px; }
+.mz span { color: var(--green); }
+.bar-right { display: flex; align-items: center; gap: 10px; }
+.tag { font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--amber-text); background: var(--amber-tint); border-radius: 100px; padding: 5px 10px; white-space: nowrap; }
+.pill-btn { border: 1px solid var(--line-strong); background: var(--card); color: var(--slate); border-radius: 100px; padding: 7px 14px; font-size: 13.5px; font-weight: 600; cursor: pointer; }
+.pill-btn[aria-pressed="true"] { color: var(--green-text); border-color: var(--green); }
+.langs { display: flex; gap: 6px; }
+.lang { display: inline-flex; align-items: center; height: 34px; border-radius: 100px; border: 1px solid var(--line-strong); background: var(--card); padding: 3px 5px; cursor: pointer; }
+.lang .flag { width: 30px; height: 20px; }
+
+.share { position: relative; }
+.share-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 40; min-width: 220px; background: var(--card); border: 1px solid var(--line-strong); border-radius: 14px; padding: 8px; display: grid; gap: 2px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.share-menu a, .share-menu button { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: none; border: 0; border-radius: 9px; padding: 10px 12px; color: var(--ink); font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; }
+.share-menu a:hover, .share-menu button:hover { background: var(--soft); }
+.share-menu i, .share-row i { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; font-style: normal; color: #fff; }
+.share-menu i svg, .share-row i svg { width: 16px; height: 16px; fill: currentColor; display: block; }
+.share-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.share-row a, .share-row button { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-strong); background: var(--card); color: var(--ink); border-radius: 100px; padding: 9px 14px; font-size: 14px; font-weight: 600; cursor: pointer; text-decoration: none; }
+.i-in { background: #0A66C2; } .i-wa { background: #25D366; } .i-x { background: #000; border: 1px solid #333; } .i-mail { background: #6B7280; } .i-link { background: #2B8FFF; }
+.share-inline { display: inline-flex; position: relative; }
+.share-inline .share-menu { left: 0; right: auto; top: calc(100% + 8px); }
+.btn.btn-share { background: var(--card); color: var(--ink); border-color: var(--line-strong); }
+.scorebox { display: flex; align-items: baseline; gap: 8px; border: 1px solid var(--line-strong); background: var(--card); border-radius: 100px; padding: 4px 18px; }
+.scorebox .k { font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
+.scorebox .v { font-family: var(--show); font-weight: 900; font-size: 28px; color: var(--green-text); font-variant-numeric: tabular-nums; min-width: 2ch; text-align: right; line-height: 1.1; }
+
+main { flex: 1; width: 100%; max-width: 1180px; margin-inline: auto; padding-block: 4px 40px; display: flex; flex-direction: column; gap: 24px; }
+.eyebrow { font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--meta); }
+.lead { font-size: clamp(16px, 1.3vw, 18px); color: var(--slate); max-width: 60ch; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.note { font-size: 13.5px; color: var(--meta); }
+.note.err { color: var(--red-text); }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 30px; border-radius: 12px; font-weight: 700; font-size: 17px; line-height: 1.2; border: 1px solid transparent; cursor: pointer; transition: background-color .15s, transform .1s; }
+.btn:active { transform: scale(.98); }
+.btn-primary { background: var(--blue); color: #fff; box-shadow: 0 0 30px rgba(43,143,255,.35); }
+.btn-primary:hover { background: var(--blue-deep); }
+.btn-primary:disabled { background: var(--line-strong); color: var(--meta); cursor: not-allowed; box-shadow: none; }
+.btn-ghost { background: var(--card); color: var(--ink); border-color: var(--line-strong); }
+.btn-row { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; }
+.linkish { background: none; border: 0; padding: 0; color: var(--blue-text); font-weight: 600; font-size: 15px; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Première page */
+.hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: start; padding-top: 4px; }
+.hero h1 { font-family: var(--show); font-weight: 900; text-transform: uppercase; letter-spacing: .005em; font-size: clamp(60px, min(9.4vw, 19vh), 150px); line-height: .9; }
+.hero h1 em { display: inline-block; padding-top: .06em; }
+.hero h1 em { font-style: normal; color: var(--green); }
+.hero .sig { font-family: var(--title); font-weight: 700; font-size: clamp(19px, 1.9vw, 24px); color: var(--ink); letter-spacing: -0.02em; }
+.teams { display: grid; gap: 7px; }
+.team { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; width: 100%; text-align: left; background: var(--card); border: 1.5px solid var(--line-strong); border-radius: 14px; padding: 9px 16px; cursor: pointer; transition: border-color .15s, background-color .15s, box-shadow .15s; }
+.team:hover { border-color: var(--blue); }
+.team .emo { font-size: 24px; line-height: 1; text-align: center; }
+.team .n { font-weight: 700; color: var(--ink); font-size: 16px; }
+.team .s { font-size: 13px; color: var(--meta); }
+.team .avg { font-family: var(--show); font-weight: 800; font-size: 24px; color: var(--slate); font-variant-numeric: tabular-nums; }
+.team .avg small { font-family: var(--font); font-size: 12px; font-weight: 600; color: var(--meta); margin-left: 2px; }
+.team[aria-pressed="true"] { border-color: var(--green); background: var(--green-tint); box-shadow: 0 0 28px rgba(0,239,139,.18); }
+.team[aria-pressed="true"] .avg { color: var(--green-text); }
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; gap: 32px; } }
+
+/* Le plateau */
+.play { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 32px; align-items: start; }
+.play.with-side { grid-template-columns: 230px minmax(0, 1fr) 290px; }
+.ladder { display: flex; flex-direction: column; gap: 6px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+.ladder .head { font-size: 12.5px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); padding: 0 12px 8px; }
+.rung { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: center; padding: 8px 12px; border-radius: 10px; border: 1px solid transparent; font-size: 14px; font-weight: 600; color: var(--meta); }
+.rung .n { font-family: var(--show); font-weight: 800; font-size: 19px; text-align: center; font-variant-numeric: tabular-nums; line-height: 1; }
+.rung .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rung.now { border-color: var(--blue); background: var(--blue-tint); color: var(--ink); box-shadow: 0 0 22px rgba(43,143,255,.28); }
+.rung.good { background: var(--green-tint); color: var(--green-text); }
+.rung.mid { background: var(--amber-tint); color: var(--amber-text); }
+.rung.bad { background: var(--red-tint); color: var(--red-text); }
+.rung.sub { margin-top: 8px; border-top: 1px dashed var(--line-strong); border-radius: 0 0 10px 10px; padding-top: 12px; }
+.rung.sub.now { border-radius: 10px; border-top-style: solid; }
+.screen { border: 1px solid var(--line-strong); border-radius: 24px; background: linear-gradient(180deg, rgba(43,143,255,.07), transparent 38%), var(--card); padding: clamp(20px, 2.6vw, 32px); display: flex; flex-direction: column; gap: 20px; min-height: 0; box-shadow: 0 30px 80px rgba(0,0,0,.45); }
+.round { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.round .chip { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #06080C; background: var(--green); border-radius: 100px; padding: 5px 12px; }
+.round .q { font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
+.q-title { font-size: clamp(22px, 2.4vw, 30px); }
+.asked { font-size: 14.5px; color: var(--meta); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.foot { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: auto; }
+.foot .src { flex: 1; min-width: 220px; font-size: 12.5px; color: var(--meta); }
+.screen .foot { position: sticky; bottom: 0; background: var(--card); padding-block: 14px; margin: auto -8px -8px; padding-inline: 8px; border-top: 1px solid var(--line); z-index: 2; }
+@media (max-width: 860px) { .foot .src { flex-basis: 100%; } }
+.side { border-radius: 22px; background: #FFFFFF; color: #3A4250; padding: 24px 22px; display: flex; flex-direction: column; gap: 14px; font-size: 16px; line-height: 1.5; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); box-shadow: 0 0 60px rgba(0,239,139,.16); }
+.side .mz { color: #0A0A0A; font-size: 26px; }
+.side b { color: #0A0A0A; font-weight: 700; }
+a.btn, a.btn:hover { text-decoration: none; }
+.side .small { font-size: 13px; color: #6B7280; }
+.side .ask { font-family: var(--title); font-weight: 700; color: #0A0A0A; font-size: 18px; letter-spacing: -0.02em; line-height: 1.25; }
+.side .btn-primary, .cta .btn-primary { background: #007BFF; box-shadow: none; align-self: flex-start; }
+@media (max-width: 1140px) { .play.with-side { grid-template-columns: 230px minmax(0, 1fr); } .play.with-side .side { grid-column: 2; position: static; } }
+@media (max-width: 860px) {
+  .play, .play.with-side { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+  .play.with-side .side { grid-column: 1; }
+  .ladder { flex-direction: row; flex-wrap: wrap; position: static; gap: 4px; }
+  .ladder .head { flex-basis: 100%; padding: 0 0 4px; }
+  .rung { flex: 1; grid-template-columns: 1fr; padding: 6px 0; justify-items: center; min-width: 26px; }
+  .rung .t { display: none; }
+  .rung.sub { margin-top: 0; border-top: 0; padding-top: 6px; border-radius: 10px; }
+  .side { position: static; }
+  .screen { min-height: 0; }
+}
+
+/* Réponses en pastilles */
+.opts { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.opts.one { grid-template-columns: 1fr; }
+.opt { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; background: var(--soft); border: 1.5px solid var(--line-strong); border-radius: 999px; padding: 9px 22px 9px 9px; min-height: 56px; cursor: pointer; font-weight: 600; color: var(--ink); font-size: 16px; line-height: 1.25; transition: border-color .15s, background-color .15s, box-shadow .15s; }
+.opt:hover { border-color: var(--blue); }
+.opt .key { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--card); border: 1.5px solid var(--line-strong); font-family: var(--show); font-size: 20px; font-weight: 800; color: var(--blue-text); }
+.opt[aria-pressed="true"] { border-color: var(--blue); background: var(--blue-tint); box-shadow: 0 0 26px rgba(43,143,255,.35); }
+.opt[aria-pressed="true"] .key { background: var(--blue); border-color: var(--blue); color: #fff; }
+.opt .big { font-family: var(--show); font-weight: 800; font-size: 30px; letter-spacing: .01em; }
+.opt:disabled { cursor: default; }
+
+/* Curseur : aucune valeur tant qu'on n'y a pas touché */
+.slider { display: flex; flex-direction: column; gap: 16px; padding: 30px 26px 20px; border: 1.5px solid var(--line-strong); border-radius: 20px; background: var(--soft); }
+.slider .val { font-family: var(--show); font-weight: 900; font-size: clamp(44px, 7vw, 76px); letter-spacing: .005em; color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; min-height: 1em; text-align: center; }
+.slider .val.empty { color: var(--line-strong); }
+.slider input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 36px; margin: 0; background: transparent; cursor: pointer; }
+.slider input[type=range]::-webkit-slider-runnable-track { height: 8px; border-radius: 4px; background: var(--line-strong); }
+.slider input[type=range]::-moz-range-track { height: 8px; border-radius: 4px; background: var(--line-strong); }
+.slider input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 32px; height: 32px; margin-top: -12px; border-radius: 50%; background: var(--blue); border: 4px solid #fff; box-shadow: 0 0 18px rgba(43,143,255,.6); }
+.slider input[type=range]::-moz-range-thumb { width: 24px; height: 24px; border-radius: 50%; background: var(--blue); border: 4px solid #fff; }
+.slider.untouched input[type=range]::-webkit-slider-thumb { opacity: 0; }
+.slider.untouched input[type=range]::-moz-range-thumb { opacity: 0; }
+.slider .ends { display: flex; justify-content: space-between; gap: 10px; font-size: 13.5px; color: var(--meta); font-variant-numeric: tabular-nums; }
+.slider .hint { text-align: center; font-size: 14px; color: var(--meta); }
+
+/* Classement par glisser-déposer */
+.order { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 20px; align-items: start; }
+.order .lbl { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); margin-bottom: 8px; }
+@media (max-width: 640px) { .order { grid-template-columns: 1fr; } }
+.rank { display: grid; gap: 8px; }
+.slot { display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: center; }
+.slot .num { font-family: var(--show); font-weight: 900; font-size: 28px; color: var(--blue-text); text-align: center; line-height: 1; }
+.slot .drop { min-height: 56px; border: 2px dashed var(--line-strong); border-radius: 14px; display: flex; align-items: center; transition: border-color .12s, background-color .12s; }
+.slot .drop.over { border-color: var(--blue); background: var(--blue-tint); }
+.slot .drop.filled { border-color: transparent; }
+.pool { display: flex; flex-direction: column; gap: 8px; min-height: 62px; padding: 10px; border-radius: 14px; background: var(--soft); border: 1px solid var(--line); }
+.pool .cardx { width: 100%; }
+.pool.over { border-color: var(--blue); }
+.pool:empty::after { content: attr(data-empty); font-size: 14px; color: var(--meta); padding: 8px; }
+.cardx { display: inline-flex; align-items: center; gap: 10px; background: var(--card); border: 1.5px solid var(--line-strong); border-radius: 12px; padding: 12px 16px; font-weight: 600; color: var(--ink); font-size: 16.5px; cursor: grab; touch-action: none; user-select: none; -webkit-user-select: none; }
+.slot .cardx { width: 100%; }
+.cardx .grip { margin-left: auto; color: var(--meta); font-size: 17px; line-height: 1; letter-spacing: -2px; }
+.cardx.lifted { opacity: .25; }
+.cardx.ghost { position: fixed; z-index: 60; pointer-events: none; box-shadow: 0 12px 34px rgba(0,0,0,.5); transform: rotate(-2deg); margin: 0; }
+.flag { flex: none; width: 33px; height: 22px; border-radius: 4px; border: 1px solid var(--line-strong); overflow: hidden; display: block; }
+.flag svg { display: block; width: 100%; height: 100%; }
+
+/* La réponse, à la place de la question */
+.verdict { display: flex; align-items: center; gap: 14px; padding: 12px 18px; border-radius: 16px; font-weight: 700; font-size: 19px; }
+.verdict svg { width: 44px; height: 44px; flex: none; }
+.verdict .pts { margin-left: auto; font-family: var(--show); font-weight: 900; font-size: 30px; font-variant-numeric: tabular-nums; line-height: 1; }
+.verdict.good { background: var(--green-tint); color: var(--green-text); }
+.verdict.mid { background: var(--amber-tint); color: var(--amber-text); }
+.verdict.bad { background: var(--red-tint); color: var(--red-text); }
+.answer { font-family: var(--title); font-weight: 700; color: var(--ink); font-size: clamp(22px, 2.4vw, 28px); letter-spacing: -0.025em; line-height: 1.15; text-wrap: balance; }
+.trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.trio div { padding: 12px 16px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.trio div + div { border-left: 1px solid var(--line); }
+.trio .k { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--meta); }
+.trio .v { font-family: var(--show); font-weight: 800; font-size: 26px; color: var(--ink); font-variant-numeric: tabular-nums; line-height: 1.1; }
+.trio .real .v { color: var(--green-text); }
+@media (max-width: 560px) { .trio { grid-template-columns: 1fr; } .trio div + div { border-left: 0; border-top: 1px solid var(--line); } }
+.others { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; font-size: 14.5px; color: var(--slate); }
+.others .track { height: 10px; border-radius: 5px; background: var(--line-soft); overflow: hidden; }
+.others .track i { display: block; height: 100%; border-radius: 5px; background: var(--blue); }
+.others b { font-family: var(--show); font-weight: 800; font-size: 22px; color: var(--ink); }
+.rows { display: grid; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.rows .r { display: flex; align-items: center; gap: 12px; padding: 9px 14px; font-size: 15.5px; color: var(--ink); font-weight: 500; }
+.rows .r + .r { border-top: 1px solid var(--line-soft); }
+.rows .r .pos { flex: none; width: 16px; color: var(--meta); font-weight: 700; font-size: 14px; }
+.rows .r .fig { margin-left: auto; color: var(--slate); font-weight: 600; white-space: nowrap; font-size: 14.5px; font-variant-numeric: tabular-nums; }
+.rows .r .you { font-size: 12px; font-weight: 700; border-radius: 100px; padding: 2px 8px; white-space: nowrap; }
+.rows .r .you.ok { background: var(--green-tint); color: var(--green-text); }
+.rows .r .you.ko { background: var(--red-tint); color: var(--red-text); }
+.why { display: grid; grid-template-columns: 30px 1fr; gap: 12px; font-size: 15.5px; color: var(--slate); line-height: 1.55; }
+.why .bulb { font-size: 22px; line-height: 1.3; }
+
+/* Résultat */
+.final { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+.final { gap: 40px; }
+.final .scorecard { border: 1px solid var(--line-strong); border-radius: 24px; background: var(--card); padding: 36px; display: flex; flex-direction: column; gap: 22px; }
+.gate { gap: 22px; }
+.board { display: grid; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.board .row { display: grid; grid-template-columns: 44px 1fr auto; gap: 14px; align-items: center; padding: 12px 18px; font-size: 15.5px; color: var(--ink); }
+.board .row + .row { border-top: 1px solid var(--line-soft); }
+.board .row .rk { font-family: var(--show); font-weight: 800; font-size: 22px; color: var(--meta); }
+.board .row .who small { display: block; font-size: 13px; color: var(--meta); }
+.board .row .sc { font-family: var(--show); font-weight: 900; font-size: 26px; color: var(--ink); }
+.board .row.me { background: var(--green-tint); }
+.board .row.me .rk, .board .row.me .sc { color: var(--green-text); }
+.board .row.gap { justify-items: center; color: var(--meta); font-size: 13px; padding: 6px; grid-template-columns: 1fr; }
+.bigscore { display: flex; align-items: baseline; gap: 12px; }
+.bigscore b { font-family: var(--show); font-weight: 900; font-size: clamp(80px, 9vw, 120px); color: var(--green-text); line-height: .85; font-variant-numeric: tabular-nums; }
+.bigscore span { font-family: var(--show); font-weight: 800; font-size: 34px; color: var(--meta); }
+.ranks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.ranks div { border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; display: flex; flex-direction: column; gap: 2px; }
+.ranks .k { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--meta); }
+.ranks .v { font-family: var(--show); font-weight: 900; font-size: 34px; color: var(--ink); line-height: 1; }
+.ranks .v small { font-family: var(--font); font-size: 13px; font-weight: 600; color: var(--meta); margin-left: 4px; }
+@media (max-width: 480px) { .ranks { grid-template-columns: 1fr; } }
+.gate { border: 1.5px solid var(--green); border-radius: 24px; background: var(--green-tint); padding: 32px; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 0 60px rgba(0,239,139,.12); }
+.gate h2 { font-size: clamp(24px, 2.6vw, 32px); }
+.fields { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; }
+.fields label { display: flex; flex-direction: column; min-width: 0; gap: 6px; font-size: 13.5px; font-weight: 600; color: var(--slate); }
+.fields input { border: 1px solid var(--line-strong); border-radius: 10px; padding: 14px; font-size: 16.5px; color: var(--ink); background: var(--ground); min-width: 0; width: 100%; }
+.consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; line-height: 1.45; color: var(--slate); cursor: pointer; }
+.consent input { flex: none; width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--green); cursor: pointer; }
+.panel { border: 1px solid var(--line-strong); border-radius: 24px; background: var(--card); padding: 32px; display: flex; flex-direction: column; gap: 18px; }
+.panel h2 { font-size: clamp(22px, 2.4vw, 28px); }
+.fam { display: grid; gap: 12px; }
+.fam .line { display: grid; grid-template-columns: 22px 30px minmax(110px, 220px) 1fr 44px; gap: 12px; align-items: center; font-size: 15.5px; }
+.fam .line .rk { font-family: var(--show); font-weight: 800; font-size: 20px; color: var(--meta); }
+.fam .line .n { color: var(--ink); font-weight: 600; }
+.fam .line.me .n::after { content: attr(data-me); color: var(--green-text); }
+.fam .track { height: 12px; border-radius: 6px; background: var(--line-soft); overflow: hidden; }
+.fam .track i { display: block; height: 100%; border-radius: 6px; background: var(--meta); }
+.fam .line.me .track i { background: var(--green); }
+.fam .s { text-align: right; font-family: var(--show); font-weight: 800; font-size: 22px; color: var(--ink); }
+.cta { background: #FFFFFF; color: #3A4250; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px; }
+.cta h2 { color: #0A0A0A; font-size: clamp(24px, 2.8vw, 34px); }
+.cta .mz { color: #0A0A0A; font-size: 24px; }
+.cta p { color: #3A4250; }
+.cta .btn-primary { align-self: flex-start; background: #007BFF; box-shadow: none; }
+@media (max-width: 900px) { .final { grid-template-columns: 1fr; } .fields { grid-template-columns: 1fr; } .fam .line { grid-template-columns: 20px 26px 1fr 40px; } .fam .track { display: none; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .fade { animation: fade .28s ease-out; } @keyframes fade { from { opacity: .35; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .pop { animation: pop .45s cubic-bezier(.2,1.6,.4,1); } @keyframes pop { from { transform: scale(.6); } to { transform: scale(1); } }
+  .shake { animation: shake .5s cubic-bezier(.36,.07,.19,.97); } @keyframes shake { 10%, 90% { transform: translateX(-2px); } 20%, 80% { transform: translateX(5px); } 30%, 50%, 70% { transform: translateX(-9px); } 40%, 60% { transform: translateX(9px); } }
+  .opt.suspense, .slider.suspense, .rank.suspense { animation: pulse .45s ease-in-out infinite alternate; } @keyframes pulse { from { box-shadow: 0 0 10px rgba(43,143,255,.25); } to { box-shadow: 0 0 38px rgba(43,143,255,.75); } }
+  .rank.suspense { border-radius: 14px; }
+  #flash.on { animation: flash .5s ease-out; } @keyframes flash { 0% { opacity: .28; } 100% { opacity: 0; } }
+}
+</style>
+</head>
+<body>
+
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div id="flash" aria-hidden="true"></div>
+<div class="shell">
+  <div class="bar">
+    <div class="brand">
+      <div class="name" id="brand-name">Le Grand Quiz des <em>Études</em></div>
+      <div class="by" id="brand-by"></div>
+    </div>
+    <div class="bar-right" id="bar-right"></div>
+  </div>
+  <main id="app"></main>
+  <footer class="foot-page">
+    <a class="mz" href="https://mazeo.co" target="_blank" rel="noopener">mazeo<span>.</span></a>
+    <span class="base" id="foot-base"></span>
+    <a class="site" href="https://mazeo.co" target="_blank" rel="noopener">mazeo.co</a>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var BANK = /*__BANK__*/[{"id":"focus-group","theme":2,"story":"focus","type":"choice","opening":true,"title":"Le focus group est né aux États-Unis dans les années 1940. À quoi servait-il, à l'origine ?","options":[{"name":"À tester des parfums de savon"},{"name":"À mesurer l'effet des émissions de propagande à la radio"},{"name":"À choisir le nom d'une automobile"},{"name":"À sélectionner des officiers"}],"answer":1,"right":31,"answerText":"À mesurer l'effet de la propagande radiophonique.","why":"En pleine Seconde Guerre mondiale, le sociologue Robert K. Merton réunit douze auditeurs dans un studio. Chacun presse un bouton vert ou un bouton rouge selon ce que l'émission lui inspire, puis le groupe en discute. L'expression « focus group » ne s'impose que dans les années 1950, sous l'influence d'Ernest Dichter.","src":"Robert K. Merton et Patricia L. Kendall, « The Focused Interview », American Journal of Sociology, vol. 51, n° 6, 1946.","en":{"title":"The focus group was born in the United States in the 1940s. What was it originally used for?","options":["Testing the scent of soap","Measuring the effect of radio propaganda broadcasts","Naming a car","Selecting army officers"],"answerText":"Measuring the effect of radio propaganda.","why":"In the middle of the Second World War, the sociologist Robert K. Merton gathered twelve listeners in a studio. Each pressed a green or a red button according to what the programme inspired, then the group discussed it. The term \"focus group\" only took hold in the 1950s, under the influence of Ernest Dichter."}},{"id":"gallup-belle-mere","theme":0,"story":"gallup","type":"choice","title":"En 1932, George Gallup réalise son tout premier sondage politique. Pour le compte de qui ?","options":[{"name":"Du président Herbert Hoover"},{"name":"Du New York Times"},{"name":"De sa belle-mère"},{"name":"De General Motors"}],"answer":2,"right":12,"answerText":"Pour sa belle-mère.","why":"Ola Babcock Miller brigue le poste de secrétaire d'État de l'Iowa, sans grande chance de l'emporter. Son gendre sonde les électeurs pour orienter sa campagne. Trois ans plus tard, en 1935, George Gallup fonde l'American Institute of Public Opinion, qui fera sa renommée dès l'élection présidentielle suivante.","src":"Gallup, Inc., biographie de George Gallup ; Susan Ohmer, George Gallup in Hollywood, Columbia University Press, 2006.","en":{"title":"In 1932, George Gallup carried out his very first political poll. On whose behalf?","options":["President Herbert Hoover","The New York Times","His mother-in-law","General Motors"],"answerText":"His mother-in-law.","why":"Ola Babcock Miller was running for Secretary of State of Iowa, with little chance of winning. Her son-in-law surveyed voters to steer her campaign. Three years later, in 1935, George Gallup founded the American Institute of Public Opinion, which made his name at the very next presidential election."}},{"id":"nielsen-ingenieur","theme":0,"story":"nielsen","type":"choice","title":"Quelle était la formation d'Arthur C. Nielsen, qui fonde en 1923 la société d'études portant son nom ?","options":[{"name":"Statisticien"},{"name":"Ingénieur électricien"},{"name":"Journaliste"},{"name":"Psychologue"}],"answer":1,"right":22,"answerText":"Ingénieur électricien.","why":"Diplômé de l'université du Wisconsin en 1918, Arthur C. Nielsen applique aux ventes la rigueur de la mesure industrielle. Dans les années 1930, ses enquêteurs relèvent les stocks et les achats des pharmacies américaines, puis des épiceries. Pour la première fois, une marque peut chiffrer sa part de marché face à ses concurrentes.","src":"Nielsen, « Celebrating Our History of Innovation », sites.nielsen.com.","en":{"title":"What was the training of Arthur C. Nielsen, who founded the research company bearing his name in 1923?","options":["Statistician","Electrical engineer","Journalist","Psychologist"],"answerText":"Electrical engineer.","why":"A graduate of the University of Wisconsin in 1918, Arthur C. Nielsen applied the rigour of industrial measurement to sales. In the 1930s his auditors recorded the stock and purchases of American drugstores, then grocery stores. For the first time, a brand could put a figure on its market share against its competitors."}},{"id":"starch","theme":0,"story":"starch","type":"choice","title":"En 1923, Daniel Starch, professeur à Harvard, fonde l'un des tout premiers cabinets d'études. Que mesure-t-il ?","options":[{"name":"L'audience de la radio"},{"name":"L'efficacité des annonces publicitaires"},{"name":"Les intentions de vote"},{"name":"Les prix en magasin"}],"answer":1,"right":44,"answerText":"L'efficacité des annonces publicitaires.","why":"Les enquêteurs de Daniel Starch and Staff présentent un magazine à ses lecteurs et relèvent les annonces qu'ils reconnaissent. Ce « test de Starch » est l'ancêtre des post-tests publicitaires. Le cabinet mesurera aussi l'audience de la radio, mais seulement à partir de 1928.","src":"Daniel Starch, Principles of Advertising, A. W. Shaw, 1923 ; Daniel Starch and Staff, fondé en 1923.","en":{"title":"In 1923, Daniel Starch, a professor at Harvard, founded one of the very first research firms. What did it measure?","options":["Radio audiences","The effectiveness of advertisements","Voting intentions","Prices in stores"],"answerText":"The effectiveness of advertisements.","why":"The interviewers of Daniel Starch and Staff showed a magazine to its readers and recorded the advertisements they recognised. This \"Starch test\" is the ancestor of advertising post-tests. The firm would go on to measure radio audiences too, but only from 1928."}},{"id":"nielsen-radio","theme":0,"story":"nielsen","type":"slider","unit":"annee","min":1900,"max":1980,"answer":1942,"tol":[1,5,10],"avg":1951,"title":"En quelle année Arthur C. Nielsen lance-t-il, aux États-Unis, son premier indice national d'audience de la radio ?","answerText":"En 1942.","why":"Le National Radio Index sert à la fois les stations et les annonceurs. La mesure de la télévision ne suit qu'en 1950. L'audience de la radio a donc été mesurée huit ans avant celle du petit écran.","src":"Nielsen, « Celebrating Our History of Innovation », sites.nielsen.com.","en":{"title":"In what year did Arthur C. Nielsen launch his first national radio audience index in the United States?","answerText":"In 1942.","why":"The National Radio Index served both stations and advertisers. Television measurement only followed in 1950. Radio audiences were therefore measured eight years before those of the small screen."}},{"id":"dichter-freud","theme":0,"story":"dichter","type":"choice","title":"Dans les années 1950, Ernest Dichter devient le « père des études de motivation ». À quelle discipline emprunte-t-il ses méthodes ?","options":[{"name":"La psychanalyse de Freud"},{"name":"La statistique de Fisher"},{"name":"La linguistique de Saussure"},{"name":"La sociologie de Durkheim"}],"answer":0,"right":58,"answerText":"À la psychanalyse de Freud.","why":"Né à Vienne en 1907, Ernest Dichter applique aux affaires les concepts et les techniques de la psychanalyse. Pour le savon Ivory, il établit que le bain comporte une part de sensualité. Pour Plymouth, que le cabriolet symbolise la liberté et que les épouses pèsent sur l'achat.","src":"Ernest Dichter, The Strategy of Desire, Doubleday, 1960.","en":{"title":"In the 1950s, Ernest Dichter became the \"father of motivational research\". From which discipline did he borrow his methods?","options":["Freud's psychoanalysis","Fisher's statistics","Saussure's linguistics","Durkheim's sociology"],"answerText":"Freud's psychoanalysis.","why":"Born in Vienna in 1907, Ernest Dichter applied the concepts and techniques of psychoanalysis to business. For Ivory soap, he established that bathing carries a hint of sensuality. For Plymouth, that the convertible symbolises freedom and that wives weigh on the purchase."}},{"id":"packard","theme":0,"story":"dichter","type":"choice","title":"Dans les années 1950, un best-seller américain accuse les études de motivation de manipuler les consommateurs. Quel est son titre ?","options":[{"name":"La Persuasion clandestine"},{"name":"No Logo"},{"name":"Propaganda"},{"name":"La Société du spectacle"}],"answer":0,"right":37,"answerText":"La Persuasion clandestine (The Hidden Persuaders), de Vance Packard.","why":"Le journaliste Vance Packard s'en prend aux méthodes d'Ernest Dichter, qu'il compare à l'univers de George Orwell. C'est la première crise de réputation du métier. Elle n'a pas freiné les études qualitatives : elle les a fait connaître du grand public.","src":"Vance Packard, The Hidden Persuaders, David McKay, 1957 (La Persuasion clandestine, Calmann-Lévy, 1958).","en":{"title":"In the 1950s, an American bestseller accused motivational research of manipulating consumers. What is its title?","options":["The Hidden Persuaders","No Logo","Propaganda","The Society of the Spectacle"],"answerText":"The Hidden Persuaders, by Vance Packard.","why":"The journalist Vance Packard attacked the methods of Ernest Dichter, which he compared to the world of George Orwell. It was the profession's first reputation crisis. It did not slow qualitative research down: it made it known to the general public."}},{"id":"ifop-munich","theme":0,"story":"ifop","type":"choice","title":"Sur quel sujet porte le premier sondage d'opinion publié en France, réalisé à l'automne 1938 ?","options":[{"name":"Les congés payés"},{"name":"Les accords de Munich"},{"name":"Le prix du pain"},{"name":"Le Tour de France"}],"answer":1,"right":35,"answerText":"Les accords de Munich.","why":"Le sociologue Jean Stoetzel mène cette enquête en octobre 1938, dans les semaines qui suivent la signature des accords : 57 % des Français les approuvent. Il fonde l'Ifop en décembre 1938. En France, le sondage naît donc politique, et non commercial.","src":"Ifop, Ifop Collectors n° 21, « 1938-1939 : l'opinion française à la veille de l'entrée en guerre », 2018 ; Jean-Christophe Marcel, « Le premier sondage d'opinion », Revue d'histoire des sciences humaines, 2002 ; Jean Stoetzel, Théorie des opinions, PUF, 1943.","en":{"title":"What was the subject of the first published opinion poll in France, carried out in the autumn of 1938?","options":["Paid holidays","The Munich Agreement","The price of bread","The Tour de France"],"answerText":"The Munich Agreement.","why":"The sociologist Jean Stoetzel ran this survey in October 1938, in the weeks after the agreement was signed: 57% of the French approved of it. He founded Ifop in December 1938. In France, polling was therefore born political, not commercial."}},{"id":"literary-digest","theme":1,"story":"digest","type":"choice","title":"En 1936, le magazine Literary Digest annonce la défaite de Franklin Roosevelt, sur la foi de 2,4 millions de réponses : le plus grand sondage jamais réalisé. Roosevelt est réélu triomphalement. Que devient le magazine ?","options":[{"name":"Il rachète l'institut de George Gallup"},{"name":"Il disparaît dix-huit mois plus tard"},{"name":"Il gagne son procès contre ses détracteurs"},{"name":"Il renonce aux sondages et prospère"}],"answer":1,"right":41,"answerText":"Il disparaît dix-huit mois plus tard.","why":"Le Literary Digest avait envoyé dix millions de bulletins. Il donnait Alf Landon vainqueur avec 57 % des voix ; Roosevelt l'emporte avec 61 %. La même année, George Gallup annonce le bon résultat avec 50 000 personnes. La leçon fonde le métier : la représentativité d'un échantillon compte davantage que sa taille.","src":"Peverill Squire, « Why the 1936 Literary Digest Poll Failed », Public Opinion Quarterly, vol. 52, n° 1, 1988.","en":{"title":"In 1936, the Literary Digest magazine announced the defeat of Franklin Roosevelt on the strength of 2.4 million replies, the largest poll ever conducted. Roosevelt was re-elected by a landslide. What became of the magazine?","options":["It bought George Gallup's institute","It disappeared eighteen months later","It won its lawsuit against its critics","It gave up polling and prospered"],"answerText":"It disappeared eighteen months later.","why":"The Literary Digest had mailed ten million ballots. It gave Alf Landon the win with 57% of the vote; Roosevelt won with 61%. The same year, George Gallup called the result correctly with 50,000 people. The lesson founded the profession: the representativeness of a sample matters more than its size."}},{"id":"gallup-50000","theme":1,"story":"digest","type":"choice","big":true,"title":"1936, élection présidentielle américaine : le Literary Digest se trompe de vainqueur avec 2,4 millions de réponses. George Gallup, lui, voit juste. Combien de personnes a-t-il interrogées ?","options":[{"name":"5 000"},{"name":"50 000"},{"name":"500 000"},{"name":"5 millions"}],"answer":1,"right":39,"answerText":"50 000 personnes, soit près de cinquante fois moins.","why":"George Gallup annonce la victoire de Franklin Roosevelt, que le magazine donnait battu. Son échantillon est petit, mais construit pour ressembler au pays. Celui du Literary Digest était immense, mais composé de volontaires plutôt aisés. Le sondage moderne est né de cette comparaison.","src":"Peverill Squire, « Why the 1936 Literary Digest Poll Failed », Public Opinion Quarterly, vol. 52, n° 1, 1988 ; David Freedman, Robert Pisani et Roger Purves, Statistics, W. W. Norton (pour les 50 000 personnes).","en":{"title":"1936, US presidential election: the Literary Digest picked the wrong winner with 2.4 million replies. George Gallup got it right. How many people did he interview?","options":["5,000","50,000","500,000","5 million"],"answerText":"50,000 people, almost fifty times fewer.","why":"George Gallup announced the victory of Franklin Roosevelt, whom the magazine had given as beaten. His sample was small, but built to resemble the country. The Literary Digest's was huge, but made up of rather well-off volunteers. Modern polling was born of that comparison."}},{"id":"new-coke-79","theme":1,"story":"newcoke","type":"slider","unit":"jours","min":0,"max":730,"answer":79,"tol":[8,25,60],"avg":212,"title":"Le 23 avril 1985, Coca-Cola remplace sa recette historique par le « New Coke », plébiscité lors des tests à l'aveugle. Au bout de combien de jours annonce-t-il le retour de l'ancienne formule ?","answerText":"Au bout de 79 jours.","why":"Le 11 juillet 1985, la direction annonce le retour de la recette d'origine. Les tests gustatifs étaient pourtant sans appel. Mais 10 à 12 % des personnes interrogées se disaient en colère à la seule idée du changement, et ce signal avait été écarté. On avait mesuré le goût, pas l'attachement à la marque.","src":"The Coca-Cola Company, histoire officielle de New Coke, coca-colacompany.com ; Mark Pendergrast, For God, Country and Coca-Cola, 1993.","en":{"title":"On 23 April 1985, Coca-Cola replaced its historic recipe with \"New Coke\", acclaimed in blind taste tests. After how many days did it announce the return of the old formula?","answerText":"After 79 days.","why":"On 11 July 1985, management announced the return of the original recipe. The taste tests had been unequivocal. But 10 to 12% of the people interviewed said they were angry at the mere idea of the change, and that signal had been set aside. Taste had been measured, not attachment to the brand."}},{"id":"new-coke-signal","theme":1,"story":"newcoke","type":"choice","title":"Avant de lancer le « New Coke » en 1985, Coca-Cola mène des tests à grande échelle. Quel signal, présent dans les résultats, la direction écarte-t-elle ?","options":[{"name":"Les moins de 25 ans préfèrent Pepsi"},{"name":"Le nouveau goût lasse après trois verres"},{"name":"10 à 12 % des testeurs se disent en colère à l'idée du changement"},{"name":"Les distributeurs refusent la nouvelle canette"}],"answer":2,"right":47,"answerText":"10 à 12 % des testeurs se disent en colère à l'idée du changement.","why":"Dans les réunions de groupe, ces consommateurs entraînaient même les autres participants. La nouvelle formule gagnait les tests de goût, mais l'attachement à la marque n'était pas mesuré. La recette d'origine revient 79 jours après le lancement.","src":"Mark Pendergrast, For God, Country and Coca-Cola, 1993 ; The Coca-Cola Company, coca-colacompany.com.","en":{"title":"Before launching \"New Coke\" in 1985, Coca-Cola ran large-scale tests. Which signal, present in the results, did management set aside?","options":["Under-25s prefer Pepsi","The new taste palls after three glasses","10 to 12% of testers said they were angry at the idea of the change","Distributors refused the new can"],"answerText":"10 to 12% of testers said they were angry at the idea of the change.","why":"In group sessions, these consumers even swayed the other participants. The new formula won the taste tests, but attachment to the brand was not measured. The original recipe came back 79 days after launch."}},{"id":"dewey-truman","theme":1,"story":"dewey","type":"choice","title":"3 novembre 1948 : le Chicago Daily Tribune titre « Dewey bat Truman ». C'est Harry Truman qui est élu. Quelle erreur George Gallup reconnaît-il ensuite ?","options":[{"name":"Un échantillon trop petit"},{"name":"Des questions mal formulées"},{"name":"Un terrain arrêté plusieurs semaines avant le vote"},{"name":"Des enquêteurs partisans"}],"answer":2,"right":33,"answerText":"Un terrain arrêté plusieurs semaines avant le vote.","why":"Certains de la victoire de Thomas Dewey, les instituts cessent d'interroger les électeurs bien avant le scrutin : le dernier terrain de Gallup s'achève le 25 octobre. Ils manquent la remontée de Harry Truman, qui l'emporte de 4,5 points. Le Tribune, contraint par une grève de boucler plus tôt qu'à l'ordinaire, avait déjà imprimé 150 000 exemplaires de sa une.","src":"Frederick Mosteller et al., The Pre-election Polls of 1948, Social Science Research Council, 1949 (reproduit par la Truman Library) ; Gallup, « George Gallup, Twentieth-Century Pioneer », news.gallup.com ; Chicago Tribune, 3 novembre 1948.","en":{"title":"3 November 1948: the Chicago Daily Tribune runs the headline \"Dewey Defeats Truman\". Harry Truman is the one elected. Which mistake did George Gallup later admit?","options":["Too small a sample","Badly worded questions","Fieldwork stopped several weeks before the vote","Partisan interviewers"],"answerText":"Fieldwork stopped several weeks before the vote.","why":"Certain of Thomas Dewey's victory, the pollsters stopped interviewing voters well before election day: Gallup's last fieldwork ended on 25 October. They missed Harry Truman's comeback, who won by 4.5 points. The Tribune, forced by a strike to go to press earlier than usual, had already printed 150,000 copies of its front page."}},{"id":"dewey-exemplaires","theme":1,"story":"dewey","type":"slider","unit":"exemplaires","min":0,"max":1000000,"step":10000,"answer":150000,"tol":[20000,60000,150000],"avg":340000,"title":"Novembre 1948 : combien d'exemplaires du Chicago Daily Tribune sortent des presses avec la une erronée « Dewey bat Truman », avant qu'elle ne soit corrigée ?","answerText":"Environ 150 000 exemplaires.","why":"Une grève oblige le journal à boucler plusieurs heures plus tôt qu'à l'ordinaire. La rédaction se fie aux sondages, unanimes à donner Thomas Dewey vainqueur. Harry Truman, élu, brandira cette une devant les photographes : l'image est restée le symbole des erreurs de sondage.","src":"Chicago Tribune, archives du 3 novembre 1948 ; Harry S. Truman Library.","en":{"title":"November 1948: how many copies of the Chicago Daily Tribune came off the presses with the erroneous headline \"Dewey Defeats Truman\" before it was corrected?","answerText":"About 150,000 copies.","why":"A strike forced the newspaper to go to press several hours earlier than usual. The newsroom relied on the polls, unanimous in giving Thomas Dewey the win. Harry Truman, elected, would brandish that front page before the photographers: the picture has remained the symbol of polling errors."}},{"id":"edsel","theme":1,"story":"edsel","type":"choice","title":"1957 : Ford lance une nouvelle marque automobile. Pour la nommer, son agence avance plus de 6 000 idées et la poétesse Marianne Moore propose « Utopian Turtletop ». Quel nom le conseil d'administration retient-il ?","options":[{"name":"Mustang"},{"name":"Edsel, le prénom du fils du fondateur"},{"name":"Thunderbird"},{"name":"Turtletop"}],"answer":1,"right":29,"answerText":"Edsel, contre l'avis des études.","why":"Le président du conseil impose ce prénom en l'absence d'Henry Ford II. La marque est lancée le 4 septembre 1957 et arrêtée en novembre 1959. Ford y perd entre 250 et 350 millions de dollars de l'époque, selon les estimations. L'Edsel reste le cas d'école d'une étude ignorée.","src":"John Brooks, « The Fate of the Edsel », The New Yorker, 26 novembre 1960.","en":{"title":"1957: Ford launches a new car brand. To name it, its agency puts forward more than 6,000 ideas and the poet Marianne Moore suggests \"Utopian Turtletop\". Which name does the board choose?","options":["Mustang","Edsel, the first name of the founder's son","Thunderbird","Turtletop"],"answerText":"Edsel, against the advice of the research.","why":"The chairman of the board imposed this first name in the absence of Henry Ford II. The brand was launched on 4 September 1957 and discontinued in November 1959. Ford lost between 250 and 350 million dollars of the time, depending on the estimate. The Edsel remains the textbook case of research ignored."}},{"id":"tropicana","theme":1,"story":"tropicana","type":"choice","big":true,"title":"En janvier 2009, Tropicana change l'emballage de son jus d'orange aux États-Unis. De combien ses ventes reculent-elles en moins de deux mois ?","options":[{"name":"2 %"},{"name":"5 %"},{"name":"20 %"},{"name":"50 %"}],"answer":2,"right":36,"answerText":"De 20 %.","why":"Le nouveau dessin, signé par l'agence Arnell, déroute les acheteurs, qui ne reconnaissent plus leur brique en rayon. Sept semaines plus tard, le 23 février, la marque annonce le retour à son ancien emballage. C'est devenu l'argument classique en faveur du test d'emballage.","src":"Stuart Elliott, « Tropicana Discovers Some Buyers Are Passionate About Packaging », The New York Times, 22 février 2009 ; Natalie Zmuda, « Tropicana Line's Sales Plunge 20% Post-Rebranding », Ad Age, 2 avril 2009.","en":{"title":"In January 2009, Tropicana changed the packaging of its orange juice in the United States. By how much did its sales fall in under two months?","options":["2%","5%","20%","50%"],"answerText":"By 20%.","why":"The new design, by the Arnell agency, confused shoppers, who no longer recognised their carton on the shelf. Seven weeks later, on 23 February, the brand announced a return to its former packaging. It has become the classic argument for packaging tests."}},{"id":"2002-ecart","theme":1,"story":"2002","type":"slider","unit":"voix","min":0,"max":2000000,"step":10000,"answer":194600,"tol":[25000,80000,200000],"avg":610000,"title":"En France, au premier tour de l'élection présidentielle du 21 avril 2002, combien de voix séparent Jean-Marie Le Pen de Lionel Jospin ?","answerText":"194 600 voix.","why":"Jean-Marie Le Pen obtient 16,86 % des suffrages, Lionel Jospin 16,18 %. Les derniers sondages publiés le situaient entre 12,5 et 14 %. Seize candidats se présentaient, un record, et l'écart final tient à moins d'un point. L'épisode a durablement marqué les instituts français.","src":"Conseil constitutionnel, proclamation des résultats du premier tour de l'élection présidentielle, avril 2002.","en":{"title":"In France, in the first round of the presidential election of 21 April 2002, how many votes separated Jean-Marie Le Pen from Lionel Jospin?","answerText":"194,600 votes.","why":"Jean-Marie Le Pen obtained 16.86% of the vote, Lionel Jospin 16.18%. The last published polls put him between 12.5 and 14%. Sixteen candidates stood, a record, and the final gap came to less than one point. The episode left a lasting mark on French polling firms."}},{"id":"2002-abstention","theme":1,"story":"2002","type":"choice","big":true,"title":"En France, quel est le taux d'abstention au premier tour de l'élection présidentielle du 21 avril 2002 ?","options":[{"name":"18,4 %"},{"name":"23,4 %"},{"name":"28,4 %"},{"name":"33,4 %"}],"answer":2,"right":34,"answerText":"28,4 %, soit 11,7 millions d'électeurs.","why":"Avec seize candidats et une abstention aussi élevée, quelques centaines de milliers de voix suffisent à changer l'ordre d'arrivée. Jean-Marie Le Pen devance Lionel Jospin de 194 600 voix. La participation s'est révélée aussi difficile à prévoir que les scores.","src":"Conseil constitutionnel, proclamation des résultats du premier tour de l'élection présidentielle, avril 2002.","en":{"title":"In France, what was the abstention rate in the first round of the presidential election of 21 April 2002?","options":["18.4%","23.4%","28.4%","33.4%"],"answerText":"28.4%, or 11.7 million voters.","why":"With sixteen candidates and such high abstention, a few hundred thousand votes are enough to change the order of finish. Jean-Marie Le Pen beat Lionel Jospin by 194,600 votes. Turnout proved as hard to predict as the scores."}},{"id":"brexit","theme":1,"story":"brexit","type":"choice","big":true,"title":"Au Royaume-Uni, quel score le « Leave » obtient-il au référendum de juin 2016 sur l'appartenance à l'Union européenne ?","options":[{"name":"50,4 %"},{"name":"51,9 %"},{"name":"53,6 %"},{"name":"55,2 %"}],"answer":1,"right":52,"answerText":"51,9 % des suffrages exprimés.","why":"17,4 millions de Britanniques votent pour la sortie, 16,1 millions pour le maintien, avec une participation de 72,2 %. Un résultat aussi serré se situe dans la marge d'erreur de la plupart des enquêtes. C'est moins l'erreur des instituts que la lecture de leurs chiffres qui a été mise en cause.","src":"The Electoral Commission, résultats du référendum du 23 juin 2016.","en":{"title":"In the United Kingdom, what share did \"Leave\" obtain in the June 2016 referendum on membership of the European Union?","options":["50.4%","51.9%","53.6%","55.2%"],"answerText":"51.9% of valid votes.","why":"17.4 million Britons voted to leave, 16.1 million to remain, on a turnout of 72.2%. A result this close sits within the margin of error of most surveys. It was less the pollsters' error than the reading of their figures that came under fire."}},{"id":"clinton-2016","theme":1,"story":"usa2016","type":"choice","title":"États-Unis, 2016 : à la veille du scrutin, les moyennes des sondages nationaux donnent à Hillary Clinton un peu plus de 3 points d'avance dans le vote populaire. Quel est l'écart réel ?","options":[{"name":"Donald Trump devant de 2 points"},{"name":"Égalité parfaite"},{"name":"Hillary Clinton devant de 2,1 points"},{"name":"Hillary Clinton devant de 6 points"}],"answer":2,"right":27,"answerText":"Hillary Clinton devant de 2,1 points.","why":"Elle recueille 48,2 % des voix, contre 46,1 % à Donald Trump. Les sondages nationaux ne se sont donc trompés que d'un point environ. Ils avaient annoncé le bon vainqueur du vote populaire ; l'élection s'est jouée ailleurs, dans le collège électoral.","src":"Federal Election Commission, Official 2016 Presidential General Election Results ; moyenne finale RealClearPolitics, 7 novembre 2016.","en":{"title":"United States, 2016: on the eve of the vote, the national polling averages gave Hillary Clinton a lead of just over 3 points in the popular vote. What was the real gap?","options":["Donald Trump ahead by 2 points","A dead heat","Hillary Clinton ahead by 2.1 points","Hillary Clinton ahead by 6 points"],"answerText":"Hillary Clinton ahead by 2.1 points.","why":"She won 48.2% of the vote, against 46.1% for Donald Trump. The national polls were therefore only about one point off. They had named the right winner of the popular vote; the election was decided elsewhere, in the Electoral College."}},{"id":"likert-annee","theme":2,"story":"likert","type":"slider","unit":"annee","min":1900,"max":2000,"answer":1932,"tol":[2,8,15],"avg":1957,"title":"« Pas du tout d'accord, plutôt pas d'accord… » : en quelle année Rensis Likert publie-t-il l'échelle qui porte son nom ?","answerText":"En 1932.","why":"Le psychologue américain la présente dans un article intitulé « A Technique for the Measurement of Attitudes », paru dans les Archives of Psychology. L'outil le plus utilisé des questionnaires a donc près d'un siècle. Il précède de quatre ans le premier grand succès de George Gallup.","src":"Rensis Likert, « A Technique for the Measurement of Attitudes », Archives of Psychology, n° 140, 1932.","en":{"title":"\"Strongly disagree, disagree…\": in what year did Rensis Likert publish the scale that bears his name?","answerText":"In 1932.","why":"The American psychologist presented it in an article entitled \"A Technique for the Measurement of Attitudes\", published in the Archives of Psychology. The most widely used tool in questionnaires is therefore almost a century old. It predates George Gallup's first great success by four years."}},{"id":"likert-prononciation","theme":2,"story":"likert","type":"choice","title":"Comment Rensis Likert, l'inventeur de l'échelle, prononçait-il son propre nom ?","options":[{"name":"« LAÏ-keurt », comme l'anglais like"},{"name":"« LIK-eurt », avec un i bref"},{"name":"« li-KÈRT », à la française"}],"answer":1,"right":24,"answerText":"« LIK-eurt », avec un i bref.","why":"La prononciation « LAÏ-keurt », de loin la plus répandue, est fautive. Le psychologue américain prononçait la première syllabe comme dans le mot anglais lick. Presque toute la profession écorche donc le nom de son outil le plus courant.","src":"Patty Kero et Daniel Lee, « Likert is Pronounced “LICK-urt” not “LIE-kurt”… », Journal of Applied Measurement, vol. 17, n° 4, 2016 ; Earl Babbie, The Basics of Social Research, 2005 ; Wikipédia (EN), « Likert scale ».","en":{"title":"How did Rensis Likert, the inventor of the scale, pronounce his own name?","options":["\"LIE-kurt\", like the English word like","\"LICK-urt\", with a short i","\"lee-KAIR\", the French way"],"answerText":"\"LICK-urt\", with a short i.","why":"The pronunciation \"LIE-kurt\", by far the most common, is wrong. The American psychologist pronounced the first syllable like the English word lick. Almost the whole profession therefore mangles the name of its most common tool."}},{"id":"courtyard","theme":2,"story":"conjoint","type":"choice","title":"Au début des années 1980, une chaîne d'hôtels est conçue de bout en bout grâce à une analyse conjointe, menée par Paul Green et Jerry Wind. Laquelle ?","options":[{"name":"Courtyard by Marriott"},{"name":"Ibis"},{"name":"Holiday Inn Express"},{"name":"Formule 1"}],"answer":0,"right":30,"answerText":"Courtyard by Marriott.","why":"Marriott commande aux deux professeurs de Wharton une vaste étude auprès de voyageurs d'affaires et de loisirs. Chaque attribut de l'hôtel est arbitré par l'analyse conjointe, de la taille des chambres aux services. La chaîne passe de trois hôtels en 1983 à environ 450 en 2000, et dépasse aujourd'hui les 1 300 dans le monde.","src":"Jerry Wind, Paul E. Green, Douglas Shifflet et Marsha Scarbrough, « Courtyard by Marriott: Designing a Hotel Facility with Consumer-Based Marketing Models », Interfaces, vol. 19, n° 1, 1989.","en":{"title":"In the early 1980s, a hotel chain was designed from end to end using conjoint analysis, led by Paul Green and Jerry Wind. Which one?","options":["Courtyard by Marriott","Ibis","Holiday Inn Express","Formule 1"],"answerText":"Courtyard by Marriott.","why":"Marriott commissioned the two Wharton professors to run a large study of business and leisure travellers. Every attribute of the hotel was decided by conjoint analysis, from room size to services. The chain grew from three hotels in 1983 to about 450 in 2000, and now has more than 1,300 worldwide."}},{"id":"nps-annee","theme":2,"story":"nps","type":"slider","unit":"annee","min":1950,"max":2020,"answer":2003,"tol":[1,4,8],"avg":1994,"title":"En quelle année le Net Promoter Score a-t-il vu le jour ?","answerText":"En 2003.","why":"Fred Reichheld, consultant chez Bain & Company, le présente dans la Harvard Business Review sous le titre « The One Number You Need to Grow ». L'indicateur le plus répandu de la relation client a donc à peine plus de vingt ans.","src":"Fred Reichheld, « The One Number You Need to Grow », Harvard Business Review, décembre 2003.","en":{"title":"In what year was the Net Promoter Score born?","answerText":"In 2003.","why":"Fred Reichheld, a consultant at Bain & Company, presented it in the Harvard Business Review under the title \"The One Number You Need to Grow\". The most widespread indicator of customer relations is therefore barely more than twenty years old."}},{"id":"nps-critique","theme":2,"story":"nps","type":"choice","title":"Le Net Promoter Score repose sur une seule question : « Recommanderiez-vous… ? ». Que conclut une étude longitudinale publiée en 2007 à son sujet ?","options":[{"name":"Il prédit la croissance deux fois mieux que la satisfaction"},{"name":"Elle ne prédit pas mieux la croissance que les questions classiques de satisfaction et de fidélité"},{"name":"Il ne fonctionne qu'aux États-Unis"},{"name":"Il faudrait onze questions pour le fiabiliser"}],"answer":1,"right":42,"answerText":"Elle ne prédit pas mieux la croissance que les questions classiques de satisfaction et de fidélité.","why":"Sur 21 entreprises norvégiennes suivies plusieurs années, la question de recommandation ne prédit pas mieux la croissance que la satisfaction globale, l'intention de rachat ou l'indice ACSI. Le succès du NPS tient donc moins à son pouvoir de prédiction qu'à sa simplicité : un seul chiffre, que toute une entreprise comprend.","src":"Timothy Keiningham, Bruce Cooil, Tor Andreassen et Lerzan Aksoy, « A Longitudinal Examination of Net Promoter and Firm Revenue Growth », Journal of Marketing, vol. 71, n° 3, 2007.","en":{"title":"The Net Promoter Score rests on a single question: \"Would you recommend…?\". What did a longitudinal study published in 2007 conclude about it?","options":["It predicts growth twice as well as satisfaction","It predicts growth no better than the classic satisfaction and loyalty questions","It only works in the United States","Eleven questions would be needed to make it reliable"],"answerText":"It predicts growth no better than the classic satisfaction and loyalty questions.","why":"Across 21 Norwegian companies followed over several years, the recommendation question predicted growth no better than overall satisfaction, repurchase intention or the ACSI index. The success of the NPS therefore owes less to its predictive power than to its simplicity: a single number that a whole company understands."}},{"id":"marge-erreur","theme":2,"story":"marge","type":"choice","big":true,"title":"Un sondage aléatoire est mené auprès de 1 000 personnes. Quelle est sa marge d'erreur, au niveau de confiance habituel de 95 % ?","options":[{"name":"± 1 point"},{"name":"± 3 points"},{"name":"± 5 points"},{"name":"± 10 points"}],"answer":1,"right":61,"answerText":"Environ ± 3 points.","why":"La règle de calcul tient en une ligne : 0,98 divisé par la racine carrée de la taille de l'échantillon. Pour quadrupler la précision, il faut donc seize fois plus de répondants. En France, les sondages électoraux reposent sur la méthode des quotas, pour laquelle cette marge ne se calcule pas en toute rigueur.","src":"Intervalle de confiance à 95 % d'une proportion : ± 1,96 × √(p(1 − p)/n). Pour n = 1 000 et p = 0,5 : ± 3,1 points.","en":{"title":"A random survey is conducted among 1,000 people. What is its margin of error, at the usual 95% confidence level?","options":["± 1 point","± 3 points","± 5 points","± 10 points"],"answerText":"About ± 3 points.","why":"The rule of thumb fits on one line: 0.98 divided by the square root of the sample size. To quadruple precision, you therefore need sixteen times more respondents. In France, election polls rely on the quota method, for which this margin cannot be calculated rigorously."}},{"id":"bva","theme":3,"story":"bva","type":"choice","title":"Que signifient les trois lettres de BVA, institut d'études fondé en France en 1970 ?","options":[{"name":"Bureau de vérification des audiences"},{"name":"Brulé Ville Associés"},{"name":"Baromètres, ventes, analyses"},{"name":"Bureau de la valeur ajoutée"}],"answer":1,"right":26,"answerText":"Brulé Ville Associés.","why":"Michel Brulé et Jean-Pierre Ville sont collègues à l'Ifop lorsqu'ils décident de fonder leur propre institut. Le sigle n'a donc rien de technique : ce sont deux noms propres. L'histoire se répète souvent dans le secteur, où beaucoup d'instituts sont nés du départ de deux associés.","src":"Larousse, encyclopédie en ligne, « BVA » ; BVA, historique du groupe.","en":{"title":"What do the three letters of BVA stand for, a research institute founded in France in 1970?","options":["Bureau de vérification des audiences","Brulé Ville Associés","Baromètres, ventes, analyses","Bureau de la valeur ajoutée"],"answerText":"Brulé Ville Associés.","why":"Michel Brulé and Jean-Pierre Ville were colleagues at Ifop when they decided to found their own institute. The acronym is therefore nothing technical: it is two surnames. The story often repeats itself in the sector, where many institutes were born from the departure of two partners."}},{"id":"loi-1977","theme":3,"story":"loi","type":"choice","title":"En France, jusqu'en 2002, combien de temps avant un scrutin la publication des sondages électoraux était-elle interdite ?","options":[{"name":"Vingt-quatre heures"},{"name":"Quarante-huit heures"},{"name":"Une semaine"},{"name":"Un mois"}],"answer":2,"right":38,"answerText":"Une semaine.","why":"La loi du 19 juillet 1977, qui crée aussi la Commission des sondages, interdisait toute publication pendant la semaine précédant le vote. La réforme de février 2002 ramène l'interdiction à la veille et au jour du scrutin. Y contrevenir expose à une amende de 75 000 euros.","src":"Loi n° 77-808 du 19 juillet 1977, articles 11 et 12 (Légifrance) ; loi n° 2002-214 du 19 février 2002.","en":{"title":"In France, until 2002, how long before an election was the publication of electoral polls banned?","options":["Twenty-four hours","Forty-eight hours","One week","One month"],"answerText":"One week.","why":"The law of 19 July 1977, which also created the Commission des sondages, banned all publication during the week before the vote. The reform of February 2002 reduced the ban to the eve and the day of the election. Breaking it carries a fine of 75,000 euros."}},{"id":"ipsos-1975","theme":3,"story":"ipsos","type":"slider","unit":"annee","min":1930,"max":2000,"answer":1975,"tol":[1,5,10],"avg":1968,"title":"En quelle année Didier Truchot fonde-t-il Ipsos, à Paris ?","answerText":"En 1975.","why":"Jean-Marc Lech le rejoint en 1982. Le groupe entre à la Bourse de Paris en 1999, puis rachète Synovate en 2011, ce qui le porte au troisième rang mondial des études. C'est aujourd'hui le seul institut français de cette taille.","src":"Ipsos, « Notre histoire », ipsos.com.","en":{"title":"In what year did Didier Truchot found Ipsos, in Paris?","answerText":"In 1975.","why":"Jean-Marc Lech joined him in 1982. The group was listed on the Paris stock exchange in 1999, then acquired Synovate in 2011, which took it to third place worldwide in research. It is today the only French institute of that size."}},{"id":"csa","theme":3,"story":"csa","type":"choice","title":"Que signifiait, à l'origine, le sigle CSA, institut d'études français fondé en 1983 par Claude Suquet ?","options":[{"name":"Centre de statistiques appliquées"},{"name":"Conseil sondages analyses"},{"name":"Consommateurs, sociétés, audiences"},{"name":"Comité de suivi des audiences"}],"answer":1,"right":21,"answerText":"Conseil sondages analyses.","why":"Claude Suquet est vite rejointe par le politologue Roland Cayrol. Le groupe Bolloré entre au capital en 2006 et en devient l'unique actionnaire en 2008. Depuis octobre 2015, l'institut est une filiale de Havas, et le sigle se lit désormais Consumer Science & Analytics.","src":"Bolloré, communiqué du 10 juillet 2008 ; Havas, communiqué du 2 octobre 2015 ; csa.eu, « Consumer Science & Analytics : une nouvelle signature pour CSA », 2016 ; Wikipédia (FR), « Institut CSA ».","en":{"title":"What did the acronym CSA originally stand for, the French research institute founded in 1983 by Claude Suquet?","options":["Centre de statistiques appliquées","Conseil sondages analyses","Consommateurs, sociétés, audiences","Comité de suivi des audiences"],"answerText":"Conseil sondages analyses.","why":"Claude Suquet was soon joined by the political scientist Roland Cayrol. The Bolloré group took a stake in 2006 and became sole shareholder in 2008. Since October 2015 the institute has been a Havas subsidiary, and the acronym now reads Consumer Science & Analytics."}},{"id":"gfk-erhard","theme":3,"story":"gfk","type":"choice","title":"L'institut allemand GfK est fondé à Nuremberg en 1934 par des universitaires. Que deviendra l'un d'eux, Ludwig Erhard ?","options":[{"name":"Chancelier de la République fédérale d'Allemagne"},{"name":"Prix Nobel de physique"},{"name":"Président de la Bundesbank"},{"name":"Président de Volkswagen"}],"answer":0,"right":33,"answerText":"Chancelier de la République fédérale d'Allemagne.","why":"Ministre de l'Économie puis chancelier, Ludwig Erhard est le père du « miracle économique » allemand. L'institut qu'il a cofondé a été racheté en juillet 2023 par l'américain NIQ. Bruxelles a imposé en contrepartie la cession de son panel de consommateurs, repris par le britannique YouGov.","src":"GfK, historique du groupe, gfk.com ; Commission européenne, autorisation de l'acquisition de GfK par NIQ, juillet 2023.","en":{"title":"The German institute GfK was founded in Nuremberg in 1934 by academics. What would one of them, Ludwig Erhard, become?","options":["Chancellor of the Federal Republic of Germany","Nobel laureate in physics","President of the Bundesbank","Chairman of Volkswagen"],"answerText":"Chancellor of the Federal Republic of Germany.","why":"Minister of the Economy and then Chancellor, Ludwig Erhard is the father of the German \"economic miracle\". The institute he co-founded was bought in July 2023 by America's NIQ. Brussels required, in return, the sale of its consumer panel, which went to Britain's YouGov."}},{"id":"esomar-e","theme":3,"story":"esomar","type":"choice","title":"Que signifiait, à sa création en 1947, le « E » d'ESOMAR ?","options":[{"name":"European"},{"name":"Ethical"},{"name":"Economic"},{"name":"Expert"}],"answer":0,"right":49,"answerText":"European : European Society for Opinion and Marketing Research.","why":"L'association, installée à Amsterdam, réunit aujourd'hui des membres dans plus de 130 pays. Elle publie depuis 1977, avec la Chambre de commerce internationale, le code de conduite de la profession. Sa dernière révision, en 2025, intègre l'intelligence artificielle.","src":"ESOMAR, « About ESOMAR », esomar.org ; Code international ICC/ESOMAR, éditions 1977 et 2025.","en":{"title":"When it was created in 1947, what did the \"E\" of ESOMAR stand for?","options":["European","Ethical","Economic","Expert"],"answerText":"European: European Society for Opinion and Marketing Research.","why":"The association, based in Amsterdam, today has members in more than 130 countries. Since 1977 it has published, with the International Chamber of Commerce, the profession's code of conduct. Its latest revision, in 2025, covers artificial intelligence."}},{"id":"kantar-bain","theme":3,"story":"kantar","type":"slider","unit":"mdusd","min":0,"max":20,"step":0.5,"answer":4,"tol":[0.5,1.5,3],"avg":7.5,"title":"En 2019, WPP cède 60 % de Kantar au fonds Bain Capital. Sur quelle valorisation totale de l'entreprise, en milliards de dollars ?","answerText":"4 milliards de dollars.","why":"WPP en retire environ 3,1 milliards de dollars nets. Kantar était née en 1992 comme la division études de WPP, et avait absorbé en 2008 TNS, héritière de la Sofres. C'est l'une des plus grosses transactions de l'histoire du secteur.","src":"WPP, communiqué du 12 juillet 2019 : cession de 60 % de Kantar à Bain Capital.","en":{"title":"In 2019, WPP sold 60% of Kantar to the fund Bain Capital. At what total valuation of the company, in billions of dollars?","answerText":"4 billion dollars.","why":"WPP netted about 3.1 billion dollars from the sale. Kantar had been born in 1992 as WPP's research division, and had absorbed TNS, heir to Sofres, in 2008. It is one of the biggest transactions in the sector's history."}},{"id":"sondages-293","theme":3,"story":"inflation","type":"slider","unit":"sondages","min":100,"max":1000,"step":1,"answer":293,"tol":[25,70,150],"avg":410,"title":"En France, 111 sondages sont publiés pendant la campagne présidentielle de 1981. Combien le sont pendant celle de 2007 ?","answerText":"293 sondages.","why":"Le nombre a presque triplé en vingt-six ans, puis a encore presque doublé : 560 sondages en 2017, 467 en 2022. La Commission des sondages, créée par la loi de 1977, contrôle chacun d'eux. Jamais le métier n'a été aussi visible, ni aussi discuté.","src":"Commission des sondages, rapports d'activité ; Alain Garrigou, L'Ivresse des sondages, La Découverte, 2006.","en":{"title":"In France, 111 polls were published during the 1981 presidential campaign. How many were published during the 2007 campaign?","answerText":"293 polls.","why":"The number almost tripled in twenty-six years, then almost doubled again: 560 polls in 2017, 467 in 2022. The Commission des sondages, created by the 1977 law, checks every one of them. Never has the trade been so visible, nor so debated."}},{"id":"mediamat","theme":4,"story":"mediamat","type":"slider","unit":"personnes","min":0,"max":200000,"step":500,"answer":12000,"tol":[1500,5000,12000],"avg":48000,"title":"En France, l'audience de la télévision, sur laquelle s'achète la publicité télévisée, est mesurée auprès d'un panel : le Médiamat. Combien de personnes le composent ?","answerText":"Près de 12 000 personnes.","why":"Elles sont âgées de quatre ans et plus et réparties dans 5 500 foyers, dont 5 000 équipés d'un téléviseur relié à un audimètre de Médiamétrie ; un second panel de 5 000 personnes mesure l'écoute hors du domicile. Le capital de la société est partagé entre les chaînes, les radios, les annonceurs et leurs agences, sans qu'aucun ne détienne la majorité : c'est la condition de sa neutralité.","src":"Médiamétrie, note méthodologique du Médiamat (mediametrie.fr, résultats hebdomadaires) ; Médiamétrie, « Le capital de Médiamétrie ».","en":{"title":"In France, television audiences, on which TV advertising is bought, are measured through a panel: the Médiamat. How many people make it up?","answerText":"Nearly 12,000 people.","why":"They are aged four and over and spread across 5,500 households, 5,000 of them with a television set connected to a Médiamétrie meter; a second panel of 5,000 people measures viewing outside the home. The company's capital is shared between broadcasters, radio stations, advertisers and their agencies, with none holding a majority: that is the condition of its neutrality."}},{"id":"audimat-600","theme":4,"story":"audimat","type":"slider","unit":"foyers","min":0,"max":10000,"step":50,"answer":600,"tol":[100,300,800],"avg":2300,"title":"En France, combien de foyers sont équipés du tout premier Audimat, lancé en 1981 ?","answerText":"600 foyers.","why":"L'appareil mesure alors l'écoute du foyer, et non celle de chaque personne. À la fin des années 1980, un panel élargi et une mesure individuelle lui succèdent sous le nom de Médiamat. Le mot « audimat », lui, est resté dans la langue courante.","src":"Cécile Méadel, Quantifier le public, Economica, 2010 (recension sur nonfiction.fr) ; Philippe Tassi (Médiamétrie), Journal de la Société de statistique de Paris, 1993.","en":{"title":"In France, how many households were equipped with the very first Audimat, launched in 1981?","answerText":"600 households.","why":"The device then measured the household's viewing, not each person's. At the end of the 1980s, a larger panel and individual measurement succeeded it under the name Médiamat. The word \"audimat\" itself has stayed in everyday French."}},{"id":"126000","theme":4,"story":"radio","type":"choice","title":"En France, l'enquête de référence sur l'audience de la radio s'est longtemps appelée « la 126 000 ». D'où venait ce nombre ?","options":[{"name":"Du nombre de personnes interrogées chaque année"},{"name":"Du nombre de stations mesurées"},{"name":"De son prix, en francs"},{"name":"Du numéro du décret qui l'a créée"}],"answer":0,"right":55,"answerText":"Du nombre de personnes interrogées chaque année.","why":"L'enquête est née en 1986 : chaque année, Médiamétrie interroge par téléphone 126 000 personnes sur leur écoute de la veille. Depuis septembre 2021, elle porte le nom d'EAR, pour Étude Audience Radio.","src":"INA, La Revue des médias, « Comment mesure-t-on l'audience de la radio ? » ; Médiamétrie, « EAR, l'Étude Audience Radio », septembre 2021.","en":{"title":"In France, the reference survey on radio audiences was long called \"the 126 000\". Where did that number come from?","options":["The number of people interviewed each year","The number of stations measured","Its price, in francs","The number of the decree that created it"],"answerText":"The number of people interviewed each year.","why":"The survey was born in 1986: every year, Médiamétrie interviews 126,000 people by telephone about the previous day's listening. Since September 2021 it has been called EAR, for Étude Audience Radio."}},{"id":"marche-mondial","theme":4,"story":"marche","type":"slider","unit":"mdusd","min":0,"max":450,"step":1,"answer":153,"tol":[15,38,76],"avg":92,"title":"À combien s'élève, en milliards de dollars, le chiffre d'affaires mondial du secteur des études et de l'insight en 2024 ?","answerText":"153 milliards de dollars, en hausse de 8 % sur un an.","why":"Les logiciels d'études génèrent 62 milliards de dollars, les études de marché au sens strict 56 milliards, les rapports sectoriels et le conseil 35 milliards. Les logiciels pèsent donc désormais davantage que les études elles-mêmes, et croissent plus de deux fois plus vite.","src":"ESOMAR, Global Market Research 2025, page publique du rapport (esomar.org) ; Research World, « Inside the $153bn insights industry », novembre 2025.","en":{"title":"How much, in billions of dollars, was the worldwide turnover of the research and insights sector in 2024?","answerText":"153 billion dollars, up 8% in one year.","why":"Research software generates 62 billion dollars, market research in the strict sense 56 billion, sector reports and consulting 35 billion. Software therefore now weighs more than research itself, and grows more than twice as fast."}},{"id":"sub-duree","sub":true,"type":"slider","unit":"mois","min":0,"max":96,"answer":21,"tol":[2,6,12],"avg":38,"title":"En France, chez un annonceur, combien de temps une même personne occupe-t-elle un poste études ou insights, en durée médiane ?","answerText":"21 mois, soit moins de deux ans.","why":"Près de six postes sur dix sont occupés deux ans ou moins. Moins d'un poste sur cinq l'est pendant quatre ans ou plus. Pour un institut, un portefeuille de clients se renouvelle donc plus vite qu'un contrat-cadre.","src":"1 481 postes études et insights occupés chez des annonceurs et terminés depuis 2016, hors stages et alternances. Base mazeo, septembre 2026.","side":"mazeo vous permet d'être prévenu de <b>chaque prise de poste, chaque promotion et chaque changement d'entreprise<\/b> chez les annonceurs que vous suivez, pour reprendre contact au bon moment.","en":{"title":"In France, at an advertiser, how long does one person hold a research or insights position, in median duration?","answerText":"21 months, less than two years.","why":"Nearly six positions in ten are held for two years or less. Fewer than one in five is held for four years or more. For an institute, a client portfolio therefore turns over faster than a framework contract.","src":"1,481 research and insights positions held at advertisers and ended since 2016, excluding internships and apprenticeships. mazeo database, September 2026.","side":"mazeo lets you know about <b>every new appointment, every promotion and every change of company<\/b> among the advertisers you follow, so you get back in touch at the right moment."}},{"id":"sub-nouveaux","sub":true,"type":"slider","unit":"sur100","min":0,"max":100,"answer":13,"tol":[2,5,10],"avg":24,"title":"En France, sur 100 personnes en poste dans les études ou les insights chez un annonceur, combien occupent ce poste depuis moins d'un an ?","answerText":"13 sur 100.","why":"Parmi ces nouveaux venus, six sur dix arrivent d'une autre entreprise ; les quatre autres ont évolué au sein de la leur. Chaque année, un interlocuteur sur huit est donc à rencontrer pour la première fois, ou à redécouvrir dans un nouveau périmètre.","src":"1 479 personnes dont l'intitulé de poste mentionne les études ou les insights, chez 655 annonceurs. Base mazeo, septembre 2026.","side":"mazeo vous permet de repérer, chez chaque annonceur, <b>les personnes qui viennent de prendre leur poste<\/b> : celles qui ont un budget à bâtir et des partenaires à choisir.","en":{"title":"In France, out of 100 people in a research or insights position at an advertiser, how many have held that position for less than a year?","answerText":"13 out of 100.","why":"Among these newcomers, six in ten come from another company; the other four moved within their own. Every year, one contact in eight is therefore to be met for the first time, or rediscovered in a new role.","src":"1,479 people whose job title mentions research or insights, at 655 advertisers. mazeo database, September 2026.","side":"mazeo lets you spot, at every advertiser, <b>the people who have just taken up their position<\/b>: those with a budget to build and partners to choose."}}];
+  var VERSION = "v5.1 · sortie du 23/09/2026";
+  var LANG = (function () { try { var q = new URLSearchParams(location.search).get("lang"); if (q === "en" || q === "fr") return q; var l = JSON.parse(localStorage.getItem("gqe_lang")); if (l === "en" || l === "fr") return l; } catch (e) {} return (navigator.language || "fr").slice(0, 2) === "en" ? "en" : "fr"; })();
+  var T = {
+    fr: { title: "Le Grand Quiz des <em>Études</em>", by: "présenté par", base: "Le seul outil de prospection dédié au market research", eyebrow: "10 questions · 3 minutes · {n} joueurs cette semaine", sig: "Mesurez-vous aux professionnels du secteur.", lead: "Dix questions sur l'histoire, les méthodes et les coulisses du métier : de George Gallup au Médiamat, des grands ratés aux grandes idées. À l'arrivée, votre score, et votre rang face aux autres.", team: "Vous jouez pour quelle équipe ?", teamNote: "Chaque partie compte pour le score moyen de votre famille. Classement de la semaine :", famRank: "{r} au classement des familles", start: "Commencer", noSignup: "Aucune inscription n'est nécessaire pour jouer.", share: "Partager", shareScore: "Partager mon score", soundOn: "Son activé", soundOff: "Son coupé", score: "Score", yourQ: "Vos 10 questions", sub: "Question subsidiaire", subChip: "Question subsidiaire · présentée par mazeo", subNote: "Elle départage les ex æquo", qOf: "Question {i} sur 10", validate: "Valider ma réponse", drum: "Roulement de tambour…", next: "Question suivante", toSub: "La question subsidiaire", toScore: "Découvrir mon score", yourEst: "Votre estimation", real: "La réalité", others: "Moyenne des autres joueurs", found: "des joueurs ont trouvé", src: "Source : ", sliderHint: "Cliquez sur la ligne pour placer le curseur, puis ajustez votre réponse.", sliderHint2: "Ajustez, puis validez.", countries: "Les pays", yourRank: "Votre classement", dragNote: "Glissez chaque pays de gauche à droite, sur sa place. Vous pouvez aussi toucher une carte pour la placer.", allPlaced: "Toutes les cartes sont placées.", placed: "bien placé", you: "vous : ", ask: "Vous souhaitez découvrir comment mazeo peut accélérer votre développement commercial ?", demo: "Réserver une démo", yourScore: "Votre score · ", general: "Classement général", of: "sur {n} joueurs", ofN: "sur {n}", replay: "Rejouer : dix nouvelles questions", gateTitle: "Partagez votre score, puis entrez au classement.", publish: "Publier mon score et entrer au classement", already: "{n} professionnels y figurent déjà cette semaine.", fName: "Prénom et nom, tels qu'ils apparaîtront", fEmail: "Email professionnel", fCompany: "Société", publishBtn: "Publier mon score", publishNote: "Votre score et votre nom rejoignent le classement public de la semaine. Votre email reste privé.", match: "Le match des familles", matchLine: "{emo} Votre famille, « {f} », occupe la {r} place sur 5. Votre partie vient de compter pour elle.", ctaText: "mazeo est le seul outil de prospection dédié au market research : les annonceurs qui achètent les études que vous vendez, la bonne personne chez chacun, et le bon moment pour la contacter.", published: "Score publié", board: "Le classement de la semaine", boardLine: "Vous êtes {r} sur {n} joueurs, avec {t} points. Le classement se remet à zéro chaque vendredi.", me: " · vous", shareTxt: "J'ai fait {t}/100 au Grand Quiz des Études. Et vous ?", shareIntro: "Mesurez-vous aux professionnels du secteur : le Grand Quiz des Études, présenté par mazeo.", copy: "Copier le lien", copied: "Lien copié", consent: "Je veux bien recevoir les nouvelles de mazeo de temps en temps.", sending: "Envoi en cours…", sendBad: "Entrez une adresse email valide.", sendErr: "Ça n’a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co.", mailSubject: "Le Grand Quiz des Études",
+      labels: ["Expert du secteur", "Très bon niveau", "Bon début", "Le secteur résiste"], lines: ["Remarquable. Vous connaissez le métier sur le bout des doigts.", "Beau score. Le métier vous a tout de même réservé quelques surprises.", "Le métier réserve des surprises, même à celles et ceux qui l'exercent chaque jour."],
+      good: "Bonne réponse !", bad: "Ce n'est pas la bonne réponse", perfect: "Classement parfait !", nOf5: "{n} pays sur 5 à la bonne place", bull: "Dans le mille !", near: "Pas loin du tout", zone: "Dans la bonne zone", far: "Loin du compte" },
+    en: { title: "The Great Market <em>Research</em> Quiz", by: "presented by", base: "The only prospecting tool dedicated to market research", eyebrow: "10 questions · 3 minutes · {n} players this week", sig: "Measure yourself against the professionals of the sector.", lead: "Ten questions on the history, the methods and the backstage of the trade: from George Gallup to audience panels, from the great blunders to the great ideas. At the end, your score, and your rank against the others.", team: "Which team are you playing for?", teamNote: "Every game counts towards your family's average score. This week's ranking:", famRank: "{r} in the family ranking", start: "Start", noSignup: "No sign-up is needed to play.", share: "Share", shareScore: "Share my score", soundOn: "Sound on", soundOff: "Sound off", score: "Score", yourQ: "Your 10 questions", sub: "Tie-breaker", subChip: "Tie-breaker · presented by mazeo", subNote: "It separates tied players", qOf: "Question {i} of 10", validate: "Submit my answer", drum: "Drum roll…", next: "Next question", toSub: "The tie-breaker", toScore: "See my score", yourEst: "Your estimate", real: "The truth", others: "Average of other players", found: "of players got it right", src: "Source: ", sliderHint: "Click on the line to place the slider, then adjust your answer.", sliderHint2: "Adjust, then submit.", countries: "The countries", yourRank: "Your ranking", dragNote: "Drag each country from left to right, onto its place. You can also tap a card to place it.", allPlaced: "All cards are placed.", placed: "correct", you: "you: ", ask: "Would you like to see how mazeo can speed up your business development?", demo: "Book a demo", yourScore: "Your score · ", general: "Overall ranking", of: "of {n} players", ofN: "of {n}", replay: "Play again: ten new questions", gateTitle: "Share your score, then join the leaderboard.", publish: "Publish my score and join the leaderboard", already: "{n} professionals are already on it this week.", fName: "First and last name, as they will appear", fEmail: "Work email", fCompany: "Company", publishBtn: "Publish my score", publishNote: "Your score and your name join this week's public leaderboard. Your email stays private.", match: "The family match", matchLine: "{emo} Your family, \"{f}\", holds {r} place out of 5. Your game has just counted for it.", ctaText: "mazeo is the only prospecting tool dedicated to market research: the advertisers who buy the studies you sell, the right person at each of them, and the right moment to get in touch.", published: "Score published", board: "This week's leaderboard", boardLine: "You are {r} of {n} players, with {t} points. The leaderboard resets every Friday.", me: " · you", shareTxt: "I scored {t}/100 on the Great Market Research Quiz. What about you?", shareIntro: "Measure yourself against the professionals of the sector: the Great Market Research Quiz, presented by mazeo.", copy: "Copy link", copied: "Link copied", consent: "I’m happy to hear from mazeo now and then.", sending: "Sending…", sendBad: "Please enter a valid email address.", sendErr: "That didn’t work. Try again in a moment, or write to romain.barbet@mazeo.co.", mailSubject: "The Great Market Research Quiz",
+      labels: ["Sector expert", "Very good level", "Good start", "The sector holds out"], lines: ["Remarkable. You know the trade inside out.", "Fine score. The trade still had a few surprises in store for you.", "The trade holds surprises, even for those who practise it every day."],
+      good: "Correct!", bad: "That is not the right answer", perfect: "Perfect ranking!", nOf5: "{n} countries out of 5 in the right place", bull: "Bull's-eye!", near: "Very close", zone: "In the right area", far: "Way off" }
+  };
+  function t(k, v) { var x = T[LANG][k]; if (v) Object.keys(v).forEach(function (n) { x = x.split("{" + n + "}").join(v[n]); }); return x; }
+  function ord(n) { if (LANG === "fr") return n + (n === 1 ? "er" : "e"); var r = n % 100; return n + (r >= 11 && r <= 13 ? "th" : n % 10 === 1 ? "st" : n % 10 === 2 ? "nd" : n % 10 === 3 ? "rd" : "th"); }
+  function ordF(n) { if (LANG === "fr") return n + (n === 1 ? "re" : "e"); return ord(n); }
+  function L(q, k) { return LANG === "en" && q.en && q.en[k] != null ? q.en[k] : q[k]; }
+  function optName(q, k) { return LANG === "en" && q.en && q.en.options ? q.en.options[k] : q.options[k].name; }
+  function cName(q, name) { return LANG === "en" && q.en && q.en.items ? q.en.items[name] : name; }
+  var THEMES_ALL = { fr: ["Les pionniers", "Les grands ratés", "Les méthodes", "Les instituts", "L'audience et le marché"], en: ["The pioneers", "The great blunders", "The methods", "The institutes", "Audience and market"] };
+  function THEME(i) { return THEMES_ALL[LANG][i]; }
+  var QUOTAS = [2, 3, 2, 2, 1];
+  var FAMILIES = [
+    { name: "Annonceur", en: "Advertiser", emo: "📣", avg: 52 }, { name: "Institut d'études", en: "Market research agency", emo: "📊", avg: 61 }, { name: "Société de conseil", en: "Consulting firm", emo: "🧭", avg: 47 },
+    { name: "Terrain et data collection", en: "Fieldwork and data collection", emo: "🎧", avg: 56 }, { name: "Outil tech", en: "Tech tool", emo: "⚙️", avg: 44 }
+  ];
+  function famName(f) { return LANG === "en" ? f.en : f.name; }
+  var PLAYERS = 77;
+  var PAGE_URL = "https://www.mazeo.co/quiz.html";
+  var DEMO_URL = "https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/S0jCFCw_Gkys_12vbM44vg2?bookingcode=61f3c9f2-b616-4502-921a-c8e116bea866&anonymous&ismsaljsauthenabled";
+  var SIGNUP_URL = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/waitlist-signup"; /* la fonction du formulaire de mazeo.co : email, société, langue */
+  var MAZEO_ASK = "Vous souhaitez découvrir comment mazeo peut accélérer votre développement commercial ?";
+  function mzLogo(cls) { return el("a", { class: "mz " + (cls || ""), href: "https://mazeo.co", target: "_blank", rel: "noopener", html: "mazeo<span>.</span>", "aria-label": "mazeo.co" }); }
+  /* Rang amorcé : on situe le score dans une distribution de moyenne 52 et d'écart-type 16. Remplacé par le vrai classement dès qu'il existe. */
+  function rankOf(score, n) { var z = (score - 52) / 16, p = 0.5 * (1 + erf(z / Math.SQRT2)); return Math.max(1, Math.round(n * (1 - p)) + 1); }
+  function erf(x) { var t = 1 / (1 + 0.3275911 * Math.abs(x)), y = 1 - (((((1.061405429 * t - 1.453152027) * t) + 1.421413741) * t - 0.284496736) * t + 0.254829592) * t * Math.exp(-x * x); return x < 0 ? -y : y; }
+  var ICONS = {
+    "in": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
+    wa: '<svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.9 9.88M20.47 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41"/></svg>',
+    x: '<svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>',
+    mail: '<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>',
+    link: '<svg viewBox="0 0 24 24"><path d="M3.9 12a3.1 3.1 0 0 1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7A3.1 3.1 0 0 1 3.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 1 1 0 6.2h-4V17h4a5 5 0 0 0 0-10z"/></svg>'
+  };
+  function shareLinks(text) {
+    var u = encodeURIComponent(PAGE_URL + (LANG === "en" ? "?lang=en" : "")), tx = encodeURIComponent(text + " " + PAGE_URL + (LANG === "en" ? "?lang=en" : ""));
+    var items = [
+      ["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u],
+      ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
+      ["x", "X", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + u],
+      ["mail", "Email", "mailto:?subject=" + encodeURIComponent(t("mailSubject")) + "&body=" + tx]
+    ].map(function (i) { return el("a", { href: i[2], target: "_blank", rel: "noopener" }, [el("i", { class: "i-" + i[0], html: ICONS[i[0]] }), i[1]]); });
+    items.push(el("button", { type: "button", onclick: function (e) { var b = e.currentTarget; try { navigator.clipboard.writeText(PAGE_URL).then(function () { b.lastChild.nodeValue = t("copied"); }); } catch (x) { b.lastChild.nodeValue = PAGE_URL; } } }, [el("i", { class: "i-link", html: ICONS.link }), t("copy")]));
+    return el("div", { class: "share-menu" }, items);
+  }
+  var shareOpen = null; /* "top" | "result" | null */
+  function shareText() { return state.screen === "result" || state.screen === "board" ? t("shareTxt", { t: total() }) : t("shareIntro"); }
+  function shareButton(where, big) {
+    var wrap = el("div", { class: where === "top" ? "share" : "share-inline" });
+    wrap.appendChild(el("button", { class: big ? "btn btn-share" : "pill-btn", id: "share-" + where, "aria-expanded": String(shareOpen === where), text: big ? t("shareScore") : t("share"),
+      onclick: function (e) { e.stopPropagation(); shareOpen = shareOpen === where ? null : where; render(); } }));
+    if (shareOpen === where) wrap.appendChild(shareLinks(shareText()));
+    return wrap;
+  }
+  document.addEventListener("click", function (e) { if (shareOpen && !e.target.closest(".share, .share-inline")) { shareOpen = null; render(); } });
+
+  function nf(v) { return Number(v).toLocaleString(LANG === "en" ? "en-GB" : "fr-FR"); }
+  function duree(m) { var a = Math.floor(m / 12), r = m % 12, p = []; if (LANG === "en") { if (a) p.push(a + (a > 1 ? " years" : " year")); if (r || !a) p.push(r + (r === 1 ? " month" : " months")); return p.join(" and "); } if (a) p.push(a + (a > 1 ? " ans" : " an")); if (r || !a) p.push(r + " mois"); return p.join(" et "); }
+  var UNITS = { fr: { jours: " jours", exemplaires: " exemplaires", voix: " voix", mdusd: " Md$", sondages: " sondages", personnes: " personnes", foyers: " foyers", sur100: " sur 100" }, en: { jours: " days", exemplaires: " copies", voix: " votes", mdusd: " bn $", sondages: " polls", personnes: " people", foyers: " households", sur100: " out of 100" } };
+  var FMT = { annee: function (v) { return String(v); }, mois: duree };
+  Object.keys(UNITS.fr).forEach(function (u) { FMT[u] = function (v) { return nf(v) + UNITS[LANG][u]; }; });
+  function ENDS_OF(u) { return u === "mois" ? ["0", LANG === "en" ? "8 years" : "8 ans"] : null; }
+
+  var FLAGS = {
+    "France": '<svg viewBox="0 0 30 20"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg>',
+    "Inde": '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect width="30" height="6.67" fill="#FF9933"/><rect y="13.33" width="30" height="6.67" fill="#138808"/><circle cx="15" cy="10" r="2.6" fill="none" stroke="#000080" stroke-width=".7"/><circle cx="15" cy="10" r=".6" fill="#000080"/></svg>',
+    "Chine": '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#DE2910"/><polygon fill="#FFDE00" points="6,2.2 6.9,4.9 9.8,4.9 7.4,6.6 8.3,9.3 6,7.6 3.7,9.3 4.6,6.6 2.2,4.9 5.1,4.9"/><circle cx="11.5" cy="2.3" r=".8" fill="#FFDE00"/><circle cx="13.2" cy="4.3" r=".8" fill="#FFDE00"/><circle cx="13.2" cy="7" r=".8" fill="#FFDE00"/><circle cx="11.5" cy="9" r=".8" fill="#FFDE00"/></svg>',
+    "États-Unis": '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><g fill="#B22234"><rect width="30" height="1.54"/><rect y="3.08" width="30" height="1.54"/><rect y="6.15" width="30" height="1.54"/><rect y="9.23" width="30" height="1.54"/><rect y="12.31" width="30" height="1.54"/><rect y="15.38" width="30" height="1.54"/><rect y="18.46" width="30" height="1.54"/></g><rect width="13" height="10.77" fill="#3C3B6E"/><g fill="#fff"><circle cx="2.2" cy="2" r=".6"/><circle cx="5.1" cy="2" r=".6"/><circle cx="8" cy="2" r=".6"/><circle cx="10.9" cy="2" r=".6"/><circle cx="3.6" cy="4.2" r=".6"/><circle cx="6.5" cy="4.2" r=".6"/><circle cx="9.4" cy="4.2" r=".6"/><circle cx="2.2" cy="6.4" r=".6"/><circle cx="5.1" cy="6.4" r=".6"/><circle cx="8" cy="6.4" r=".6"/><circle cx="10.9" cy="6.4" r=".6"/><circle cx="3.6" cy="8.6" r=".6"/><circle cx="6.5" cy="8.6" r=".6"/><circle cx="9.4" cy="8.6" r=".6"/></g></svg>',
+    "Royaume-Uni": '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"/><path d="M0,0 30,20 M30,0 0,20" stroke="#fff" stroke-width="4"/><path d="M0,0 30,20 M30,0 0,20" stroke="#C8102E" stroke-width="1.6"/><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.6"/><path d="M15,0 V20 M0,10 H30" stroke="#C8102E" stroke-width="4"/></svg>'
+  };
+
+  /* Mémoire du navigateur : questions déjà vues, son. Tout fonctionne sans. */
+  function load(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+  function save(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  var seen = load("gqe_seen", []), soundOn = load("gqe_sound", false);
+
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)), t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  /* Tirage : 2 pionniers, 3 ratés, 2 méthodes, 2 instituts, 1 audience. Jamais deux questions de la même histoire, jamais une question déjà vue tant que la réserve le permet. */
+  function draw() {
+    var stories = {}, picked = [];
+    var opening = BANK.filter(function (q) { return q.opening && !q.hold && seen.indexOf(q.id) < 0; })[0];
+    QUOTAS.forEach(function (n, t) {
+      var pool = shuffle(BANK.filter(function (q) { return q.theme === t && !q.sub && !q.hold; }));
+      pool.sort(function (a, b) { return (seen.indexOf(a.id) >= 0) - (seen.indexOf(b.id) >= 0); });
+      if (opening && opening.theme === t) { pool = [opening].concat(pool.filter(function (q) { return q !== opening; })); }
+      var got = 0;
+      pool.forEach(function (q) { if (got < n && !stories[q.story]) { stories[q.story] = 1; picked.push(q); got++; } });
+    });
+    if (opening) picked = [opening].concat(picked.filter(function (q) { return q !== opening; }));
+    var subs = shuffle(BANK.filter(function (q) { return q.sub; }));
+    subs.sort(function (a, b) { return (seen.indexOf(a.id) >= 0) - (seen.indexOf(b.id) >= 0); });
+    return picked.concat(subs.slice(0, 1));
+  }
+
+  var QUESTIONS = draw();
+  var state = { screen: "intro", family: null, i: 0, answers: [], pending: null, touched: false, revealed: false, suspense: false, shown: 0 };
+  var app = document.getElementById("app"), barRight = document.getElementById("bar-right");
+
+  function el(tag, attrs, kids) {
+    var n = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (k === "class") n.className = attrs[k]; else if (k === "text") n.textContent = attrs[k]; else if (k === "html") n.innerHTML = attrs[k];
+      else if (k.indexOf("on") === 0) n.addEventListener(k.slice(2), attrs[k]); else if (attrs[k] !== false && attrs[k] != null) n.setAttribute(k, attrs[k]);
+    });
+    (kids || []).forEach(function (c) { if (c) n.appendChild(typeof c === "string" ? document.createTextNode(c) : c); });
+    return n;
+  }
+  function flag(name) { return el("span", { class: "flag", html: FLAGS[name], "aria-hidden": "true" }); }
+  function face(mood) {
+    var fill = { great: "#00EF8B", good: "#B8F5D8", mid: "#FFD98A", bad: "#FFC2C2" }[mood];
+    var mouth = { great: '<path d="M12 22 Q20 32 28 22 Z" fill="#0A0A0A"/>', good: '<path d="M13 23 Q20 29 27 23" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"/>', mid: '<path d="M14 25 H26" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"/>', bad: '<path d="M13 27 Q20 21 27 27" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"/>' }[mood];
+    var eyes = mood === "great" ? '<path d="M11 16 Q14 12 17 16 M23 16 Q26 12 29 16" fill="none" stroke="#0A0A0A" stroke-width="2.4" stroke-linecap="round"/>' : '<circle cx="14" cy="16" r="2.1" fill="#0A0A0A"/><circle cx="26" cy="16" r="2.1" fill="#0A0A0A"/>';
+    return '<svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="' + fill + '" stroke="#0A0A0A" stroke-width="2"/>' + eyes + mouth + '</svg>';
+  }
+  function total() { return state.answers.reduce(function (s, a, k) { return s + (a && !QUESTIONS[k].sub ? a.grade.pts : 0); }, 0); }
+
+  /* Sons : coupés par défaut, deux notes synthétisées. */
+  var actx = null;
+  function tone(freqs) {
+    if (!soundOn) return;
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      freqs.forEach(function (f, k) {
+        var o = actx.createOscillator(), g = actx.createGain(), t = actx.currentTime + k * .13;
+        o.type = "sine"; o.frequency.value = f; g.gain.setValueAtTime(.0001, t); g.gain.exponentialRampToValueAtTime(.18, t + .02); g.gain.exponentialRampToValueAtTime(.0001, t + .28);
+        o.connect(g); g.connect(actx.destination); o.start(t); o.stop(t + .3);
+      });
+    } catch (e) {}
+  }
+
+  function renderBar() {
+    barRight.textContent = "";
+    document.getElementById("brand-name").innerHTML = t("title");
+    document.getElementById("brand-by").innerHTML = t("by") + ' <a class="mz" href="https://mazeo.co" target="_blank" rel="noopener">mazeo<span>.</span></a>';
+    var sc = barRight;
+    document.getElementById("foot-base").textContent = t("base");
+    document.title = LANG === "en" ? "The Great Market Research Quiz" : "Le Grand Quiz des Études";
+    document.documentElement.lang = LANG;
+    if (state.screen === "quiz") {
+      var v = el("span", { class: "v", text: String(state.shown) });
+      sc.appendChild(el("div", { class: "scorebox", "aria-label": t("score") + " " + total() }, [el("span", { class: "k", text: t("score") }), v]));
+      var target = total();
+      if (state.shown !== target) { var from = state.shown, t0 = performance.now(); state.shown = target;
+        (function tick(t) { var p = Math.min(1, (t - t0) / 650); v.textContent = String(Math.round(from + (target - from) * p)); if (p < 1) requestAnimationFrame(tick); })(t0); }
+    }
+    var shareTop = shareButton("top");
+    barRight.appendChild(el("button", { class: "pill-btn", id: "sound-btn", "aria-pressed": String(soundOn), text: soundOn ? t("soundOn") : t("soundOff"),
+      onclick: function () { soundOn = !soundOn; save("gqe_sound", soundOn); renderBar(); tone([660]); } }));
+    var other = LANG === "fr" ? ["en", "Royaume-Uni", "English"] : ["fr", "France", "Français"];
+    barRight.appendChild(el("button", { class: "lang", id: "lang-" + other[0], "aria-label": other[2], title: other[2], onclick: function () { LANG = other[0]; save("gqe_lang", LANG); render(); } }, [flag(other[1])]));
+    barRight.appendChild(shareTop);
+
+  }
+
+  function ladder() {
+    var kids = [el("div", { class: "head", text: t("yourQ") })];
+    QUESTIONS.forEach(function (q, k) {
+      var a = state.answers[k], cls = "rung " + (a ? a.grade.level : (k === state.i ? "now" : "")) + (q.sub ? " sub" : "");
+      kids.push(el("div", { class: cls }, [el("span", { class: "n", text: q.sub ? "+" : String(k + 1) }), el("span", { class: "t", text: q.sub ? t("sub") : THEME(q.theme) })]));
+    });
+    return el("div", { class: "ladder", role: "img", "aria-label": "Question " + (state.i + 1) + " sur " + QUESTIONS.length }, kids);
+  }
+
+  function grade(q, value) {
+    if (q.type === "choice") return value === q.answer ? { pts: 10, level: "good", mood: "great", label: "good" } : { pts: 0, level: "bad", mood: "bad", label: "bad" };
+    if (q.type === "order") { var ok = 0; value.forEach(function (v, k) { if (v === q.answer[k]) ok++; });
+      return { pts: ok * 2, level: ok === 5 ? "good" : (ok >= 3 ? "mid" : "bad"), mood: ok === 5 ? "great" : (ok >= 3 ? "good" : (ok >= 1 ? "mid" : "bad")), label: ok === 5 ? "perfect" : "nOf5", n: ok }; }
+    var d = Math.abs(value - q.answer);
+    if (d <= q.tol[0]) return { pts: 10, level: "good", mood: "great", label: "bull" };
+    if (d <= q.tol[1]) return { pts: 6, level: "mid", mood: "good", label: "near" };
+    if (d <= q.tol[2]) return { pts: 3, level: "mid", mood: "mid", label: "zone" };
+    return { pts: 0, level: "bad", mood: "bad", label: "far" };
+  }
+
+  function confetti() {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var cv = document.getElementById("confetti"), ctx = cv.getContext("2d");
+    var W = cv.width = window.innerWidth, H = cv.height = window.innerHeight;
+    var colors = ["#2B8FFF", "#00EF8B", "#FFFFFF", "#FFC24B", "#7DBBFF"], parts = [];
+    for (var i = 0; i < 150; i++) parts.push({ x: W / 2 + (Math.random() - .5) * W * .3, y: H * .35, vx: (Math.random() - .5) * 14, vy: -Math.random() * 13 - 4, s: 5 + Math.random() * 6, r: Math.random() * 6, vr: (Math.random() - .5) * .4, c: colors[i % colors.length] });
+    var t0 = performance.now();
+    (function tick(t) { var life = (t - t0) / 1900; ctx.clearRect(0, 0, W, H); if (life >= 1) return;
+      parts.forEach(function (p) { p.vy += .32; p.vx *= .992; p.x += p.vx; p.y += p.vy; p.r += p.vr; ctx.save(); ctx.globalAlpha = Math.max(0, 1 - life * life); ctx.translate(p.x, p.y); ctx.rotate(p.r); ctx.fillStyle = p.c; ctx.fillRect(-p.s / 2, -p.s / 3, p.s, p.s * .66); ctx.restore(); });
+      requestAnimationFrame(tick); })(t0);
+  }
+  function wrong() { var f = document.getElementById("flash"); f.classList.remove("on"); void f.offsetWidth; f.classList.add("on"); f.addEventListener("animationend", function () { f.classList.remove("on"); }, { once: true }); }
+
+  function viewIntro() {
+    var rank = FAMILIES.map(function (f, k) { return k; }).sort(function (a, b) { return FAMILIES[b].avg - FAMILIES[a].avg; });
+    return el("div", { class: "hero fade" }, [
+      el("div", { class: "stack", style: "gap:24px" }, [
+        el("span", { class: "eyebrow", text: t("eyebrow", { n: PLAYERS }) }),
+        el("h1", { html: t("title") }),
+        el("p", { class: "sig", text: t("sig") }),
+        el("p", { class: "lead", text: t("lead") })
+      ]),
+      el("div", { class: "stack", style: "gap:20px" }, [
+        el("div", { class: "stack", style: "gap:6px" }, [el("span", { class: "eyebrow", text: t("team") }), el("p", { class: "note", text: t("teamNote") })]),
+        el("div", { class: "teams" }, rank.map(function (k, pos) {
+          var f = FAMILIES[k];
+          return el("button", { class: "team", id: "fam-" + k, "aria-pressed": String(state.family === k), onclick: function () { state.family = k; render(); } }, [
+            el("span", { class: "emo", text: f.emo, "aria-hidden": "true" }),
+            el("span", {}, [el("span", { class: "n", text: famName(f) }), el("br"), el("span", { class: "s", text: t("famRank", { r: ordF(pos + 1) }) })]),
+            el("span", { class: "avg" }, [String(f.avg), el("small", { text: "/100" })])
+          ]);
+        })),
+        el("div", { class: "stack", style: "gap:10px" }, [
+          el("div", {}, [el("button", { class: "btn btn-primary", id: "start-btn", disabled: state.family === null ? "" : false, text: t("start"), onclick: function () { state.screen = "quiz"; render(); window.scrollTo(0, 0); } })]),
+          el("p", { class: "note", text: t("noSignup") })
+        ])
+      ])
+    ]);
+  }
+
+  function sliderInput(q) {
+    var fmt = FMT[q.unit];
+    var val = el("div", { class: "val" + (state.touched ? "" : " empty") }, [state.touched ? fmt(state.pending) : "?"]), box;
+    var range = el("input", { type: "range", id: "range-" + state.i, min: q.min, max: q.max, step: q.step || 1, value: state.touched ? state.pending : q.min, disabled: state.suspense ? "" : false, "aria-label": L(q, "title") });
+    function touch() {
+      state.pending = Number(range.value);
+      if (!state.touched) { state.touched = true; box.classList.remove("untouched"); val.classList.remove("empty"); hint.textContent = t("sliderHint2"); var b = document.getElementById("validate-btn"); if (b) b.disabled = false; }
+      val.firstChild.nodeValue = fmt(state.pending);
+    }
+    range.addEventListener("input", touch);
+    range.addEventListener("pointerdown", function () { setTimeout(touch, 0); });
+    var ends = ENDS_OF(q.unit) || [fmt(q.min), fmt(q.max)];
+    var hint = el("div", { class: "hint", text: state.touched ? t("sliderHint2") : t("sliderHint") });
+    box = el("div", { class: "slider" + (state.touched ? "" : " untouched") + (state.suspense ? " suspense" : "") }, [val, range,
+      el("div", { class: "ends" }, [el("span", { text: ends[0] }), el("span", { text: ends[1] })]), hint]);
+    return box;
+  }
+  function choiceInput(q) {
+    return el("div", { class: "opts" + (q.options.length === 3 ? " one" : "") }, q.options.map(function (o, k) {
+      return el("button", { class: "opt" + (state.suspense && state.pending === k ? " suspense" : ""), id: "opt-" + state.i + "-" + k, disabled: state.suspense ? "" : false, "aria-pressed": String(state.pending === k),
+        onclick: function () { state.pending = k; render(); } }, [el("span", { class: "key", text: "ABCD"[k] }), el("span", { class: q.big ? "big" : "", text: optName(q, k) })]);
+    }));
+  }
+  function orderInput(q) {
+    if (state.pending === null) state.pending = [null, null, null, null, null];
+    var slots = state.pending;
+    function placed(name) { return slots.indexOf(name); }
+    function put(name, target) { var from = placed(name);
+      if (target === "pool") { if (from >= 0) slots[from] = null; } else { var other = slots[target]; if (from >= 0) slots[from] = other; slots[target] = name; }
+      render(); }
+    function card(name) {
+      var c = el("button", { class: "cardx", id: "card-" + name, type: "button", disabled: state.suspense ? "" : false, "aria-label": cName(q, name) + (placed(name) >= 0 ? ", " + (placed(name) + 1) : "") },
+        [flag(name), el("span", { text: cName(q, name) }), el("span", { class: "grip", text: "⋮⋮", "aria-hidden": "true" })]);
+      var drag = null;
+      c.addEventListener("pointerdown", function (e) { if (e.button || state.suspense) return; drag = { x: e.clientX, y: e.clientY, moved: false, ghost: null, dx: 0, dy: 0 }; c.setPointerCapture(e.pointerId); });
+      c.addEventListener("pointermove", function (e) {
+        if (!drag) return;
+        if (!drag.moved && Math.hypot(e.clientX - drag.x, e.clientY - drag.y) > 6) { drag.moved = true; var r = c.getBoundingClientRect(); drag.dx = e.clientX - r.left; drag.dy = e.clientY - r.top;
+          drag.ghost = c.cloneNode(true); drag.ghost.removeAttribute("id"); drag.ghost.className = "cardx ghost"; drag.ghost.style.width = r.width + "px"; document.body.appendChild(drag.ghost); c.classList.add("lifted"); }
+        if (drag.moved) { drag.ghost.style.left = (e.clientX - drag.dx) + "px"; drag.ghost.style.top = (e.clientY - drag.dy) + "px";
+          var under = document.elementFromPoint(e.clientX, e.clientY), zone = under && under.closest("[data-zone]");
+          Array.prototype.forEach.call(document.querySelectorAll("[data-zone]"), function (z) { z.classList.toggle("over", z === zone); }); }
+      });
+      function end(e) { if (!drag) return; var d = drag; drag = null; if (d.ghost) d.ghost.remove(); if (!d.moved) return;
+        var under = document.elementFromPoint(e.clientX, e.clientY), zone = under && under.closest("[data-zone]"); c.dataset.dragged = "1";
+        if (zone) put(name, zone.dataset.zone === "pool" ? "pool" : Number(zone.dataset.zone)); else render(); }
+      c.addEventListener("pointerup", end); c.addEventListener("pointercancel", end);
+      c.addEventListener("click", function () { if (c.dataset.dragged) { delete c.dataset.dragged; return; }
+        if (placed(name) >= 0) put(name, "pool"); else { var free = slots.indexOf(null); if (free >= 0) put(name, free); } });
+      return c;
+    }
+    return el("div", { class: "stack", style: "gap:12px" }, [
+      el("div", { class: "order" }, [
+        el("div", {}, [el("div", { class: "lbl", text: t("countries") }), el("div", { class: "pool", "data-zone": "pool", "data-empty": t("allPlaced") }, q.items.filter(function (n) { return placed(n) < 0; }).map(card))]),
+        el("div", {}, [el("div", { class: "lbl", text: t("yourRank") }), el("div", { class: "rank" + (state.suspense ? " suspense" : "") }, slots.map(function (name, k) {
+          return el("div", { class: "slot" }, [el("span", { class: "num", text: String(k + 1) }), el("div", { class: "drop" + (name ? " filled" : ""), "data-zone": String(k) }, [name ? card(name) : null])]); }))])
+      ]),
+      el("p", { class: "note", text: t("dragNote") })
+    ]);
+  }
+  function ready(q) { if (q.type === "slider") return state.touched; if (q.type === "choice") return state.pending !== null; return state.pending && state.pending.indexOf(null) < 0; }
+
+  function roundLine(q) {
+    return el("div", { class: "round" }, [el("span", { class: "chip", text: q.sub ? t("subChip") : THEME(q.theme) }),
+      el("span", { class: "q", text: q.sub ? t("subNote") : t("qOf", { i: state.i + 1 }) })]);
+  }
+  function questionScreen(q) {
+    var input = q.type === "slider" ? sliderInput(q) : q.type === "choice" ? choiceInput(q) : orderInput(q);
+    return el("div", { class: "screen" + (state.suspense ? "" : " fade") }, [roundLine(q), el("h1", { class: "q-title", text: L(q, "title") }), input,
+      el("div", { class: "foot" }, [el("button", { class: "btn btn-primary", id: "validate-btn", text: state.suspense ? t("drum") : t("validate"), disabled: ready(q) && !state.suspense ? false : "",
+        onclick: function () {
+          var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          state.suspense = true; render();
+          setTimeout(function () {
+            var g = grade(q, state.pending);
+            state.answers[state.i] = { value: state.pending, grade: g };
+            if (seen.indexOf(q.id) < 0) { seen.push(q.id); save("gqe_seen", seen); }
+            state.suspense = false; state.revealed = true; render(); window.scrollTo(0, 0);
+            if (g.level === "good") { confetti(); tone([660, 880, 1175]); } else if (g.level === "bad") { wrong(); tone([220, 165]); } else tone([523, 659]);
+          }, reduce ? 0 : 1100);
+        } })])
+    ]);
+  }
+  function answerScreen(q) {
+    var a = state.answers[state.i], g = a.grade, last = state.i === QUESTIONS.length - 1, fmt = FMT[q.unit];
+    var cmp = null;
+    if (q.type === "slider") cmp = el("div", { class: "trio" }, [
+      el("div", {}, [el("span", { class: "k", text: t("yourEst") }), el("span", { class: "v", text: fmt(a.value) })]),
+      el("div", { class: "real" }, [el("span", { class: "k", text: t("real") }), el("span", { class: "v", text: fmt(q.answer) })]),
+      el("div", {}, [el("span", { class: "k", text: t("others") }), el("span", { class: "v", text: fmt(q.avg) })])
+    ]);
+    else cmp = el("div", { class: "others" }, [el("span", {}, [el("b", { text: q.right + (LANG === "en" ? "%" : " %") }), " " + t("found")]), el("div", { class: "track" }, [el("i", { style: "width:" + q.right + "%" })])]);
+    var rows = q.type !== "order" ? null : el("div", { class: "rows" }, q.answer.map(function (name, k) {
+      var mine = a.value.indexOf(name);
+      return el("div", { class: "r" }, [el("span", { class: "pos", text: String(k + 1) }), flag(name), el("span", { text: cName(q, name) }),
+        el("span", { class: "you " + (mine === k ? "ok" : "ko"), text: mine === k ? t("placed") : t("you") + ordF(mine + 1) }), el("span", { class: "fig", text: L(q, "figures")[name] })]);
+    }));
+    return el("div", { class: "screen fade" + (g.level === "bad" ? " shake" : "") }, [
+      el("div", { class: "verdict " + g.level }, [el("span", { class: "pop", html: face(g.mood) }), el("span", { text: t(g.label, { n: g.n }) }), el("span", { class: "pts", text: q.sub ? "" : "+" + g.pts })]),
+      el("p", { class: "asked", text: L(q, "title") }),
+      el("p", { class: "answer", text: L(q, "answerText") }),
+      cmp, rows,
+      el("div", { class: "why" }, [el("span", { class: "bulb", text: "💡", "aria-hidden": "true" }), el("p", { text: L(q, "why") })]),
+      el("div", { class: "foot" }, [
+        el("button", { class: "btn btn-primary", id: "next-btn", text: last ? t("toScore") : (state.i === QUESTIONS.length - 2 ? t("toSub") : t("next")),
+          onclick: function () { if (last) state.screen = "result"; else state.i++;
+            state.pending = null; state.touched = false; state.revealed = false; render(); window.scrollTo(0, 0);
+            if (last && total() >= 60) { confetti(); tone([523, 659, 784, 1047]); } } }),
+        el("span", { class: "src", text: t("src") + L(q, "src") })
+      ])
+    ]);
+  }
+  function viewQuiz() {
+    var q = QUESTIONS[state.i], side = state.revealed && q.side;
+    return el("div", { class: "play" + (side ? " with-side" : "") }, [ladder(), state.revealed ? answerScreen(q) : questionScreen(q),
+      side ? el("aside", { class: "side fade", "aria-label": "mazeo" }, [mzLogo(), el("p", { html: L(q, "side") }),
+        el("p", { class: "ask", text: t("ask") }),
+        el("a", { class: "btn btn-primary", href: DEMO_URL, target: "_blank", rel: "noopener", text: t("demo") }),
+        el("p", { class: "small", text: t("base") + "." })]) : null]);
+  }
+
+  /* Publication du score (23/09/2026) : la fonction waitlist-signup ne connaît que l'email, la société et la langue.
+     Le nom, la société, la famille et le score voyagent donc dans le champ « société », lisibles dans Notion :
+     « Camille Martin · Ipsos · Institut d'études · 72/100 ». Pis-aller assumé jusqu'à la vraie table des scores. */
+  function publishScore() {
+    var btn = document.getElementById("gate-btn"), msg = document.getElementById("gate-msg");
+    var name = (document.getElementById("f-name").value || "").trim(), email = (document.getElementById("f-email").value || "").trim(), company = (document.getElementById("f-company").value || "").trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { msg.textContent = t("sendBad"); msg.className = "note err"; document.getElementById("f-email").focus(); return; }
+    state.name = name || (LANG === "en" ? "You" : "Vous");
+    btn.disabled = true; msg.textContent = t("sending"); msg.className = "note";
+    var fam = FAMILIES[state.family], tt = total();
+    var consent = document.getElementById("f-consent"), news = !consent || consent.checked;
+    var body = { email: email, company: [name, company, fam.name, tt + "/100", news ? "" : "sans infos mazeo"].filter(Boolean).join(" · ").slice(0, 200), lang: LANG };
+    var ac = ("AbortController" in window) ? new AbortController() : null; if (ac) setTimeout(function () { ac.abort(); }, 15000);
+    fetch(SIGNUP_URL, { signal: ac ? ac.signal : undefined, method: "POST", headers: { "Content-Type": "application/json", "Accept-Language": LANG === "en" ? "en-US,en;q=0.9" : "fr-FR,fr;q=0.9" }, body: JSON.stringify(body) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return r.ok && d.ok !== false && d.error == null; }); })
+      .then(function (ok) { if (!ok) throw new Error("send"); state.published = true; state.screen = "board"; render(); window.scrollTo(0, 0); })
+      .catch(function () { btn.disabled = false; msg.textContent = t("sendErr"); msg.className = "note err"; });
+  }
+
+  function viewResult() {
+    var tt = total(), li = tt >= 75 ? 0 : tt >= 50 ? 1 : tt >= 25 ? 2 : 3, label = t("labels")[li];
+    var line = t("lines")[tt >= 75 ? 0 : tt >= 45 ? 1 : 2];
+    var order = FAMILIES.map(function (x, k) { return k; }).sort(function (a, b) { return FAMILIES[b].avg - FAMILIES[a].avg; });
+    var myRank = order.indexOf(state.family) + 1, fam = FAMILIES[state.family];
+    var famPlayers = Math.max(6, Math.round(PLAYERS / 5) + (fam.avg - 52) / 4 | 0);
+    var rk = rankOf(tt, PLAYERS), rkFam = Math.min(famPlayers, rankOf(tt, famPlayers));
+    var publish = state.publish;
+    function replay() { QUESTIONS = draw(); state = { screen: "intro", family: state.family, i: 0, answers: [], pending: null, touched: false, revealed: false, suspense: false, shown: 0 }; render(); window.scrollTo(0, 0); }
+    return el("div", { class: "stack fade", style: "gap:32px" }, [
+      el("div", { class: "final" }, [
+        el("div", { class: "scorecard" }, [
+          el("span", { class: "eyebrow", text: t("yourScore") + label }),
+          el("div", { class: "bigscore" }, [el("b", { text: String(tt) }), el("span", { text: "/ 100" })]),
+          el("div", { class: "ranks" }, [
+            el("div", {}, [el("span", { class: "k", text: t("general") }), el("span", { class: "v" }, [ord(rk), el("small", { text: t("of", { n: PLAYERS }) })])]),
+            el("div", {}, [el("span", { class: "k", text: fam.emo + " " + famName(fam) }), el("span", { class: "v" }, [ord(rkFam), el("small", { text: t("ofN", { n: famPlayers }) })])])
+          ]),
+          el("p", { class: "lead", text: line }),
+          el("div", { class: "btn-row" }, [el("button", { class: "btn btn-ghost", id: "replay-btn", text: t("replay"), onclick: replay })])
+        ]),
+        el("div", { class: "gate" }, [
+          el("h2", { text: t("gateTitle") }),
+          el("div", { class: "btn-row" }, [shareButton("result", true)]),
+          publish ? el("form", { class: "stack", style: "gap:12px", novalidate: "", onsubmit: function (e) { e.preventDefault(); publishScore(); } }, [
+            el("div", { class: "fields" }, [
+              el("label", { for: "f-name" }, [t("fName"), el("input", { id: "f-name", type: "text", placeholder: "Camille Martin", autocomplete: "name" })]),
+              el("label", { for: "f-email" }, [t("fEmail"), el("input", { id: "f-email", type: "email", placeholder: LANG === "en" ? "name@company.com" : "prenom@societe.fr", autocomplete: "email", inputmode: "email" })]),
+              el("label", { for: "f-company" }, [t("fCompany"), el("input", { id: "f-company", type: "text", placeholder: t("fCompany"), autocomplete: "organization" })])
+            ]),
+            el("label", { class: "consent", for: "f-consent" }, [el("input", { id: "f-consent", type: "checkbox", checked: "" }), t("consent")]),
+            el("div", { class: "btn-row" }, [
+              el("button", { class: "btn btn-primary", id: "gate-btn", type: "submit", text: t("publishBtn") }),
+              el("span", { class: "note", id: "gate-msg", text: t("publishNote") })
+            ])
+          ]) : el("div", { class: "btn-row" }, [
+            el("button", { class: "btn btn-primary", id: "publish-btn", text: t("publish"), onclick: function () { state.publish = true; render(); } }),
+            el("span", { class: "note", text: t("already", { n: PLAYERS }) })
+          ])
+        ])
+      ]),
+      el("div", { class: "panel" }, [
+        el("h2", { text: t("match") }),
+        el("p", { text: t("matchLine", { emo: fam.emo, f: famName(fam), r: ordF(myRank) }) }),
+        el("div", { class: "fam" }, order.map(function (k, pos) {
+          return el("div", { class: "line" + (k === state.family ? " me" : "") }, [el("span", { class: "rk", text: String(pos + 1) }), el("span", { text: FAMILIES[k].emo, "aria-hidden": "true" }), el("span", { class: "n", text: famName(FAMILIES[k]), "data-me": t("me") }),
+            el("div", { class: "track" }, [el("i", { style: "width:" + FAMILIES[k].avg + "%" })]), el("span", { class: "s", text: String(FAMILIES[k].avg) })]);
+        }))
+      ]),
+      el("div", { class: "cta" }, [mzLogo(), el("h2", { text: t("ask") }), el("p", { text: t("ctaText") }),
+        el("a", { class: "btn btn-primary", href: DEMO_URL, target: "_blank", rel: "noopener", text: t("demo") })])
+    ]);
+  }
+
+  /* Le classement de la semaine : vide au lancement (23/09/2026). Les vrais scores publiés y seront ajoutés à la main, jamais des exemples. */
+  var BOARD = [];
+  function viewBoard() {
+    var tt = total(), fam = FAMILIES[state.family], rk = rankOf(tt, PLAYERS);
+    function fn(name) { var f = FAMILIES.filter(function (x) { return x.name === name; })[0]; return f ? famName(f) : name; }
+    var rows = BOARD.map(function (r, k) { return { rank: k + 1, name: r[0], fam: fn(r[1]), score: r[2] }; });
+    var me = { rank: rk, name: state.name, fam: famName(fam), score: tt, me: true };
+    if (!rows.length) rows = (rk > 1 ? [{ gap: true }] : []).concat([me]);
+    else if (rk <= 10) { rows.splice(rk - 1, 0, me); rows = rows.slice(0, 11).map(function (r, k) { r.rank = k + 1; return r; }); } else rows.push({ gap: true }, me);
+    return el("div", { class: "stack fade", style: "gap:32px" }, [
+      el("div", { class: "stack", style: "gap:8px" }, [el("span", { class: "eyebrow", text: t("published") }), el("h1", { class: "q-title", text: t("board") }),
+        el("p", { class: "lead", text: t("boardLine", { r: ord(rk), n: PLAYERS, t: tt }) })]),
+      el("div", { class: "board" }, rows.map(function (r) {
+        if (r.gap) return el("div", { class: "row gap", text: "…" });
+        return el("div", { class: "row" + (r.me ? " me" : "") }, [el("span", { class: "rk", text: String(r.rank) }), el("span", { class: "who" }, [r.name + (r.me ? t("me") : ""), el("small", { text: r.fam })]), el("span", { class: "sc", text: String(r.score) })]);
+      })),
+      el("div", { class: "btn-row" }, [shareButton("result", true),
+        el("button", { class: "btn btn-ghost", id: "replay-btn", text: t("replay"), onclick: function () { QUESTIONS = draw(); state = { screen: "intro", family: state.family, i: 0, answers: [], pending: null, touched: false, revealed: false, suspense: false, shown: 0 }; render(); window.scrollTo(0, 0); } })]),
+      el("div", { class: "cta" }, [mzLogo(), el("h2", { text: t("ask") }), el("p", { text: t("ctaText") }),
+        el("a", { class: "btn btn-primary", href: DEMO_URL, target: "_blank", rel: "noopener", text: t("demo") })])
+    ]);
+  }
+
+  function render() {
+    var active = document.activeElement && document.activeElement.id;
+    renderBar(); app.textContent = "";
+    app.appendChild(state.screen === "intro" ? viewIntro() : state.screen === "quiz" ? viewQuiz() : state.screen === "board" ? viewBoard() : viewResult());
+    if (active) { var again = document.getElementById(active); if (again && !again.disabled) again.focus({ preventScroll: true }); }
+  }
+  render();
+})();
+</script>
+</body>
+</html>
