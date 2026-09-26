@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sécurité et confidentialité — mazeo</title>
+<link rel="canonical" href="https://www.mazeo.co/securite">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Hanken Grotesk', -apple-system, sans-serif; color: #0A0A0A; line-height: 1.7; background: #fff; -webkit-font-smoothing: antialiased; }
+  nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid #E5E7EB; }
+  .nav-inner { max-width: 800px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .nav-logo { font-family: 'Inter', sans-serif; font-size: 26px; font-weight: 800; color: #0A0A0A; text-decoration: none; letter-spacing: -0.5px; }
+  .nav-logo span { color: #00EF8B; }
+  .nav-back { font-size: 14px; font-weight: 600; color: #374151; text-decoration: none; }
+  .nav-back:hover { color: #0A0A0A; }
+  .content { max-width: 800px; margin: 0 auto; padding: 72px 24px 80px; }
+  h1 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 40px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 10px; }
+  .updated { font-size: 14px; color: #9CA3AF; margin-bottom: 40px; }
+  .updated:has(+ .updated) { margin-bottom: 4px; }
+  h2 { font-family: 'Bricolage Grotesque', sans-serif; font-size: 21px; font-weight: 700; letter-spacing: -0.4px; margin-top: 40px; margin-bottom: 12px; }
+  p, li { font-size: 16px; color: #374151; }
+  p { margin-bottom: 16px; }
+  ul { margin: 0 0 16px 22px; }
+  li { margin-bottom: 6px; }
+  a { color: #007BFF; }
+  .lead { font-size: 18px; color: #4B5563; }
+  .box { background: #F3F5F9; border-radius: 12px; padding: 22px 26px 14px; margin: 0 0 8px; }
+  .box h2 { margin-top: 0; font-size: 17px; }
+  .box li { margin-bottom: 8px; }
+  footer { padding: 40px 24px; border-top: 1px solid #E5E7EB; text-align: center; font-size: 13px; color: #9CA3AF; }
+  footer a { color: #6B7280; text-decoration: none; margin: 0 8px; }
+  html[lang="en"] [data-lang="fr"], html[lang="fr"] [data-lang="en"] { display: none; }
+  footer .lang-switch { font-weight: 600; }
+</style>
+<script>
+  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le navigateur (16/09) */
+  (function () {
+    var q = /[?&]lang=(en|fr)\b/i.exec(location.search), s = null; try { s = localStorage.getItem("mazeo_lang"); } catch (e) {}
+    var b = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
+    var l = q ? q[1].toLowerCase() : (s === "en" || s === "fr" ? s : b);
+    if (q) { try { localStorage.setItem("mazeo_lang", l); } catch (e) {} }
+    document.documentElement.lang = l;
+  })();
+</script>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">mazeo<span>.</span></a>
+    <a href="/" class="nav-back" data-en="← Back to home">← Retour à l’accueil</a>
+  </div>
+</nav>
+
+<div class="content" data-lang="fr">
+  <h1>Sécurité et confidentialité</h1>
+  <p class="updated">Mise à jour le 26 septembre 2026</p>
+  <p class="lead">Cette page dit ce que mazeo lit, ce qu’il garde, qui peut le voir et comment il le protège. Elle est écrite pour les responsables informatiques et les délégués à la protection des données de nos clients, et pour tout utilisateur qui se pose la question avant de connecter sa boîte mail ou son compte LinkedIn. Chaque phrase correspond à un mécanisme en place dans le service ; ce qui n’existe pas encore est écrit au futur.</p>
+
+  <div class="box">
+    <h2>En bref</h2>
+    <ul>
+      <li>Aucun email ne part de votre adresse sans votre clic, après relecture. Sur LinkedIn, seules des invitations sans texte peuvent partir en mode automatique, et seulement si vous l’activez.</li>
+      <li>Dans votre boîte, mazeo ne lit que les échanges avec les contacts de votre Pipeline : les 365 derniers jours à leur entrée, puis les réponses au fil de l’eau. Tout autre email est écarté à l’arrivée.</li>
+      <li>Vous seul voyez vos échanges. Les administrateurs de votre équipe n’y ont pas accès.</li>
+      <li>Le texte des réponses est retiré de mazeo 365 jours après leur date.</li>
+      <li>Une copie anonymisée, sans aucun lien avec vous, votre équipe ou vos contacts, peut servir à améliorer les messages proposés, sauf refus de votre entreprise.</li>
+      <li>Votre base de données est hébergée dans l’Union européenne ; l’intelligence artificielle et l’envoi d’emails passent par des prestataires établis aux États-Unis. mazeo ne détient aucun mot de passe ni jeton d’accès à vos messageries.</li>
+      <li>Vous pouvez tout déconnecter à tout moment, depuis Réglages.</li>
+    </ul>
+  </div>
+
+  <h2>1. Ce que mazeo lit dans une boîte mail connectée</h2>
+  <p><strong>À la connexion</strong>, mazeo relève les en-têtes des douze derniers mois (expéditeur, destinataires, date), jamais l’objet ni le contenu, pour marquer dans vos listes les personnes avec qui vous avez déjà échangé. Les indésirables, la corbeille et les brouillons ne sont pas relevés. L’objet arrive dans la réponse du prestataire de connexion ; il n’est ni enregistré ni journalisé.</p>
+  <p><strong>Quand un contact entre dans votre Pipeline</strong>, mazeo relit dans votre boîte les échanges des 365 derniers jours avec son adresse, et conserve le texte des six derniers emails, envoyés ou reçus, pour reconstituer la conversation et placer le contact à la bonne étape. Rien au-delà de 365 jours n’est lu.</p>
+  <p><strong>Ensuite</strong>, chaque message qui arrive est comparé à la liste des contacts de votre Pipeline. S’il vient d’un contact que vous suivez, son texte est enregistré dans la fiche de ce contact, et la conversation est transmise à notre prestataire d’intelligence artificielle pour en résumer le sens, mettre à jour l’étape de suivi et vous proposer une réponse. S’il vient de quelqu’un d’autre, il passe par nos serveurs le temps de cette comparaison, puis il est écarté : ni le texte, ni l’objet, ni les pièces jointes ne sont enregistrés. Seules l’adresse de l’expéditeur et la date rejoignent le marqueur « déjà échangé ».</p>
+  <p>Les messages que vous envoyez vous-même à un contact suivi, depuis votre boîte et hors de mazeo, sont enregistrés de la même façon, pour que la conversation soit complète.</p>
+  <p><strong>Dès que vous sortez un contact de votre Pipeline</strong> (client gagné, abandon), mazeo cesse de lire vos échanges avec lui. Ce qui était enregistré reste dans sa fiche jusqu’à son retrait. Si vous le remettez dans le Pipeline plus tard, mazeo relit à ce moment-là les 365 derniers jours d’échanges avec lui, comme à toute entrée.</p>
+  <p><strong>Les autorisations demandées à Microsoft</strong> sont la lecture et l’écriture du courrier, l’envoi en votre nom, et l’accès à l’agenda et au carnet d’adresses. mazeo ne supprime et ne déplace aucun email ; l’écriture ne sert qu’à envoyer les vôtres. L’agenda et le carnet d’adresses sont demandés en prévision de fonctions à venir : mazeo n’y lit et n’y écrit rien à ce jour, et cette page comme la politique de confidentialité seront mises à jour avant toute utilisation. Ces autorisations sont détenues par notre prestataire de connexion, jamais par mazeo, et vous pouvez les révoquer chez Microsoft à tout moment. Le détail, autorisation par autorisation, est dans le texte pour votre service informatique proposé par l’application.</p>
+  <p><strong>Pour un compte LinkedIn connecté</strong>, mazeo traite les conversations du compte, les invitations envoyées et leur acceptation, et la liste de vos relations, qui sert à afficher la distance entre vous et un contact. Il visite aussi, par votre compte, le profil public des contacts de votre Pipeline pour les identifier avec certitude ; le titre, le poste et la photo lus à cette occasion rafraîchissent la fiche de la base commune (section 7). Si vous activez le mode automatique, mazeo envoie les invitations que vous avez programmées, sans texte, du lundi au vendredi entre 8 h et 20 h, dans les plafonds que vous réglez ; aucun message n’est jamais envoyé sans votre clic. La règle d’arrêt de lecture à la sortie du Pipeline est la même que pour les emails.</p>
+
+  <h2>2. Qui peut lire quoi</h2>
+  <p>Chaque utilisateur ne voit que ses propres échanges. La règle est appliquée par la base de données elle-même, ligne par ligne : une requête faite avec le compte d’un utilisateur ne peut pas rendre un message qui appartient à un autre, quel que soit l’écran ou l’outil utilisé.</p>
+  <p>Les administrateurs d’équipe gèrent les membres et les réglages communs. Ils n’ont accès ni aux messages, ni aux résumés, ni aux comptes connectés de leurs collègues. Les listes partagées entre collègues portent l’identité d’un contact et l’étape où il se trouve, jamais un message.</p>
+  <p>L’équipe mazeo dispose d’un accès technique à la base pour l’exploiter et pour vous aider. Elle n’ouvre les échanges d’un client qu’à sa demande, pour résoudre un problème qu’il a signalé, ou lorsque la loi l’exige.</p>
+  <p>Les traitements automatiques côté serveur s’exécutent avec un rôle technique qui voit toute la base ; leur périmètre est fixé par leur code. Une règle unique, côté serveur, décide quels contacts sont « suivis », et des essais automatisés vérifient à chaque livraison qu’elle tient sur les quatre chemins par lesquels un message peut entrer : email reçu, email envoyé, message LinkedIn reçu, message LinkedIn envoyé.</p>
+
+  <h2>3. Combien de temps</h2>
+  <ul>
+    <li>Le texte des messages enregistrés, le résumé qui l’accompagne et l’explication donnée par l’IA pour un changement d’étape sont retirés de mazeo 365 jours après la date du message, par une tâche quotidienne. La fiche garde la date, le canal, la classe de la réponse et l’étape ; le texte s’efface. La note de suivi qui a recopié le résumé de deux phrases dans l’historique de la fiche reste, comme une note que vous auriez écrite vous-même ; vous pouvez l’effacer. Le message reste dans votre boîte : mazeo n’y efface rien.</li>
+    <li>La déconnexion d’un compte le supprime chez notre prestataire de connexion. Quand plus aucune boîte mail n’est connectée, les emails enregistrés et le marqueur « déjà échangé » sont supprimés de mazeo ; quand plus aucun compte LinkedIn ne l’est, les messages LinkedIn et la liste de vos relations le sont aussi. L’historique de votre suivi (les étapes franchies, le fait qu’une invitation est partie tel jour) est conservé avec votre compte.</li>
+    <li>Les données de votre compte sont supprimées à sa clôture ou sur demande ; en fin de contrat, sous trente jours (accord de traitement des données, article 11).</li>
+    <li>Les journaux techniques du connecteur ne portent aucun contenu de message, aucun objet, aucune pièce jointe : un type d’événement, un compte, une date et les identifiants techniques des messages, qui laissent lire le domaine de messagerie de l’expéditeur. Ils sont effacés au bout de 30 jours. Mesuré sur notre base de test le 25 septembre 2026 : sur 1 266 événements, zéro contenu.</li>
+    <li>La copie anonymisée décrite ci-dessous est conservée sans limite de durée.</li>
+  </ul>
+
+  <h2>4. La copie anonymisée</h2>
+  <p>Pour améliorer les messages qu’il propose, mazeo a besoin d’exemples de ce qui obtient une réponse. Il les tire des réponses reçues, au moment où leur texte est retiré, sous une forme conçue pour ne plus permettre de reconnaître qui que ce soit. Pour cette copie, mazeo agit pour son propre compte (accord de traitement des données, article 9).</p>
+  <p>Ce que contient une ligne de cette copie : le texte de la réponse et celui du message auquel elle répondait, anonymisés ; le canal ; la langue ; la classe de la réponse (intéressé, pas maintenant, refus…) ; le ton ; l’étape avant et après ; le délai de réponse en heures ; le mois de réception, jamais le jour. Elle ne porte aucun identifiant : ni utilisateur, ni équipe, ni contact, ni entreprise, ni message d’origine. Personne, mazeo compris, ne peut retrouver de quel échange elle vient.</p>
+  <p>Comment le texte est anonymisé : une première passe retire par motifs les adresses email, les numéros de téléphone, les liens, les signatures et les fils cités, et remplace les noms, prénoms et sociétés connus par des balises ; une seconde passe par le modèle d’intelligence artificielle retire ce qui pourrait encore identifier quelqu’un (un domaine écrit sans lien, une adresse postale, un nom de tiers) ; un contrôle final refuse tout texte où subsiste un identifiant connu du contact ou de l’utilisateur. Un texte refusé n’entre pas dans la copie. Si un élément identifiant avait malgré tout échappé à ces trois passes, signalez-le : mazeo retire les lignes concernées.</p>
+  <p>Votre entreprise peut refuser d’y contribuer : un administrateur de votre équipe décoche la case dans Réglages ▸ Envois. Le refus s’applique à toute réponse pas encore copiée, quelle que soit sa date. Ce qui a déjà été anonymisé ne peut pas être rattaché à votre entreprise, donc pas retiré à ce titre : c’est le principe même de l’anonymisation.</p>
+
+  <h2>5. Où et par qui vos données sont traitées</h2>
+  <ul>
+    <li>La base de données et les traitements serveur tournent chez Supabase, dans l’Union européenne (Irlande). Les données sont chiffrées en transit et au repos par l’hébergeur.</li>
+    <li>L’application est servie par Vercel ; elle s’exécute dans votre navigateur et parle directement à la base. Vercel ne stocke aucune donnée de vos échanges.</li>
+    <li>La connexion aux boîtes mail et à LinkedIn passe par Unipile, société française, données hébergées en France. C’est Unipile qui détient, chiffrées, les autorisations d’accès à vos messageries ; mazeo ne conserve qu’un identifiant de compte, son nom d’affichage et un statut. Unipile conserve les conversations LinkedIn jusqu’à la suppression du compte connecté, les en-têtes seulement pour les boîtes Microsoft et IMAP, et rien pour les boîtes Google. Ses relais réseau, dont certains hors de l’Union européenne, acheminent les connexions sans conserver de contenu, et son support utilise Intercom, aux États-Unis.</li>
+    <li>L’analyse des réponses, les propositions de messages et l’anonymisation de la copie sont faites par Anthropic (États-Unis), qui n’utilise pas ces contenus pour entraîner ses modèles.</li>
+    <li>Les questions que vous posez à l’assistant de recherche sont traitées par OpenAI (États-Unis).</li>
+    <li>Les emails que mazeo vous envoie (notifications, récapitulatifs) passent par Resend (États-Unis). Ils portent le nom et la photo du contact, la classe de sa réponse et un résumé de deux phrases, jamais le texte du message.</li>
+    <li>Le suivi des erreurs est fait par Sentry, hébergé dans l’Union européenne, sans votre identité, sans contenu de message et sans cookie.</li>
+    <li>Vos retours sur l’application, écrits ou à la voix, sont recueillis par Gripe, hébergé dans l’Union européenne.</li>
+  </ul>
+  <p>La liste complète des prestataires, leur lieu et le cadre des transferts hors de l’Union européenne sont dans la <a href="privacy.html">politique de confidentialité</a> (section 6) et à l’annexe 1 de l’<a href="/dpa">accord de traitement des données</a>.</p>
+
+  <h2>6. Authentification et accès</h2>
+  <ul>
+    <li>Vous vous connectez à mazeo par email et mot de passe, ou par un lien ou un code envoyé par email. Les mots de passe sont hachés par le service d’authentification ; mazeo ne peut pas les lire.</li>
+    <li>mazeo ne reçoit jamais le mot de passe de votre boîte mail ni de LinkedIn. La connexion se fait sur une page de notre prestataire. Pour Microsoft et Google, vous accordez une autorisation que vous pouvez révoquer chez eux à tout moment.</li>
+    <li>Chaque affichage de coordonnées est tracé, utilisateur par utilisateur.</li>
+    <li>Toutes les communications sont chiffrées (HTTPS).</li>
+    <li>La double authentification et l’authentification unique d’entreprise (SSO) ne sont pas proposées à ce jour.</li>
+  </ul>
+
+  <h2>7. Ce qui sort de mazeo, et ce qui n’en sort pas</h2>
+  <p>Sortent, pour faire fonctionner le service : la conversation avec un contact suivi, vers notre prestataire d’intelligence artificielle ; un résumé de deux phrases, vers votre boîte, par email ; des informations techniques sans identité ni contenu, vers notre outil de suivi des erreurs ; les messages que vous décidez d’envoyer, vers votre propre messagerie ou votre compte LinkedIn.</p>
+  <p>Ne sortent jamais : le texte d’un message vers un autre client de mazeo, vers un administrateur de votre équipe ou vers un tiers commercial. Ce que mazeo relève dans votre boîte ne sert qu’à votre compte, hors la copie anonymisée décrite plus haut.</p>
+  <p>Ce qui rejoint la base commune de mazeo à partir d’une connexion LinkedIn : l’identifiant technique qui désigne, chez LinkedIn, un profil public déjà présent dans cette base, et, lorsque mazeo visite un profil par votre compte, le titre, le poste et la photo tels que LinkedIn les affiche publiquement, qui rafraîchissent la fiche existante. Ce sont des données déjà publiques ; aucun message, aucune adresse et aucune relation ne circule d’un client à l’autre.</p>
+
+  <h2>8. Incidents et signalement</h2>
+  <p>En cas de violation de données touchant ce que vous nous confiez, mazeo prévient les administrateurs de votre équipe sans retard injustifié, et au plus tard 48 heures après en avoir pris connaissance, avec ce qu’il sait de la nature de l’incident, des données concernées et des mesures prises.</p>
+  <p>Pour signaler une faille ou poser une question de sécurité : <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>. Nous accusons réception sous deux jours ouvrés.</p>
+
+  <h2>9. Pour votre service informatique</h2>
+  <p>Dans l’application, l’écran de connexion d’une boîte mail (Réglages ▸ mazeo Connect) propose un texte prêt à transmettre à votre service informatique, qui reprend ces engagements à la première personne, autorisation par autorisation. Les documents de référence : la <a href="privacy.html">politique de confidentialité</a>, l’<a href="/dpa">accord de traitement des données</a> (article 28 du RGPD), les <a href="terms.html">conditions d’utilisation</a> et les <a href="mentions-legales.html">mentions légales</a>.</p>
+
+  <h2>10. Mise à jour</h2>
+  <p>Cette page évolue avec le service. Tout élargissement de ce que mazeo lit ou conserve y est publié avant sa mise en service. La date en haut de page indique la dernière version.</p>
+</div>
+
+<div class="content" data-lang="en" lang="en">
+  <h1>Security and privacy</h1>
+  <p class="updated">Updated on September 26, 2026</p>
+  <p class="updated">This English version is provided for convenience. The French version prevails.</p>
+  <p class="lead">This page says what mazeo reads, what it keeps, who can see it and how it protects it. It is written for the IT managers and data protection officers of our customers, and for any user wondering before connecting their mailbox or LinkedIn account. Every sentence corresponds to a mechanism in place in the service; what does not exist yet is written in the future tense.</p>
+
+  <div class="box">
+    <h2>In short</h2>
+    <ul>
+      <li>No email leaves your address without your click, after you have reviewed it. On LinkedIn, only invitations without text can go out in automatic mode, and only if you turn it on.</li>
+      <li>In your mailbox, mazeo reads only the exchanges with the contacts in your Pipeline: the last 365 days when they enter it, then their replies as they arrive. Any other email is discarded on arrival.</li>
+      <li>You alone see your exchanges. Your team administrators have no access to them.</li>
+      <li>The text of replies is removed from mazeo 365 days after their date.</li>
+      <li>An anonymised copy, with no link to you, your team or your contacts, may be used to improve the messages it suggests, unless your company opts out.</li>
+      <li>Your database is hosted in the European Union; artificial intelligence and email delivery go through providers established in the United States. mazeo holds no password and no access token to your mailboxes.</li>
+      <li>You can disconnect everything at any time, from Settings.</li>
+    </ul>
+  </div>
+
+  <h2>1. What mazeo reads in a connected mailbox</h2>
+  <p><strong>When you connect</strong>, mazeo reads the headers of the last twelve months (sender, recipients, date), never the subject or the content, to mark in your lists the people you have already been in touch with. Junk, trash and drafts are not read. The subject arrives in the connection provider’s response; it is neither stored nor logged.</p>
+  <p><strong>When a contact enters your Pipeline</strong>, mazeo re-reads in your mailbox the exchanges of the last 365 days with their address, and keeps the text of the last six emails, sent or received, to rebuild the conversation and place the contact at the right stage. Nothing older than 365 days is read.</p>
+  <p><strong>From then on</strong>, every incoming message is compared with the list of contacts in your Pipeline. If it comes from a contact you follow, its text is stored on that contact’s card, and the conversation is sent to our artificial intelligence provider to summarise it, update the follow-up stage and suggest a reply. If it comes from anyone else, it passes through our servers for the time of that comparison, then it is discarded: neither the text, nor the subject, nor the attachments are stored. Only the sender’s address and the date join the “already in touch” marker.</p>
+  <p>The messages you send yourself to a followed contact, from your mailbox and outside mazeo, are stored the same way, so that the conversation is complete.</p>
+  <p><strong>As soon as you move a contact out of your Pipeline</strong> (won client, dropped), mazeo stops reading your exchanges with them. What was stored stays on their card until it is removed. If you put them back into the Pipeline later, mazeo re-reads at that moment the last 365 days of exchanges with them, as at any entry.</p>
+  <p><strong>The permissions requested from Microsoft</strong> are reading and writing mail, sending mail as you, and access to the calendar and the address book. mazeo never deletes or moves an email; write access is used only to send yours. The calendar and address book are requested in preparation for upcoming features: mazeo reads and writes nothing there today, and this page and the privacy policy will be updated before any use. These permissions are held by our connection provider, never by mazeo, and you can revoke them with Microsoft at any time. The detail, permission by permission, is in the text for your IT department offered by the application.</p>
+  <p><strong>For a connected LinkedIn account</strong>, mazeo processes the account’s conversations, the invitations sent and their acceptance, and your list of connections, which is used to show the distance between you and a contact. It also visits, through your account, the public profile of the contacts in your Pipeline to identify them with certainty; the title, position and photo read on that occasion refresh the card in the shared database (section 7). If you turn on automatic mode, mazeo sends the invitations you have scheduled, without text, Monday to Friday between 8 am and 8 pm Paris time, within the limits you set; no message is ever sent without your click. The rule that reading stops when a contact leaves the Pipeline is the same as for emails.</p>
+
+  <h2>2. Who can read what</h2>
+  <p>Each user sees only their own exchanges. The rule is enforced by the database itself, row by row: a query made with one user’s account cannot return a message that belongs to another, whatever the screen or tool used.</p>
+  <p>Team administrators manage members and shared settings. They have access neither to the messages, nor to the summaries, nor to their colleagues’ connected accounts. Lists shared between colleagues carry a contact’s identity and current stage, never a message.</p>
+  <p>The mazeo team has technical access to the database to operate it and to help you. It opens a customer’s exchanges only at that customer’s request, to solve a problem they have reported, or where the law requires it.</p>
+  <p>Automated server-side processing runs with a technical role that sees the whole database; its scope is set by its code. A single server-side rule decides which contacts are “followed”, and automated tests check at every release that it holds on the four paths through which a message can enter: email received, email sent, LinkedIn message received, LinkedIn message sent.</p>
+
+  <h2>3. For how long</h2>
+  <ul>
+    <li>The text of stored messages, the summary that goes with it and the explanation given by the AI for a stage change are removed from mazeo 365 days after the message date, by a daily task. The card keeps the date, the channel, the reply class and the stage; the text is erased. The follow-up note that copied the two-sentence summary into the card’s history stays, like a note you would have written yourself; you can delete it. The message stays in your mailbox: mazeo erases nothing there.</li>
+    <li>Disconnecting an account deletes it at our connection provider. Once no mailbox is connected any more, the stored emails and the “already in touch” marker are deleted from mazeo; once no LinkedIn account is connected any more, the LinkedIn messages and your list of connections are deleted too. The history of your follow-up (the stages you completed, the fact that an invitation was sent on a given day) is kept with your account.</li>
+    <li>Your account data is deleted when the account is closed or on request; at the end of the contract, within thirty days (data processing agreement, article 11).</li>
+    <li>The connector’s technical logs carry no message content, no subject, no attachment: an event type, an account, a date and the technical message identifiers, which reveal the sender’s mail domain. They are erased after 30 days. Measured on our test database on September 25, 2026: out of 1,266 events, zero content.</li>
+    <li>The anonymised copy described below is kept without time limit.</li>
+  </ul>
+
+  <h2>4. The anonymised copy</h2>
+  <p>To improve the messages it suggests, mazeo needs examples of what gets a reply. It takes them from received replies, at the moment their text is removed, in a form designed so that no one can be recognised any more. For this copy, mazeo acts on its own behalf (data processing agreement, article 9).</p>
+  <p>What a row of this copy contains: the text of the reply and of the message it answered, anonymised; the channel; the language; the reply class (interested, not now, refusal…); the tone; the stage before and after; the reply delay in hours; the month of receipt, never the day. It carries no identifier: no user, no team, no contact, no company, no original message. No one, mazeo included, can trace which exchange it comes from.</p>
+  <p>How the text is anonymised: a first pass removes by pattern the email addresses, phone numbers, links, signatures and quoted threads, and replaces known first names, last names and companies with tags; a second pass by the artificial intelligence model removes whatever could still identify someone (a domain written without a link, a postal address, a third party’s name); a final check rejects any text where a known identifier of the contact or the user remains. A rejected text does not enter the copy. If an identifying element had nonetheless slipped through these three passes, report it: mazeo removes the rows concerned.</p>
+  <p>Your company can opt out: an administrator of your team unticks the box in Settings ▸ Sending. The opt-out applies to every reply not yet copied, whatever its date. What has already been anonymised cannot be linked back to your company, and therefore cannot be withdrawn on that basis: that is the very principle of anonymisation.</p>
+
+  <h2>5. Where and by whom your data is processed</h2>
+  <ul>
+    <li>The database and server-side processing run at Supabase, in the European Union (Ireland). Data is encrypted in transit and at rest by the host.</li>
+    <li>The application is served by Vercel; it runs in your browser and talks directly to the database. Vercel stores no data from your exchanges.</li>
+    <li>The connection to mailboxes and LinkedIn goes through Unipile, a French company, data hosted in France. Unipile holds, encrypted, the access authorisations to your mailboxes; mazeo keeps only an account identifier, its display name and a status. Unipile keeps LinkedIn conversations until the connected account is deleted, headers only for Microsoft and IMAP mailboxes, and nothing for Google mailboxes. Its network relays, some of them outside the European Union, route connections without storing content, and its support uses Intercom, in the United States.</li>
+    <li>Reply analysis, message suggestions and the anonymisation of the copy are done by Anthropic (United States), which does not use this content to train its models.</li>
+    <li>The questions you put to the search assistant are processed by OpenAI (United States).</li>
+    <li>The emails mazeo sends you (notifications, digests) go through Resend (United States). They carry the contact’s name and photo, the class of their reply and a two-sentence summary, never the text of the message.</li>
+    <li>Error tracking is done by Sentry, hosted in the European Union, without your identity, without message content and without cookies.</li>
+    <li>Your feedback on the application, written or spoken, is collected by Gripe, hosted in the European Union.</li>
+  </ul>
+  <p>The full list of providers, their location and the framework for transfers outside the European Union are in the <a href="privacy.html">privacy policy</a> (section 6) and in annex 1 of the <a href="/dpa">data processing agreement</a>.</p>
+
+  <h2>6. Authentication and access</h2>
+  <ul>
+    <li>You sign in to mazeo with email and password, or with a link or code sent by email. Passwords are hashed by the authentication service; mazeo cannot read them.</li>
+    <li>mazeo never receives your mailbox or LinkedIn password. The connection takes place on a page run by our provider. For Microsoft and Google, you grant an authorisation that you can revoke with them at any time.</li>
+    <li>Every display of contact details is logged, user by user.</li>
+    <li>All communications are encrypted (HTTPS).</li>
+    <li>Two-factor authentication and enterprise single sign-on (SSO) are not offered at this time.</li>
+  </ul>
+
+  <h2>7. What leaves mazeo, and what never does</h2>
+  <p>What leaves, to run the service: the conversation with a followed contact, to our artificial intelligence provider; a two-sentence summary, to your mailbox, by email; technical information without identity or content, to our error tracking tool; the messages you decide to send, to your own mailbox or LinkedIn account.</p>
+  <p>What never leaves: the text of a message to another mazeo customer, to an administrator of your team or to a commercial third party. What mazeo reads in your mailbox only serves your account, apart from the anonymised copy described above.</p>
+  <p>What joins mazeo’s shared database from a LinkedIn connection: the technical identifier that LinkedIn assigns to a public profile already present in that database, and, when mazeo visits a profile through your account, the title, position and photo as LinkedIn displays them publicly, which refresh the existing card. This is data that is already public; no message, address or connection passes from one customer to another.</p>
+
+  <h2>8. Incidents and reporting</h2>
+  <p>In the event of a data breach affecting what you entrust to us, mazeo notifies your team administrators without undue delay, and at the latest 48 hours after becoming aware of it, with what it knows of the nature of the incident, the data concerned and the measures taken.</p>
+  <p>To report a vulnerability or ask a security question: <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>. We acknowledge receipt within two working days.</p>
+
+  <h2>9. For your IT department</h2>
+  <p>In the application, the mailbox connection screen (Settings ▸ mazeo Connect) offers a text ready to forward to your IT department, which restates these commitments in the first person, permission by permission. The reference documents: the <a href="privacy.html">privacy policy</a>, the <a href="/dpa">data processing agreement</a> (Article 28 GDPR), the <a href="terms.html">terms of use</a> and the <a href="mentions-legales.html">legal notice</a>.</p>
+
+  <h2>10. Changes</h2>
+  <p>This page evolves with the service. Any extension of what mazeo reads or keeps is published here before it goes live. The date at the top of the page shows the latest version.</p>
+</div>
+
+<footer>
+  © 2026 mazeo ·
+  <a href="mentions-legales.html" data-en="Legal notice">Mentions légales</a> ·
+  <a href="privacy.html" data-en="Privacy">Confidentialité</a> ·
+  <a href="terms.html" data-en="Terms of use">Conditions d’utilisation</a> ·
+  <a href="/securite" data-en="Security">Sécurité</a> ·
+  <a href="/dpa" data-en="Data processing agreement">Accord de traitement des données</a> ·
+  <a href="?lang=en" id="lang-switch" class="lang-switch" hreflang="en" lang="en">English</a>
+</footer>
+<script>
+  (function () {
+    var fr = document.title, en = "Security and privacy — mazeo";
+    function apply() {
+      var l = document.documentElement.lang === "en" ? "en" : "fr";
+      document.title = l === "en" ? en : fr;
+      document.querySelectorAll("[data-en]").forEach(function (e) { if (!e.hasAttribute("data-fr")) e.setAttribute("data-fr", e.textContent); e.textContent = e.getAttribute(l === "en" ? "data-en" : "data-fr"); });
+      var sw = document.getElementById("lang-switch"), o = l === "en" ? "fr" : "en";
+      sw.textContent = o === "en" ? "English" : "Français"; sw.setAttribute("href", "?lang=" + o); sw.setAttribute("hreflang", o); sw.setAttribute("lang", o);
+    }
+    apply();
+    document.getElementById("lang-switch").addEventListener("click", function (e) {
+      e.preventDefault(); var o = document.documentElement.lang === "en" ? "fr" : "en";
+      document.documentElement.lang = o; try { localStorage.setItem("mazeo_lang", o); } catch (err) {}
+      try { history.replaceState(null, "", location.pathname + "?lang=" + o); } catch (err) {}
+      apply();
+    });
+  })();
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

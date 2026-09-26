@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/securite", "destination": "/securite.html" },
+    { "source": "/dpa", "destination": "/dpa.html" }
+  ]
+}
