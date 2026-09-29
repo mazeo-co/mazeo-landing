@@ -364,7 +364,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 
 <script>
 (function () {
-  var M = {"bad": "Please enter a valid email address.", "sending": "Sending…", "ok": "Done: a confirmation email is on its way.", "err": "That didn't go through. Please try again in a moment.", "demo": "Page in preparation: nothing is sent."}, EMAIL_URL = "";
+  var M = {"bad": "Please enter a valid email address.", "sending": "Sending…", "ok": "Done: a confirmation email is on its way.", "err": "That didn't go through. Please try again in a moment.", "demo": "Page in preparation: nothing is sent."}, EMAIL_URL = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/content-signup";
   var btn = document.getElementById("dd-btn"), panel = document.getElementById("dd-panel");
   function setOpen(open) { btn.setAttribute("aria-expanded", open ? "true" : "false"); panel.hidden = !open; }
   btn.addEventListener("click", function (e) { e.stopPropagation(); setOpen(panel.hidden); });
@@ -377,7 +377,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.className = "msg err"; msg.textContent = M.bad; return; }
     if (!EMAIL_URL) { msg.className = "msg"; msg.textContent = M.demo; return; }
     var b = form.querySelector("button[type=submit]"); b.disabled = true; msg.className = "msg"; msg.textContent = M.sending;
-    fetch(EMAIL_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "ressources", email: v, lang: document.documentElement.lang, news: true, page: location.href, salons: [] }) })
+    fetch(EMAIL_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "ressources", email: v, lang: document.documentElement.lang, news: false, page: location.href, salons: [] }) })
       .then(function (r) { if (!r.ok) throw new Error(String(r.status)); msg.className = "msg ok"; msg.textContent = M.ok; })
       .catch(function () { msg.className = "msg err"; msg.textContent = M.err; })
       .then(function () { b.disabled = false; });

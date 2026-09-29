@@ -35,6 +35,14 @@
     {
       "source": "/en/resources",
       "destination": "/en/resources.html"
+    },
+    {
+      "source": "/desinscription",
+      "destination": "/desinscription.html"
+    },
+    {
+      "source": "/en/unsubscribed",
+      "destination": "/en/unsubscribed.html"
     }
   ],
   "redirects": [
