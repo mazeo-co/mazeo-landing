@@ -1,6 +1,35 @@
 {
   "rewrites": [
-    { "source": "/securite", "destination": "/securite.html" },
-    { "source": "/dpa", "destination": "/dpa.html" }
+    {
+      "source": "/securite",
+      "destination": "/securite.html"
+    },
+    {
+      "source": "/dpa",
+      "destination": "/dpa.html"
+    },
+    {
+      "source": "/salons",
+      "destination": "/salons.html"
+    },
+    {
+      "source": "/salons/:slug",
+      "destination": "/salons/:slug.html"
+    },
+    {
+      "source": "/en/market-research-conferences",
+      "destination": "/en/market-research-conferences.html"
+    },
+    {
+      "source": "/en/market-research-conferences/:slug",
+      "destination": "/en/market-research-conferences/:slug.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/conferences",
+      "destination": "/en/market-research-conferences",
+      "permanent": false
+    }
   ]
 }
