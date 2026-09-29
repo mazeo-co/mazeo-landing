@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Unsubscribed | mazeo</title>
+<title>Unsubscribe | mazeo</title>
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://www.mazeo.co/en/unsubscribed">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -11,9 +11,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=Bricolage+Grotesque:opsz,wght@12..96,700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@800&text=mazeo.&display=swap">
-<script defer src="/_vercel/insights/script.js"></script>
 <style>
-/* Page de confirmation de la désinscription (fonction content-signup de mazeo-app, 30/09/2026). Jetons de mazeo.co. */
+/* Désinscription des emails des contenus (fonction content-signup de mazeo-app, 30/09/2026). Jetons de mazeo.co.
+   Ouvrir la page ne désinscrit pas : seul le bouton le fait (les filtres des messageries ouvrent les liens tout seuls). */
 :root { --ink: #0A0A0A; --slate: #3A4250; --line-strong: #DDE1E9; --blue: #007BFF; --blue-deep: #0066D6; --green: #00EF8B;
   --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; --display: 'Bricolage Grotesque', var(--font); }
 * { box-sizing: border-box; }
@@ -24,18 +24,54 @@ body { margin: 0; font-family: var(--font); color: var(--slate); background: #ff
 h1 { margin: 96px 0 16px; font-family: var(--display); font-weight: 700; font-size: clamp(40px, 7vw, 64px); letter-spacing: -0.035em; line-height: 1; color: var(--ink); }
 p { margin: 0; font-size: 19px; line-height: 1.55; max-width: 56ch; }
 .ctas { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
-.btn { display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 9px; font-weight: 600; font-size: 15.5px; text-decoration: none; border: 1px solid transparent; }
+.btn { font: inherit; cursor: pointer; display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 9px; font-weight: 600; font-size: 15.5px; text-decoration: none; border: 1px solid transparent; }
 .btn-primary { background: var(--blue); color: #fff; } .btn-primary:hover { background: var(--blue-deep); }
 .btn-ghost { background: #fff; color: var(--ink); border-color: var(--line-strong); }
+.btn:disabled { opacity: .6; cursor: default; }
+[hidden] { display: none !important; }
+.note { margin-top: 18px; font-size: 16px; color: #B42318; }
+.wrap a:not(.btn):not(.logo) { color: var(--blue-deep); }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <a class="logo" href="/?lang=en" aria-label="mazeo">mazeo<span>.</span></a>
-  <h1>Done.</h1>
-  <p>You will no longer receive these emails from mazeo. If this was a mistake, simply ask again on the events or resources page.</p>
-  <div class="ctas"><a class="btn btn-primary" href="/en/resources">Resources</a><a class="btn btn-ghost" href="/?lang=en">Back to mazeo.co</a></div>
+  <section id="confirmer">
+    <h1>Unsubscribe?</h1>
+    <p>You will no longer receive our emails at this address: no event alerts, no resources, no news from mazeo.</p>
+    <div class="ctas"><button class="btn btn-primary" id="go" type="button">Unsubscribe me</button><a class="btn btn-ghost" href="/?lang=en">Back to mazeo.co</a></div>
+    <p class="note" id="err" role="alert" hidden>That didn't work. Try again in a moment, or write to <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>.</p>
+    <noscript><p class="note">To unsubscribe, turn on JavaScript, or write to <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>.</p></noscript>
+  </section>
+  <section id="fait" hidden>
+    <h1>Done.</h1>
+    <p>You will no longer receive our emails at this address. If this was a mistake, sign up again on the events or resources page.</p>
+    <div class="ctas"><a class="btn btn-primary" href="/en/resources">Resources</a><a class="btn btn-ghost" href="/?lang=en">Back to mazeo.co</a></div>
+  </section>
+  <section id="perime" hidden>
+    <h1>This link is no longer valid.</h1>
+    <p>Write to <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a> and we will unsubscribe you by hand.</p>
+  </section>
+  <section id="incomplet" hidden>
+    <h1>This link is incomplete.</h1>
+    <p>To unsubscribe, use the link at the bottom of the email you received, or write to <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>.</p>
+  </section>
 </div>
+<script>
+(function () {
+  var FN = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/content-signup";
+  var m = /[?&]jeton=([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})(?:&|$)/i.exec(location.search);
+  function voir(id) { ["confirmer", "fait", "perime", "incomplet"].forEach(function (x) { document.getElementById(x).hidden = x !== id; }); }
+  if (!m) { voir("incomplet"); return; }
+  var go = document.getElementById("go"), err = document.getElementById("err"), libelle = go.textContent;
+  go.addEventListener("click", function () {
+    go.disabled = true; go.textContent = "One moment…"; err.hidden = true;
+    fetch(FN + "?desinscrire=" + m[1].toLowerCase(), { method: "POST" })
+      .then(function (r) { if (r.ok) return voir("fait"); if (r.status === 404) return voir("perime"); throw new Error("HTTP " + r.status); })
+      .catch(function () { go.disabled = false; go.textContent = libelle; err.hidden = false; });
+  });
+})();
+</script>
 </body>
 </html>
