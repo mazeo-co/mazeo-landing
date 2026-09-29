@@ -33,6 +33,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@800&text=mazeo.&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&text=ABCDEFGHIJKLMNOPQRSTUVWXYZ%C3%89&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,800&text=abcdefghijklmnopqrstuvwxyz%20&display=swap">
 <script src="assets/market-logos.js" defer></script>
 
 <script type="application/ld+json">
@@ -587,6 +589,56 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 @media (min-width: 961px) { .match-split { grid-template-columns: 6.4fr 5.6fr; } }
 @media (max-width: 340px) { .match-split h3 { font-size: 28px; } }
 @media (max-width: 999px) { .d-br { display: none; } }
+/* ============ Ressources (29/09/2026) : le menu déroulant et la rangée de cartes, d'après la page /ressources ============ */
+.rs-dd { position: relative; }
+.rs-dd-btn { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0; padding: 0; color: var(--slate); font-weight: 600; font-size: 15px; cursor: pointer; }
+.rs-dd-btn:hover, .rs-dd-btn[aria-expanded="true"] { color: var(--ink); }
+.rs-dd-btn svg { width: 14px; height: 14px; transition: transform .15s; }
+.rs-dd-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.rs-dd-panel { position: absolute; top: calc(100% + 22px); left: -24px; width: 440px; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 10px; box-shadow: 0 30px 60px -30px rgba(10,24,48,.35); display: grid; gap: 2px; z-index: 60; }
+.rs-dd-panel[hidden] { display: none; }
+.rs-dd-item { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; padding: 10px 12px; border-radius: 10px; color: var(--ink); }
+.nav-links a.rs-dd-item { color: var(--ink); }
+.rs-dd-item:hover { background: var(--soft); text-decoration: none; }
+.rs-dd-item b { display: block; font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+.rs-dd-item .s { display: block; font-size: 14px; font-weight: 400; color: var(--meta); line-height: 1.4; margin-top: 2px; }
+.rs-ico { width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; }
+.rs-ico-q { background: #06080C; color: var(--green); font-family: 'Big Shoulders Display', 'Arial Narrow', var(--font); font-weight: 900; font-size: 22px; }
+.rs-ico-s { background: #FFD23F; color: var(--ink); font-family: var(--display); font-weight: 700; font-size: 19px; }
+.nav-links a.rs-dd-all { margin-top: 4px; padding: 12px 12px 8px; border-top: 1px solid var(--line); font-weight: 600; font-size: 14.5px; color: var(--blue-text); }
+.rs-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px 32px; flex-wrap: wrap; margin-bottom: 40px; }
+.rs-head .eyebrow { margin-bottom: 18px; }
+.rs-title { font-size: clamp(30px, 3.4vw, 48px); }
+.rs-all { font-weight: 600; font-size: 16px; color: var(--blue-text); display: inline-flex; align-items: center; gap: 6px; }
+.rs-all svg { width: 17px; height: 17px; }
+.rs-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; list-style: none; margin: 0; padding: 0; }
+.rs-grid > li { display: flex; }
+.rs-card { position: relative; display: flex; flex-direction: column; width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; transition: border-color .15s, box-shadow .2s, transform .2s; }
+.rs-card:hover { border-color: var(--line-strong); box-shadow: 0 28px 56px -32px rgba(10,24,48,.32); transform: translateY(-3px); }
+.rs-card:focus-within { outline: 3px solid var(--blue); outline-offset: 3px; }
+.rs-card a:focus-visible { outline: none; }
+.rs-visual { position: relative; aspect-ratio: 16 / 7; overflow: hidden; border-bottom: 1px solid var(--line); }
+.rs-body { padding: 22px 26px 26px; display: grid; gap: 8px; }
+.rs-body h3 { font-size: clamp(22px, 2vw, 28px); line-height: 1.1; }
+.rs-body h3 a { color: var(--ink); }
+.rs-body h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.rs-body h3 a:hover { text-decoration: none; }
+.rs-body p { font-size: 16px; color: var(--body); }
+.rs-qz { display: grid; place-content: center; justify-items: center; gap: 10px; text-align: center; border-bottom-color: #151B27; background: radial-gradient(ellipse 85% 65% at 50% -8%, rgba(43,143,255,.30), transparent 62%), radial-gradient(ellipse 55% 45% at 50% 112%, rgba(0,239,139,.12), transparent 70%), #06080C; }
+.rs-by { font-size: 13px; color: #8A94A6; display: flex; align-items: baseline; gap: 6px; justify-content: center; }
+.rs-by b { font-family: var(--logo-font); font-weight: 800; font-size: 16px; color: #fff; letter-spacing: -0.3px; }
+.rs-by b span { color: var(--green); }
+.rs-show { font-family: 'Big Shoulders Display', 'Arial Narrow', var(--font); font-weight: 900; text-transform: uppercase; font-size: clamp(34px, 3.4vw, 50px); line-height: .9; color: #F5F7FB; }
+.rs-show span { color: var(--green); }
+.rs-sl { display: flex; flex-direction: column; background: var(--soft); padding: 18px 22px 0; }
+.rs-rl { display: flex; flex-direction: column; gap: 3px; align-self: flex-start; position: relative; z-index: 0; }
+.rs-l1 { font-family: var(--display); font-weight: 800; font-stretch: 85%; font-size: 25px; letter-spacing: -0.035em; line-height: .95; color: var(--ink); white-space: nowrap; }
+.rs-l2 { font-weight: 700; font-size: 10.5px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink); line-height: 1; padding-left: 1px; }
+.rs-mk { position: relative; display: inline-block; isolation: isolate; }
+.rs-mk svg { position: absolute; left: -5px; top: 36%; width: calc(100% + 10px); height: 62%; z-index: -1; }
+.rs-sl img { flex: 1; min-height: 0; width: 100%; object-fit: contain; object-position: 88% 100%; mix-blend-mode: multiply; margin-top: -40px; }
+@media (max-width: 960px) { .rs-grid { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .rs-card, .rs-card:hover { transform: none; transition: none; } }
 </style>
 </head>
 <body>
@@ -599,6 +651,14 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <a href="#signaux" data-t="nav.signals">Les signaux</a>
       <a href="#pipeline" data-t="nav.pipeline">Le Pipeline</a>
       <a href="#faq">FAQ</a>
+      <div class="rs-dd">
+        <button class="rs-dd-btn" type="button" id="rs-dd-btn" aria-expanded="false" aria-controls="rs-dd-panel"><span data-t="nav.res">Ressources</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="rs-dd-panel" id="rs-dd-panel" hidden>
+          <a class="rs-dd-item" href="/quiz.html" data-href-en="/en/quiz"><span class="rs-ico rs-ico-q" aria-hidden="true">Q</span><span><b data-t="rs.qT">Le Grand Quiz des Études</b><span class="s" data-t="dd.q">Dix questions pour vous mesurer au secteur.</span></span></a>
+          <a class="rs-dd-item" href="/salons" data-href-en="/en/market-research-conferences"><span class="rs-ico rs-ico-s" aria-hidden="true">42</span><span><b data-t="rs.sT">Les rencontres du market research</b><span class="s" data-t="dd.s">Les salons et congrès du secteur : dates, prix, public.</span></span></a>
+          <a class="rs-dd-all" href="/ressources" data-href-en="/en/resources" data-t="rs.all">Toutes les ressources</a>
+        </div>
+      </div>
     </nav>
     <div class="nav-right">
       <a class="btn btn-ghost nav-login" href="https://app.mazeo.co" data-t="nav.login">Se connecter</a>
@@ -810,6 +870,29 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   </section>
 
   <!-- ================= FAQ ================= -->
+  <!-- ================= RESSOURCES (29/09/2026) : les deux contenus gratuits, avant la FAQ ================= -->
+  <section class="section" id="ressources" style="padding-bottom:0">
+    <div class="container">
+      <div class="rs-head">
+        <div>
+          <span class="eyebrow" data-t="rs.eyebrow">Ressources</span>
+          <h2 class="rs-title" data-t="rs.h2">Des ressources gratuites pour le secteur.</h2>
+        </div>
+        <a class="rs-all" href="/ressources" data-href-en="/en/resources"><span data-t="rs.all">Toutes les ressources</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <ul class="rs-grid">
+        <li><article class="rs-card">
+          <div class="rs-visual rs-qz" aria-hidden="true"><p class="rs-by"><span data-t="rs.qBy">présenté par</span> <b>mazeo<span>.</span></b></p><p class="rs-show" data-t="rs.qShow">Le Grand Quiz<br>des <span>Études</span></p></div>
+          <div class="rs-body"><h3><a href="/quiz.html" data-href-en="/en/quiz" data-t="rs.qT">Le Grand Quiz des Études</a></h3><p data-t="rs.qD">Dix questions, trois minutes. Votre score face au secteur.</p></div>
+        </article></li>
+        <li><article class="rs-card">
+          <div class="rs-visual rs-sl"><div class="rs-rl" aria-hidden="true"><span class="rs-l1"><span data-t="rs.sL1a">les </span><span class="rs-mk"><span data-t="rs.sL1b">rencontres</span><svg viewBox="0 0 320 60" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 C 70 6, 170 4, 314 9 L 318 50 C 210 56, 100 58, 2 54 Z" fill="#FFD23F"/></svg></span></span><span class="rs-l2" data-t="rs.sL2">du market research</span></div><img src="/assets/salons/badges-fr.webp" data-src-en="/assets/salons/badges-en.webp" width="900" height="700" alt="" loading="lazy"></div>
+          <div class="rs-body"><h3><a href="/salons" data-href-en="/en/market-research-conferences" data-t="rs.sT">Les rencontres du market research</a></h3><p data-t="rs.sD">42 salons et congrès du secteur : dates, prix, public.</p></div>
+        </article></li>
+      </ul>
+    </div>
+  </section>
+
   <section class="section" id="faq">
     <div class="container">
       <div class="head reveal">
@@ -863,6 +946,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <ul class="trust"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.5 8.5-7 10-3.5-1.5-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><span data-t="foot.rgpd">Conforme au RGPD</span></li><li><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="20" cy="12" r="1.7"/><circle cx="18.93" cy="16" r="1.7"/><circle cx="16" cy="18.93" r="1.7"/><circle cx="12" cy="20" r="1.7"/><circle cx="8" cy="18.93" r="1.7"/><circle cx="5.07" cy="16" r="1.7"/><circle cx="4" cy="12" r="1.7"/><circle cx="5.07" cy="8" r="1.7"/><circle cx="8" cy="5.07" r="1.7"/><circle cx="12" cy="4" r="1.7"/><circle cx="16" cy="5.07" r="1.7"/><circle cx="18.93" cy="8" r="1.7"/></svg><span data-t="foot.eu">Données hébergées dans l’Union européenne</span></li></ul>
     </div>
     <nav aria-label="Liens" data-aria-en="Links">
+      <a href="/ressources" data-href-en="/en/resources" data-t="foot.res">Ressources</a>
       <a href="https://app.mazeo.co" data-t="nav.login">Se connecter</a>
       <a href="mailto:romain.barbet@mazeo.co">Contact</a>
       <a href="https://www.linkedin.com/company/mazeo-tech/" rel="noopener" target="_blank">LinkedIn</a>
@@ -880,6 +964,10 @@ document.documentElement.classList.add("js");
 (function () {
   /* ---------- Langue : le français est dans le HTML, l'anglais dans ce dictionnaire ; choix automatique selon le navigateur ---------- */
   var EN = {
+    "nav.res": "Resources", "rs.eyebrow": "Resources", "rs.h2": "Free resources for the industry.", "rs.all": "All resources", "foot.res": "Resources",
+    "rs.qBy": "presented by", "rs.qShow": "The Great Market<br><span>Research</span> Quiz", "rs.qT": "The Great Market Research Quiz", "rs.qD": "Ten questions, three minutes. Your score against the industry.",
+    "rs.sL1a": "market research ", "rs.sL1b": "events", "rs.sL2": "Europe &amp; North America", "rs.sT": "Market research events", "rs.sD": "42 trade shows and conferences: dates, prices, audience.",
+    "dd.q": "Ten questions to measure yourself against the industry.", "dd.s": "The industry’s trade shows and conferences: dates, prices, audience.",
     "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Request access",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
     "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "hero.playClose": "Close the video", "hero.play": "Discover mazeo on video", "nav.market": "The Market", "mk.name": "The Market",
@@ -966,6 +1054,9 @@ document.documentElement.classList.add("js");
     var chipsEn = document.querySelectorAll(".chip[data-en]"); for (var ce = 0; ce < chipsEn.length; ce++) { var cq = chipsEn[ce]; if (!cq.hasAttribute("data-fr")) cq.setAttribute("data-fr", cq.textContent); cq.textContent = cq.getAttribute(lang === "en" ? "data-en" : "data-fr"); }
     /* les liens « Se connecter » emmènent la langue de la page vers l'app : app.mazeo.co lit ?hl=fr|en à l'arrivée (17/09) */
     var appLinks = document.querySelectorAll('a[href^="https://app.mazeo.co"]'); for (var al = 0; al < appLinks.length; al++) appLinks[al].setAttribute("href", "https://app.mazeo.co/?hl=" + lang);
+    /* les ressources ont une adresse par langue (29/09) : data-href-en et data-src-en portent la version anglaise */
+    var hrefEn = document.querySelectorAll("[data-href-en]"); for (var he = 0; he < hrefEn.length; he++) { var hq = hrefEn[he]; if (!hq.hasAttribute("data-href-fr")) hq.setAttribute("data-href-fr", hq.getAttribute("href")); hq.setAttribute("href", hq.getAttribute(lang === "en" ? "data-href-en" : "data-href-fr")); }
+    var srcEn = document.querySelectorAll("[data-src-en]"); for (var se = 0; se < srcEn.length; se++) { var sq = srcEn[se]; if (!sq.hasAttribute("data-src-fr")) sq.setAttribute("data-src-fr", sq.getAttribute("src")); sq.setAttribute("src", sq.getAttribute(lang === "en" ? "data-src-en" : "data-src-fr")); }
     if (typeof tipHide === "function") tipHide();
     renderFeed(); renderKanban(); renderMail(true); renderFiche();
     if (!visible.feed) feedStop(); if (!visible.kanban) kanbanStop(); if (!visible.mail) mailStop();
@@ -1629,5 +1720,15 @@ document.documentElement.classList.add("js");
 })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script>
+/* Menu « Ressources » (29/09/2026) : ouvert au clic, fermé au clic à côté ou par Échap. */
+(function () {
+  var b = document.getElementById("rs-dd-btn"), p = document.getElementById("rs-dd-panel"); if (!b || !p) return;
+  function set(o) { b.setAttribute("aria-expanded", o ? "true" : "false"); p.hidden = !o; }
+  b.addEventListener("click", function (e) { e.stopPropagation(); set(p.hidden); });
+  document.addEventListener("click", function (e) { if (!p.hidden && !p.contains(e.target)) set(false); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !p.hidden) { set(false); b.focus(); } });
+})();
+</script>
 </body>
 </html>
