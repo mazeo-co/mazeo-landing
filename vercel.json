@@ -23,9 +23,25 @@
     {
       "source": "/en/market-research-conferences/:slug",
       "destination": "/en/market-research-conferences/:slug.html"
+    },
+    {
+      "source": "/en/quiz",
+      "destination": "/en/quiz.html"
     }
   ],
   "redirects": [
+    {
+      "source": "/quiz.html",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en/quiz",
+      "permanent": false
+    },
     {
       "source": "/conferences",
       "destination": "/en/market-research-conferences",
