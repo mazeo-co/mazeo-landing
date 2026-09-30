@@ -133,7 +133,8 @@ button, input { font: inherit; }
 .logo:hover { text-decoration: none; }
 .logo span { color: var(--green); }
 .nav-links { display: flex; align-items: center; gap: 32px; margin-right: auto; margin-left: 40px; }
-.nav-links a { color: var(--slate); font-weight: 600; font-size: 15px; }
+.nav-links a { color: var(--slate); font-weight: 600; font-size: 15px; white-space: nowrap; }
+@media (max-width: 1180px) { .nav-links { gap: 20px; margin-left: 28px; } }
 .nav-links a:hover { color: var(--ink); text-decoration: none; }
 .nav-right { display: flex; align-items: center; gap: 10px; }
 @media (max-width: 960px) { .nav-links { display: none; } .nav-login { padding: 9px 12px; font-size: 14px; } .nav-right .btn-primary { padding: 9px 14px; font-size: 14px; } }
@@ -535,6 +536,50 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .faq-list .a { padding: 0 0 24px; max-width: 740px; font-size: 17px; line-height: 1.6; }
 
 /* ---- Fin de page ---- */
+/* ---- Le prix (30/09/2026) : les diapos « Le prix » et « Comparer » du deck de démo ---- */
+.title em { font-style: normal; color: var(--blue); }
+.px-plans { list-style: none; margin: 56px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.px-plan { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 32px 32px 30px; display: flex; flex-direction: column; gap: 14px; }
+.px-plan.px-main { border-color: var(--blue); }
+.px-lbl { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
+.px-main .px-lbl, .px-with .px-lbl { color: var(--blue-text); }
+.px-price { margin: 10px 0 0; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; font-family: var(--display); color: var(--ink); }
+.px-price b { font-weight: 800; font-size: clamp(52px, 5vw, 76px); letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; }
+.px-price span { font-weight: 700; font-size: 22px; letter-spacing: -0.02em; }
+.px-sub { font-size: 17px; color: var(--slate); }
+.px-inc { margin-top: 24px; background: var(--soft); border: 1px solid var(--line); border-radius: 16px; padding: 24px 32px; display: grid; grid-template-columns: 1.1fr 1fr 1.4fr 1fr; gap: 16px 28px; align-items: center; }
+.px-inc-lbl { font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
+.px-inc > div b { display: block; color: var(--ink); font-weight: 600; font-size: 17px; }
+.px-inc > div span { display: block; font-size: 15.5px; color: var(--slate); }
+.px-note { margin-top: 18px; font-size: 15px; color: var(--meta); }
+.px-cmp { margin-top: 88px; }
+.px-cmp-h { font-size: clamp(30px, 3.4vw, 48px); max-width: 780px; }
+.px-cmp-grid { margin-top: 36px; display: grid; grid-template-columns: 1.7fr 1fr; gap: 24px; align-items: stretch; }
+.px-without, .px-with { border-radius: 20px; padding: 30px 34px; }
+.px-without { background: #fff; border: 1px solid var(--line); }
+.px-with { border: 2px solid var(--blue); display: flex; flex-direction: column; gap: 6px; }
+.px-tbl { width: 100%; margin-top: 14px; border-collapse: collapse; font-size: 17px; }
+.px-tbl th, .px-tbl td { padding: 14px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: baseline; }
+.px-tbl tbody th { color: var(--ink); font-weight: 600; padding-right: 16px; }
+.px-tool { color: var(--slate); padding-right: 16px; }
+.px-amt { text-align: right !important; font-family: var(--display); font-weight: 700; font-size: 20px; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.px-tbl tfoot th, .px-tbl tfoot td { border-bottom: 0; padding-top: 22px; }
+.px-tbl tfoot th { color: var(--ink); font-weight: 600; font-size: 19px; }
+.px-tbl tfoot small { display: block; font-weight: 400; font-size: 15px; color: var(--slate); margin-top: 2px; }
+.px-tot { font-size: clamp(36px, 3.6vw, 52px) !important; font-weight: 800 !important; letter-spacing: -0.04em; }
+.px-w2 { font-weight: 600; color: var(--ink); font-size: 17px; margin-top: 8px !important; }
+.px-save { margin-top: 18px !important; font-weight: 600; font-size: 19px; line-height: 1.35; color: var(--blue-text); }
+.px-src { margin-top: 18px; font-size: 14px; color: var(--meta); max-width: 980px; }
+.px-ctas { margin-top: 48px; display: flex; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 1080px) { .px-inc { grid-template-columns: 1fr 1fr; } .px-inc-lbl { grid-column: 1 / -1; } }
+@media (max-width: 960px) { .px-plans { grid-template-columns: 1fr; } .px-cmp-grid { grid-template-columns: 1fr; } .px-cmp { margin-top: 64px; } }
+@media (max-width: 640px) { .px-inc { grid-template-columns: 1fr; padding: 22px; } .px-plan, .px-without, .px-with { padding: 24px 22px; }
+  .px-tbl, .px-tbl tbody, .px-tbl tfoot { display: block; } .px-tbl { font-size: 16px; }
+  .px-tbl tr { display: grid; grid-template-columns: 1fr auto; column-gap: 14px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .px-tbl th, .px-tbl td { border: 0; padding: 0 !important; }
+  .px-tool { grid-row: 2; font-size: 14.5px; }
+  .px-amt { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
+  .px-tbl tfoot tr { border: 0; padding-top: 18px; } }
 .final { padding-block: 120px 100px; text-align: center; }
 .final .title { font-size: clamp(38px, 5.6vw, 84px); max-width: 1000px; margin-inline: auto; }
 .final .title em { font-style: normal; color: var(--blue); }
@@ -637,6 +682,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <a href="#market" data-t="nav.market">Le marché</a>
       <a href="#signaux" data-t="nav.signals">Les signaux</a>
       <a href="#pipeline" data-t="nav.pipeline">Le Pipeline</a>
+      <a href="#prix" data-t="nav.price">Le prix</a>
       <a href="#faq">FAQ</a>
       <a href="/ressources" data-href-en="/en/resources" data-t="nav.res">Ressources</a>
     </nav>
@@ -849,6 +895,76 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     </div>
   </section>
 
+  <!-- ================= LE PRIX (30/09/2026) : diapos « Le prix » et « Comparer » du deck de démo, plus l'offre freelance ================= -->
+  <section class="section" id="prix">
+    <div class="container">
+      <div class="head reveal">
+        <span class="eyebrow" data-t="px.eyebrow">Le prix</span>
+        <h2 class="title" data-t="px.h2">Un accès par personne. <em>Sans minimum.</em></h2>
+      </div>
+
+      <ul class="px-plans reveal">
+        <li class="px-plan">
+          <span class="px-lbl" data-t="px.p1.lbl">Sans engagement</span>
+          <p class="px-price"><b data-t="px.a299">299&nbsp;€</b> <span data-t="px.month">par mois</span></p>
+          <p class="px-sub" data-t="px.p1.sub">Vous arrêtez quand vous voulez.</p>
+        </li>
+        <li class="px-plan px-main">
+          <span class="px-lbl" data-t="px.p2.lbl">Engagement 12 mois</span>
+          <p class="px-price"><b data-t="px.a249">249&nbsp;€</b> <span data-t="px.month2">par mois</span></p>
+          <p class="px-sub" data-t="px.p2.sub">Payé chaque mois, ou 2&nbsp;988&nbsp;€ d’avance.</p>
+        </li>
+        <li class="px-plan">
+          <span class="px-lbl" data-t="px.p3.lbl">Freelance</span>
+          <p class="px-price"><b data-t="px.a179">179&nbsp;€</b> <span data-t="px.month3">par mois</span></p>
+          <p class="px-sub" data-t="px.p3.sub">Un seul accès, pour qui travaille seul. 149&nbsp;€ avec 12&nbsp;mois.</p>
+        </li>
+      </ul>
+
+      <div class="px-inc reveal">
+        <span class="px-inc-lbl" data-t="px.inc">Chaque accès comprend</span>
+        <div><b data-t="px.i1">Toute la base</b><span data-t="px.i1s">mise à jour en continu</span></div>
+        <div><b data-t="px.i2">120 emails et 40 portables par mois</b><span data-t="px.i2s">60 et 20 pour un freelance</span></div>
+        <div><b data-t="px.i3">Reportés une fois</b><span data-t="px.i3s">s’ils ne sont pas utilisés</span></div>
+      </div>
+      <p class="px-note reveal" data-t="px.note">Besoin de plus&nbsp;? Recharges&nbsp;: 100 emails pour 15&nbsp;€, 20 portables pour 15&nbsp;€. Prix hors taxes, par personne.</p>
+
+      <div class="px-cmp reveal">
+        <h3 class="px-cmp-h" data-t="px.c.h">Moins cher que les outils que mazeo remplace.</h3>
+        <div class="px-cmp-grid">
+          <div class="px-without">
+            <span class="px-lbl" data-t="px.c.lbl1">Sans mazeo&nbsp;: 4 abonnements par personne</span>
+            <table class="px-tbl">
+              <tbody>
+                <tr><th scope="row" data-t="px.c.r1">Trouver les bons contacts</th><td class="px-tool">Sales Navigator Core</td><td class="px-amt" data-t="px.a121">121&nbsp;€</td></tr>
+                <tr><th scope="row" data-t="px.c.r2">Emails et portables</th><td class="px-tool">Kaspr Starter</td><td class="px-amt" data-t="px.a59">59&nbsp;€</td></tr>
+                <tr><th scope="row" data-t="px.c.r3">Séquences email et LinkedIn</th><td class="px-tool">Waalaxy Business</td><td class="px-amt" data-t="px.a139">139&nbsp;€</td></tr>
+                <tr><th scope="row" data-t="px.c.r4">La veille et les signaux</th><td class="px-tool" data-t="px.c.rodz">Rodz, pack Starter</td><td class="px-amt" data-t="px.a50">50&nbsp;€</td></tr>
+              </tbody>
+              <tfoot>
+                <tr><th scope="row" colspan="2"><span data-t="px.c.tot">Total par mois</span><small data-t="px.c.tots">et 4 outils à apprendre et à relier</small></th><td class="px-amt px-tot" data-t="px.a369">369&nbsp;€</td></tr>
+              </tfoot>
+            </table>
+          </div>
+          <div class="px-with">
+            <span class="px-lbl" data-t="px.c.lbl2">Avec mazeo&nbsp;: un seul outil</span>
+            <p class="px-price"><b data-t="px.a299">299&nbsp;€</b> <span data-t="px.month4">par mois</span></p>
+            <p class="px-sub" data-t="px.c.w1">sans engagement</p>
+            <p class="px-w2" data-t="px.c.w2">249&nbsp;€ avec 12 mois</p>
+            <p class="px-save" data-t="px.c.save">70&nbsp;€ de moins par mois,<br>120&nbsp;€ avec un an.</p>
+            <p class="px-sub" data-t="px.c.w3">Et déjà trié pour le secteur des études.</p>
+          </div>
+        </div>
+        <p class="px-src" data-t="px.c.src">Prix publics, par personne et par mois, en paiement mensuel, relevés sur les sites des éditeurs les 27 et 30/09/2026. Rodz&nbsp;: pack de crédits sans abonnement, prix d’entrée.</p>
+      </div>
+
+      <div class="px-ctas reveal">
+        <a class="btn btn-primary btn-lg" href="/souscrire" data-href-en="/en/subscribe"><span data-t="px.cta1">Souscrire</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost btn-lg" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/S0jCFCw_Gkys_12vbM44vg2?bookingcode=61f3c9f2-b616-4502-921a-c8e116bea866&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="px.cta2">Réserver une démo</a>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= FAQ ================= -->
   <!-- ================= RESSOURCES (29/09/2026) : les deux contenus gratuits, avant la FAQ ================= -->
   <section class="section" id="ressources" style="padding-bottom:0">
@@ -947,6 +1063,24 @@ document.documentElement.classList.add("js");
     "nav.res": "Resources", "rs.eyebrow": "Resources", "rs.h2": "Free resources for the industry.", "rs.all": "All resources", "foot.res": "Resources",
     "rs.qBy": "presented by", "rs.qShow": "The Great Market<br><span>Research</span> Quiz", "rs.qT": "The Great Market Research Quiz", "rs.qD": "Ten questions, three minutes. Your score against the industry.",
     "rs.sL1a": "market research ", "rs.sL1b": "events", "rs.sL2": "Europe &amp; North America", "rs.sT": "Market research events", "rs.sD": "42 trade shows and conferences: dates, prices, audience.",
+    "px.a121": "€121", "px.a139": "€139", "px.a179": "€179", "px.a249": "€249", "px.a299": "€299", "px.a369": "€369", "px.a50": "€50", "px.a59": "€59",
+    "nav.price": "Pricing", "px.eyebrow": "Pricing", "px.h2": "One seat per person. <em>No minimum.</em>",
+    "px.month": "per month", "px.month2": "per month", "px.month3": "per month", "px.month4": "per month",
+    "px.p1.lbl": "No commitment", "px.p1.sub": "Stop whenever you want.",
+    "px.p2.lbl": "12-month commitment", "px.p2.sub": "Paid monthly, or €2,988 upfront.",
+    "px.p3.lbl": "Freelance", "px.p3.sub": "One seat, for people who work alone. €149 with 12&nbsp;months.",
+    "px.inc": "Every seat includes", "px.i1": "The whole database", "px.i1s": "updated continuously",
+    "px.i2": "120 emails and 40 mobile numbers per month", "px.i2s": "60 and 20 for a freelancer",
+    "px.i3": "Rolled over once", "px.i3s": "if you don’t use them",
+    "px.note": "Need more? Top-ups: 100 emails for €15, 20 mobile numbers for €15. Prices excl. VAT, per person.",
+    "px.c.h": "Cheaper than the tools mazeo replaces.",
+    "px.c.lbl1": "Without mazeo: 4 subscriptions per person",
+    "px.c.r1": "Finding the right contacts", "px.c.r2": "Emails and mobile numbers", "px.c.r3": "Email and LinkedIn sequences", "px.c.r4": "Monitoring and signals", "px.c.rodz": "Rodz, Starter pack",
+    "px.c.tot": "Total per month", "px.c.tots": "and 4 tools to learn and connect",
+    "px.c.lbl2": "With mazeo: one tool", "px.c.w1": "no commitment", "px.c.w2": "€249 with 12 months",
+    "px.c.save": "€70 less per month,<br>€120 with a year.", "px.c.w3": "And already sorted for the market research industry.",
+    "px.c.src": "Public prices, per person per month, on monthly billing, taken from the vendors’ websites on 27 and 30 September 2026. Rodz: credit pack without subscription, entry price.",
+    "px.cta1": "Subscribe", "px.cta2": "Book a demo",
     "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Request access",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
     "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "hero.playClose": "Close the video", "hero.play": "Discover mazeo on video", "nav.market": "The Market", "mk.name": "The Market",
