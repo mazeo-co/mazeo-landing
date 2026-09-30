@@ -227,6 +227,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .foot nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
 
 .alert .msg.err { color: #B91C1C; }
+.nav-links a.nav-current { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); padding: 6px 0; }
 </style>
 </head>
 <body>
@@ -239,14 +240,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <a href="/#signaux">Les signaux</a>
       <a href="/#pipeline">Le Pipeline</a>
       <a href="/#faq">FAQ</a>
-      <div class="dd">
-        <button class="dd-btn" type="button" id="dd-btn" aria-expanded="false" aria-controls="dd-panel">Ressources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
-        <div class="dd-panel" id="dd-panel" hidden>
-          <a class="dd-item" href="/quiz.html"><span class="ico ico-q" aria-hidden="true">Q</span><span><b>Le Grand Quiz des Études</b><span class="s">Dix questions pour vous mesurer au secteur.</span></span></a>
-          <a class="dd-item" href="/salons"><span class="ico ico-s" aria-hidden="true">42</span><span><b>Les rencontres du market research</b><span class="s">Les salons et congrès du secteur : dates, prix, public.</span></span></a>
-          <a class="dd-all" href="/ressources">Toutes les ressources</a>
-        </div>
-      </div>
+      <a class="nav-current" href="/ressources" aria-current="page">Ressources</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn-ghost nav-login" href="https://app.mazeo.co/?hl=fr">Se connecter</a>
@@ -260,7 +254,6 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <section class="intro container">
     <span class="eyebrow">Ressources</span>
     <h1>Des ressources gratuites pour le <em>market research.</em></h1>
-    <p class="lead">Mesurez-vous au secteur. Choisissez vos salons.</p>
     <p class="stamp-page">Mis à jour le 29 septembre 2026</p>
   </section>
 
@@ -365,11 +358,6 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 <script>
 (function () {
   var M = {"bad": "Entrez une adresse email valide.", "sending": "Envoi en cours…", "ok": "C'est noté : un email de confirmation arrive dans votre boîte.", "err": "L'envoi n'a pas abouti. Réessayez dans un instant.", "demo": "Page en préparation : rien n'est envoyé."}, EMAIL_URL = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/content-signup";
-  var btn = document.getElementById("dd-btn"), panel = document.getElementById("dd-panel");
-  function setOpen(open) { btn.setAttribute("aria-expanded", open ? "true" : "false"); panel.hidden = !open; }
-  btn.addEventListener("click", function (e) { e.stopPropagation(); setOpen(panel.hidden); });
-  document.addEventListener("click", function (e) { if (!panel.hidden && !panel.contains(e.target)) setOpen(false); });
-  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !panel.hidden) { setOpen(false); btn.focus(); } });
   var form = document.getElementById("form-alerte"), input = document.getElementById("a-email"), msg = document.getElementById("a-msg");
   form.addEventListener("submit", function (e) {
     e.preventDefault();
