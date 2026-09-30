@@ -58,16 +58,16 @@
 
 <div class="content" data-lang="fr">
   <h1>Sécurité et confidentialité</h1>
-  <p class="updated">Mise à jour le 26 septembre 2026</p>
+  <p class="updated">Mise à jour le 30 septembre 2026</p>
   <p class="lead">Cette page dit ce que mazeo lit, ce qu’il garde, qui peut le voir et comment il le protège. Elle est écrite pour les responsables informatiques et les délégués à la protection des données de nos clients, et pour tout utilisateur qui se pose la question avant de connecter sa boîte mail ou son compte LinkedIn. Chaque phrase correspond à un mécanisme en place dans le service ; ce qui n’existe pas encore est écrit au futur.</p>
 
   <div class="box">
     <h2>En bref</h2>
     <ul>
       <li>Aucun email ne part de votre adresse sans votre clic, après relecture. Sur LinkedIn, seules des invitations sans texte peuvent partir en mode automatique, et seulement si vous l’activez.</li>
-      <li>Dans votre boîte, mazeo ne lit que les échanges avec les contacts de votre Pipeline : les 365 derniers jours à leur entrée, puis les réponses au fil de l’eau. Tout autre email est écarté à l’arrivée.</li>
-      <li>Vous seul voyez vos échanges. Les administrateurs de votre équipe n’y ont pas accès.</li>
-      <li>Le texte des réponses est retiré de mazeo 365 jours après leur date.</li>
+      <li>Dans votre boîte, mazeo ne lit que vos échanges avec les contacts de votre Pipeline : quand vous en ajoutez un, il relit vos échanges avec lui sur les 365 jours précédents, puis suit vos échanges avec lui au fil de l’eau. Tout autre email est écarté à l’arrivée.</li>
+      <li>Vous seul voyez vos échanges. Les administrateurs de votre équipe n’y ont pas accès, et l’équipe mazeo ne les ouvre qu’à votre demande, pour résoudre un problème que vous avez signalé, ou si la loi l’exige.</li>
+      <li>Le contenu des messages que vos contacts vous envoient, et le résumé qu’en fait l’IA, sont retirés de mazeo 365 jours après leur date de réception (exceptions détaillées en section 3).</li>
       <li>Une copie anonymisée, sans aucun lien avec vous, votre équipe ou vos contacts, peut servir à améliorer les messages proposés, sauf refus de votre entreprise.</li>
       <li>Votre base de données est hébergée dans l’Union européenne ; l’intelligence artificielle et l’envoi d’emails passent par des prestataires établis aux États-Unis. mazeo ne détient aucun mot de passe ni jeton d’accès à vos messageries.</li>
       <li>Vous pouvez tout déconnecter à tout moment, depuis Réglages.</li>
@@ -91,8 +91,9 @@
 
   <h2>3. Combien de temps</h2>
   <ul>
-    <li>Le texte des messages enregistrés, le résumé qui l’accompagne et l’explication donnée par l’IA pour un changement d’étape sont retirés de mazeo 365 jours après la date du message, par une tâche quotidienne. La fiche garde la date, le canal, la classe de la réponse et l’étape ; le texte s’efface. La note de suivi qui a recopié le résumé de deux phrases dans l’historique de la fiche reste, comme une note que vous auriez écrite vous-même ; vous pouvez l’effacer. Le message reste dans votre boîte : mazeo n’y efface rien.</li>
-    <li>La déconnexion d’un compte le supprime chez notre prestataire de connexion. Quand plus aucune boîte mail n’est connectée, les emails enregistrés et le marqueur « déjà échangé » sont supprimés de mazeo ; quand plus aucun compte LinkedIn ne l’est, les messages LinkedIn et la liste de vos relations le sont aussi. L’historique de votre suivi (les étapes franchies, le fait qu’une invitation est partie tel jour) est conservé avec votre compte.</li>
+    <li>Le contenu des messages que vos contacts vous envoient et le résumé qu’en fait l’IA sont retirés de mazeo 365 jours après leur date de réception, par une tâche quotidienne. Il en va de même pour vos emails relus à l’entrée d’un contact dans votre Pipeline, 365 jours après leur envoi, et pour l’explication qui accompagne une décision de l’IA sur l’étape, 365 jours après cette décision. La fiche garde la date, le canal, l’objet d’un email, la classe de la réponse et l’étape. Restent aussi, dans l’historique de la fiche, les courtes phrases que mazeo y a recopiées (le résumé d’une réponse, le motif d’un changement d’étape ou d’une pause), comme vos autres notes de suivi. Le message reste dans votre boîte : mazeo n’y efface rien.</li>
+    <li>Les autres messages que vous écrivez vous-même à un contact suivi restent dans mazeo tant que votre compte existe, sauf déconnexion (point suivant).</li>
+    <li>La déconnexion d’un compte le supprime chez notre prestataire de connexion. Quand plus aucune boîte mail n’est connectée, les emails enregistrés et le marqueur « déjà échangé » sont supprimés de mazeo ; quand plus aucun compte LinkedIn ne l’est, les messages LinkedIn et la liste de vos relations le sont aussi. L’historique de votre suivi (les étapes franchies, le fait qu’une invitation est partie tel jour, le texte des messages envoyés pour une étape) est conservé avec votre compte.</li>
     <li>Les données de votre compte sont supprimées à sa clôture ou sur demande ; en fin de contrat, sous trente jours (accord de traitement des données, article 11).</li>
     <li>Les journaux techniques du connecteur ne portent aucun contenu de message, aucun objet, aucune pièce jointe : un type d’événement, un compte, une date et les identifiants techniques des messages, qui laissent lire le domaine de messagerie de l’expéditeur. Ils sont effacés au bout de 30 jours. Mesuré sur notre base de test le 25 septembre 2026 : sur 1 266 événements, zéro contenu.</li>
     <li>La copie anonymisée décrite ci-dessous est conservée sans limite de durée.</li>
@@ -110,7 +111,6 @@
     <li>L’application est servie par Vercel ; elle s’exécute dans votre navigateur et parle directement à la base. Vercel ne stocke aucune donnée de vos échanges.</li>
     <li>La connexion aux boîtes mail et à LinkedIn passe par Unipile, société française, données hébergées en France. C’est Unipile qui détient, chiffrées, les autorisations d’accès à vos messageries ; mazeo ne conserve qu’un identifiant de compte, son nom d’affichage et un statut. Unipile conserve les conversations LinkedIn jusqu’à la suppression du compte connecté, les en-têtes seulement pour les boîtes Microsoft et IMAP, et rien pour les boîtes Google. Ses relais réseau, dont certains hors de l’Union européenne, acheminent les connexions sans conserver de contenu, et son support utilise Intercom, aux États-Unis.</li>
     <li>L’analyse des réponses, les propositions de messages et l’anonymisation de la copie sont faites par Anthropic (États-Unis), qui n’utilise pas ces contenus pour entraîner ses modèles.</li>
-    <li>Les questions que vous posez à l’assistant de recherche sont traitées par OpenAI (États-Unis).</li>
     <li>Les emails que mazeo vous envoie (notifications, récapitulatifs) passent par Resend (États-Unis). Ils portent le nom et la photo du contact, la classe de sa réponse et un résumé de deux phrases, jamais le texte du message.</li>
     <li>Le suivi des erreurs est fait par Sentry, hébergé dans l’Union européenne, sans votre identité, sans contenu de message et sans cookie.</li>
     <li>Vos retours sur l’application, écrits ou à la voix, sont recueillis par Gripe, hébergé dans l’Union européenne.</li>
@@ -144,7 +144,7 @@
 
 <div class="content" data-lang="en" lang="en">
   <h1>Security and privacy</h1>
-  <p class="updated">Updated on September 26, 2026</p>
+  <p class="updated">Updated on September 30, 2026</p>
   <p class="updated">This English version is provided for convenience. The French version prevails.</p>
   <p class="lead">This page says what mazeo reads, what it keeps, who can see it and how it protects it. It is written for the IT managers and data protection officers of our customers, and for any user wondering before connecting their mailbox or LinkedIn account. Every sentence corresponds to a mechanism in place in the service; what does not exist yet is written in the future tense.</p>
 
@@ -152,9 +152,9 @@
     <h2>In short</h2>
     <ul>
       <li>No email leaves your address without your click, after you have reviewed it. On LinkedIn, only invitations without text can go out in automatic mode, and only if you turn it on.</li>
-      <li>In your mailbox, mazeo reads only the exchanges with the contacts in your Pipeline: the last 365 days when they enter it, then their replies as they arrive. Any other email is discarded on arrival.</li>
-      <li>You alone see your exchanges. Your team administrators have no access to them.</li>
-      <li>The text of replies is removed from mazeo 365 days after their date.</li>
+      <li>In your mailbox, mazeo reads only your exchanges with the contacts in your Pipeline: when you add one, it re-reads your exchanges with them over the previous 365 days, then follows your exchanges with them as they happen. Any other email is discarded on arrival.</li>
+      <li>You alone see your exchanges. Your team administrators have no access to them, and the mazeo team opens them only at your request, to solve a problem you have reported, or where the law requires it.</li>
+      <li>The content of the messages your contacts send you, and the AI summary of it, are removed from mazeo 365 days after the date they were received (exceptions detailed in section 3).</li>
       <li>An anonymised copy, with no link to you, your team or your contacts, may be used to improve the messages it suggests, unless your company opts out.</li>
       <li>Your database is hosted in the European Union; artificial intelligence and email delivery go through providers established in the United States. mazeo holds no password and no access token to your mailboxes.</li>
       <li>You can disconnect everything at any time, from Settings.</li>
@@ -178,8 +178,9 @@
 
   <h2>3. For how long</h2>
   <ul>
-    <li>The text of stored messages, the summary that goes with it and the explanation given by the AI for a stage change are removed from mazeo 365 days after the message date, by a daily task. The card keeps the date, the channel, the reply class and the stage; the text is erased. The follow-up note that copied the two-sentence summary into the card’s history stays, like a note you would have written yourself; you can delete it. The message stays in your mailbox: mazeo erases nothing there.</li>
-    <li>Disconnecting an account deletes it at our connection provider. Once no mailbox is connected any more, the stored emails and the “already in touch” marker are deleted from mazeo; once no LinkedIn account is connected any more, the LinkedIn messages and your list of connections are deleted too. The history of your follow-up (the stages you completed, the fact that an invitation was sent on a given day) is kept with your account.</li>
+    <li>The content of the messages your contacts send you and the AI summary of it are removed from mazeo 365 days after the date they were received, by a daily task. The same applies to your emails re-read when a contact enters your Pipeline, 365 days after they were sent, and to the explanation that goes with an AI decision on the stage, 365 days after that decision. The card keeps the date, the channel, the subject of an email, the reply class and the stage. The short sentences mazeo copied into the card’s history (the summary of a reply, the reason for a stage change or a pause) also stay, like your other follow-up notes. The message stays in your mailbox: mazeo erases nothing there.</li>
+    <li>The other messages you write yourself to a followed contact stay in mazeo for as long as your account exists, unless you disconnect (next point).</li>
+    <li>Disconnecting an account deletes it at our connection provider. Once no mailbox is connected any more, the stored emails and the “already in touch” marker are deleted from mazeo; once no LinkedIn account is connected any more, the LinkedIn messages and your list of connections are deleted too. The history of your follow-up (the stages you completed, the fact that an invitation was sent on a given day, the text of the messages sent for a stage) is kept with your account.</li>
     <li>Your account data is deleted when the account is closed or on request; at the end of the contract, within thirty days (data processing agreement, article 11).</li>
     <li>The connector’s technical logs carry no message content, no subject, no attachment: an event type, an account, a date and the technical message identifiers, which reveal the sender’s mail domain. They are erased after 30 days. Measured on our test database on September 25, 2026: out of 1,266 events, zero content.</li>
     <li>The anonymised copy described below is kept without time limit.</li>
@@ -197,7 +198,6 @@
     <li>The application is served by Vercel; it runs in your browser and talks directly to the database. Vercel stores no data from your exchanges.</li>
     <li>The connection to mailboxes and LinkedIn goes through Unipile, a French company, data hosted in France. Unipile holds, encrypted, the access authorisations to your mailboxes; mazeo keeps only an account identifier, its display name and a status. Unipile keeps LinkedIn conversations until the connected account is deleted, headers only for Microsoft and IMAP mailboxes, and nothing for Google mailboxes. Its network relays, some of them outside the European Union, route connections without storing content, and its support uses Intercom, in the United States.</li>
     <li>Reply analysis, message suggestions and the anonymisation of the copy are done by Anthropic (United States), which does not use this content to train its models.</li>
-    <li>The questions you put to the search assistant are processed by OpenAI (United States).</li>
     <li>The emails mazeo sends you (notifications, digests) go through Resend (United States). They carry the contact’s name and photo, the class of their reply and a two-sentence summary, never the text of the message.</li>
     <li>Error tracking is done by Sentry, hosted in the European Union, without your identity, without message content and without cookies.</li>
     <li>Your feedback on the application, written or spoken, is collected by Gripe, hosted in the European Union.</li>
