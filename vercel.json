@@ -43,6 +43,26 @@
     {
       "source": "/en/unsubscribed",
       "destination": "/en/unsubscribed.html"
+    },
+    {
+      "source": "/souscrire",
+      "destination": "/souscrire.html"
+    },
+    {
+      "source": "/merci",
+      "destination": "/merci.html"
+    },
+    {
+      "source": "/en/subscribe",
+      "destination": "/en/subscribe.html"
+    },
+    {
+      "source": "/en/thank-you",
+      "destination": "/en/thank-you.html"
+    },
+    {
+      "source": "/conditions-de-vente",
+      "destination": "/conditions-de-vente.html"
     }
   ],
   "redirects": [
