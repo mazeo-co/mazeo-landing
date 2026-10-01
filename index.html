@@ -1887,10 +1887,15 @@ document.documentElement.classList.add("js");
 <script defer src="/_vercel/insights/script.js"></script>
 <script>
 /* Le prix (01/10/2026) : le sélecteur engagement / mensuel, et les liens de paiement Stripe.
-   Vides tant que le compte n'est pas ouvert : le bouton reste visible, inactif. */
+   Liens réels créés par Romain le 01/10 (compte Stripe mazeo). Un lien vide laisse le bouton visible, inactif. */
 (function () {
   /* Avec engagement : le lien mène au prix mensuel (249 € / 149 €) ; la page Stripe propose d'y payer l'année d'avance (« upsell » réglé sur le prix). */
-  var STRIPE = { team_year: "", team_month: "", free_year: "", free_month: "" };
+  var STRIPE = {
+    team_year: "https://buy.stripe.com/9B66oI0jp4m67rG5lX4gg00",  // Entreprises, 249 € par mois, 12 mois (vente additionnelle 2 988 € par an)
+    team_month: "https://buy.stripe.com/28E3cw6HNaKu9zO8y94gg01", // Entreprises, 299 € par mois, sans engagement
+    free_year: "https://buy.stripe.com/8x27sM1ntdWG5jy6q14gg03",  // Freelance, 149 € par mois, 12 mois (vente additionnelle 1 788 € par an)
+    free_month: "https://buy.stripe.com/9B614oc273i213icOp4gg02"  // Freelance, 179 € par mois, sans engagement
+  };
   document.querySelectorAll("#prix [data-stripe]").forEach(function (a) {
     var url = STRIPE[a.getAttribute("data-stripe")];
     if (url) { a.href = url; a.rel = "noopener"; }
