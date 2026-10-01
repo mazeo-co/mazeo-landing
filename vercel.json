@@ -9,6 +9,14 @@
       "destination": "/dpa.html"
     },
     {
+      "source": "/conditions-de-vente",
+      "destination": "/conditions-de-vente-2026-10-01.html"
+    },
+    {
+      "source": "/conditions-de-vente/2026-10-01",
+      "destination": "/conditions-de-vente-2026-10-01.html"
+    },
+    {
       "source": "/salons",
       "destination": "/salons.html"
     },
