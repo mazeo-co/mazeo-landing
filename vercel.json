@@ -9,6 +9,30 @@
       "destination": "/dpa.html"
     },
     {
+      "source": "/conditions-de-vente",
+      "destination": "/conditions-de-vente-2026-10-01.html"
+    },
+    {
+      "source": "/conditions-de-vente/2026-10-01",
+      "destination": "/conditions-de-vente-2026-10-01.html"
+    },
+    {
+      "source": "/en/terms-of-sale",
+      "destination": "/en/terms-of-sale-2026-10-01.html"
+    },
+    {
+      "source": "/en/terms-of-sale/2026-10-01",
+      "destination": "/en/terms-of-sale-2026-10-01.html"
+    },
+    {
+      "source": "/bienvenue",
+      "destination": "/bienvenue.html"
+    },
+    {
+      "source": "/en/welcome",
+      "destination": "/en/welcome.html"
+    },
+    {
       "source": "/salons",
       "destination": "/salons.html"
     },

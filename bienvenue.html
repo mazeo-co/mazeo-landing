@@ -1,18 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Welcome to mazeo</title>
+<title>Bienvenue sur mazeo</title>
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://www.mazeo.co/en/thank-you">
+<link rel="canonical" href="https://www.mazeo.co/bienvenue">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@800&text=mazeo.&display=swap">
 <style>
-/* Welcome to mazeo : English version of the page Stripe returns to after payment (01/10/2026). */
+/* Page de retour après un paiement Stripe pour les clients qui souscrivent avant le 15 octobre 2026 (liens privés). Créée le 01/10/2026 avec Romain. */
 :root { --ink: #0A0A0A; --slate: #3A4250; --meta: #6B7280; --line: #E8EBF0; --soft: #F6F8FB; --blue: #007BFF; --blue-deep: #0066D6; --green: #00EF8B; --green-ink: #008A50;
   --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; --display: 'Bricolage Grotesque', var(--font); }
 * { box-sizing: border-box; }
@@ -47,33 +47,21 @@ ol li p { margin: 0; font-size: 15.5px; line-height: 1.55; }
 </style>
 </head>
 <body>
-<header><div class="bar"><a class="logo" href="/?lang=en" aria-label="mazeo">mazeo<span>.</span></a></div></header>
+<header><div class="bar"><a class="logo" href="/" aria-label="mazeo">mazeo<span>.</span></a></div></header>
 <main>
-  <section class="card" id="abonnement">
+  <section class="card">
     <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#008A50" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-    <h1>Thank you, and welcome to mazeo!</h1>
-    <p class="lead">Your subscription is active. You will receive an email to access mazeo.</p>
-    <h2>Getting started</h2>
+    <h1>Merci et bienvenue sur mazeo&nbsp;!</h1>
+    <p class="lead">Votre abonnement est enregistré. Vous accédez à mazeo à partir du <b>15&nbsp;octobre&nbsp;2026</b>.</p>
+    <h2>Ce qui se passe maintenant</h2>
     <ol>
-      <li><div><strong>Create your access</strong><p>Follow the link in the email you will receive from mazeo. Remember to check your spam folder.</p></div></li>
-      <li><div><strong>Set up your workspace</strong><p>Connect your mailbox and your LinkedIn account to prospect from mazeo.</p></div></li>
-      <li><div><strong>Invite your team</strong><p>Add your colleagues from mazeo, up to the number of seats you subscribed to.</p></div></li>
+      <li><div><strong>Rien n'est débité avant le 15 octobre</strong><p>Votre moyen de paiement est enregistré. Le premier prélèvement a lieu le 15&nbsp;octobre, puis chaque mois à la même date. Votre facture vous est envoyée par e-mail par Stripe, notre prestataire de paiement.</p></div></li>
+      <li><div><strong>Le 15 octobre, un e-mail pour accéder à mazeo</strong><p>Il vous permet de créer votre accès et de configurer votre espace&nbsp;: votre boîte mail, votre compte LinkedIn.</p></div></li>
+      <li><div><strong>Votre équipe vous rejoint</strong><p>Une fois dans mazeo, vous invitez vos collègues, dans la limite des sièges souscrits.</p></div></li>
     </ol>
-    <div class="ctas"><a class="btn" href="https://app.mazeo.co/?hl=en">Go to mazeo</a></div>
-    <p class="foot">Stripe, our payment provider, will email you your invoice.<br>Questions about your subscription or invoice: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a><br>Terms of sale: <a href="/en/terms-of-sale">mazeo.co/en/terms-of-sale</a><br><a href="/merci">Version française</a></p>
-  </section>
-
-  <section class="card" id="recharge" hidden>
-    <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#008A50" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-    <h1>Thank you, your top-up is confirmed.</h1>
-    <p class="lead">Your additional emails and mobile numbers are added to your account. They never expire.</p>
-    <div class="ctas"><a class="btn" href="https://app.mazeo.co/?hl=en">Go to mazeo</a></div>
-    <p class="foot">Stripe, our payment provider, will email you your invoice.<br>Questions about your invoice: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a><br><a href="/merci?recharge">Version française</a></p>
+    <p class="foot">Une question sur votre abonnement ou votre facture&nbsp;: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a><br>Conditions générales de vente&nbsp;: <a href="/conditions-de-vente">mazeo.co/conditions-de-vente</a><br><a href="/en/welcome" lang="en">English version</a></p>
   </section>
 </main>
-<script>
-if (/[?&]recharge\b/.test(location.search)) { document.getElementById("abonnement").hidden = true; document.getElementById("recharge").hidden = false; }
-</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Welcome to mazeo</title>
 <meta name="robots" content="noindex">
-<link rel="canonical" href="https://www.mazeo.co/en/thank-you">
+<link rel="canonical" href="https://www.mazeo.co/en/welcome">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,31 +49,19 @@ ol li p { margin: 0; font-size: 15.5px; line-height: 1.55; }
 <body>
 <header><div class="bar"><a class="logo" href="/?lang=en" aria-label="mazeo">mazeo<span>.</span></a></div></header>
 <main>
-  <section class="card" id="abonnement">
+  <section class="card">
     <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#008A50" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
     <h1>Thank you, and welcome to mazeo!</h1>
-    <p class="lead">Your subscription is active. You will receive an email to access mazeo.</p>
-    <h2>Getting started</h2>
+    <p class="lead">Your subscription is confirmed. You will have access to mazeo from <b>October&nbsp;15,&nbsp;2026</b>.</p>
+    <h2>What happens next</h2>
     <ol>
-      <li><div><strong>Create your access</strong><p>Follow the link in the email you will receive from mazeo. Remember to check your spam folder.</p></div></li>
-      <li><div><strong>Set up your workspace</strong><p>Connect your mailbox and your LinkedIn account to prospect from mazeo.</p></div></li>
-      <li><div><strong>Invite your team</strong><p>Add your colleagues from mazeo, up to the number of seats you subscribed to.</p></div></li>
+      <li><div><strong>Nothing is charged before October 15</strong><p>Your payment method is saved. The first payment is taken on October&nbsp;15, then every month on the same date. Stripe, our payment provider, will email you your invoice.</p></div></li>
+      <li><div><strong>On October 15, an email to access mazeo</strong><p>It lets you create your access and set up your workspace: your mailbox, your LinkedIn account.</p></div></li>
+      <li><div><strong>Your team joins you</strong><p>Once in mazeo, you invite your colleagues, up to the number of seats you subscribed to.</p></div></li>
     </ol>
-    <div class="ctas"><a class="btn" href="https://app.mazeo.co/?hl=en">Go to mazeo</a></div>
-    <p class="foot">Stripe, our payment provider, will email you your invoice.<br>Questions about your subscription or invoice: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a><br>Terms of sale: <a href="/en/terms-of-sale">mazeo.co/en/terms-of-sale</a><br><a href="/merci">Version française</a></p>
-  </section>
-
-  <section class="card" id="recharge" hidden>
-    <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#008A50" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
-    <h1>Thank you, your top-up is confirmed.</h1>
-    <p class="lead">Your additional emails and mobile numbers are added to your account. They never expire.</p>
-    <div class="ctas"><a class="btn" href="https://app.mazeo.co/?hl=en">Go to mazeo</a></div>
-    <p class="foot">Stripe, our payment provider, will email you your invoice.<br>Questions about your invoice: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a><br><a href="/merci?recharge">Version française</a></p>
+    <p class="foot">Questions about your subscription or invoice: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a><br>Terms of sale: <a href="/en/terms-of-sale">mazeo.co/en/terms-of-sale</a><br><a href="/bienvenue">Version française</a></p>
   </section>
 </main>
-<script>
-if (/[?&]recharge\b/.test(location.search)) { document.getElementById("abonnement").hidden = true; document.getElementById("recharge").hidden = false; }
-</script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
