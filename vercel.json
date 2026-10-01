@@ -17,6 +17,14 @@
       "destination": "/conditions-de-vente-2026-10-01.html"
     },
     {
+      "source": "/en/terms-of-sale",
+      "destination": "/en/terms-of-sale-2026-10-01.html"
+    },
+    {
+      "source": "/en/terms-of-sale/2026-10-01",
+      "destination": "/en/terms-of-sale-2026-10-01.html"
+    },
+    {
       "source": "/bienvenue",
       "destination": "/bienvenue.html"
     },
@@ -77,6 +85,16 @@
     {
       "source": "/conferences",
       "destination": "/en/market-research-conferences",
+      "permanent": false
+    },
+    {
+      "source": "/souscrire",
+      "destination": "/#prix",
+      "permanent": false
+    },
+    {
+      "source": "/en/subscribe",
+      "destination": "/?lang=en#prix",
       "permanent": false
     }
   ]
