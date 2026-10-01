@@ -45,16 +45,8 @@
       "destination": "/en/unsubscribed.html"
     },
     {
-      "source": "/souscrire",
-      "destination": "/souscrire.html"
-    },
-    {
       "source": "/merci",
       "destination": "/merci.html"
-    },
-    {
-      "source": "/en/subscribe",
-      "destination": "/en/subscribe.html"
     },
     {
       "source": "/en/thank-you",
@@ -81,6 +73,16 @@
     {
       "source": "/conferences",
       "destination": "/en/market-research-conferences",
+      "permanent": false
+    },
+    {
+      "source": "/souscrire",
+      "destination": "/#prix",
+      "permanent": false
+    },
+    {
+      "source": "/en/subscribe",
+      "destination": "/?lang=en#prix",
       "permanent": false
     }
   ]
