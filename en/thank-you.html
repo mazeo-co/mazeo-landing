@@ -3,63 +3,77 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Thank you | mazeo</title>
+<title>Welcome to mazeo</title>
 <meta name="robots" content="noindex">
 <link rel="canonical" href="https://www.mazeo.co/en/thank-you">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&family=Bricolage+Grotesque:opsz,wght@12..96,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@800&text=mazeo.&display=swap">
 <style>
-/* English twin of merci.html (30/09/2026). ?recharge in the address: the variant after buying a top-up. */
-:root { --ink: #0A0A0A; --slate: #3A4250; --meta: #6B7280; --line-strong: #DDE1E9; --blue: #007BFF; --blue-deep: #0066D6; --green: #00EF8B;
+/* Welcome to mazeo : English version of the page Stripe returns to after payment (01/10/2026). */
+:root { --ink: #0A0A0A; --slate: #3A4250; --meta: #6B7280; --line: #E8EBF0; --soft: #F6F8FB; --blue: #007BFF; --blue-deep: #0066D6; --green: #00EF8B; --green-ink: #008A50;
   --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; --display: 'Bricolage Grotesque', var(--font); }
 * { box-sizing: border-box; }
-body { margin: 0; font-family: var(--font); color: var(--slate); background: #fff; -webkit-font-smoothing: antialiased; }
-.wrap { max-width: 720px; margin: 0 auto; padding: 32px 24px 80px; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: var(--font); color: var(--slate); background: var(--soft); -webkit-font-smoothing: antialiased; }
+header { background: #fff; border-bottom: 1px solid var(--line); }
+.bar { max-width: 1080px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; }
 .logo { font-family: 'Inter', var(--font); font-weight: 800; font-size: 26px; letter-spacing: -0.5px; color: var(--ink); text-decoration: none; }
 .logo span { color: var(--green); }
-h1 { margin: 96px 0 16px; font-family: var(--display); font-weight: 700; font-size: clamp(40px, 7vw, 64px); letter-spacing: -0.035em; line-height: 1; color: var(--ink); }
-p { margin: 0; font-size: 19px; line-height: 1.55; max-width: 56ch; }
-ol { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 18px; counter-reset: s; }
-ol li { display: grid; grid-template-columns: 40px 1fr; gap: 16px; font-size: 18px; line-height: 1.5; }
-ol li::before { counter-increment: s; content: counter(s); width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: #F8F9FA; border: 1px solid var(--line-strong); font-family: var(--display); font-weight: 700; color: var(--ink); }
-ol li b { color: var(--ink); font-weight: 600; }
-.ctas { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
-.btn { font: inherit; cursor: pointer; display: inline-flex; align-items: center; padding: 12px 22px; border-radius: 9px; font-weight: 600; font-size: 15.5px; text-decoration: none; border: 1px solid transparent; }
-.btn-primary { background: var(--blue); color: #fff; } .btn-primary:hover { background: var(--blue-deep); }
-.btn-ghost { background: #fff; color: var(--ink); border-color: var(--line-strong); }
-.small { margin-top: 28px; font-size: 15px; color: var(--meta); }
-.wrap a:not(.btn):not(.logo) { color: var(--blue-deep); }
+main { flex: 1; display: flex; justify-content: center; padding: 56px 16px 72px; }
+.card { width: 100%; max-width: 640px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 48px 48px 40px; box-shadow: 0 1px 2px rgba(10,10,10,.04), 0 12px 40px rgba(10,10,10,.06); }
+.check { width: 56px; height: 56px; border-radius: 50%; background: rgba(0,239,139,.14); display: grid; place-items: center; margin-bottom: 24px; }
+.check svg { width: 28px; height: 28px; }
+h1 { margin: 0 0 12px; font-family: var(--display); font-weight: 800; font-size: clamp(30px, 5vw, 40px); letter-spacing: -0.03em; line-height: 1.08; color: var(--ink); }
+.lead { margin: 0; font-size: 18px; line-height: 1.55; color: var(--slate); }
+.lead b { color: var(--ink); font-weight: 600; }
+.date { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 8px 14px; border-radius: 999px; background: #EEF5FF; color: var(--blue-deep); font-weight: 600; font-size: 15px; }
+h2 { margin: 36px 0 4px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--meta); }
+ol { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+ol li { display: grid; grid-template-columns: 32px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); counter-increment: s; }
+ol li:last-child { border-bottom: 0; padding-bottom: 4px; }
+ol li::before { content: counter(s); width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: #fff; font-family: var(--display); font-weight: 700; font-size: 15px; }
+ol li strong { display: block; margin: 4px 0 4px; font-size: 16.5px; font-weight: 600; color: var(--ink); }
+ol li p { margin: 0; font-size: 15.5px; line-height: 1.55; }
+.ctas { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 13px 24px; border-radius: 10px; font-weight: 600; font-size: 15.5px; text-decoration: none; background: var(--blue); color: #fff; }
+.btn:hover { background: var(--blue-deep); }
+.foot { margin: 32px 0 0; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.6; color: var(--meta); }
+.foot a { color: var(--blue-deep); }
 [hidden] { display: none !important; }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+@media (max-width: 560px) { main { padding: 24px 12px 48px; } .card { padding: 32px 22px 28px; border-radius: 16px; } .lead { font-size: 17px; } }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <a class="logo" href="/?lang=en" aria-label="mazeo">mazeo<span>.</span></a>
-
-  <section id="subscription">
-    <h1>Thank you. It's done.</h1>
-    <p>Your payment went through. Here is what happens next.</p>
+<header><div class="bar"><a class="logo" href="/?lang=en" aria-label="mazeo">mazeo<span>.</span></a></div></header>
+<main>
+  <section class="card" id="abonnement">
+    <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#008A50" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h1>Thank you, and welcome to mazeo!</h1>
+    <p class="lead">Your subscription is active. You will receive an email to access mazeo.</p>
+    <h2>Getting started</h2>
     <ol>
-      <li><span><b>Your invoice is already in your inbox.</b> It comes from Stripe, our payment provider, on behalf of mazeo.</span></li>
-      <li><span><b>Your access opens within one business day.</b> Romain will email you the link to get in, and three first steps for the week.</span></li>
-      <li><span><b>Your colleagues come next.</b> Once inside, you invite them yourself, up to the number of people you paid for.</span></li>
+      <li><div><strong>Create your access</strong><p>Follow the link in the email you will receive from mazeo. Remember to check your spam folder.</p></div></li>
+      <li><div><strong>Set up your workspace</strong><p>Connect your mailbox and your LinkedIn account to prospect from mazeo.</p></div></li>
+      <li><div><strong>Invite your team</strong><p>Add your colleagues from mazeo, up to the number of seats you subscribed to.</p></div></li>
     </ol>
-    <div class="ctas"><a class="btn btn-primary" href="/?lang=en">Back to mazeo.co</a><a class="btn btn-ghost" href="mailto:romain.barbet@mazeo.co">Email Romain</a></div>
-    <p class="small">A question about the invoice: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a>. Your terms of sale: <a href="/conditions-de-vente">mazeo.co/conditions-de-vente</a>.</p>
+    <div class="ctas"><a class="btn" href="https://app.mazeo.co/?hl=en">Go to mazeo</a></div>
+    <p class="foot">Stripe, our payment provider, will email you your invoice.<br>Questions about your subscription or invoice: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a><br>Terms of sale: <a href="/conditions-de-vente">mazeo.co/conditions-de-vente</a> (in French, English translation coming soon)<br><a href="/merci">Version française</a></p>
   </section>
 
-  <section id="topup" hidden>
-    <h1>Thank you. Top-up recorded.</h1>
-    <p>Your extra contact details will be added to your account within one business day. The invoice comes from Stripe, on behalf of mazeo.</p>
-    <div class="ctas"><a class="btn btn-primary" href="https://app.mazeo.co/?hl=en">Open mazeo</a><a class="btn btn-ghost" href="mailto:facturation@mazeo.co">A question about the invoice</a></div>
+  <section class="card" id="recharge" hidden>
+    <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#008A50" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h1>Thank you, your top-up is confirmed.</h1>
+    <p class="lead">Your additional emails and mobile numbers are added to your account. They never expire.</p>
+    <div class="ctas"><a class="btn" href="https://app.mazeo.co/?hl=en">Go to mazeo</a></div>
+    <p class="foot">Stripe, our payment provider, will email you your invoice.<br>Questions about your invoice: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a><br><a href="/merci?recharge">Version française</a></p>
   </section>
-</div>
+</main>
 <script>
-if (/[?&]recharge\b/.test(location.search)) { document.getElementById("subscription").hidden = true; document.getElementById("topup").hidden = false; }
+if (/[?&]recharge\b/.test(location.search)) { document.getElementById("abonnement").hidden = true; document.getElementById("recharge").hidden = false; }
 </script>
+<script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
