@@ -21,6 +21,10 @@
       "destination": "/bienvenue.html"
     },
     {
+      "source": "/en/welcome",
+      "destination": "/en/welcome.html"
+    },
+    {
       "source": "/salons",
       "destination": "/salons.html"
     },
