@@ -544,13 +544,12 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .px-head .eyebrow { margin-bottom: 12px; }
 .px-h2 { font-size: clamp(30px, 3.2vw, 48px); }
 .px-h2 em { font-style: normal; color: var(--blue); }
-.px-lead { margin-top: 8px; font-size: 18px; line-height: 1.45; color: var(--slate); }
-.px-seg { margin-top: 20px; display: inline-flex; padding: 5px; border: 1px solid var(--line-strong); border-radius: 999px; background: #fff; gap: 4px; }
+.px-seg { margin-top: 18px; display: inline-flex; padding: 5px; border: 1px solid var(--line-strong); border-radius: 999px; background: #fff; gap: 4px; }
 .px-seg button { border: 0; background: transparent; color: var(--slate); font: inherit; font-weight: 600; font-size: 15px; padding: 10px 20px; border-radius: 999px; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: baseline; gap: 8px; }
 .px-seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
 .px-gain { font-weight: 500; font-size: 13.5px; color: var(--meta); }
 .px-seg button[aria-pressed="true"] .px-gain { color: rgba(255,255,255,.72); }
-.px-cards { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
+.px-cards { list-style: none; margin: 34px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: start; }
 .px-card { display: flex; flex-direction: column; gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 24px 28px; }
 .px-ent { border-color: var(--blue); box-shadow: 0 0 0 1px var(--blue); }
 .px-name { font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: var(--ink); }
@@ -571,9 +570,9 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .px-list { list-style: none; margin: 8px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line); display: grid; gap: 8px; }
 .px-list li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; font-size: 15px; line-height: 1.4; color: var(--ink); }
 .px-list svg { width: 18px; height: 18px; margin-top: 1px; color: var(--green-text, #006B3F); }
-.px-join { margin-top: 14px; text-align: center; font-size: 14.5px; color: var(--meta); }
-.px-join a { color: var(--blue-text); font-weight: 600; }
-.px-topup { margin-top: 18px; background: var(--soft); border: 1px solid var(--line); border-radius: 18px; padding: 18px 22px; display: grid; grid-template-columns: minmax(180px, .8fr) 2.2fr; gap: 14px 24px; align-items: center; }
+.px-list small { display: block; margin-top: 1px; font-size: 13.5px; line-height: 1.4; color: var(--slate); }
+.px-join { margin: 10px 4px 0; font-size: 14px; line-height: 1.45; color: var(--meta); }
+.px-topup { margin-top: 22px; background: var(--soft); border: 1px solid var(--line); border-radius: 18px; padding: 18px 22px; display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 14px 24px; align-items: center; }
 .px-topup-head b { display: block; font-family: var(--display); font-weight: 700; font-size: 20px; letter-spacing: -0.02em; color: var(--ink); }
 .px-topup-head span { display: block; margin-top: 2px; font-size: 14.5px; color: var(--slate); }
 .px-topup-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
@@ -584,39 +583,41 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .px-cost { display: flex; align-items: baseline; gap: 4px; padding-left: 14px; border-left: 1px solid var(--line); white-space: nowrap; }
 .px-cost b { font-family: var(--display); font-weight: 800; font-size: 24px; letter-spacing: -0.03em; color: var(--ink); }
 .px-cost small { font-size: 12.5px; font-weight: 600; color: var(--meta); }
-.px-report { grid-column: 1 / -1; display: flex; gap: 8px; align-items: flex-start; font-size: 14px; line-height: 1.45; color: var(--slate); }
-.px-report > svg { width: 17px; height: 17px; flex: none; margin-top: 1px; color: var(--meta); }
-.px-report b { color: var(--ink); font-weight: 600; }
 .px-cmp { margin-top: 72px; }
 .px-cmp-h { font-size: clamp(28px, 3vw, 42px); text-align: center; max-width: 900px; margin-inline: auto; }
-.px-without { margin: 28px auto 0; max-width: 920px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 26px 32px 18px; }
+.px-without { margin: 28px auto 0; max-width: 920px; background: #fff; border: 1px solid var(--line-strong); border-radius: 22px; padding: 26px 32px 28px; box-shadow: 0 24px 48px -36px rgba(10,24,48,.28); }
 .px-lbl { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
 .px-tbl { width: 100%; margin-top: 10px; border-collapse: collapse; font-size: 16.5px; }
 .px-tbl th, .px-tbl td { padding: 12px 0; border-bottom: 1px solid var(--line); text-align: left; vertical-align: baseline; }
 .px-tbl tbody th { color: var(--ink); font-weight: 600; padding-right: 16px; }
 .px-tool { color: var(--slate); padding-right: 16px; }
 .px-amt { text-align: right !important; font-family: var(--display); font-weight: 700; font-size: 19px; color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
-.px-tbl tfoot th { font-weight: 600; font-size: 18px; color: var(--ink); }
-.px-tbl tfoot small { display: block; font-weight: 400; font-size: 14.5px; color: var(--slate); margin-top: 2px; }
-.px-total th, .px-total td { padding-top: 18px; border-bottom: 0; }
-.px-total .px-amt { font-size: clamp(30px, 2.8vw, 40px); font-weight: 800; letter-spacing: -0.04em; color: var(--meta); text-decoration: line-through; text-decoration-thickness: 2px; }
-.px-mazeo th, .px-mazeo td { border-bottom: 0; padding: 16px 20px; background: var(--blue-tint); }
-.px-mazeo th { border-radius: 14px 0 0 14px; color: var(--blue-text); }
-.px-mazeo td { border-radius: 0 14px 14px 0; }
-.px-mazeo .px-amt b { font-size: clamp(34px, 3.2vw, 48px); font-weight: 800; letter-spacing: -0.04em; color: var(--blue-text); }
+.px-tbl tbody tr:last-child th, .px-tbl tbody tr:last-child td { border-bottom: 0; }
+.px-total, .px-mazeo { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; }
+.px-total p, .px-mazeo p { margin: 0; }
+.px-total b, .px-mazeo p b { display: block; font-weight: 600; font-size: 18px; line-height: 1.3; }
+.px-total small, .px-mazeo small { display: block; margin-top: 3px; font-size: 14.5px; line-height: 1.4; }
+.px-total { margin-top: 4px; padding: 18px 0 20px; border-top: 1px solid var(--line-strong); }
+.px-total b { color: var(--ink); } .px-total small { color: var(--slate); }
+.px-total-amt { font-family: var(--display); font-weight: 800; font-size: clamp(30px, 2.8vw, 40px); letter-spacing: -0.04em; line-height: 1; color: var(--ink); white-space: nowrap; }
+.px-mazeo { background: var(--blue); color: #fff; border-radius: 16px; padding: 22px 28px; box-shadow: 0 18px 36px -20px rgba(0, 102, 214, .55); }
+.px-mazeo p b { color: #fff; } .px-mazeo small { color: rgba(255,255,255,.85); }
+.px-mazeo-amt { display: flex; align-items: baseline; gap: 14px; white-space: nowrap; font-family: var(--display); line-height: 1; }
+.px-mazeo-amt s { font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: rgba(255,255,255,.7); text-decoration-thickness: 2px; }
+.px-mazeo-amt b { font-weight: 800; font-size: clamp(38px, 3.6vw, 52px); letter-spacing: -0.04em; color: #fff; }
 .px-cta { margin-top: 24px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
 .px-src { margin: 16px auto 0; max-width: 920px; text-align: center; font-size: 13.5px; color: var(--meta); }
 @media (max-width: 960px) { .px-topup { grid-template-columns: 1fr; } }
 @media (max-width: 860px) { .px-cards, .px-topup-list { grid-template-columns: 1fr; } }
 @media (max-width: 640px) { .px { padding-block: 28px 72px; } .px-seg { display: flex; width: 100%; } .px-seg button { flex: 1; justify-content: center; padding: 9px 10px; font-size: 13.5px; white-space: normal; text-align: center; flex-direction: column; align-items: center; gap: 0; }
   .px-card, .px-without { padding: 20px 18px; } .px-btns, .px-btns .btn { width: 100%; } .px-btns .btn { flex: 1 1 100%; white-space: normal; text-align: center; }
-  .px-tbl, .px-tbl tbody, .px-tbl tfoot { display: block; } .px-tbl { font-size: 15.5px; }
+  .px-tbl, .px-tbl tbody { display: block; } .px-tbl { font-size: 15.5px; }
   .px-tbl tr { display: grid; grid-template-columns: 1fr auto; column-gap: 14px; padding: 11px 0; border-bottom: 1px solid var(--line); }
   .px-tbl th, .px-tbl td { border: 0; padding: 0 !important; background: none; }
   .px-tool { grid-row: 2; font-size: 14px; }
   .px-amt { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
-  .px-tbl tfoot tr { border: 0; padding-top: 16px; }
-  .px-tbl tr.px-mazeo { background: var(--blue-tint); border-radius: 14px; padding: 14px 16px; margin-top: 8px; } }
+  .px-tbl tbody tr:last-child { border-bottom: 0; }
+  .px-mazeo { padding: 18px 18px; flex-wrap: wrap; } .px-mazeo-amt { margin-left: auto; } }
 .final { padding-block: 120px 100px; text-align: center; }
 .final .title { font-size: clamp(38px, 5.6vw, 84px); max-width: 1000px; margin-inline: auto; }
 .final .title em { font-style: normal; color: var(--blue); }
@@ -940,7 +941,6 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <div class="px-head">
         <span class="eyebrow" data-t="px.eyebrow">Le prix</span>
         <h2 class="px-h2" data-t="px.h2">Tout le secteur. Un seul outil. <em>Un seul prix.</em></h2>
-        <p class="px-lead" data-t="px.lead">Une base de données dédiée 100&nbsp;% au market research.</p>
         <div class="px-seg" role="group" aria-label="Formule" data-aria-en="Plan">
           <button type="button" id="px-year" aria-pressed="true"><span data-t="px.t.year">Engagement 12 mois</span> <span class="px-gain" data-t="px.t.gain">−600&nbsp;€ par an</span></button>
           <button type="button" id="px-month" aria-pressed="false" data-t="px.t.month">Mensuel sans engagement</button>
@@ -948,73 +948,80 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       </div>
 
       <ul class="px-cards">
-        <li class="px-card px-ent">
-          <span class="px-name" data-t="px.ent.lbl">Entreprises</span>
-          <span class="px-who" data-t="px.ent.who">Un accès par personne, sans minimum.</span>
-          <p class="px-price"><b data-when="year" data-t="px.a249">249&nbsp;€</b><b data-when="month" hidden data-t="px.a299">299&nbsp;€</b><span data-t="px.ent.unit">HT par personne et par mois</span></p>
-          <p class="px-sub" data-when="year" data-t="px.ent.ys">Engagement 12 mois, payé chaque mois. 600&nbsp;€ d’économie par an et par personne.</p>
-          <p class="px-sub" data-when="month" hidden data-t="px.ms">Sans engagement. Vous arrêtez quand vous voulez.</p>
-          <div class="px-row">
-            <div class="px-btns">
-              <a class="btn btn-primary" data-when="year" data-stripe="team_year_monthly" href="#prix" data-t="px.btn">Souscrire</a>
-              <a class="btn btn-ghost" data-when="year" data-stripe="team_year_upfront" href="#prix" data-t="px.ent.yu">Ou 2&nbsp;988&nbsp;€ d’avance</a>
-              <a class="btn btn-primary" data-when="month" hidden data-stripe="team_month" href="#prix" data-t="px.btn2">Souscrire</a>
+        <li>
+          <div class="px-card px-ent">
+            <span class="px-name" data-t="px.ent.lbl">Entreprises</span>
+            <span class="px-who" data-t="px.ent.who">Un accès par personne, sans minimum.</span>
+            <p class="px-price"><b data-when="year" data-t="px.a249">249&nbsp;€</b><b data-when="month" hidden data-t="px.a299">299&nbsp;€</b><span data-t="px.ent.unit">HT par personne et par mois</span></p>
+            <p class="px-sub" data-when="year" data-t="px.ent.ys">Engagement 12 mois. 600&nbsp;€ d’économie par an et par personne.</p>
+            <p class="px-sub" data-when="month" hidden data-t="px.ms">Sans engagement. Vous arrêtez quand vous voulez.</p>
+            <div class="px-row">
+              <div class="px-btns">
+                <a class="btn btn-primary" data-when="year" data-stripe="team_year_monthly" href="#prix" data-t="px.btn">Souscrire</a>
+                <a class="btn btn-ghost" data-when="year" data-stripe="team_year_upfront" href="#prix" data-t="px.ent.yu">Ou 2&nbsp;988&nbsp;€ d’avance</a>
+                <a class="btn btn-primary" data-when="month" hidden data-stripe="team_month" href="#prix" data-t="px.btn2">Souscrire</a>
+              </div>
+              <button type="button" class="px-more" aria-expanded="false" aria-controls="px-d-ent"><span data-t="px.more">Ce que comprend l’offre</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
             </div>
-            <button type="button" class="px-more" aria-expanded="false" aria-controls="px-d-ent"><span data-t="px.more">Ce que comprend l’offre</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+            <ul class="px-list" id="px-d-ent" hidden>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.ent.q">120 emails professionnels et 40 numéros de mobile par mois<small>Soit le double du nécessaire pour obtenir 3 rendez-vous qualifiés par mois.</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.rep">Emails et numéros non utilisés reportés un mois<small>Par exemple&nbsp;: 30 emails non utilisés ce mois-ci s’ajoutent à ceux du mois suivant.</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.base">Toute la base du market research, mise à jour en continu</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.new">Nouvelles entreprises ajoutées chaque jour</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.sig">Signaux business suivis en continu</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.pipe">Le Pipeline et le rédacteur, envois par email et LinkedIn</span></li>
+            </ul>
           </div>
-          <ul class="px-list" id="px-d-ent" hidden>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.ent.q">120 emails professionnels et 40 portables par mois&nbsp;: deux fois ce qu’il faut pour 3 rendez-vous qualifiés</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.base">Toute la base du market research, mise à jour en continu</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.new">Nouvelles entreprises ajoutées chaque jour</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.sig">Signaux business suivis en continu</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.pipe">Le Pipeline et le rédacteur, envois par email et LinkedIn</span></li>
-          </ul>
+          <p class="px-join" data-t="px.join">Votre entreprise est déjà cliente de mazeo&nbsp;? Souscrivez votre accès ici&nbsp;: vous rejoindrez votre équipe dans l’app.</p>
         </li>
-        <li class="px-card px-fre">
-          <span class="px-name" data-t="px.fre.lbl">Freelances</span>
-          <span class="px-who" data-t="px.fre.who">Un seul accès, pour les freelances.</span>
-          <p class="px-price"><b data-when="year" data-t="px.a149">149&nbsp;€</b><b data-when="month" hidden data-t="px.a179">179&nbsp;€</b><span data-t="px.fre.unit">HT par mois</span></p>
-          <p class="px-sub" data-when="year" data-t="px.fre.ys">Engagement 12 mois, payé chaque mois. 360&nbsp;€ d’économie par an.</p>
-          <p class="px-sub" data-when="month" hidden data-t="px.ms">Sans engagement. Vous arrêtez quand vous voulez.</p>
-          <div class="px-row">
-            <div class="px-btns">
-              <a class="btn btn-primary" data-when="year" data-stripe="free_year_monthly" href="#prix" data-t="px.btn">Souscrire</a>
-              <a class="btn btn-ghost" data-when="year" data-stripe="free_year_upfront" href="#prix" data-t="px.fre.yu">Ou 1&nbsp;788&nbsp;€ d’avance</a>
-              <a class="btn btn-primary" data-when="month" hidden data-stripe="free_month" href="#prix" data-t="px.btn2">Souscrire</a>
+        <li>
+          <div class="px-card px-fre">
+            <span class="px-name" data-t="px.fre.lbl">Freelances</span>
+            <span class="px-who" data-t="px.fre.who">Un seul accès, pour les freelances.</span>
+            <p class="px-price"><b data-when="year" data-t="px.a149">149&nbsp;€</b><b data-when="month" hidden data-t="px.a179">179&nbsp;€</b><span data-t="px.fre.unit">HT par mois</span></p>
+            <p class="px-sub" data-when="year" data-t="px.fre.ys">Engagement 12 mois. 360&nbsp;€ d’économie par an.</p>
+            <p class="px-sub" data-when="month" hidden data-t="px.ms">Sans engagement. Vous arrêtez quand vous voulez.</p>
+            <div class="px-row">
+              <div class="px-btns">
+                <a class="btn btn-primary" data-when="year" data-stripe="free_year_monthly" href="#prix" data-t="px.btn">Souscrire</a>
+                <a class="btn btn-ghost" data-when="year" data-stripe="free_year_upfront" href="#prix" data-t="px.fre.yu">Ou 1&nbsp;788&nbsp;€ d’avance</a>
+                <a class="btn btn-primary" data-when="month" hidden data-stripe="free_month" href="#prix" data-t="px.btn2">Souscrire</a>
+              </div>
+              <button type="button" class="px-more" aria-expanded="false" aria-controls="px-d-fre"><span data-t="px.more">Ce que comprend l’offre</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
             </div>
-            <button type="button" class="px-more" aria-expanded="false" aria-controls="px-d-fre"><span data-t="px.more">Ce que comprend l’offre</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
+            <ul class="px-list" id="px-d-fre" hidden>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.fre.q">60 emails professionnels et 20 numéros de mobile par mois<small>Soit le nécessaire pour obtenir 3 rendez-vous qualifiés par mois.</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.rep">Emails et numéros non utilisés reportés un mois<small>Par exemple&nbsp;: 30 emails non utilisés ce mois-ci s’ajoutent à ceux du mois suivant.</small></span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.base">Toute la base du market research, mise à jour en continu</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.new">Nouvelles entreprises ajoutées chaque jour</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.sig">Signaux business suivis en continu</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.pipe">Le Pipeline et le rédacteur, envois par email et LinkedIn</span></li>
+            </ul>
           </div>
-          <ul class="px-list" id="px-d-fre" hidden>
-            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.fre.q">60 emails professionnels et 20 portables par mois&nbsp;: ce qu’il faut pour 3 rendez-vous qualifiés</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.base">Toute la base du market research, mise à jour en continu</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.new">Nouvelles entreprises ajoutées chaque jour</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.sig">Signaux business suivis en continu</span></li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.d.pipe">Le Pipeline et le rédacteur, envois par email et LinkedIn</span></li>
-          </ul>
         </li>
       </ul>
-      <p class="px-join"><span data-t="px.join">Votre entreprise a déjà des sièges&nbsp;?</span> <a href="https://app.mazeo.co" data-t="px.join.a">Rejoignez votre équipe dans mazeo</a></p>
 
       <div class="px-topup">
         <div class="px-topup-head">
-          <b data-t="px.rch">Besoin de plus&nbsp;?</b>
-          <span data-t="px.rch.s">Des recharges à l’unité, qui ne se perdent jamais.</span>
+          <b data-t="px.rch">Besoin de plus de coordonnées&nbsp;?</b>
+          <span data-t="px.rch.s">Achetez des emails et des numéros de mobile en plus. Contrairement à ceux de votre formule, ils ne se perdent jamais.</span>
         </div>
         <ul class="px-topup-list">
           <li><span class="px-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="px-what" data-t="px.rch1">100 emails professionnels révélés en plus</span><span class="px-cost"><b data-t="px.a15">15&nbsp;€</b><small data-t="px.ht">HT</small></span></li>
-          <li><span class="px-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18h2"/></svg></span><span class="px-what" data-t="px.rch2">20 portables professionnels révélés en plus</span><span class="px-cost"><b data-t="px.a15b">15&nbsp;€</b><small data-t="px.ht2">HT</small></span></li>
+          <li><span class="px-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18h2"/></svg></span><span class="px-what" data-t="px.rch2">20 numéros de mobile révélés en plus</span><span class="px-cost"><b data-t="px.a15b">15&nbsp;€</b><small data-t="px.ht2">HT</small></span></li>
         </ul>
-        <p class="px-report"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span><b data-t="px.rep">Report d’un mois.</b> <span data-t="px.rep.s">Par exemple&nbsp;: ce mois-ci, vous avez utilisé 90 emails et 30 portables. Les 30 emails et 10 portables restants passent au mois suivant, pour un mois seulement.</span></span></p>
       </div>
 
       <div class="px-cmp">
-        <h3 class="px-cmp-h" data-t="px.c.h">Tout ce que font quatre outils. Pour moins cher.</h3>
+        <h3 class="px-cmp-h" data-t="px.c.h">mazeo remplace quatre outils. Et coûte moins cher.</h3>
         <div class="px-without">
           <span class="px-lbl" data-t="px.c.lbl1">Sans mazeo&nbsp;: 4 abonnements par personne</span>
           <table class="px-tbl">
             <tbody>
               <tr><th scope="row" data-t="px.c.r1">Trouver les bons contacts</th><td class="px-tool">Sales Navigator Core</td><td class="px-amt" data-t="px.a121">121&nbsp;€</td></tr>
-              <tr><th scope="row" data-t="px.c.r2">Emails professionnels et portables</th><td class="px-tool">Kaspr Starter</td><td class="px-amt" data-t="px.a59">59&nbsp;€</td></tr>
+              <tr><th scope="row" data-t="px.c.r2">Emails professionnels et numéros de mobile</th><td class="px-tool">Kaspr Starter</td><td class="px-amt" data-t="px.a59">59&nbsp;€</td></tr>
               <tr><th scope="row" data-t="px.c.r3">Séquences email et LinkedIn</th><td class="px-tool">Waalaxy Business</td><td class="px-amt" data-t="px.a139">139&nbsp;€</td></tr>
               <tr><th scope="row" data-t="px.c.r4">La veille et les signaux</th><td class="px-tool" data-t="px.c.rodz">Rodz, pack Starter</td><td class="px-amt" data-t="px.a50">50&nbsp;€</td></tr>
             </tbody>
-            <tfoot>
-              <tr class="px-total"><th scope="row" colspan="2"><span data-t="px.c.tot">Total sans mazeo</span><small data-t="px.c.tots">et 4 outils à apprendre et à relier</small></th><td class="px-amt" data-t="px.a369">369&nbsp;€</td></tr>
-              <tr class="px-mazeo"><th scope="row" colspan="2"><span data-t="px.c.with">Avec mazeo, tout au même endroit</span><small data-when="year" data-t="px.c.wy">avec 12 mois d’engagement, déjà trié pour le secteur des études</small><small data-when="month" hidden data-t="px.c.wm">sans engagement, déjà trié pour le secteur des études</small></th><td class="px-amt"><b data-when="year" data-t="px.a249c">249&nbsp;€</b><b data-when="month" hidden data-t="px.a299c">299&nbsp;€</b></td></tr>
-            </tfoot>
           </table>
+          <div class="px-total">
+            <p><b data-t="px.c.tot">Total sans mazeo</b><small data-t="px.c.tots">et 4 outils à apprendre et à relier</small></p>
+            <span class="px-total-amt" data-t="px.a369">369&nbsp;€</span>
+          </div>
+          <div class="px-mazeo">
+            <p><b data-t="px.c.with">Avec mazeo&nbsp;: un seul outil, dédié au market research</b><small data-when="year" data-t="px.c.wy">Avec 12 mois d’engagement. 299&nbsp;€ sans engagement.</small><small data-when="month" hidden data-t="px.c.wm">Sans engagement. 249&nbsp;€ avec 12 mois d’engagement.</small></p>
+            <span class="px-mazeo-amt"><s data-t="px.a369s">369&nbsp;€</s><b data-when="year" data-t="px.a249c">249&nbsp;€</b><b data-when="month" hidden data-t="px.a299c">299&nbsp;€</b></span>
+          </div>
         </div>
         <div class="px-cta">
           <a class="btn btn-primary btn-lg" href="#prix" data-t="px.cta1">Choisir ma formule</a>
@@ -1123,7 +1130,7 @@ document.documentElement.classList.add("js");
     "nav.res": "Resources", "rs.eyebrow": "Resources", "rs.h2": "Free resources for the industry.", "rs.all": "All resources", "foot.res": "Resources",
     "rs.qBy": "presented by", "rs.qShow": "The Great Market<br><span>Research</span> Quiz", "rs.qT": "The Great Market Research Quiz", "rs.qD": "Ten questions, three minutes. Your score against the industry.",
     "rs.sL1a": "market research ", "rs.sL1b": "events", "rs.sL2": "Europe &amp; North America", "rs.sT": "Market research events", "rs.sD": "42 trade shows and conferences: dates, prices, audience.",
-    "nav.price": "Pricing", "px.eyebrow": "Pricing", "px.h2": "The whole industry. One tool. <em>One price.</em>", "px.lead": "A database dedicated 100% to market research.", "px.t.year": "12-month commitment", "px.t.gain": "−€600 per year", "px.t.month": "Monthly, no commitment", "px.ent.lbl": "Companies", "px.ent.who": "One seat per person, no minimum.", "px.ent.unit": "excl. VAT per person per month", "px.ent.ys": "12-month commitment, paid monthly. €600 saved per year and per person.", "px.ent.q": "120 work emails and 40 mobile numbers per month: twice what it takes for 3 qualified meetings", "px.ent.yu": "Or €2,988 upfront", "px.fre.lbl": "Freelancers", "px.fre.who": "One seat, for freelancers.", "px.fre.unit": "excl. VAT per month", "px.fre.ys": "12-month commitment, paid monthly. €360 saved per year.", "px.fre.q": "60 work emails and 20 mobile numbers per month: what it takes for 3 qualified meetings", "px.fre.yu": "Or €1,788 upfront", "px.ms": "No commitment. Stop whenever you want.", "px.btn": "Subscribe", "px.btn2": "Subscribe", "px.more": "What the plan includes", "px.d.base": "The whole market research database, updated continuously", "px.d.new": "New companies added every day", "px.d.sig": "Business signals tracked continuously", "px.d.pipe": "The Pipeline and the writer, email and LinkedIn outreach", "px.join": "Your company already has seats?", "px.join.a": "Join your team on mazeo", "px.rch": "Need more?", "px.rch.s": "One-off top-ups that never expire.", "px.rch1": "100 extra work emails revealed", "px.rch2": "20 extra mobile numbers revealed", "px.ht": "excl. VAT", "px.ht2": "excl. VAT", "px.rep": "One-month rollover.", "px.rep.s": "For example: this month you used 90 emails and 30 mobile numbers. The remaining 30 emails and 10 mobile numbers carry over to next month, for one month only.", "px.c.h": "Everything four tools do. For less.", "px.c.lbl1": "Without mazeo: 4 subscriptions per person", "px.c.r1": "Finding the right contacts", "px.c.r2": "Work emails and mobile numbers", "px.c.r3": "Email and LinkedIn sequences", "px.c.r4": "Monitoring and signals", "px.c.rodz": "Rodz, Starter pack", "px.c.tot": "Total without mazeo", "px.c.tots": "and 4 tools to learn and connect", "px.c.with": "With mazeo, everything in one place", "px.c.wy": "with a 12-month commitment, already sorted for market research", "px.c.wm": "no commitment, already sorted for market research", "px.cta1": "Choose my plan", "px.cta2": "Book a demo", "px.c.src": "Public prices excl. VAT, per person per month, on monthly billing, taken from the vendors’ websites on 27 and 30 September 2026. Rodz: credit pack without subscription, entry price.", "px.a121": "€121", "px.a139": "€139", "px.a149": "€149", "px.a179": "€179", "px.a249": "€249", "px.a299": "€299", "px.a369": "€369", "px.a50": "€50", "px.a59": "€59", "px.a15": "€15", "px.a249c": "€249", "px.a299c": "€299", "px.a15b": "€15",
+    "nav.price": "Pricing", "px.eyebrow": "Pricing", "px.h2": "The whole industry. One tool. <em>One price.</em>", "px.t.year": "12-month commitment", "px.t.gain": "−€600 per year", "px.t.month": "Monthly, no commitment", "px.ent.lbl": "Companies", "px.ent.who": "One seat per person, no minimum.", "px.ent.unit": "excl. VAT per person per month", "px.ent.ys": "12-month commitment. €600 saved per year and per person.", "px.ent.q": "120 work emails and 40 mobile numbers per month<small>Twice what it takes to get 3 qualified meetings a month.</small>", "px.ent.yu": "Or €2,988 upfront", "px.fre.lbl": "Freelancers", "px.fre.who": "One seat, for freelancers.", "px.fre.unit": "excl. VAT per month", "px.fre.ys": "12-month commitment. €360 saved per year.", "px.fre.q": "60 work emails and 20 mobile numbers per month<small>What it takes to get 3 qualified meetings a month.</small>", "px.fre.yu": "Or €1,788 upfront", "px.ms": "No commitment. Stop whenever you want.", "px.btn": "Subscribe", "px.btn2": "Subscribe", "px.more": "What the plan includes", "px.d.rep": "Unused emails and numbers roll over for one month<small>For example: 30 emails left unused this month are added to next month’s.</small>", "px.d.base": "The whole market research database, updated continuously", "px.d.new": "New companies added every day", "px.d.sig": "Business signals tracked continuously", "px.d.pipe": "The Pipeline and the writer, email and LinkedIn outreach", "px.join": "Is your company already a mazeo customer? Subscribe to your seat here: you will join your team in the app.", "px.rch": "Need more contact details?", "px.rch.s": "Buy extra emails and mobile numbers. Unlike the ones in your plan, they never expire.", "px.rch1": "100 extra work emails revealed", "px.rch2": "20 extra mobile numbers revealed", "px.ht": "excl. VAT", "px.ht2": "excl. VAT", "px.c.h": "mazeo replaces four tools. And costs less.", "px.c.lbl1": "Without mazeo: 4 subscriptions per person", "px.c.r1": "Finding the right contacts", "px.c.r2": "Work emails and mobile numbers", "px.c.r3": "Email and LinkedIn sequences", "px.c.r4": "Monitoring and signals", "px.c.rodz": "Rodz, Starter pack", "px.c.tot": "Total without mazeo", "px.c.tots": "and 4 tools to learn and connect", "px.c.with": "With mazeo: one tool, dedicated to market research", "px.c.wy": "With a 12-month commitment. €299 without commitment.", "px.c.wm": "No commitment. €249 with a 12-month commitment.", "px.cta1": "Choose my plan", "px.cta2": "Book a demo", "px.c.src": "Public prices excl. VAT, per person per month, on monthly billing, taken from the vendors’ websites on 27 and 30 September 2026. Rodz: credit pack without subscription, entry price.", "px.a121": "€121", "px.a139": "€139", "px.a149": "€149", "px.a179": "€179", "px.a249": "€249", "px.a299": "€299", "px.a369": "€369", "px.a50": "€50", "px.a59": "€59", "px.a15": "€15", "px.a249c": "€249", "px.a299c": "€299", "px.a15b": "€15", "px.a369s": "€369",
     "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Book a demo",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
     "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "hero.playClose": "Close the video", "hero.play": "Discover mazeo on video", "nav.market": "The Market", "mk.name": "The Market",
