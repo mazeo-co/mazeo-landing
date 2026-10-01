@@ -17,6 +17,10 @@
       "destination": "/conditions-de-vente-2026-10-01.html"
     },
     {
+      "source": "/bienvenue",
+      "destination": "/bienvenue.html"
+    },
+    {
       "source": "/salons",
       "destination": "/salons.html"
     },
