@@ -51,10 +51,6 @@
     {
       "source": "/en/thank-you",
       "destination": "/en/thank-you.html"
-    },
-    {
-      "source": "/conditions-de-vente",
-      "destination": "/conditions-de-vente.html"
     }
   ],
   "redirects": [
