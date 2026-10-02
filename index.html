@@ -77,8 +77,8 @@ button, input { font: inherit; }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
 [id] { scroll-margin-top: 80px; }
 /* Liens du menu (02/10) : la section a 120 px de vide au-dessus de son repère ; on la fait remonter d’autant, pour que le repère arrive 24 px sous le menu. */
-#market, #signaux, #pipeline, #faq { scroll-margin-top: -24px; }
-@media (max-width: 960px) { #market, #signaux, #pipeline, #faq { scroll-margin-top: 12px; } }
+#market, #signaux, #pipeline, #prix, #faq { scroll-margin-top: -24px; }
+@media (max-width: 960px) { #market, #signaux, #pipeline, #prix, #faq { scroll-margin-top: 12px; } }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .lc { text-transform: none; }
 .container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
@@ -542,8 +542,8 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 /* ---- Fin de page ---- */
 /* ---- Le prix (v6, 01/10/2026) : premier écran = titre, sélecteur, deux grandes offres ; recharges puis comparatif en dessous ---- */
 .title em { font-style: normal; color: var(--blue); }
-/* Rythme des fonds (02/10) : témoignages gris clair, prix bleu très pâle, comparatif blanc, ressources gris clair, FAQ blanc, appel final bleu très pâle. 120 px en haut et en bas, comme les autres sections. */
-.px { padding-block: 120px; background: var(--blue-pale); scroll-margin-top: 72px; }
+/* Rythme des fonds (02/10) : témoignages gris clair, prix bleu très pâle, comparatif blanc, ressources gris clair, FAQ et appel final blancs. 120 px en haut et en bas, comme les autres sections. */
+.px { padding-block: 120px; background: var(--blue-pale); }
 .px-vs { padding-block: 120px; }
 #prix [hidden], #comparatif [hidden] { display: none !important; }
 @media (max-width: 960px) { .px, .px-vs { padding-block: 84px; } }
@@ -652,7 +652,7 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
   .px-stack li, .px-yes li { height: auto; padding: 10px 0; } .px-yes li { padding: 8px 0; border-top: 0; } .px-yes { padding-bottom: 6px; } }
 @media (max-width: 640px) { .px, .px-vs { padding-block: 64px; } .px-seg { display: flex; width: 100%; } .px-seg button { flex: 1; justify-content: center; padding: 9px 10px; font-size: 13.5px; white-space: normal; text-align: center; flex-direction: column; align-items: center; gap: 0; }
   .px-card, .px-sans, .px-avec { padding: 22px 18px; } .px-cta .btn { flex: 1 1 100%; } }
-.final { padding-block: 120px; text-align: center; background: var(--blue-pale); }
+.final { padding-block: 120px; text-align: center; }
 .final .title { font-size: clamp(38px, 5.6vw, 84px); max-width: 1000px; margin-inline: auto; }
 .final .title em { font-style: normal; color: var(--blue); }
 .final .lead { margin: 20px auto 0; max-width: 660px; }
@@ -2064,13 +2064,35 @@ document.documentElement.classList.add("js");
     window.addEventListener("wheel", stop, { passive: true }); window.addEventListener("touchstart", stop, { passive: true }); window.addEventListener("keydown", stop);
     setTimeout(stop, 3100); aligner();
   }
-  /* Au clic, la page défile jusqu'au prix comme pour les autres liens du menu ; le recalage attend la fin du défilement (sinon il le remplaçait par un saut). */
-  function apresDefilement(fn) {
+  /* Liens vers une section de la page (02/10) : toujours un défilement doux, jamais un saut.
+     Si la page a bougé pendant le défilement (images et carte du marché qui finissent de charger), un second défilement doux corrige l'arrivée.
+     Le recalage sec (caler) ne sert plus qu'à l'arrivée depuis une autre page sur /#prix (et /souscrire). */
+  function quandFini(fn) {
     var fait = false, go = function () { if (fait) return; fait = true; window.removeEventListener("scrollend", go); fn(); };
     if ("onscrollend" in window) window.addEventListener("scrollend", go);
-    setTimeout(go, 1500);
+    setTimeout(go, 2500);
   }
-  document.querySelectorAll('a[href="#prix"]:not([data-stripe])').forEach(function (a) { a.addEventListener("click", function () { apresDefilement(caler); }); });
+  var trajet = 0;
+  function allerA(cible) {
+    var essais = 0, mode = reduced ? "auto" : "smooth", moi = ++trajet;
+    (function viser() {
+      cible.scrollIntoView({ block: "start", behavior: mode });
+      quandFini(function () {
+        if (moi !== trajet) return; /* un autre lien a été cliqué entre-temps */
+        var marge = parseFloat(getComputedStyle(cible).scrollMarginTop) || 0;
+        if (Math.abs(cible.getBoundingClientRect().top - marge) > 4 && ++essais < 3) viser();
+      });
+    })();
+  }
+  document.querySelectorAll('a[href^="#"]:not([data-stripe])').forEach(function (a) {
+    var id = a.getAttribute("href").slice(1), cible = id && document.getElementById(id);
+    if (!cible || ["market", "signaux", "pipeline", "prix", "comparatif", "faq"].indexOf(id) < 0) return;
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (history.pushState) history.pushState(null, "", "#" + id);
+      allerA(cible);
+    });
+  });
   if (location.hash === "#prix") caler();
 })();
 </script>
