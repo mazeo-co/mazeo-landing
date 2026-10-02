@@ -54,7 +54,7 @@
   --ink: #0A0A0A; --slate: #3A4250; --body: #4A5262; --meta: #6B7280;
   --line: #E5E7EB; --line-strong: #DDE1E9; --line-soft: #EEF0F3;
   --ground: #FFFFFF; --soft: #F8F9FA;
-  --blue: #007BFF; --blue-deep: #0066D6; --blue-text: #0062CC; --blue-tint: #E6F2FF;
+  --blue: #007BFF; --blue-deep: #0066D6; --blue-text: #0062CC; --blue-tint: #E6F2FF; --blue-pale: #EEF5FF;
   --green: #00EF8B; --green-tint: #E6FFF5; --green-text: #006B3F;
   --red: #DC2626; --red-tint: #FEF2F2;
   --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -528,7 +528,7 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .builtfor { margin-top: 40px; text-align: center; font-size: 16px; color: var(--body); text-wrap: pretty; max-width: 760px; margin-inline: auto; }
 
 /* ---- FAQ ---- */
-#faq { padding-bottom: 32px; }
+#faq { padding-bottom: 120px; }
 #faq .container { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
 @media (max-width: 960px) { #faq .container { grid-template-columns: 1fr; gap: 32px; } }
 .faq-list { border-top: 1px solid var(--line); }
@@ -542,8 +542,11 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 /* ---- Fin de page ---- */
 /* ---- Le prix (v6, 01/10/2026) : premier écran = titre, sélecteur, deux grandes offres ; recharges puis comparatif en dessous ---- */
 .title em { font-style: normal; color: var(--blue); }
-.px { padding-block: 14px 104px; scroll-margin-top: 72px; }
-#prix [hidden] { display: none !important; }
+/* Rythme des fonds (02/10) : témoignages gris clair, prix bleu très pâle, comparatif blanc, ressources gris clair, FAQ blanc, appel final bleu très pâle. 120 px en haut et en bas, comme les autres sections. */
+.px { padding-block: 120px; background: var(--blue-pale); scroll-margin-top: 72px; }
+.px-vs { padding-block: 120px; }
+#prix [hidden], #comparatif [hidden] { display: none !important; }
+@media (max-width: 960px) { .px, .px-vs { padding-block: 84px; } }
 .px-head { text-align: center; }
 .px-head .eyebrow { margin-bottom: 10px; }
 .px-h2 { font-size: clamp(34px, 3.8vw, 56px); }
@@ -576,7 +579,7 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .px-rep { margin: 10px 0 0; font-size: 14.5px; line-height: 1.45; color: var(--meta); }
 /* Les fonctions (02/10) : les mêmes pour les deux formules. Pas de cadre (les cartes au-dessus et les recharges au-dessous en ont déjà un) : un titre, trois colonnes aérées.
    Pas d’icône (« ça fait cheap », Romain, 02/10) : le nom de chaque partie, en bleu. */
-.px-all { margin: 104px 0 0; }
+.px-all { margin: 120px 0 0; }
 .px-all-h { margin: 0; text-align: center; font-family: var(--display); font-weight: 700; font-size: clamp(24px, 2.3vw, 32px); letter-spacing: -0.03em; line-height: 1.15; color: var(--ink); }
 .px-cols { margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 80px; }
 .px-part { display: flex; align-items: center; gap: 12px; }
@@ -588,7 +591,7 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .avant-ouverture .si-ouvert, body:not(.avant-ouverture) .si-avant { display: none !important; }
 .px-open { margin: 6px 0 0; font-size: 15px; font-weight: 600; color: var(--ink); }
 .px-join { margin: auto 0 0; padding-top: 16px; font-size: 14.5px; line-height: 1.45; color: var(--meta); }
-.px-topup { margin: 104px 0 0; background: var(--soft); border: 1px solid var(--line); border-radius: 20px; padding: 24px 28px; display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 16px 28px; align-items: center; }
+.px-topup { margin: 120px 0 0; background: #fff; border: 1px solid var(--line-strong); border-radius: 20px; padding: 24px 28px; display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 16px 28px; align-items: center; }
 .px-topup-head b { display: block; font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: var(--ink); }
 .px-topup-head span { display: block; margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--slate); }
 .px-topup-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
@@ -599,7 +602,7 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .px-cost { display: flex; align-items: baseline; gap: 4px; padding-left: 14px; border-left: 1px solid var(--line); white-space: nowrap; }
 .px-cost b { font-family: var(--display); font-weight: 800; font-size: 24px; letter-spacing: -0.03em; color: var(--ink); }
 .px-cost small { font-size: 12.5px; font-weight: 600; color: var(--meta); }
-.px-cmp { margin-top: 72px; scroll-margin-top: 84px; }
+.px-cmp { margin-top: 0; scroll-margin-top: 84px; }
 .px-cmp-h { font-size: clamp(26px, 2.8vw, 40px); text-align: center; max-width: 900px; margin-inline: auto; }
 /* Le comparatif (02/10) : deux panneaux face à face. À gauche les quatre abonnements qui s’additionnent, à droite mazeo, sur fond sombre (même halo bleu que la section Pipeline).
    Les lignes des deux panneaux sont à la même hauteur (subgrid) : chaque outil a sa coche en face.
@@ -643,13 +646,13 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .px-anim.fin .px-total-amt::after { transform: scaleX(1); transition: transform .35s ease; }
 .px-anim.fin .px-avec-foot > * { opacity: 1; transform: none; transition: opacity .4s ease .15s, transform .4s ease .15s; }
 @media (max-width: 960px) { .px-topup { grid-template-columns: 1fr; } }
-@media (max-width: 860px) { .px-cards, .px-topup-list { grid-template-columns: 1fr; } .px-cmp { margin-top: 56px; }
-  .px-cols { grid-template-columns: 1fr; row-gap: 32px; margin-top: 28px; } .px-all, .px-topup { margin-top: 56px; }
+@media (max-width: 860px) { .px-cards, .px-topup-list { grid-template-columns: 1fr; } 
+  .px-cols { grid-template-columns: 1fr; row-gap: 32px; margin-top: 28px; } .px-all, .px-topup { margin-top: 72px; }
   .px-duel { grid-template-columns: 1fr; grid-template-rows: none; row-gap: 14px; } .px-sans, .px-avec { grid-row: auto; display: block; }
   .px-stack li, .px-yes li { height: auto; padding: 10px 0; } .px-yes li { padding: 8px 0; border-top: 0; } .px-yes { padding-bottom: 6px; } }
-@media (max-width: 640px) { .px { padding-block: 32px 72px; } .px-seg { display: flex; width: 100%; } .px-seg button { flex: 1; justify-content: center; padding: 9px 10px; font-size: 13.5px; white-space: normal; text-align: center; flex-direction: column; align-items: center; gap: 0; }
+@media (max-width: 640px) { .px, .px-vs { padding-block: 64px; } .px-seg { display: flex; width: 100%; } .px-seg button { flex: 1; justify-content: center; padding: 9px 10px; font-size: 13.5px; white-space: normal; text-align: center; flex-direction: column; align-items: center; gap: 0; }
   .px-card, .px-sans, .px-avec { padding: 22px 18px; } .px-cta .btn { flex: 1 1 100%; } }
-.final { padding-block: 120px 100px; text-align: center; }
+.final { padding-block: 120px; text-align: center; background: var(--blue-pale); }
 .final .title { font-size: clamp(38px, 5.6vw, 84px); max-width: 1000px; margin-inline: auto; }
 .final .title em { font-style: normal; color: var(--blue); }
 .final .lead { margin: 20px auto 0; max-width: 660px; }
@@ -1062,6 +1065,12 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         </ul>
       </div>
 
+    </div>
+  </section>
+
+  <!-- Le comparatif (02/10) : section à part, fond blanc, entre le prix (bleu très pâle) et les ressources (gris clair). -->
+  <section class="px-vs" id="comparatif">
+    <div class="container">
       <div class="px-cmp">
         <h3 class="px-cmp-h" data-t="px.c.h">mazeo remplace quatre outils. Et coûte moins cher.</h3>
         <div class="px-duel">
@@ -1109,7 +1118,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 
   <!-- ================= FAQ ================= -->
   <!-- ================= RESSOURCES (29/09/2026) : les deux contenus gratuits, avant la FAQ ================= -->
-  <section class="section" id="ressources" style="padding-bottom:0">
+  <section class="section section-soft" id="ressources">
     <div class="container">
       <div class="rs-head">
         <div>
@@ -1986,14 +1995,14 @@ document.documentElement.classList.add("js");
   if (!by || !bm) return;
   function show(when) {
     by.setAttribute("aria-pressed", String(when === "year")); bm.setAttribute("aria-pressed", String(when === "month"));
-    document.querySelectorAll("#prix [data-when]").forEach(function (el) { el.hidden = el.getAttribute("data-when") !== when; });
+    document.querySelectorAll("#prix [data-when], #comparatif [data-when]").forEach(function (el) { el.hidden = el.getAttribute("data-when") !== when; });
   }
   by.addEventListener("click", function () { show("year"); });
   bm.addEventListener("click", function () { show("month"); });
 
   /* Le comparatif (02/10) : à l'entrée dans l'écran, les quatre abonnements arrivent un par un, le total monte, puis il est barré et le prix de mazeo apparaît.
      Sans script, ou si la personne a demandé moins d'animations, tout est affiché d'emblée. */
-  var duel = document.querySelector("#prix .px-duel");
+  var duel = document.querySelector("#comparatif .px-duel");
   if (duel && !reduced && "IntersectionObserver" in window) {
     var lignes = duel.querySelectorAll(".px-stack .px-step"), coches = duel.querySelectorAll(".px-yes .px-step"), tot = duel.querySelector(".px-total-amt");
     var sommes = [], cumul = 0;
