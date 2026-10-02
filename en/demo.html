@@ -68,7 +68,9 @@ button, input { font: inherit; }
 .logo { font-family: var(--logo-font); font-weight: 800; font-size: 26px; letter-spacing: -0.5px; color: var(--ink); }
 .logo span { color: var(--green); }
 .nav-links { display: flex; align-items: center; gap: 32px; margin-right: auto; margin-left: 40px; }
-.nav-links a { color: var(--slate); font-weight: 600; font-size: 15px; }
+.nav-links a { color: var(--slate); font-weight: 600; font-size: 15px; white-space: nowrap; }
+@media (max-width: 1180px) { .nav-links { gap: 20px; margin-left: 28px; } }
+@media (max-width: 1080px) { .nav-links { gap: 15px; margin-left: 22px; } .nav-right .btn { padding: 11px 16px; } }
 .nav-links a:hover { color: var(--ink); }
 .nav-links a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); padding-block: 6px; }
 .nav-right { display: flex; align-items: center; gap: 10px; }
@@ -100,7 +102,7 @@ button, input { font: inherit; }
 @media (max-width: 420px) { .nav-login { display: none; } .logo { font-size: 24px; } }
 
 /* ---- Ouverture ---- */
-.intro { padding-block: 88px 56px; }
+.intro { padding-block: 36px 48px; }
 .intro .eyebrow { margin-bottom: 22px; }
 .intro h1 { font-size: clamp(40px, 6.2vw, 88px); max-width: 1120px; }
 .intro h1 em { font-style: normal; color: var(--blue); }
@@ -230,14 +232,16 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .nav-links a.nav-current { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); padding: 6px 0; }
 
 /* Page de réservation : le titre à gauche, le calendrier Cal.com à droite. Sur un ordinateur, on réserve sans défiler. */
-.demo { padding-block: 36px 56px; }
-.demo-grille { display: grid; grid-template-columns: minmax(0, 1fr) 800px; grid-template-areas: "texte cal" "secours cal"; grid-template-rows: auto 1fr; column-gap: 24px; align-items: start; }
-.demo-texte { grid-area: texte; padding-top: clamp(20px, 7vh, 72px); }
+/* 02/10 (Romain) : le haut du calendrier s'aligne sur le haut du texte, et l'ensemble texte + calendrier est centré dans la page.
+   Le calendrier garde 40 points de marge de chaque côté dans son cadre : un écart de 16 points entre les colonnes en fait 56 à l'œil,
+   et le cadre déborde de 40 points à droite de sa colonne pour que le centrage se fasse sur la carte visible, pas sur le cadre. */
+.demo { padding-block: clamp(24px, 9vh, 80px) 56px; }
+.demo-grille { display: grid; grid-template-columns: minmax(0, 440px) 760px; justify-content: center; grid-template-areas: "texte cal" "secours cal"; grid-template-rows: auto 1fr; column-gap: 16px; align-items: start; }
+.demo-texte { grid-area: texte; padding-top: 0; }
 .demo-texte .eyebrow { margin-bottom: 20px; }
 .demo-texte h1 { font-size: clamp(40px, 4vw, 60px); }
 .demo-sous { margin-top: 20px; font-size: 19px; line-height: 1.5; color: var(--slate); max-width: 30ch; }
-/* Le calendrier garde 40 points de marge de chaque côté, dans son cadre : on décale le cadre d'autant, et sa carte s'aligne sur le bord droit du site. */
-.demo-cal { grid-area: cal; min-width: 0; margin-inline: 40px -40px; }
+.demo-cal { grid-area: cal; min-width: 0; margin-right: -40px; }
 .cal-secours { grid-area: secours; margin-top: 28px; max-width: 36ch; }
 @media (max-width: 1180px) {
   .demo { padding-block: 28px 48px; }
@@ -275,12 +279,13 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <a href="/?lang=en#market">The Market</a>
       <a href="/?lang=en#signaux">Signals</a>
       <a href="/?lang=en#pipeline">Pipeline</a>
-      <a href="/?lang=en#faq">FAQ</a>
+      <a href="/?lang=en#prix">Pricing</a>
       <a href="/en/resources">Resources</a>
+      <a href="/?lang=en#faq">FAQ</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn-ghost nav-login" href="https://app.mazeo.co/?hl=en">Log in</a>
-      <a class="btn btn-primary" href="/?lang=en#acces">Request access</a>
+      <a class="btn btn-primary" href="/en/demo">Book a demo</a>
     </div>
   </div>
 </header>
