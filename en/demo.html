@@ -232,14 +232,16 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .nav-links a.nav-current { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); padding: 6px 0; }
 
 /* Page de réservation : le titre à gauche, le calendrier Cal.com à droite. Sur un ordinateur, on réserve sans défiler. */
-.demo { padding-block: 36px 56px; }
-.demo-grille { display: grid; grid-template-columns: minmax(0, 1fr) 800px; grid-template-areas: "texte cal" "secours cal"; grid-template-rows: auto 1fr; column-gap: 24px; align-items: start; }
-.demo-texte { grid-area: texte; padding-top: clamp(20px, 7vh, 72px); }
+/* 02/10 (Romain) : le haut du calendrier s'aligne sur le haut du texte, et l'ensemble texte + calendrier est centré dans la page.
+   Le calendrier garde 40 points de marge de chaque côté dans son cadre : un écart de 16 points entre les colonnes en fait 56 à l'œil,
+   et le cadre déborde de 40 points à droite de sa colonne pour que le centrage se fasse sur la carte visible, pas sur le cadre. */
+.demo { padding-block: clamp(24px, 9vh, 80px) 56px; }
+.demo-grille { display: grid; grid-template-columns: minmax(0, 440px) 760px; justify-content: center; grid-template-areas: "texte cal" "secours cal"; grid-template-rows: auto 1fr; column-gap: 16px; align-items: start; }
+.demo-texte { grid-area: texte; padding-top: 0; }
 .demo-texte .eyebrow { margin-bottom: 20px; }
 .demo-texte h1 { font-size: clamp(40px, 4vw, 60px); }
 .demo-sous { margin-top: 20px; font-size: 19px; line-height: 1.5; color: var(--slate); max-width: 30ch; }
-/* Le calendrier garde 40 points de marge de chaque côté, dans son cadre : on décale le cadre d'autant, et sa carte s'aligne sur le bord droit du site. */
-.demo-cal { grid-area: cal; min-width: 0; margin-inline: 40px -40px; }
+.demo-cal { grid-area: cal; min-width: 0; margin-right: -40px; }
 .cal-secours { grid-area: secours; margin-top: 28px; max-width: 36ch; }
 @media (max-width: 1180px) {
   .demo { padding-block: 28px 48px; }
