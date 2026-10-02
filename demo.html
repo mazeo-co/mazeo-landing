@@ -229,15 +229,41 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .alert .msg.err { color: #B91C1C; }
 .nav-links a.nav-current { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); padding: 6px 0; }
 
-/* Page de réservation : le calendrier Cal.com dans une carte, sous le titre. */
-.section-demo { padding-bottom: 96px; }
-.cal-carte { position: relative; min-height: 640px; border: 1px solid var(--line, rgba(15,23,38,.12)); border-radius: 16px; overflow: hidden; background: #fff; }
-.cal-carte .cal-attente { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; color: var(--meta); font-size: 15px; }
+/* Page de réservation : le titre à gauche, le calendrier Cal.com à droite. Sur un ordinateur, on réserve sans défiler. */
+.demo { padding-block: 36px 56px; }
+.demo-grille { display: grid; grid-template-columns: minmax(0, 1fr) 800px; grid-template-areas: "texte cal" "secours cal"; grid-template-rows: auto 1fr; column-gap: 24px; align-items: start; }
+.demo-texte { grid-area: texte; padding-top: clamp(20px, 7vh, 72px); }
+.demo-texte .eyebrow { margin-bottom: 20px; }
+.demo-texte h1 { font-size: clamp(40px, 4vw, 60px); }
+.demo-sous { margin-top: 20px; font-size: 19px; line-height: 1.5; color: var(--slate); max-width: 30ch; }
+/* Le calendrier garde 40 points de marge de chaque côté, dans son cadre : on décale le cadre d'autant, et sa carte s'aligne sur le bord droit du site. */
+.demo-cal { grid-area: cal; min-width: 0; margin-inline: 40px -40px; }
+.cal-secours { grid-area: secours; margin-top: 28px; max-width: 36ch; }
+@media (max-width: 1180px) {
+  .demo { padding-block: 28px 48px; }
+  .demo-grille { grid-template-columns: minmax(0, 1fr); grid-template-areas: "texte" "cal" "secours"; grid-template-rows: auto; }
+  .demo-texte { padding-top: 0; margin-bottom: 20px; }
+  .demo-cal { margin-inline: 0; }
+  .demo-texte .eyebrow { display: none; }
+  .demo-texte h1 { font-size: clamp(30px, 4.4vw, 44px); }
+  .demo-sous { margin-top: 10px; font-size: 17px; max-width: none; }
+  .cal-secours { margin-top: 12px; max-width: none; }
+}
+/* Tablette et téléphone : le cadre prend toute la largeur de l'écran (le calendrier a ses propres marges). Dès 768 points
+   de large il garde ainsi ses deux colonnes, calendrier et horaires ; en dessous il passe en colonne. */
+@media (max-width: 831px) { .demo-cal { margin-inline: calc(var(--gutter) * -1); } }
+@media (max-width: 767px) { .cal-carte { min-height: 420px; } .cal-carte .cal-attente { inset: 0; } }
+
+/* Au clic sur un horaire, le calendrier fait remonter la page pour montrer son formulaire, à 39 points du haut de l'écran.
+   Une barre de menu collée en haut (72 points) cacherait le premier champ : sur cette page, elle défile avec le reste. */
+.nav { position: static; }
+.demo h1 em { font-style: normal; color: var(--blue); }
+.cal-carte { position: relative; min-height: 570px; }
+.cal-carte .cal-attente { position: absolute; inset: 0 0 80px; display: grid; place-items: center; margin: 0; color: var(--meta); font-size: 15px; }
 .cal-carte .cal-attente[hidden] { display: none; }
 .cal-carte cal-inline, .cal-carte iframe { position: relative; display: block; width: 100%; }
-.cal-secours { margin-top: 16px; font-size: 14px; color: var(--meta); }
+.cal-secours { font-size: 13.5px; line-height: 1.5; color: var(--meta); }
 .cal-secours a { color: inherit; text-decoration: underline; }
-@media (max-width: 720px) { .section-demo { padding-bottom: 72px; } .cal-carte { min-height: 560px; } }
 </style>
 </head>
 <body>
@@ -259,20 +285,19 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   </div>
 </header>
 
-<main id="top">
-
-  <section class="intro container">
-    <span class="eyebrow">Démo</span>
-    <h1>Réservez votre démo de <em>mazeo.</em></h1>
-    <p class="stamp-page">30 minutes, en visio. Choisissez le créneau qui vous arrange.</p>
-  </section>
-
-  <section class="container section-demo" aria-label="Choisir un créneau">
-    <div class="cal-carte" id="cal-demo"><p class="cal-attente">Le calendrier se charge…</p></div>
+<main id="top" class="demo">
+  <div class="container demo-grille">
+    <section class="demo-texte">
+      <span class="eyebrow">Démo</span>
+      <h1>Réservez votre démo de <em>mazeo.</em></h1>
+      <p class="demo-sous">30 minutes, en visio. Choisissez le créneau qui vous arrange.</p>
+    </section>
+    <section class="demo-cal" aria-label="Choisir un créneau">
+      <div class="cal-carte" id="cal-demo"><p class="cal-attente">Le calendrier se charge…</p></div>
+      <noscript><p class="cal-secours"><a href="https://cal.com/romain-barbet-mazeo/demo-mazeo">https://cal.com/romain-barbet-mazeo/demo-mazeo</a></p></noscript>
+    </section>
     <p class="cal-secours">Le calendrier ne s’affiche pas ? <a href="https://cal.com/romain-barbet-mazeo/demo-mazeo" rel="noopener">Ouvrez-le dans une nouvelle page</a>. La prise de rendez-vous passe par Cal.com. <a href="/privacy.html">Confidentialité</a>.</p>
-    <noscript><p class="cal-secours"><a href="https://cal.com/romain-barbet-mazeo/demo-mazeo">https://cal.com/romain-barbet-mazeo/demo-mazeo</a></p></noscript>
-  </section>
-
+  </div>
 </main>
 
 <footer>
@@ -300,7 +325,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
 Cal("init", "demo", { origin: "https://app.cal.com" });
 Cal.ns.demo("inline", { elementOrSelector: "#cal-demo", calLink: "romain-barbet-mazeo/demo-mazeo", config: { layout: "month_view", theme: "light" } });
-Cal.ns.demo("ui", { hideEventTypeDetails: false, layout: "month_view", theme: "light" });
+Cal.ns.demo("ui", { hideEventTypeDetails: true, layout: "month_view", theme: "light" });
 Cal.ns.demo("on", { action: "linkReady", callback: function () { var a = document.querySelector("#cal-demo .cal-attente"); if (a) a.hidden = true; } });
 </script>
 </body>
