@@ -230,6 +230,14 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 
 .alert .msg.err { color: #B91C1C; }
 .nav-links a.nav-current { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); padding: 6px 0; }
+/* Dernier appel : son tableau des departs (02/10/2026) */
+.da { display: grid; place-content: center; justify-items: center; gap: 14px; padding: 24px; text-align: center; background: #0B0D10; color: #F4F1E8; border-bottom-color: #262C35; }
+.da .by { font-size: 14px; color: #8D95A3; display: flex; align-items: baseline; gap: 7px; }
+.da .by b { font-family: var(--logo-font); font-weight: 800; font-size: 18px; color: #fff; letter-spacing: -0.3px; }
+.da .by b span { color: var(--green); }
+.da .t { font-family: var(--show); font-weight: 900; text-transform: uppercase; font-size: clamp(40px, 4.8vw, 70px); line-height: .9; color: #F4F1E8; }
+.da .t span { color: #FF5A1F; }
+.da .sub { font-size: 14px; font-weight: 600; color: #FFB199; }
 </style>
 </head>
 <body>
@@ -302,6 +310,26 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             <div class="tool-foot">
               <span class="btn btn-primary go" aria-hidden="true">See the events <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
               <span class="stamp">Checked on 28 September 2026</span>
+            </div>
+          </div>
+        </article>
+      </li>
+
+      <li>
+        <article class="tool">
+          <div class="visual da" aria-hidden="true">
+            <p class="by">presented by <b>mazeo<span>.</span></b></p>
+            <p class="t">Dernier<br><span>appel</span></p>
+            <p class="sub">Open research tenders</p>
+          </div>
+          <div class="tool-body">
+            <span class="eyebrow">Win public contracts</span>
+            <h2><a href="/en/public-tenders">Dernier appel: open research tenders</a></h2>
+            <p class="desc">Every public research tender still open in France, sorted by closing date. Checked daily in the French and EU official journals, read one by one.</p>
+            <ul class="facts"><li>Updated daily</li><li>France</li><li>No sign-up</li></ul>
+            <div class="tool-foot">
+              <span class="btn btn-primary go" aria-hidden="true">See the tenders <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              <span class="stamp">Free Monday alert</span>
             </div>
           </div>
         </article>
