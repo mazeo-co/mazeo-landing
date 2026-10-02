@@ -3,18 +3,18 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Ressources gratuites pour le market research | mazeo</title>
-<meta name="description" content="Des ressources gratuites pour le secteur des études : le Grand Quiz des Études, et les rencontres du market research, 43 salons et congrès jusqu&#x27;à fin 2027.">
-<link rel="canonical" href="https://www.mazeo.co/ressources">
-<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/ressources">
-<link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/resources">
-<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/en/resources">
+<title>Réserver une démo | mazeo</title>
+<meta name="description" content="Réservez votre démo de mazeo : 30 minutes, en visio. Choisissez le créneau qui vous arrange.">
+<link rel="canonical" href="https://www.mazeo.co/demo">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/demo">
+<link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/demo">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/en/demo">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="mazeo">
 <meta property="og:locale" content="fr_FR">
-<meta property="og:url" content="https://www.mazeo.co/ressources">
-<meta property="og:title" content="Ressources gratuites pour le market research">
-<meta property="og:description" content="Des ressources gratuites pour le secteur des études : le Grand Quiz des Études, et les rencontres du market research, 43 salons et congrès jusqu&#x27;à fin 2027.">
+<meta property="og:url" content="https://www.mazeo.co/demo">
+<meta property="og:title" content="Réserver une démo de mazeo">
+<meta property="og:description" content="Réservez votre démo de mazeo : 30 minutes, en visio. Choisissez le créneau qui vous arrange.">
 <meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&display=swap">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "mazeo", "item": "https://www.mazeo.co/"}, {"@type": "ListItem", "position": 2, "name": "Ressources", "item": "https://www.mazeo.co/ressources"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "mazeo", "item": "https://www.mazeo.co/"}, {"@type": "ListItem", "position": 2, "name": "Démo", "item": "https://www.mazeo.co/demo"}]}</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
 /* Page Ressources de mazeo.co, d'après la maquette validée le 29/09/2026.
@@ -228,6 +228,16 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 
 .alert .msg.err { color: #B91C1C; }
 .nav-links a.nav-current { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); padding: 6px 0; }
+
+/* Page de réservation : le calendrier Cal.com dans une carte, sous le titre. */
+.section-demo { padding-bottom: 96px; }
+.cal-carte { position: relative; min-height: 640px; border: 1px solid var(--line, rgba(15,23,38,.12)); border-radius: 16px; overflow: hidden; background: #fff; }
+.cal-carte .cal-attente { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; color: var(--meta); font-size: 15px; }
+.cal-carte .cal-attente[hidden] { display: none; }
+.cal-carte cal-inline, .cal-carte iframe { position: relative; display: block; width: 100%; }
+.cal-secours { margin-top: 16px; font-size: 14px; color: var(--meta); }
+.cal-secours a { color: inherit; text-decoration: underline; }
+@media (max-width: 720px) { .section-demo { padding-bottom: 72px; } .cal-carte { min-height: 560px; } }
 </style>
 </head>
 <body>
@@ -240,7 +250,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <a href="/#signaux">Les signaux</a>
       <a href="/#pipeline">Le Pipeline</a>
       <a href="/#faq">FAQ</a>
-      <a class="nav-current" href="/ressources" aria-current="page">Ressources</a>
+      <a href="/ressources">Ressources</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn-ghost nav-login" href="https://app.mazeo.co/?hl=fr">Se connecter</a>
@@ -252,86 +262,15 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 <main id="top">
 
   <section class="intro container">
-    <span class="eyebrow">Ressources</span>
-    <h1>Des ressources gratuites pour le <em>market research.</em></h1>
-    <p class="stamp-page">Mis à jour le 29 septembre 2026</p>
+    <span class="eyebrow">Démo</span>
+    <h1>Réservez votre démo de <em>mazeo.</em></h1>
+    <p class="stamp-page">30 minutes, en visio. Choisissez le créneau qui vous arrange.</p>
   </section>
 
-  <section class="container section-tools" aria-label="Ressources">
-    <ul class="tools">
-
-      <li>
-        <article class="tool">
-          <div class="visual qz" aria-hidden="true">
-            <p class="by">présenté par <b>mazeo<span>.</span></b></p>
-            <p class="t">Le Grand Quiz<br>des <span>Études</span></p>
-            <div class="ladder"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <p class="sub">Question 4 <span>sur 10</span></p>
-          </div>
-          <div class="tool-body">
-            <span class="eyebrow">Connaître le secteur</span>
-            <h2><a href="/quiz.html">Le Grand Quiz des Études</a></h2>
-            <p class="desc">Dix questions sur l'histoire, les méthodes et les coulisses du métier. Votre score, et votre rang face aux professionnels du secteur.</p>
-            <ul class="facts"><li>10 questions</li><li>3 minutes</li><li>Sans inscription</li></ul>
-            <div class="tool-foot">
-              <span class="btn btn-primary go" aria-hidden="true">Faire le quiz <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-              <span class="stamp">Dix nouvelles questions à chaque partie</span>
-            </div>
-          </div>
-        </article>
-      </li>
-
-      <li>
-        <article class="tool">
-          <div class="visual sl">
-            <div class="rl" aria-hidden="true">
-              <span class="l1">les <span class="mk">rencontres<svg viewBox="0 0 320 60" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 C 70 6, 170 4, 314 9 L 318 50 C 210 56, 100 58, 2 54 Z" fill="#FFD23F"/></svg></span></span>
-              <span class="l2">du market research</span>
-              <span class="by">présentées par <b>mazeo<span>.</span></b></span>
-            </div>
-            <img src="/assets/salons/badges-fr.webp" width="900" height="700" alt="Trois badges de salon : succeet à Wiesbaden, The Quirk&#x27;s Event à Londres, le congrès Esomar à Montréal." loading="lazy">
-          </div>
-          <div class="tool-body">
-            <span class="eyebrow">Rencontrer vos clients</span>
-            <h2><a href="/salons">Les rencontres du market research</a></h2>
-            <p class="desc">Tous les salons et congrès du market research en Europe, aux États-Unis et au Canada. Dates, prix et public vérifiés un par un.</p>
-            <ul class="facts"><li>43 salons</li><li>Jusqu'à fin 2027</li><li>Sans inscription</li></ul>
-            <div class="tool-foot">
-              <span class="btn btn-primary go" aria-hidden="true">Voir les salons <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-              <span class="stamp">Vérifié le 28 septembre 2026</span>
-            </div>
-          </div>
-        </article>
-      </li>
-
-    </ul>
-  </section>
-
-  <section class="alert" aria-labelledby="alerte-titre">
-    <div class="container">
-      <div>
-        <h2 id="alerte-titre">Être prévenu des prochaines ressources.</h2>
-        <p class="sub">Un email quand une ressource sort. Rien d'autre.</p>
-      </div>
-      <form class="signup" id="form-alerte" novalidate>
-        <div class="fields">
-          <label for="a-email" class="sr-only">Email professionnel</label>
-          <input type="email" id="a-email" name="email" autocomplete="email" placeholder="Email professionnel">
-          <button class="btn btn-primary" type="submit">Me prévenir</button>
-        </div>
-        <p class="legal">Désinscription d'un clic, dans chaque email.</p>
-        <p class="msg" id="a-msg" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </section>
-
-  <section class="closing container">
-    <h2>Vos prochains clients sont déjà sur mazeo.</h2>
-    <p class="lead">Le seul outil de prospection dédié au market research. La bonne entreprise, la bonne personne, au bon moment.</p>
-    <div class="ctas">
-      <a class="btn btn-primary btn-lg" href="https://www.mazeo.co/demo" rel="noopener" target="_blank">Réserver une démo</a>
-      <a class="btn btn-ghost btn-lg" href="/">Découvrir mazeo</a>
-    </div>
+  <section class="container section-demo" aria-label="Choisir un créneau">
+    <div class="cal-carte" id="cal-demo"><p class="cal-attente">Le calendrier se charge…</p></div>
+    <p class="cal-secours">Le calendrier ne s’affiche pas ? <a href="https://cal.com/romain-barbet-mazeo/demo-mazeo" rel="noopener">Ouvrez-le dans une nouvelle page</a>. La prise de rendez-vous passe par Cal.com. <a href="/privacy.html">Confidentialité</a>.</p>
+    <noscript><p class="cal-secours"><a href="https://cal.com/romain-barbet-mazeo/demo-mazeo">https://cal.com/romain-barbet-mazeo/demo-mazeo</a></p></noscript>
   </section>
 
 </main>
@@ -343,35 +282,26 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <span>Le seul outil de prospection dédié au market research.</span>
     </div>
     <nav aria-label="Liens">
-      <a href="/ressources" aria-current="page">Ressources</a>
+      <a href="/ressources">Ressources</a>
       <a href="https://app.mazeo.co/?hl=fr">Se connecter</a>
       <a href="https://www.linkedin.com/company/mazeo-tech/" rel="noopener" target="_blank">LinkedIn</a>
       <a href="/mentions-legales.html">Mentions légales</a>
       <a href="/privacy.html">Confidentialité</a>
       <a href="/terms.html">Conditions d'utilisation</a>
       <a href="/conditions-de-vente">Conditions de vente</a>
-      <a href="/en/resources" hreflang="en" lang="en">English</a>
+      <a href="/en/demo" hreflang="en" lang="en">English</a>
     </nav>
     <p>© 2026 mazeo</p>
   </div>
 </footer>
 
 <script>
-(function () {
-  var M = {"bad": "Entrez une adresse email valide.", "sending": "Envoi en cours…", "ok": "C'est noté : un email de confirmation arrive dans votre boîte.", "err": "L'envoi n'a pas abouti. Réessayez dans un instant.", "demo": "Page en préparation : rien n'est envoyé."}, EMAIL_URL = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/content-signup";
-  var form = document.getElementById("form-alerte"), input = document.getElementById("a-email"), msg = document.getElementById("a-msg");
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var v = input.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.className = "msg err"; msg.textContent = M.bad; return; }
-    if (!EMAIL_URL) { msg.className = "msg"; msg.textContent = M.demo; return; }
-    var b = form.querySelector("button[type=submit]"); b.disabled = true; msg.className = "msg"; msg.textContent = M.sending;
-    fetch(EMAIL_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "ressources", email: v, lang: document.documentElement.lang, news: false, page: location.href, salons: [] }) })
-      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); msg.className = "msg ok"; msg.textContent = M.ok; })
-      .catch(function () { msg.className = "msg err"; msg.textContent = M.err; })
-      .then(function () { b.disabled = false; });
-  });
-})();
+/* Le calendrier de réservation (Cal.com), posé dans la page. Le reste du site ne charge rien de Cal.com. */
+(function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "demo", { origin: "https://app.cal.com" });
+Cal.ns.demo("inline", { elementOrSelector: "#cal-demo", calLink: "romain-barbet-mazeo/demo-mazeo", config: { layout: "month_view", theme: "light" } });
+Cal.ns.demo("ui", { hideEventTypeDetails: false, layout: "month_view", theme: "light" });
+Cal.ns.demo("on", { action: "linkReady", callback: function () { var a = document.querySelector("#cal-demo .cal-attente"); if (a) a.hidden = true; } });
 </script>
 </body>
 </html>
