@@ -2075,33 +2075,45 @@ document.documentElement.classList.add("js");
     window.addEventListener("wheel", stop, { passive: true }); window.addEventListener("touchstart", stop, { passive: true }); window.addEventListener("keydown", stop);
     setTimeout(stop, 3100); aligner();
   }
-  /* Liens vers une section de la page (02/10) : toujours un défilement doux, jamais un saut.
-     Si la page a bougé pendant le défilement (images et carte du marché qui finissent de charger), un second défilement doux corrige l'arrivée.
-     Le recalage sec (caler) ne sert plus qu'à l'arrivée depuis une autre page sur /#prix (et /souscrire). */
-  function quandFini(fn) {
-    var fait = false, go = function () { if (fait) return; fait = true; window.removeEventListener("scrollend", go); fn(); };
-    if ("onscrollend" in window) window.addEventListener("scrollend", go);
-    setTimeout(go, 2500);
-  }
+  /* Liens vers une section de la page, et logo (02/10) : un défilement doux, le même pour tous, piloté ici plutôt que par le navigateur.
+     Le navigateur faisait parfois sauter la page sur le long trajet jusqu'au prix. Ici, chaque image du défilement recalcule
+     où se trouve la section : si la page bouge pendant le trajet (images, carte du marché), l'arrivée suit sans à-coup.
+     Le logo remonte tout en haut, bandeau compris. Une molette, un doigt ou une touche arrêtent le défilement en cours. */
   var trajet = 0;
-  function allerA(cible) {
-    var essais = 0, mode = reduced ? "auto" : "smooth", moi = ++trajet;
-    (function viser() {
-      cible.scrollIntoView({ block: "start", behavior: mode });
-      quandFini(function () {
-        if (moi !== trajet) return; /* un autre lien a été cliqué entre-temps */
-        var marge = parseFloat(getComputedStyle(cible).scrollMarginTop) || 0;
-        if (Math.abs(cible.getBoundingClientRect().top - marge) > 4 && ++essais < 3) viser();
-      });
-    })();
+  function arreter() { trajet++; }
+  ["wheel", "touchstart", "keydown"].forEach(function (ev) { window.addEventListener(ev, arreter, { passive: true }); });
+  function defiler(viser) {
+    var moi = ++trajet, y0 = window.scrollY, t0 = performance.now();
+    var max = function () { return document.documentElement.scrollHeight - window.innerHeight; };
+    var cible = function () { return Math.max(0, Math.min(max(), viser())); };
+    var duree = reduced ? 0 : Math.min(1100, 450 + Math.abs(cible() - y0) * 0.08);
+    (function pas(t) {
+      if (moi !== trajet) return;
+      var k = duree ? Math.min(1, ((t || performance.now()) - t0) / duree) : 1;
+      var e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+      window.scrollTo({ top: y0 + (cible() - y0) * e, behavior: "instant" });
+      if (k < 1) requestAnimationFrame(pas);
+    })(t0);
+  }
+  function versSection(el) {
+    return function () { return el.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(el).scrollMarginTop) || 0); };
   }
   document.querySelectorAll('a[href^="#"]:not([data-stripe])').forEach(function (a) {
-    var id = a.getAttribute("href").slice(1), cible = id && document.getElementById(id);
-    if (!cible || ["market", "signaux", "pipeline", "prix", "comparatif", "faq"].indexOf(id) < 0) return;
+    var id = a.getAttribute("href").slice(1);
+    if (id === "top") {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (history.pushState) history.pushState(null, "", location.pathname + location.search);
+        defiler(function () { return 0; });
+      });
+      return;
+    }
+    var el = id && document.getElementById(id);
+    if (!el || ["market", "signaux", "pipeline", "prix", "comparatif", "faq"].indexOf(id) < 0) return;
     a.addEventListener("click", function (e) {
       e.preventDefault();
       if (history.pushState) history.pushState(null, "", "#" + id);
-      allerA(cible);
+      defiler(versSection(el));
     });
   });
   if (location.hash === "#prix") caler();
