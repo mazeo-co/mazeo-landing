@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Réserver une démo | mazeo</title>
+<meta name="description" content="Réservez votre démo de mazeo : 30 minutes, en visio. Choisissez le créneau qui vous arrange.">
+<link rel="canonical" href="https://www.mazeo.co/demo">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/demo">
+<link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/demo">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/en/demo">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mazeo">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.mazeo.co/demo">
+<meta property="og:title" content="Réserver une démo de mazeo">
+<meta property="og:description" content="Réservez votre démo de mazeo : 30 minutes, en visio. Choisissez le créneau qui vous arrange.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "mazeo", "item": "https://www.mazeo.co/"}, {"@type": "ListItem", "position": 2, "name": "Démo", "item": "https://www.mazeo.co/demo"}]}</script>
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+/* Page Ressources de mazeo.co, d'après la maquette validée le 29/09/2026.
+   Les jetons, la barre, les boutons et le pied de page sont ceux de mazeo.co (index.html).
+   Chaque carte garde l'identité de son outil : le surligneur jaune des rencontres, le plateau de nuit du quiz.
+   Une seule apparence, claire, comme mazeo.co : toutes les couleurs sont posées ici. */
+:root {
+  color-scheme: light;
+  --ink: #0A0A0A; --slate: #3A4250; --body: #4A5262; --meta: #6B7280;
+  --line: #E5E7EB; --line-strong: #DDE1E9; --soft: #F8F9FA; --ground: #FFFFFF;
+  --blue: #007BFF; --blue-deep: #0066D6; --blue-text: #0062CC; --blue-tint: #E6F2FF;
+  --green: #00EF8B; --green-text: #006B3F;
+  --yellow: #FFD23F; --yellow-soft: #FFF4C2;
+  --night: #06080C; --night-ink: #F5F7FB; --night-meta: #8A94A6;
+  --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --display: 'Bricolage Grotesque', var(--font);
+  --logo-font: 'Inter', var(--font);
+  --show: 'Big Shoulders Display', 'Arial Narrow', var(--font);
+  --r-btn: 9px; --container: 1280px; --gutter: 32px;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: 96px; }
+body { margin: 0; font-family: var(--font); font-size: 18px; line-height: 1.55; color: var(--body); background: var(--ground); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--blue-text); text-decoration: none; }
+h1, h2, h3 { margin: 0; color: var(--ink); font-family: var(--display); font-weight: 700; letter-spacing: -0.035em; text-wrap: balance; line-height: 1.02; }
+p { margin: 0; }
+button, input { font: inherit; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
+@media (max-width: 480px) { :root { --gutter: 20px; } }
+.eyebrow { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
+
+/* ---- Barre de mazeo.co, avec « Ressources » ---- */
+.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50; background: rgba(255,255,255,.94); backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid var(--line); }
+.nav-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.logo { font-family: var(--logo-font); font-weight: 800; font-size: 26px; letter-spacing: -0.5px; color: var(--ink); }
+.logo span { color: var(--green); }
+.nav-links { display: flex; align-items: center; gap: 32px; margin-right: auto; margin-left: 40px; }
+.nav-links a { color: var(--slate); font-weight: 600; font-size: 15px; }
+.nav-links a:hover { color: var(--ink); }
+.nav-links a[aria-current="page"] { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); padding-block: 6px; }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 12px 22px; border-radius: var(--r-btn); font-weight: 600; font-size: 15.5px; line-height: 1.2; border: 1px solid transparent; cursor: pointer; white-space: nowrap; transition: background-color .15s, border-color .15s; }
+.btn-primary { background: var(--blue); color: #fff; }
+.btn-primary:hover { background: var(--blue-deep); }
+.btn-ghost { background: #fff; color: var(--ink); border-color: var(--line-strong); }
+.btn-ghost:hover { border-color: #B9C0CB; }
+.btn-ink { background: var(--ink); color: #fff; }
+.btn-lg { padding: 16px 26px; font-size: 17px; }
+.btn svg { width: 18px; height: 18px; flex: none; transition: transform .18s; }
+/* Le menu déroulant « Ressources » : ouvert au clic, une phrase par ressource */
+.dd { position: relative; }
+.dd-btn { display: inline-flex; align-items: center; gap: 6px; background: none; border: 0; padding: 6px 0; color: var(--ink); font-weight: 600; font-size: 15px; cursor: pointer; box-shadow: inset 0 -2px 0 var(--ink); }
+.dd-btn svg { width: 14px; height: 14px; transition: transform .15s; }
+.dd-btn[aria-expanded="true"] svg { transform: rotate(180deg); }
+.dd-panel { position: absolute; top: calc(100% + 16px); left: -24px; width: 440px; background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 10px; box-shadow: 0 30px 60px -30px rgba(10,24,48,.35); display: grid; gap: 2px; }
+.dd-panel[hidden] { display: none; }
+.dd-item { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; padding: 10px 12px; border-radius: 10px; color: var(--ink); }
+.dd-item:hover { background: var(--soft); }
+.dd-item b { display: block; font-size: 15px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+.dd-item span.s { display: block; font-size: 14px; color: var(--meta); line-height: 1.4; margin-top: 2px; }
+.ico { width: 44px; height: 44px; border-radius: 10px; display: grid; place-items: center; font-weight: 900; }
+.ico-q { background: var(--night); color: var(--green); font-family: var(--show); font-size: 22px; }
+.ico-s { background: var(--yellow); color: var(--ink); font-family: var(--display); font-weight: 800; font-size: 20px; }
+.ico-m { background: var(--blue); color: #fff; font-family: var(--display); font-weight: 800; font-size: 17px; letter-spacing: -0.02em; }
+.dd-all { margin-top: 4px; padding: 12px 12px 8px; border-top: 1px solid var(--line); font-weight: 600; font-size: 14.5px; color: var(--blue-text); }
+@media (max-width: 960px) { .nav-links { display: none; } .nav-right .btn { padding: 9px 13px; font-size: 14px; } }
+@media (max-width: 420px) { .nav-login { display: none; } .logo { font-size: 24px; } }
+
+/* ---- Ouverture ---- */
+.intro { padding-block: 88px 56px; }
+.intro .eyebrow { margin-bottom: 22px; }
+.intro h1 { font-size: clamp(40px, 6.2vw, 88px); max-width: 1120px; }
+.intro h1 em { font-style: normal; color: var(--blue); }
+.intro .lead { margin-top: 26px; font-size: clamp(19px, 1.6vw, 22px); line-height: 1.5; color: var(--slate); max-width: 780px; }
+.intro .stamp-page { margin-top: 18px; font-size: 14px; color: var(--meta); }
+@media (max-width: 640px) { .intro { padding-block: 56px 36px; } }
+
+/* ---- Les ressources : une carte par ressource, dans une liste ; le titre porte le seul lien, étendu à la carte ---- */
+.tools { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; list-style: none; margin: 0; padding: 0; }
+.tools > li { display: flex; }
+.tool { position: relative; display: flex; flex-direction: column; width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; transition: border-color .15s, box-shadow .2s, transform .2s; }
+.tool:hover { border-color: var(--line-strong); box-shadow: 0 28px 56px -32px rgba(10,24,48,.32); transform: translateY(-3px); }
+.tool:hover .go svg { transform: translateX(3px); }
+.tool:focus-within { outline: 3px solid var(--blue); outline-offset: 3px; }
+.tool a:focus-visible { outline: none; }
+.visual { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--line); }
+.tool-body { display: flex; flex-direction: column; gap: 12px; flex: 1; padding: 28px 30px 30px; }
+.tool h2, .tool h3 { font-size: clamp(28px, 2.7vw, 38px); }
+.tool h2 a, .tool h3 a { color: var(--ink); }
+.tool h2 a::after, .tool h3 a::after { content: ""; position: absolute; inset: 0; z-index: 1; }
+.desc { font-size: 17px; line-height: 1.55; max-width: 54ch; text-wrap: pretty; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 4px 0 0; padding: 0; }
+.facts li { font-size: 14px; font-weight: 600; color: var(--slate); background: var(--soft); border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; font-variant-numeric: tabular-nums; }
+.tool-foot { margin-top: auto; padding-top: 14px; display: flex; align-items: center; justify-content: space-between; gap: 12px 16px; flex-wrap: wrap; }
+.go { pointer-events: none; }
+.stamp { font-size: 13.5px; color: var(--meta); }
+.section-tools { padding-bottom: 96px; }
+@media (max-width: 960px) { .tools { grid-template-columns: 1fr; } .section-tools { padding-bottom: 72px; } }
+@media (max-width: 480px) { .tool-body { padding: 22px 20px 24px; } }
+@media (prefers-reduced-motion: reduce) { .tool, .tool:hover { transform: none; transition: none; } .btn svg { transition: none; } }
+
+/* Les rencontres : le surligneur et les badges */
+.sl { display: flex; flex-direction: column; background: var(--soft); padding: 22px 26px 0; }
+.rl { display: flex; flex-direction: column; gap: 3px; align-self: flex-start; position: relative; z-index: 0; }
+.rl .l1 { font-family: var(--display); font-weight: 800; font-stretch: 85%; font-size: 27px; letter-spacing: -0.035em; line-height: .95; color: var(--ink); white-space: nowrap; }
+.rl .l2 { font-weight: 700; font-size: 11px; letter-spacing: .07em; text-transform: uppercase; color: var(--ink); line-height: 1; padding-left: 1px; }
+.rl .by { margin-top: 5px; font-size: 12px; color: var(--meta); display: flex; align-items: baseline; gap: 5px; }
+.rl .by b { font-family: var(--logo-font); font-weight: 800; font-size: 13.5px; color: var(--ink); letter-spacing: -0.2px; }
+.rl .by b span, .qz .by b span { color: var(--green); }
+.mk { position: relative; display: inline-block; isolation: isolate; }
+.mk svg { position: absolute; left: -5px; top: 36%; width: calc(100% + 10px); height: 62%; z-index: -1; }
+.sl img { flex: 1; min-height: 0; width: 100%; object-fit: contain; object-position: 70% 100%; mix-blend-mode: multiply; margin-top: -26px; }
+
+/* Le quiz : son plateau de nuit */
+.qz { display: grid; place-content: center; justify-items: center; gap: 16px; padding: 24px; text-align: center; color: var(--night-ink); border-bottom-color: #151B27;
+  background: radial-gradient(ellipse 85% 65% at 50% -8%, rgba(43,143,255,.30), transparent 62%), radial-gradient(ellipse 55% 45% at 50% 112%, rgba(0,239,139,.12), transparent 70%), var(--night); }
+.qz .by { font-size: 14px; color: var(--night-meta); display: flex; align-items: baseline; gap: 7px; }
+.qz .by b { font-family: var(--logo-font); font-weight: 800; font-size: 18px; color: #fff; letter-spacing: -0.3px; }
+.qz .t { font-family: var(--show); font-weight: 900; text-transform: uppercase; font-size: clamp(44px, 5.2vw, 78px); line-height: .9; letter-spacing: .005em; color: var(--night-ink); }
+.qz .t span { color: var(--green); }
+.ladder { display: flex; gap: 6px; margin-top: 4px; }
+.ladder i { width: 24px; height: 6px; border-radius: 3px; background: #1F2635; }
+.ladder i.ok { background: var(--green); }
+.ladder i.now { background: transparent; box-shadow: inset 0 0 0 1.5px #F5F7FB; }
+.qz .sub { font-size: 14px; font-weight: 600; color: #7DBBFF; }
+.qz .sub span { color: var(--night-meta); font-weight: 500; }
+
+/* ---- Vos 15 premiers matchs : la bande bleue de mazeo.co ---- */
+.offer { position: relative; overflow: hidden; background: var(--blue); color: #fff; padding-block: 96px; }
+.offer::before { content: ""; position: absolute; inset: 0; background: radial-gradient(50% 60% at 100% 0%, rgba(255,255,255,.16), rgba(255,255,255,0) 70%); pointer-events: none; }
+.offer .container { position: relative; display: grid; grid-template-columns: 7fr 5fr; gap: 64px; align-items: center; }
+.offer .eyebrow { color: rgba(255,255,255,.8); margin-bottom: 20px; }
+.offer h2 { color: #fff; font-size: clamp(36px, 4.6vw, 64px); }
+.offer .lead { margin-top: 20px; font-size: clamp(18px, 1.5vw, 21px); line-height: 1.5; color: #fff; max-width: 640px; }
+.offer .tag-note { background: #fff; }
+.signup { margin-top: 32px; display: grid; gap: 12px; max-width: 620px; }
+.fields { display: flex; gap: 6px; padding: 6px; border-radius: 14px; background: #fff; }
+.fields input { flex: 1 1 0; min-width: 0; border: 0; background: transparent; padding: 14px 16px; font-size: 16.5px; color: var(--ink); border-radius: 9px; }
+.fields input::placeholder { color: var(--meta); }
+.fields input + input { border-left: 1px solid var(--line-strong); }
+.fields input:focus { background: var(--soft); outline: none; }
+.consent { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; color: #fff; cursor: pointer; }
+.consent input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--ink); flex: none; }
+.legal { font-size: 13px; line-height: 1.5; color: rgba(255,255,255,.85); }
+.msg { font-size: 14.5px; font-weight: 600; }
+.msg:empty { display: none; }
+.offer .msg { color: #fff; }
+@media (max-width: 960px) { .offer { padding-block: 72px; } .offer .container { grid-template-columns: 1fr; gap: 44px; } }
+@media (max-width: 640px) { .fields { flex-direction: column; padding: 8px; } .fields input + input { border-left: 0; border-top: 1px solid var(--line-strong); } .fields .btn { width: 100%; } }
+
+/* L'exemple de page des 15 matchs */
+.sample { background: #fff; color: var(--body); border-radius: 18px; padding: 22px 24px 24px; box-shadow: 0 34px 70px -34px rgba(0,30,80,.55); }
+.sample-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.sample-head b { font-family: var(--display); font-size: 20px; color: var(--ink); letter-spacing: -0.02em; }
+.sample-head span { font-size: 11.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--meta); }
+.sample .for { margin-top: 10px; font-size: 13.5px; color: var(--meta); }
+.sample .for b { color: var(--ink); font-weight: 600; }
+.rows { list-style: none; margin: 14px 0 0; padding: 0; display: grid; gap: 14px; }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: baseline; }
+.row .who { font-size: 15.5px; font-weight: 600; color: var(--ink); }
+.row .pct { font-family: var(--display); font-weight: 700; font-size: 18px; color: var(--blue-text); font-variant-numeric: tabular-nums; }
+.row .bar { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--blue-tint); overflow: hidden; }
+.row .bar i { display: block; height: 100%; border-radius: 3px; background: var(--blue); }
+.row .why { grid-column: 1 / -1; font-size: 13.5px; color: var(--meta); }
+.sample .more { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: 12px; font-size: 14px; color: var(--meta); }
+.sample .more .btn { padding: 9px 14px; font-size: 14px; pointer-events: none; }
+
+/* ---- Être prévenu : la bande grise de mazeo.co ---- */
+.alert { background: var(--soft); border-block: 1px solid var(--line); padding-block: 56px; }
+.alert .container { display: grid; grid-template-columns: 5fr 6fr; gap: 24px 56px; align-items: center; }
+.alert h2 { font-size: clamp(26px, 2.6vw, 36px); }
+.alert p.sub { margin-top: 10px; font-size: 17px; color: var(--slate); }
+.alert .signup { margin-top: 0; }
+.alert .fields { border: 1px solid var(--line-strong); }
+.alert .legal { color: var(--meta); }
+.alert .msg { color: var(--green-text); }
+@media (max-width: 960px) { .alert .container { grid-template-columns: 1fr; } }
+
+/* ---- Fin : mazeo ---- */
+.closing { padding-block: 112px; text-align: center; }
+.closing h2 { font-size: clamp(34px, 4.6vw, 64px); max-width: 980px; margin-inline: auto; }
+.closing .lead { margin: 20px auto 0; max-width: 720px; font-size: clamp(18px, 1.5vw, 21px); color: var(--slate); }
+.closing .ctas { margin-top: 34px; display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+@media (max-width: 640px) { .closing { padding-block: 80px; } }
+
+/* ---- Pied de page de mazeo.co ---- */
+footer { border-top: 1px solid var(--line); padding-block: 44px; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 24px 32px; font-size: 14px; color: var(--meta); }
+.foot .brand { display: flex; flex-direction: column; gap: 8px; }
+.foot .brand .logo { font-size: 22px; }
+.foot .brand > span { color: var(--slate); }
+.foot nav { display: flex; flex-wrap: wrap; gap: 10px 22px; padding-top: 6px; }
+.foot nav a { color: var(--slate); }
+.foot nav a[aria-current="page"] { color: var(--ink); font-weight: 600; }
+
+.alert .msg.err { color: #B91C1C; }
+.nav-links a.nav-current { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); padding: 6px 0; }
+
+/* Page de réservation : le calendrier Cal.com dans une carte, sous le titre. */
+.section-demo { padding-bottom: 96px; }
+.cal-carte { position: relative; min-height: 640px; border: 1px solid var(--line, rgba(15,23,38,.12)); border-radius: 16px; overflow: hidden; background: #fff; }
+.cal-carte .cal-attente { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; color: var(--meta); font-size: 15px; }
+.cal-carte .cal-attente[hidden] { display: none; }
+.cal-carte cal-inline, .cal-carte iframe { position: relative; display: block; width: 100%; }
+.cal-secours { margin-top: 16px; font-size: 14px; color: var(--meta); }
+.cal-secours a { color: inherit; text-decoration: underline; }
+@media (max-width: 720px) { .section-demo { padding-bottom: 72px; } .cal-carte { min-height: 560px; } }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="/" aria-label="mazeo, accueil">mazeo<span>.</span></a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="/#market">Le marché</a>
+      <a href="/#signaux">Les signaux</a>
+      <a href="/#pipeline">Le Pipeline</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/ressources">Ressources</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn btn-ghost nav-login" href="https://app.mazeo.co/?hl=fr">Se connecter</a>
+      <a class="btn btn-primary" href="/#acces">Demander un accès</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="intro container">
+    <span class="eyebrow">Démo</span>
+    <h1>Réservez votre démo de <em>mazeo.</em></h1>
+    <p class="stamp-page">30 minutes, en visio. Choisissez le créneau qui vous arrange.</p>
+  </section>
+
+  <section class="container section-demo" aria-label="Choisir un créneau">
+    <div class="cal-carte" id="cal-demo"><p class="cal-attente">Le calendrier se charge…</p></div>
+    <p class="cal-secours">Le calendrier ne s’affiche pas ? <a href="https://cal.com/romain-barbet-mazeo/demo-mazeo" rel="noopener">Ouvrez-le dans une nouvelle page</a>. La prise de rendez-vous passe par Cal.com. <a href="/privacy.html">Confidentialité</a>.</p>
+    <noscript><p class="cal-secours"><a href="https://cal.com/romain-barbet-mazeo/demo-mazeo">https://cal.com/romain-barbet-mazeo/demo-mazeo</a></p></noscript>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container foot">
+    <div class="brand">
+      <a class="logo" href="/" aria-label="mazeo, accueil">mazeo<span>.</span></a>
+      <span>Le seul outil de prospection dédié au market research.</span>
+    </div>
+    <nav aria-label="Liens">
+      <a href="/ressources">Ressources</a>
+      <a href="https://app.mazeo.co/?hl=fr">Se connecter</a>
+      <a href="https://www.linkedin.com/company/mazeo-tech/" rel="noopener" target="_blank">LinkedIn</a>
+      <a href="/mentions-legales.html">Mentions légales</a>
+      <a href="/privacy.html">Confidentialité</a>
+      <a href="/terms.html">Conditions d'utilisation</a>
+      <a href="/conditions-de-vente">Conditions de vente</a>
+      <a href="/en/demo" hreflang="en" lang="en">English</a>
+    </nav>
+    <p>© 2026 mazeo</p>
+  </div>
+</footer>
+
+<script>
+/* Le calendrier de réservation (Cal.com), posé dans la page. Le reste du site ne charge rien de Cal.com. */
+(function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+Cal("init", "demo", { origin: "https://app.cal.com" });
+Cal.ns.demo("inline", { elementOrSelector: "#cal-demo", calLink: "romain-barbet-mazeo/demo-mazeo", config: { layout: "month_view", theme: "light" } });
+Cal.ns.demo("ui", { hideEventTypeDetails: false, layout: "month_view", theme: "light" });
+Cal.ns.demo("on", { action: "linkReady", callback: function () { var a = document.querySelector("#cal-demo .cal-attente"); if (a) a.hidden = true; } });
+</script>
+</body>
+</html>
