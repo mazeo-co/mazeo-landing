@@ -574,22 +574,23 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .px-qty dt { color: var(--slate); font-weight: 600; }
 .px-qty dd { margin: 0 0 0 auto; font-weight: 700; color: var(--ink); white-space: nowrap; }
 .px-rep { margin: 10px 0 0; font-size: 14.5px; line-height: 1.45; color: var(--meta); }
-/* Les fonctions (02/10) : les mêmes pour les deux formules. Pas de cadre (les cartes au-dessus et les recharges au-dessous en ont déjà un) : un titre, trois colonnes aérées, une icône par partie du produit. */
-.px-all { margin: 72px 0 0; }
+/* Les fonctions (02/10) : les mêmes pour les deux formules. Pas de cadre (les cartes au-dessus et les recharges au-dessous en ont déjà un) : un titre, trois colonnes aérées.
+   Les icônes sont celles de l’app, au trait et sans fond : loupe, éclair des signaux, poignée de main du Pipeline (mêmes tracés). */
+.px-all { margin: 104px 0 0; }
 .px-all-h { margin: 0; text-align: center; font-family: var(--display); font-weight: 700; font-size: clamp(24px, 2.3vw, 32px); letter-spacing: -0.03em; line-height: 1.15; color: var(--ink); }
-.px-cols { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 56px; }
-.px-part { display: flex; align-items: center; gap: 14px; }
-.px-part-ico { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--blue-tint); color: var(--blue-text); }
-.px-part-ico svg { width: 22px; height: 22px; }
-.px-part .name { margin: 0; font-family: var(--display); font-weight: 700; font-size: 21px; letter-spacing: -0.02em; line-height: 1.2; color: var(--ink); }
-.px-list { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 16px; }
-.px-list li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; font-size: 16.5px; line-height: 1.45; color: var(--slate); }
+.px-cols { margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 80px; }
+.px-part { display: flex; align-items: center; gap: 12px; }
+.px-part-ico { flex: none; display: grid; place-items: center; color: var(--ink); }
+.px-part-ico svg { width: 26px; height: 26px; }
+.px-part .name { margin: 0; font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; line-height: 1.2; color: var(--ink); }
+.px-list { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 20px; }
+.px-list li { display: grid; grid-template-columns: 20px 1fr; gap: 14px; font-size: 17px; line-height: 1.45; color: var(--slate); }
 .px-list svg { width: 20px; height: 20px; margin-top: 2px; color: var(--green-text, #006B3F); }
 /* Avant l’ouverture (02/10) : .si-avant ne se voit qu’avant le 15/10, .si-ouvert qu’après. L’interrupteur est la classe avant-ouverture du <body>. */
 .avant-ouverture .si-ouvert, body:not(.avant-ouverture) .si-avant { display: none !important; }
 .px-open { margin: 6px 0 0; font-size: 15px; font-weight: 600; color: var(--ink); }
 .px-join { margin: auto 0 0; padding-top: 16px; font-size: 14.5px; line-height: 1.45; color: var(--meta); }
-.px-topup { margin: 72px 0 0; background: var(--soft); border: 1px solid var(--line); border-radius: 20px; padding: 24px 28px; display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 16px 28px; align-items: center; }
+.px-topup { margin: 104px 0 0; background: var(--soft); border: 1px solid var(--line); border-radius: 20px; padding: 24px 28px; display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 16px 28px; align-items: center; }
 .px-topup-head b { display: block; font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: var(--ink); }
 .px-topup-head span { display: block; margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--slate); }
 .px-topup-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
@@ -645,7 +646,7 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .px-anim.fin .px-avec-foot > * { opacity: 1; transform: none; transition: opacity .4s ease .15s, transform .4s ease .15s; }
 @media (max-width: 960px) { .px-topup { grid-template-columns: 1fr; } }
 @media (max-width: 860px) { .px-cards, .px-topup-list { grid-template-columns: 1fr; } .px-cmp { margin-top: 56px; }
-  .px-cols { grid-template-columns: 1fr; row-gap: 32px; margin-top: 28px; } .px-all, .px-topup { margin-top: 48px; }
+  .px-cols { grid-template-columns: 1fr; row-gap: 32px; margin-top: 28px; } .px-all, .px-topup { margin-top: 56px; }
   .px-duel { grid-template-columns: 1fr; grid-template-rows: none; row-gap: 14px; } .px-sans, .px-avec { grid-row: auto; display: block; }
   .px-stack li, .px-yes li { height: auto; padding: 10px 0; } .px-yes li { padding: 8px 0; border-top: 0; } .px-yes { padding-bottom: 6px; } }
 @media (max-width: 640px) { .px { padding-block: 32px 72px; } .px-seg { display: flex; width: 100%; } .px-seg button { flex: 1; justify-content: center; padding: 9px 10px; font-size: 13.5px; white-space: normal; text-align: center; flex-direction: column; align-items: center; gap: 0; }
@@ -1027,7 +1028,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         <h3 class="px-all-h" data-t="px.inc">Compris dans les deux formules</h3>
         <div class="px-cols">
           <div class="px-col">
-            <div class="px-part"><span class="px-part-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.8"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.8"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.8"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.8"/></svg></span><h4 class="name" data-t="mk.name">Le marché</h4></div>
+            <div class="px-part"><span class="px-part-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span><h4 class="name" data-t="mk.name">Le marché</h4></div>
             <ul class="px-list">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f1">1&nbsp;300+ entreprises du market research</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f2">13&nbsp;000+ contacts, email et portable en un clic</span></li>
@@ -1035,14 +1036,14 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             </ul>
           </div>
           <div class="px-col">
-            <div class="px-part"><span class="px-part-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5L4.5 13.5h6.5l-1 8 8.5-11h-6.5l1-8z"/></svg></span><h4 class="name" data-t="sg.eyebrow">Les signaux</h4></div>
+            <div class="px-part"><span class="px-part-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span><h4 class="name" data-t="sg.eyebrow">Les signaux</h4></div>
             <ul class="px-list">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f4">10 types de signaux business</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f5">Alertes signaux sur les entreprises et contacts que vous suivez</span></li>
             </ul>
           </div>
           <div class="px-col">
-            <div class="px-part"><span class="px-part-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 2.5L10.5 13.5"/><path d="M21.5 2.5l-7 19-4-8-8-4 19-7z"/></svg></span><h4 class="name" data-t="pl.eyebrow">Le Pipeline</h4></div>
+            <div class="px-part"><span class="px-part-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></span><h4 class="name" data-t="pl.eyebrow">Le Pipeline</h4></div>
             <ul class="px-list">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f6">Séquences email et LinkedIn, du premier message au premier rendez-vous</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f7">Rédacteur de messages personnalisés</span></li>
