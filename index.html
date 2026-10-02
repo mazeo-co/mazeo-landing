@@ -574,24 +574,22 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .px-qty dt { color: var(--slate); font-weight: 600; }
 .px-qty dd { margin: 0 0 0 auto; font-weight: 700; color: var(--ink); white-space: nowrap; }
 .px-rep { margin: 10px 0 0; font-size: 14.5px; line-height: 1.45; color: var(--meta); }
-/* Les fonctions (02/10) : les mêmes pour les deux formules, rangées sous les trois parties du produit, avec les repères numérotés de la page. */
-.px-all { margin: 24px 0 0; background: linear-gradient(180deg, #F3F8FF 0%, #fff 70%); border: 1px solid #D9E7FA; border-radius: 22px; padding: 30px 34px 32px; }
-.px-all-h { margin: 0; text-align: center; font-family: var(--display); font-weight: 700; font-size: clamp(22px, 2vw, 28px); letter-spacing: -0.025em; line-height: 1.15; color: var(--ink); }
-.px-cols { margin-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.px-col { padding: 0 28px; border-left: 1px solid #D9E7FA; }
-.px-col:first-child { padding-left: 0; border-left: 0; } .px-col:last-child { padding-right: 0; }
-.px-part { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); text-decoration: none; }
-.px-part:hover { text-decoration: none; } .px-part:hover .name { color: var(--blue-text); }
-.px-part .n { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--ink); color: #fff; font-family: var(--display); font-size: 16px; font-weight: 700; }
-.px-part .name { font-size: 14px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-.px-list { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 13px; }
-.px-list li { display: grid; grid-template-columns: 18px 1fr; gap: 12px; font-size: 16px; font-weight: 500; line-height: 1.4; color: var(--ink); }
-.px-list svg { width: 18px; height: 18px; margin-top: 2px; color: var(--green-text, #006B3F); }
+/* Les fonctions (02/10) : les mêmes pour les deux formules. Pas de cadre (les cartes au-dessus et les recharges au-dessous en ont déjà un) : un titre, trois colonnes aérées, une icône par partie du produit. */
+.px-all { margin: 72px 0 0; }
+.px-all-h { margin: 0; text-align: center; font-family: var(--display); font-weight: 700; font-size: clamp(24px, 2.3vw, 32px); letter-spacing: -0.03em; line-height: 1.15; color: var(--ink); }
+.px-cols { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 56px; }
+.px-part { display: flex; align-items: center; gap: 14px; }
+.px-part-ico { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--blue-tint); color: var(--blue-text); }
+.px-part-ico svg { width: 22px; height: 22px; }
+.px-part .name { margin: 0; font-family: var(--display); font-weight: 700; font-size: 21px; letter-spacing: -0.02em; line-height: 1.2; color: var(--ink); }
+.px-list { list-style: none; margin: 22px 0 0; padding: 0; display: grid; gap: 16px; }
+.px-list li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; font-size: 16.5px; line-height: 1.45; color: var(--slate); }
+.px-list svg { width: 20px; height: 20px; margin-top: 2px; color: var(--green-text, #006B3F); }
 /* Avant l’ouverture (02/10) : .si-avant ne se voit qu’avant le 15/10, .si-ouvert qu’après. L’interrupteur est la classe avant-ouverture du <body>. */
 .avant-ouverture .si-ouvert, body:not(.avant-ouverture) .si-avant { display: none !important; }
 .px-open { margin: 6px 0 0; font-size: 15px; font-weight: 600; color: var(--ink); }
 .px-join { margin: auto 0 0; padding-top: 16px; font-size: 14.5px; line-height: 1.45; color: var(--meta); }
-.px-topup { margin: 24px 0 0; background: var(--soft); border: 1px solid var(--line); border-radius: 20px; padding: 24px 28px; display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 16px 28px; align-items: center; }
+.px-topup { margin: 72px 0 0; background: var(--soft); border: 1px solid var(--line); border-radius: 20px; padding: 24px 28px; display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 16px 28px; align-items: center; }
 .px-topup-head b { display: block; font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: var(--ink); }
 .px-topup-head span { display: block; margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--slate); }
 .px-topup-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
@@ -608,7 +606,7 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
    Les lignes des deux panneaux sont à la même hauteur (subgrid) : chaque outil a sa coche en face.
    Les hauteurs suivent celle de l’écran (unités vh) : aéré sur un 13 pouces (environ 715 px de haut), serré sur un écran plus bas ; le titre, les deux panneaux et le bouton se voient sans défiler.
    Animation à l’entrée dans l’écran (classe px-anim, posée par le script). */
-.px-duel { margin: clamp(12px, 3vh, 26px) auto 0; max-width: 1120px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 20px; }
+.px-duel { margin: clamp(12px, 3vh, 26px) auto 0; max-width: 1140px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 36px; }
 .px-sans, .px-avec { grid-row: span 3; display: grid; grid-template-rows: subgrid; border-radius: 22px; padding: clamp(14px, calc(6vh - 20px), 28px) clamp(24px, 2.4vw, 34px); }
 .px-sans { background: #fff; border: 1px solid var(--line-strong); }
 .px-avec { position: relative; overflow: hidden; background: radial-gradient(70% 70% at 0% 100%, rgba(0,123,255,.42), rgba(0,123,255,0) 70%), radial-gradient(50% 50% at 100% 0%, rgba(0,123,255,.16), rgba(0,123,255,0) 70%), var(--ink); color: #fff; box-shadow: 0 26px 52px -32px rgba(10,24,48,.6); }
@@ -647,11 +645,11 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .px-anim.fin .px-avec-foot > * { opacity: 1; transform: none; transition: opacity .4s ease .15s, transform .4s ease .15s; }
 @media (max-width: 960px) { .px-topup { grid-template-columns: 1fr; } }
 @media (max-width: 860px) { .px-cards, .px-topup-list { grid-template-columns: 1fr; } .px-cmp { margin-top: 56px; }
-  .px-cols { grid-template-columns: 1fr; row-gap: 24px; } .px-col { padding: 0; border-left: 0; }
+  .px-cols { grid-template-columns: 1fr; row-gap: 32px; margin-top: 28px; } .px-all, .px-topup { margin-top: 48px; }
   .px-duel { grid-template-columns: 1fr; grid-template-rows: none; row-gap: 14px; } .px-sans, .px-avec { grid-row: auto; display: block; }
   .px-stack li, .px-yes li { height: auto; padding: 10px 0; } .px-yes li { padding: 8px 0; border-top: 0; } .px-yes { padding-bottom: 6px; } }
 @media (max-width: 640px) { .px { padding-block: 32px 72px; } .px-seg { display: flex; width: 100%; } .px-seg button { flex: 1; justify-content: center; padding: 9px 10px; font-size: 13.5px; white-space: normal; text-align: center; flex-direction: column; align-items: center; gap: 0; }
-  .px-card, .px-sans, .px-avec, .px-all { padding: 22px 18px; } .px-cta .btn { flex: 1 1 100%; } }
+  .px-card, .px-sans, .px-avec { padding: 22px 18px; } .px-cta .btn { flex: 1 1 100%; } }
 .final { padding-block: 120px 100px; text-align: center; }
 .final .title { font-size: clamp(38px, 5.6vw, 84px); max-width: 1000px; margin-inline: auto; }
 .final .title em { font-style: normal; color: var(--blue); }
@@ -999,7 +997,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
               <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><dt data-t="px.q.mail">Emails professionnels</dt><dd data-t="px.q.e120">120 par mois</dd></div>
               <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18h2"/></svg><dt data-t="px.q.mob">Numéros de mobile</dt><dd data-t="px.q.m40">40 par mois</dd></div>
             </dl>
-            <p class="px-rep" data-t="px.q.rep">Ce qu’il vous reste à la fin du mois s’ajoute au mois suivant. Exemple&nbsp;: il vous reste 30 emails, vous en avez 150 le mois d’après.</p>
+            <p class="px-rep" data-t="px.q.rep">Ce qu’il vous reste à la fin du mois s’ajoute au mois suivant.</p>
             <p class="px-join si-ouvert" data-t="px.join">Votre entreprise est déjà cliente de mazeo&nbsp;? Souscrivez votre accès ici&nbsp;: vous rejoindrez votre équipe dans l’app.</p>
           </div>
         </li>
@@ -1020,7 +1018,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
               <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><dt data-t="px.q.mail">Emails professionnels</dt><dd data-t="px.q.e60">60 par mois</dd></div>
               <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18h2"/></svg><dt data-t="px.q.mob">Numéros de mobile</dt><dd data-t="px.q.m20">20 par mois</dd></div>
             </dl>
-            <p class="px-rep" data-t="px.q.rep2">Ce qu’il vous reste à la fin du mois s’ajoute au mois suivant. Exemple&nbsp;: il vous reste 30 emails, vous en avez 90 le mois d’après.</p>
+            <p class="px-rep" data-t="px.q.rep">Ce qu’il vous reste à la fin du mois s’ajoute au mois suivant.</p>
           </div>
         </li>
       </ul>
@@ -1029,7 +1027,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         <h3 class="px-all-h" data-t="px.inc">Compris dans les deux formules</h3>
         <div class="px-cols">
           <div class="px-col">
-            <a class="px-part" href="#market"><span class="n">1</span><span class="name" data-t="mk.name">Le marché</span></a>
+            <div class="px-part"><span class="px-part-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7.5" height="7.5" rx="1.8"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.8"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.8"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.8"/></svg></span><h4 class="name" data-t="mk.name">Le marché</h4></div>
             <ul class="px-list">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f1">1&nbsp;300+ entreprises du market research</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f2">13&nbsp;000+ contacts, email et portable en un clic</span></li>
@@ -1037,14 +1035,14 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             </ul>
           </div>
           <div class="px-col">
-            <a class="px-part" href="#signaux"><span class="n">2</span><span class="name" data-t="sg.eyebrow">Les signaux</span></a>
+            <div class="px-part"><span class="px-part-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2.5L4.5 13.5h6.5l-1 8 8.5-11h-6.5l1-8z"/></svg></span><h4 class="name" data-t="sg.eyebrow">Les signaux</h4></div>
             <ul class="px-list">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f4">10 types de signaux business</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f5">Alertes signaux sur les entreprises et contacts que vous suivez</span></li>
             </ul>
           </div>
           <div class="px-col">
-            <a class="px-part" href="#pipeline"><span class="n">3</span><span class="name" data-t="pl.eyebrow">Le Pipeline</span></a>
+            <div class="px-part"><span class="px-part-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 2.5L10.5 13.5"/><path d="M21.5 2.5l-7 19-4-8-8-4 19-7z"/></svg></span><h4 class="name" data-t="pl.eyebrow">Le Pipeline</h4></div>
             <ul class="px-list">
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f6">Séquences email et LinkedIn, du premier message au premier rendez-vous</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f7">Rédacteur de messages personnalisés</span></li>
@@ -1211,7 +1209,7 @@ document.documentElement.classList.add("js");
     "nav.res": "Resources", "rs.eyebrow": "Resources", "rs.h2": "Free resources for the industry.", "rs.all": "All resources", "foot.res": "Resources",
     "rs.qBy": "presented by", "rs.qShow": "The Great Market<br><span>Research</span> Quiz", "rs.qT": "The Great Market Research Quiz", "rs.qD": "Ten questions, three minutes. Your score against the industry.",
     "rs.sL1a": "market research ", "rs.sL1b": "events", "rs.sL2": "Europe &amp; North America", "rs.sT": "Market research events", "rs.sD": "43 trade shows and conferences: dates, prices, audience.",
-    "nav.price": "Pricing", "px.eyebrow": "Pricing", "px.h2": "The whole industry. One tool. <em>One price.</em>", "px.t.year": "12-month commitment", "px.t.gain": "−17%", "px.t.month": "Monthly, no commitment", "px.ent.lbl": "Companies", "px.ent.who": "One seat per person, no minimum.", "px.ent.unit": "excl. VAT per person per month", "px.ent.ys": "12-month commitment, paid monthly or in one go.", "px.fre.lbl": "Freelancers", "px.fre.who": "One seat, for freelancers.", "px.fre.unit": "excl. VAT per month", "px.fre.ys": "12-month commitment, paid monthly or in one go.", "px.ms": "No commitment. Stop whenever you want.", "px.open": "Subscriptions open on October 15.", "px.demo": "Book a demo", "px.btn": "Subscribe", "px.btn2": "Subscribe", "px.inc": "Included in both plans", "px.q.mail": "Work emails", "px.q.mob": "Mobile numbers", "px.q.e120": "120 per month", "px.q.m40": "40 per month", "px.q.e60": "60 per month", "px.q.m20": "20 per month", "px.q.rep": "What you have left at the end of the month is added to the next month. Example: 30 emails left, and you have 150 the month after.", "px.q.rep2": "What you have left at the end of the month is added to the next month. Example: 30 emails left, and you have 90 the month after.", "px.f1": "1,300+ market research companies", "px.f2": "13,000+ contacts, email and mobile in one click", "px.f3": "Companies recommended for your offer", "px.f4": "10 types of business signals", "px.f5": "Signal alerts on the companies and contacts you follow", "px.f6": "Email and LinkedIn sequences, from first message to first meeting", "px.f7": "Personalised message writer", "px.f8": "LinkedIn and email connectors: you send from mazeo", "px.join": "Is your company already a mazeo customer? Subscribe to your seat here: you will join your team in the app.", "px.rch": "Need more contact details?", "px.rch.s": "Buy extra emails and mobile numbers. They stay available until you use them.", "px.rch1": "100 extra work emails revealed", "px.rch2": "20 extra mobile numbers revealed", "px.ht": "excl. VAT", "px.ht2": "excl. VAT", "px.c.h": "mazeo replaces four tools. And costs less.", "px.c.lbl1": "Without mazeo: 4 subscriptions per person", "px.c.r1": "Finding the right contacts", "px.c.r2": "Work emails and mobile numbers", "px.c.r3": "Email and LinkedIn sequences", "px.c.r4": "Monitoring and signals", "px.c.rodz": "Rodz, Starter pack", "px.c.tot": "Total without mazeo", "px.c.tots": "and 4 tools to learn and connect", "px.c.with": "With mazeo: one tool, dedicated to market research", "px.c.wy": "With a 12-month commitment. €299 without commitment.", "px.c.wm": "No commitment. €249 with a 12-month commitment.", "px.cta1": "Choose my plan", "px.cta2": "Book a demo", "px.c.src": "Public prices excl. VAT, per person per month, on monthly billing, taken from the vendors’ websites on 27 and 30 September 2026. Rodz: credit pack without subscription, entry price.", "px.a121": "€121", "px.a139": "€139", "px.a149": "€149", "px.a179": "€179", "px.a249": "€249", "px.a299": "€299", "px.a369": "€369", "px.a50": "€50", "px.a59": "€59", "px.a15": "€15", "px.a249c": "€249", "px.a299c": "€299", "px.a15b": "€15", "px.a299s": "€299", "px.a179s": "€179", "px.c.sy": "€120 less per person, every month", "px.c.sm": "€70 less per person, every month",
+    "nav.price": "Pricing", "px.eyebrow": "Pricing", "px.h2": "The whole industry. One tool. <em>One price.</em>", "px.t.year": "12-month commitment", "px.t.gain": "−17%", "px.t.month": "Monthly, no commitment", "px.ent.lbl": "Companies", "px.ent.who": "One seat per person, no minimum.", "px.ent.unit": "excl. VAT per person per month", "px.ent.ys": "12-month commitment, paid monthly or in one go.", "px.fre.lbl": "Freelancers", "px.fre.who": "One seat, for freelancers.", "px.fre.unit": "excl. VAT per month", "px.fre.ys": "12-month commitment, paid monthly or in one go.", "px.ms": "No commitment. Stop whenever you want.", "px.open": "Subscriptions open on October 15.", "px.demo": "Book a demo", "px.btn": "Subscribe", "px.btn2": "Subscribe", "px.inc": "Included in both plans", "px.q.mail": "Work emails", "px.q.mob": "Mobile numbers", "px.q.e120": "120 per month", "px.q.m40": "40 per month", "px.q.e60": "60 per month", "px.q.m20": "20 per month", "px.q.rep": "What you have left at the end of the month is added to the next month.", "px.f1": "1,300+ market research companies", "px.f2": "13,000+ contacts, email and mobile in one click", "px.f3": "Companies recommended for your offer", "px.f4": "10 types of business signals", "px.f5": "Signal alerts on the companies and contacts you follow", "px.f6": "Email and LinkedIn sequences, from first message to first meeting", "px.f7": "Personalised message writer", "px.f8": "LinkedIn and email connectors: you send from mazeo", "px.join": "Is your company already a mazeo customer? Subscribe to your seat here: you will join your team in the app.", "px.rch": "Need more contact details?", "px.rch.s": "Buy extra emails and mobile numbers. They stay available until you use them.", "px.rch1": "100 extra work emails revealed", "px.rch2": "20 extra mobile numbers revealed", "px.ht": "excl. VAT", "px.ht2": "excl. VAT", "px.c.h": "mazeo replaces four tools. And costs less.", "px.c.lbl1": "Without mazeo: 4 subscriptions per person", "px.c.r1": "Finding the right contacts", "px.c.r2": "Work emails and mobile numbers", "px.c.r3": "Email and LinkedIn sequences", "px.c.r4": "Monitoring and signals", "px.c.rodz": "Rodz, Starter pack", "px.c.tot": "Total without mazeo", "px.c.tots": "and 4 tools to learn and connect", "px.c.with": "With mazeo: one tool, dedicated to market research", "px.c.wy": "With a 12-month commitment. €299 without commitment.", "px.c.wm": "No commitment. €249 with a 12-month commitment.", "px.cta1": "Choose my plan", "px.cta2": "Book a demo", "px.c.src": "Public prices excl. VAT, per person per month, on monthly billing, taken from the vendors’ websites on 27 and 30 September 2026. Rodz: credit pack without subscription, entry price.", "px.a121": "€121", "px.a139": "€139", "px.a149": "€149", "px.a179": "€179", "px.a249": "€249", "px.a299": "€299", "px.a369": "€369", "px.a50": "€50", "px.a59": "€59", "px.a15": "€15", "px.a249c": "€249", "px.a299c": "€299", "px.a15b": "€15", "px.a299s": "€299", "px.a179s": "€179", "px.c.sy": "€120 less per person, every month", "px.c.sm": "€70 less per person, every month",
     "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Book a demo",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
     "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "hero.playClose": "Close the video", "hero.play": "Discover mazeo on video", "nav.market": "The Market", "mk.name": "The Market",
