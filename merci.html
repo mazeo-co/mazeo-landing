@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bienvenue sur mazeo</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.mazeo.co/merci">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@800&text=mazeo.&display=swap">
+<style>
+/* Page de retour après un paiement Stripe (refaite le 01/10/2026 avec Romain). ?recharge : la variante après l'achat d'une recharge. */
+:root { --ink: #0A0A0A; --slate: #3A4250; --meta: #6B7280; --line: #E8EBF0; --soft: #F6F8FB; --blue: #007BFF; --blue-deep: #0066D6; --green: #00EF8B; --green-ink: #008A50;
+  --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; --display: 'Bricolage Grotesque', var(--font); }
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; font-family: var(--font); color: var(--slate); background: var(--soft); -webkit-font-smoothing: antialiased; }
+header { background: #fff; border-bottom: 1px solid var(--line); }
+.bar { max-width: 1080px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; }
+.logo { font-family: 'Inter', var(--font); font-weight: 800; font-size: 26px; letter-spacing: -0.5px; color: var(--ink); text-decoration: none; }
+.logo span { color: var(--green); }
+main { flex: 1; display: flex; justify-content: center; padding: 56px 16px 72px; }
+.card { width: 100%; max-width: 640px; background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 48px 48px 40px; box-shadow: 0 1px 2px rgba(10,10,10,.04), 0 12px 40px rgba(10,10,10,.06); }
+.check { width: 56px; height: 56px; border-radius: 50%; background: rgba(0,239,139,.14); display: grid; place-items: center; margin-bottom: 24px; }
+.check svg { width: 28px; height: 28px; }
+h1 { margin: 0 0 12px; font-family: var(--display); font-weight: 800; font-size: clamp(30px, 5vw, 40px); letter-spacing: -0.03em; line-height: 1.08; color: var(--ink); }
+.lead { margin: 0; font-size: 18px; line-height: 1.55; color: var(--slate); }
+.lead b { color: var(--ink); font-weight: 600; }
+.date { display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; padding: 8px 14px; border-radius: 999px; background: #EEF5FF; color: var(--blue-deep); font-weight: 600; font-size: 15px; }
+h2 { margin: 36px 0 4px; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--meta); }
+ol { margin: 0; padding: 0; list-style: none; counter-reset: s; }
+ol li { display: grid; grid-template-columns: 32px 1fr; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); counter-increment: s; }
+ol li:last-child { border-bottom: 0; padding-bottom: 4px; }
+ol li::before { content: counter(s); width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: #fff; font-family: var(--display); font-weight: 700; font-size: 15px; }
+ol li strong { display: block; margin: 4px 0 4px; font-size: 16.5px; font-weight: 600; color: var(--ink); }
+ol li p { margin: 0; font-size: 15.5px; line-height: 1.55; }
+.ctas { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 13px 24px; border-radius: 10px; font-weight: 600; font-size: 15.5px; text-decoration: none; background: var(--blue); color: #fff; }
+.btn:hover { background: var(--blue-deep); }
+.foot { margin: 32px 0 0; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.6; color: var(--meta); }
+.foot a { color: var(--blue-deep); }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+@media (max-width: 560px) { main { padding: 24px 12px 48px; } .card { padding: 32px 22px 28px; border-radius: 16px; } .lead { font-size: 17px; } }
+</style>
+</head>
+<body>
+<header><div class="bar"><a class="logo" href="/" aria-label="mazeo">mazeo<span>.</span></a></div></header>
+<main>
+  <section class="card" id="abonnement">
+    <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#008A50" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h1>Merci et bienvenue sur mazeo&nbsp;!</h1>
+    <p class="lead">Votre abonnement est actif. Vous allez recevoir un e-mail pour accéder à mazeo.</p>
+    <h2>Pour bien démarrer</h2>
+    <ol>
+      <li><div><strong>Créez votre accès</strong><p>Suivez le lien de l'e-mail que vous allez recevoir de mazeo. Pensez à vérifier vos courriers indésirables.</p></div></li>
+      <li><div><strong>Configurez votre espace</strong><p>Connectez votre boîte mail et votre compte LinkedIn pour prospecter depuis mazeo.</p></div></li>
+      <li><div><strong>Invitez votre équipe</strong><p>Ajoutez vos collègues depuis mazeo, dans la limite des sièges souscrits.</p></div></li>
+    </ol>
+    <div class="ctas"><a class="btn" href="https://app.mazeo.co/?hl=fr">Accéder à mazeo</a></div>
+    <p class="foot">Votre facture vous est envoyée par e-mail par Stripe, notre prestataire de paiement.<br>Une question sur votre abonnement ou votre facture&nbsp;: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a><br>Conditions générales de vente&nbsp;: <a href="/conditions-de-vente">mazeo.co/conditions-de-vente</a><br><a href="/en/thank-you" lang="en">English version</a></p>
+  </section>
+
+  <section class="card" id="recharge" hidden>
+    <div class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#008A50" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+    <h1>Merci, votre recharge est enregistrée.</h1>
+    <p class="lead">Vos emails et numéros de mobile supplémentaires s'ajoutent à votre compte. Ils ne se perdent jamais.</p>
+    <div class="ctas"><a class="btn" href="https://app.mazeo.co/?hl=fr">Accéder à mazeo</a></div>
+    <p class="foot">Votre facture vous est envoyée par e-mail par Stripe, notre prestataire de paiement.<br>Une question sur votre facture&nbsp;: <a href="mailto:facturation@mazeo.co">facturation@mazeo.co</a><br><a href="/en/thank-you?recharge" lang="en">English version</a></p>
+  </section>
+</main>
+<script>
+if (/[?&]recharge\b/.test(location.search)) { document.getElementById("abonnement").hidden = true; document.getElementById("recharge").hidden = false; }
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

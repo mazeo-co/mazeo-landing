@@ -75,6 +75,14 @@
     {
       "source": "/en/unsubscribed",
       "destination": "/en/unsubscribed.html"
+    },
+    {
+      "source": "/merci",
+      "destination": "/merci.html"
+    },
+    {
+      "source": "/en/thank-you",
+      "destination": "/en/thank-you.html"
     }
   ],
   "redirects": [

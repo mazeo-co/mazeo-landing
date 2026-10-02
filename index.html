@@ -54,7 +54,7 @@
   --ink: #0A0A0A; --slate: #3A4250; --body: #4A5262; --meta: #6B7280;
   --line: #E5E7EB; --line-strong: #DDE1E9; --line-soft: #EEF0F3;
   --ground: #FFFFFF; --soft: #F8F9FA;
-  --blue: #007BFF; --blue-deep: #0066D6; --blue-text: #0062CC; --blue-tint: #E6F2FF;
+  --blue: #007BFF; --blue-deep: #0066D6; --blue-text: #0062CC; --blue-tint: #E6F2FF; --blue-pale: #EEF5FF;
   --green: #00EF8B; --green-tint: #E6FFF5; --green-text: #006B3F;
   --red: #DC2626; --red-tint: #FEF2F2;
   --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -76,6 +76,9 @@ p { margin: 0; }
 button, input { font: inherit; }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
 [id] { scroll-margin-top: 80px; }
+/* Liens du menu (02/10) : la section a 120 px de vide au-dessus de son repère ; on la fait remonter d’autant, pour que le repère arrive 24 px sous le menu. */
+#market, #signaux, #pipeline, #prix, #faq { scroll-margin-top: -24px; }
+@media (max-width: 960px) { #market, #signaux, #pipeline, #prix, #faq { scroll-margin-top: 12px; } }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .lc { text-transform: none; }
 .container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
@@ -128,12 +131,21 @@ button, input { font: inherit; }
 /* ---- Barre ---- */
 .nav { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.92); backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s; }
 .nav.scrolled { border-bottom-color: var(--line); }
+.annonce { background: var(--ink); color: #fff; text-align: center; font-size: 14.5px; line-height: 1.3; }
+.annonce a { display: inline-flex; align-items: baseline; justify-content: center; flex-wrap: wrap; gap: 4px 10px; padding: 11px 16px; color: #fff; text-decoration: none; }
+.annonce b { font-weight: 600; }
+.annonce a > span { color: rgba(255,255,255,.78); font-weight: 600; }
+.annonce a:hover > span { color: #fff; }
+.annonce-court { display: none; }
+@media (max-width: 640px) { .annonce { font-size: 13.5px; } .annonce a { padding: 10px 12px; gap: 8px; flex-wrap: nowrap; white-space: nowrap; } .annonce-long { display: none; } .annonce-court { display: inline; } .annonce-court::after { content: " ·"; font-weight: 400; color: rgba(255,255,255,.6); } }
 .nav-inner { height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .logo { font-family: var(--logo-font); font-weight: 800; font-size: 26px; letter-spacing: -0.5px; color: var(--ink); text-decoration: none; }
 .logo:hover { text-decoration: none; }
 .logo span { color: var(--green); }
 .nav-links { display: flex; align-items: center; gap: 32px; margin-right: auto; margin-left: 40px; }
-.nav-links a { color: var(--slate); font-weight: 600; font-size: 15px; }
+.nav-links a { color: var(--slate); font-weight: 600; font-size: 15px; white-space: nowrap; }
+@media (max-width: 1180px) { .nav-links { gap: 20px; margin-left: 28px; } }
+@media (max-width: 1080px) { .nav-links { gap: 15px; margin-left: 22px; } .nav-right .btn { padding: 11px 16px; } }
 .nav-links a:hover { color: var(--ink); text-decoration: none; }
 .nav-right { display: flex; align-items: center; gap: 10px; }
 @media (max-width: 960px) { .nav-links { display: none; } .nav-login { padding: 9px 12px; font-size: 14px; } .nav-right .btn-primary { padding: 9px 14px; font-size: 14px; } }
@@ -523,7 +535,7 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .builtfor { margin-top: 40px; text-align: center; font-size: 16px; color: var(--body); text-wrap: pretty; max-width: 760px; margin-inline: auto; }
 
 /* ---- FAQ ---- */
-#faq { padding-bottom: 32px; }
+#faq { padding-bottom: 120px; }
 #faq .container { display: grid; grid-template-columns: 5fr 7fr; gap: 72px; align-items: start; }
 @media (max-width: 960px) { #faq .container { grid-template-columns: 1fr; gap: 32px; } }
 .faq-list { border-top: 1px solid var(--line); }
@@ -535,7 +547,120 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 .faq-list .a { padding: 0 0 24px; max-width: 740px; font-size: 17px; line-height: 1.6; }
 
 /* ---- Fin de page ---- */
-.final { padding-block: 120px 100px; text-align: center; }
+/* ---- Le prix (v6, 01/10/2026) : premier écran = titre, sélecteur, deux grandes offres ; recharges puis comparatif en dessous ---- */
+.title em { font-style: normal; color: var(--blue); }
+/* Rythme des fonds (02/10) : témoignages gris clair, prix bleu très pâle, comparatif blanc, ressources gris clair, FAQ et appel final blancs. 120 px en haut et en bas, comme les autres sections. */
+.px { padding-block: 120px; background: var(--blue-pale); }
+.px-vs { padding-block: 120px; }
+#prix [hidden], #comparatif [hidden] { display: none !important; }
+@media (max-width: 960px) { .px, .px-vs { padding-block: 84px; } }
+.px-head { text-align: center; }
+.px-head .eyebrow { margin-bottom: 10px; }
+.px-h2 { font-size: clamp(34px, 3.8vw, 56px); }
+.px-h2 em { font-style: normal; color: var(--blue); }
+.px-seg { margin-top: 16px; display: inline-flex; padding: 5px; border: 1px solid var(--line-strong); border-radius: 999px; background: #fff; gap: 4px; }
+.px-seg button { border: 0; background: transparent; color: var(--slate); font: inherit; font-weight: 600; font-size: 15.5px; padding: 12px 22px; border-radius: 999px; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: baseline; gap: 8px; }
+.px-seg button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+.px-gain { font-weight: 500; font-size: 13.5px; color: var(--meta); }
+.px-seg button[aria-pressed="true"] .px-gain { color: rgba(255,255,255,.72); }
+.px-cards { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+.px-cards > li { display: flex; flex-direction: column; }
+.px-card { flex: 1; display: flex; flex-direction: column; gap: 6px; background: #fff; border: 1px solid var(--line-strong); border-radius: 22px; padding: 22px 30px 24px; }
+.px-name { margin: 0; font-family: var(--display); font-weight: 700; font-size: 26px; letter-spacing: -0.025em; line-height: 1.1; color: var(--ink); }
+.px-who { font-size: 16.5px; color: var(--slate); }
+.px-price { margin: 6px 0 0; display: flex; align-items: center; gap: 12px; color: var(--ink); font-family: var(--display); }
+.px-price b { font-weight: 800; font-size: clamp(50px, 4.6vw, 68px); letter-spacing: -0.04em; line-height: 1; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.px-price s { align-self: flex-end; padding-bottom: 6px; font-weight: 700; font-size: clamp(22px, 2vw, 28px); letter-spacing: -0.02em; color: var(--meta); text-decoration-thickness: 2px; }
+.px-price span { font-family: var(--font); font-weight: 600; font-size: 15px; line-height: 1.25; color: var(--slate); max-width: 150px; }
+.px-sub { font-size: 15px; line-height: 1.4; color: var(--slate); }
+.px-btns { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 10px; }
+.px-btns .btn { flex: 1 1 100%; padding: 13px 20px; font-size: 16px; white-space: normal; text-align: center; }
+.px-btns .btn[aria-disabled="true"] { opacity: .45; cursor: not-allowed; }
+.px-lbl { display: block; font-size: 12.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); }
+/* Les quantités de la formule (02/10) : ce qui change d’une carte à l’autre. Les fonctions, les mêmes pour les deux, sont listées une seule fois sous les cartes. */
+.px-qty { margin: 18px 0 0; padding: 6px 0 0; border-top: 1px solid var(--line); }
+.px-qty > div { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+.px-qty svg { flex: none; width: 20px; height: 20px; color: var(--meta); }
+.px-qty dt { color: var(--slate); font-weight: 600; }
+.px-qty dd { margin: 0 0 0 auto; font-weight: 700; color: var(--ink); white-space: nowrap; }
+.px-rep { margin: 10px 0 0; font-size: 14.5px; line-height: 1.45; color: var(--meta); }
+/* Les fonctions (02/10) : les mêmes pour les deux formules. Pas de cadre (les cartes au-dessus et les recharges au-dessous en ont déjà un) : un titre, trois colonnes aérées.
+   Pas d’icône (« ça fait cheap », Romain, 02/10) : le nom de chaque partie, en bleu. */
+.px-all { margin: 120px 0 0; }
+.px-all-h { margin: 0; text-align: center; font-family: var(--display); font-weight: 700; font-size: clamp(24px, 2.3vw, 32px); letter-spacing: -0.03em; line-height: 1.15; color: var(--ink); }
+.px-cols { margin-top: 56px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 80px; }
+.px-part { display: flex; align-items: center; gap: 12px; }
+.px-part .name { margin: 0; font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; line-height: 1.2; color: var(--blue-text); }
+.px-list { list-style: none; margin: 26px 0 0; padding: 0; display: grid; gap: 20px; }
+.px-list li { display: grid; grid-template-columns: 20px 1fr; gap: 14px; font-size: 17px; line-height: 1.45; color: var(--slate); }
+.px-list svg { width: 20px; height: 20px; margin-top: 2px; color: var(--green-text, #006B3F); }
+/* Avant l’ouverture (02/10) : .si-avant ne se voit qu’avant le 15/10, .si-ouvert qu’après. L’interrupteur est la classe avant-ouverture du <body>. */
+.avant-ouverture .si-ouvert, body:not(.avant-ouverture) .si-avant { display: none !important; }
+.px-open { margin: 6px 0 0; font-size: 15px; font-weight: 600; color: var(--ink); }
+.px-join { margin: auto 0 0; padding-top: 16px; font-size: 14.5px; line-height: 1.45; color: var(--meta); }
+.px-topup { margin: 120px 0 0; background: #fff; border: 1px solid var(--line-strong); border-radius: 20px; padding: 24px 28px; display: grid; grid-template-columns: minmax(260px, 1fr) 2fr; gap: 16px 28px; align-items: center; }
+.px-topup-head b { display: block; font-family: var(--display); font-weight: 700; font-size: 22px; letter-spacing: -0.02em; color: var(--ink); }
+.px-topup-head span { display: block; margin-top: 4px; font-size: 15px; line-height: 1.45; color: var(--slate); }
+.px-topup-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.px-topup-list li { display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; }
+.px-ico { width: 40px; height: 40px; border-radius: 11px; display: grid; place-items: center; background: var(--blue-tint); color: var(--blue-text); }
+.px-ico svg { width: 21px; height: 21px; }
+.px-what { font-size: 15px; font-weight: 600; line-height: 1.35; color: var(--ink); }
+.px-cost { display: flex; align-items: baseline; gap: 4px; padding-left: 14px; border-left: 1px solid var(--line); white-space: nowrap; }
+.px-cost b { font-family: var(--display); font-weight: 800; font-size: 24px; letter-spacing: -0.03em; color: var(--ink); }
+.px-cost small { font-size: 12.5px; font-weight: 600; color: var(--meta); }
+.px-cmp { margin-top: 0; scroll-margin-top: 84px; }
+.px-cmp-h { font-size: clamp(26px, 2.8vw, 40px); text-align: center; max-width: 900px; margin-inline: auto; }
+.px-cmp-h em { font-style: normal; color: var(--blue); }
+/* Le comparatif (02/10) : deux panneaux face à face. À gauche les quatre abonnements qui s’additionnent, à droite mazeo, sur fond sombre (même halo bleu que la section Pipeline).
+   Les lignes des deux panneaux sont à la même hauteur (subgrid) : chaque outil a sa coche en face.
+   Les hauteurs suivent celle de l’écran (unités vh) : aéré sur un 13 pouces (environ 715 px de haut), serré sur un écran plus bas ; le titre, les deux panneaux et le bouton se voient sans défiler.
+   Animation à l’entrée dans l’écran (classe px-anim, posée par le script). */
+.px-duel { margin: clamp(18px, 4.8vh, 40px) auto 0; max-width: 1140px; display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr); grid-template-rows: auto auto 1fr; column-gap: 36px; }
+.px-sans, .px-avec { grid-row: span 3; display: grid; grid-template-rows: subgrid; border-radius: 22px; padding: clamp(14px, calc(6vh - 20px), 28px) clamp(24px, 2.4vw, 34px); }
+.px-sans { background: #fff; border: 1px solid var(--line-strong); }
+.px-avec { position: relative; overflow: hidden; background: radial-gradient(70% 70% at 0% 100%, rgba(0,123,255,.42), rgba(0,123,255,0) 70%), radial-gradient(50% 50% at 100% 0%, rgba(0,123,255,.16), rgba(0,123,255,0) 70%), var(--ink); color: #fff; box-shadow: 0 26px 52px -32px rgba(10,24,48,.6); }
+.px-duel-h { margin: 0 0 clamp(10px, 2vh, 16px); font-family: var(--display); font-weight: 700; font-size: clamp(16px, 2.55vh, 19px); letter-spacing: -0.02em; line-height: 1.25; color: var(--ink); }
+.px-avec .px-duel-h { color: #fff; }
+.px-stack, .px-yes { list-style: none; margin: 0; padding: 0; }
+.px-stack li, .px-yes li { height: clamp(43px, calc(8.6vh - 5px), 60px); display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line); }
+.px-stack p { margin: 0; }
+.px-stack b { display: block; font-weight: 600; font-size: clamp(15px, 2.3vh, 17px); line-height: 1.25; color: var(--ink); }
+.px-stack small { display: block; font-size: clamp(13px, 2vh, 14.5px); line-height: 1.3; color: var(--slate); }
+.px-amt { font-family: var(--display); font-weight: 700; font-size: clamp(17px, 2.7vh, 20px); color: var(--ink); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.px-stack li + li .px-amt::before { content: "+\00a0"; font-weight: 600; color: var(--meta); }
+.px-yes li { justify-content: flex-start; gap: 12px; border-color: rgba(255,255,255,.16); font-weight: 600; font-size: clamp(15px, 2.3vh, 17px); line-height: 1.25; }
+.px-yes svg { flex: none; width: 19px; height: 19px; color: var(--green); }
+.px-sans-foot { display: flex; flex-direction: column; }
+.px-total { display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; padding-top: clamp(12px, 2.5vh, 20px); border-top: 1px solid var(--line-strong); }
+.px-total p { margin: 0; }
+.px-total b { display: block; font-weight: 600; font-size: clamp(16px, 2.5vh, 18px); line-height: 1.3; color: var(--ink); }
+.px-total small { display: block; margin-top: 1px; font-size: clamp(13.5px, 2vh, 14.5px); line-height: 1.35; color: var(--slate); }
+.px-total-amt { position: relative; font-family: var(--display); font-weight: 800; font-size: clamp(30px, 6vh, 44px); letter-spacing: -0.04em; line-height: 1; color: var(--slate); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.px-total-amt::after { content: ""; position: absolute; left: -5px; right: -5px; top: 52%; height: 3px; border-radius: 2px; background: var(--ink); transform-origin: left center; }
+.px-src { margin: auto 0 0; padding-top: 14px; font-size: 12.5px; line-height: 1.45; color: var(--meta); }
+.px-avec-foot { padding-top: clamp(12px, 2.5vh, 20px); border-top: 1px solid rgba(255,255,255,.16); display: grid; grid-template-columns: minmax(0, 1fr); gap: clamp(8px, 1.8vh, 14px); }
+.px-avec-price { margin: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; font-family: var(--display); }
+.px-avec-price b { font-weight: 800; font-size: clamp(38px, calc(11vh - 22px), 60px); letter-spacing: -0.04em; line-height: 1; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.px-avec-price span { font-family: var(--font); font-weight: 600; font-size: clamp(14.5px, 2.2vh, 16px); line-height: 1.3; color: rgba(255,255,255,.78); }
+.px-save { margin: 0; justify-self: start; padding: 6px 13px; border-radius: 10px; background: rgba(0,239,139,.16); color: var(--green); font-weight: 700; font-size: clamp(14px, 2.1vh, 15.5px); line-height: 1.3; }
+.px-avec-note { display: block; font-size: clamp(13.5px, 2vh, 14.5px); line-height: 1.4; color: rgba(255,255,255,.74); }
+.px-cta { display: flex; flex-wrap: wrap; gap: 10px; }
+.px-cta .btn { flex: 1 1 auto; padding: clamp(11px, 2.1vh, 15px) 22px; font-size: 16px; }
+.px-anim .px-step { opacity: 0; transform: translateY(8px); }
+.px-anim .px-step.on { opacity: 1; transform: none; transition: opacity .35s ease, transform .35s ease; }
+.px-anim .px-total-amt::after { transform: scaleX(0); }
+.px-anim .px-avec-foot > * { opacity: 0; transform: translateY(10px); }
+.px-anim.fin .px-total-amt::after { transform: scaleX(1); transition: transform .35s ease; }
+.px-anim.fin .px-avec-foot > * { opacity: 1; transform: none; transition: opacity .4s ease .15s, transform .4s ease .15s; }
+@media (max-width: 960px) { .px-topup { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .px-cards, .px-topup-list { grid-template-columns: 1fr; } 
+  .px-cols { grid-template-columns: 1fr; row-gap: 32px; margin-top: 28px; } .px-all, .px-topup { margin-top: 72px; }
+  .px-duel { grid-template-columns: 1fr; grid-template-rows: none; row-gap: 14px; } .px-sans, .px-avec { grid-row: auto; display: block; }
+  .px-stack li, .px-yes li { height: auto; padding: 10px 0; } .px-yes li { padding: 8px 0; border-top: 0; } .px-yes { padding-bottom: 6px; } }
+@media (max-width: 640px) { .px, .px-vs { padding-block: 64px; } .px-seg { display: flex; width: 100%; } .px-seg button { flex: 1; justify-content: center; padding: 9px 10px; font-size: 13.5px; white-space: normal; text-align: center; flex-direction: column; align-items: center; gap: 0; }
+  .px-card, .px-sans, .px-avec { padding: 22px 18px; } .px-cta .btn { flex: 1 1 100%; } }
+.final { padding-block: 120px; text-align: center; }
 .final .title { font-size: clamp(38px, 5.6vw, 84px); max-width: 1000px; margin-inline: auto; }
 .final .title em { font-style: normal; color: var(--blue); }
 .final .lead { margin: 20px auto 0; max-width: 660px; }
@@ -628,8 +753,13 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 @media (prefers-reduced-motion: reduce) { .rs-card, .rs-card:hover { transform: none; transition: none; } }
 </style>
 </head>
-<body>
+<!-- Avant l’ouverture du 15/10 : « Réserver une démo » à la place de « Souscrire ». Le 15/10, retirer la classe avant-ouverture : les boutons de paiement et les textes d’origine reviennent. -->
+<body class="avant-ouverture">
 
+<!-- Bandeau d'ouverture (02/10) : visible jusqu'au 15/10, disparaît avec la classe avant-ouverture du <body>. Il défile avec la page ; le menu reste collé en haut. -->
+<div class="annonce si-avant">
+  <a href="#prix"><b class="annonce-long" data-t="an.txt">mazeo ouvre à tous le 15 octobre.</b><b class="annonce-court" data-t="an.txt2">Ouvert à tous le 15 octobre</b><span data-t="an.go">Voir les prix&nbsp;→</span></a>
+</div>
 <header class="nav" id="nav">
   <div class="container nav-inner">
     <a class="logo" href="#top" aria-label="mazeo">mazeo<span>.</span></a>
@@ -637,12 +767,13 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <a href="#market" data-t="nav.market">Le marché</a>
       <a href="#signaux" data-t="nav.signals">Les signaux</a>
       <a href="#pipeline" data-t="nav.pipeline">Le Pipeline</a>
-      <a href="#faq">FAQ</a>
+      <a href="#prix" data-t="nav.price">Le prix</a>
       <a href="/ressources" data-href-en="/en/resources" data-t="nav.res">Ressources</a>
+      <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
       <a class="btn btn-ghost nav-login" href="https://app.mazeo.co" data-t="nav.login">Se connecter</a>
-      <a class="btn btn-primary" href="#acces" data-t="nav.cta">Demander un accès</a>
+      <a class="btn btn-primary" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="nav.cta">Réserver une démo</a>
     </div>
   </div>
 </header>
@@ -671,9 +802,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         <div class="signup-fields">
           <label for="hero-email" class="sr-only" data-t="form.email">Email professionnel</label>
           <input type="email" id="hero-email" name="email" required autocomplete="email" placeholder="Email professionnel" data-t-ph="form.email">
-          <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander un accès</button>
+          <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Réserver une démo</button>
         </div>
-        <p class="helper" data-t="hero.helper">Bêta privée · ouverture prochainement</p>
+        <p class="helper" data-t="hero.helper">Puis choisissez votre créneau pour une démo de 30 minutes.</p>
         <p class="msg" id="hero-msg" role="status" aria-live="polite"></p>
       </form>
 
@@ -806,13 +937,13 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <div class="split flip writer-split">
         <div class="split-copy">
           <span class="eyebrow" data-t="wr.eyebrow">Le rédacteur</span>
-          <h3 data-t="wr.h2">Il écrit. Vous relisez, vous envoyez.</h3>
+          <h3 data-t="wr.h2">Il écrit. Vous relisez, vous envoyez depuis mazeo.</h3>
           <p class="copy" data-t="wr.p">Le rédacteur écrit vos messages à chaque étape&nbsp;: premier contact, relances, proposition de rendez-vous. Il a tout le contexte de votre relation, et il connaît le parcours de la personne à qui vous écrivez&nbsp;: son poste, son entreprise, ses signaux. Sur un ton formel, direct ou amical.</p>
         </div>
         <div class="screen raised mail" aria-hidden="true">
           <div class="mail-top"><span class="to"><img src="assets/people/women-50.jpg" alt="" width="26" height="26"><span data-t="ml.to"><b>À&nbsp;:</b> Camille Moreau · Directrice des études consommateurs</span></span><div class="tones" id="tones"></div></div>
           <div class="mail-body" id="mail-body"></div>
-          <div class="mail-foot"><span data-t="ml.ctx">Contexte&nbsp;: connectés sur LinkedIn · signal Recrutement</span><span class="btn btn-primary static" data-t="ml.btn">Copier et ouvrir LinkedIn</span></div>
+          <div class="mail-foot"><span data-t="ml.ctx">Contexte&nbsp;: connectés sur LinkedIn · signal Recrutement</span><span class="btn btn-primary static" data-t="ml.btn">Envoyer via LinkedIn</span></div>
         </div>
       </div>
     </div>
@@ -822,7 +953,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <section class="section section-soft" id="temoignages">
     <div class="container">
       <div class="head center reveal">
-        <h2 class="title" data-t="dp.h2">En bêta privée depuis mars&nbsp;2026 chez 8&nbsp;prestataires d’études.</h2>
+        <h2 class="title" data-t="dp.h2">Ce que nos <span style="white-space:nowrap">bêta-testeurs</span> disent de nous.</h2>
       </div>
       <div class="carousel reveal">
         <div class="car-track" id="car">
@@ -848,9 +979,158 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     </div>
   </section>
 
+  <!-- ================= LE PRIX (v2, 01/10/2026) : tout visible d'un coup ; sélecteur sur « Engagement 12 mois », bascule « Mensuel » ;
+       deux cartes (Entreprises, Freelances) qui ne diffèrent que par les quotas ; recharges et report ; comparatif en dessous.
+       data-when="year|month" : les deux versions sont dans la page, le sélecteur cache l'une. data-stripe : liens de paiement (STRIPE, bas de page). ================= -->
+  <section class="px" id="prix">
+    <div class="container">
+      <div class="px-head">
+        <span class="eyebrow" data-t="px.eyebrow">Le prix</span>
+        <h2 class="px-h2" data-t="px.h2">Tout le secteur. Un seul outil. <em>Tout compris.</em></h2>
+        <div class="px-seg" role="group" aria-label="Formule" data-aria-en="Plan">
+          <button type="button" id="px-year" aria-pressed="true"><span data-t="px.t.year">Engagement 12 mois</span> <span class="px-gain" data-t="px.t.gain">−17&nbsp;%</span></button>
+          <button type="button" id="px-month" aria-pressed="false" data-t="px.t.month">Mensuel sans engagement</button>
+        </div>
+      </div>
+
+      <ul class="px-cards">
+        <li>
+          <div class="px-card px-ent">
+            <h3 class="px-name" data-t="px.ent.lbl">Entreprises</h3>
+            <span class="px-who" data-t="px.ent.who">Un accès par personne, sans minimum.</span>
+            <p class="px-price"><s data-when="year" data-t="px.a299s">299&nbsp;€</s><b data-when="year" data-t="px.a249">249&nbsp;€</b><b data-when="month" hidden data-t="px.a299">299&nbsp;€</b><span data-t="px.ent.unit">HT par personne et par mois</span></p>
+            <p class="px-sub" data-when="year" data-t="px.ent.ys">Engagement 12 mois, payé chaque mois ou en une fois.</p>
+            <p class="px-sub" data-when="month" hidden data-t="px.ms">Sans engagement. Vous arrêtez quand vous voulez.</p>
+            <p class="px-open si-avant" data-t="px.open">Ouvert à tous le 15 octobre.</p>
+            <div class="px-btns">
+              <a class="btn btn-primary si-avant" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="px.demo">Réserver une démo</a>
+              <a class="btn btn-primary si-ouvert" data-when="year" data-stripe="team_year" href="#prix" data-t="px.btn">Souscrire</a>
+              <a class="btn btn-primary si-ouvert" data-when="month" hidden data-stripe="team_month" href="#prix" data-t="px.btn2">Souscrire</a>
+            </div>
+            <dl class="px-qty">
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><dt data-t="px.q.mail">Emails professionnels</dt><dd data-t="px.q.e120">120 par mois</dd></div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18h2"/></svg><dt data-t="px.q.mob">Numéros de mobile</dt><dd data-t="px.q.m40">40 par mois</dd></div>
+            </dl>
+            <p class="px-rep" data-t="px.q.rep">Ce qu’il vous reste à la fin du mois s’ajoute au mois suivant.</p>
+            <p class="px-join si-ouvert" data-t="px.join">Votre entreprise est déjà cliente de mazeo&nbsp;? Souscrivez votre accès ici&nbsp;: vous rejoindrez votre équipe dans l’app.</p>
+          </div>
+        </li>
+        <li>
+          <div class="px-card px-fre">
+            <h3 class="px-name" data-t="px.fre.lbl">Freelances</h3>
+            <span class="px-who" data-t="px.fre.who">Un seul accès, pour les freelances.</span>
+            <p class="px-price"><s data-when="year" data-t="px.a179s">179&nbsp;€</s><b data-when="year" data-t="px.a149">149&nbsp;€</b><b data-when="month" hidden data-t="px.a179">179&nbsp;€</b><span data-t="px.fre.unit">HT par mois</span></p>
+            <p class="px-sub" data-when="year" data-t="px.fre.ys">Engagement 12 mois, payé chaque mois ou en une fois.</p>
+            <p class="px-sub" data-when="month" hidden data-t="px.ms">Sans engagement. Vous arrêtez quand vous voulez.</p>
+            <p class="px-open si-avant" data-t="px.open">Ouvert à tous le 15 octobre.</p>
+            <div class="px-btns">
+              <a class="btn btn-primary si-avant" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="px.demo">Réserver une démo</a>
+              <a class="btn btn-primary si-ouvert" data-when="year" data-stripe="free_year" href="#prix" data-t="px.btn">Souscrire</a>
+              <a class="btn btn-primary si-ouvert" data-when="month" hidden data-stripe="free_month" href="#prix" data-t="px.btn2">Souscrire</a>
+            </div>
+            <dl class="px-qty">
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><dt data-t="px.q.mail">Emails professionnels</dt><dd data-t="px.q.e60">60 par mois</dd></div>
+              <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18h2"/></svg><dt data-t="px.q.mob">Numéros de mobile</dt><dd data-t="px.q.m20">20 par mois</dd></div>
+            </dl>
+            <p class="px-rep" data-t="px.q.rep">Ce qu’il vous reste à la fin du mois s’ajoute au mois suivant.</p>
+          </div>
+        </li>
+      </ul>
+
+      <div class="px-all">
+        <h3 class="px-all-h" data-t="px.inc">Compris dans les deux formules</h3>
+        <div class="px-cols">
+          <div class="px-col">
+            <div class="px-part"><h4 class="name" data-t="mk.name">Le marché</h4></div>
+            <ul class="px-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f1">1&nbsp;300+ entreprises du market research</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f2">13&nbsp;000+ contacts, email et portable en un clic</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f3">Entreprises recommandées selon votre offre</span></li>
+            </ul>
+          </div>
+          <div class="px-col">
+            <div class="px-part"><h4 class="name" data-t="sg.eyebrow">Les signaux</h4></div>
+            <ul class="px-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f4">10 types de signaux business</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f5">Alertes signaux sur les entreprises et contacts que vous suivez</span></li>
+            </ul>
+          </div>
+          <div class="px-col">
+            <div class="px-part"><h4 class="name" data-t="pl.eyebrow">Le Pipeline</h4></div>
+            <ul class="px-list">
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f6">Séquences email et LinkedIn, du premier message au premier rendez-vous</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f7">Rédacteur de messages personnalisés</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.f8">Connecteurs LinkedIn et email&nbsp;: vous envoyez depuis mazeo</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-topup">
+        <div class="px-topup-head">
+          <b data-t="px.rch">Besoin de plus de coordonnées&nbsp;?</b>
+          <span data-t="px.rch.s">Achetez des emails et des numéros de mobile en plus. Ils restent disponibles tant que vous ne les avez pas utilisés.</span>
+        </div>
+        <ul class="px-topup-list">
+          <li><span class="px-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="px-what" data-t="px.rch1">100 emails professionnels révélés en plus</span><span class="px-cost"><b data-t="px.a15">15&nbsp;€</b><small data-t="px.ht">HT</small></span></li>
+          <li><span class="px-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18h2"/></svg></span><span class="px-what" data-t="px.rch2">20 numéros de mobile révélés en plus</span><span class="px-cost"><b data-t="px.a15b">15&nbsp;€</b><small data-t="px.ht2">HT</small></span></li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Le comparatif (02/10) : section à part, fond blanc, entre le prix (bleu très pâle) et les ressources (gris clair). -->
+  <section class="px-vs" id="comparatif">
+    <div class="container">
+      <div class="px-cmp">
+        <h3 class="px-cmp-h" data-t="px.c.h">mazeo remplace quatre outils. <em>Et coûte moins cher.</em></h3>
+        <div class="px-duel">
+          <div class="px-sans">
+            <h4 class="px-duel-h" data-t="px.c.lbl1">Sans mazeo&nbsp;: 4 abonnements par personne</h4>
+            <ol class="px-stack">
+            <li class="px-step"><p><b data-t="px.c.r1">Trouver les bons contacts</b><small>Sales Navigator Core</small></p><span class="px-amt" data-t="px.a121">121&nbsp;€</span></li>
+            <li class="px-step"><p><b data-t="px.c.r2">Emails professionnels et numéros de mobile</b><small>Kaspr Starter</small></p><span class="px-amt" data-t="px.a59">59&nbsp;€</span></li>
+            <li class="px-step"><p><b data-t="px.c.r4">La veille et les signaux</b><small data-t="px.c.rodz">Rodz, pack Starter</small></p><span class="px-amt" data-t="px.a50">50&nbsp;€</span></li>
+            <li class="px-step"><p><b data-t="px.c.r3">Séquences email et LinkedIn</b><small>Waalaxy Business</small></p><span class="px-amt" data-t="px.a139">139&nbsp;€</span></li>
+            </ol>
+            <div class="px-sans-foot">
+              <div class="px-total">
+                <p><b data-t="px.c.tot">Total sans mazeo</b><small data-t="px.c.tots">et 4 outils à apprendre et à relier</small></p>
+                <span class="px-total-amt" data-t="px.a369">369&nbsp;€</span>
+              </div>
+              <p class="px-src" data-t="px.c.src">Prix publics hors taxes, par personne et par mois, en paiement mensuel, relevés sur les sites des éditeurs les 27 et 30/09/2026. Rodz&nbsp;: pack de crédits sans abonnement, prix d’entrée.</p>
+            </div>
+          </div>
+          <div class="px-avec">
+            <h4 class="px-duel-h" data-t="px.c.with">Avec mazeo&nbsp;: un seul outil, dédié au market research</h4>
+            <ul class="px-yes">
+            <li class="px-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.c.r1">Trouver les bons contacts</span></li>
+            <li class="px-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.c.r2">Emails professionnels et numéros de mobile</span></li>
+            <li class="px-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.c.r4">La veille et les signaux</span></li>
+            <li class="px-step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span data-t="px.c.r3">Séquences email et LinkedIn</span></li>
+            </ul>
+            <div class="px-avec-foot">
+              <p class="px-avec-price"><b data-when="year" data-t="px.a249c">249&nbsp;€</b><b data-when="month" hidden data-t="px.a299c">299&nbsp;€</b><span data-t="px.ent.unit">HT par personne et par mois</span></p>
+              <p class="px-save" data-when="year" data-t="px.c.sy">120&nbsp;€ de moins par personne, chaque mois</p>
+              <p class="px-save" data-when="month" hidden data-t="px.c.sm">70&nbsp;€ de moins par personne, chaque mois</p>
+              <small class="px-avec-note" data-when="year" data-t="px.c.wy">Avec 12 mois d’engagement. 299&nbsp;€ sans engagement.</small>
+              <small class="px-avec-note" data-when="month" hidden data-t="px.c.wm">Sans engagement. 249&nbsp;€ avec 12 mois d’engagement.</small>
+              <div class="px-cta">
+                <a class="btn btn-primary si-avant" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="px.cta2">Réserver une démo</a>
+                <a class="btn btn-primary si-ouvert" href="#prix" data-t="px.cta1">Choisir ma formule</a>
+                <a class="btn btn-ghost si-ouvert" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="px.cta2">Réserver une démo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= FAQ ================= -->
   <!-- ================= RESSOURCES (29/09/2026) : les deux contenus gratuits, avant la FAQ ================= -->
-  <section class="section" id="ressources" style="padding-bottom:0">
+  <section class="section section-soft" id="ressources">
     <div class="container">
       <div class="rs-head">
         <div>
@@ -889,11 +1169,12 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         </details>
         <details>
           <summary data-t="fq3">Qui envoie les messages&nbsp;?</summary>
-          <div class="a" data-t="fa3">Vous. Le rédacteur écrit, vous relisez, vous envoyez depuis LinkedIn ou votre messagerie.</div>
+          <div class="a" data-t="fa3">Vous. Le rédacteur écrit, vous relisez, et vous envoyez depuis mazeo avec votre compte LinkedIn ou votre boîte mail.</div>
         </details>
         <details>
           <summary data-t="fq4">Comment y accéder&nbsp;?</summary>
-          <div class="a" data-t="fa4">mazeo est en bêta privée. Demandez un accès, nous revenons vers vous pour vous le présenter et ouvrir votre compte.</div>
+          <div class="a si-avant" data-t="fa4.avant">mazeo ouvre à tous le 15 octobre. D’ici là, <a href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank">réservez une démo de 30 minutes</a>&nbsp;: nous vous montrons mazeo et répondons à vos questions.</div>
+          <div class="a si-ouvert" data-t="fa4">Choisissez votre formule dans <a href="#prix">Le prix</a> et souscrivez en ligne&nbsp;: votre accès ouvre sous 24&nbsp;h ouvrées. Vous préférez voir mazeo d’abord&nbsp;? <a href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank">Réservez une démo de 30 minutes</a>.</div>
         </details>
       </div>
     </div>
@@ -903,12 +1184,13 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <section class="final" id="acces">
     <div class="container reveal">
       <h2 class="title" data-t="final.h2">Vos prochains clients sont déjà <em>sur mazeo.</em></h2>
-      <p class="lead" data-t="final.p">Bêta privée. Demandez un accès, nous revenons vers vous.</p>
+      <p class="lead si-avant" data-t="final.p.avant">Laissez votre email, puis choisissez votre créneau pour une démo de 30 minutes. mazeo ouvre à tous le 15 octobre.</p>
+      <p class="lead si-ouvert" data-t="final.p">Laissez votre email, puis choisissez votre créneau pour une démo de 30 minutes. Ou <a href="#prix">souscrivez directement</a>.</p>
       <form class="signup" id="form-final" novalidate>
         <div class="signup-fields">
           <label for="final-email" class="sr-only" data-t="form.email">Email professionnel</label>
           <input type="email" id="final-email" name="email" required autocomplete="email" placeholder="Email professionnel" data-t-ph="form.email">
-          <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Demander un accès</button>
+          <button class="btn btn-primary btn-lg" type="submit" data-t="form.submit">Réserver une démo</button>
         </div>
         <p class="msg" id="final-msg" role="status" aria-live="polite"></p>
       </form>
@@ -947,11 +1229,12 @@ document.documentElement.classList.add("js");
     "nav.res": "Resources", "rs.eyebrow": "Resources", "rs.h2": "Free resources for the industry.", "rs.all": "All resources", "foot.res": "Resources",
     "rs.qBy": "presented by", "rs.qShow": "The Great Market<br><span>Research</span> Quiz", "rs.qT": "The Great Market Research Quiz", "rs.qD": "Ten questions, three minutes. Your score against the industry.",
     "rs.sL1a": "market research ", "rs.sL1b": "events", "rs.sL2": "Europe &amp; North America", "rs.sT": "Market research events", "rs.sD": "43 trade shows and conferences: dates, prices, audience.",
-    "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Request access",
+    "nav.price": "Pricing", "px.eyebrow": "Pricing", "px.h2": "The whole industry. One tool. <em>All included.</em>", "px.t.year": "12-month commitment", "px.t.gain": "−17%", "px.t.month": "Monthly, no commitment", "px.ent.lbl": "Companies", "px.ent.who": "One seat per person, no minimum.", "px.ent.unit": "excl. VAT per person per month", "px.ent.ys": "12-month commitment, paid monthly or in one go.", "px.fre.lbl": "Freelancers", "px.fre.who": "One seat, for freelancers.", "px.fre.unit": "excl. VAT per month", "px.fre.ys": "12-month commitment, paid monthly or in one go.", "px.ms": "No commitment. Stop whenever you want.", "px.open": "Open to everyone on October 15.", "px.demo": "Book a demo", "px.btn": "Subscribe", "px.btn2": "Subscribe", "px.inc": "Included in both plans", "px.q.mail": "Work emails", "px.q.mob": "Mobile numbers", "px.q.e120": "120 per month", "px.q.m40": "40 per month", "px.q.e60": "60 per month", "px.q.m20": "20 per month", "px.q.rep": "What you have left at the end of the month is added to the next month.", "px.f1": "1,300+ market research companies", "px.f2": "13,000+ contacts, email and mobile in one click", "px.f3": "Companies recommended for your offer", "px.f4": "10 types of business signals", "px.f5": "Signal alerts on the companies and contacts you follow", "px.f6": "Email and LinkedIn sequences, from first message to first meeting", "px.f7": "Personalised message writer", "px.f8": "LinkedIn and email connectors: you send from mazeo", "px.join": "Is your company already a mazeo customer? Subscribe to your seat here: you will join your team in the app.", "px.rch": "Need more contact details?", "px.rch.s": "Buy extra emails and mobile numbers. They stay available until you use them.", "px.rch1": "100 extra work emails revealed", "px.rch2": "20 extra mobile numbers revealed", "px.ht": "excl. VAT", "px.ht2": "excl. VAT", "px.c.h": "mazeo replaces four tools. <em>And costs less.</em>", "px.c.lbl1": "Without mazeo: 4 subscriptions per person", "px.c.r1": "Finding the right contacts", "px.c.r2": "Work emails and mobile numbers", "px.c.r3": "Email and LinkedIn sequences", "px.c.r4": "Monitoring and signals", "px.c.rodz": "Rodz, Starter pack", "px.c.tot": "Total without mazeo", "px.c.tots": "and 4 tools to learn and connect", "px.c.with": "With mazeo: one tool, dedicated to market research", "px.c.wy": "With a 12-month commitment. €299 without commitment.", "px.c.wm": "No commitment. €249 with a 12-month commitment.", "px.cta1": "Choose my plan", "px.cta2": "Book a demo", "px.c.src": "Public prices excl. VAT, per person per month, on monthly billing, taken from the vendors’ websites on 27 and 30 September 2026. Rodz: credit pack without subscription, entry price.", "px.a121": "€121", "px.a139": "€139", "px.a149": "€149", "px.a179": "€179", "px.a249": "€249", "px.a299": "€299", "px.a369": "€369", "px.a50": "€50", "px.a59": "€59", "px.a15": "€15", "px.a249c": "€249", "px.a299c": "€299", "px.a15b": "€15", "px.a299s": "€299", "px.a179s": "€179", "px.c.sy": "€120 less per person, every month", "px.c.sm": "€70 less per person, every month",
+    "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Book a demo", "an.txt": "mazeo opens to everyone on October 15.", "an.txt2": "Open to all on October 15", "an.go": "See pricing&nbsp;→",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
     "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "hero.playClose": "Close the video", "hero.play": "Discover mazeo on video", "nav.market": "The Market", "mk.name": "The Market",
-    "form.email": "Work email", "form.submit": "Request access",
-    "hero.helper": "Private beta · opening soon",
+    "form.email": "Work email", "form.submit": "Book a demo",
+    "hero.helper": "Then pick your slot for a 30-minute demo.",
     "hero.dp": "Built with 8&nbsp;research providers", "dp.more": "+ 2 more",
     "video.aria": "Product video",
     "pb.eyebrow": "The problem",
@@ -987,11 +1270,11 @@ document.documentElement.classList.add("js");
     "pl.lead": "Designed for our profession, the Pipeline guides you from first contact through to the meeting.<br class=\"d-br\"> Each step is suggested at the right time, with an alert if anything runs late.",
     "kb.sub": "4 people in motion", "kb.alert": "To do · 1 step late", "kb.note": "For illustration",
     "wr.eyebrow": "The writer",
-    "wr.h2": "It writes. You review, you send.",
+    "wr.h2": "It writes. You review, you send from mazeo.",
     "wr.p": "The writer drafts your messages at every step: first contact, follow-ups, meeting request. It has the full context of your relationship, and it knows the career of the person you are writing to: their role, their company, their signals. In a formal, direct or friendly tone.",
-    "ml.to": "<b>To:</b> Camille Moreau · Head of Consumer Research", "ml.ctx": "Context: connected on LinkedIn · Hiring signal", "ml.btn": "Copy and open LinkedIn",
+    "ml.to": "<b>To:</b> Camille Moreau · Head of Consumer Research", "ml.ctx": "Context: connected on LinkedIn · Hiring signal", "ml.btn": "Send via LinkedIn",
     "dp.eyebrow": "They use <span class=\"lc\">mazeo</span>",
-    "dp.h2": "In private beta since March&nbsp;2026 at 8&nbsp;research providers.",
+    "dp.h2": "What our beta testers say about us.",
     "q1.t": "“I have structured, reliable information concentrated in one place. In practice, it is a real time saver.”", "q1.r": "CEO, Stat &amp; More",
     "q2.t": "“In two weeks, mazeo introduced us to some twenty research agencies we had never contacted. For each one, we knew who to call.”", "q2.r": "Head of Sales, Norstat France",
     "q3.t": "“Signals change everything: we write when something happens at the client, not at random.”", "q3.r": "Founder, JLD Insights",
@@ -999,10 +1282,11 @@ document.documentElement.classList.add("js");
     "faq.h2": "The questions we get asked.",
     "fq1": "Where does the data come from?", "fa1": "From public sources: LinkedIn, websites, the company register, job posts, public tenders, social networks. Updated in real time. Work email and mobile number for most contacts. GDPR-compliant: anyone listed in mazeo can access, correct or remove their data by writing to us.",
     "fq2": "How is it different from LinkedIn Sales Navigator?", "fa2": "Sales Navigator and other generalist tools do not understand the specifics of market research. They make it hard to find the right companies and the right people. mazeo is built for this field: every company scored on its needs and its offer, its signals, and the right person with their contact details.",
-    "fq3": "Who sends the messages?", "fa3": "You do. The writer drafts, you review, you send from LinkedIn or your email.",
-    "fq4": "How do I get access?", "fa4": "mazeo is in private beta. Request access and we will get back to you to walk you through it and open your account.",
+    "fq3": "Who sends the messages?", "fa3": "You do. The writer drafts, you review, and you send from mazeo with your LinkedIn account or your mailbox.",
+    "fq4": "How do I get access?", "fa4.avant": "mazeo opens to everyone on October 15. Until then, <a href=\"https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled\" rel=\"noopener\" target=\"_blank\">book a 30-minute demo</a>: we will show you mazeo and answer your questions.", "fa4": "Choose your plan under <a href=\"#prix\">Pricing</a> and subscribe online: your access opens within one business day. Prefer to see mazeo first? <a href=\"https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled\" rel=\"noopener\" target=\"_blank\">Book a 30-minute demo</a>.",
     "final.h2": "Your next clients are already <em>on mazeo.</em>",
-    "final.p": "Private beta. Request access and we will get back to you.",
+    "final.p.avant": "Leave your email, then pick your slot for a 30-minute demo. mazeo opens to everyone on October 15.",
+    "final.p": "Leave your email, then pick your slot for a 30-minute demo. Or <a href=\"#prix\">subscribe right away</a>.",
     "foot.tagline": "The only prospecting tool built for market research.", "foot.eu": "Data hosted in the European Union", "foot.rgpd": "GDPR-compliant",
     "foot.privacy": "Privacy", "foot.lang": "Français", "foot.legal": "Legal notice", "foot.terms": "Terms of use", "foot.cgv": "Terms of sale"
   };
@@ -1427,9 +1711,12 @@ document.documentElement.classList.add("js");
 
   /* ---------- Formulaires : fonction waitlist-signup ---------- */
   var FN = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/waitlist-signup";
+  /* Après l'envoi de l'email (02/10) : le calendrier de démo s'ouvre, l'email déjà rempli (window.mazeoDemo, défini avec la prise de rendez-vous en bas de page).
+     Le lien du message rouvre le calendrier ; sans le script de rendez-vous, il mène à la page de réservation Microsoft. */
+  var DEMO = "https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&anonymous&ismsaljsauthenabled";
   var MSG = {
-    fr: { ok: "C’est noté. Un email de confirmation arrive, et nous revenons vers vous rapidement.", bad: "Entrez une adresse email valide.", err: "Ça n’a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co." },
-    en: { ok: "Noted. A confirmation email is on its way, and we will get back to you shortly.", bad: "Please enter a valid email address.", err: "That didn’t work. Try again in a moment, or write to romain.barbet@mazeo.co." }
+    fr: { ok: "C’est noté. <a href=\"" + DEMO + "\" rel=\"noopener\" target=\"_blank\">Choisissez votre créneau</a> pour une démo de 30 minutes.", bad: "Entrez une adresse email valide.", err: "Ça n’a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co." },
+    en: { ok: "Noted. <a href=\"" + DEMO + "\" rel=\"noopener\" target=\"_blank\">Pick your slot</a> for a 30-minute demo.", bad: "Please enter a valid email address.", err: "That didn’t work. Try again in a moment, or write to romain.barbet@mazeo.co." }
   };
   function wire(form) {
     if (!form) return;
@@ -1444,7 +1731,7 @@ document.documentElement.classList.add("js");
       fetch(FN, { signal: ac ? ac.signal : undefined, method: "POST", headers: { "Content-Type": "application/json", "Accept-Language": lang === "fr" ? "fr-FR,fr;q=0.9" : "en-US,en;q=0.9" }, body: JSON.stringify({ email: email, lang: lang, source: "landing-2026-09" }) })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok && d.ok !== false }; }); })
         .then(function (res) {
-          if (res.ok) { msg.textContent = MSG[lang].ok; msg.classList.add("ok"); form.querySelector(".signup-fields").style.display = "none"; var h = form.querySelector(".helper"); if (h) h.style.display = "none"; msg.tabIndex = -1; msg.focus(); }
+          if (res.ok) { msg.innerHTML = MSG[lang].ok; msg.classList.add("ok"); if (window.mazeoDemo) window.mazeoDemo(email); form.querySelector(".signup-fields").style.display = "none"; var h = form.querySelector(".helper"); if (h) h.style.display = "none"; msg.tabIndex = -1; msg.focus(); }
           else { msg.textContent = MSG[lang].err; msg.classList.add("err"); btn.disabled = false; btn.style.opacity = ""; }
         })
         .catch(function () { msg.textContent = MSG[lang].err; msg.classList.add("err"); btn.disabled = false; btn.style.opacity = ""; });
@@ -1699,5 +1986,139 @@ document.documentElement.classList.add("js");
 })();
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
+<script>
+/* Le prix (01/10/2026) : le sélecteur engagement / mensuel, et les liens de paiement Stripe.
+   Liens réels créés par Romain le 01/10 (compte Stripe mazeo). Un lien vide laisse le bouton visible, inactif. */
+(function () {
+  /* Avec engagement : le lien mène au prix mensuel (249 € / 149 €) ; la page Stripe propose d'y payer l'année d'avance (« upsell » réglé sur le prix). */
+  var STRIPE = {
+    team_year: "https://buy.stripe.com/9B66oI0jp4m67rG5lX4gg00",  // Entreprises, 249 € par mois, 12 mois (vente additionnelle 2 988 € par an)
+    team_month: "https://buy.stripe.com/28E3cw6HNaKu9zO8y94gg01", // Entreprises, 299 € par mois, sans engagement
+    free_year: "https://buy.stripe.com/8x27sM1ntdWG5jy6q14gg03",  // Freelance, 149 € par mois, 12 mois (vente additionnelle 1 788 € par an)
+    free_month: "https://buy.stripe.com/9B614oc273i213icOp4gg02"  // Freelance, 179 € par mois, sans engagement
+  };
+  document.querySelectorAll("#prix [data-stripe]").forEach(function (a) {
+    var url = STRIPE[a.getAttribute("data-stripe")];
+    if (url) { a.href = url; a.rel = "noopener"; }
+    else { a.setAttribute("aria-disabled", "true"); a.addEventListener("click", function (e) { e.preventDefault(); }); }
+  });
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var by = document.getElementById("px-year"), bm = document.getElementById("px-month");
+  if (!by || !bm) return;
+  function show(when) {
+    by.setAttribute("aria-pressed", String(when === "year")); bm.setAttribute("aria-pressed", String(when === "month"));
+    document.querySelectorAll("#prix [data-when], #comparatif [data-when]").forEach(function (el) { el.hidden = el.getAttribute("data-when") !== when; });
+  }
+  by.addEventListener("click", function () { show("year"); });
+  bm.addEventListener("click", function () { show("month"); });
+
+  /* Le comparatif (02/10) : à l'entrée dans l'écran, les quatre abonnements arrivent un par un, le total monte, puis il est barré et le prix de mazeo apparaît.
+     Sans script, ou si la personne a demandé moins d'animations, tout est affiché d'emblée. */
+  var duel = document.querySelector("#comparatif .px-duel");
+  if (duel && !reduced && "IntersectionObserver" in window) {
+    var lignes = duel.querySelectorAll(".px-stack .px-step"), coches = duel.querySelectorAll(".px-yes .px-step"), tot = duel.querySelector(".px-total-amt");
+    var sommes = [], cumul = 0;
+    lignes.forEach(function (li) { cumul += parseInt(li.querySelector(".px-amt").textContent.replace(/\D/g, ""), 10) || 0; sommes.push(cumul); });
+    var ecrire = function (n) { tot.textContent = tot.textContent.replace(/\d+/, String(n)); };
+    var monter = function (de, vers) {
+      var t0 = performance.now();
+      (function pas(t) { var k = Math.min(1, (t - t0) / 300); ecrire(Math.round(de + (vers - de) * k)); if (k < 1) requestAnimationFrame(pas); })(t0);
+    };
+    duel.classList.add("px-anim"); ecrire(0);
+    /* Départ quand le comparatif entre dans l'écran. Deux déclencheurs pour un seul départ : l'observateur, et le défilement en secours. */
+    var parti = false, io = null;
+    var lancer = function () {
+      if (parti) return; parti = true;
+      if (io) io.disconnect(); window.removeEventListener("scroll", voir);
+      lignes.forEach(function (li, i) {
+        setTimeout(function () { li.classList.add("on"); if (coches[i]) coches[i].classList.add("on"); monter(i ? sommes[i - 1] : 0, sommes[i]); }, 150 + i * 380);
+      });
+      setTimeout(function () { ecrire(cumul); duel.classList.add("fin"); }, 150 + lignes.length * 380 + 350);
+    };
+    var voir = function () { var r = duel.getBoundingClientRect(); if (r.top < window.innerHeight * 0.7 && r.bottom > 0) lancer(); };
+    io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) lancer(); }, { threshold: 0.3 });
+    io.observe(duel);
+    window.addEventListener("scroll", voir, { passive: true });
+  }
+
+  /* « Réserver une démo » (01/10) : la prise de rendez-vous Cal.com s'ouvre par-dessus la page.
+     Rien de Cal.com n'est chargé avant le premier clic (le site ne dépose aucun cookie). CAL_LINK vide : le lien Microsoft s'ouvre comme avant. */
+  var CAL_LINK = "romain-barbet-mazeo/demo-mazeo", calPret = false, calEmail = "";
+  function calCharger() {
+    if (calPret) return; calPret = true;
+    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+    Cal("init", "demo", { origin: "https://app.cal.com" });
+    Cal.ns.demo("ui", { hideEventTypeDetails: false, layout: "month_view" });
+  }
+  if (CAL_LINK) document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="https://bookings.cloud.microsoft"]');
+    if (!a) return;
+    e.preventDefault(); calOuvrir();
+  });
+  function calOuvrir() {
+    calCharger();
+    var config = { layout: "month_view" }; if (calEmail) config.email = calEmail;
+    Cal.ns.demo("modal", { calLink: CAL_LINK, config: config });
+  }
+  /* Appelé par les formulaires une fois l'email enregistré. */
+  if (CAL_LINK) window.mazeoDemo = function (email) { calEmail = email || ""; calOuvrir(); };
+
+  /* L'ancre #prix tient malgré le chargement de la carte du marché et des images au-dessus :
+     pendant 3 s, chaque changement de hauteur de la page recale la section en haut de l'écran,
+     sauf si la personne fait défiler elle-même. Sert au menu, au lien de la FAQ et à /souscrire (redirigé vers /#prix). */
+  var prix = document.getElementById("prix");
+  function caler() {
+    if (!prix || !("ResizeObserver" in window)) return;
+    var fin = Date.now() + 3000, ro;
+    function stop() { if (ro) ro.disconnect(); window.removeEventListener("wheel", stop); window.removeEventListener("touchstart", stop); window.removeEventListener("keydown", stop); }
+    function aligner() { if (Date.now() > fin) return stop(); prix.scrollIntoView({ block: "start", behavior: "instant" }); }
+    ro = new ResizeObserver(aligner); ro.observe(document.body);
+    window.addEventListener("wheel", stop, { passive: true }); window.addEventListener("touchstart", stop, { passive: true }); window.addEventListener("keydown", stop);
+    setTimeout(stop, 3100); aligner();
+  }
+  /* Liens vers une section de la page, et logo (02/10) : un défilement doux, le même pour tous, piloté ici plutôt que par le navigateur.
+     Le navigateur faisait parfois sauter la page sur le long trajet jusqu'au prix. Ici, chaque image du défilement recalcule
+     où se trouve la section : si la page bouge pendant le trajet (images, carte du marché), l'arrivée suit sans à-coup.
+     Le logo remonte tout en haut, bandeau compris. Une molette, un doigt ou une touche arrêtent le défilement en cours. */
+  var trajet = 0;
+  function arreter() { trajet++; }
+  ["wheel", "touchstart", "keydown"].forEach(function (ev) { window.addEventListener(ev, arreter, { passive: true }); });
+  function defiler(viser) {
+    var moi = ++trajet, y0 = window.scrollY, t0 = performance.now();
+    var max = function () { return document.documentElement.scrollHeight - window.innerHeight; };
+    var cible = function () { return Math.max(0, Math.min(max(), viser())); };
+    var duree = reduced ? 0 : Math.min(1100, 450 + Math.abs(cible() - y0) * 0.08);
+    (function pas(t) {
+      if (moi !== trajet) return;
+      var k = duree ? Math.min(1, ((t || performance.now()) - t0) / duree) : 1;
+      var e = k < .5 ? 4 * k * k * k : 1 - Math.pow(-2 * k + 2, 3) / 2;
+      window.scrollTo({ top: y0 + (cible() - y0) * e, behavior: "instant" });
+      if (k < 1) requestAnimationFrame(pas);
+    })(t0);
+  }
+  function versSection(el) {
+    return function () { return el.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(el).scrollMarginTop) || 0); };
+  }
+  document.querySelectorAll('a[href^="#"]:not([data-stripe])').forEach(function (a) {
+    var id = a.getAttribute("href").slice(1);
+    if (id === "top") {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (history.pushState) history.pushState(null, "", location.pathname + location.search);
+        defiler(function () { return 0; });
+      });
+      return;
+    }
+    var el = id && document.getElementById(id);
+    if (!el || ["market", "signaux", "pipeline", "prix", "comparatif", "faq"].indexOf(id) < 0) return;
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      if (history.pushState) history.pushState(null, "", "#" + id);
+      defiler(versSection(el));
+    });
+  });
+  if (location.hash === "#prix") caler();
+})();
+</script>
 </body>
 </html>
