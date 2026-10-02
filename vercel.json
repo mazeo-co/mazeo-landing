@@ -61,6 +61,14 @@
       "destination": "/en/resources.html"
     },
     {
+      "source": "/demo",
+      "destination": "/demo.html"
+    },
+    {
+      "source": "/en/demo",
+      "destination": "/en/demo.html"
+    },
+    {
       "source": "/desinscription",
       "destination": "/desinscription.html"
     },

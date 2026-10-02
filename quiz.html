@@ -371,7 +371,7 @@ a.btn, a.btn:hover { text-decoration: none; }
   function famName(f) { return LANG === "en" ? f.en : f.name; }
   var PLAYERS = 102; /* nombre amorcé, sans mention (choix de Romain) ; 77 jusqu'au 29/09, 102 depuis sa demande du 30/09 */
   var PAGE_URL = FORCE_LANG === "en" ? "https://www.mazeo.co/en/quiz" : "https://www.mazeo.co/quiz.html";
-  var DEMO_URL = "https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&anonymous&ismsaljsauthenabled";
+  var DEMO_URL = { fr: "https://www.mazeo.co/demo", en: "https://www.mazeo.co/en/demo" };
   var SIGNUP_URL = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/waitlist-signup"; /* la fonction du formulaire de mazeo.co : email, société, langue */
   var SCORE_URL = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/quiz-score"; /* enregistre le score publié et renvoie le classement de la semaine */
   var MAZEO_ASK = "Vous souhaitez découvrir comment mazeo peut accélérer votre développement commercial ?";
@@ -683,7 +683,7 @@ a.btn, a.btn:hover { text-decoration: none; }
     return el("div", { class: "play" + (side ? " with-side" : "") }, [ladder(), state.revealed ? answerScreen(q) : questionScreen(q),
       side ? el("aside", { class: "side fade", "aria-label": "mazeo" }, [mzLogo(), el("p", { html: L(q, "side") }),
         el("p", { class: "ask", text: t("ask") }),
-        el("a", { class: "btn btn-primary", href: DEMO_URL, target: "_blank", rel: "noopener", text: t("demo") }),
+        el("a", { class: "btn btn-primary", href: DEMO_URL[LANG === "en" ? "en" : "fr"], target: "_blank", rel: "noopener", text: t("demo") }),
         el("p", { class: "small", text: t("base") + "." })]) : null]);
   }
 
@@ -759,7 +759,7 @@ a.btn, a.btn:hover { text-decoration: none; }
         }))
       ]),
       el("div", { class: "cta" }, [mzLogo(), el("h2", { text: t("ask") }), el("p", { text: t("ctaText") }),
-        el("a", { class: "btn btn-primary", href: DEMO_URL, target: "_blank", rel: "noopener", text: t("demo") })])
+        el("a", { class: "btn btn-primary", href: DEMO_URL[LANG === "en" ? "en" : "fr"], target: "_blank", rel: "noopener", text: t("demo") })])
     ]);
   }
 
@@ -795,7 +795,7 @@ a.btn, a.btn:hover { text-decoration: none; }
       el("div", { class: "btn-row" }, [shareButton("result", true),
         el("button", { class: "btn btn-ghost", id: "replay-btn", text: t("replay"), onclick: function () { QUESTIONS = draw(); state = { screen: "intro", family: state.family, i: 0, answers: [], pending: null, touched: false, revealed: false, suspense: false, shown: 0 }; render(); window.scrollTo(0, 0); } })]),
       el("div", { class: "cta" }, [mzLogo(), el("h2", { text: t("ask") }), el("p", { text: t("ctaText") }),
-        el("a", { class: "btn btn-primary", href: DEMO_URL, target: "_blank", rel: "noopener", text: t("demo") })])
+        el("a", { class: "btn btn-primary", href: DEMO_URL[LANG === "en" ? "en" : "fr"], target: "_blank", rel: "noopener", text: t("demo") })])
     ]);
   }
 
