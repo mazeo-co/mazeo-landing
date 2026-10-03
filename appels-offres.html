@@ -72,7 +72,7 @@ button, input { font: inherit; color: inherit; }
 .i-in { background: #0A66C2; } .i-wa { background: #25D366; } .i-x { background: #000; } .i-mail { background: #6B7280; } .i-link { background: #2B8FFF; }
 
 /* Titre */
-.hero { padding-block: 22px 28px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: end; }
+.hero { padding-block: 22px 28px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
 .kicker { font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--meta); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
 .live { width: 9px; height: 9px; border-radius: 50%; background: var(--go); box-shadow: 0 0 0 0 rgba(255,90,31,.5); animation: pulse 1.8s infinite; }
 @keyframes pulse { 70% { box-shadow: 0 0 0 9px rgba(255,90,31,0); } 100% { box-shadow: 0 0 0 0 rgba(255,90,31,0); } }
@@ -88,7 +88,12 @@ h1 .hi { background: linear-gradient(transparent 46%, var(--go) 46%, var(--go) 9
 .board-title { font-family: var(--show); font-weight: 800; font-size: 26px; letter-spacing: .06em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
 .board-title svg { width: 26px; height: 26px; }
 .clock { font-family: var(--show); font-weight: 700; font-size: 20px; letter-spacing: .08em; color: var(--flap-dim); }
-.chips { display: flex; gap: 8px; flex-wrap: wrap; padding: 0 6px 16px; }
+.chips { display: flex; gap: 8px; flex-wrap: nowrap; padding: 0 6px 16px; position: relative; }
+.chip { white-space: nowrap; flex: none; }
+.chips-more { position: relative; flex: none; }
+.chips-menu { position: absolute; right: 0; top: calc(100% + 6px); z-index: 30; min-width: 200px; background: var(--flap); border: 1px solid var(--flap-line); border-radius: 12px; padding: 6px; display: grid; gap: 2px; box-shadow: 0 16px 40px rgba(0,0,0,.5); }
+.chips-menu button { text-align: left; background: none; border: 0; border-radius: 8px; padding: 9px 12px; color: var(--flap-ink); font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.chips-menu button:hover, .chips-menu button[aria-pressed="true"] { background: #262C35; }
 .chip { border: 1px solid var(--flap-line); background: transparent; color: var(--flap-dim); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600; cursor: pointer; }
 .chip[aria-pressed="true"] { background: var(--flap-ink); color: var(--board); border-color: var(--flap-ink); }
 .cols, .row { display: grid; grid-template-columns: 92px 118px minmax(150px, 1fr) minmax(220px, 2fr) 150px; gap: 6px; align-items: stretch; }
@@ -108,7 +113,7 @@ h1 .hi { background: linear-gradient(transparent 46%, var(--go) 46%, var(--go) 9
 .row.last .jx, .row.last .st { color: var(--go); }
 .row.last .st i { background: var(--go); animation: pulse 1.4s infinite; }
 .row.soon .st i { background: #FFC24B; }
-.more { display: block; width: 100%; margin: 10px 0 6px; border: 1.5px solid var(--flap-ink); background: transparent; color: var(--flap-ink); border-radius: 10px; padding: 15px 18px; font-family: var(--show); font-weight: 800; font-size: 19px; letter-spacing: .07em; text-transform: uppercase; cursor: pointer; }
+.more { display: block; margin: 14px auto 8px; border: 1.5px solid var(--flap-ink); background: transparent; color: var(--flap-ink); border-radius: 999px; padding: 10px 22px; font-family: var(--font); font-weight: 700; font-size: 15px; cursor: pointer; }
 .more:hover { background: var(--flap-ink); color: var(--board); }
 .board-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 10px 6px 4px; font-size: 13px; color: var(--flap-dim); }
 @media (max-width: 980px) {
@@ -194,19 +199,22 @@ h1 .hi { background: linear-gradient(transparent 46%, var(--go) 46%, var(--go) 9
 .state .dots::after { content: "…"; animation: blink 1.2s steps(3) infinite; }
 @keyframes blink { 50% { opacity: .3; } }
 .hero .lede { margin-top: 18px; max-width: 46ch; }
-.hbox { border: 2px solid var(--ink); border-radius: 20px; padding: 22px 24px; background: #fff; box-shadow: 6px 6px 0 var(--go); }
-.hbox h2 { font-size: clamp(22px, 2.2vw, 28px); letter-spacing: -0.03em; }
-.hbox > p { color: var(--slate); margin: 8px 0 14px; font-size: 16px; }
+.hbox { border: 2px solid var(--ink); border-radius: 16px; padding: 16px 18px; background: #fff; box-shadow: 5px 5px 0 var(--go); width: 100%; max-width: 400px; justify-self: end; }
+.hbox .form { gap: 8px; } .hbox .form input[type=email], .hbox .cta { padding: 10px 14px; font-size: 15px; border-radius: 10px; } .hbox .form label { font-size: 12.5px; }
+@media (max-width: 900px) { .hbox { max-width: none; justify-self: stretch; } }
+.hbox h2 { font-size: 20px; letter-spacing: -0.03em; }
+.hbox > p { color: var(--slate); margin: 6px 0 10px; font-size: 14.5px; line-height: 1.4; }
 .strip { margin-top: 28px; border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; background: var(--soft); display: grid; grid-template-columns: 1fr 1.1fr; gap: 20px; align-items: center; }
+.msg:empty { display: none; }
+.strip .form { gap: 0; } .strip .form .msg:not(:empty) { margin-top: 8px; }
 .strip > b { font-family: var(--display); font-size: 22px; letter-spacing: -0.02em; line-height: 1.15; }
 @media (max-width: 860px) { .strip { grid-template-columns: 1fr; } }
 .form.dark { margin-top: 20px; } .form.dark > b { color: var(--flap-ink); font-size: 16px; }
 .form.dark input[type=email] { background: var(--flap); border-color: var(--flap-line); color: var(--flap-ink); }
 .form.dark .cta { background: var(--go); } .form.dark .msg { color: #B9C0CC; } .form.dark .msg.ok { color: #6EE7B7; } .form.dark .msg.err { color: #FFB199; }
-.chip .lock { display: inline-block; width: 11px; height: 11px; margin-right: 6px; vertical-align: -1px; fill: currentColor; }
 .gate { position: fixed; inset: 0; z-index: 100; background: rgba(10,10,10,.62); display: grid; place-items: center; padding: 16px; }
 .gate-card { position: relative; width: 100%; max-width: 520px; background: #fff; border-radius: 22px; padding: 30px 28px 24px; box-shadow: 0 30px 80px rgba(0,0,0,.4); }
-.gate-card h2 { font-size: clamp(24px, 3vw, 32px); padding-right: 28px; } .gate-card > p { color: var(--slate); margin: 10px 0 16px; }
+.gate-card h2 { font-size: clamp(21px, 2.4vw, 26px); line-height: 1.12; padding-right: 28px; } .gate-card > p { color: var(--slate); margin: 10px 0 16px; }
 .gate-x { position: absolute; top: 12px; right: 14px; border: 0; background: none; font-size: 30px; line-height: 1; cursor: pointer; color: var(--meta); }
 .gate-note { font-size: 13.5px; color: var(--meta) !important; margin: 14px 0 0 !important; }
 @media (max-width: 520px) { .gate-card .line { flex-direction: column; } }
@@ -351,7 +359,7 @@ h1 .hi { background: linear-gradient(transparent 46%, var(--go) 46%, var(--go) 9
 <div class="gate" id="gate" hidden role="dialog" aria-modal="true" aria-labelledby="g-t">
   <div class="gate-card">
     <button type="button" class="gate-x" id="gate-x" aria-label="Fermer">×</button>
-    <h2 id="g-t">La liste complète, contre votre email</h2>
+    <h2 id="g-t">Pour accéder à la liste complète, laissez-nous votre email.</h2>
     <p id="g-p">Vous recevez aussi la liste chaque lundi. Gratuit, et vous vous désinscrivez en un clic.</p>
     <form class="form js-signup" id="gate-form" novalidate>
       <div class="line"><input type="email" placeholder="vous@institut.fr" aria-label="Votre email" autocomplete="email" required><button class="cta" type="submit">Voir la liste complète</button></div>
@@ -377,7 +385,6 @@ const CLE_ACCES = "mz_ao_acces";
 let ACCES = null; try { ACCES = localStorage.getItem(CLE_ACCES); } catch (e) {}
 let AO = [], ETAT = "chargement", META = { nombre: 0, par_sujet: {}, complet: false }, ATTENTE = null;
 let CACHE = {};
-const CADENAS = '<svg class="lock" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 9V7A5 5 0 0 0 7 7v2H5v12h14V9h-2zm-8 0V7a3 3 0 0 1 6 0v2H9z"/></svg>';
 const ICONS = {
   "in": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
   wa: '<svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.9 9.88M20.47 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41"/></svg>',
@@ -391,7 +398,7 @@ const FLAGS = {
 };
 const T = {
  fr: { mois: ["JANV","FÉVR","MARS","AVR","MAI","JUIN","JUIL","AOÛT","SEPT","OCT","NOV","DÉC"], jours: ["DIM","LUN","MAR","MER","JEU","VEN","SAM"], today: "Ferme aujourd'hui", last: "Dernier appel", soon: "Ferme bientôt", open: "Ouvert",
-   all: "Tous", more: n => "Voir les " + n + " appels d'offres en cours", less: "Réduire la liste", count: (a, b) => a + " affiché" + (a > 1 ? "s" : "") + " sur " + b,
+   all: "Tous", allCats: "Voir toutes", more: n => "Voir les " + n + " appels d'offres en cours", less: "Réduire la liste", count: (a, b) => a + " affiché" + (a > 1 ? "s" : "") + " sur " + b,
    share: "Partager", copy: "Copier le lien", copied: "Lien copié", mailSubject: "Dernier appel : les appels d'offres d'études", shareTxt: "Les marchés publics d'études à gagner en ce moment : Dernier appel, présenté par mazeo.",
    sujet: s => s, one: "Un seul marché gagné", ouverts: n => n > 1 ? "sont ouverts" : "est ouvert", aucun: "Aucun", aucunV: "n'est ouvert",
    loading: "Lecture des journaux officiels", vide: ["Aucun appel d'offres d'études ouvert aujourd'hui.", "La liste se remplit chaque matin. Revenez demain, ou recevez l'alerte du lundi."],
@@ -400,7 +407,7 @@ const T = {
    sujets: ["Mobilité, transports","Opinion, image","Logement social","Emploi, formation","Consommation, filières","Médias, audience","Satisfaction des usagers","Tourisme, culture"],
    ach: ["Caisse des Dépôts","France Télévisions","Ministères sociaux","CNC","Nantes Métropole","Service d'information du Gouvernement","Métropole de Lille"] },
  en: { mois: ["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"], jours: ["SUN","MON","TUE","WED","THU","FRI","SAT"], today: "Closes today", last: "Last call", soon: "Closing soon", open: "Open",
-   all: "All", more: n => "See the " + n + " open tenders", less: "Show fewer", count: (a, b) => a + " shown of " + b,
+   all: "All", allCats: "See all", more: n => "See the " + n + " open tenders", less: "Show fewer", count: (a, b) => a + " shown of " + b,
    share: "Share", copy: "Copy link", copied: "Link copied", mailSubject: "Dernier appel: public tenders for research in France", shareTxt: "Public research contracts to win right now in France: Dernier appel, presented by mazeo.",
    sujet: s => ({ Emploi: "Employment", Transports: "Transport", Santé: "Health", Tourisme: "Tourism", Autre: "Other", Recherche: "Academic", Culture: "Culture", Satisfaction: "Satisfaction", Consommation: "Consumer", Opinion: "Opinion", Logement: "Housing", Médias: "Media" })[s] || s, one: "One contract won", ouverts: n => n > 1 ? "are open" : "is open", aucun: "None", aucunV: "is open",
    loading: "Reading the official journals", vide: ["No research tender is open today.", "The list is refreshed every morning. Come back tomorrow, or get the Monday alert."],
@@ -416,7 +423,7 @@ const EN = [
  ["#hb-t", 0, "Get the list every Monday"], ["#hb-p", 0, "New research tenders, and the ones closing soon. Free."],
  [".hbox .cta", 0, "Get the list"], [".strip .cta", 0, "Get the list"], ["#st-1", 0, "Get the new tenders every Monday"],
  ["#st-2", 0, "Be told when these contracts go back out to tender"], [".next .cta", 0, "Notify me"],
- ["#g-t", 0, "The full list, for your email"], ["#g-p", 0, "You also get the list every Monday. Free, and you can unsubscribe in one click."],
+ ["#g-t", 0, "To see the full list, leave us your email."], ["#g-p", 0, "You also get the list every Monday. Free, and you can unsubscribe in one click."],
  ["#gate-form .cta", 0, "See the full list"], ["#g-n", 0, "Already signed up? Enter your email again: access comes back, with no new email."],
  [".t-news", 0, "Also send me news from mazeo, once a month at most."], [".t-news", 1, "Also send me news from mazeo, once a month at most."], [".t-news", 2, "Also send me news from mazeo, once a month at most."],
  ["h1", 0, 'Public research contracts <span class="hi">to win</span> right now.'],
@@ -477,7 +484,7 @@ function rows() {
   const list = tout ? all : all.slice(0, 10);
   const total = META.complet ? all.length : META.nombre;
   $("more").hidden = total <= 10;
-  $("more").innerHTML = tout ? t.less : (META.complet ? "" : CADENAS) + t.more(total);
+  $("more").innerHTML = tout ? t.less : t.more(total);
   $("rows").innerHTML = list.map((a, i) => {
     const j = days(a[0]), d = new Date(a[0] + "T00:00:00");
     const cls = j <= 5 ? "last" : j <= 14 ? "soon" : "";
@@ -494,13 +501,30 @@ function rows() {
 const esc = v => String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 function chips() {
   if (ETAT !== "pret" || !AO.length) { $("chips").innerHTML = ""; return; }
+  const box = $("chips"), t = T[LANG];
   const sujets = ["Tous", ...Object.keys(META.par_sujet).sort((a, b) => META.par_sujet[b] - META.par_sujet[a] || a.localeCompare(b))];
-  $("chips").innerHTML = sujets.map(s => `<button class="chip" aria-pressed="${s === filtre}">${s === "Tous" ? T[LANG].all : (META.complet ? "" : CADENAS) + T[LANG].sujet(s) + " · " + META.par_sujet[s]}</button>`).join("");
-  document.querySelectorAll(".chip").forEach((b, i) => b.onclick = () => {
-    if (!META.complet && sujets[i] !== "Tous") { ouvrirBarriere({ filtre: sujets[i] }); return; }
-    filtre = sujets[i]; tout = false; chips(); rows();
-  });
+  const lab = s => s === "Tous" ? t.all : t.sujet(s) + " · " + META.par_sujet[s];
+  const pick = s => { if (!META.complet && s !== "Tous") { ouvrirBarriere({ filtre: s }); return; } filtre = s; tout = false; chips(); rows(); };
+  box.innerHTML = sujets.map(s => `<button class="chip" aria-pressed="${s === filtre}">${lab(s)}</button>`).join("");
+  const btns = [...box.querySelectorAll(".chip")];
+  btns.forEach((b, i) => b.onclick = () => pick(sujets[i]));
+  /* Une seule ligne : ce qui ne tient pas passe dans « Voir toutes ». */
+  const place = box.clientWidth - 12;
+  if (box.scrollWidth <= box.clientWidth) return;
+  const wrap = document.createElement("div"); wrap.className = "chips-more";
+  wrap.innerHTML = `<button class="chip" id="chips-all" aria-expanded="false">${t.allCats} ▾</button><div class="chips-menu" id="chips-menu" hidden></div>`;
+  box.appendChild(wrap);
+  const reste = [];
+  let i = btns.length - 1;
+  while (i > 0 && btns.slice(0, i + 1).reduce((w, b) => w + b.offsetWidth + 8, 0) + wrap.offsetWidth > place) { reste.unshift(i); btns[i].remove(); i--; }
+  const menu = $("chips-menu");
+  menu.innerHTML = reste.map(k => `<button type="button" aria-pressed="${sujets[k] === filtre}">${lab(sujets[k])}</button>`).join("");
+  [...menu.children].forEach((b, k) => b.onclick = () => pick(sujets[reste[k]]));
+  if (reste.some(k => sujets[k] === filtre)) $("chips-all").setAttribute("aria-pressed", "true");
+  $("chips-all").onclick = e => { e.stopPropagation(); menu.hidden = !menu.hidden; $("chips-all").setAttribute("aria-expanded", String(!menu.hidden)); };
 }
+document.addEventListener("click", e => { const m = document.getElementById("chips-menu"); if (m && !e.target.closest(".chips-more")) m.hidden = true; });
+window.addEventListener("resize", () => { clearTimeout(window.__chipsT); window.__chipsT = setTimeout(chips, 150); });
 const bars = (id, data, unit, max) => $(id).innerHTML = data.map(([l, v]) =>
   `<div class="bar"><span>${l}</span><span class="tr"><i style="width:${Math.round(v / (max || data[0][1]) * 100)}%"></i></span><span class="v">${v}${unit}</span></div>`).join("");
 function charts() {
