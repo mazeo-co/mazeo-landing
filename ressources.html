@@ -230,6 +230,35 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 
 .alert .msg.err { color: #B91C1C; }
 .nav-links a.nav-current { color: var(--ink); box-shadow: inset 0 -2px 0 var(--ink); padding: 6px 0; }
+/* Dernier appel : son tableau des departs (02/10/2026) */
+.da { display: grid; place-content: center; justify-items: center; gap: 14px; padding: 24px; text-align: center; background: #0B0D10; color: #F4F1E8; border-bottom-color: #262C35; }
+.da .by { font-size: 14px; color: #8D95A3; display: flex; align-items: baseline; gap: 7px; }
+.da .by b { font-family: var(--logo-font); font-weight: 800; font-size: 18px; color: #fff; letter-spacing: -0.3px; }
+.da .by b span { color: var(--green); }
+.da .t { font-family: var(--show); font-weight: 900; text-transform: uppercase; font-size: clamp(40px, 4.8vw, 70px); line-height: .9; color: #F4F1E8; }
+.da .t span { color: #FF5A1F; }
+.da .sub { font-size: 14px; font-weight: 600; color: #FFB199; }
+
+/* Trois ressources visibles d'un coup (03/10/2026) : trois colonnes, encadrés plus compacts. */
+.intro { padding-block: 24px 28px; }
+.intro .eyebrow { margin-bottom: 14px; }
+.intro h1 { font-size: clamp(32px, 4.2vw, 58px); }
+.intro .stamp-page { margin-top: 12px; }
+.tools { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.visual { aspect-ratio: 16 / 8; }
+.tool-body { gap: 9px; padding: 20px 22px 22px; }
+.tool h2, .tool h3 { font-size: clamp(21px, 1.75vw, 26px); }
+.desc { font-size: 15px; line-height: 1.5; }
+.facts { gap: 6px; margin-top: 2px; }
+.facts li { font-size: 12.5px; padding: 4px 8px; }
+.tool-foot { padding-top: 10px; }
+.tool-foot .btn { padding: 10px 16px; font-size: 14.5px; }
+.stamp { font-size: 12.5px; }
+.qz { gap: 10px; padding: 16px; } .qz .t { font-size: clamp(30px, 3.1vw, 46px); } .qz .by, .qz .sub { font-size: 12.5px; } .qz .by b { font-size: 15px; }
+.da { gap: 10px; padding: 16px; } .da .t { font-size: clamp(30px, 3.1vw, 46px); } .da .by, .da .sub { font-size: 12.5px; } .da .by b { font-size: 15px; }
+.sl { padding: 14px 18px 0; } .rl .l1 { font-size: 21px; } .sl img { margin-top: -14px; }
+@media (max-width: 1100px) { .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) { .tools { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -257,7 +286,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <section class="intro container">
     <span class="eyebrow">Ressources</span>
     <h1>Des ressources gratuites pour le <em>market research.</em></h1>
-    <p class="stamp-page">Mis à jour le 29 septembre 2026</p>
+    <p class="stamp-page">Mis à jour le 3 octobre 2026</p>
   </section>
 
   <section class="container section-tools" aria-label="Ressources">
@@ -302,6 +331,26 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             <div class="tool-foot">
               <span class="btn btn-primary go" aria-hidden="true">Voir les salons <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
               <span class="stamp">Vérifié le 28 septembre 2026</span>
+            </div>
+          </div>
+        </article>
+      </li>
+
+      <li>
+        <article class="tool">
+          <div class="visual da" aria-hidden="true">
+            <p class="by">présenté par <b>mazeo<span>.</span></b></p>
+            <p class="t">Dernier<br><span>appel</span></p>
+            <p class="sub">Les appels d'offres d'études ouverts</p>
+          </div>
+          <div class="tool-body">
+            <span class="eyebrow">Gagner des marchés publics</span>
+            <h2><a href="/appels-offres">Dernier appel : les marchés publics d'études</a></h2>
+            <p class="desc">Les appels d'offres publics d'études ouverts en France. Relevés chaque jour aux journaux officiels, lus un par un, classés par date limite.</p>
+            <ul class="facts"><li>Mis à jour chaque jour</li><li>France</li><li>Alerte le lundi</li></ul>
+            <div class="tool-foot">
+              <span class="btn btn-primary go" aria-hidden="true">Voir les appels d'offres <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+              <span class="stamp">Gratuit</span>
             </div>
           </div>
         </article>

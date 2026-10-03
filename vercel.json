@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/appels-offres",
+      "destination": "/appels-offres.html"
+    },
+    {
+      "source": "/en/public-tenders",
+      "destination": "/appels-offres.html"
+    },
+    {
       "source": "/securite",
       "destination": "/securite.html"
     },
