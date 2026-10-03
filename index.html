@@ -723,7 +723,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .rs-title { font-size: clamp(30px, 3.4vw, 48px); }
 .rs-all { font-weight: 600; font-size: 16px; color: var(--blue-text); display: inline-flex; align-items: center; gap: 6px; }
 .rs-all svg { width: 17px; height: 17px; }
-.rs-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; list-style: none; margin: 0; padding: 0; }
+.rs-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; list-style: none; margin: 0; padding: 0; }
 .rs-grid > li { display: flex; }
 .rs-card { position: relative; display: flex; flex-direction: column; width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; transition: border-color .15s, box-shadow .2s, transform .2s; }
 .rs-card:hover { border-color: var(--line-strong); box-shadow: 0 28px 56px -32px rgba(10,24,48,.32); transform: translateY(-3px); }
@@ -749,7 +749,16 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .rs-mk { position: relative; display: inline-block; isolation: isolate; }
 .rs-mk svg { position: absolute; left: -5px; top: 36%; width: calc(100% + 10px); height: 62%; z-index: -1; }
 .rs-sl img { flex: 1; min-height: 0; width: 100%; object-fit: contain; object-position: 88% 100%; mix-blend-mode: multiply; margin-top: -40px; }
-@media (max-width: 960px) { .rs-grid { grid-template-columns: 1fr; } }
+.rs-visual { aspect-ratio: 16 / 9; }
+.rs-body { padding: 18px 20px 22px; } .rs-body h3 { font-size: clamp(19px, 1.6vw, 23px); } .rs-body p { font-size: 15px; }
+.rs-show { font-size: clamp(26px, 2.6vw, 38px); }
+.rs-sl img { margin-top: -22px; }
+.rs-da { display: grid; place-content: center; justify-items: center; gap: 10px; background: #fff; }
+.rs-da .rs-by { color: var(--meta); } .rs-da .rs-by b { color: var(--ink); }
+.rs-tiles { display: flex; flex-direction: column; align-items: center; gap: 5px; margin: 0; font-family: 'Big Shoulders Display', 'Arial Narrow', var(--font); font-weight: 900; font-size: clamp(22px, 2.3vw, 34px); line-height: 1; }
+.rs-tiles .w { display: flex; gap: 3px; } .rs-tiles .w i { font-style: normal; background: #0B0D10; color: #F4F1E8; border-radius: 4px; padding: .16em .2em .1em; min-width: .82em; text-align: center; } .rs-tiles .w.o i { color: #FF5A1F; }
+@media (max-width: 1100px) { .rs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) { .rs-grid { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .rs-card, .rs-card:hover { transform: none; transition: none; } }
 </style>
 </head>
@@ -768,7 +777,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       <a href="#signaux" data-t="nav.signals">Les signaux</a>
       <a href="#pipeline" data-t="nav.pipeline">Le Pipeline</a>
       <a href="#prix" data-t="nav.price">Le prix</a>
-      <a href="/ressources" data-href-en="/en/resources" data-t="nav.res">Ressources</a>
+      <a href="#ressources" data-t="nav.res">Ressources</a>
       <a href="#faq">FAQ</a>
     </nav>
     <div class="nav-right">
@@ -1148,6 +1157,10 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
           <div class="rs-visual rs-sl"><div class="rs-rl" aria-hidden="true"><span class="rs-l1"><span data-t="rs.sL1a">les </span><span class="rs-mk"><span data-t="rs.sL1b">rencontres</span><svg viewBox="0 0 320 60" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 C 70 6, 170 4, 314 9 L 318 50 C 210 56, 100 58, 2 54 Z" fill="#FFD23F"/></svg></span></span><span class="rs-l2" data-t="rs.sL2">du market research</span></div><img src="/assets/salons/badges-fr.webp" data-src-en="/assets/salons/badges-en.webp" width="900" height="700" alt="" loading="lazy"></div>
           <div class="rs-body"><h3><a href="/salons" data-href-en="/en/market-research-conferences" data-t="rs.sT">Les rencontres du market research</a></h3><p data-t="rs.sD">43 salons et congrès du secteur : dates, prix, public.</p></div>
         </article></li>
+        <li><article class="rs-card">
+          <div class="rs-visual rs-da" aria-hidden="true"><p class="rs-by"><span data-t="rs.qBy">présenté par</span> <b>mazeo<span>.</span></b></p><p class="rs-tiles"><span class="w"><i>D</i><i>E</i><i>R</i><i>N</i><i>I</i><i>E</i><i>R</i></span><span class="w o"><i>A</i><i>P</i><i>P</i><i>E</i><i>L</i></span></p></div>
+          <div class="rs-body"><h3><a href="/appels-offres" data-href-en="/en/public-tenders" data-t="rs.aT">Dernier appel : les marchés publics d'études</a></h3><p data-t="rs.aD">Les appels d'offres d'études ouverts, relevés chaque jour.</p></div>
+        </article></li>
       </ul>
     </div>
   </section>
@@ -1228,7 +1241,7 @@ document.documentElement.classList.add("js");
   var EN = {
     "nav.res": "Resources", "rs.eyebrow": "Resources", "rs.h2": "Free resources for the industry.", "rs.all": "All resources", "foot.res": "Resources",
     "rs.qBy": "presented by", "rs.qShow": "The Great Market<br><span>Research</span> Quiz", "rs.qT": "The Great Market Research Quiz", "rs.qD": "Ten questions, three minutes. Your score against the industry.",
-    "rs.sL1a": "market research ", "rs.sL1b": "events", "rs.sL2": "Europe &amp; North America", "rs.sT": "Market research events", "rs.sD": "43 trade shows and conferences: dates, prices, audience.",
+    "rs.sL1a": "market research ", "rs.sL1b": "events", "rs.sL2": "Europe &amp; North America", "rs.aT": "Dernier appel: public research tenders", "rs.aD": "Open research tenders in France, checked daily.", "rs.sT": "Market research events", "rs.sD": "43 trade shows and conferences: dates, prices, audience.",
     "nav.price": "Pricing", "px.eyebrow": "Pricing", "px.h2": "The whole industry. One tool. <em>All included.</em>", "px.t.year": "12-month commitment", "px.t.gain": "−17%", "px.t.month": "Monthly, no commitment", "px.ent.lbl": "Companies", "px.ent.who": "One seat per person, no minimum.", "px.ent.unit": "excl. VAT per person per month", "px.ent.ys": "12-month commitment, paid monthly or in one go.", "px.fre.lbl": "Freelancers", "px.fre.who": "One seat, for freelancers.", "px.fre.unit": "excl. VAT per month", "px.fre.ys": "12-month commitment, paid monthly or in one go.", "px.ms": "No commitment. Stop whenever you want.", "px.open": "Open to everyone on October 15.", "px.demo": "Book a demo", "px.btn": "Subscribe", "px.btn2": "Subscribe", "px.inc": "Included in both plans", "px.q.mail": "Work emails", "px.q.mob": "Mobile numbers", "px.q.e120": "120 per month", "px.q.m40": "40 per month", "px.q.e60": "60 per month", "px.q.m20": "20 per month", "px.q.rep": "What you have left at the end of the month is added to the next month.", "px.f1": "1,300+ market research companies", "px.f2": "13,000+ contacts, email and mobile in one click", "px.f3": "Companies recommended for your offer", "px.f4": "10 types of business signals", "px.f5": "Signal alerts on the companies and contacts you follow", "px.f6": "Email and LinkedIn sequences, from first message to first meeting", "px.f7": "Personalised message writer", "px.f8": "LinkedIn and email connectors: you send from mazeo", "px.join": "Is your company already a mazeo customer? Subscribe to your seat here: you will join your team in the app.", "px.rch": "Need more contact details?", "px.rch.s": "Buy extra emails and mobile numbers. They stay available until you use them.", "px.rch1": "100 extra work emails revealed", "px.rch2": "20 extra mobile numbers revealed", "px.ht": "excl. VAT", "px.ht2": "excl. VAT", "px.c.h": "mazeo replaces four tools. <em>And costs less.</em>", "px.c.lbl1": "Without mazeo: 4 subscriptions per person", "px.c.r1": "Finding the right contacts", "px.c.r2": "Work emails and mobile numbers", "px.c.r3": "Email and LinkedIn sequences", "px.c.r4": "Monitoring and signals", "px.c.rodz": "Rodz, Starter pack", "px.c.tot": "Total without mazeo", "px.c.tots": "and 4 tools to learn and connect", "px.c.with": "With mazeo: one tool, dedicated to market research", "px.c.wy": "With a 12-month commitment. €299 without commitment.", "px.c.wm": "No commitment. €249 with a 12-month commitment.", "px.cta1": "Choose my plan", "px.cta2": "Book a demo", "px.c.src": "Public prices excl. VAT, per person per month, on monthly billing, taken from the vendors’ websites on 27 and 30 September 2026. Rodz: credit pack without subscription, entry price.", "px.a121": "€121", "px.a139": "€139", "px.a149": "€149", "px.a179": "€179", "px.a249": "€249", "px.a299": "€299", "px.a369": "€369", "px.a50": "€50", "px.a59": "€59", "px.a15": "€15", "px.a249c": "€249", "px.a299c": "€299", "px.a15b": "€15", "px.a299s": "€299", "px.a179s": "€179", "px.c.sy": "€120 less per person, every month", "px.c.sm": "€70 less per person, every month",
     "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Book a demo", "an.txt": "mazeo opens to everyone on October 15.", "an.txt2": "Open to all on October 15", "an.go": "See pricing&nbsp;→",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
@@ -2067,7 +2080,8 @@ document.documentElement.classList.add("js");
      pendant 3 s, chaque changement de hauteur de la page recale la section en haut de l'écran,
      sauf si la personne fait défiler elle-même. Sert au menu, au lien de la FAQ et à /souscrire (redirigé vers /#prix). */
   var prix = document.getElementById("prix");
-  function caler() {
+  function caler(el) {
+    var prix = el || document.getElementById("prix");
     if (!prix || !("ResizeObserver" in window)) return;
     var fin = Date.now() + 3000, ro;
     function stop() { if (ro) ro.disconnect(); window.removeEventListener("wheel", stop); window.removeEventListener("touchstart", stop); window.removeEventListener("keydown", stop); }
@@ -2080,6 +2094,7 @@ document.documentElement.classList.add("js");
      Le navigateur faisait parfois sauter la page sur le long trajet jusqu'au prix. Ici, chaque image du défilement recalcule
      où se trouve la section : si la page bouge pendant le trajet (images, carte du marché), l'arrivée suit sans à-coup.
      Le logo remonte tout en haut, bandeau compris. Une molette, un doigt ou une touche arrêtent le défilement en cours. */
+  var SECTIONS = ["market", "signaux", "pipeline", "prix", "comparatif", "ressources", "faq"];
   var trajet = 0;
   function arreter() { trajet++; }
   ["wheel", "touchstart", "keydown"].forEach(function (ev) { window.addEventListener(ev, arreter, { passive: true }); });
@@ -2110,14 +2125,22 @@ document.documentElement.classList.add("js");
       return;
     }
     var el = id && document.getElementById(id);
-    if (!el || ["market", "signaux", "pipeline", "prix", "comparatif", "faq"].indexOf(id) < 0) return;
+    if (!el || SECTIONS.indexOf(id) < 0) return;
     a.addEventListener("click", function (e) {
       e.preventDefault();
       if (history.pushState) history.pushState(null, "", "#" + id);
       defiler(versSection(el));
     });
   });
-  if (location.hash === "#prix") caler();
+  /* Arrivée depuis une autre page avec une ancre (/#prix, /#faq, /#ressources…) : même défilement doux qu'au clic,
+     au lieu d'apparaître directement sur la section. On repart du haut, on défile, puis on cale 3 s. */
+  var ancre = location.hash.slice(1), cibleAncre = SECTIONS.indexOf(ancre) >= 0 && document.getElementById(ancre);
+  if (cibleAncre) {
+    try { history.scrollRestoration = "manual"; } catch (err) {}
+    window.scrollTo({ top: 0, behavior: "instant" });
+    var partir = function () { window.scrollTo({ top: 0, behavior: "instant" }); defiler(versSection(cibleAncre)); setTimeout(function () { if (window.scrollY > 0) caler(cibleAncre); }, 1200); };
+    if (document.readyState === "complete") setTimeout(partir, 60); else window.addEventListener("load", function () { setTimeout(partir, 60); });
+  }
 })();
 </script>
 </body>
