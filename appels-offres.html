@@ -97,7 +97,7 @@ h1 .hi { background: linear-gradient(transparent 46%, var(--go) 46%, var(--go) 9
 .chip { border: 1px solid var(--flap-line); background: transparent; color: var(--flap-dim); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600; cursor: pointer; }
 .chip[aria-pressed="true"] { background: var(--flap-ink); color: var(--board); border-color: var(--flap-ink); }
 .cols, .row { display: grid; grid-template-columns: 92px 118px minmax(150px, 1fr) minmax(220px, 2fr) 150px; gap: 6px; align-items: stretch; }
-.cols { padding: 0 0 8px; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--flap-dim); }
+.cols { align-items: end; line-height: 1.25; padding: 0 0 8px; font-size: 11.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--flap-dim); }
 .cols div { padding-left: 14px; }
 .row { margin-bottom: 6px; text-decoration: none; color: inherit; animation: flip .5s cubic-bezier(.2,.7,.2,1) both; transform-origin: 50% 0; }
 @keyframes flip { from { transform: perspective(700px) rotateX(-88deg); opacity: 0; } to { transform: none; opacity: 1; } }
@@ -254,12 +254,12 @@ h1 .hi { background: linear-gradient(transparent 46%, var(--go) 46%, var(--go) 9
     <div class="board-top">
       <div class="board-title">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M5 15l14-4-2.5-5-3 1L9 5 7.5 5.5 10 9 6 10 4.5 8.5 3 9z"/></svg>
-        <span id="bt">Clôtures</span>
+        <span id="bt">Les appels d'offres en cours</span>
       </div>
       <div class="clock" id="clock">VEN 02 OCT 2026</div>
     </div>
     <div class="chips" id="chips"></div>
-    <div class="cols"><div>Reste</div><div>Clôture</div><div>Acheteur</div><div>Étude demandée</div><div>Statut</div></div>
+    <div class="cols"><div>Jours restants</div><div>Date limite</div><div>Acheteur</div><div>Étude demandée</div><div>Statut</div></div>
     <div id="rows"></div>
     <button class="more" id="more"></button>
     <div class="board-foot"><span>Sources&nbsp;: BOAMP et TED, les journaux officiels français et européen des marchés publics, relevés chaque jour. Chaque ligne ouvre l'avis officiel.</span><span id="count"></span></div>
@@ -428,8 +428,8 @@ const EN = [
  [".t-news", 0, "Also send me news from mazeo, once a month at most."], [".t-news", 1, "Also send me news from mazeo, once a month at most."], [".t-news", 2, "Also send me news from mazeo, once a month at most."],
  ["h1", 0, 'Public research contracts <span class="hi">to win</span> right now.'],
  [".lede", 0, "<b><span id=\"h-n\">…</span> <span id=\"h-v\">are open</span> today.</b> mazeo checks the official journals every day and reads every notice."],
- ["#bt", 0, "Closing dates"],
- [".cols", 0, "<div>Left</div><div>Closes</div><div>Buyer</div><div>Study requested</div><div>Status</div>"],
+ ["#bt", 0, "Open tenders"],
+ [".cols", 0, "<div>Days left</div><div>Deadline</div><div>Buyer</div><div>Study requested</div><div>Status</div>"],
  [".board-foot span", 0, "Sources: BOAMP and TED, the French and EU official journals of public tenders, checked daily. Each line opens the official notice."],
  [".alert h2", 0, "Nearly five new tenders a week. Get them on Monday."],
  [".alert p", 0, "A short email: the research tenders published during the week, and the ones closing soon. Free."],
