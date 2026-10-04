@@ -77,8 +77,8 @@ button, input { font: inherit; }
 :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
 [id] { scroll-margin-top: 80px; }
 /* Liens du menu (02/10) : la section a 120 px de vide au-dessus de son repère ; on la fait remonter d’autant, pour que le repère arrive 24 px sous le menu. */
-#market, #signaux, #pipeline, #prix, #faq { scroll-margin-top: -24px; }
-@media (max-width: 960px) { #market, #signaux, #pipeline, #prix, #faq { scroll-margin-top: 12px; } }
+#market, #signaux, #pipeline, #prix, #ressources, #faq { scroll-margin-top: -24px; }
+@media (max-width: 960px) { #market, #signaux, #pipeline, #prix, #ressources, #faq { scroll-margin-top: 12px; } }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 .lc { text-transform: none; }
 .container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
@@ -1408,7 +1408,7 @@ document.documentElement.classList.add("js");
   /* ---------- 1 · Le match : quatre fiches d'entreprises, qui défilent ---------- */
   var FICHES = {
     fr: [
-      { d: "kelloggs.com", n: "Kellogg’s", meta: "Acheteur d’études · Grand groupe · FMCG", pct: 92, why: "forts besoins en tests produits et U&A, votre offre couvre les deux, secteur FMCG en commun.", rows: [["Innovation & Tests produits", "besoin", 3], ["Segmentation & U&A", "besoin", 3], ["Quantitatif", "méthode", 2], ["FMCG / CPG", "secteur", 3]], who: "Camille Moreau", role: "Directrice des études consommateurs", face: "women-50" },
+      { d: "kellanova.com", n: "Kellogg’s", meta: "Acheteur d’études · Grand groupe · FMCG", pct: 92, why: "forts besoins en tests produits et U&A, votre offre couvre les deux, secteur FMCG en commun.", rows: [["Innovation & Tests produits", "besoin", 3], ["Segmentation & U&A", "besoin", 3], ["Quantitatif", "méthode", 2], ["FMCG / CPG", "secteur", 3]], who: "Camille Moreau", role: "Directrice des études consommateurs", face: "women-50" },
       { d: "loreal.com", n: "L’Oréal", meta: "Acheteur d’études · Grand groupe · Cosmétique", pct: 88, why: "besoins marqués en brand tracking et tests de concept, votre expertise quali, secteur beauté en commun.", rows: [["Marque & Communication", "besoin", 3], ["Innovation & Tests produits", "besoin", 2], ["Qualitatif", "méthode", 3], ["Cosmétique & Beauté", "secteur", 3]], who: "Thomas Renard", role: "Head of Consumer & Market Insights", face: "men-36" },
       { d: "nocibe.fr", n: "Nocibé", meta: "Acheteur d’études · ETI · Beauté", pct: 86, why: "études shopper et satisfaction en magasin, votre offre quanti et terrain, secteur beauté en commun.", rows: [["Shopper & Retail", "besoin", 3], ["CX & Satisfaction", "besoin", 3], ["Quantitatif", "méthode", 2], ["Cosmétique & Beauté", "secteur", 3]], who: "Inès Garnier", role: "Responsable études & insights", face: "women-44" },
       { d: "fleurymichon.fr", n: "Fleury Michon", meta: "Acheteur d’études · ETI · Agroalimentaire", pct: 83, why: "tests produits et analyse sensorielle, votre expertise sensorielle, secteur agroalimentaire en commun.", rows: [["Innovation & Tests produits", "besoin", 3], ["Segmentation & U&A", "besoin", 2], ["Analyse sensorielle", "méthode", 3], ["Agriculture & Agroalimentaire", "secteur", 3]], who: "Julien Morel", role: "Directeur marketing", face: "men-41" },
@@ -1416,7 +1416,7 @@ document.documentElement.classList.add("js");
       { d: "salomon.com", n: "Salomon", meta: "Acheteur d’études · ETI · Sport", pct: 77, why: "tests produits auprès des pratiquants et U&A, votre offre terrain, secteur sport en commun.", rows: [["Innovation & Tests produits", "besoin", 3], ["Segmentation & U&A", "besoin", 2], ["Terrain & Panels", "méthode", 2], ["Sport, Loisirs & Culture", "secteur", 3]], who: "Antoine Weber", role: "Consumer Insights Manager", face: "men-22" }
     ],
     en: [
-      { d: "kelloggs.com", n: "Kellogg’s", meta: "Research buyer · Large group · FMCG", pct: 92, why: "strong needs in product testing and U&A, your offer covers both, FMCG sector in common.", rows: [["Innovation & Product testing", "need", 3], ["Segmentation & U&A", "need", 3], ["Quantitative", "method", 2], ["FMCG / CPG", "sector", 3]], who: "Camille Moreau", role: "Head of Consumer Research", face: "women-50" },
+      { d: "kellanova.com", n: "Kellogg’s", meta: "Research buyer · Large group · FMCG", pct: 92, why: "strong needs in product testing and U&A, your offer covers both, FMCG sector in common.", rows: [["Innovation & Product testing", "need", 3], ["Segmentation & U&A", "need", 3], ["Quantitative", "method", 2], ["FMCG / CPG", "sector", 3]], who: "Camille Moreau", role: "Head of Consumer Research", face: "women-50" },
       { d: "loreal.com", n: "L’Oréal", meta: "Research buyer · Large group · Cosmetics", pct: 88, why: "strong needs in brand tracking and concept testing, your qualitative expertise, beauty sector in common.", rows: [["Brand & Communication", "need", 3], ["Innovation & Product testing", "need", 2], ["Qualitative", "method", 3], ["Cosmetics & Beauty", "sector", 3]], who: "Thomas Renard", role: "Head of Consumer & Market Insights", face: "men-36" },
       { d: "nocibe.fr", n: "Nocibé", meta: "Research buyer · Mid-sized company · Beauty", pct: 86, why: "shopper and in-store satisfaction studies, your quantitative and fieldwork offer, beauty sector in common.", rows: [["Shopper & Retail", "need", 3], ["CX & Satisfaction", "need", 3], ["Quantitative", "method", 2], ["Cosmetics & Beauty", "sector", 3]], who: "Inès Garnier", role: "Research & insights manager", face: "women-44" },
       { d: "fleurymichon.fr", n: "Fleury Michon", meta: "Research buyer · Mid-sized company · Food", pct: 83, why: "product testing and sensory analysis, your sensory expertise, agrifood sector in common.", rows: [["Innovation & Product testing", "need", 3], ["Segmentation & U&A", "need", 2], ["Sensory analysis", "method", 3], ["Agriculture & Agrifood", "sector", 3]], who: "Julien Morel", role: "Marketing director", face: "men-41" },
@@ -1509,7 +1509,7 @@ document.documentElement.classList.add("js");
         [{ d: "carrefour.com", c: "Carrefour", ct: "Acheteur d’études · Grand groupe", who: "Marc Dupont", role: "Directeur marketing", face: "men-57", cta: "Essayez le téléphone", step: "étape 4 sur 6", due: "2 jours de retard", cls: "late" }],
         [{ d: "orange.com", c: "Orange", ct: "Acheteur d’études · Grand groupe", who: "Inès Martin", role: "Directrice des études", face: "women-21", cta: "Obtenez votre fiche de préparation", step: "jeudi 10 h", due: "dans 2 jours", cls: "" }]
       ],
-      mover: { d: "kelloggs.com", c: "Kellogg’s", ct: "Acheteur d’études · Grand groupe", who: "Camille Moreau", role: "Directrice des études consommateurs", face: "women-50",
+      mover: { d: "kellanova.com", c: "Kellogg’s", ct: "Acheteur d’études · Grand groupe", who: "Camille Moreau", role: "Directrice des études consommateurs", face: "women-50",
         states: [{ cta: "Écrivez-lui sur LinkedIn", step: "étape 2 sur 6", due: "à faire aujourd’hui", cls: "today" }, { cta: "Contactez-la par email", step: "étape 1 sur 3", due: "à faire aujourd’hui", cls: "today" }, { cta: "Obtenez votre fiche de préparation", step: "mardi 14 h", due: "dans 2 jours", cls: "" }] }
     },
     en: {
@@ -1519,7 +1519,7 @@ document.documentElement.classList.add("js");
         [{ d: "carrefour.com", c: "Carrefour", ct: "Research buyer · Large group", who: "Marc Dupont", role: "Marketing Director", face: "men-57", cta: "Try the phone", step: "step 4 of 6", due: "2 days late", cls: "late" }],
         [{ d: "orange.com", c: "Orange", ct: "Research buyer · Large group", who: "Inès Martin", role: "Research Director", face: "women-21", cta: "Get your preparation sheet", step: "Thursday 10am", due: "in 2 days", cls: "" }]
       ],
-      mover: { d: "kelloggs.com", c: "Kellogg’s", ct: "Research buyer · Large group", who: "Camille Moreau", role: "Head of Consumer Research", face: "women-50",
+      mover: { d: "kellanova.com", c: "Kellogg’s", ct: "Research buyer · Large group", who: "Camille Moreau", role: "Head of Consumer Research", face: "women-50",
         states: [{ cta: "Write to her on LinkedIn", step: "step 2 of 6", due: "due today", cls: "today" }, { cta: "Email her", step: "step 1 of 3", due: "due today", cls: "today" }, { cta: "Get your preparation sheet", step: "Tuesday 2pm", due: "in 2 days", cls: "" }] }
     }
   };
