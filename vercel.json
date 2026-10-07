@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/village-des-etudes",
+      "destination": "/village-des-etudes.html"
+    },
+    {
+      "source": "/en/market-research-in-figures",
+      "destination": "/en/market-research-in-figures.html"
+    },
+    {
       "source": "/appels-offres",
       "destination": "/appels-offres.html"
     },
