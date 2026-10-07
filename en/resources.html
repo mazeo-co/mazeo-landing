@@ -268,6 +268,11 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .da .t .w i { font-style: normal; background: #0B0D10; color: #F4F1E8; border-radius: 4px; padding: .16em .2em .1em; min-width: .82em; text-align: center; }
 .da .t .w.o i { color: #FF5A1F; }
 .da .sub { color: var(--slate); }
+/* Le Village des études : le logo sur fond blanc (08/10/2026) */
+.vl { background: #fff; display: grid; place-items: center; }
+.vl img { width: 100%; height: 100%; object-fit: cover; }
+.tools.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 720px) { .tools.four { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -295,11 +300,27 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <section class="intro container">
     <span class="eyebrow">Resources</span>
     <h1>Free resources for <em>market research.</em></h1>
-    <p class="stamp-page">Updated on 3 October 2026</p>
+    <p class="stamp-page">Updated on 8 October 2026</p>
   </section>
 
   <section class="container section-tools" aria-label="Resources">
-    <ul class="tools">
+    <ul class="tools four">
+<li>
+<article class="tool">
+<div class="visual vl"><img src="/assets/village/carte.webp" width="900" height="506" alt="Le Village des études, presented by mazeo" loading="lazy"></div>
+<div class="tool-body">
+<span class="eyebrow">Know the industry</span>
+<h2><a href="/en/market-research-in-figures">Le Village des études: the industry in figures</a></h2>
+<p class="desc">Over 13,000 research professionals, over 1,300 companies: who does research in France, for whom, in which words, and how it all moves.</p>
+<ul class="facts"><li>13 chapters</li><li>France</li><li>No sign-up</li></ul>
+<div class="tool-foot">
+<span class="btn btn-primary go" aria-hidden="true">Read the study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+<span class="stamp">mazeo database, 7 October 2026</span>
+</div>
+</div>
+</article>
+</li>
+
 
       <li>
         <article class="tool">
