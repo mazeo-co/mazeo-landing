@@ -232,6 +232,23 @@ h1 em { font-style:italic; font-weight:500; color:var(--blue); }
 
 .form .msg { margin:6px 0 0; font-size:13.5px; color:var(--text); min-height:1.3em; } .form .msg.ok { color:#0A7A4B; font-weight:600; } .form .msg.err { color:#C2410C; font-weight:600; }
 .share-menu[hidden] { display:none; }
+@media print {
+  @page { size:A4; margin:14mm 12mm; }
+  html, body { background:#fff; } .wrap { max-width:none; padding-inline:0; }
+  .nav-r, .hero-side, .strip, .mzbox .cta, .you::before { display:none !important; }
+  .nav { padding-block:0 10mm; } .lg b { font-size:40px; } .lg small { font-size:10px; }
+  .hero { grid-template-columns:1fr; padding-block:6mm 0; gap:6mm; } .hero h1 { font-size:40px; } .lede { font-size:14px; max-width:none; }
+  .photo, .stats, .rep, .ch, .night, .mzbox { break-inside:avoid; page-break-inside:avoid; }
+  .rep, .night, .ch:nth-of-type(odd) { break-before:page; page-break-before:always; }
+  .ch { margin-top:12mm; gap:10mm; } .ch-l { position:static; } .ch h2 { font-size:26px; } .ch .sub, .you { font-size:13px; } .num { margin-bottom:8px; }
+  .rep { margin-top:0; } .rep .block { margin-top:8mm; } .rep .pair2 { gap:8mm; }
+  .stats { margin-top:10mm; } .stat b { font-size:40px; } .stat .t { font-size:13px; } .stat .d { font-size:11.5px; }
+  .night { padding:10mm; border-radius:12px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .night .pair div b { font-size:72px; }
+  .mzbox { margin-top:10mm; padding:8mm; } .method { margin-top:6mm; padding-block:4mm 0; font-size:11px; }
+  .band, .fat, .bars, .field, .bub, .cols, .duo-num, .you, .stat.hl b, .b .t i, .fr .br i, .cols .c i { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  a { color:inherit; text-decoration:none; }
+}
 </style>
 </head>
 <body><div class="wrap">
@@ -241,7 +258,7 @@ h1 em { font-style:italic; font-weight:500; color:var(--blue); }
 <section class="hero">
  <h1>The market research industry in France,<br><em>in figures</em>.</h1>
  <div><p class="lede">mazeo references every player of the market research world in France: over 13,000 professionals, in over 1,300 companies, clients and suppliers alike, and gathers all the data about them. We analysed this base to draw a portrait of the industry: who does research, in which companies, in which words, and how it all moves.</p></div>
- <div class="hero-side"><p><b>Get the full study as a PDF</b>, and the next mazeo analyses of the industry.</p><form class="form js-signup" novalidate><div class="line"><input type="email" placeholder="you@company.com" aria-label="Your email" autocomplete="email" required><button class="cta blue" type="submit">Get the study</button></div><label><input type="checkbox" class="js-news" checked> Be notified of the next mazeo studies on the industry.</label><p class="msg" role="status" aria-live="polite"></p></form></div>
+ <div class="hero-side"><p><b>Get the full study as a PDF</b>, and the next mazeo analyses of the industry.</p><form class="form js-signup" data-kind="village" novalidate><div class="line"><input type="email" placeholder="you@company.com" aria-label="Your email" autocomplete="email" required><button class="cta blue" type="submit">Get the study</button></div><label><input type="checkbox" class="js-news" checked> Be notified of the next mazeo studies on the industry.</label><p class="msg" role="status" aria-live="polite"></p></form></div>
 </section>
 
 <section class="photo"><div class="photo-top"><h2>14,894 research professionals, one dot for ten</h2><span>mazeo database, 7 October 2026</span></div>
@@ -281,7 +298,7 @@ h1 em { font-style:italic; font-weight:500; color:var(--blue); }
 <section class="ch"><div class="ch-l"><div class="num">12<span>Women and men</span></div><h2>Two research professionals out of three are <em>women</em>.</h2><p class="sub">In company leadership, a little over one in two. The gap is the same on the client side and on the supplier side.</p><p class="you"><b>What it means</b>The trade is largely female, and leadership a little less so: 56% versus 66%.</p></div><div class="ch-r"><h4>Share of women</h4><div class="bars"><div class="b hl"><span class="l">All</span><span class="t"><i style="width:95.7%"></i></span><span class="v">66%</span></div><div class="b"><span class="l">Client side</span><span class="t"><i style="width:100.0%"></i></span><span class="v">69%</span></div><div class="b"><span class="l">Supplier side</span><span class="t"><i style="width:87.0%"></i></span><span class="v">60%</span></div><div class="b"><span class="l">Leadership</span><span class="t"><i style="width:81.2%"></i></span><span class="v">56%</span></div></div><p class="caption">Estimated from first names, INSEE file, 95% of first names recognised. Leadership: executives, VPs and directors.</p></div></section>
 <section class="ch"><div class="ch-l"><div class="num">13<span>Public procurement</span></div><h2>Public procurement of research <em>is growing</em>.</h2><p class="sub">190 public research contracts awarded in 2023, 269 in 2025. €204M over three years, conservative amount, €100k per contract, median.</p><p class="you"><b>What it means</b>The number of public research contracts grew by 42% in two years. Six winners out of ten won only one contract: public buyers work with many different agencies. mazeo lists these tenders every day, sorts them by research trade and links to each notice, on <a href="/en/public-tenders">Dernier appel</a>. You can sign up to receive them every Monday.</p></div><div class="ch-r"><h4>Public research contracts awarded, by year</h4><div class="cols"><div class="c"><b>190</b><i style="height:127px"></i><span>2023</span></div><div class="c"><b>240</b><i style="height:161px"></i><span>2024</span></div><div class="c hl"><b>269</b><i style="height:180px"></i><span>2025</span></div></div><p class="caption">DECP data. Part of the rise comes from better reporting since 2024.</p></div></section>
 
-<section class="strip"><div><h2>Be notified of every study mazeo publishes <em>on the industry</em>.</h2></div><form class="form js-signup" novalidate><div class="line"><input type="email" placeholder="you@company.com" aria-label="Your email" autocomplete="email" required><button class="cta blue" type="submit">Notify me</button></div><p class="msg" role="status" aria-live="polite"></p></form></section>
+<section class="strip"><div><h2>Be notified of every study mazeo publishes <em>on the industry</em>.</h2></div><form class="form js-signup" data-kind="ressources" novalidate><div class="line"><input type="email" placeholder="you@company.com" aria-label="Your email" autocomplete="email" required><button class="cta blue" type="submit">Notify me</button></div><p class="msg" role="status" aria-live="polite"></p></form></section>
 
 <section class="mzbox"><div><a class="mz" href="https://mazeo.co" style="font-size:22px">mazeo<span>.</span></a><p>mazeo has mapped the whole market research industry in France: over 1,300 companies and over 13,000 professionals, and the database grows every day. mazeo is the only prospecting tool built for market research.</p><p class="q1">Want to see how mazeo can accelerate your business development?</p></div><a class="cta" href="/en/demo">Book a demo</a></section>
 
@@ -300,8 +317,11 @@ const FLAGS = {
 };
 const $ = id => document.getElementById(id);
 $("flag").innerHTML = FLAGS.fr;
-const URL_PAGE = "https://www.mazeo.co/en/market-research-in-figures", LANG = "en", EMAIL_URL = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/content-signup";
-const M = {"bad": "Enter a valid email address.", "sending": "Sending…", "ok": "Noted: a confirmation email is on its way.", "deja": "You are already signed up.", "err": "The request did not go through. Try again in a moment."};
+const URL_PAGE = "https://www.mazeo.co/en/market-research-in-figures", LANG = "en";
+/* Prod depuis mazeo.co ; depuis toute autre adresse (aperçu Vercel, local), le staging : comme Dernier appel. */
+const HOTE_PROD = /(^|\.)mazeo\.co$/.test(location.hostname);
+const EMAIL_URL = (HOTE_PROD ? "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1" : "https://aipmpdzscqhsvteblajo.supabase.co/functions/v1") + "/content-signup";
+const M = {"bad": "Enter a valid email address.", "sending": "Sending…", "ok": "Noted: the study is on its way to your inbox.", "deja": "You are already signed up.", "err": "The request did not go through. Try again in a moment."};
 (function() {
   const u = encodeURIComponent(URL_PAGE), tx = encodeURIComponent("Le Village des études: the market research industry in France, in figures. Presented by mazeo." + " " + URL_PAGE);
   const links = [["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u], ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
@@ -311,14 +331,16 @@ const M = {"bad": "Enter a valid email address.", "sending": "Sending…", "ok":
   const btn = $("share"), menu = $("share-menu");
   btn.onclick = e => { e.stopPropagation(); const open = menu.hidden; menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
   document.addEventListener("click", e => { if (!e.target.closest(".share")) { menu.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
-  /* Inscription : content-signup, type « ressources » (être informé des prochaines ressources), l'adresse de la page dans la trace. */
+  /* Inscription : content-signup. Le formulaire du haut (data-kind="village") envoie l'étude en PDF ; celui du bas, type « ressources », inscrit aux prochaines études. L'adresse de la page part dans la trace. */
   document.querySelectorAll(".js-signup").forEach(form => form.addEventListener("submit", ev => {
     ev.preventDefault();
     const input = form.querySelector("input[type=email]"), msg = form.querySelector(".msg"), box = form.querySelector(".js-news"), v = input.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.className = "msg err"; msg.textContent = M.bad; return; }
     const b = form.querySelector("button[type=submit]"); b.disabled = true; msg.className = "msg"; msg.textContent = M.sending;
-    fetch(EMAIL_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "ressources", email: v, lang: LANG, news: !!(box && box.checked), page: location.href, salons: [] }) })
-      .then(r => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+    /* Le type « village » (l'étude en PDF) peut ne pas être encore connu du serveur : alors le type « ressources », qui l'est toujours. */
+    const envoyer = kind => fetch(EMAIL_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind, email: v, lang: LANG, news: !!(box && box.checked), page: location.href, salons: [] }) })
+      .then(r => { if (r.status === 400 && kind !== "ressources") return envoyer("ressources"); if (!r.ok) throw new Error(String(r.status)); return r.json(); });
+    envoyer(form.dataset.kind || "ressources")
       .then(d => { msg.className = "msg ok"; msg.textContent = d && d.deja ? M.deja : M.ok; input.value = ""; })
       .catch(() => { msg.className = "msg err"; msg.textContent = M.err; })
       .then(() => { b.disabled = false; });

@@ -232,6 +232,23 @@ h1 em { font-style:italic; font-weight:500; color:var(--blue); }
 
 .form .msg { margin:6px 0 0; font-size:13.5px; color:var(--text); min-height:1.3em; } .form .msg.ok { color:#0A7A4B; font-weight:600; } .form .msg.err { color:#C2410C; font-weight:600; }
 .share-menu[hidden] { display:none; }
+@media print {
+  @page { size:A4; margin:14mm 12mm; }
+  html, body { background:#fff; } .wrap { max-width:none; padding-inline:0; }
+  .nav-r, .hero-side, .strip, .mzbox .cta, .you::before { display:none !important; }
+  .nav { padding-block:0 10mm; } .lg b { font-size:40px; } .lg small { font-size:10px; }
+  .hero { grid-template-columns:1fr; padding-block:6mm 0; gap:6mm; } .hero h1 { font-size:40px; } .lede { font-size:14px; max-width:none; }
+  .photo, .stats, .rep, .ch, .night, .mzbox { break-inside:avoid; page-break-inside:avoid; }
+  .rep, .night, .ch:nth-of-type(odd) { break-before:page; page-break-before:always; }
+  .ch { margin-top:12mm; gap:10mm; } .ch-l { position:static; } .ch h2 { font-size:26px; } .ch .sub, .you { font-size:13px; } .num { margin-bottom:8px; }
+  .rep { margin-top:0; } .rep .block { margin-top:8mm; } .rep .pair2 { gap:8mm; }
+  .stats { margin-top:10mm; } .stat b { font-size:40px; } .stat .t { font-size:13px; } .stat .d { font-size:11.5px; }
+  .night { padding:10mm; border-radius:12px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .night .pair div b { font-size:72px; }
+  .mzbox { margin-top:10mm; padding:8mm; } .method { margin-top:6mm; padding-block:4mm 0; font-size:11px; }
+  .band, .fat, .bars, .field, .bub, .cols, .duo-num, .you, .stat.hl b, .b .t i, .fr .br i, .cols .c i { -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  a { color:inherit; text-decoration:none; }
+}
 </style>
 </head>
 <body><div class="wrap">
@@ -241,7 +258,7 @@ h1 em { font-style:italic; font-weight:500; color:var(--blue); }
 <section class="hero">
  <h1>Le secteur des études en France,<br><em>en chiffres</em>.</h1>
  <div><p class="lede">mazeo référence l'ensemble des acteurs du monde des études en France&nbsp;: plus de 13 000 professionnels, dans plus de 1 300 entreprises, annonceurs comme prestataires, et regroupe toute la donnée qui les concerne. Nous avons analysé cette base pour en tirer une photographie du secteur&nbsp;: qui fait les études, dans quelles entreprises, avec quels mots, et comment tout cela bouge.</p></div>
- <div class="hero-side"><p><b>Recevez l'étude complète en PDF</b>, et les prochaines analyses de mazeo sur le secteur.</p><form class="form js-signup" novalidate><div class="line"><input type="email" placeholder="vous@entreprise.fr" aria-label="Votre email" autocomplete="email" required><button class="cta blue" type="submit">Recevoir l'étude</button></div><label><input type="checkbox" class="js-news" checked> Être informé des prochaines études de mazeo sur le secteur.</label><p class="msg" role="status" aria-live="polite"></p></form></div>
+ <div class="hero-side"><p><b>Recevez l'étude complète en PDF</b>, et les prochaines analyses de mazeo sur le secteur.</p><form class="form js-signup" data-kind="village" novalidate><div class="line"><input type="email" placeholder="vous@entreprise.fr" aria-label="Votre email" autocomplete="email" required><button class="cta blue" type="submit">Recevoir l'étude</button></div><label><input type="checkbox" class="js-news" checked> Être informé des prochaines études de mazeo sur le secteur.</label><p class="msg" role="status" aria-live="polite"></p></form></div>
 </section>
 
 <section class="photo"><div class="photo-top"><h2>14 894 professionnels des études, un point pour dix</h2><span>Base mazeo au 7 octobre 2026</span></div>
@@ -281,7 +298,7 @@ h1 em { font-style:italic; font-weight:500; color:var(--blue); }
 <section class="ch"><div class="ch-l"><div class="num">12<span>Femmes et hommes</span></div><h2>Deux professionnels des études sur trois sont <em>des femmes</em>.</h2><p class="sub">À la direction des entreprises, un peu plus d'un sur deux. L'écart est le même chez les annonceurs et chez les prestataires.</p><p class="you"><b>Ce que ça veut dire</b>Le métier est très féminin, et la direction l'est un peu moins&nbsp;: 56&nbsp;% contre 66&nbsp;%.</p></div><div class="ch-r"><h4>Part des femmes</h4><div class="bars"><div class="b hl"><span class="l">Tous</span><span class="t"><i style="width:95.7%"></i></span><span class="v">66&nbsp;%</span></div><div class="b"><span class="l">Chez les annonceurs</span><span class="t"><i style="width:100.0%"></i></span><span class="v">69&nbsp;%</span></div><div class="b"><span class="l">Chez les prestataires</span><span class="t"><i style="width:87.0%"></i></span><span class="v">60&nbsp;%</span></div><div class="b"><span class="l">Direction</span><span class="t"><i style="width:81.2%"></i></span><span class="v">56&nbsp;%</span></div></div><p class="caption">Estimation d'après les prénoms, fichier INSEE, 95 % des prénoms reconnus. Direction : dirigeants, VP et directeurs.</p></div></section>
 <section class="ch"><div class="ch-l"><div class="num">13<span>La commande publique</span></div><h2>La commande publique d'études <em>progresse</em>.</h2><p class="sub">190 marchés publics d’études attribués en 2023, 269 en 2025. 204&nbsp;M€ sur trois ans en montant prudent, 100&nbsp;k€ par marché en médiane.</p><p class="you"><b>Ce que ça veut dire</b>Le nombre de marchés publics d’études a augmenté de 42&nbsp;% en deux ans. Six gagnants sur dix n’ont remporté qu’un seul marché&nbsp;: les acheteurs publics travaillent avec beaucoup d’instituts différents. mazeo répertorie ces appels d’offres tous les jours, les classe par métier d’études et donne le lien vers chaque avis, sur <a href="/appels-offres">Dernier appel</a>. On peut s’inscrire pour les recevoir chaque lundi.</p></div><div class="ch-r"><h4>Marchés publics d’études attribués, par année</h4><div class="cols"><div class="c"><b>190</b><i style="height:127px"></i><span>2023</span></div><div class="c"><b>240</b><i style="height:161px"></i><span>2024</span></div><div class="c hl"><b>269</b><i style="height:180px"></i><span>2025</span></div></div><p class="caption">Données DECP. La hausse tient en partie à une meilleure déclaration depuis 2024.</p></div></section>
 
-<section class="strip"><div><h2>Soyez informé de toutes les études que mazeo publie <em>sur le secteur</em>.</h2></div><form class="form js-signup" novalidate><div class="line"><input type="email" placeholder="vous@entreprise.fr" aria-label="Votre email" autocomplete="email" required><button class="cta blue" type="submit">Être informé</button></div><p class="msg" role="status" aria-live="polite"></p></form></section>
+<section class="strip"><div><h2>Soyez informé de toutes les études que mazeo publie <em>sur le secteur</em>.</h2></div><form class="form js-signup" data-kind="ressources" novalidate><div class="line"><input type="email" placeholder="vous@entreprise.fr" aria-label="Votre email" autocomplete="email" required><button class="cta blue" type="submit">Être informé</button></div><p class="msg" role="status" aria-live="polite"></p></form></section>
 
 <section class="mzbox"><div><a class="mz" href="https://mazeo.co" style="font-size:22px">mazeo<span>.</span></a><p>mazeo a cartographié l'ensemble du secteur des études en France&nbsp;: plus de 1 300 entreprises et plus de 13 000 professionnels, et la base s'enrichit tous les jours. mazeo est le seul outil de prospection dédié au market research.</p><p class="q1">Vous souhaitez découvrir comment mazeo peut accélérer votre développement commercial&nbsp;?</p></div><a class="cta" href="/demo">Réserver une démo</a></section>
 
@@ -300,8 +317,11 @@ const FLAGS = {
 };
 const $ = id => document.getElementById(id);
 $("flag").innerHTML = FLAGS.en;
-const URL_PAGE = "https://www.mazeo.co/village-des-etudes", LANG = "fr", EMAIL_URL = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/content-signup";
-const M = {"bad": "Entrez une adresse email valide.", "sending": "Envoi en cours…", "ok": "C'est noté : un email de confirmation arrive dans votre boîte.", "deja": "Vous êtes déjà inscrit.", "err": "L'envoi n'a pas abouti. Réessayez dans un instant."};
+const URL_PAGE = "https://www.mazeo.co/village-des-etudes", LANG = "fr";
+/* Prod depuis mazeo.co ; depuis toute autre adresse (aperçu Vercel, local), le staging : comme Dernier appel. */
+const HOTE_PROD = /(^|\.)mazeo\.co$/.test(location.hostname);
+const EMAIL_URL = (HOTE_PROD ? "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1" : "https://aipmpdzscqhsvteblajo.supabase.co/functions/v1") + "/content-signup";
+const M = {"bad": "Entrez une adresse email valide.", "sending": "Envoi en cours…", "ok": "C'est noté : l'étude arrive dans votre boîte.", "deja": "Vous êtes déjà inscrit.", "err": "L'envoi n'a pas abouti. Réessayez dans un instant."};
 (function() {
   const u = encodeURIComponent(URL_PAGE), tx = encodeURIComponent("Le Village des études : le secteur des études en France, en chiffres. Présenté par mazeo." + " " + URL_PAGE);
   const links = [["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u], ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
@@ -311,14 +331,16 @@ const M = {"bad": "Entrez une adresse email valide.", "sending": "Envoi en cours
   const btn = $("share"), menu = $("share-menu");
   btn.onclick = e => { e.stopPropagation(); const open = menu.hidden; menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
   document.addEventListener("click", e => { if (!e.target.closest(".share")) { menu.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
-  /* Inscription : content-signup, type « ressources » (être informé des prochaines ressources), l'adresse de la page dans la trace. */
+  /* Inscription : content-signup. Le formulaire du haut (data-kind="village") envoie l'étude en PDF ; celui du bas, type « ressources », inscrit aux prochaines études. L'adresse de la page part dans la trace. */
   document.querySelectorAll(".js-signup").forEach(form => form.addEventListener("submit", ev => {
     ev.preventDefault();
     const input = form.querySelector("input[type=email]"), msg = form.querySelector(".msg"), box = form.querySelector(".js-news"), v = input.value.trim();
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.className = "msg err"; msg.textContent = M.bad; return; }
     const b = form.querySelector("button[type=submit]"); b.disabled = true; msg.className = "msg"; msg.textContent = M.sending;
-    fetch(EMAIL_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "ressources", email: v, lang: LANG, news: !!(box && box.checked), page: location.href, salons: [] }) })
-      .then(r => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+    /* Le type « village » (l'étude en PDF) peut ne pas être encore connu du serveur : alors le type « ressources », qui l'est toujours. */
+    const envoyer = kind => fetch(EMAIL_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind, email: v, lang: LANG, news: !!(box && box.checked), page: location.href, salons: [] }) })
+      .then(r => { if (r.status === 400 && kind !== "ressources") return envoyer("ressources"); if (!r.ok) throw new Error(String(r.status)); return r.json(); });
+    envoyer(form.dataset.kind || "ressources")
       .then(d => { msg.className = "msg ok"; msg.textContent = d && d.deja ? M.deja : M.ok; input.value = ""; })
       .catch(() => { msg.className = "msg err"; msg.textContent = M.err; })
       .then(() => { b.disabled = false; });
