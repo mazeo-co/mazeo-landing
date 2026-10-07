@@ -120,6 +120,31 @@
       "source": "/en/subscribe",
       "destination": "/?lang=en#prix",
       "permanent": false
+    },
+    {
+      "source": "/souscrire.html",
+      "destination": "/#prix",
+      "permanent": true
+    },
+    {
+      "source": "/en/subscribe.html",
+      "destination": "/?lang=en#prix",
+      "permanent": true
+    },
+    {
+      "source": "/maquette.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/proposition.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/mazeo-app-built.html",
+      "destination": "/",
+      "permanent": true
     }
   ]
 }
