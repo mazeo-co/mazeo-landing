@@ -84,20 +84,23 @@ button, input { font: inherit; color: inherit; }
 .i-in { background: #0A66C2; } .i-wa { background: #25D366; } .i-x { background: #000; } .i-mail { background: #6B7280; } .i-link { background: #2B8FFF; }
 
 /* Titre */
-.hero { padding-block: 64px 48px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+/* La boite d'inscription est centree entre le bord droit du titre et le bord droit de la page :
+   le titre garde sa largeur (max-width en em), la boite prend le milieu de la place qui reste. */
+.hero { padding-block: 64px 48px; display: flex; align-items: center; }
+.hero > div:first-child { flex: none; }
 .kicker { font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--meta); margin-bottom: 14px; }
-h1 { font-size: clamp(42px, 5.6vw, 78px); font-stretch: 90%; }
+h1 { font-size: clamp(42px, 5.6vw, 78px); font-stretch: 90%; max-width: 7.05em; }
 h1 .hi { color: var(--red); }
 .lede { font-size: 19px; color: var(--slate); margin-top: 18px; max-width: 46ch; }
 .lede b { color: var(--ink); }
-@media (max-width: 900px) { .hero { grid-template-columns: 1fr; gap: 20px; padding-block: 30px 20px; } }
-.hbox { border: 2px solid var(--ink); border-radius: 16px; padding: 20px 22px; background: #fff; box-shadow: 6px 6px 0 var(--red); width: 100%; max-width: 440px; justify-self: end; }
+@media (max-width: 1100px) { .hero { flex-direction: column; align-items: stretch; gap: 20px; padding-block: 30px 20px; } h1 { max-width: none; } }
+.hbox { border: 2px solid var(--ink); border-radius: 16px; padding: 20px 22px; background: #fff; box-shadow: 6px 6px 0 var(--red); flex: 0 1 440px; min-width: 0; margin-inline: auto; }
 .hbox h2 { font-size: 22px; letter-spacing: -0.03em; }
 .hbox > p { color: var(--slate); margin: 7px 0 12px; font-size: 15.5px; line-height: 1.4; }
 .hbox .form { gap: 8px; } .hbox .form input[type=email], .hbox .cta { padding: 12px 15px; font-size: 15.5px; border-radius: 10px; } .hbox .form label { font-size: 13px; }
 .hbox .lock { display: flex; gap: 8px; align-items: center; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13px; color: var(--meta); }
 .hbox .lock svg { width: 14px; height: 14px; flex: none; }
-@media (max-width: 900px) { .hbox { max-width: none; justify-self: stretch; } }
+@media (max-width: 1100px) { .hbox { flex: none; margin-inline: 0 !important; } }
 .form { display: flex; flex-direction: column; gap: 12px; }
 .form .line { display: flex; gap: 10px; }
 .form input[type=email] { flex: 1; min-width: 0; border: 1.5px solid #C9CED6; border-radius: 12px; padding: 14px 16px; background: #fff; }
@@ -508,7 +511,21 @@ function shareMenu() {
   $("share-menu").innerHTML = links.map(l => `<a href="${l[2]}" target="_blank" rel="noopener"><i class="i-${l[0]}">${ICONS[l[0]]}</i>${l[1]}</a>`).join("") + `<button type="button" id="copy"><i class="i-link">${ICONS.link}</i><span>${t.copy}</span></button>`;
   $("copy").onclick = e => { const lab = e.currentTarget.lastChild; try { navigator.clipboard.writeText(url).then(() => { lab.textContent = t.copied; }, () => { lab.textContent = url; }); } catch (x) { lab.textContent = url; } };
 }
-function render() { fixed(); sortBar(); rows(); chiffres(); shareMenu(); }
+/* La boite d'inscription a egale distance du bord droit du TEXTE du titre et du bord droit de la page.
+   Le texte du titre se mesure (ses lignes n'ont pas la largeur de leur bloc, et elle change avec la langue). */
+function centrerBoite() {
+  const box = document.querySelector(".hbox"), h = document.querySelector("h1"), w = document.querySelector(".wrap");
+  if (!box || !h || !w) return;
+  box.style.marginLeft = ""; box.style.marginRight = "";
+  if (window.innerWidth <= 1100) return;
+  const r = document.createRange(); r.selectNodeContents(h);
+  const libre = w.getBoundingClientRect().right - r.getBoundingClientRect().right - box.getBoundingClientRect().width;
+  if (libre < 48) return;
+  box.style.marginLeft = "auto"; box.style.marginRight = Math.round(libre / 2) + "px";
+}
+window.addEventListener("resize", centrerBoite);
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(centrerBoite);
+function render() { fixed(); sortBar(); rows(); chiffres(); shareMenu(); centrerBoite(); }
 function ouvrirBarriere() { $("gate").hidden = false; try { $("gate-form").querySelector("input").focus(); } catch (e) {} }
 function fermerBarriere() { $("gate").hidden = true; }
 /* La liste, lue une fois par visite (12 s, puis l'etat « ne repond pas »). Avec la preuve d'inscription : la liste complete. */
