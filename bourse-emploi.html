@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>La Bourse de l'emploi insight · les postes études et insight ouverts · présenté par mazeo</title>
+<meta name="description" content="Les postes études, insight et connaissance client ouverts en France, chez les instituts et les annonceurs. Repérés chaque semaine par mazeo sur LinkedIn, HelloWork, Indeed, Welcome to the Jungle et France Travail.">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/bourse-emploi">
+<link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/insight-jobs">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/bourse-emploi">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mazeo">
+<meta property="og:title" content="La Bourse de l'emploi insight : qui recrute dans le market research">
+<meta property="og:description" content="Les annonces de recrutement du market research et de l'insight en France, vérifiées chaque jour. Qui ouvre un poste, et où.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<script>
+/* Une seule page sert deux adresses : /bourse-emploi (FR) et /en/insight-jobs (EN). Adresse de reference, langue,
+   titre et description sont poses ici selon l'adresse, avant tout le reste (meme raison que appels-offres.html). */
+(function () {
+  var en = /^\/en(\/|$)/.test(location.pathname) || new URLSearchParams(location.search).get("lang") === "en";
+  var url = en ? "https://www.mazeo.co/en/insight-jobs" : "https://www.mazeo.co/bourse-emploi";
+  var l = document.createElement("link"); l.rel = "canonical"; l.href = url; document.head.appendChild(l);
+  var o = document.createElement("meta"); o.setAttribute("property", "og:url"); o.content = url; document.head.appendChild(o);
+  if (!en) return;
+  document.documentElement.lang = "en";
+  document.title = "The insight job board · who is hiring in market research · by mazeo";
+  document.querySelector('meta[name="description"]').content = "Market research and insight job postings in France, checked daily. Who is opening a role, and where.";
+  document.querySelector('meta[property="og:title"]').content = "The insight job board: who is hiring in market research";
+  document.querySelector('meta[property="og:description"]').content = "Market research and insight job postings in France, checked daily. Who is opening a role, and where.";
+})();
+</script>
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&display=swap" rel="stylesheet">
+<style>
+/* La Bourse de l'emploi insight · cinquième ressource de mazeo.co.
+   Identité : la porte qui s'ouvre. Page blanche, un seul rouge (#E8301C), réservé au signe, aux chiffres clés et aux appels à l'action. */
+:root {
+  color-scheme: light;
+  --ink: #0A0A0A; --slate: #3A4250; --meta: #5B6472; --line: #E4E7EC; --soft: #F5F6F8; --ground: #FFFFFF;
+  --red: #E8301C; --red-soft: #FDE8E5; --red-ink: #B9200F; --ok: #00C774; --mzblue: #007BFF;
+  --font: 'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --display: 'Bricolage Grotesque', var(--font);
+  --logo-font: 'Inter', var(--font);
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font); font-size: 17px; line-height: 1.55; color: var(--ink); background: var(--ground); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 800; letter-spacing: -0.04em; line-height: 1; text-wrap: balance; }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; text-underline-offset: 3px; }
+button, input { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+.page { padding-inline: 48px; }
+@media (max-width: 720px) { .page { padding-inline: 16px; } }
+.wrap { width: 100%; max-width: 1240px; margin-inline: auto; }
+
+/* Barre */
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 128px; padding-block: 18px; border-bottom: 1px solid var(--line); }
+.logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.logo svg { width: 68px; height: 68px; flex: none; color: var(--red); }
+.logo .w { font-family: var(--display); font-weight: 800; font-size: 30px; letter-spacing: -0.05em; line-height: .92; }
+.logo .w small { display: block; font-family: var(--font); font-weight: 700; font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--red); margin-top: 6px; }
+.by { font-size: 16px; font-weight: 600; color: var(--slate); margin-left: 22px; padding-left: 22px; border-left: 1px solid var(--line); }
+@media (max-width: 900px) { .by { display: none; } }
+.mz { font-family: var(--logo-font); font-weight: 800; letter-spacing: -0.4px; color: var(--ink); text-decoration: none; font-size: 20px; }
+.mz span { color: var(--ok); }
+.pill { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 9px 18px; font-weight: 600; font-size: 15px; cursor: pointer; }
+.pill:hover { background: var(--soft); }
+.bar-right { display: flex; align-items: center; gap: 10px; }
+.lang { display: inline-flex; align-items: center; height: 34px; border-radius: 100px; border: 1px solid var(--line); background: #fff; padding: 3px 5px; cursor: pointer; }
+.flag { flex: none; width: 30px; height: 20px; border-radius: 4px; border: 1px solid var(--line); overflow: hidden; display: block; }
+.flag svg { display: block; width: 100%; height: 100%; }
+.share { position: relative; }
+.share-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 40; min-width: 220px; background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 8px; display: grid; gap: 2px; box-shadow: 0 16px 40px rgba(10,10,10,.18); }
+.share-menu a, .share-menu button { display: flex; align-items: center; gap: 10px; width: 100%; text-align: left; background: none; border: 0; border-radius: 9px; padding: 10px 12px; color: var(--ink); font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; }
+.share-menu a:hover, .share-menu button:hover { background: var(--soft); }
+.share-menu i { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; font-style: normal; color: #fff; }
+.share-menu i svg { width: 16px; height: 16px; fill: currentColor; display: block; }
+.i-in { background: #0A66C2; } .i-wa { background: #25D366; } .i-x { background: #000; } .i-mail { background: #6B7280; } .i-link { background: #2B8FFF; }
+
+/* Titre */
+.hero { padding-block: 64px 48px; display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; }
+.kicker { font-weight: 700; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--meta); margin-bottom: 14px; }
+h1 { font-size: clamp(42px, 5.6vw, 78px); font-stretch: 90%; }
+h1 .hi { color: var(--red); }
+.lede { font-size: 19px; color: var(--slate); margin-top: 18px; max-width: 46ch; }
+.lede b { color: var(--ink); }
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; gap: 20px; padding-block: 30px 20px; } }
+.hbox { border: 2px solid var(--ink); border-radius: 16px; padding: 20px 22px; background: #fff; box-shadow: 6px 6px 0 var(--red); width: 100%; max-width: 440px; justify-self: end; }
+.hbox h2 { font-size: 22px; letter-spacing: -0.03em; }
+.hbox > p { color: var(--slate); margin: 7px 0 12px; font-size: 15.5px; line-height: 1.4; }
+.hbox .form { gap: 8px; } .hbox .form input[type=email], .hbox .cta { padding: 12px 15px; font-size: 15.5px; border-radius: 10px; } .hbox .form label { font-size: 13px; }
+.hbox .lock { display: flex; gap: 8px; align-items: center; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13px; color: var(--meta); }
+.hbox .lock svg { width: 14px; height: 14px; flex: none; }
+@media (max-width: 900px) { .hbox { max-width: none; justify-self: stretch; } }
+.form { display: flex; flex-direction: column; gap: 12px; }
+.form .line { display: flex; gap: 10px; }
+.form input[type=email] { flex: 1; min-width: 0; border: 1.5px solid #C9CED6; border-radius: 12px; padding: 14px 16px; background: #fff; }
+.cta { border: 0; background: var(--ink); color: #fff; border-radius: 12px; padding: 14px 22px; font-weight: 700; cursor: pointer; white-space: nowrap; }
+.cta:hover { background: #23272E; }
+.cta.red { background: var(--red); } .cta.red:hover { background: var(--red-ink); }
+.form label { font-size: 14px; color: var(--meta); display: flex; gap: 9px; align-items: flex-start; }
+.form .msg { margin: 10px 0 0; font-size: 14px; color: var(--slate); min-height: 1.4em; }
+.form .msg.ok { color: #0A7A4B; font-weight: 600; } .form .msg.err { color: #C2410C; font-weight: 600; }
+.msg:empty { display: none; }
+@media (max-width: 520px) { .form .line { flex-direction: column; } }
+
+/* Les logos */
+.logos { padding: 40px 0 56px; border-top: 1px solid var(--line); }
+.logos .t { display: flex; justify-content: space-between; font-weight: 700; font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--meta); margin-bottom: 26px; }
+.logos .row { display: flex; overflow: hidden; mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent); }
+.logos .track { display: flex; gap: 26px; padding-right: 26px; flex: none; animation: defile 60s linear infinite; }
+@keyframes defile { to { transform: translateX(-100%); } }
+.logos .row:hover .track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .logos .track { animation: none; } }
+.logos .row span { flex: none; width: 68px; height: 68px; border-radius: 12px; border: 1px solid var(--line); overflow: hidden; background: #fff; }
+.logos .row img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* La liste */
+.list { border-top: 2px solid var(--ink); }
+.list-top { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; flex-wrap: wrap; padding: 22px 0 14px; }
+.list-top h2 { font-size: 30px; letter-spacing: -0.035em; }
+.list-top .n { font-weight: 600; color: var(--meta); font-size: 15px; }
+.sort { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding: 0 0 18px; }
+.sort .lab { font-size: 13px; font-weight: 600; color: var(--meta); margin-right: 4px; }
+.chip { border: 1px solid var(--line); background: #fff; color: var(--slate); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+.chip[aria-pressed="true"] { background: var(--ink); color: #fff; border-color: var(--ink); }
+.chip[aria-pressed="true"]::after { content: " ↓"; } .chip[aria-pressed="true"][data-dir="desc"]::after { content: " ↑"; }
+.chip:hover:not([aria-pressed="true"]) { background: var(--soft); }
+.job { display: grid; grid-template-columns: 56px minmax(240px, 2fr) 120px minmax(150px, 1fr) 130px 84px 28px; gap: 18px; align-items: center; padding: 16px 10px; border-bottom: 1px solid var(--line); text-decoration: none; color: inherit; border-radius: 10px; animation: in .45s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes in { from { transform: translateY(10px); opacity: 0; } to { transform: none; opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .job { animation: none; } }
+.job:hover { background: var(--soft); }
+.job img { width: 56px; height: 56px; border-radius: 12px; border: 1px solid var(--line); object-fit: cover; display: block; background: #fff; }
+.job .ti { font-family: var(--display); font-weight: 700; font-size: 18.5px; letter-spacing: -0.025em; line-height: 1.15; }
+.job .co { color: var(--meta); font-size: 14.5px; margin-top: 4px; font-weight: 500; }
+.job .co b { color: var(--ink); font-weight: 600; }
+.job .lv { font-weight: 700; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); }
+.job .lv i { display: inline-block; width: 8px; height: 8px; border-radius: 2px; background: var(--red); margin-right: 8px; vertical-align: 1px; }
+.job .do, .job .me { font-size: 14.5px; color: var(--slate); }
+.job .me:empty::before { content: "—"; color: #C9CED6; }
+.job .dt { font-size: 13.5px; color: var(--meta); text-align: right; white-space: nowrap; }
+.job .ar { color: var(--ink); opacity: .35; }
+.job:hover .ar { opacity: 1; color: var(--red); }
+.job .ar svg { width: 22px; height: 22px; display: block; }
+@media (max-width: 980px) { .job { grid-template-columns: 48px 1fr; grid-template-areas: "im ti" "im co" "lv do"; gap: 6px 14px; padding: 16px 6px; } .job img { grid-area: im; width: 48px; height: 48px; } .job .main { grid-area: ti / ti / co / co; } .job .lv { grid-area: lv; } .job .do { grid-area: do; } .job .dt, .job .ar, .job .me { display: none; } }
+.locked { position: relative; margin-top: 2px; }
+.locked .fog { filter: blur(5px); opacity: .55; pointer-events: none; user-select: none; }
+.locked .cover { position: absolute; inset: 0; display: grid; place-items: center; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #fff 70%); }
+.locked .card { text-align: center; max-width: 520px; padding: 10px 20px 0; }
+.locked .card h3 { font-size: 26px; letter-spacing: -0.03em; }
+.locked .card p { color: var(--slate); margin: 8px 0 14px; font-size: 15.5px; }
+.locked .card .line { width: 100%; }
+.state { padding: 34px 20px; text-align: center; color: var(--meta); font-size: 15px; }
+.state b { display: block; color: var(--ink); font-size: 17px; margin-bottom: 6px; }
+.state .dots::after { content: "…"; animation: blink 1.2s steps(3) infinite; }
+@keyframes blink { 50% { opacity: .3; } }
+.list-foot { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 14px 10px 4px; font-size: 13px; color: var(--meta); }
+
+/* Les chiffres */
+.sec { padding-block: 84px 0; }
+.sec > h2 { font-size: clamp(34px, 4.4vw, 58px); font-stretch: 90%; max-width: 20ch; }
+.sec > .sub { margin-top: 14px; color: var(--slate); font-size: 19px; max-width: 62ch; }
+.tiles { margin-top: 44px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.tile { border: 1px solid var(--line); border-radius: 18px; padding: 22px 22px 20px; background: #fff; }
+.tile .n { font-family: var(--display); font-weight: 800; font-size: 58px; letter-spacing: -0.05em; line-height: .95; white-space: nowrap; }
+.tile .n small { font-size: 24px; margin-left: 3px; letter-spacing: -0.02em; }
+.tile .t { font-weight: 700; line-height: 1.25; margin-top: 12px; }
+.tile .d { color: var(--meta); font-size: 14.5px; margin-top: 6px; line-height: 1.4; }
+.tile.hot { background: var(--red); border-color: var(--red); color: #fff; }
+.tile.hot .d { color: #FFD9D3; }
+@media (max-width: 980px) { .tiles { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .tiles { grid-template-columns: 1fr; } }
+.duo { margin-top: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; }
+@media (max-width: 900px) { .duo { grid-template-columns: 1fr; gap: 40px; } }
+.duo h3 { font-size: 26px; letter-spacing: -0.03em; }
+.duo .hint { color: var(--meta); font-size: 15px; margin-top: 6px; }
+.bars { margin-top: 26px; display: flex; flex-direction: column; gap: 12px; }
+.bar { display: grid; grid-template-columns: 200px 1fr 46px; gap: 14px; align-items: center; font-size: 15px; }
+.bar .tr { height: 22px; background: var(--soft); border-radius: 5px; overflow: hidden; }
+.bar .tr i { display: block; height: 100%; background: var(--ink); border-radius: 5px; }
+.bar:first-child .tr i { background: var(--red); }
+.bar .v { font-family: var(--display); font-weight: 800; font-size: 19px; text-align: right; letter-spacing: -0.02em; }
+@media (max-width: 520px) { .bar { grid-template-columns: 128px 1fr 40px; font-size: 14px; } }
+.split { margin-top: 20px; display: flex; height: 54px; border-radius: 10px; overflow: hidden; font-weight: 700; font-size: 14px; color: #fff; }
+.split div { display: flex; align-items: center; padding: 0 14px; white-space: nowrap; overflow: hidden; }
+.split .a { background: var(--red); } .split .b { background: var(--ink); } .split .c { background: #8D95A3; }
+.split-leg { display: flex; gap: 18px; margin-top: 10px; font-size: 14px; color: var(--meta); flex-wrap: wrap; }
+.split-leg i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 6px; vertical-align: -1px; }
+.strip { margin-top: 56px; border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; background: var(--soft); display: grid; grid-template-columns: 1fr 1.1fr; gap: 20px; align-items: center; }
+.strip .form { gap: 0; } .strip .form .msg:not(:empty) { margin-top: 8px; }
+.strip > b { font-family: var(--display); font-size: 22px; letter-spacing: -0.02em; line-height: 1.15; }
+@media (max-width: 860px) { .strip { grid-template-columns: 1fr; } }
+
+/* Encadré mazeo et pied */
+.mzbox { margin-top: 84px; border: 1px solid var(--line); border-radius: 22px; padding: 34px; display: grid; grid-template-columns: 1fr auto; gap: 28px; align-items: center; background: var(--soft); }
+.mzbox .q1 { font-family: var(--display); font-weight: 700; font-size: 24px; letter-spacing: -0.02em; line-height: 1.2; margin-top: 10px; }
+.mzbox .cta { background: var(--mzblue); text-decoration: none; display: inline-block; }
+@media (max-width: 760px) { .mzbox { grid-template-columns: 1fr; padding: 24px 20px; } }
+.method { margin-top: 44px; padding-block: 26px 60px; border-top: 1px solid var(--line); color: var(--meta); font-size: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.method b { color: var(--ink); }
+@media (max-width: 760px) { .method { grid-template-columns: 1fr; } }
+.gate { position: fixed; inset: 0; z-index: 100; background: rgba(10,10,10,.62); display: grid; place-items: center; padding: 16px; }
+.gate-card { position: relative; width: 100%; max-width: 520px; background: #fff; border-radius: 22px; padding: 30px 28px 24px; box-shadow: 0 30px 80px rgba(0,0,0,.4); }
+.gate-card h2 { font-size: clamp(21px, 2.4vw, 26px); line-height: 1.12; padding-right: 28px; } .gate-card > p { color: var(--slate); margin: 10px 0 16px; }
+.gate-x { position: absolute; top: 12px; right: 14px; border: 0; background: none; font-size: 30px; line-height: 1; cursor: pointer; color: var(--meta); }
+.gate-note { font-size: 13.5px; color: var(--meta) !important; margin: 14px 0 0 !important; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="porte" viewBox="0 0 100 100"><rect x="18" y="6" width="50" height="76" rx="6" fill="none" stroke="currentColor" stroke-width="9"/><path d="M41 82V12l40 10v60z" fill="currentColor"/><path d="M28 82 L84 82 L96 96 L8 96z" fill="currentColor" opacity=".28"/><circle cx="73" cy="48" r="3.8" fill="#fff"/></symbol>
+</defs></svg>
+<div class="page"><div class="wrap">
+  <header class="nav">
+    <div style="display:flex;align-items:center">
+      <a class="logo" href="/bourse-emploi" aria-label="La Bourse de l'emploi insight"><svg><use href="#porte"/></svg><div class="w">La Bourse<br>de l'emploi<small>insight</small></div></a>
+      <div class="by">les annonces de recrutement du market research, présentées par <a class="mz" href="https://mazeo.co">mazeo<span>.</span></a></div>
+    </div>
+    <div class="bar-right"><button class="lang" id="lang"><span class="flag" aria-hidden="true" id="flag"></span></button><div class="share"><button class="pill" id="share" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <div class="kicker">Vérifiées chaque jour · France · instituts et annonceurs</div>
+      <h1>Qui recrute dans le market research, <span class="hi">en ce moment</span>.</h1>
+      <p class="lede"><b><span id="n-total">…</span> annonces de recrutement, publiées par <span id="n-ent">…</span> entreprises.</b> mazeo lit tous les job boards français, ne garde que les postes du market research et de l'insight, et vérifie chaque jour que chaque annonce est encore en ligne.</p>
+    </div>
+    <div class="hbox">
+      <h2 id="hb-t">Recevez les nouvelles annonces chaque mois</h2>
+      <p id="hb-p">Qui ouvre un poste dans le market research et l'insight, et où. Un email par mois, gratuit.</p>
+      <form class="form js-signup" novalidate>
+        <div class="line"><input type="email" placeholder="vous@institut.fr" aria-label="Votre email" autocomplete="email" required><button class="cta red" type="submit">Recevoir la liste</button></div>
+        <label><input type="checkbox" class="js-news" checked> <span class="t-news">Recevoir aussi les nouvelles de mazeo, une fois par mois au plus.</span></label>
+        <p class="msg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="lock"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span id="hb-l">Votre email ouvre aussi la liste complète des 178 annonces.</span></div>
+    </div>
+  </section>
+
+  <section class="logos" aria-label="Entreprises qui recrutent">
+    <div class="t"><span id="lg-t">Ils recrutent en ce moment</span><span id="lg-n">96 entreprises</span></div>
+    <div class="row"><div class="track" id="logorow"></div><div class="track" id="logorow2" aria-hidden="true"></div></div>
+  </section>
+
+  <section class="list" aria-label="Postes ouverts">
+    <div class="list-top"><h2 id="lt">Les dernières annonces de recrutement</h2><span class="n" id="count"></span></div>
+    <div class="sort" id="sort"></div>
+    <div id="rows"></div>
+    <div class="locked" id="locked">
+      <div class="fog" id="fog"></div>
+      <div class="cover"><div class="card">
+        <h3 id="lk-t">168 autres annonces vous attendent.</h3>
+        <p id="lk-p">Laissez votre email : la liste complète s'ouvre. Et vous recevez les nouvelles annonces chaque mois.</p>
+        <form class="form js-signup" novalidate>
+          <div class="line"><input type="email" placeholder="vous@institut.fr" aria-label="Votre email" autocomplete="email" required><button class="cta red" type="submit">Voir les 178 annonces</button></div>
+          <p class="msg" role="status" aria-live="polite"></p>
+        </form>
+      </div></div>
+    </div>
+    <div class="list-foot"><span id="lf">Chaque ligne ouvre l'annonce d'origine sur le site où elle est publiée. Les stages et alternances sont dans la liste complète.</span></div>
+  </section>
+
+  <section class="sec">
+    <h2 id="s-t">Le marché de l'emploi insight, en chiffres.</h2>
+    <p class="sub" id="s-s">178 annonces publiées entre juillet et septembre 2026 par 96 entreprises. Voici ce qu'elles disent du marché.</p>
+    <div class="tiles">
+      <div class="tile hot"><div class="n">56<small>%</small></div><div class="t">des annonces sont publiées par des annonceurs</div><div class="d">Un annonceur est une entreprise qui achète des études&nbsp;: une marque, un distributeur, une banque, un média. Les instituts, qui réalisent les études, publient 37&nbsp;% des annonces, et les cabinets de conseil 6&nbsp;%.</div></div>
+      <div class="tile"><div class="n">65<small>%</small></div><div class="t">des annonces viennent de grands groupes</div><div class="d">115 annonces sur 178 sont publiées par de grandes entreprises. Les entreprises de taille intermédiaire en publient 33, les PME 29, et une seule TPE.</div></div>
+      <div class="tile"><div class="n">30<small>%</small></div><div class="t">des annonces sont des stages ou des alternances</div><div class="d">54 annonces sur 178. Parmi les 124 autres&nbsp;: 53 postes confirmés, 26 juniors, 21 managers, 14 seniors et 10 directeurs.</div></div>
+      <div class="tile"><div class="n">37<small>%</small></div><div class="t">des annonces sont à Paris</div><div class="d">66 annonces dans Paris, et une sur deux en Île-de-France. Viennent ensuite Lyon, Toulouse et Nantes, avec moins de cinq annonces chacune.</div></div>
+    </div>
+
+    <div class="duo">
+      <div>
+        <h3 id="d1-t">Ce qu'on cherche</h3>
+        <p class="hint" id="d1-h">Annonces par domaine d'étude principal. Une annonce sur quatre porte sur la connaissance du consommateur.</p>
+        <div class="bars" id="domaines"></div>
+      </div>
+      <div>
+        <h3 id="d2-t">Qui recrute le plus</h3>
+        <p class="hint" id="d2-h">Nombre d'annonces publiées par entreprise. Deux instituts en tête, puis les grands groupes de l'agroalimentaire.</p>
+        <div class="bars" id="recruteurs"></div>
+      </div>
+    </div>
+
+    <div class="duo">
+      <div>
+        <h3 id="d3-t">Avec quelle méthode</h3>
+        <p class="hint" id="d3-h">Méthode d'étude principale citée dans l'annonce, quand elle l'est. Le quantitatif est la méthode la plus demandée.</p>
+        <div class="bars" id="methodes"></div>
+      </div>
+      <div>
+        <h3 id="d4-t">Qui publie les annonces</h3>
+        <p class="hint" id="d4-h">Les annonceurs, qui achètent des études, publient plus d'annonces que les instituts, qui les réalisent.</p>
+        <div class="split"><div class="a" style="width:56%">Annonceurs · 100</div><div class="b" style="width:37%">Instituts · 66</div><div class="c" style="width:7%"></div></div>
+        <div class="split-leg"><span><i style="background:var(--red)"></i>Annonceurs et médias</span><span><i style="background:var(--ink)"></i>Instituts, terrain, panels</span><span><i style="background:#8D95A3"></i>Conseil et outils · 12</span></div>
+      </div>
+    </div>
+
+    <div class="strip">
+      <b id="st-1">Recevoir les nouvelles annonces chaque mois</b>
+      <form class="form js-signup" novalidate>
+        <div class="line"><input type="email" placeholder="vous@institut.fr" aria-label="Votre email" autocomplete="email" required><button class="cta" type="submit">Recevoir la liste</button></div>
+        <p class="msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <section class="mzbox">
+    <div>
+      <a class="mz" href="https://mazeo.co" style="font-size:22px">mazeo<span>.</span></a>
+      <p style="margin-top:10px;color:var(--slate)">Une entreprise qui recrute dans l'insight a des études à faire. mazeo repère ce signal, et beaucoup d'autres, chaque semaine. Puis mazeo vous dit quelles entreprises contacter, qui, et quand.</p>
+      <p class="q1">Vous souhaitez découvrir comment mazeo peut accélérer votre développement commercial&nbsp;?</p>
+    </div>
+    <a class="cta" id="mz-demo" href="https://www.mazeo.co/demo">Réserver une démo</a>
+  </section>
+
+  <footer class="method">
+    <p><b>Méthode.</b> Annonces relevées chaque mois sur tous les job boards français, pour les entreprises suivies par mazeo, puis vérifiées chaque jour&nbsp;: une annonce retirée par le site disparaît de la liste. Chaque annonce est lue et classée selon une règle écrite&nbsp;: seuls les postes dont la raison d'être est de comprendre un client, un consommateur, une marque ou un marché sont gardés.</p>
+    <p><b>Limites.</b> Une annonce peut être pourvue avant son retrait, et certains sites refusent la vérification automatique. Les postes publiés sur le seul site de l'entreprise ne sont pas couverts. Les chiffres portent sur les postes repérés, pas sur tout le marché.</p>
+  </footer>
+</div></div>
+
+<div class="gate" id="gate" hidden role="dialog" aria-modal="true" aria-labelledby="g-t">
+  <div class="gate-card">
+    <button type="button" class="gate-x" id="gate-x" aria-label="Fermer">×</button>
+    <h2 id="g-t">Pour accéder à la liste complète, laissez-nous votre email.</h2>
+    <p id="g-p">Vous recevez aussi les nouvelles annonces chaque mois. Gratuit, et vous vous désinscrivez en un clic.</p>
+    <form class="form js-signup" id="gate-form" novalidate>
+      <div class="line"><input type="email" placeholder="vous@institut.fr" aria-label="Votre email" autocomplete="email" required><button class="cta red" type="submit">Voir la liste complète</button></div>
+      <label><input type="checkbox" class="js-news" checked> <span class="t-news">Recevoir aussi les nouvelles de mazeo, une fois par mois au plus.</span></label>
+      <p class="msg" role="status" aria-live="polite"></p>
+    </form>
+    <p class="gate-note" id="g-n">Déjà inscrit ? Redonnez votre email : l'accès revient, sans nouvel email.</p>
+  </div>
+</div>
+
+<script>
+/* Les donnees viennent de la fonction publique `bourse-emploi` de mazeo-app, a chaque visite (comme Dernier appel).
+   PRODUCTION seulement sur mazeo.co et www.mazeo.co ; partout ailleurs (previews Vercel, poste local) : le STAGING. */
+const HOTE_PROD = /^(www\.)?mazeo\.co$/.test(location.hostname);
+const API = HOTE_PROD ? "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1" : "https://aipmpdzscqhsvteblajo.supabase.co/functions/v1";
+const LISTE_URL = API + "/bourse-emploi";
+const EMAIL_URL = API + "/content-signup";
+const PAGE_URL = { fr: "https://www.mazeo.co/bourse-emploi", en: "https://www.mazeo.co/en/insight-jobs" };
+const CLE_ACCES = "mz_be_acces";
+let ACCES = null; try { ACCES = localStorage.getItem(CLE_ACCES); } catch (e) {}
+let D = null, ETAT = "chargement";
+const ICONS = {
+  "in": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
+  wa: '<svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.9 9.88M20.47 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41"/></svg>',
+  x: '<svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>',
+  mail: '<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>',
+  link: '<svg viewBox="0 0 24 24"><path d="M3.9 12a3.1 3.1 0 0 1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7A3.1 3.1 0 0 1 3.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 1 1 0 6.2h-4V17h4a5 5 0 0 0 0-10z"/></svg>'
+};
+const FLAGS = {
+  en: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"></rect><path d="M0,0 30,20 M30,0 0,20" stroke="#fff" stroke-width="4"></path><path d="M0,0 30,20 M30,0 0,20" stroke="#C8102E" stroke-width="1.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#C8102E" stroke-width="4"></path></svg>',
+  fr: '<svg viewBox="0 0 30 20"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg>'
+};
+const T = {
+ fr: { mois: ["janv.","févr.","mars","avr.","mai","juin","juil.","août","sept.","oct.","nov.","déc."],
+   lv: { stage: "Stage", alternance: "Alternance", apprenticeship: "Alternance", junior: "Junior", confirme: "Confirmé", senior: "Senior", manager: "Manager", director: "Directeur" },
+   dom: { consumer_segmentation: "Connaissance consommateur", innovation_product_test: "Innovation, tests produit", cx_satisfaction: "Satisfaction, expérience client", brand_comms: "Marque, communication", shopper_retail: "Shopper, distribution", strategic_intelligence: "Veille, intelligence", ux_digital: "UX, digital", media_audience: "Médias, audience", b2b_research: "Études B2B", pricing: "Pricing", opinion_public: "Opinion", employee_rh: "Salariés, RH", healthcare_pharma: "Santé", data_panels: "Panels, données", sensory: "Sensoriel", qualitative: "Qualitatif", sector_specialist: "Secteur" },
+   meth: { quantitative: "Quantitatif", qualitative: "Qualitatif", advanced_analytics: "Analytics avancé", passive_data: "Données passives", fieldwork_panels: "Terrain, panels", sensory: "Sensoriel", desk_research: "Desk research", neuro_biometrics: "Neuro, biométrie" },
+   fam: { annonceurs: "Annonceurs et médias", instituts: "Instituts, terrain, panels", autres: "Conseil et outils" }, famA: "Annonceurs", famI: "Instituts",
+   grand: "Grand Groupe", paris: "Paris",
+   loading: "Lecture des annonces", panne: ["La liste ne répond pas pour le moment.", "Réessayez dans un instant."], vide: ["Aucune annonce ouverte aujourd'hui.", "La liste se remplit chaque semaine. Revenez bientôt, ou recevez la liste du lundi."],
+   sortLab: "Trier par", sorts: { co: "Entreprise", lv: "Niveau", do: "Domaine", me: "Méthode", vi: "Ville", dt: "Date" },
+   all: "Tous", count: (a, b) => a + " affichés sur " + b, share: "Partager", copy: "Copier le lien", copied: "Lien copié",
+   mailSubject: "La Bourse de l'emploi insight : les postes ouverts", shareTxt: "Les postes études et insight ouverts en ce moment, et chez qui : La Bourse de l'emploi insight, présentée par mazeo.",
+   form: { bad: "Entrez une adresse email valide.", sending: "Envoi en cours…", ok: "C'est noté : un email de confirmation arrive dans votre boîte.", deja: "Vous êtes déjà inscrit : la liste complète est ouverte.", err: "L'envoi n'a pas abouti. Réessayez dans un instant." } },
+ en: { mois: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+   lv: { stage: "Internship", alternance: "Apprenticeship", apprenticeship: "Apprenticeship", junior: "Junior", confirme: "Mid-level", senior: "Senior", manager: "Manager", director: "Director" },
+   dom: { consumer_segmentation: "Consumer insight", innovation_product_test: "Innovation, product testing", cx_satisfaction: "CX, satisfaction", brand_comms: "Brand, communication", shopper_retail: "Shopper, retail", strategic_intelligence: "Market intelligence", ux_digital: "UX, digital", media_audience: "Media, audience", b2b_research: "B2B research", pricing: "Pricing", opinion_public: "Opinion", employee_rh: "Employees, HR", healthcare_pharma: "Healthcare", data_panels: "Panels, data", sensory: "Sensory", qualitative: "Qualitative", sector_specialist: "Sector" },
+   meth: { quantitative: "Quantitative", qualitative: "Qualitative", advanced_analytics: "Advanced analytics", passive_data: "Passive data", fieldwork_panels: "Fieldwork, panels", sensory: "Sensory", desk_research: "Desk research", neuro_biometrics: "Neuro, biometrics" },
+   fam: { annonceurs: "Client-side and media", instituts: "Agencies, fieldwork, panels", autres: "Consulting and tools" }, famA: "Client-side", famI: "Agencies",
+   grand: "Grand Groupe", paris: "Paris",
+   loading: "Reading the postings", panne: ["The list is not responding right now.", "Try again in a moment."], vide: ["No open posting today.", "The list is refreshed every week. Come back soon, or get the Monday list."],
+   sortLab: "Sort by", sorts: { co: "Company", lv: "Level", do: "Field", me: "Method", vi: "City", dt: "Date" },
+   all: "All", count: (a, b) => a + " shown of " + b, share: "Share", copy: "Copy link", copied: "Link copied",
+   mailSubject: "The insight job board: open positions in France", shareTxt: "Open market research and insight positions in France right now, and where: the insight job board, presented by mazeo.",
+   form: { bad: "Enter a valid email address.", sending: "Sending…", ok: "Noted: a confirmation email is on its way.", deja: "You are already signed up: the full list is open.", err: "Sending failed. Please try again in a moment." } }
+};
+const EN = [
+ [".logo .w", 0, "The insight<br>job board<small>France</small>"],
+ [".by", 0, 'market research job postings, presented by <a class="mz" href="https://mazeo.co">mazeo<span>.</span></a>'],
+ [".kicker", 0, "Checked daily · France · agencies and client-side"],
+ ["h1", 0, 'Who is hiring in market research, <span class="hi">right now</span>.'],
+ [".lede", 0, "<b><span id=\"n-total\">…</span> job postings, published by <span id=\"n-ent\">…</span> companies.</b> mazeo reads every French job board, keeps only market research and insight positions, and checks every day that each posting is still online."],
+ ["#hb-t", 0, "Get the new postings every month"], ["#hb-p", 0, "Who is opening a market research or insight role, and where. One email a month, free."],
+ [".hbox .cta", 0, "Get the list"], ["#hb-l", 0, "Your email also opens the full list of 178 postings."],
+ ["#lg-t", 0, "Hiring right now"], ["#lg-n", 0, "96 companies"], ["#lt", 0, "Latest job postings"],
+ ["#lk-t", 0, "168 more postings are waiting."], ["#lk-p", 0, "Leave your email: the full list opens. And you get the new postings every month."],
+ [".locked .cta", 0, "See all 178 postings"],
+ ["#lf", 0, "Each line opens the original posting on the site where it was published. Internships and apprenticeships are in the full list."],
+ ["#s-t", 0, "The insight job market, in numbers."], ["#s-s", 0, "178 postings published between July and September 2026 by 96 companies. Here is what they say about the market."],
+ [".tile .t", 0, "of postings come from client-side companies"], [".tile .d", 0, "A client-side company buys research: a brand, a retailer, a bank, a media group. Research agencies, which carry out the studies, publish 37% of postings, and consulting firms 6%."],
+ [".tile .t", 1, "of postings come from large groups"], [".tile .d", 1, "115 postings out of 178 are published by large companies. Mid-size companies publish 33, SMEs 29, and one micro-company."],
+ [".tile .t", 2, "of postings are internships or apprenticeships"], [".tile .d", 2, "54 postings out of 178. Among the other 124: 53 mid-level, 26 junior, 21 managers, 14 senior and 10 directors."],
+ [".tile .t", 3, "of postings are in Paris"], [".tile .d", 3, "66 postings in Paris, and one in two in the Paris region. Then Lyon, Toulouse and Nantes, with fewer than five postings each."],
+ ["#d1-t", 0, "What they look for"], ["#d1-h", 0, "Postings by main research field. One posting in four is about consumer insight."],
+ ["#d2-t", 0, "Who hires most"], ["#d2-h", 0, "Postings published per company. Two agencies lead, then the big food groups."],
+ ["#d3-t", 0, "With which method"], ["#d3-h", 0, "Main research method named in the posting, when there is one. Quantitative is the most requested."],
+ ["#d4-t", 0, "Who publishes the postings"], ["#d4-h", 0, "Client-side companies, which buy research, publish more postings than the agencies that carry it out."],
+ [".split .a", 0, "Client-side · 100"], [".split .b", 0, "Agencies · 66"],
+ [".split-leg span", 0, '<i style="background:var(--red)"></i>Client-side and media'], [".split-leg span", 1, '<i style="background:var(--ink)"></i>Agencies, fieldwork, panels'], [".split-leg span", 2, '<i style="background:#8D95A3"></i>Consulting and tools · 12'],
+ ["#st-1", 0, "Get the new postings every month"], [".strip .cta", 0, "Get the list"],
+ [".mzbox p", 0, "A company hiring in insight has research to do. mazeo spots this signal, and many others, every week. Then mazeo tells you which companies to contact, who, and when."],
+ [".mzbox p", 1, "Would you like to see how mazeo can speed up your business development?"], [".mzbox .cta", 0, "Book a demo"],
+ [".method p", 0, "<b>Method.</b> Postings collected every month from every French job board, for the companies mazeo follows, then checked daily: a posting taken down by the site leaves the list. Each posting is read and classified with a written rule: only roles whose purpose is to understand a customer, a consumer, a brand or a market are kept."],
+ [".method p", 1, "<b>Limits.</b> A posting may be filled before it is taken down, and some sites refuse automated checks. Positions published only on the company's own site are not covered. The numbers cover the positions found, not the whole market."],
+ ["#g-t", 0, "To see the full list, leave us your email."], ["#g-p", 0, "You also get the new postings every month. Free, and you can unsubscribe in one click."],
+ ["#gate-form .cta", 0, "See the full list"], ["#g-n", 0, "Already signed up? Enter your email again: access comes back, with no new email."],
+ [".t-news", 0, "Also send me news from mazeo, once a month at most."], [".t-news", 1, "Also send me news from mazeo, once a month at most."]
+];
+let LANG = "fr", FR = null, SORT = { key: "dt", dir: "desc" };
+const $ = id => document.getElementById(id);
+const esc = v => String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+const pct = (n, d) => d ? Math.round(n / d * 100) : 0;
+function fixed() {
+  if (!FR) FR = EN.map(([sel, i]) => document.querySelectorAll(sel)[i].innerHTML);
+  EN.forEach(([sel, i, en], k) => { document.querySelectorAll(sel)[i].innerHTML = LANG === "en" ? en : FR[k]; });
+  document.documentElement.lang = LANG;
+  const other = LANG === "fr" ? "en" : "fr";
+  $("flag").innerHTML = FLAGS[other]; $("lang").title = other === "en" ? "English" : "Français"; $("lang").setAttribute("aria-label", $("lang").title);
+  $("share").textContent = T[LANG].share;
+  $("mz-demo").href = "https://www.mazeo.co" + (LANG === "en" ? "/en/demo" : "/demo");
+  document.querySelectorAll(".js-signup input[type=email]").forEach(i => { i.placeholder = LANG === "en" ? "you@agency.com" : "vous@institut.fr"; });
+}
+/* Les chiffres de la page : tous calcules depuis la reponse du serveur, en FR et en EN. */
+function chiffres() {
+  if (!D) return;
+  const t = T[LANG], c = D.chiffres, n = D.nombre, en = LANG === "en";
+  const fam = c.par_famille || {}, A = fam.annonceurs || 0, I = fam.instituts || 0, O = fam.autres || 0;
+  const niv = c.par_niveau || {}, stages = (niv.stage || 0) + (niv.alternance || 0) + (niv.apprenticeship || 0);
+  const grands = (c.par_taille || {})[t.grand] || 0, paris = (c.par_ville || {})[t.paris] || 0;
+  const q = sel => document.querySelector(sel);
+  q("#n-total").textContent = n; q("#n-ent").textContent = D.entreprises; q("#lg-n").textContent = en ? D.entreprises + " companies" : D.entreprises + " entreprises";
+  q("#s-s").innerHTML = en ? `${n} open postings today, published by ${D.entreprises} companies. Here is what they say about the market.` : `${n} annonces ouvertes aujourd'hui, publiées par ${D.entreprises} entreprises. Voici ce qu'elles disent du marché.`;
+  const tiles = [
+    [pct(A, n), en ? "of postings come from client-side companies" : "des annonces sont publiées par des annonceurs",
+      en ? `A client-side company buys research: a brand, a retailer, a bank, a media group. Research agencies, which carry out the studies, publish ${pct(I, n)}% of postings, and consulting firms ${pct(O, n)}%.` : `Un annonceur est une entreprise qui achète des études&nbsp;: une marque, un distributeur, une banque, un média. Les instituts, qui réalisent les études, publient ${pct(I, n)}&nbsp;% des annonces, et les cabinets de conseil ${pct(O, n)}&nbsp;%.`],
+    [pct(grands, n), en ? "of postings come from large groups" : "des annonces viennent de grands groupes",
+      en ? `${grands} postings out of ${n} are published by large companies. Mid-size companies publish ${(c.par_taille || {}).ETI || 0}, SMEs ${(c.par_taille || {}).PME || 0}.` : `${grands} annonces sur ${n} sont publiées par de grandes entreprises. Les entreprises de taille intermédiaire en publient ${(c.par_taille || {}).ETI || 0}, les PME ${(c.par_taille || {}).PME || 0}.`],
+    [pct(stages, n), en ? "of postings are internships or apprenticeships" : "des annonces sont des stages ou des alternances",
+      en ? `${stages} postings out of ${n}. Among the other ${n - stages}: ${niv.confirme || 0} mid-level, ${niv.junior || 0} junior, ${niv.manager || 0} managers, ${niv.senior || 0} senior and ${niv.director || 0} directors.` : `${stages} annonces sur ${n}. Parmi les ${n - stages} autres&nbsp;: ${niv.confirme || 0} postes confirmés, ${niv.junior || 0} juniors, ${niv.manager || 0} managers, ${niv.senior || 0} seniors et ${niv.director || 0} directeurs.`],
+    [pct(paris, n), en ? "of postings are in Paris" : "des annonces sont à Paris",
+      en ? `${paris} postings in Paris itself. Then ${Object.keys(c.par_ville || {}).filter(v => v !== "Paris").slice(0, 3).join(", ")}.` : `${paris} annonces dans Paris même. Viennent ensuite ${Object.keys(c.par_ville || {}).filter(v => v !== "Paris").slice(0, 3).join(", ")}.`],
+  ];
+  document.querySelectorAll(".tile").forEach((el, k) => { el.querySelector(".n").innerHTML = tiles[k][0] + "<small>%</small>"; el.querySelector(".t").textContent = tiles[k][1]; el.querySelector(".d").innerHTML = tiles[k][2]; });
+  bars("domaines", Object.entries(c.par_domaine || {}).slice(0, 8).map(([k, v]) => [t.dom[k] || k, v]));
+  bars("recruteurs", (c.recruteurs || []).slice(0, 8));
+  bars("methodes", Object.entries(c.par_methode || {}).slice(0, 8).map(([k, v]) => [t.meth[k] || k, v]));
+  const tot = A + I + O || 1;
+  q(".split").innerHTML = `<div class="a" style="width:${pct(A, tot)}%">${t.famA} · ${A}</div><div class="b" style="width:${pct(I, tot)}%">${t.famI} · ${I}</div><div class="c" style="width:${pct(O, tot)}%"></div>`;
+  q(".split-leg").innerHTML = `<span><i style="background:var(--red)"></i>${t.fam.annonceurs}</span><span><i style="background:var(--ink)"></i>${t.fam.instituts}</span><span><i style="background:#8D95A3"></i>${t.fam.autres} · ${O}</span>`;
+  $("logorow").innerHTML = $("logorow2").innerHTML = (c.logos || []).map(u => `<span><img src="${esc(u)}" alt="" loading="lazy"></span>`).join("");
+  const reste = Math.max(0, n - D.annonces.length);
+  q("#lk-t").textContent = en ? `${reste} more postings are waiting.` : `${reste} autres annonces vous attendent.`;
+  q(".locked .cta").textContent = en ? `See all ${n} postings` : `Voir les ${n} annonces`;
+  q("#hb-l").textContent = en ? `Your email also opens the full list of ${n} postings.` : `Votre email ouvre aussi la liste complète des ${n} annonces.`;
+}
+function sortBar() {
+  const t = T[LANG], keys = ["co", "lv", "do", "me", "vi", "dt"];
+  $("sort").innerHTML = `<span class="lab">${t.sortLab}</span>` + keys.map(k => `<button class="chip" aria-pressed="${k === SORT.key}" data-dir="${SORT.dir}">${t.sorts[k]}</button>`).join("");
+  [...$("sort").querySelectorAll(".chip")].forEach((b, i) => b.onclick = () => { const k = keys[i]; if (SORT.key === k) SORT.dir = SORT.dir === "asc" ? "desc" : "asc"; else SORT = { key: k, dir: k === "dt" ? "desc" : "asc" }; sortBar(); rows(); });
+}
+const LV_RANG = { stage: 0, alternance: 1, apprenticeship: 1, junior: 2, confirme: 3, senior: 4, manager: 5, director: 6 };
+function tri(list) {
+  const t = T[LANG], k = SORT.key, s = SORT.dir === "asc" ? 1 : -1;
+  const val = j => k === "co" ? j.ent : k === "lv" ? (LV_RANG[j.niv] ?? 9) : k === "do" ? (t.dom[j.dom] || "zz") : k === "me" ? (t.meth[j.met] || "zz") : k === "vi" ? (j.ville || "zz") : (j.pub || "");
+  return [...list].sort((a, b) => { const x = val(a), y = val(b); return (typeof x === "number" ? x - y : String(x).localeCompare(String(y), LANG)) * s; });
+}
+function ligne(j, i, lien) {
+  const t = T[LANG];
+  const date = d => { if (!d) return ""; const x = new Date(d + "T00:00:00"); return x.getDate() + " " + t.mois[x.getMonth()]; };
+  const corps = `<img src="${esc(j.logo || "")}" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+    <div class="main"><div class="ti">${esc(j.titre)}</div><div class="co"><b>${esc(j.ent)}</b>${j.ville ? " · " + esc(j.ville) : ""}</div></div>
+    <div class="lv"><i></i>${t.lv[j.niv] || ""}</div><div class="do">${t.dom[j.dom] || ""}</div><div class="me">${t.meth[j.met] || ""}</div><div class="dt">${date(j.pub)}</div>
+    <div class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></div>`;
+  return lien ? `<a class="job" style="animation-delay:${Math.min(i, 12) * 40}ms" href="${esc(j.url)}" target="_blank" rel="noopener">${corps}</a>` : `<div class="job">${corps}</div>`;
+}
+function rows() {
+  const t = T[LANG];
+  if (ETAT !== "pret" || !D || !D.annonces.length) {
+    $("locked").hidden = true; $("count").textContent = "";
+    $("rows").innerHTML = ETAT === "chargement" ? `<div class="state"><span class="dots">${t.loading}</span></div>`
+      : `<div class="state"><b>${(ETAT === "panne" ? t.panne : t.vide)[0]}</b>${(ETAT === "panne" ? t.panne : t.vide)[1]}</div>`;
+    return;
+  }
+  const liste = tri(D.annonces);
+  $("rows").innerHTML = liste.map((j, i) => ligne(j, i, true)).join("");
+  $("locked").hidden = D.complet;
+  if (!D.complet) $("fog").innerHTML = liste.slice(0, 3).map((j, i) => ligne(j, i, false)).join("");
+  $("count").textContent = t.count(liste.length, D.nombre);
+}
+const bars = (id, data) => { const max = data.length ? data[0][1] : 1; $(id).innerHTML = data.map(([l, v]) => `<div class="bar"><span>${esc(l)}</span><span class="tr"><i style="width:${Math.round(v / max * 100)}%"></i></span><span class="v">${v}</span></div>`).join(""); };
+function shareMenu() {
+  const t = T[LANG], url = PAGE_URL[LANG], u = encodeURIComponent(url), tx = encodeURIComponent(t.shareTxt + " " + url);
+  const links = [["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u], ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
+    ["x", "X", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(t.shareTxt) + "&url=" + u], ["mail", "Email", "mailto:?subject=" + encodeURIComponent(t.mailSubject) + "&body=" + tx]];
+  $("share-menu").innerHTML = links.map(l => `<a href="${l[2]}" target="_blank" rel="noopener"><i class="i-${l[0]}">${ICONS[l[0]]}</i>${l[1]}</a>`).join("") + `<button type="button" id="copy"><i class="i-link">${ICONS.link}</i><span>${t.copy}</span></button>`;
+  $("copy").onclick = e => { const lab = e.currentTarget.lastChild; try { navigator.clipboard.writeText(url).then(() => { lab.textContent = t.copied; }, () => { lab.textContent = url; }); } catch (x) { lab.textContent = url; } };
+}
+function render() { fixed(); sortBar(); rows(); chiffres(); shareMenu(); }
+function ouvrirBarriere() { $("gate").hidden = false; try { $("gate-form").querySelector("input").focus(); } catch (e) {} }
+function fermerBarriere() { $("gate").hidden = true; }
+/* La liste, lue une fois par visite (12 s, puis l'etat « ne repond pas »). Avec la preuve d'inscription : la liste complete. */
+function charger() {
+  const ctl = new AbortController(), minuteur = setTimeout(() => ctl.abort(), 12000);
+  ETAT = "chargement"; render();
+  fetch(LISTE_URL + (ACCES ? "?acces=" + encodeURIComponent(ACCES) : ""), { signal: ctl.signal })
+    .then(r => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+    .then(d => {
+      if (d.acces === "refuse") { ACCES = null; try { localStorage.removeItem(CLE_ACCES); } catch (e) {} }
+      D = d; ETAT = "pret"; render();
+    })
+    .catch(() => { ETAT = "panne"; render(); })
+    .finally(() => clearTimeout(minuteur));
+}
+function accesObtenu(jeton) { if (!jeton) return; ACCES = jeton; try { localStorage.setItem(CLE_ACCES, jeton); } catch (e) {} fermerBarriere(); charger(); }
+if (/^\/en(\/|$)/.test(location.pathname) || new URLSearchParams(location.search).get("lang") === "en") LANG = "en";
+charger();
+$("gate-x").onclick = fermerBarriere;
+$("gate").addEventListener("click", e => { if (e.target === $("gate")) fermerBarriere(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("gate").hidden) fermerBarriere(); });
+$("lang").onclick = () => { LANG = LANG === "fr" ? "en" : "fr"; try { history.replaceState(null, "", LANG === "en" ? "/en/insight-jobs" : "/bourse-emploi"); } catch (e) {} render(); };
+$("share").onclick = e => { e.stopPropagation(); const m = $("share-menu"); m.hidden = !m.hidden; $("share").setAttribute("aria-expanded", String(!m.hidden)); };
+document.addEventListener("click", e => { if (!e.target.closest(".share")) { $("share-menu").hidden = true; $("share").setAttribute("aria-expanded", "false"); } });
+/* Une seule inscription : la liste du lundi ET l'acces a la liste complete (content-signup, type « bourse_emploi »). */
+document.querySelectorAll(".js-signup").forEach(form => form.addEventListener("submit", e => {
+  e.preventDefault();
+  const M = T[LANG].form, input = form.querySelector("input[type=email]"), msg = form.querySelector(".msg"), box = form.querySelector(".js-news"), v = input.value.trim();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.className = "msg err"; msg.textContent = M.bad; return; }
+  const b = form.querySelector("button[type=submit]"); b.disabled = true; msg.className = "msg"; msg.textContent = M.sending;
+  fetch(EMAIL_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "bourse_emploi", email: v, lang: LANG, news: !!(box && box.checked), page: location.href, salons: [] }) })
+    .then(r => { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+    .then(d => { msg.className = "msg ok"; msg.textContent = d.deja ? M.deja : M.ok; input.value = ""; accesObtenu(d.acces); })
+    .catch(() => { msg.className = "msg err"; msg.textContent = M.err; })
+    .then(() => { b.disabled = false; });
+}));
+</script>
+</body>
+</html>

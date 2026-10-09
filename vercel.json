@@ -9,6 +9,14 @@
       "destination": "/en/market-research-in-figures.html"
     },
     {
+      "source": "/bourse-emploi",
+      "destination": "/bourse-emploi.html"
+    },
+    {
+      "source": "/en/insight-jobs",
+      "destination": "/bourse-emploi.html"
+    },
+    {
       "source": "/appels-offres",
       "destination": "/appels-offres.html"
     },
