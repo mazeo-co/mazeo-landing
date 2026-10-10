@@ -769,6 +769,13 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .rs-tiles .w { display: flex; gap: 3px; } .rs-tiles .w i { font-style: normal; background: #0B0D10; color: #F4F1E8; border-radius: 4px; padding: .16em .2em .1em; min-width: .82em; text-align: center; } .rs-tiles .w.o i { color: #FF5A1F; }
 @media (max-width: 1100px) { .rs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) { .rs-grid { grid-template-columns: 1fr; } }
+/* Ressources en carrousel (10/10/2026) : trois cartes visibles, les autres au défilement par les flèches du dessous, comme les témoignages. Marge haute pour le soulèvement des cartes au survol. */
+.rs-grid.rs-track { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 4px; scroll-behavior: smooth; padding: 6px 4px 34px; margin: -6px -4px -22px; scrollbar-width: none; -ms-overflow-style: none; }
+.rs-grid.rs-track::-webkit-scrollbar { display: none; }
+.rs-grid.rs-track > li { flex: 0 0 calc((100% - 44px) / 3); scroll-snap-align: start; }
+@media (max-width: 1100px) { .rs-grid.rs-track > li { flex-basis: calc((100% - 22px) / 2); } }
+@media (max-width: 720px) { .rs-grid.rs-track > li { flex-basis: 86%; } }
+#ressources .car-nav { margin-top: 18px; }
 @media (prefers-reduced-motion: reduce) { .rs-card, .rs-card:hover { transform: none; transition: none; } }
 </style>
 </head>
@@ -1159,7 +1166,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         </div>
         <a class="rs-all" href="/ressources" data-href-en="/en/resources"><span data-t="rs.all">Toutes les ressources</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
-      <ul class="rs-grid five">
+      <ul class="rs-grid rs-track" id="rs-car">
         <li><article class="rs-card">
           <div class="rs-visual rs-vl" aria-hidden="true"><img src="/assets/village/carte.webp" width="900" height="506" alt="" loading="lazy"></div>
           <div class="rs-body"><h3><a href="/village-des-etudes" data-href-en="/en/market-research-in-figures" data-t="rs.vT">Le Village des études : le secteur en chiffres</a></h3><p data-t="rs.vD">13 000 professionnels, 1 300 entreprises : qui fait les études en France.</p></div>
@@ -1182,6 +1189,10 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
           <div class="rs-body"><h3><a href="/bourse-emploi" data-href-en="/en/insight-jobs" data-t="rs.bT">La Bourse de l'emploi insight</a></h3><p data-t="rs.bD">Qui recrute dans le market research. Vérifié chaque jour.</p></div>
         </article></li>
       </ul>
+      <div class="car-nav" id="rs-nav">
+        <button type="button" id="rs-prev" aria-label="Ressource précédente" data-aria-en="Previous resource"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" id="rs-next" aria-label="Ressource suivante" data-aria-en="Next resource"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
     </div>
   </section>
 
@@ -1665,6 +1676,17 @@ document.documentElement.classList.add("js");
     var carFits = function () { if (carNav) carNav.hidden = car.scrollWidth <= car.clientWidth + 4; };
     carFits(); window.addEventListener("resize", carFits);
     if ("IntersectionObserver" in window) { var cio = new IntersectionObserver(function (e) { if (e[0].isIntersecting) carStart(); else carStopFn(); }, { threshold: 0.2 }); cio.observe(car); } else { carStart(); }
+  }
+
+  /* ---------- Le carrousel des ressources (10/10) : mêmes flèches que les témoignages, sans défilement automatique ---------- */
+  var rsCar = document.getElementById("rs-car");
+  if (rsCar) {
+    var rsStep = function () { var c = rsCar.querySelector("li"); return c ? c.getBoundingClientRect().width + 22 : 400; };
+    document.getElementById("rs-next").addEventListener("click", function () { if (rsCar.scrollLeft + rsCar.clientWidth >= rsCar.scrollWidth - 4) rsCar.scrollTo({ left: 0 }); else rsCar.scrollBy({ left: rsStep() }); });
+    document.getElementById("rs-prev").addEventListener("click", function () { if (rsCar.scrollLeft <= 4) rsCar.scrollTo({ left: rsCar.scrollWidth }); else rsCar.scrollBy({ left: -rsStep() }); });
+    var rsNav = document.getElementById("rs-nav");
+    var rsFits = function () { if (rsNav) rsNav.hidden = rsCar.scrollWidth <= rsCar.clientWidth + 4; };
+    rsFits(); window.addEventListener("resize", rsFits);
   }
 
   /* ---------- Les animations ne tournent que quand leur section est visible ---------- */
