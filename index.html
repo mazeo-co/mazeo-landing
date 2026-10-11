@@ -728,7 +728,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .rs-grid > li { display: flex; }
 .rs-card { position: relative; display: flex; flex-direction: column; width: 100%; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; transition: border-color .15s, box-shadow .2s, transform .2s; }
 .rs-card:hover { border-color: var(--line-strong); box-shadow: 0 28px 56px -32px rgba(10,24,48,.32); transform: translateY(-3px); }
-.rs-card:focus-within { outline: 3px solid var(--blue); outline-offset: 3px; }
+/* Contour de sélection (11/10) : au clavier seulement, jamais au clic ; tracé à l'intérieur de la carte pour suivre ses coins et ne pas être coupé par le carrousel. */
+.rs-card::before { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 2px solid var(--blue); z-index: 2; pointer-events: none; opacity: 0; }
+.rs-card:has(a:focus-visible)::before { opacity: 1; }
 .rs-card a:focus-visible { outline: none; }
 .rs-visual { position: relative; aspect-ratio: 16 / 7; overflow: hidden; border-bottom: 1px solid var(--line); }
 .rs-body { padding: 22px 26px 26px; display: grid; gap: 8px; }
@@ -770,7 +772,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 @media (max-width: 1100px) { .rs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 720px) { .rs-grid { grid-template-columns: 1fr; } }
 /* Ressources en carrousel (10/10/2026) : trois cartes visibles, les autres au défilement par les flèches du dessous, comme les témoignages. Marge haute pour le soulèvement des cartes au survol. */
-.rs-grid.rs-track { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 4px; scroll-behavior: smooth; padding: 6px 4px 34px; margin: -6px -4px -22px; scrollbar-width: none; -ms-overflow-style: none; }
+.rs-grid.rs-track { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: 4px; scroll-behavior: smooth; padding: 6px 4px 60px; margin: -6px -4px -48px; scrollbar-width: none; -ms-overflow-style: none; }
 .rs-grid.rs-track::-webkit-scrollbar { display: none; }
 .rs-grid.rs-track > li { flex: 0 0 calc((100% - 44px) / 3); scroll-snap-align: start; }
 @media (max-width: 1100px) { .rs-grid.rs-track > li { flex-basis: calc((100% - 22px) / 2); } }
