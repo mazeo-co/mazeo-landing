@@ -2053,18 +2053,37 @@ document.documentElement.classList.add("js");
 /* Le prix (01/10/2026) : le sélecteur engagement / mensuel, et les liens de paiement Stripe.
    Liens réels créés par Romain le 01/10 (compte Stripe mazeo). Un lien vide laisse le bouton visible, inactif. */
 (function () {
-  /* Avec engagement : le lien mène au prix mensuel (249 € / 149 €) ; la page Stripe propose d'y payer l'année d'avance (« upsell » réglé sur le prix). */
+  /* Avec engagement : le lien mène au prix mensuel (249 € / 149 €) ; la page Stripe propose d'y payer l'année d'avance (« upsell » réglé sur le prix).
+     13/10/2026 : un jeu de liens par langue. Stripe traduit sa page de paiement selon le navigateur, mais pas les noms ni les descriptions des produits ;
+     la version anglaise du site mène donc aux produits anglais (« mazeo · monthly », « mazeo · annual », « mazeo · freelance (EN) »), aux mêmes prix,
+     avec retour sur /en/thank-you. Les liens suivent la langue de la page (document.documentElement.lang), y compris quand on change de langue sans recharger. */
   var STRIPE = {
-    team_year: "https://buy.stripe.com/9B66oI0jp4m67rG5lX4gg00",  // Entreprises, 249 € par mois, 12 mois (vente additionnelle 2 988 € par an)
-    team_month: "https://buy.stripe.com/28E3cw6HNaKu9zO8y94gg01", // Entreprises, 299 € par mois, sans engagement
-    free_year: "https://buy.stripe.com/8x27sM1ntdWG5jy6q14gg03",  // Freelance, 149 € par mois, 12 mois (vente additionnelle 1 788 € par an)
-    free_month: "https://buy.stripe.com/9B614oc273i213icOp4gg02"  // Freelance, 179 € par mois, sans engagement
+    fr: {
+      team_year: "https://buy.stripe.com/9B66oI0jp4m67rG5lX4gg00",  // Entreprises, 249 € par mois, 12 mois (vente additionnelle 2 988 € par an)
+      team_month: "https://buy.stripe.com/28E3cw6HNaKu9zO8y94gg01", // Entreprises, 299 € par mois, sans engagement
+      free_year: "https://buy.stripe.com/8x27sM1ntdWG5jy6q14gg03",  // Freelance, 149 € par mois, 12 mois (vente additionnelle 1 788 € par an)
+      free_month: "https://buy.stripe.com/9B614oc273i213icOp4gg02"  // Freelance, 179 € par mois, sans engagement
+    },
+    en: {
+      team_year: "https://buy.stripe.com/8x29AUc27bOy4fudSt4gg0y",  // Business, 249 € a month, 12 months
+      team_month: "https://buy.stripe.com/bJe00k0jpbOy13i7u54gg0z", // Business, 299 € a month, no commitment
+      free_year: "https://buy.stripe.com/fZu5kEaY3dWG8vKcOp4gg0A",  // Freelance, 149 € a month, 12 months
+      free_month: "https://buy.stripe.com/00w6oI4zF6ue27mbKl4gg0B"  // Freelance, 179 € a month, no commitment
+    }
   };
+  function poserLiensStripe() {
+    var jeu = STRIPE[String(document.documentElement.lang || "fr").slice(0, 2).toLowerCase() === "en" ? "en" : "fr"];
+    document.querySelectorAll("#prix [data-stripe]").forEach(function (a) {
+      var url = jeu[a.getAttribute("data-stripe")];
+      if (url) { a.href = url; a.rel = "noopener"; a.removeAttribute("aria-disabled"); }
+      else { a.removeAttribute("href"); a.setAttribute("aria-disabled", "true"); }
+    });
+  }
   document.querySelectorAll("#prix [data-stripe]").forEach(function (a) {
-    var url = STRIPE[a.getAttribute("data-stripe")];
-    if (url) { a.href = url; a.rel = "noopener"; }
-    else { a.setAttribute("aria-disabled", "true"); a.addEventListener("click", function (e) { e.preventDefault(); }); }
+    a.addEventListener("click", function (e) { if (a.getAttribute("aria-disabled") === "true") e.preventDefault(); });
   });
+  poserLiensStripe();
+  if (window.MutationObserver) new MutationObserver(poserLiensStripe).observe(document.documentElement, { attributes: true, attributeFilter: ["lang"] });
   var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var by = document.getElementById("px-year"), bm = document.getElementById("px-month");
   if (!by || !bm) return;
