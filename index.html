@@ -781,12 +781,12 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 @media (prefers-reduced-motion: reduce) { .rs-card, .rs-card:hover { transform: none; transition: none; } }
 </style>
 </head>
-<!-- Avant l’ouverture du 15/10 : « Réserver une démo » à la place de « Souscrire ». Le 15/10, retirer la classe avant-ouverture : les boutons de paiement et les textes d’origine reviennent. -->
+<!-- Accès sur démo (16/10) : la classe avant-ouverture garde « Réserver une démo » à la place de « Souscrire ». Ne pas la retirer : depuis le 15/10, un paiement en ligne ouvre un compte tout seul, et les accès s’ouvrent seulement après une démo. -->
 <body class="avant-ouverture">
 
-<!-- Bandeau d'ouverture (02/10) : visible jusqu'au 15/10, disparaît avec la classe avant-ouverture du <body>. Il défile avec la page ; le menu reste collé en haut. -->
+<!-- Bandeau (16/10) : 15 premiers utilisateurs, accès suivants sur démo. Disparaît avec la classe avant-ouverture du <body>. Il défile avec la page ; le menu reste collé en haut. -->
 <div class="annonce si-avant">
-  <a href="#prix"><b class="annonce-long" data-t="an.txt">mazeo ouvre à tous le 15 octobre.</b><b class="annonce-court" data-t="an.txt2">Ouvert à tous le 15 octobre</b><span data-t="an.go">Voir les prix&nbsp;→</span></a>
+  <a href="/demo"><b class="annonce-long" data-t="an.txt">15 premiers utilisateurs à bord. Nous sommes aux petits soins pour eux. Envie de les rejoindre&nbsp;?</b><b class="annonce-court" data-t="an.txt2">15 premiers utilisateurs à bord</b><span data-t="an.go">Réservez une démo&nbsp;→</span></a>
 </div>
 <header class="nav" id="nav">
   <div class="container nav-inner">
@@ -801,7 +801,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     </nav>
     <div class="nav-right">
       <a class="btn btn-ghost nav-login" href="https://app.mazeo.co" data-t="nav.login">Se connecter</a>
-      <a class="btn btn-primary" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="nav.cta">Réserver une démo</a>
+      <a class="btn btn-primary" href="/demo" data-t="nav.cta">Réserver une démo</a>
     </div>
   </div>
 </header>
@@ -982,7 +982,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <section class="section section-soft" id="temoignages">
     <div class="container">
       <div class="head center reveal">
-        <h2 class="title" data-t="dp.h2">Ce que nos <span style="white-space:nowrap">bêta-testeurs</span> disent de nous.</h2>
+        <h2 class="title" data-t="dp.h2">Ce que nos premiers utilisateurs disent de nous.</h2>
       </div>
       <div class="carousel reveal">
         <div class="car-track" id="car">
@@ -1030,9 +1030,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             <p class="px-price"><s data-when="year" data-t="px.a299s">299&nbsp;€</s><b data-when="year" data-t="px.a249">249&nbsp;€</b><b data-when="month" hidden data-t="px.a299">299&nbsp;€</b><span data-t="px.ent.unit">HT par personne et par mois</span></p>
             <p class="px-sub" data-when="year" data-t="px.ent.ys">Engagement 12 mois, payé chaque mois ou en une fois.</p>
             <p class="px-sub" data-when="month" hidden data-t="px.ms">Sans engagement. Vous arrêtez quand vous voulez.</p>
-            <p class="px-open si-avant" data-t="px.open">Ouvert à tous le 15 octobre.</p>
+            <p class="px-open si-avant" data-t="px.open">L’accès commence par une démo de 30&nbsp;minutes.</p>
             <div class="px-btns">
-              <a class="btn btn-primary si-avant" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="px.demo">Réserver une démo</a>
+              <a class="btn btn-primary si-avant" href="/demo" data-t="px.demo">Réserver une démo</a>
               <a class="btn btn-primary si-ouvert" data-when="year" data-stripe="team_year" href="#prix" data-t="px.btn">Souscrire</a>
               <a class="btn btn-primary si-ouvert" data-when="month" hidden data-stripe="team_month" href="#prix" data-t="px.btn2">Souscrire</a>
             </div>
@@ -1041,6 +1041,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
               <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18h2"/></svg><dt data-t="px.q.mob">Numéros de mobile</dt><dd data-t="px.q.m40">40 par mois</dd></div>
             </dl>
             <p class="px-rep" data-t="px.q.rep">Ce qu’il vous reste à la fin du mois s’ajoute au mois suivant.</p>
+            <p class="px-join si-avant" data-t="px.join.avant">Votre entreprise utilise déjà mazeo&nbsp;? Demandez un accès à l’admin de votre équipe.</p>
             <p class="px-join si-ouvert" data-t="px.join">Votre entreprise est déjà cliente de mazeo&nbsp;? Souscrivez votre accès ici&nbsp;: vous rejoindrez votre équipe dans l’app.</p>
           </div>
         </li>
@@ -1051,9 +1052,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             <p class="px-price"><s data-when="year" data-t="px.a179s">179&nbsp;€</s><b data-when="year" data-t="px.a149">149&nbsp;€</b><b data-when="month" hidden data-t="px.a179">179&nbsp;€</b><span data-t="px.fre.unit">HT par mois</span></p>
             <p class="px-sub" data-when="year" data-t="px.fre.ys">Engagement 12 mois, payé chaque mois ou en une fois.</p>
             <p class="px-sub" data-when="month" hidden data-t="px.ms">Sans engagement. Vous arrêtez quand vous voulez.</p>
-            <p class="px-open si-avant" data-t="px.open">Ouvert à tous le 15 octobre.</p>
+            <p class="px-open si-avant" data-t="px.open">L’accès commence par une démo de 30&nbsp;minutes.</p>
             <div class="px-btns">
-              <a class="btn btn-primary si-avant" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="px.demo">Réserver une démo</a>
+              <a class="btn btn-primary si-avant" href="/demo" data-t="px.demo">Réserver une démo</a>
               <a class="btn btn-primary si-ouvert" data-when="year" data-stripe="free_year" href="#prix" data-t="px.btn">Souscrire</a>
               <a class="btn btn-primary si-ouvert" data-when="month" hidden data-stripe="free_month" href="#prix" data-t="px.btn2">Souscrire</a>
             </div>
@@ -1146,9 +1147,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
               <small class="px-avec-note" data-when="year" data-t="px.c.wy">Avec 12 mois d’engagement. 299&nbsp;€ sans engagement.</small>
               <small class="px-avec-note" data-when="month" hidden data-t="px.c.wm">Sans engagement. 249&nbsp;€ avec 12 mois d’engagement.</small>
               <div class="px-cta">
-                <a class="btn btn-primary si-avant" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="px.cta2">Réserver une démo</a>
+                <a class="btn btn-primary si-avant" href="/demo" data-t="px.cta2">Réserver une démo</a>
                 <a class="btn btn-primary si-ouvert" href="#prix" data-t="px.cta1">Choisir ma formule</a>
-                <a class="btn btn-ghost si-ouvert" href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank" data-t="px.cta2">Réserver une démo</a>
+                <a class="btn btn-ghost si-ouvert" href="/demo" data-t="px.cta2">Réserver une démo</a>
               </div>
             </div>
           </div>
@@ -1219,8 +1220,8 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
         </details>
         <details>
           <summary data-t="fq4">Comment y accéder&nbsp;?</summary>
-          <div class="a si-avant" data-t="fa4.avant">mazeo ouvre à tous le 15 octobre. D’ici là, <a href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank">réservez une démo de 30 minutes</a>&nbsp;: nous vous montrons mazeo et répondons à vos questions.</div>
-          <div class="a si-ouvert" data-t="fa4">Choisissez votre formule dans <a href="#prix">Le prix</a> et souscrivez en ligne&nbsp;: votre accès ouvre sous 24&nbsp;h ouvrées. Vous préférez voir mazeo d’abord&nbsp;? <a href="https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled" rel="noopener" target="_blank">Réservez une démo de 30 minutes</a>.</div>
+          <div class="a si-avant" data-t="fa4.avant">mazeo a accueilli ses 15 premiers utilisateurs, et nous sommes aux petits soins pour eux. Pour rejoindre les prochains, <a href="/demo">réservez une démo de 30 minutes</a>&nbsp;: nous vous montrons mazeo et répondons à vos questions.</div>
+          <div class="a si-ouvert" data-t="fa4">Choisissez votre formule dans <a href="#prix">Le prix</a> et souscrivez en ligne&nbsp;: votre accès ouvre sous 24&nbsp;h ouvrées. Vous préférez voir mazeo d’abord&nbsp;? <a href="/demo">Réservez une démo de 30 minutes</a>.</div>
         </details>
       </div>
     </div>
@@ -1230,7 +1231,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <section class="final" id="acces">
     <div class="container reveal">
       <h2 class="title" data-t="final.h2">Vos prochains clients sont déjà <em>sur mazeo.</em></h2>
-      <p class="lead si-avant" data-t="final.p.avant">Laissez votre email, puis choisissez votre créneau pour une démo de 30 minutes. mazeo ouvre à tous le 15 octobre.</p>
+      <p class="lead si-avant" data-t="final.p.avant">Laissez votre email, puis choisissez votre créneau pour une démo de 30 minutes.</p>
       <p class="lead si-ouvert" data-t="final.p">Laissez votre email, puis choisissez votre créneau pour une démo de 30 minutes. Ou <a href="#prix">souscrivez directement</a>.</p>
       <form class="signup" id="form-final" novalidate>
         <div class="signup-fields">
@@ -1275,8 +1276,8 @@ document.documentElement.classList.add("js");
     "nav.res": "Resources", "rs.eyebrow": "Resources", "rs.h2": "Free resources for the industry.", "rs.all": "All resources", "foot.res": "Resources",
     "rs.vT": "Le Village des études: the industry in figures", "rs.vD": "13,000 professionals, 1,300 companies: who does research in France.", "rs.qBy": "presented by", "rs.qShow": "The Great Market<br><span>Research</span> Quiz", "rs.qT": "The Great Market Research Quiz", "rs.qD": "Ten questions, three minutes. Your score against the industry.",
     "rs.sL1a": "market research ", "rs.sL1b": "events", "rs.sL2": "Europe &amp; North America", "rs.aT": "Dernier appel: public research tenders", "rs.bL1": "The insight<br>job board", "rs.bL2": "France", "rs.bT": "The insight job board", "rs.bD": "Who is hiring in market research. Checked daily.", "rs.aD": "Open research tenders in France, checked daily.", "rs.sT": "Market research events", "rs.sD": "43 trade shows and conferences: dates, prices, audience.",
-    "nav.price": "Pricing", "px.eyebrow": "Pricing", "px.h2": "The whole industry. One tool. <em>All included.</em>", "px.t.year": "12-month commitment", "px.t.gain": "−17%", "px.t.month": "Monthly, no commitment", "px.ent.lbl": "Companies", "px.ent.who": "One seat per person, no minimum.", "px.ent.unit": "excl. VAT per person per month", "px.ent.ys": "12-month commitment, paid monthly or in one go.", "px.fre.lbl": "Freelancers", "px.fre.who": "One seat, for freelancers.", "px.fre.unit": "excl. VAT per month", "px.fre.ys": "12-month commitment, paid monthly or in one go.", "px.ms": "No commitment. Stop whenever you want.", "px.open": "Open to everyone on October 15.", "px.demo": "Book a demo", "px.btn": "Subscribe", "px.btn2": "Subscribe", "px.inc": "Included in both plans", "px.q.mail": "Work emails", "px.q.mob": "Mobile numbers", "px.q.e120": "120 per month", "px.q.m40": "40 per month", "px.q.e60": "60 per month", "px.q.m20": "20 per month", "px.q.rep": "What you have left at the end of the month is added to the next month.", "px.f1": "1,300+ market research companies", "px.f2": "13,000+ contacts, email and mobile in one click", "px.f3": "Companies recommended for your offer", "px.f4": "11 types of business signals", "px.f5": "Signal alerts on the companies and contacts you follow", "px.f6": "Email and LinkedIn sequences, from first message to first meeting", "px.f7": "Personalised message writer", "px.f8": "LinkedIn and email connectors: you send from mazeo", "px.join": "Is your company already a mazeo customer? Subscribe to your seat here: you will join your team in the app.", "px.rch": "Need more contact details?", "px.rch.s": "Buy extra emails and mobile numbers. They stay available until you use them.", "px.rch1": "100 extra work emails revealed", "px.rch2": "20 extra mobile numbers revealed", "px.ht": "excl. VAT", "px.ht2": "excl. VAT", "px.c.h": "mazeo replaces four tools. <em>And costs less.</em>", "px.c.lbl1": "Without mazeo: 4 subscriptions per person", "px.c.r1": "Finding the right contacts", "px.c.r2": "Work emails and mobile numbers", "px.c.r3": "Email and LinkedIn sequences", "px.c.r4": "Monitoring and signals", "px.c.rodz": "Rodz, Starter pack", "px.c.tot": "Total without mazeo", "px.c.tots": "and 4 tools to learn and connect", "px.c.with": "With mazeo: one tool, dedicated to market research", "px.c.wy": "With a 12-month commitment. €299 without commitment.", "px.c.wm": "No commitment. €249 with a 12-month commitment.", "px.cta1": "Choose my plan", "px.cta2": "Book a demo", "px.c.src": "Public prices excl. VAT, per person per month, on monthly billing, taken from the vendors’ websites on 27 and 30 September 2026. Rodz: credit pack without subscription, entry price.", "px.a121": "€121", "px.a139": "€139", "px.a149": "€149", "px.a179": "€179", "px.a249": "€249", "px.a299": "€299", "px.a369": "€369", "px.a50": "€50", "px.a59": "€59", "px.a15": "€15", "px.a249c": "€249", "px.a299c": "€299", "px.a15b": "€15", "px.a299s": "€299", "px.a179s": "€179", "px.c.sy": "€120 less per person, every month", "px.c.sm": "€70 less per person, every month",
-    "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Book a demo", "an.txt": "mazeo opens to everyone on October 15.", "an.txt2": "Open to all on October 15", "an.go": "See pricing&nbsp;→",
+    "nav.price": "Pricing", "px.eyebrow": "Pricing", "px.h2": "The whole industry. One tool. <em>All included.</em>", "px.t.year": "12-month commitment", "px.t.gain": "−17%", "px.t.month": "Monthly, no commitment", "px.ent.lbl": "Companies", "px.ent.who": "One seat per person, no minimum.", "px.ent.unit": "excl. VAT per person per month", "px.ent.ys": "12-month commitment, paid monthly or in one go.", "px.fre.lbl": "Freelancers", "px.fre.who": "One seat, for freelancers.", "px.fre.unit": "excl. VAT per month", "px.fre.ys": "12-month commitment, paid monthly or in one go.", "px.ms": "No commitment. Stop whenever you want.", "px.open": "Access starts with a 30-minute demo.", "px.demo": "Book a demo", "px.btn": "Subscribe", "px.btn2": "Subscribe", "px.inc": "Included in both plans", "px.q.mail": "Work emails", "px.q.mob": "Mobile numbers", "px.q.e120": "120 per month", "px.q.m40": "40 per month", "px.q.e60": "60 per month", "px.q.m20": "20 per month", "px.q.rep": "What you have left at the end of the month is added to the next month.", "px.f1": "1,300+ market research companies", "px.f2": "13,000+ contacts, email and mobile in one click", "px.f3": "Companies recommended for your offer", "px.f4": "11 types of business signals", "px.f5": "Signal alerts on the companies and contacts you follow", "px.f6": "Email and LinkedIn sequences, from first message to first meeting", "px.f7": "Personalised message writer", "px.f8": "LinkedIn and email connectors: you send from mazeo", "px.join.avant": "Your company already uses mazeo? Ask your team admin for access.", "px.join": "Is your company already a mazeo customer? Subscribe to your seat here: you will join your team in the app.", "px.rch": "Need more contact details?", "px.rch.s": "Buy extra emails and mobile numbers. They stay available until you use them.", "px.rch1": "100 extra work emails revealed", "px.rch2": "20 extra mobile numbers revealed", "px.ht": "excl. VAT", "px.ht2": "excl. VAT", "px.c.h": "mazeo replaces four tools. <em>And costs less.</em>", "px.c.lbl1": "Without mazeo: 4 subscriptions per person", "px.c.r1": "Finding the right contacts", "px.c.r2": "Work emails and mobile numbers", "px.c.r3": "Email and LinkedIn sequences", "px.c.r4": "Monitoring and signals", "px.c.rodz": "Rodz, Starter pack", "px.c.tot": "Total without mazeo", "px.c.tots": "and 4 tools to learn and connect", "px.c.with": "With mazeo: one tool, dedicated to market research", "px.c.wy": "With a 12-month commitment. €299 without commitment.", "px.c.wm": "No commitment. €249 with a 12-month commitment.", "px.cta1": "Choose my plan", "px.cta2": "Book a demo", "px.c.src": "Public prices excl. VAT, per person per month, on monthly billing, taken from the vendors’ websites on 27 and 30 September 2026. Rodz: credit pack without subscription, entry price.", "px.a121": "€121", "px.a139": "€139", "px.a149": "€149", "px.a179": "€179", "px.a249": "€249", "px.a299": "€299", "px.a369": "€369", "px.a50": "€50", "px.a59": "€59", "px.a15": "€15", "px.a249c": "€249", "px.a299c": "€299", "px.a15b": "€15", "px.a299s": "€299", "px.a179s": "€179", "px.c.sy": "€120 less per person, every month", "px.c.sm": "€70 less per person, every month",
+    "nav.signals": "Signals", "nav.pipeline": "Pipeline", "nav.login": "Log in", "nav.cta": "Book a demo", "an.txt": "Our first 15 users are on board, and we’re giving them the white-glove treatment. Want to join them?", "an.txt2": "Our first 15 users are on board", "an.go": "Book a demo&nbsp;→",
     "hero.h1": "The only prospecting tool <em>built for market research.</em>",
     "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "hero.playClose": "Close the video", "hero.play": "Discover mazeo on video", "nav.market": "The Market", "mk.name": "The Market",
     "form.email": "Work email", "form.submit": "Book a demo",
@@ -1320,7 +1321,7 @@ document.documentElement.classList.add("js");
     "wr.p": "The writer drafts your messages at every step: first contact, follow-ups, meeting request. It has the full context of your relationship, and it knows the career of the person you are writing to: their role, their company, their signals. In a formal, direct or friendly tone.",
     "ml.to": "<b>To:</b> Camille Moreau · Head of Consumer Research", "ml.ctx": "Context: connected on LinkedIn · Hiring signal", "ml.btn": "Send via LinkedIn",
     "dp.eyebrow": "They use <span class=\"lc\">mazeo</span>",
-    "dp.h2": "What our beta testers say about us.",
+    "dp.h2": "What our first users say about us.",
     "q1.t": "“I have structured, reliable information concentrated in one place. In practice, it is a real time saver.”", "q1.r": "CEO, Stat &amp; More",
     "q2.t": "“In two weeks, mazeo introduced us to some twenty research agencies we had never contacted. For each one, we knew who to call.”", "q2.r": "Head of Sales, Norstat France",
     "q3.t": "“Signals change everything: we write when something happens at the client, not at random.”", "q3.r": "Founder, JLD Insights",
@@ -1329,9 +1330,9 @@ document.documentElement.classList.add("js");
     "fq1": "Where does the data come from?", "fa1": "From public sources: LinkedIn, websites, the company register, job posts, public tenders, social networks. Updated in real time. Work email and mobile number for most contacts. GDPR-compliant: anyone listed in mazeo can access, correct or remove their data by writing to us.",
     "fq2": "How is it different from LinkedIn Sales Navigator?", "fa2": "Sales Navigator and other generalist tools do not understand the specifics of market research. They make it hard to find the right companies and the right people. mazeo is built for this field: every company scored on its needs and its offer, its signals, and the right person with their contact details.",
     "fq3": "Who sends the messages?", "fa3": "You do. The writer drafts, you review, and you send from mazeo with your LinkedIn account or your mailbox.",
-    "fq4": "How do I get access?", "fa4.avant": "mazeo opens to everyone on October 15. Until then, <a href=\"https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled\" rel=\"noopener\" target=\"_blank\">book a 30-minute demo</a>: we will show you mazeo and answer your questions.", "fa4": "Choose your plan under <a href=\"#prix\">Pricing</a> and subscribe online: your access opens within one business day. Prefer to see mazeo first? <a href=\"https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&amp;anonymous&amp;ismsaljsauthenabled\" rel=\"noopener\" target=\"_blank\">Book a 30-minute demo</a>.",
+    "fq4": "How do I get access?", "fa4.avant": "mazeo has welcomed its first 15 users, and we’re giving them the white-glove treatment. To be among the next ones, <a href=\"/en/demo\">book a 30-minute demo</a>: we will show you mazeo and answer your questions.", "fa4": "Choose your plan under <a href=\"#prix\">Pricing</a> and subscribe online: your access opens within one business day. Prefer to see mazeo first? <a href=\"/en/demo\">Book a 30-minute demo</a>.",
     "final.h2": "Your next clients are already <em>on mazeo.</em>",
-    "final.p.avant": "Leave your email, then pick your slot for a 30-minute demo. mazeo opens to everyone on October 15.",
+    "final.p.avant": "Leave your email, then pick your slot for a 30-minute demo.",
     "final.p": "Leave your email, then pick your slot for a 30-minute demo. Or <a href=\"#prix\">subscribe right away</a>.",
     "foot.tagline": "The only prospecting tool built for market research.", "foot.eu": "Data hosted in the European Union", "foot.rgpd": "GDPR-compliant",
     "foot.privacy": "Privacy", "foot.lang": "Français", "foot.legal": "Legal notice", "foot.terms": "Terms of use", "foot.cgv": "Terms of sale"
@@ -1775,11 +1776,11 @@ document.documentElement.classList.add("js");
   /* ---------- Formulaires : fonction waitlist-signup ---------- */
   var FN = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/waitlist-signup";
   /* Après l'envoi de l'email (02/10) : le calendrier de démo s'ouvre, l'email déjà rempli (window.mazeoDemo, défini avec la prise de rendez-vous en bas de page).
-     Le lien du message rouvre le calendrier ; sans le script de rendez-vous, il mène à la page de réservation Microsoft. */
-  var DEMO = "https://bookings.cloud.microsoft/bookwithme/user/b0c352ccd9074320a58c2a2b4b63a4b8%40mazeo.co/meetingtype/hpbZIeO8fUWQSwzqe5Pe6g2?bookingcode=0ffe5062-9e85-44ea-a5ca-35ff6e64b6ae&anonymous&ismsaljsauthenabled";
+     Le lien du message rouvre le calendrier ; sans le script de rendez-vous, il mène à la page /demo. */
+  var DEMO = "/demo";
   var MSG = {
-    fr: { ok: "C’est noté. <a href=\"" + DEMO + "\" rel=\"noopener\" target=\"_blank\">Choisissez votre créneau</a> pour une démo de 30 minutes.", bad: "Entrez une adresse email valide.", err: "Ça n’a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co." },
-    en: { ok: "Noted. <a href=\"" + DEMO + "\" rel=\"noopener\" target=\"_blank\">Pick your slot</a> for a 30-minute demo.", bad: "Please enter a valid email address.", err: "That didn’t work. Try again in a moment, or write to romain.barbet@mazeo.co." }
+    fr: { ok: "C’est noté. <a href=\"" + DEMO + "\">Choisissez votre créneau</a> pour une démo de 30 minutes.", bad: "Entrez une adresse email valide.", err: "Ça n’a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co." },
+    en: { ok: "Noted. <a href=\"/en" + DEMO + "\">Pick your slot</a> for a 30-minute demo.", bad: "Please enter a valid email address.", err: "That didn’t work. Try again in a moment, or write to romain.barbet@mazeo.co." }
   };
   function wire(form) {
     if (!form) return;
@@ -2124,7 +2125,7 @@ document.documentElement.classList.add("js");
   }
 
   /* « Réserver une démo » (01/10) : la prise de rendez-vous Cal.com s'ouvre par-dessus la page.
-     Rien de Cal.com n'est chargé avant le premier clic (le site ne dépose aucun cookie). CAL_LINK vide : le lien Microsoft s'ouvre comme avant. */
+     Rien de Cal.com n'est chargé avant le premier clic (le site ne dépose aucun cookie). Tout lien vers /demo ou /en/demo ouvre la fenêtre. CAL_LINK vide : la page /demo s'ouvre. */
   var CAL_LINK = "romain-barbet-mazeo/demo-mazeo", calPret = false, calEmail = "";
   function calCharger() {
     if (calPret) return; calPret = true;
@@ -2133,7 +2134,7 @@ document.documentElement.classList.add("js");
     Cal.ns.demo("ui", { hideEventTypeDetails: false, layout: "month_view" });
   }
   if (CAL_LINK) document.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest('a[href^="https://bookings.cloud.microsoft"]');
+    var a = e.target.closest && e.target.closest('a[href="/demo"], a[href="/en/demo"]');
     if (!a) return;
     e.preventDefault(); calOuvrir();
   });
