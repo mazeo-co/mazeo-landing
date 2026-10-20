@@ -39,14 +39,12 @@ button { font:inherit; }
 /* l'en-tête : la marque, sa phrase « présentée par mazeo. », Partager, un filet — comme les autres ressources */
 .entete { position:fixed; top:0; left:0; right:0; z-index:5; background:var(--ground); }
 .entete .in { max-width:1280px; margin:0 auto; padding:18px 64px 16px; display:flex; align-items:center; gap:22px; border-bottom:1px solid var(--line); }
-.logo { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); flex:none; }
-.logo .ic { width:44px; height:44px; border-radius:10px; background:var(--blue); display:flex; align-items:center; justify-content:center; }
-.logo .ic svg { width:26px; height:26px; }
-.logo .nm { font-family:var(--display); font-weight:700; font-size:26px; letter-spacing:-0.02em; line-height:1; }
-.logo .nm small { display:block; font-family:var(--mono); font-weight:600; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--blue); margin-top:5px; }
-.entete .tag { font-size:15px; color:var(--body); padding-left:22px; border-left:1px solid var(--line); line-height:1.3; }
-.entete .tag .mz { font-family:var(--mono); font-weight:800; letter-spacing:-0.3px; color:var(--ink); font-size:17px; }
-.entete .tag .mz i { font-style:normal; color:var(--green); }
+.logo { display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; color:var(--ink); flex:none; }
+.logo .nm { display:flex; align-items:center; gap:9px; font-family:var(--display); font-weight:700; font-size:27px; letter-spacing:-0.02em; line-height:1; }
+.logo .nm svg { width:26px; height:26px; }
+.logo .par { margin-top:6px; font-size:13px; color:var(--meta); display:flex; align-items:baseline; gap:5px; }
+.logo .mz { font-family:var(--mono); font-weight:800; letter-spacing:-0.3px; color:var(--ink); font-size:15px; }
+.logo .mz i { font-style:normal; color:var(--green); }
 .entete .droite { margin-left:auto; display:flex; align-items:center; gap:14px; }
 .fil { font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); }
 .partager { border:1px solid var(--line); background:#fff; border-radius:999px; padding:9px 16px; font-weight:600; font-size:14px; cursor:pointer; color:var(--ink); }
@@ -165,7 +163,7 @@ p.synthese { font-size:18px; color:var(--ink); margin:18px 0 0; max-width:60ch; 
   .ecran.actif { display:block; }
   .contenu { padding:110px 20px 100px; }
   .scinde, .deux, .verdict, .cartes { grid-template-columns:1fr; gap:24px; }
-  .entete .in { padding:14px 20px 12px; flex-wrap:wrap; gap:10px; } .entete .tag { display:none; } .heros { grid-template-columns:1fr; } .nav { right:20px; }
+  .entete .in { padding:14px 20px 12px; flex-wrap:wrap; gap:10px; } .entete .fil { display:none; } .heros { grid-template-columns:1fr; } .nav { right:20px; }
   h1 { font-size:30px; }
 }
 </style>
@@ -173,12 +171,11 @@ p.synthese { font-size:18px; color:var(--ink); margin:18px 0 0; max-width:60ch; 
 <body>
 <div class="bar"><i id="bar"></i></div>
 <header class="entete"><div class="in">
-  <a class="logo" href="/ressources" aria-label="growth academy">
-    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg></span>
-    <span class="nm">growth academy<small>Leçon 1 · votre positionnement</small></span>
+  <a class="logo" href="/ressources" aria-label="growth academy, présentée par mazeo">
+    <span class="nm"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</span>
+    <span class="par">présentée par <span class="mz">mazeo<i>.</i></span></span>
   </a>
-  <p class="tag">la formation des sociétés d'études pour trouver leurs clients, présentée par <span class="mz">mazeo<i>.</i></span></p>
-  <div class="droite"><div class="fil" id="fil">1 sur 6</div><button type="button" class="partager" id="partager">Partager</button></div>
+  <div class="droite"><div class="fil"><span id="fil">1 sur 6</span> · Leçon 1 · votre positionnement</div><button type="button" class="partager" id="partager">Partager</button></div>
 </div></header>
 
 <div class="ecrans" id="ecrans">
@@ -187,20 +184,19 @@ p.synthese { font-size:18px; color:var(--ink); margin:18px 0 0; max-width:60ch; 
 <section class="ecran">
   <div class="contenu heros">
     <div>
-      <p class="accroche">Leçon 1 · 3 minutes · votre site, noté sur quatre points</p>
+      <p class="accroche">Leçon 1 · 3 minutes · ouverte à tous</p>
       <h1>Pourquoi vous, <span>plutôt qu'un autre institut ?</span></h1>
-      <p class="th"><b>Première leçon de la growth academy, ouverte à tous.</b> Votre prospect se pose la question avant de vous répondre. Votre site y répond-il ?</p>
-      <p class="th">La théorie en deux écrans, deux vrais sites notés, puis le vôtre : nous le lisons comme un prospect le lit, et nous le notons sur quatre points : métier, pour qui, problème réglé, ce qui vous rend unique.</p>
-      <div class="cta"><button type="button" data-suivant>Commencer la leçon</button><span>Deux écrans de théorie, puis votre site</span></div>
+      <p class="th"><b>Un positionnement, c'est une phrase.</b> Elle dit qui vous êtes, et pourquoi la personne à qui vous écrivez devrait vous écouter. C'est la base d'un message de prospection qui obtient une réponse.</p>
+      <p class="th">Dans cette leçon : ce qui fait un bon positionnement, deux vrais exemples, puis, si vous le souhaitez, l'analyse du vôtre. <b>Prêt à savoir ce que vaut votre positionnement ?</b></p>
+      <div class="cta"><button type="button" data-suivant>Commencer</button><span>Trois minutes, flèches du clavier pour avancer</span></div>
     </div>
-    <form class="carte-action js-noter" novalidate>
-      <h2>Votre site, noté sur quatre points</h2>
-      <p class="d">Nous lisons votre page d'accueil et votre page « À propos ». Le verdict s'affiche ici et arrive par mail.</p>
-      <div class="ligne-ch"><input type="text" placeholder="www.votre-institut.fr" aria-label="Votre site" autocomplete="url" inputmode="url" required><input type="email" placeholder="prenom@votre-institut.fr" aria-label="Votre email professionnel" autocomplete="email" required></div>
-      <button type="submit">Noter mon site</button>
-      <label class="c"><input type="checkbox" class="js-non"> Je ne souhaite pas recevoir les prochaines ressources de mazeo.</label>
+    <form class="carte-action js-informer" novalidate>
+      <h2>Les prochaines ressources de mazeo</h2>
+      <p class="d">mazeo est le seul outil de prospection dédié au market research. Vous souhaitez être informé des ressources qu'il publie ? Laissez votre email.</p>
+      <div class="ligne-ch"><input type="email" placeholder="vous@institut.fr" aria-label="Votre email" autocomplete="email" required></div>
+      <button type="submit">Être informé</button>
       <p class="msg" role="status" aria-live="polite"></p>
-      <p class="note">Une adresse de votre entreprise, pour retrouver votre site : gmail, outlook, orange… ne passent pas.</p>
+      <p class="note">Un mail quand une ressource sort. Rien d'autre, et vous vous désinscrivez en un clic.</p>
     </form>
   </div>
 </section>
@@ -402,6 +398,20 @@ p.synthese { font-size:18px; color:var(--ink); margin:18px 0 0; max-width:60ch; 
       })
       .catch(function () { msg.textContent = ERREURS.reseau; })
       .then(function () { clearTimeout(attente); clearTimeout(minuterie); go.disabled = false; go.textContent = texteGo; });
+  }); });
+
+  /* la carte « être informé » : content-signup, type « ressources », comme sur les autres pages */
+  document.querySelectorAll(".js-informer").forEach(function (form) { form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var msg = form.querySelector(".msg"), go = form.querySelector("button[type=submit]"), input = form.querySelector("input[type=email]"), v = input.value.trim().toLowerCase();
+    msg.textContent = "";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.textContent = ERREURS.email; return; }
+    go.disabled = true;
+    fetch(FONCTIONS + "/content-signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "ressources", email: v, lang: "fr", news: true, page: location.href, salons: [] }) })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function () { msg.style.color = "#006B3F"; msg.textContent = "C'est noté. Un mail vous le confirme."; input.value = ""; })
+      .catch(function () { msg.style.color = ""; msg.textContent = ERREURS.reseau; })
+      .then(function () { go.disabled = false; });
   }); });
 
   /* le verdict */
