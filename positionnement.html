@@ -1,0 +1,397 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pourquoi vous, plutôt qu'un autre institut ? · votre positionnement noté sur quatre points · mazeo</title>
+<meta name="description" content="Votre prospect se pose la question avant de vous répondre. Votre site y répond-il ? Trois minutes : un rappel de ce qu'est un positionnement, puis le vôtre, noté sur quatre points d'après votre site.">
+<link rel="canonical" href="https://www.mazeo.co/positionnement">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/positionnement">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/positionnement">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mazeo">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.mazeo.co/positionnement">
+<meta property="og:title" content="Pourquoi vous, plutôt qu'un autre institut ?">
+<meta property="og:description" content="Votre positionnement, noté sur quatre points d'après votre site. Trois minutes, par mazeo.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@500;600;800&display=swap">
+<style>
+:root { color-scheme:light;
+  --ink:#0A0A0A; --body:#4A5262; --meta:#6B7280; --meta2:#9CA3AF; --line:#E5E7EB; --soft:#F8F9FA; --ground:#FFFFFF;
+  --blue:#007BFF; --blue-deep:#0066D6; --blue-tint:#E6F2FF; --green:#00C774; --orange:#F59E0B; --red:#EF4444;
+  --font:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --display:'Bricolage Grotesque', var(--font); --mono:'Inter', var(--font); }
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; }
+body { font-family:var(--font); font-size:17px; line-height:1.55; color:var(--ink); background:var(--ground); -webkit-font-smoothing:antialiased; overflow:hidden; }
+a { color:inherit; }
+button { font:inherit; }
+/* barre de progression, logo, fil */
+.bar { position:fixed; top:0; left:0; height:3px; width:100%; background:var(--line); z-index:5; }
+.bar i { display:block; height:3px; width:0; background:var(--blue); transition:width .4s ease; }
+.logo { position:fixed; top:28px; left:64px; z-index:5; font-family:var(--mono); font-weight:800; letter-spacing:-0.4px; font-size:20px; color:var(--ink); text-decoration:none; }
+.logo span { color:var(--green); }
+.fil { position:fixed; top:34px; right:64px; z-index:5; font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); }
+.nav { position:fixed; bottom:28px; right:64px; z-index:5; display:flex; gap:8px; }
+.nav button { width:38px; height:38px; background:var(--blue); color:#fff; border:0; border-radius:4px; font-size:15px; cursor:pointer; padding:0; }
+.nav button:disabled { background:var(--line); color:var(--meta2); cursor:default; }
+/* les écrans */
+.ecrans { position:relative; height:100vh; }
+.ecran { position:absolute; inset:0; display:flex; align-items:center; opacity:0; transform:translateY(40px); transition:opacity .35s ease, transform .35s ease; visibility:hidden; pointer-events:none; }
+.ecran.actif { opacity:1; transform:none; visibility:visible; pointer-events:auto; }
+.ecran.passe { transform:translateY(-40px); }
+.contenu { width:100%; max-width:1280px; margin:0 auto; padding:88px 64px 80px; }
+.scinde { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+p.sur { font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 18px; }
+p.sur b { color:var(--ink); margin-right:12px; }
+h1 { font-family:var(--display); font-weight:700; letter-spacing:-0.02em; line-height:1.05; font-size:clamp(34px,3.6vw,52px); margin:0 0 22px; text-wrap:balance; }
+h1 span { color:var(--blue); }
+p.th { font-size:clamp(17px,1.45vw,21px); line-height:1.5; color:var(--body); margin:0 0 16px; max-width:56ch; }
+p.th b { color:var(--ink); font-weight:600; }
+p.source { font-size:13.5px; color:var(--meta); margin:22px 0 0; }
+p.source i { font-style:italic; }
+ul.liste-q { list-style:none; margin:0 0 26px; padding:0; }
+ul.liste-q li { padding:12px 0; border-bottom:1px solid var(--line); font-size:19px; display:flex; gap:14px; }
+ul.liste-q li::before { content:counter(q); counter-increment:q; font-family:var(--mono); font-weight:600; font-size:12px; color:var(--blue); width:22px; height:22px; border:1px solid rgba(0,123,255,.45); border-radius:3px; display:inline-flex; align-items:center; justify-content:center; flex:none; margin-top:4px; }
+ul.liste-q { counter-reset:q; }
+.lab { display:block; font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:10px; }
+.lab.bleu { color:var(--blue); }
+/* encadrés : gris = théorie, bleu = mazeo */
+.cadre { background:var(--soft); border-radius:12px; padding:22px 24px; }
+.cadre.bleu { background:var(--blue-tint); }
+.cadre p.ph { font-size:17.5px; line-height:1.5; color:var(--ink); margin:0 0 18px; }
+.cadre p.qui { font-size:13px; color:var(--meta); margin:0 0 16px; }
+.cadre p.qui a { color:var(--blue); text-decoration:none; }
+/* les quatre pastilles */
+.test { display:grid; gap:10px; }
+.test > div { display:grid; grid-template-columns:150px 1fr; gap:14px; align-items:start; font-size:14.5px; line-height:1.4; }
+.test .k { font-weight:600; color:var(--ink); display:flex; align-items:center; gap:8px; }
+.test .k i { width:18px; height:18px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+.test .k i svg { width:12px; height:12px; }
+.test .v { color:var(--body); }
+.test .v small { display:block; color:var(--meta); font-size:12.5px; margin-top:2px; }
+i.ok { background:var(--green); } i.moy { background:var(--orange); } i.ko { background:var(--red); }
+.deux { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.deux .cadre { padding:20px 22px; }
+.deux .cadre h3 { font-family:var(--display); font-size:19px; font-weight:700; margin:0 0 2px; }
+.deux .cadre .tag { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 12px; display:block; }
+.deux .cadre p.ph { font-size:14.5px; margin:0 0 14px; }
+.deux .test > div { grid-template-columns:132px 1fr; font-size:13.5px; }
+p.morale { font-size:18px; color:var(--ink); font-weight:500; margin:26px 0 0; }
+/* boutons */
+.cta { margin-top:28px; display:flex; align-items:center; gap:16px; }
+.cta button, .cta a.btn { font-weight:600; font-size:17px; color:#fff; background:var(--blue); border:0; border-radius:4px; padding:12px 24px; cursor:pointer; text-decoration:none; display:inline-block; }
+.cta button:hover, .cta a.btn:hover { background:var(--blue-deep); }
+.cta button.second, .cta a.btn.second { background:#fff; color:var(--ink); border:1px solid #D1D5DB; }
+.cta span { font-size:13px; color:var(--meta); }
+/* bascule : écran bleu */
+.ecran.bascule { background:var(--blue); color:#fff; }
+.ecran.bascule h1, .ecran.bascule h1 span { color:#fff; }
+.ecran.bascule p.sur, .ecran.bascule p.sur b { color:rgba(255,255,255,.75); }
+.ecran.bascule p.th { color:rgba(255,255,255,.88); }
+.ecran.bascule .contenu { max-width:900px; }
+.form { display:grid; gap:14px; margin-top:8px; max-width:560px; }
+.form label.ch { font-size:13px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.75); display:block; margin-bottom:6px; }
+.form input[type=text], .form input[type=email] { width:100%; border:0; border-radius:8px; padding:14px 16px; font:inherit; font-size:18px; color:var(--ink); background:#fff; outline:0; }
+.form input:focus { box-shadow:0 0 0 3px rgba(255,255,255,.45); }
+.form .ligne { display:flex; gap:10px; align-items:flex-start; font-size:14px; color:rgba(255,255,255,.88); }
+.form .ligne input { margin-top:4px; }
+.form button { font-weight:600; font-size:17px; color:var(--blue); background:#fff; border:0; border-radius:4px; padding:13px 24px; cursor:pointer; justify-self:start; }
+.form button:disabled { opacity:.6; cursor:wait; }
+.form .msg { min-height:22px; font-size:14.5px; color:#FFE7A3; margin:0; }
+.form .note { font-size:12.5px; color:rgba(255,255,255,.65); margin:0; }
+/* verdict */
+.verdict { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+.cartes { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.carte { background:var(--soft); border-radius:10px; padding:14px 16px; min-height:118px; }
+.carte .k { font-weight:600; font-size:14px; display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+.carte .k i { width:16px; height:16px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+.carte .k i svg { width:11px; height:11px; }
+.carte .c { font-size:14px; color:var(--ink); line-height:1.4; }
+.carte .q { font-size:12.5px; color:var(--meta); line-height:1.4; margin-top:6px; }
+p.synthese { font-size:18px; color:var(--ink); margin:18px 0 0; max-width:60ch; }
+.trois { background:var(--soft); border-radius:12px; padding:20px 22px; }
+.trois .texte { font-size:17px; line-height:1.5; color:var(--ink); outline:0; border-radius:6px; padding:4px 6px; margin:0 -6px; min-height:4.5em; }
+.trois .texte:focus { background:#fff; box-shadow:0 0 0 2px rgba(0,123,255,.35); }
+.trois .aide { font-size:12.5px; color:var(--meta); margin:8px 0 14px; }
+.trois .actions { display:flex; gap:10px; }
+.trois .actions button, .trois .actions a { font-weight:600; font-size:14px; color:var(--ink); background:#fff; border:1px solid #D1D5DB; border-radius:4px; padding:9px 14px; cursor:pointer; text-decoration:none; }
+.illisible { max-width:62ch; }
+/* pont */
+.pont .cadre.bleu p { margin:0 0 12px; font-size:16px; color:var(--ink); }
+.pont .cadre.bleu p.m { font-weight:600; }
+.suivante { margin-top:26px; font-size:14px; color:var(--meta); }
+@media (max-width: 900px) {
+  body { overflow:auto; }
+  .ecrans { height:auto; }
+  .ecran { position:relative; display:none; }
+  .ecran.actif { display:block; }
+  .contenu { padding:84px 20px 100px; }
+  .scinde, .deux, .verdict, .cartes { grid-template-columns:1fr; gap:24px; }
+  .logo { left:20px; } .fil { right:20px; } .nav { right:20px; }
+  h1 { font-size:30px; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><i id="bar"></i></div>
+<a class="logo" href="/" aria-label="mazeo">mazeo<span>.</span></a>
+<div class="fil">Ressource · votre positionnement</div>
+
+<div class="ecrans" id="ecrans">
+
+<!-- 1 · Accroche -->
+<section class="ecran">
+  <div class="contenu scinde">
+    <div>
+      <p class="sur"><b>1 sur 6</b>Trois minutes</p>
+      <h1>Pourquoi vous, <span>plutôt qu'un autre institut ?</span></h1>
+      <p class="th">Votre prospect se pose la question avant de vous répondre. Votre site y répond-il ?</p>
+      <p class="th">Un rappel de ce qu'est un positionnement, puis le vôtre, <b>noté sur quatre points d'après votre site</b>.</p>
+      <div class="cta"><button type="button" data-suivant>Commencer</button><span>Flèches du clavier pour avancer</span></div>
+    </div>
+    <div>
+      <span class="lab">Votre positionnement répond à quatre questions</span>
+      <ul class="liste-q"><li>Quel est votre métier ?</li><li>À qui vous adressez-vous ?</li><li>Quel problème réglez-vous pour eux ?</li><li>Qu'est-ce qui vous rend unique ?</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · Théorie -->
+<section class="ecran">
+  <div class="contenu scinde">
+    <div>
+      <p class="sur"><b>2 sur 6</b>Théorie</p>
+      <h1>Qu'est-ce qu'<span>un positionnement ?</span></h1>
+      <p class="th">Ce n'est pas la liste de vos prestations. C'est la place que vous occupez dans la tête d'un client, face aux autres instituts.</p>
+      <p class="th">Il répond à quatre questions : votre métier, pour qui, le problème que vous réglez, ce qui vous rend unique.</p>
+      <p class="source">Source : Al Ries et Jack Trout, inventeurs du mot « positionnement » en marketing, <i>Positioning</i> (1981).</p>
+      <div class="cta"><button type="button" data-suivant>Deux vrais sites</button></div>
+    </div>
+    <div class="cadre">
+      <span class="lab">Exemple · les quatre points, en trois phrases</span>
+      <p class="ph">« Nous testons les packagings des marques de cosmétique, avant le lancement. Nos tests se font en magasin, le produit en rayon face à ses concurrents : vous savez s'il sera vu, et choisi. »</p>
+      <div class="test">
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Les tests de packaging.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les marques de cosmétique.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Savoir, avant le lancement, si le produit sera vu et choisi.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le test en magasin, en rayon, face aux concurrents.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Deux sites -->
+<section class="ecran">
+  <div class="contenu">
+    <p class="sur"><b>3 sur 6</b>Théorie</p>
+    <h1>Deux sites, <span>quatre pastilles.</span></h1>
+    <p class="th">Deux sociétés d'études que vous connaissez, toutes deux à Londres. Leur page d'accueil, lue comme un prospect la lit, et notée avec la même grille que la vôtre dans un instant.</p>
+    <div class="deux">
+      <div class="cadre">
+        <h3>Attest</h3><span class="tag">Trois verts, un orange</span>
+        <p class="ph">« AI consumer insights engine for global B2C brands. Join the dots between surveys and interviews with real consumers to make decisions faster, sharper and more valuable. We're the only consumer insights platform to give you flat, predictable pricing. »</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Une plateforme d'enquêtes et d'entretiens menés par IA.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les grandes marques B2C : un qualificatif net.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Décider plus vite » : tout institut peut l'écrire.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Un prix unique quel que soit le pays : un fait précis.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <h3>Euromonitor International</h3><span class="tag">Deux verts, deux oranges</span>
+        <p class="ph">« We publish market research reports for 100 countries, plus global strategy briefings and in-depth regional analysis. Your first step to understanding a category or market. »</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des rapports d'études par pays et par industrie.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Pour qui</span><span class="v">Huit types de clients listés : aucune cible prioritaire.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Comprendre un marché » : générique, aucun résultat concret.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Plus de 210 marchés couverts : un fait chiffré.</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="morale">Deux maisons solides. Aucune ne dit, en une phrase, ce que le client obtient.</p>
+    <div class="cta"><button type="button" data-suivant>Et vous ?</button></div>
+  </div>
+</section>
+
+<!-- 4 · Bascule : le formulaire -->
+<section class="ecran bascule">
+  <div class="contenu">
+    <p class="sur"><b>4 sur 6</b>À vous</p>
+    <h1>Et vous ?</h1>
+    <p class="th">Nous lisons votre page d'accueil et votre page « À propos », comme le ferait un prospect, et nous notons les quatre points. Une minute.</p>
+    <form class="form" id="form" novalidate>
+      <div><label class="ch" for="f-site">Votre site</label><input type="text" id="f-site" placeholder="www.votre-institut.fr" autocomplete="url" inputmode="url" required></div>
+      <div><label class="ch" for="f-email">Votre email professionnel</label><input type="email" id="f-email" placeholder="prenom@votre-institut.fr" autocomplete="email" required></div>
+      <label class="ligne"><input type="checkbox" id="f-news"> Je ne souhaite pas recevoir les prochaines ressources de mazeo.</label>
+      <button type="submit" id="f-go">Noter mon positionnement</button>
+      <p class="msg" id="f-msg" role="status" aria-live="polite"></p>
+      <p class="note">Vous recevez aussi le résultat par mail. Une adresse de votre entreprise, pour retrouver votre site : les adresses gmail, outlook, orange… ne passent pas.</p>
+    </form>
+  </div>
+</section>
+
+<!-- 5 · Verdict -->
+<section class="ecran">
+  <div class="contenu">
+    <p class="sur"><b>5 sur 6</b>Votre résultat</p>
+    <div id="v-ok" hidden>
+      <h1>Ce que <span id="v-site">votre site</span> dit de vous</h1>
+      <div class="verdict">
+        <div>
+          <div class="cartes" id="v-cartes"></div>
+          <p class="synthese" id="v-synthese"></p>
+        </div>
+        <div>
+          <div class="trois">
+            <span class="lab">Votre positionnement en trois lignes</span>
+            <div class="texte" id="v-pos" contenteditable="true" spellcheck="false"></div>
+            <p class="aide">Les crochets sont à vous : cliquez sur le texte pour le compléter. Puis copiez-le.</p>
+            <div class="actions"><button type="button" id="v-copier">Copier</button><a id="v-linkedin" href="#" target="_blank" rel="noopener">Partager sur LinkedIn</a></div>
+          </div>
+          <div class="cta"><button type="button" data-suivant>Et maintenant ?</button></div>
+        </div>
+      </div>
+    </div>
+    <div id="v-ko" class="illisible" hidden>
+      <h1>Nous n'avons pas pu <span>lire votre site.</span></h1>
+      <p class="th" id="v-ko-txt"></p>
+      <div class="cta"><button type="button" data-precedent>Réessayer</button><button type="button" class="second" data-suivant>Passer</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Pont -->
+<section class="ecran pont">
+  <div class="contenu scinde">
+    <div>
+      <p class="sur"><b>6 sur 6</b>Et maintenant</p>
+      <h1>Ces trois lignes sont la deuxième phrase <span>de votre email de prospection.</span></h1>
+      <p class="th">La première dit qui vous êtes. La deuxième, pourquoi vous. Le reste de l'email dit ce que vous pouvez faire pour la personne qui vous lit.</p>
+      <p class="suivante">Prochaine ressource · Qui contacter chez un client ?</p>
+    </div>
+    <div class="cadre bleu">
+      <span class="lab bleu">Dans mazeo</span>
+      <p class="m">mazeo est le seul outil de prospection dédié au market research.</p>
+      <p>Il vous dit quelles entreprises contacter, et qui, chez elles.</p>
+      <div class="cta" style="margin-top:14px"><a class="btn" href="/demo">Voir mazeo en démo</a><a class="btn second" href="/ressources">Les autres ressources</a></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="nav"><button type="button" id="prec" aria-label="Écran précédent">←</button><button type="button" id="suiv" aria-label="Écran suivant">→</button></div>
+
+<script>
+(function () {
+  var HOTE_PROD = /(^|\.)mazeo\.co$/.test(location.hostname);
+  var FONCTIONS = HOTE_PROD ? "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1" : "https://aipmpdzscqhsvteblajo.supabase.co/functions/v1";
+  var ICONES = {
+    ok: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 10.5l3 3 6-7" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"/></svg>',
+    moy: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 10h8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2.8"/></svg>',
+    ko: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6.5 6.5l7 7M13.5 6.5l-7 7" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2.6"/></svg>'
+  };
+  document.querySelectorAll("[data-ic]").forEach(function (i) { i.innerHTML = ICONES[i.getAttribute("data-ic")]; });
+
+  /* les écrans */
+  var ecrans = Array.prototype.slice.call(document.querySelectorAll(".ecran"));
+  var n = 0, VERDICT = null;
+  function aller(k) {
+    if (k < 0 || k >= ecrans.length) return;
+    if (k === 5 && !VERDICT) k = n < 5 ? 4 : 3;  // pas de verdict : on reste au formulaire
+    n = k;
+    ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
+    document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
+    document.getElementById("prec").disabled = n === 0;
+    document.getElementById("suiv").disabled = n === ecrans.length - 1 || (n === 3 && !VERDICT);
+    var champ = ecrans[n].querySelector("input, [contenteditable]");
+    if (champ && window.innerWidth > 900) setTimeout(function () { champ.focus(); }, 380);
+  }
+  document.getElementById("prec").addEventListener("click", function () { aller(n - 1); });
+  document.getElementById("suiv").addEventListener("click", function () { aller(n + 1); });
+  document.querySelectorAll("[data-suivant]").forEach(function (b) { b.addEventListener("click", function () { aller(n + 1); }); });
+  document.querySelectorAll("[data-precedent]").forEach(function (b) { b.addEventListener("click", function () { aller(n - 1); }); });
+  document.addEventListener("keydown", function (ev) {
+    var t = ev.target, saisie = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
+    if (saisie && ev.key !== "Escape") return;
+    if (ev.key === "ArrowRight" || ev.key === "PageDown") aller(n + 1);
+    if (ev.key === "ArrowLeft" || ev.key === "PageUp") aller(n - 1);
+  });
+  aller(0);
+
+  /* le formulaire */
+  var form = document.getElementById("form"), msg = document.getElementById("f-msg"), go = document.getElementById("f-go");
+  var GRATUITS = /@(gmail|googlemail|yahoo|ymail|hotmail|outlook|live|msn|icloud|me|mac|aol|protonmail|proton|pm|gmx|orange|wanadoo|free|sfr|neuf|laposte|bbox|numericable|yandex|mail|zoho|fastmail|hey)\.(com|fr|net|me|de)$/i;
+  var ERREURS = {
+    email: "Cette adresse ne ressemble pas à un email.",
+    email_pro: "Une adresse de votre entreprise, pour retrouver votre site : les adresses gmail, outlook, orange… ne passent pas.",
+    site: "Cette adresse de site ne passe pas. Essayez sous la forme www.votre-institut.fr.",
+    cap_email: "Trois analyses par jour et par adresse : revenez demain, ou écrivez à romain.barbet@mazeo.co.",
+    cap: "Beaucoup de demandes aujourd'hui : réessayez demain, ou écrivez à romain.barbet@mazeo.co.",
+    modele: "L'analyse n'a pas abouti. Réessayez dans un instant.",
+    reseau: "Ça n'a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co."
+  };
+  form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var site = document.getElementById("f-site").value.trim(), email = document.getElementById("f-email").value.trim().toLowerCase();
+    msg.textContent = "";
+    if (!site || !/\./.test(site)) { msg.textContent = ERREURS.site; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = ERREURS.email; return; }
+    if (GRATUITS.test(email)) { msg.textContent = ERREURS.email_pro; return; }
+    go.disabled = true; go.textContent = "Nous lisons votre site…";
+    var attente = setTimeout(function () { go.textContent = "Nous notons les quatre points…"; }, 9000);
+    var coupe = new AbortController(), minuterie = setTimeout(function () { coupe.abort(); }, 75000);
+    fetch(FONCTIONS + "/positionnement-score", {
+      method: "POST", headers: { "Content-Type": "application/json" }, signal: coupe.signal,
+      body: JSON.stringify({ site: site, email: email, lang: "fr", news: !document.getElementById("f-news").checked, page: location.href })
+    }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, status: r.status, d: d }; }); })
+      .then(function (x) {
+        if (!x.ok) { msg.textContent = ERREURS[x.d && x.d.error] || ERREURS.reseau; return; }
+        afficher(x.d, site);
+        aller(4);
+      })
+      .catch(function () { msg.textContent = ERREURS.reseau; })
+      .then(function () { clearTimeout(attente); clearTimeout(minuterie); go.disabled = false; go.textContent = "Noter mon positionnement"; });
+  });
+
+  /* le verdict */
+  var LIBS = { metier: "Métier", pour_qui: "Pour qui", probleme: "Problème réglé", unique: "Ce qui rend unique" };
+  var CLASSE = { vert: "ok", orange: "moy", rouge: "ko" };
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function afficher(d, saisi) {
+    var ok = document.getElementById("v-ok"), ko = document.getElementById("v-ko");
+    if (!d.lisible) {
+      VERDICT = { lisible: false };
+      ok.hidden = true; ko.hidden = false;
+      document.getElementById("v-ko-txt").textContent = d.raison === "injoignable"
+        ? "Votre site n'a pas répondu à notre lecture. Vérifiez l'adresse, ou réessayez dans un instant."
+        : "Votre page d'accueil ne contient presque pas de texte lisible sans votre navigateur : c'est le cas des sites dessinés entièrement par un script. Un prospect pressé, ou un moteur de recherche, voit la même chose.";
+      return;
+    }
+    var v = d.verdict; VERDICT = v;
+    ok.hidden = false; ko.hidden = true;
+    document.getElementById("v-site").textContent = (d.site || saisi).replace(/^https?:\/\//, "").replace(/\/$/, "");
+    document.getElementById("v-cartes").innerHTML = ["metier", "pour_qui", "probleme", "unique"].map(function (k) {
+      var p = v[k], cl = CLASSE[p.note] || "ko";
+      return '<div class="carte"><div class="k"><i class="' + cl + '">' + ICONES[cl] + '</i>' + LIBS[k] + '</div><div class="c">' + esc(p.commentaire) + '</div>' + (p.citation ? '<div class="q">« ' + esc(p.citation) + ' »</div>' : '') + '</div>';
+    }).join("");
+    document.getElementById("v-synthese").textContent = v.synthese;
+    document.getElementById("v-pos").textContent = v.positionnement;
+    document.getElementById("v-linkedin").href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent("https://www.mazeo.co/positionnement");
+  }
+  document.getElementById("v-copier").addEventListener("click", function () {
+    var b = this, t = document.getElementById("v-pos").innerText;
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { b.textContent = "Copié"; setTimeout(function () { b.textContent = "Copier"; }, 1800); }, function () { b.textContent = "Sélectionnez le texte"; });
+  });
+})();
+</script>
+</body>
+</html>
