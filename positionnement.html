@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pourquoi vous, plutôt qu'un autre institut ? · votre positionnement noté sur quatre points · mazeo</title>
-<meta name="description" content="Votre prospect se pose la question avant de vous répondre. Votre site y répond-il ? Trois minutes : un rappel de ce qu'est un positionnement, puis le vôtre, noté sur quatre points d'après votre site.">
+<title>Pourquoi vous, plutôt qu'un autre institut ? · leçon 1 de la growth academy by mazeo</title>
+<meta name="description" content="Première leçon de la growth academy de mazeo, ouverte à tous : votre positionnement. La théorie en deux écrans, deux vrais sites notés, puis le vôtre, lu comme un prospect le lit et noté sur quatre points.">
 <link rel="canonical" href="https://www.mazeo.co/positionnement">
 <link rel="alternate" hreflang="fr" href="https://www.mazeo.co/positionnement">
 <link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/positionnement">
@@ -13,7 +13,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://www.mazeo.co/positionnement">
 <meta property="og:title" content="Pourquoi vous, plutôt qu'un autre institut ?">
-<meta property="og:description" content="Votre positionnement, noté sur quatre points d'après votre site. Trois minutes, par mazeo.">
+<meta property="og:description" content="Leçon 1 de la growth academy by mazeo : votre positionnement, lu comme un prospect le lit et noté sur quatre points. Trois minutes.">
 <meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
@@ -36,9 +36,15 @@ button { font:inherit; }
 /* barre de progression, logo, fil */
 .bar { position:fixed; top:0; left:0; height:3px; width:100%; background:var(--line); z-index:5; }
 .bar i { display:block; height:3px; width:0; background:var(--blue); transition:width .4s ease; }
-.logo { position:fixed; top:28px; left:64px; z-index:5; font-family:var(--mono); font-weight:800; letter-spacing:-0.4px; font-size:20px; color:var(--ink); text-decoration:none; }
-.logo span { color:var(--green); }
-.fil { position:fixed; top:34px; right:64px; z-index:5; font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); }
+.logo { position:fixed; top:26px; left:64px; z-index:5; display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; color:var(--ink); }
+.logo .nm { display:flex; align-items:center; gap:8px; font-family:var(--display); font-weight:700; font-size:19px; letter-spacing:-0.01em; line-height:1; }
+.logo .nm svg { width:20px; height:20px; }
+.logo .by { margin-top:5px; font-size:11.5px; color:var(--meta); display:flex; align-items:baseline; gap:5px; }
+.logo .mz { font-family:var(--mono); font-weight:800; letter-spacing:-0.3px; color:var(--ink); font-size:13.5px; }
+.logo .mz i { font-style:normal; color:var(--green); }
+.haut { position:fixed; top:30px; right:64px; z-index:5; display:flex; align-items:center; gap:18px; }
+.fil { font-family:var(--mono); font-size:12px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); }
+.partager { border:1px solid var(--line); background:#fff; border-radius:999px; padding:7px 14px; font-weight:600; font-size:13.5px; cursor:pointer; color:var(--ink); }
 .nav { position:fixed; bottom:28px; right:64px; z-index:5; display:flex; gap:8px; }
 .nav button { width:38px; height:38px; background:var(--blue); color:#fff; border:0; border-radius:4px; font-size:15px; cursor:pointer; padding:0; }
 .nav button:disabled { background:var(--line); color:var(--meta2); cursor:default; }
@@ -135,15 +141,18 @@ p.synthese { font-size:18px; color:var(--ink); margin:18px 0 0; max-width:60ch; 
   .ecran.actif { display:block; }
   .contenu { padding:84px 20px 100px; }
   .scinde, .deux, .verdict, .cartes { grid-template-columns:1fr; gap:24px; }
-  .logo { left:20px; } .fil { right:20px; } .nav { right:20px; }
+  .logo { left:20px; } .haut { right:20px; } .nav { right:20px; }
   h1 { font-size:30px; }
 }
 </style>
 </head>
 <body>
 <div class="bar"><i id="bar"></i></div>
-<a class="logo" href="/" aria-label="mazeo">mazeo<span>.</span></a>
-<div class="fil">Ressource · votre positionnement</div>
+<a class="logo" href="/ressources" aria-label="growth academy by mazeo">
+  <span class="nm"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</span>
+  <span class="by">by <span class="mz">mazeo<i>.</i></span></span>
+</a>
+<div class="haut"><div class="fil">Leçon 1 · Votre positionnement</div><button type="button" class="partager" id="partager">Partager</button></div>
 
 <div class="ecrans" id="ecrans">
 
@@ -151,10 +160,10 @@ p.synthese { font-size:18px; color:var(--ink); margin:18px 0 0; max-width:60ch; 
 <section class="ecran">
   <div class="contenu scinde">
     <div>
-      <p class="sur"><b>1 sur 6</b>Trois minutes</p>
+      <p class="sur"><b>1 sur 6</b>Leçon 1 · trois minutes</p>
       <h1>Pourquoi vous, <span>plutôt qu'un autre institut ?</span></h1>
-      <p class="th">Votre prospect se pose la question avant de vous répondre. Votre site y répond-il ?</p>
-      <p class="th">Un rappel de ce qu'est un positionnement, puis le vôtre, <b>noté sur quatre points d'après votre site</b>.</p>
+      <p class="th">Première leçon de la growth academy de mazeo, ouverte à tous : <b>votre positionnement</b>.</p>
+      <p class="th">La théorie en deux écrans, deux vrais sites notés, puis le vôtre : nous lisons votre site comme un prospect le lit, et nous le notons sur quatre points.</p>
       <div class="cta"><button type="button" data-suivant>Commencer</button><span>Flèches du clavier pour avancer</span></div>
     </div>
     <div>
@@ -387,6 +396,11 @@ p.synthese { font-size:18px; color:var(--ink); margin:18px 0 0; max-width:60ch; 
     document.getElementById("v-pos").textContent = v.positionnement;
     document.getElementById("v-linkedin").href = "https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent("https://www.mazeo.co/positionnement");
   }
+  document.getElementById("partager").addEventListener("click", function () {
+    var b = this, url = "https://www.mazeo.co/positionnement", titre = "Pourquoi vous, plutôt qu'un autre institut ? · growth academy by mazeo";
+    if (navigator.share) { navigator.share({ title: titre, url: url }).catch(function () {}); return; }
+    (navigator.clipboard ? navigator.clipboard.writeText(url) : Promise.reject()).then(function () { b.textContent = "Lien copié"; setTimeout(function () { b.textContent = "Partager"; }, 1800); }, function () { window.open("https://www.linkedin.com/sharing/share-offsite/?url=" + encodeURIComponent(url), "_blank"); });
+  });
   document.getElementById("v-copier").addEventListener("click", function () {
     var b = this, t = document.getElementById("v-pos").innerText;
     (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { b.textContent = "Copié"; setTimeout(function () { b.textContent = "Copier"; }, 1800); }, function () { b.textContent = "Sélectionnez le texte"; });
