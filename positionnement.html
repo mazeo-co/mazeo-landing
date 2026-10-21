@@ -86,7 +86,7 @@ i.ok { background:var(--green); } i.moy { background:var(--orange); } i.ko { bac
 .defile { position:relative; margin-top:18px; }
 .fenetre { overflow:hidden; padding:3px; margin:-3px; }
 .piste { display:flex; gap:32px; transition:transform .45s ease; will-change:transform; }
-.piste > .cadre { flex:0 0 calc(50% - 18px); }
+.piste > .cadre { flex:0 0 calc(50% - 16px); min-width:0; }
 .fleche { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:1px solid var(--hair2); background:var(--card); color:var(--ink); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,.06); }
 .fleche.suiv { right:-22px; } .fleche.prec { left:-22px; }
 .fleche:disabled { opacity:0; pointer-events:none; }
@@ -245,8 +245,8 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des enquêtes et des entretiens consommateurs, par IA.</span></div>
           <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les grandes marques B2C : une cible nommée.</span></div>
-          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Décider plus vite, mieux » : tout le monde peut l'écrire.</span></div>
-          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">« Le seul » au prix fixe, où que soit l'audience : vérifiable.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Décider plus vite, mieux » : générique.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le seul au prix fixe, partout : un fait.</span></div>
         </div>
       </div>
       <div class="cadre">
