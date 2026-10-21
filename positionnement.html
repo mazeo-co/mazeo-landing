@@ -61,7 +61,8 @@ button { font:inherit; }
 .ecran.passe { transform:translateY(-40px); }
 .ecran.haut { align-items:flex-start; }
 .contenu { width:100%; max-width:1240px; margin:0 auto; padding:120px 64px 64px; }
-.scinde { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+.scinde { display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center; }
+.scinde h1 { font-size:clamp(40px,4vw,56px); }
 p.sur { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 20px; }
 p.sur b { color:var(--ink); margin-right:12px; }
 h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1; font-size:clamp(44px,4.6vw,66px); margin:0 0 24px; text-wrap:balance; }
@@ -169,6 +170,8 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
 .illisible { max-width:62ch; }
 /* pont */
 .pont .cadre.bleu p { margin:0 0 14px; font-size:18px; line-height:1.5; color:var(--ink); }
+.pont .cadre.bleu .cta a.btn { font-size:16px; padding:12px 20px; white-space:nowrap; }
+.pont .cadre.bleu { padding:30px 32px; }
 .pont .cadre.bleu p.m { font-family:var(--serif); font-size:26px; line-height:1.3; }
 .suivante { margin-top:26px; font-size:15px; color:var(--meta); }
 @media (max-width: 900px) {
@@ -407,7 +410,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
     // les flèches se posent sur la ligne du bouton de l'écran actif, à droite ; sinon sous le contenu
     var nav = document.getElementById("nav"), contenu = ecrans[n].querySelector(".contenu");
-    var ctas = Array.prototype.filter.call(ecrans[n].querySelectorAll(".cta"), function (c) { return !c.closest(".cadre") && c.offsetParent !== null || !c.closest(".cadre"); });
+    var ctas = ecrans[n].querySelectorAll(".cta");
     var hote = ctas.length ? ctas[ctas.length - 1] : contenu;
     if (nav && hote && nav.parentNode !== hote) hote.appendChild(nav);
     nav.classList.toggle("seule", hote === contenu);
