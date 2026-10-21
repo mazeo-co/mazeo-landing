@@ -57,6 +57,7 @@ button { font:inherit; }
 .ecran { position:absolute; inset:0; display:flex; align-items:center; opacity:0; transform:translateY(40px); transition:opacity .35s ease, transform .35s ease; visibility:hidden; pointer-events:none; }
 .ecran.actif { opacity:1; transform:none; visibility:visible; pointer-events:auto; }
 .ecran.passe { transform:translateY(-40px); }
+.ecran.haut { align-items:flex-start; }
 .contenu { width:100%; max-width:1240px; margin:0 auto; padding:120px 64px 72px; }
 .scinde { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
 p.sur { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 20px; }
@@ -82,17 +83,17 @@ p.source i { font-style:italic; }
 .test .k i svg { width:12px; height:12px; }
 .test .v { color:var(--body); }
 i.ok { background:var(--green); } i.moy { background:var(--orange); } i.ko { background:var(--red); }
-.deux { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:8px; }
-.deux .cadre { padding:30px 34px 28px; }
+.deux { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:24px; }
+.deux .cadre { padding:24px 30px 24px; }
 .deux .cadre h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 4px; line-height:1.1; }
 .deux .cadre .tag { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 16px; display:block; }
-.deux .cadre p.ph { font-family:var(--serif); font-size:17px; line-height:1.45; color:var(--ink); margin:0 0 20px; }
-.deux .test { gap:12px; }
-.deux .test > div { grid-template-columns:158px 1fr; font-size:14px; white-space:nowrap; align-items:center; }
-h1.h-compact { font-size:clamp(30px,3vw,42px); margin-bottom:8px; }
-.ecran .contenu.dense { padding-top:100px; }
+.deux .cadre p.ph { font-family:var(--serif); font-size:16px; line-height:1.45; color:var(--ink); margin:0 0 20px; }
+.deux .test { gap:13px; }
+.deux .test > div { grid-template-columns:150px 1fr; font-size:13.5px; white-space:nowrap; align-items:center; }
+h1.h-compact { font-size:clamp(30px,2.8vw,38px); margin-bottom:10px; }
+.ecran .contenu.dense { padding-top:120px; padding-bottom:90px; }
 .morale-ligne { display:flex; align-items:center; justify-content:space-between; gap:24px; }
-p.morale { font-family:var(--serif); font-size:22px; color:var(--ink); margin:22px 0 0; }
+p.morale { font-family:var(--serif); font-size:20px; color:var(--ink); margin:22px 0 0; }
 /* boutons */
 .cta { margin-top:22px; display:flex; align-items:center; gap:18px; }
 .cta button, .cta a.btn { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:13px 26px; cursor:pointer; text-decoration:none; display:inline-block; }
@@ -118,15 +119,17 @@ p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-
 .carte-action .note { font-size:12px; color:var(--meta); margin:14px 0 0; line-height:1.5; }
 /* « à vous » : sur le papier, le formulaire en lignes
 */
-.ecran.avous .contenu { max-width:900px; }
-.ecran.avous h1 { margin-bottom:14px; } .ecran.avous .form { gap:12px; } .ecran.avous p.th { margin-bottom:10px; }
-.form { display:grid; gap:16px; margin-top:8px; max-width:560px; }
-.form label.ch { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); display:block; margin-bottom:4px; }
-.form input[type=text], .form input[type=email] { width:100%; border:0; border-bottom:1px solid var(--hair2); border-radius:0; padding:8px 0 10px; font:inherit; font-size:20px; color:var(--ink); background:transparent; outline:0; }
-.form input:focus { border-bottom-color:var(--ink); }
-.form .ligne { display:flex; gap:10px; align-items:flex-start; font-size:14px; color:var(--body); }
+.ecran.avous .contenu { max-width:1000px; padding-top:124px; }
+.ecran.avous h1 { font-size:clamp(36px,3.6vw,50px); }
+.ecran.avous h1 { margin-bottom:18px; }
+.ecran.avous p.th { margin-bottom:26px; max-width:64ch; }
+.form { display:grid; gap:18px; margin-top:0; max-width:620px; }
+.form label.ch { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); display:block; margin-bottom:10px; }
+.form input[type=text], .form input[type=email] { width:100%; border:1px solid var(--hair2); border-radius:4px; padding:13px 16px; font:inherit; font-size:17px; color:var(--ink); background:var(--card); outline:0; }
+.form input:focus { border-color:var(--ink); }
+.form .ligne { display:flex; gap:10px; align-items:flex-start; font-size:14px; color:var(--body); margin-top:2px; }
 .form .ligne input { margin-top:4px; }
-.form button { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:13px 24px; cursor:pointer; justify-self:start; }
+.form button { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 26px; cursor:pointer; justify-self:start; }
 .form button:hover { background:#000; } .form button:disabled { opacity:.6; cursor:wait; }
 .form .msg { min-height:22px; font-size:14.5px; color:#B45309; margin:0; }
 .form .note { font-size:12.5px; color:var(--meta); margin:0; }
@@ -222,50 +225,51 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
 </section>
 
 <!-- 3 · Deux sites -->
-<section class="ecran">
+<section class="ecran haut">
   <div class="contenu dense">
     <p class="sur">Théorie</p>
     <h1 class="h-compact">Comment deux entreprises du secteur <span>se présentent.</span></h1>
     <p class="th" style="max-width:none">Leur positionnement, tel qu'il est écrit sur leur site, noté sur les quatre points. Le vôtre vient juste après.</p>
     <div class="deux">
       <div class="cadre">
-        <h3>Attest</h3><span class="tag">Logiciel d'enquêtes en ligne · trois verts, un orange</span>
-        <p class="ph">« AI consumer insights engine for global B2C brands. Make decisions faster, sharper and more valuable. We're the only consumer insights platform to give you flat, predictable pricing. »</p>
+        <h3>Attest</h3><span class="tag">Logiciel d'enquêtes en ligne · 3 verts · 1 orange</span>
+        <p class="ph">« AI consumer insights engine for global B2C brands. Join the dots between surveys and interviews with real consumers to make decisions faster, sharper and more valuable. We're the only consumer insights platform to give you flat, predictable pricing, no matter who or where your audience lives. »</p>
         <div class="test">
-          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Une plateforme d'enquêtes et d'entretiens par IA.</span></div>
-          <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les grandes marques B2C : une cible nette.</span></div>
-          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Décider plus vite » : tout le monde peut l'écrire.</span></div>
-          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Un prix unique quel que soit le pays : un fait.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des enquêtes et des entretiens consommateurs, par IA.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les grandes marques B2C : une cible nommée.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Décider plus vite, mieux » : tout le monde peut l'écrire.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">« Le seul » au prix fixe, où que soit l'audience : vérifiable.</span></div>
         </div>
       </div>
       <div class="cadre">
-        <h3>Euromonitor International</h3><span class="tag">Éditeur d'études de marché · deux verts, deux oranges</span>
-        <p class="ph">« We publish market research reports for 100 countries, plus global strategy briefings and in-depth regional analysis. Your first step to understanding a category or market. »</p>
+        <h3>Euromonitor International</h3><span class="tag">Éditeur d'études de marché · 2 verts · 1 orange · 1 rouge</span>
+        <p class="ph">« Euromonitor International is a respected provider of global market intelligence, helping you make high-stakes decisions to unlock growth. 50+ years of independent research. Analysts in 100+ countries. »</p>
         <div class="test">
-          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des rapports d'études par pays et par industrie.</span></div>
-          <div><span class="k"><i class="moy" data-ic="moy"></i>Pour qui</span><span class="v">Huit types de clients : aucune cible prioritaire.</span></div>
-          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Comprendre un marché » : générique.</span></div>
-          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Plus de 210 marchés couverts : un fait chiffré.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des études de marché, à l'échelle mondiale.</span></div>
+          <div><span class="k"><i class="ko" data-ic="ko"></i>Pour qui</span><span class="v">« Vous » : personne n'est nommé.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Décider, croître » : générique.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">50 ans, des analystes dans 100 pays : des faits.</span></div>
         </div>
       </div>
     </div>
-    <div class="morale-ligne"><p class="morale">Deux entreprises solides, connues de tous. Et pourtant : aucune ne dit ce que son client obtient.</p><div class="cta" style="margin-top:14px"><button type="button" data-suivant>Et vous ?</button></div></div>
+    <p class="morale">Deux entreprises solides, connues de tous. Et pourtant : aucune ne dit ce que son client obtient.</p>
+    <div class="cta" style="margin-top:18px"><button type="button" data-suivant>Et vous ?</button></div>
   </div>
 </section>
 
 <!-- 4 · Bascule : le formulaire -->
-<section class="ecran avous">
+<section class="ecran avous haut">
   <div class="contenu">
     <p class="sur">À vous</p>
     <h1>Et vous, <span>êtes-vous bien positionné ?</span></h1>
-    <p class="th">Nous lisons votre page d'accueil et votre page « À propos », comme le ferait un prospect, et nous notons les quatre points. Une minute.</p>
+    <p class="th">Nous lisons la page d'accueil et la page « À propos » de votre site, comme le ferait un prospect, et nous notons les quatre points. Une minute.</p>
     <form class="form js-noter" novalidate>
-      <div><label class="ch" for="f-site">Votre site</label><input type="text" id="f-site" placeholder="www.votre-institut.fr" autocomplete="url" inputmode="url" required></div>
+      <div><label class="ch" for="f-site">Votre entreprise, par l'adresse de son site</label><input type="text" id="f-site" placeholder="www.votre-institut.fr" autocomplete="url" inputmode="url" required></div>
       <div><label class="ch" for="f-email">Votre email professionnel, pour recevoir le résultat</label><input type="email" id="f-email" placeholder="prenom@votre-institut.fr" autocomplete="email" required></div>
       <label class="ligne"><input type="checkbox" class="js-non"> Je ne souhaite pas recevoir les prochaines ressources de mazeo.</label>
       <button type="submit">Noter mon positionnement</button>
       <p class="msg" role="status" aria-live="polite"></p>
-      <p class="note">Vous recevez aussi le résultat par mail. Une adresse de votre entreprise, pour retrouver votre site : les adresses gmail, outlook, orange… ne passent pas.</p>
+      <p class="note">Une adresse de votre entreprise : gmail, outlook, orange… ne passent pas.</p>
     </form>
   </div>
 </section>
