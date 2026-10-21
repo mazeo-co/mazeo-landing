@@ -127,6 +127,11 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
 .heros p.th { font-size:clamp(18px,1.2vw,22px); line-height:1.6; max-width:56ch; margin-bottom:18px; }
 .heros .cta { margin-top:16px; }
 .heros p.verif { font-family:var(--serif); font-size:clamp(26px,2vw,36px); line-height:1.1; color:var(--ink); margin:0; }
+.citation { margin:0; border:1px solid var(--hair2); border-left:4px solid var(--blue); border-radius:4px; background:var(--card); padding:clamp(28px,3vh,44px) clamp(28px,2.4vw,40px) clamp(22px,2.6vh,34px); }
+.citation p { font-family:var(--serif); font-size:clamp(30px,2.6vw,46px); line-height:1.1; color:var(--ink); margin:0 0 clamp(16px,2.4vh,28px); }
+.citation p span { color:var(--blue); font-style:italic; }
+.citation p i { font-style:normal; color:var(--blue); }
+.citation footer { font-size:clamp(13px,.95vw,15px); color:var(--meta); line-height:1.5; max-width:40ch; }
 .carte-action { border:1px solid var(--hair2); border-radius:4px; background:var(--card); padding:26px 26px 22px; }
 .carte-action h2 { font-family:var(--serif); font-size:clamp(26px,1.9vw,34px); font-weight:400; margin:0 0 8px; line-height:1.1; }
 .carte-action p.d { font-size:clamp(16px,1.1vw,19px); line-height:1.55; color:var(--body); margin:0 0 22px; }
@@ -220,14 +225,10 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       <p class="verif">Vérifions ce que vaut le vôtre.</p>
       <div class="cta"><button type="button" data-suivant>Commencer</button></div>
     </div>
-    <form class="carte-action js-informer" novalidate>
-      <h2>Les ressources de mazeo, par email</h2>
-      <p class="d">Les prochaines leçons de la growth academy, les études et les outils que mazeo publie pour le secteur. Un mail à chaque sortie.</p>
-      <div class="ligne-ch"><input type="email" placeholder="vous@votre-societe.fr" aria-label="Votre email" autocomplete="email" required></div>
-      <button type="submit">Recevoir les prochaines ressources</button>
-      <p class="msg" role="status" aria-live="polite"></p>
-      <p class="note">Rien d'autre, et vous vous désinscrivez en un clic.</p>
-    </form>
+    <blockquote class="citation">
+      <p><i>«</i> Un prospect vous accorde <span>dix secondes</span>. S'il ne comprend pas ce que vous faites pour lui, il passe au suivant. <i>»</i></p>
+      <footer>Les dix premières secondes décident si un visiteur reste ou s'en va. Nielsen Norman Group, d'après les mesures de Microsoft Research.</footer>
+    </blockquote>
   </div>
 </section>
 
