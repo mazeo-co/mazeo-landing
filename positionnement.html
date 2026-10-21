@@ -58,7 +58,7 @@ button { font:inherit; }
 .ecran.actif { opacity:1; transform:none; visibility:visible; pointer-events:auto; }
 .ecran.passe { transform:translateY(-40px); }
 .contenu { width:100%; max-width:1240px; margin:0 auto; padding:120px 64px 72px; }
-.scinde { display:grid; grid-template-columns:1.1fr .9fr; gap:72px; align-items:start; }
+.scinde { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
 p.sur { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 20px; }
 p.sur b { color:var(--ink); margin-right:12px; }
 h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1; font-size:clamp(40px,4.2vw,60px); margin:0 0 22px; text-wrap:balance; }
@@ -67,16 +67,16 @@ p.th { font-size:clamp(17px,1.4vw,19px); line-height:1.6; color:var(--body); mar
 p.th b { color:var(--ink); font-weight:600; }
 p.source { font-size:13.5px; color:var(--meta); margin:22px 0 0; }
 p.source i { font-style:italic; }
-.lab { display:block; font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:12px; }
+.lab { display:block; font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
 .lab.bleu { color:var(--blue); }
 /* encadrés : blanc filet = théorie, filet bleu = mazeo */
-.cadre { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:24px 26px; }
+.cadre { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:34px 36px; }
 .cadre.bleu { border-color:var(--blue); }
-.cadre p.ph { font-family:var(--serif); font-size:21px; line-height:1.35; color:var(--ink); margin:0 0 18px; }
+.cadre p.ph { font-family:var(--serif); font-size:24px; line-height:1.35; color:var(--ink); margin:0 0 26px; }
 .cadre p.qui { font-size:13px; color:var(--meta); margin:0 0 16px; }
 /* les quatre pastilles */
-.test { display:grid; gap:10px; }
-.test > div { display:grid; grid-template-columns:150px 1fr; gap:14px; align-items:start; font-size:14.5px; line-height:1.4; }
+.test { display:grid; gap:14px; }
+.test > div { display:grid; grid-template-columns:170px 1fr; gap:14px; align-items:center; font-size:15.5px; line-height:1.4; white-space:nowrap; }
 .test .k { font-weight:600; color:var(--ink); display:flex; align-items:center; gap:8px; }
 .test .k i { width:18px; height:18px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; }
 .test .k i svg { width:12px; height:12px; }
@@ -88,7 +88,7 @@ i.ok { background:var(--green); } i.moy { background:var(--orange); } i.ko { bac
 .deux .cadre .tag { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 12px; display:block; }
 .deux .cadre p.ph { font-family:var(--font); font-size:13.5px; line-height:1.45; color:var(--body); margin:0 0 12px; }
 .deux .test { gap:6px; }
-.deux .test > div { grid-template-columns:132px 1fr; font-size:13px; }
+.deux .test > div { grid-template-columns:132px 1fr; font-size:13px; white-space:normal; align-items:start; }
 h1.h-compact { font-size:clamp(30px,3vw,42px); margin-bottom:10px; }
 .ecran .contenu.dense { padding-top:104px; }
 .morale-ligne { display:flex; align-items:center; justify-content:space-between; gap:24px; }
@@ -206,21 +206,21 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
 <section class="ecran">
   <div class="contenu scinde">
     <div>
-      <p class="sur"><b>2 sur 6</b>Théorie</p>
+      <p class="sur">Théorie</p>
       <h1>Qu'est-ce qu'<span>un positionnement ?</span></h1>
       <p class="th">Ce n'est pas la liste de vos prestations. C'est la place que vous occupez dans la tête d'un client, face aux autres instituts.</p>
-      <p class="th">Il répond à quatre questions : votre métier, pour qui, le problème que vous réglez, ce qui vous rend unique.</p>
+      <p class="th">Il répond à quatre questions : quel est votre métier, à qui vous vous adressez, quel problème vous réglez pour eux, ce qui vous rend unique.</p>
       <p class="source">Source : Al Ries et Jack Trout, inventeurs du mot « positionnement » en marketing, <i>Positioning</i> (1981).</p>
       <div class="cta"><button type="button" data-suivant>Deux vrais sites</button></div>
     </div>
     <div class="cadre">
-      <span class="lab">Exemple · les quatre points, en trois phrases</span>
+      <span class="lab">Exemple · un institut fictif · les quatre points en trois phrases</span>
       <p class="ph">« Nous testons les packagings des marques de cosmétique, avant le lancement. Nos tests se font en magasin, le produit en rayon face à ses concurrents : vous savez s'il sera vu, et choisi. »</p>
       <div class="test">
         <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Les tests de packaging.</span></div>
         <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les marques de cosmétique.</span></div>
-        <div><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Savoir, avant le lancement, si le produit sera vu et choisi.</span></div>
-        <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le test en magasin, en rayon, face aux concurrents.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Savoir avant le lancement si le produit sera choisi.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le test en magasin, face aux concurrents.</span></div>
       </div>
     </div>
   </div>
@@ -229,7 +229,7 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
 <!-- 3 · Deux sites -->
 <section class="ecran">
   <div class="contenu dense">
-    <p class="sur"><b>3 sur 6</b>Théorie</p>
+    <p class="sur">Théorie</p>
     <h1 class="h-compact">Deux sites, <span>quatre pastilles.</span></h1>
     <p class="th" style="max-width:none">Deux sociétés d'études que vous connaissez, à Londres. Leur page d'accueil, notée avec la grille qui notera la vôtre.</p>
     <div class="deux">
@@ -261,7 +261,7 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
 <!-- 4 · Bascule : le formulaire -->
 <section class="ecran bascule">
   <div class="contenu">
-    <p class="sur"><b>4 sur 6</b>À vous</p>
+    <p class="sur">À vous</p>
     <h1>Et vous ?</h1>
     <p class="th">Nous lisons votre page d'accueil et votre page « À propos », comme le ferait un prospect, et nous notons les quatre points. Une minute.</p>
     <form class="form js-noter" novalidate>
@@ -278,7 +278,7 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
 <!-- 5 · Verdict -->
 <section class="ecran">
   <div class="contenu">
-    <p class="sur"><b>5 sur 6</b>Votre résultat</p>
+    <p class="sur">Votre résultat</p>
     <div id="v-ok" hidden>
       <h1>Ce que <span id="v-site">votre site</span> dit de vous</h1>
       <div class="verdict">
@@ -309,7 +309,7 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
 <section class="ecran pont">
   <div class="contenu scinde">
     <div>
-      <p class="sur"><b>6 sur 6</b>Et maintenant</p>
+      <p class="sur">Et maintenant</p>
       <h1>Ces trois lignes sont la deuxième phrase <span>de votre email de prospection.</span></h1>
       <p class="th">La première dit qui vous êtes. La deuxième, pourquoi vous. Le reste de l'email dit ce que vous pouvez faire pour la personne qui vous lit.</p>
       <p class="suivante">Prochaine ressource · Qui contacter chez un client ?</p>
