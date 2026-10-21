@@ -83,13 +83,19 @@ p.source i { font-style:italic; }
 .test .k i svg { width:12px; height:12px; }
 .test .v { color:var(--body); }
 i.ok { background:var(--green); } i.moy { background:var(--orange); } i.ko { background:var(--red); }
-.deux { display:grid; grid-template-columns:1fr 1fr; gap:32px; margin-top:18px; }
-.deux .cadre { padding:22px 28px 20px; }
-.deux .cadre h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 4px; line-height:1.1; }
-.deux .cadre .tag { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 16px; display:block; }
-.deux .cadre p.ph { font-family:var(--serif); font-size:15.5px; line-height:1.4; color:var(--ink); margin:0 0 16px; }
-.deux .test { gap:11px; }
-.deux .test > div { grid-template-columns:150px 1fr; font-size:13.5px; white-space:nowrap; align-items:center; }
+.defile { position:relative; margin-top:18px; }
+.fenetre { overflow:hidden; }
+.piste { display:flex; gap:32px; transition:transform .45s ease; will-change:transform; }
+.piste > .cadre { flex:0 0 calc(50% - 16px); }
+.fleche { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:1px solid var(--hair2); background:var(--card); color:var(--ink); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,.06); }
+.fleche.suiv { right:-22px; } .fleche.prec { left:-22px; }
+.fleche:disabled { opacity:0; pointer-events:none; }
+.piste .cadre { padding:22px 28px 20px; }
+.piste .cadre h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 4px; line-height:1.1; }
+.piste .cadre .tag { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 16px; display:block; }
+.piste .cadre p.ph { font-family:var(--serif); font-size:15.5px; line-height:1.4; color:var(--ink); margin:0 0 16px; }
+.piste .test { gap:11px; }
+.piste .test > div { grid-template-columns:150px 1fr; font-size:13.5px; white-space:nowrap; align-items:center; }
 h1.h-compact { font-size:clamp(30px,2.8vw,38px); margin-bottom:10px; }
 .ecran .contenu.dense { padding-top:112px; padding-bottom:80px; }
 .contenu.dense p.th { margin-bottom:8px; }
@@ -161,7 +167,7 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
   .ecran { position:relative; display:none; }
   .ecran.actif { display:block; }
   .contenu { padding:110px 20px 100px; }
-  .scinde, .deux, .verdict, .cartes, .heros { grid-template-columns:1fr; gap:24px; }
+  .scinde, .verdict, .cartes, .heros { grid-template-columns:1fr; gap:24px; } .piste > .cadre { flex-basis:100%; } .piste .test > div { white-space:normal; }
   .entete .in { padding:14px 20px 12px; flex-wrap:wrap; gap:10px; } .entete .fil { display:none; } .nav { right:20px; }
   h1 { font-size:34px; } .heros h1 { font-size:40px; }
 }
@@ -229,9 +235,10 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
 <section class="ecran haut">
   <div class="contenu dense">
     <p class="sur">Théorie</p>
-    <h1 class="h-compact">Comment deux entreprises du secteur <span>se présentent.</span></h1>
-    <p class="th" style="max-width:none">Leur positionnement, tel qu'il est écrit sur leur site, noté sur les quatre points. Le vôtre vient juste après.</p>
-    <div class="deux">
+    <h1 class="h-compact">Comment cinq entreprises du secteur <span>se présentent.</span></h1>
+    <p class="th" style="max-width:none">Leur positionnement, tel qu'il est écrit sur leur site, noté sur les quatre points. La flèche fait défiler.</p>
+    <div class="defile" id="defile">
+      <div class="fenetre"><div class="piste" id="piste">
       <div class="cadre">
         <h3>Attest</h3><span class="tag">Logiciel d'enquêtes en ligne · 3 verts · 1 orange</span>
         <p class="ph">« AI consumer insights engine for global B2C brands. Join the dots between surveys and interviews with real consumers to make decisions faster, sharper and more valuable. We're the only consumer insights platform to give you flat, predictable pricing, no matter who or where your audience lives. »</p>
@@ -252,8 +259,41 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
           <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">50 ans, des analystes dans 100 pays : des faits.</span></div>
         </div>
       </div>
+      <div class="cadre">
+        <h3>J.D. Power</h3><span class="tag">Données et études pour l'automobile · 3 verts · 1 orange</span>
+        <p class="ph">« JD Power gives companies the data, analytics, and insights to make smarter, more informed decisions. Whether you're shaping vehicles, selling them, financing them, or insuring them, JD Power helps you act with confidence at every stage. Proprietary data drawn from millions of verified customer experiences. »</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Données, analyses et études pour l'automobile.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Quatre métiers de l'automobile, nommés.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Des résultats concrets, client par client.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Ce qui rend unique</span><span class="v">50 ans, données propriétaires : sans chiffre.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <h3>SurveyMonkey</h3><span class="tag">Logiciel d'enquêtes en ligne · 1 vert · 3 oranges</span>
+        <p class="ph">« The World's Most Popular Survey Platform. Understand the changing needs of your employees, customers, attendees, and buyers with continuous feedback. Used by 260K+ organizations worldwide. »</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Un logiciel d'enquêtes en ligne : c'est clair.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Pour qui</span><span class="v">« Des organisations » : tout le monde.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Comprendre les besoins » : tout outil l'écrit.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Ce qui rend unique</span><span class="v">« La plus populaire » : affirmé, pas démontré.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <h3>Mintel</h3><span class="tag">Études et veille de marché · 1 vert · 1 orange · 2 rouges</span>
+        <p class="ph">« Global Market Intelligence & Research Agency. You're an ambitious business driven to understand consumers, predict trends, and stay ahead in a rapidly evolving world. With our market intelligence, you'll gain the insights needed to act decisively. »</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Études et veille de marché : c'est dit.</span></div>
+          <div><span class="k"><i class="ko" data-ic="ko"></i>Pour qui</span><span class="v">« Une entreprise ambitieuse » : personne.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">Prédire les tendances : tout institut l'écrit.</span></div>
+          <div><span class="k"><i class="ko" data-ic="ko"></i>Ce qui rend unique</span><span class="v">Rien n'est dit.</span></div>
+        </div>
+      </div>
+      </div></div>
+      <button type="button" class="fleche prec" id="d-prec" aria-label="Entreprises précédentes">←</button>
+      <button type="button" class="fleche suiv" id="d-suiv" aria-label="Entreprises suivantes">→</button>
     </div>
-    <p class="morale">Deux entreprises solides, connues de tous. Et pourtant : aucune ne dit ce que son client obtient.</p>
+    <p class="morale">Cinq entreprises connues de tous. Une seule dit ce que son client obtient.</p>
     <div class="cta" style="margin-top:12px"><button type="button" data-suivant>Et vous ?</button></div>
   </div>
 </section>
@@ -400,6 +440,24 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
       .catch(function () { msg.textContent = ERREURS.reseau; })
       .then(function () { clearTimeout(attente); clearTimeout(minuterie); go.disabled = false; go.textContent = texteGo; });
   }); });
+
+  /* le défilement des cinq entreprises : deux visibles, la flèche avance d'une */
+  (function () {
+    var piste = document.getElementById("piste"), prec = document.getElementById("d-prec"), suiv = document.getElementById("d-suiv");
+    if (!piste) return;
+    var cartes = piste.children, i = 0;
+    function visibles() { return window.innerWidth > 900 ? 2 : 1; }
+    function poser() {
+      var max = Math.max(0, cartes.length - visibles()); if (i > max) i = max;
+      var pas = cartes[0].getBoundingClientRect().width + 32;
+      piste.style.transform = "translateX(" + (-i * pas) + "px)";
+      prec.disabled = i === 0; suiv.disabled = i >= max;
+    }
+    prec.addEventListener("click", function () { i--; poser(); });
+    suiv.addEventListener("click", function () { i++; poser(); });
+    window.addEventListener("resize", poser);
+    poser();
+  })();
 
   /* la carte « être informé » : content-signup, type « ressources », comme sur les autres pages */
   document.querySelectorAll(".js-informer").forEach(function (form) { form.addEventListener("submit", function (ev) {
