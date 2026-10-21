@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@500;600;800&display=swap">
 <style>
 :root { color-scheme:light;
-  --paper:#F6F3EC; --ink:#121212; --body:#3D3D3D; --meta:#7A776F; --meta2:#A6A299; --hair:#E3DED2; --hair2:#CBC4B4; --card:#FFFFFF;
+  --paper:#F7F6F2; --ink:#121212; --body:#3D3D3D; --meta:#7A776F; --meta2:#A6A299; --hair:#E5E3DC; --hair2:#CDCAC1; --card:#FFFFFF;
   --blue:#007BFF; --blue-deep:#0066D6; --green:#00C774; --orange:#F59E0B; --red:#EF4444;
   --font:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --serif:'Instrument Serif', 'Iowan Old Style', Georgia, serif; --logo:'Bricolage Grotesque', var(--font); --mono:'Inter', var(--font); }
@@ -94,7 +94,7 @@ h1.h-compact { font-size:clamp(30px,3vw,42px); margin-bottom:10px; }
 .morale-ligne { display:flex; align-items:center; justify-content:space-between; gap:24px; }
 p.morale { font-family:var(--serif); font-size:22px; color:var(--ink); margin:18px 0 0; }
 /* boutons */
-.cta { margin-top:26px; display:flex; align-items:center; gap:18px; }
+.cta { margin-top:22px; display:flex; align-items:center; gap:18px; }
 .cta button, .cta a.btn { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:13px 26px; cursor:pointer; text-decoration:none; display:inline-block; }
 .cta button:hover, .cta a.btn:hover { background:#000; }
 .cta button.second, .cta a.btn.second { background:transparent; color:var(--ink); border:1px solid var(--hair2); }
@@ -104,7 +104,8 @@ p.morale { font-family:var(--serif); font-size:22px; color:var(--ink); margin:18
 p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 22px; }
 .heros h1 { font-size:clamp(42px,4.2vw,58px); line-height:.98; margin:0 0 16px; }
 .heros p.lede { font-family:var(--serif); font-size:21px; line-height:1.3; color:var(--ink); margin:0 0 14px; max-width:38ch; }
-.heros p.th { font-size:16px; line-height:1.55; max-width:56ch; }
+.heros p.th { font-size:16px; line-height:1.55; max-width:56ch; margin-bottom:10px; }
+.heros p.verif { font-family:var(--serif); font-size:30px; line-height:1.1; color:var(--ink); margin:0; }
 .carte-action { border:1px solid var(--hair2); border-radius:4px; background:var(--card); padding:26px 26px 22px; }
 .carte-action h2 { font-family:var(--serif); font-size:26px; font-weight:400; margin:0 0 8px; line-height:1.1; }
 .carte-action p.d { font-size:14.5px; line-height:1.5; color:var(--body); margin:0 0 16px; }
@@ -186,7 +187,8 @@ p.synthese { font-family:var(--serif); font-size:22px; line-height:1.3; color:va
       <p class="accroche">Leçon 1 · 3 minutes · votre positionnement noté et réécrit</p>
       <h1>Et vous, <span>êtes-vous bien positionné ?</span></h1>
       <p class="lede">Vos prospects doivent comprendre en une phrase ce que vous vendez, à qui, et pourquoi vous. Testez la vôtre en trois minutes.</p>
-      <p class="th"><b>mazeo est le seul outil de prospection dédié au market research.</b> Et prospecter, c'est écrire à quelqu'un qui ne vous attend pas. Il vous lit quelques secondes. S'il comprend en une phrase ce que vous vendez, à qui, et pourquoi il devrait vous répondre, il vous garde en tête. Sinon, il passe. Cette phrase, c'est votre positionnement : la première de chaque message que vous lui enverrez. <b>Vérifions ce que le vôtre vaut.</b></p>
+      <p class="th"><b>mazeo est le seul outil de prospection dédié au market research.</b> Et prospecter, c'est écrire à quelqu'un qui ne vous attend pas. Il vous lit quelques secondes. S'il comprend en une phrase ce que vous vendez, à qui, et pourquoi il devrait vous répondre, il vous garde en tête. Sinon, il passe. Cette phrase, c'est votre positionnement : la première de chaque message que vous lui enverrez.</p>
+      <p class="verif">Vérifions ce que vaut la vôtre.</p>
       <div class="cta"><button type="button" data-suivant>Commencer</button><span>Trois minutes, flèches du clavier pour avancer</span></div>
     </div>
     <form class="carte-action js-informer" novalidate>
