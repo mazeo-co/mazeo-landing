@@ -54,11 +54,11 @@ button { font:inherit; }
 .nav button:disabled { background:var(--hair); color:var(--meta2); cursor:default; }
 /* les écrans */
 .ecrans { position:relative; height:100vh; }
-.ecran { position:absolute; inset:0; display:flex; align-items:center; opacity:0; transform:translateY(40px); transition:opacity .35s ease, transform .35s ease; visibility:hidden; pointer-events:none; }
+.ecran { position:absolute; inset:0; display:flex; align-items:flex-start; overflow-y:auto; opacity:0; transform:translateY(40px); transition:opacity .35s ease, transform .35s ease; visibility:hidden; pointer-events:none; }
 .ecran.actif { opacity:1; transform:none; visibility:visible; pointer-events:auto; }
 .ecran.passe { transform:translateY(-40px); }
-.ecran.haut { align-items:flex-start; overflow-y:auto; }
-.contenu { width:100%; max-width:1240px; margin:0 auto; padding:120px 64px 72px; }
+.ecran.haut { align-items:flex-start; }
+.contenu { width:100%; max-width:1240px; margin:0 auto; padding:128px 64px 72px; }
 .scinde { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
 p.sur { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 20px; }
 p.sur b { color:var(--ink); margin-right:12px; }
