@@ -223,7 +223,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     <form class="carte-action js-informer" novalidate>
       <h2>Les ressources de mazeo, par email</h2>
       <p class="d">Les prochaines leçons de la growth academy, les études et les outils que mazeo publie pour le secteur. Un mail à chaque sortie.</p>
-      <div class="ligne-ch"><input type="email" placeholder="vous@institut.fr" aria-label="Votre email" autocomplete="email" required></div>
+      <div class="ligne-ch"><input type="email" placeholder="vous@votre-societe.fr" aria-label="Votre email" autocomplete="email" required></div>
       <button type="submit">Recevoir les prochaines ressources</button>
       <p class="msg" role="status" aria-live="polite"></p>
       <p class="note">Rien d'autre, et vous vous désinscrivez en un clic.</p>
@@ -237,7 +237,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     <div>
       <p class="sur">Théorie</p>
       <h1>Qu'est-ce qu'<span>un positionnement ?</span></h1>
-      <p class="th">Ce n'est pas la liste de vos prestations. C'est la place que vous occupez dans la tête d'un client, face aux autres instituts.</p>
+      <p class="th">Ce n'est pas la liste de vos prestations. C'est la place que vous occupez dans la tête d'un client, face à vos concurrents.</p>
       <p class="th">Il répond à quatre questions : quel est votre métier, à qui vous vous adressez, quel problème vous réglez pour eux, ce qui vous rend unique.</p>
       <p class="source">Source : Al Ries et Jack Trout, inventeurs du mot « positionnement » en marketing, <i>Positioning</i> (1981).</p>
       <div class="cta"><button type="button" data-suivant>Voir cinq exemples</button></div>
@@ -334,8 +334,8 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     <h1>Et vous, <span>êtes-vous bien positionné ?</span></h1>
     <p class="th">Nous lisons la page d'accueil et la page « À propos » de votre site, comme le ferait un prospect, et nous notons les quatre points. Une minute.</p>
     <form class="form js-noter" novalidate>
-      <div><label class="ch" for="f-site">Votre entreprise, par l'adresse de son site</label><input type="text" id="f-site" placeholder="www.votre-institut.fr" autocomplete="url" inputmode="url" required></div>
-      <div><label class="ch" for="f-email">Votre email professionnel, pour recevoir le résultat</label><input type="email" id="f-email" placeholder="prenom@votre-institut.fr" autocomplete="email" required></div>
+      <div><label class="ch" for="f-site">Votre entreprise, par l'adresse de son site</label><input type="text" id="f-site" placeholder="www.votre-societe.fr" autocomplete="url" inputmode="url" required></div>
+      <div><label class="ch" for="f-email">Votre email professionnel, pour recevoir le résultat</label><input type="email" id="f-email" placeholder="prenom@votre-societe.fr" autocomplete="email" required></div>
       <label class="ligne"><input type="checkbox" class="js-non"> Je ne souhaite pas recevoir les prochaines ressources de mazeo.</label>
       <div class="cta cta-form"><button type="submit">Noter mon positionnement</button></div>
       <p class="msg" role="status" aria-live="polite"></p>
@@ -441,7 +441,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
   var ERREURS = {
     email: "Cette adresse ne ressemble pas à un email.",
     email_pro: "Une adresse de votre entreprise, pour retrouver votre site : les adresses gmail, outlook, orange… ne passent pas.",
-    site: "Cette adresse de site ne passe pas. Essayez sous la forme www.votre-institut.fr.",
+    site: "Cette adresse de site ne passe pas. Essayez sous la forme www.votre-societe.fr.",
     cap_email: "Trois analyses par jour et par adresse : revenez demain, ou écrivez à romain.barbet@mazeo.co.",
     cap: "Beaucoup de demandes aujourd'hui : réessayez demain, ou écrivez à romain.barbet@mazeo.co.",
     modele: "L'analyse n'a pas abouti. Réessayez dans un instant.",
