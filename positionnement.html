@@ -76,6 +76,11 @@ p.source { font-size:15.5px; color:var(--meta); margin:22px 0 0; }
 p.source i { font-style:italic; }
 .lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
 .lab.bleu { color:var(--blue); }
+/* les quatre questions, comme dans l'Academy */
+ul.liste-q { list-style:none; margin:0 0 22px; padding:0; max-width:36ch; counter-reset:q; }
+ul.liste-q li { padding:11px 0; border-bottom:1px solid var(--hair); font-size:clamp(18px,1.3vw,21px); color:var(--ink); display:flex; gap:14px; align-items:flex-start; }
+ul.liste-q li::before { content:counter(q); counter-increment:q; font-family:var(--mono); font-weight:600; font-size:12px; color:var(--blue); width:24px; height:24px; border:1px solid rgba(0,123,255,.45); border-radius:3px; display:inline-flex; align-items:center; justify-content:center; flex:none; margin-top:3px; }
+.heros .lab { margin-bottom:4px; }
 /* encadrés : blanc filet = théorie, filet bleu = mazeo */
 .cadre { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:34px 36px; }
 .cadre.bleu { border-color:var(--blue); }
@@ -209,8 +214,9 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       <p class="accroche">Leçon 1 · 3 minutes · votre positionnement noté et réécrit</p>
       <h1>Et vous, <span>êtes-vous bien positionné ?</span></h1>
       <p class="lede">Vos prospects doivent comprendre en une phrase ce que vous vendez, à qui, et pourquoi vous. Testez la vôtre en trois minutes.</p>
-      <p class="th"><b>mazeo est le seul outil de prospection dédié au market research.</b> Et prospecter, c'est écrire à quelqu'un qui ne vous attend pas : il vous lit quelques secondes. S'il comprend ce que vous vendez, à qui, et pourquoi vous répondre, il vous garde en tête. Sinon, il passe. Cette phrase, c'est votre positionnement.</p>
-      <p class="verif">Vérifions ce que vaut la vôtre.</p>
+      <span class="lab">Votre positionnement répond à quatre questions</span>
+      <ul class="liste-q"><li>Quel est votre métier ?</li><li>À qui vous adressez-vous ?</li><li>Quel problème réglez-vous pour eux ?</li><li>Qu'est-ce qui vous rend unique ?</li></ul>
+      <p class="verif">Vérifions ce que vaut le vôtre.</p>
       <div class="cta"><button type="button" data-suivant>Commencer</button></div>
     </div>
     <form class="carte-action js-informer" novalidate>
@@ -252,13 +258,8 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
 <section class="ecran haut">
   <div class="contenu dense">
     <p class="sur">Théorie</p>
-    <div class="titre-ligne">
-      <div>
-        <h1 class="h-compact">Comment cinq entreprises du secteur <span>se présentent.</span></h1>
-        <p class="th" style="max-width:none">Cinq entreprises que vous connaissez, une par une. Leur positionnement, tel qu'il est écrit sur leur site, noté sur les quatre points.</p>
-      </div>
-      <div class="cta" style="margin-top:0"><button type="button" data-suivant>Testez votre positionnement</button></div>
-    </div>
+    <h1 class="h-compact">Comment cinq entreprises du secteur <span>se présentent.</span></h1>
+    <p class="th" style="max-width:none">Cinq entreprises que vous connaissez, une par une. Leur positionnement, tel qu'il est écrit sur leur site, noté sur les quatre points.</p>
     <div class="defile" id="defile">
       <div class="fenetre"><div class="piste" id="piste">
       <div class="cadre">
@@ -321,6 +322,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       <button type="button" class="fleche suiv" id="d-suiv" aria-label="Entreprises suivantes"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </div>
     <p class="morale">Cinq entreprises connues de tous. Aucune ne dit, en une phrase, ce que son client obtient.</p>
+    <div class="cta"><button type="button" data-suivant>Testez votre positionnement</button></div>
   </div>
 </section>
 
@@ -358,9 +360,9 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
           <p class="synthese" id="v-synthese"></p>
           <span class="lab" id="v-manque-lab">Ce qui manque, et où le trouver</span>
           <div class="manque" id="v-manque"></div>
-          <div class="cta"><button type="button" data-suivant>Et maintenant ?</button></div>
         </div>
       </div>
+      <div class="cta"><button type="button" data-suivant>Et maintenant ?</button></div>
     </div>
     <div id="v-ko" class="illisible" hidden>
       <h1>Nous n'avons pas pu <span>lire votre site.</span></h1>
