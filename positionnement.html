@@ -60,7 +60,7 @@ button { font:inherit; }
 .ecran.actif { opacity:1; transform:none; visibility:visible; pointer-events:auto; }
 .ecran.passe { transform:translateY(-40px); }
 .ecran.haut { align-items:flex-start; }
-.ecran:not(.haut) .contenu { min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding-top:clamp(104px,11vh,150px); padding-bottom:clamp(40px,6vh,90px); }
+.ecran:not(.haut) .contenu { margin:auto; padding-top:clamp(104px,11vh,150px); padding-bottom:clamp(40px,6vh,90px); }
 .ecran:not(.haut) .heros .cta, .ecran:not(.haut) .scinde .cta { margin-top:clamp(20px,4vh,56px); }
 .contenu { width:100%; max-width:1280px; margin:0 auto; padding:120px 48px 64px; }
 .scinde { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
