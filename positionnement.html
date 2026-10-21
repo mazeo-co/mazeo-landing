@@ -49,9 +49,8 @@ button { font:inherit; }
 .fil { font-family:var(--mono); font-size:12.5px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); }
 .partager { border:1px solid var(--hair2); background:transparent; border-radius:999px; padding:9px 18px; font-weight:600; font-size:15px; cursor:pointer; color:var(--ink); }
 .partager:hover { background:var(--card); }
-.nav { display:flex; gap:8px; margin-left:auto; }
+.nav { position:fixed; right:max(48px, calc((100vw - 1280px) / 2 + 48px)); bottom:36px; display:flex; gap:8px; z-index:5; }
 .cta { flex-wrap:nowrap; }
-.nav.seule { justify-content:flex-end; margin-top:40px; }
 .nav button { width:clamp(46px,3.2vw,56px); height:clamp(46px,3.2vw,56px); background:var(--ink); color:var(--paper); border:0; border-radius:3px; cursor:pointer; padding:0; display:inline-flex; align-items:center; justify-content:center; line-height:0; }
 .nav button:disabled { background:var(--hair); color:var(--meta2); cursor:default; }
 /* les écrans */
@@ -62,7 +61,7 @@ button { font:inherit; }
 .ecran.haut { align-items:flex-start; }
 .ecran:not(.haut) .contenu { margin:auto; padding-top:clamp(104px,11vh,150px); padding-bottom:clamp(40px,6vh,90px); }
 .ecran:not(.haut) .heros .cta, .ecran:not(.haut) .scinde .cta { margin-top:calc(16px + var(--x)); }
-.contenu { width:100%; max-width:1280px; margin:0 auto; padding:120px 48px 64px; }
+.contenu { width:100%; max-width:1280px; margin:0 auto; padding:120px 48px 110px; }
 .scinde { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
 .scinde h1 { font-size:clamp(40px,4vw,60px); margin-bottom:calc(16px + var(--x) * .4); }
 .scinde p.th { font-size:clamp(19px,1.3vw,22px); margin-bottom:calc(20px + var(--x) * .6); }
@@ -122,7 +121,6 @@ p.morale { font-family:var(--serif); font-size:clamp(20px,1.5vw,26px); color:var
 .cta span { font-size:15px; color:var(--meta); }
 /* le héros de l'écran 1 */
 .heros { display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; }
-.heros .nav.seule, .scinde .nav.seule, .verdict .nav.seule { grid-column:1 / -1; }
 p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 16px; }
 .heros h1 { font-size:clamp(46px,4.6vw,70px); line-height:.96; margin:0 0 calc(16px + var(--x) * .5); }
 .heros p.lede { font-family:var(--serif); font-size:clamp(21px,1.5vw,26px); line-height:1.3; color:var(--ink); margin:0 0 calc(16px + var(--x) * .6); max-width:52ch; }
@@ -186,6 +184,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
 .pont .cadre.bleu p.m { font-family:var(--serif); font-size:clamp(24px,1.8vw,32px); line-height:1.3; }
 .suivante { margin-top:26px; font-size:15px; color:var(--meta); }
 @media (max-width: 900px) {
+  .nav { right:16px; bottom:16px; }
   body { overflow:auto; }
   .ecrans { height:auto; }
   .ecran { position:relative; display:none; }
@@ -416,12 +415,6 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     if (k === 4 && !VERDICT) k = 3;  // pas de verdict : l'écran du résultat renvoie au formulaire
     n = k;
     ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
-    // les flèches se posent sur la ligne du bouton de l'écran actif, à droite ; sinon sous le contenu
-    var nav = document.getElementById("nav"), contenu = ecrans[n].querySelector(".contenu");
-    var ctas = ecrans[n].querySelectorAll(".cta");
-    var hote = ctas.length ? ctas[ctas.length - 1] : contenu;
-    if (nav && hote && nav.parentNode !== hote) hote.appendChild(nav);
-    nav.classList.toggle("seule", hote === contenu);
     document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
     document.getElementById("fil").textContent = (n + 1) + " sur " + ecrans.length;
     document.getElementById("prec").disabled = n === 0;
