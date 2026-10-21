@@ -417,6 +417,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
     document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
     document.getElementById("fil").textContent = (n + 1) + " sur " + ecrans.length;
+    document.getElementById("nav").style.display = n === 0 ? "none" : "";  // ecran 1 : le bouton Commencer suffit
     document.getElementById("prec").disabled = n === 0;
     document.getElementById("suiv").disabled = n === ecrans.length - 1 || (n === 3 && !VERDICT);
     var champ = ecrans[n].querySelector("input, [contenteditable]");
