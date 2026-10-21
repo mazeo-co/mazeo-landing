@@ -78,9 +78,9 @@ p.source i { font-style:italic; }
 .lab.bleu { color:var(--blue); }
 /* les quatre questions, comme dans l'Academy */
 ul.liste-q { list-style:none; margin:0 0 16px; padding:0; max-width:36ch; counter-reset:q; }
-ul.liste-q li { padding:9px 0; border-bottom:1px solid var(--hair); font-size:clamp(18px,1.3vw,21px); color:var(--ink); display:flex; gap:14px; align-items:flex-start; }
+ul.liste-q li { padding:8px 0; border-bottom:1px solid var(--hair); font-size:clamp(18px,1.3vw,21px); color:var(--ink); display:flex; gap:14px; align-items:flex-start; }
 ul.liste-q li::before { content:counter(q); counter-increment:q; font-family:var(--mono); font-weight:600; font-size:12px; color:var(--blue); width:24px; height:24px; border:1px solid rgba(0,123,255,.45); border-radius:3px; display:inline-flex; align-items:center; justify-content:center; flex:none; margin-top:3px; }
-.heros .lab { margin-bottom:4px; }
+.heros .lab { margin-bottom:2px; }
 /* encadrés : blanc filet = théorie, filet bleu = mazeo */
 .cadre { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:34px 36px; }
 .cadre.bleu { border-color:var(--blue); }
@@ -122,10 +122,10 @@ p.morale { font-family:var(--serif); font-size:24px; color:var(--ink); margin:32
 .heros { display:grid; grid-template-columns:1.15fr .85fr; gap:56px; align-items:center; }
 .heros .nav.seule, .scinde .nav.seule, .verdict .nav.seule { grid-column:1 / -1; }
 p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 16px; }
-.heros h1 { font-size:clamp(48px,5vw,76px); line-height:.96; margin:0 0 16px; }
-.heros p.lede { font-family:var(--serif); font-size:clamp(22px,1.6vw,28px); line-height:1.3; color:var(--ink); margin:0 0 18px; max-width:44ch; }
+.heros h1 { font-size:clamp(46px,4.6vw,70px); line-height:.96; margin:0 0 16px; }
+.heros p.lede { font-family:var(--serif); font-size:clamp(21px,1.5vw,26px); line-height:1.3; color:var(--ink); margin:0 0 16px; max-width:52ch; }
 .heros p.th { font-size:clamp(18px,1.2vw,22px); line-height:1.6; max-width:56ch; margin-bottom:18px; }
-.heros .cta { margin-top:20px; }
+.heros .cta { margin-top:16px; }
 .heros p.verif { font-family:var(--serif); font-size:clamp(26px,2vw,36px); line-height:1.1; color:var(--ink); margin:0; }
 .carte-action { border:1px solid var(--hair2); border-radius:4px; background:var(--card); padding:26px 26px 22px; }
 .carte-action h2 { font-family:var(--serif); font-size:clamp(26px,1.9vw,34px); font-weight:400; margin:0 0 8px; line-height:1.1; }
