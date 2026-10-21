@@ -30,7 +30,7 @@
   --serif:'Instrument Serif', 'Iowan Old Style', Georgia, serif; --logo:'Bricolage Grotesque', var(--font); --mono:'Inter', var(--font); }
 * { box-sizing:border-box; }
 html, body { margin:0; height:100%; }
-body { font-family:var(--font); font-size:17px; line-height:1.55; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; overflow:hidden; }
+body { font-family:var(--font); font-size:18px; line-height:1.55; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; overflow:hidden; }
 a { color:inherit; }
 button { font:inherit; }
 /* barre de progression */
@@ -60,71 +60,71 @@ button { font:inherit; }
 .ecran.haut { align-items:flex-start; }
 .contenu { width:100%; max-width:1240px; margin:0 auto; padding:128px 64px 72px; }
 .scinde { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
-p.sur { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 20px; }
+p.sur { font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 20px; }
 p.sur b { color:var(--ink); margin-right:12px; }
 h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1; font-size:clamp(40px,4.2vw,60px); margin:0 0 22px; text-wrap:balance; }
 h1 span { font-style:italic; color:var(--blue); }
-p.th { font-size:clamp(17px,1.4vw,19px); line-height:1.6; color:var(--body); margin:0 0 14px; max-width:54ch; }
+p.th { font-size:clamp(18px,1.5vw,21px); line-height:1.6; color:var(--body); margin:0 0 16px; max-width:54ch; }
 p.th b { color:var(--ink); font-weight:600; }
-p.source { font-size:13.5px; color:var(--meta); margin:22px 0 0; }
+p.source { font-size:14.5px; color:var(--meta); margin:22px 0 0; }
 p.source i { font-style:italic; }
-.lab { display:block; font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
+.lab { display:block; font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
 .lab.bleu { color:var(--blue); }
 /* encadrés : blanc filet = théorie, filet bleu = mazeo */
 .cadre { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:34px 36px; }
 .cadre.bleu { border-color:var(--blue); }
-.cadre p.ph { font-family:var(--serif); font-size:24px; line-height:1.35; color:var(--ink); margin:0 0 26px; }
+.cadre p.ph { font-family:var(--serif); font-size:25px; line-height:1.35; color:var(--ink); margin:0 0 28px; }
 .cadre p.qui { font-size:13px; color:var(--meta); margin:0 0 16px; }
 /* les quatre pastilles */
 .test { display:grid; gap:14px; }
-.test > div { display:grid; grid-template-columns:170px 1fr; gap:14px; align-items:center; font-size:15.5px; line-height:1.4; white-space:nowrap; }
+.test > div { display:grid; grid-template-columns:190px 1fr; gap:16px; align-items:center; font-size:17px; line-height:1.4; white-space:nowrap; }
 .test .k { font-weight:600; color:var(--ink); display:flex; align-items:center; gap:8px; }
-.test .k i { width:18px; height:18px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+.test .k i { width:20px; height:20px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; }
 .test .k i svg { width:12px; height:12px; }
 .test .v { color:var(--body); }
 i.ok { background:var(--green); } i.moy { background:var(--orange); } i.ko { background:var(--red); }
-.defile { position:relative; margin-top:28px; }
+.defile { position:relative; margin-top:12px; }
 .fenetre { overflow:hidden; padding:3px; margin:-3px; }
 .piste { display:flex; gap:36px; transition:transform .45s ease; will-change:transform; }
-.piste > .cadre { flex:0 0 calc(50% - 18px); min-width:0; }
+.piste > .cadre { flex:0 0 100%; min-width:0; }
 .fleche { position:absolute; top:50%; transform:translateY(-50%); width:44px; height:44px; border-radius:50%; border:1px solid var(--hair2); background:var(--card); color:var(--ink); font-size:17px; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,.06); }
 .fleche.suiv { right:-58px; } .fleche.prec { left:-58px; }
 .fleche:disabled { opacity:0; pointer-events:none; }
-.piste .cadre { padding:32px 36px 30px; }
-.piste .cadre h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 4px; line-height:1.1; }
-.piste .cadre .tag { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 22px; display:block; }
-.piste .cadre p.ph { font-family:var(--serif); font-size:16.5px; line-height:1.5; color:var(--ink); margin:0 0 24px; }
-.piste .test { gap:16px; }
-.piste .test > div { grid-template-columns:150px 1fr; font-size:13.5px; white-space:nowrap; align-items:center; }
-h1.h-compact { font-size:clamp(30px,2.8vw,38px); margin-bottom:10px; }
+.piste .cadre { padding:32px 48px 30px; }
+.piste .cadre h3 { font-family:var(--serif); font-size:32px; font-weight:400; margin:0 0 6px; line-height:1.1; }
+.piste .cadre .tag { font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 18px; display:block; }
+.piste .cadre p.ph { font-family:var(--serif); font-size:20px; line-height:1.45; color:var(--ink); margin:0 0 24px; max-width:none; }
+.piste .test { gap:14px; }
+.piste .test > div { grid-template-columns:200px 1fr; font-size:17px; white-space:nowrap; align-items:center; }
+h1.h-compact { font-size:clamp(30px,2.8vw,38px); margin-bottom:12px; }
 .ecran .contenu.dense { padding-top:132px; padding-bottom:110px; }
-.contenu.dense p.th { margin-bottom:12px; }
-.morale-ligne { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+.contenu.dense p.th { margin-bottom:0; }
+.titre-ligne { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; } .titre-ligne > div:first-child { max-width:62ch; } .titre-ligne .cta { flex:none; padding-bottom:14px; }
 p.morale { font-family:var(--serif); font-size:21px; color:var(--ink); margin:32px 0 0; }
 /* boutons */
 .cta { margin-top:22px; display:flex; align-items:center; gap:18px; }
-.cta button, .cta a.btn { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:13px 26px; cursor:pointer; text-decoration:none; display:inline-block; }
+.cta button, .cta a.btn { font-weight:600; font-size:17px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:13px 26px; cursor:pointer; text-decoration:none; display:inline-block; }
 .cta button:hover, .cta a.btn:hover { background:#000; }
 .cta button.second, .cta a.btn.second { background:transparent; color:var(--ink); border:1px solid var(--hair2); }
-.cta span { font-size:13px; color:var(--meta); }
+.cta span { font-size:14px; color:var(--meta); }
 /* le héros de l'écran 1 */
 .heros { display:grid; grid-template-columns:1.2fr .8fr; gap:72px; align-items:center; }
 .heros .nav, .scinde .nav, .verdict .nav { grid-column:1 / -1; }
-p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 22px; }
+p.accroche { font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 22px; }
 .heros h1 { font-size:clamp(42px,4.2vw,58px); line-height:.98; margin:0 0 16px; }
-.heros p.lede { font-family:var(--serif); font-size:21px; line-height:1.3; color:var(--ink); margin:0 0 14px; max-width:38ch; }
-.heros p.th { font-size:16px; line-height:1.55; max-width:56ch; margin-bottom:10px; }
-.heros p.verif { font-family:var(--serif); font-size:30px; line-height:1.1; color:var(--ink); margin:0; }
+.heros p.lede { font-family:var(--serif); font-size:23px; line-height:1.3; color:var(--ink); margin:0 0 14px; max-width:38ch; }
+.heros p.th { font-size:17.5px; line-height:1.55; max-width:56ch; margin-bottom:10px; }
+.heros p.verif { font-family:var(--serif); font-size:32px; line-height:1.1; color:var(--ink); margin:0; }
 .carte-action { border:1px solid var(--hair2); border-radius:4px; background:var(--card); padding:26px 26px 22px; }
 .carte-action h2 { font-family:var(--serif); font-size:26px; font-weight:400; margin:0 0 8px; line-height:1.1; }
-.carte-action p.d { font-size:14.5px; line-height:1.5; color:var(--body); margin:0 0 16px; }
+.carte-action p.d { font-size:16px; line-height:1.5; color:var(--body); margin:0 0 16px; }
 .carte-action .ligne-ch { display:grid; gap:8px; margin-bottom:12px; }
 .carte-action input[type=text], .carte-action input[type=email] { width:100%; border:0; border-bottom:1px solid var(--hair2); border-radius:0; padding:10px 0; font:inherit; font-size:16px; color:var(--ink); background:transparent; outline:0; }
 .carte-action input:focus { border-bottom-color:var(--ink); }
 .carte-action button { font-weight:600; font-size:14.5px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 20px; cursor:pointer; margin-top:2px; }
 .carte-action button:hover { background:#000; } .carte-action button:disabled { opacity:.6; cursor:wait; }
 .carte-action .msg { min-height:20px; font-size:13.5px; color:#B45309; margin:8px 0 0; }
-.carte-action .note { font-size:12px; color:var(--meta); margin:14px 0 0; line-height:1.5; }
+.carte-action .note { font-size:13px; color:var(--meta); margin:14px 0 0; line-height:1.5; }
 /* « à vous » : sur le papier, le formulaire en lignes
 */
 .ecran.avous .contenu { max-width:1000px; padding-top:136px; padding-bottom:110px; }
@@ -135,39 +135,39 @@ p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-
 .form label.ch { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); display:block; margin-bottom:10px; }
 .form input[type=text], .form input[type=email] { width:100%; border:1px solid var(--hair2); border-radius:4px; padding:13px 16px; font:inherit; font-size:17px; color:var(--ink); background:var(--card); outline:0; }
 .form input:focus { border-color:var(--ink); }
-.form .ligne { display:flex; gap:10px; align-items:flex-start; font-size:14px; color:var(--body); margin-top:2px; }
+.form .ligne { display:flex; gap:10px; align-items:flex-start; font-size:15.5px; color:var(--body); margin-top:2px; }
 .form .ligne input { margin-top:4px; }
 .form button { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 26px; cursor:pointer; justify-self:start; }
 .form button:hover { background:#000; } .form button:disabled { opacity:.6; cursor:wait; }
 .form .msg { min-height:22px; font-size:14.5px; color:#B45309; margin:0; }
-.form .note { font-size:12.5px; color:var(--meta); margin:0; }
+.form .note { font-size:14px; color:var(--meta); margin:0; }
 /* verdict : le grand encadré du client, comme ceux de l'écran 3, et à droite ce qui manque */
 .resultat { display:grid; grid-template-columns:1.45fr .85fr; gap:60px; align-items:start; }
 .cadre.grand { padding:42px 46px 38px; }
 .cadre.grand h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 8px; line-height:1.1; }
 .cadre.grand .tag { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 32px; display:block; }
 .cadre.grand .lab { margin-bottom:14px; }
-.cadre.grand p.ph { font-family:var(--serif); font-size:18px; line-height:1.6; color:var(--ink); margin:0 0 34px; }
+.cadre.grand p.ph { font-family:var(--serif); font-size:20px; line-height:1.55; color:var(--ink); margin:0 0 34px; }
 .cadre.grand .test { gap:20px; }
-.cadre.grand .test > div { grid-template-columns:160px 1fr; font-size:15px; white-space:normal; align-items:start; }
+.cadre.grand .test > div { grid-template-columns:190px 1fr; font-size:17px; white-space:normal; align-items:start; }
 .cote { padding-top:10px; }
-.cote p.synthese { font-family:var(--serif); font-size:21px; line-height:1.4; color:var(--ink); margin:0 0 40px; }
+.cote p.synthese { font-family:var(--serif); font-size:23px; line-height:1.4; color:var(--ink); margin:0 0 40px; }
 .cote .lab { margin-bottom:20px; }
 .manque { display:grid; gap:22px; }
 .manque > div { padding:0 0 22px; border-bottom:1px solid var(--hair); }
 .manque > div:last-child { border-bottom:0; padding-bottom:0; }
-.manque .k { font-weight:600; font-size:14px; display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.manque .k { font-weight:600; font-size:16px; display:flex; align-items:center; gap:8px; margin-bottom:10px; }
 .manque .k i { width:16px; height:16px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; } .manque .k i svg { width:11px; height:11px; }
-.manque p { margin:0; font-size:15.5px; line-height:1.55; color:var(--ink); }
-.manque p.ex { margin-top:8px; color:var(--meta); font-size:13.5px; }
+.manque p { margin:0; font-size:17px; line-height:1.55; color:var(--ink); }
+.manque p.ex { margin-top:8px; color:var(--meta); font-size:14.5px; }
 .manque p.rien { color:var(--body); }
 .contenu.dense h1.h-compact { margin-bottom:30px; }
 .contenu.dense .cta { margin-top:44px; }
 .illisible { max-width:62ch; }
 /* pont */
-.pont .cadre.bleu p { margin:0 0 12px; font-size:16px; color:var(--ink); }
-.pont .cadre.bleu p.m { font-family:var(--serif); font-size:22px; line-height:1.3; }
-.suivante { margin-top:26px; font-size:14px; color:var(--meta); }
+.pont .cadre.bleu p { margin:0 0 14px; font-size:18px; line-height:1.5; color:var(--ink); }
+.pont .cadre.bleu p.m { font-family:var(--serif); font-size:26px; line-height:1.3; }
+.suivante { margin-top:26px; font-size:15px; color:var(--meta); }
 @media (max-width: 900px) {
   body { overflow:auto; }
   .ecrans { height:auto; }
@@ -223,7 +223,7 @@ p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-
       <p class="th">Ce n'est pas la liste de vos prestations. C'est la place que vous occupez dans la tête d'un client, face aux autres instituts.</p>
       <p class="th">Il répond à quatre questions : quel est votre métier, à qui vous vous adressez, quel problème vous réglez pour eux, ce qui vous rend unique.</p>
       <p class="source">Source : Al Ries et Jack Trout, inventeurs du mot « positionnement » en marketing, <i>Positioning</i> (1981).</p>
-      <div class="cta"><button type="button" data-suivant>Deux vrais sites</button></div>
+      <div class="cta"><button type="button" data-suivant>Voir cinq exemples</button></div>
     </div>
     <div class="cadre">
       <span class="lab">Exemple · un institut fictif · les quatre points en trois phrases</span>
@@ -242,23 +242,30 @@ p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-
 <section class="ecran haut">
   <div class="contenu dense">
     <p class="sur">Théorie</p>
-    <h1 class="h-compact">Comment cinq entreprises du secteur <span>se présentent.</span></h1>
-    <p class="th" style="max-width:none">Leur positionnement, tel qu'il est écrit sur leur site, noté sur les quatre points. La flèche fait défiler.</p>
+    <div class="titre-ligne">
+      <div>
+        <h1 class="h-compact">Comment cinq entreprises du secteur <span>se présentent.</span></h1>
+        <p class="th" style="max-width:none">Cinq entreprises que vous connaissez, une par une. Leur positionnement, tel qu'il est écrit sur leur site, noté sur les quatre points.</p>
+      </div>
+      <div class="cta" style="margin-top:0"><button type="button" data-suivant>Testez votre positionnement</button></div>
+    </div>
     <div class="defile" id="defile">
       <div class="fenetre"><div class="piste" id="piste">
       <div class="cadre">
-        <h3>Attest</h3><span class="tag">Logiciel d'enquêtes en ligne · 3 verts · 1 orange</span>
-        <p class="ph">« AI consumer insights engine for global B2C brands. Join the dots between surveys and interviews with real consumers to make decisions faster, sharper and more valuable. We're the only consumer insights platform to give you flat, predictable pricing, no matter who or where your audience lives. »</p>
+        <h3>Attest</h3><span class="tag">Logiciel d'enquêtes en ligne · Londres · 3 verts · 1 orange</span>
+        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <p class="ph">« Le moteur d'insights consommateurs par IA des grandes marques B2C. Reliez enquêtes et entretiens avec de vrais consommateurs pour décider plus vite, plus juste. La seule plateforme d'insights au prix fixe et prévisible, où que soit votre audience. »</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des enquêtes et des entretiens consommateurs, par IA.</span></div>
           <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les grandes marques B2C : une cible nommée.</span></div>
-          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Décider plus vite, mieux » : générique.</span></div>
-          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le seul au prix fixe, partout : un fait.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Décider plus vite, plus juste » : générique.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le seul au prix fixe, où que soit l'audience : un fait.</span></div>
         </div>
       </div>
       <div class="cadre">
-        <h3>Euromonitor International</h3><span class="tag">Éditeur d'études de marché · 2 verts · 1 orange · 1 rouge</span>
-        <p class="ph">« Euromonitor International is a respected provider of global market intelligence, helping you make high-stakes decisions to unlock growth. 50+ years of independent research. Analysts in 100+ countries. »</p>
+        <h3>Euromonitor International</h3><span class="tag">Éditeur d'études de marché · Londres · 2 verts · 1 orange · 1 rouge</span>
+        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <p class="ph">« Euromonitor International est un fournisseur reconnu d'intelligence de marché mondiale, qui vous aide à prendre des décisions à fort enjeu pour libérer la croissance. Plus de 50 ans de recherche indépendante. Des analystes dans plus de 100 pays. »</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des études de marché, à l'échelle mondiale.</span></div>
           <div><span class="k"><i class="ko" data-ic="ko"></i>Pour qui</span><span class="v">« Vous » : personne n'est nommé.</span></div>
@@ -267,28 +274,31 @@ p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-
         </div>
       </div>
       <div class="cadre">
-        <h3>J.D. Power</h3><span class="tag">Données et études pour l'automobile · 3 verts · 1 orange</span>
-        <p class="ph">« JD Power gives companies the data, analytics, and insights to make smarter, more informed decisions. Whether you're shaping vehicles, selling them, financing them, or insuring them, JD Power helps you act with confidence at every stage. Proprietary data drawn from millions of verified customer experiences. »</p>
+        <h3>J.D. Power</h3><span class="tag">Données et études pour l'automobile · États-Unis · 3 verts · 1 orange</span>
+        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <p class="ph">« JD Power donne aux entreprises les données, les analyses et les insights pour prendre des décisions plus éclairées. Que vous conceviez des véhicules, les vendiez, les financiez ou les assuriez, JD Power vous aide à agir avec confiance à chaque étape. Des données propriétaires issues de millions d'expériences clients vérifiées. »</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Données, analyses et études pour l'automobile.</span></div>
-          <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Quatre métiers de l'automobile, nommés.</span></div>
-          <div><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Des résultats concrets, client par client.</span></div>
-          <div><span class="k"><i class="moy" data-ic="moy"></i>Ce qui rend unique</span><span class="v">50 ans, données propriétaires : sans chiffre.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Constructeurs, distributeurs, financeurs, assureurs : nommés.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Agir avec confiance » : générique.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Des millions d'expériences clients vérifiées : un fait.</span></div>
         </div>
       </div>
       <div class="cadre">
-        <h3>SurveyMonkey</h3><span class="tag">Logiciel d'enquêtes en ligne · 1 vert · 3 oranges</span>
-        <p class="ph">« The World's Most Popular Survey Platform. Understand the changing needs of your employees, customers, attendees, and buyers with continuous feedback. Used by 260K+ organizations worldwide. »</p>
+        <h3>SurveyMonkey</h3><span class="tag">Logiciel d'enquêtes en ligne · États-Unis · 2 verts · 2 oranges</span>
+        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <p class="ph">« La plateforme d'enquêtes la plus populaire au monde. Comprenez les besoins changeants de vos salariés, clients, participants et acheteurs grâce au retour continu. Utilisée par plus de 260 000 organisations dans le monde. »</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Un logiciel d'enquêtes en ligne : c'est clair.</span></div>
           <div><span class="k"><i class="moy" data-ic="moy"></i>Pour qui</span><span class="v">« Des organisations » : tout le monde.</span></div>
           <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Comprendre les besoins » : tout outil l'écrit.</span></div>
-          <div><span class="k"><i class="moy" data-ic="moy"></i>Ce qui rend unique</span><span class="v">« La plus populaire » : affirmé, pas démontré.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">260 000 organisations : un fait chiffré.</span></div>
         </div>
       </div>
       <div class="cadre">
-        <h3>Mintel</h3><span class="tag">Études et veille de marché · 1 vert · 1 orange · 2 rouges</span>
-        <p class="ph">« Global Market Intelligence & Research Agency. You're an ambitious business driven to understand consumers, predict trends, and stay ahead in a rapidly evolving world. With our market intelligence, you'll gain the insights needed to act decisively. »</p>
+        <h3>Mintel</h3><span class="tag">Études et veille de marché · Londres · 1 vert · 1 orange · 2 rouges</span>
+        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <p class="ph">« Agence mondiale d'intelligence de marché et d'études. Vous êtes une entreprise ambitieuse qui veut comprendre les consommateurs, prédire les tendances et garder une longueur d'avance. Avec notre intelligence de marché, vous aurez les insights pour agir avec décision. »</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Études et veille de marché : c'est dit.</span></div>
           <div><span class="k"><i class="ko" data-ic="ko"></i>Pour qui</span><span class="v">« Une entreprise ambitieuse » : personne.</span></div>
@@ -300,8 +310,7 @@ p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-
       <button type="button" class="fleche prec" id="d-prec" aria-label="Entreprises précédentes">←</button>
       <button type="button" class="fleche suiv" id="d-suiv" aria-label="Entreprises suivantes">→</button>
     </div>
-    <p class="morale">Cinq entreprises connues de tous. Une seule dit ce que son client obtient.</p>
-    <div class="cta" style="margin-top:22px"><button type="button" data-suivant>Et vous ?</button></div>
+    <p class="morale">Cinq entreprises connues de tous. Aucune ne dit, en une phrase, ce que son client obtient.</p>
   </div>
 </section>
 
@@ -339,9 +348,9 @@ p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-
           <p class="synthese" id="v-synthese"></p>
           <span class="lab" id="v-manque-lab">Ce qui manque, et où le trouver</span>
           <div class="manque" id="v-manque"></div>
+          <div class="cta"><button type="button" data-suivant>Et maintenant ?</button></div>
         </div>
       </div>
-      <div class="cta"><button type="button" data-suivant>Et maintenant ?</button></div>
     </div>
     <div id="v-ko" class="illisible" hidden>
       <h1>Nous n'avons pas pu <span>lire votre site.</span></h1>
@@ -356,15 +365,16 @@ p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-
   <div class="contenu scinde">
     <div>
       <p class="sur">Et maintenant</p>
-      <h1>Ces trois lignes sont la deuxième phrase <span>de votre email de prospection.</span></h1>
-      <p class="th">La première dit qui vous êtes. La deuxième, pourquoi vous. Le reste de l'email dit ce que vous pouvez faire pour la personne qui vous lit.</p>
-      <p class="suivante">Prochaine ressource · Qui contacter chez un client ?</p>
+      <h1>Un bon positionnement, c'est le début <span>d'une bonne prospection.</span></h1>
+      <p class="th">Il vous dit à qui vous adresser : vos cibles. Et il vous donne le message qui fait comprendre à votre interlocuteur en quoi vous êtes différent, et quel problème vous réglez pour lui.</p>
+      <p class="th">Reste à trouver la bonne entreprise, la bonne personne, et le bon moment.</p>
+      <p class="suivante">Leçon 2 · À qui vous adresser. Bientôt.</p>
     </div>
     <div class="cadre bleu">
       <span class="lab bleu">Dans mazeo</span>
       <p class="m">mazeo est le seul outil de prospection dédié au market research.</p>
-      <p>Il vous dit quelles entreprises contacter, et qui, chez elles.</p>
-      <div class="cta" style="margin-top:14px"><a class="btn" href="/demo">Voir mazeo en démo</a><a class="btn second" href="/ressources">Les autres ressources</a></div>
+      <p>Il trouve pour vous la bonne entreprise et la bonne personne, et vous aide à délivrer le bon message au bon moment.</p>
+      <div class="cta" style="margin-top:18px"><a class="btn" href="/demo">Voir mazeo en démo</a><a class="btn second" href="/ressources">Les autres ressources</a></div>
     </div>
   </div>
 </section>
@@ -455,10 +465,10 @@ p.accroche { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-
     var piste = document.getElementById("piste"), prec = document.getElementById("d-prec"), suiv = document.getElementById("d-suiv");
     if (!piste) return;
     var cartes = piste.children, i = 0;
-    function visibles() { return window.innerWidth > 900 ? 2 : 1; }
+    function visibles() { return 1; }
     function poser() {
       var max = Math.max(0, cartes.length - visibles()); if (i > max) i = max;
-      var pas = cartes[0].getBoundingClientRect().width + 32;
+      var pas = cartes[0].getBoundingClientRect().width + 36;
       piste.style.transform = "translateX(" + (-i * pas) + "px)";
       prec.disabled = i === 0; suiv.disabled = i >= max;
     }
