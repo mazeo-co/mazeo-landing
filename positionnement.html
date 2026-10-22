@@ -1,0 +1,682 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Et vous, êtes-vous bien positionné ? · leçon 1 de la growth academy, présentée par mazeo</title>
+<meta name="description" content="Vos prospects doivent comprendre en une phrase ce que vous vendez, à qui, et pourquoi vous. Votre positionnement noté sur quatre points d'après votre site, et réécrit en trois lignes. Leçon 1 de la growth academy, présentée par mazeo.">
+<link rel="canonical" href="https://www.mazeo.co/positionnement">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/positionnement">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/positionnement">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mazeo">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.mazeo.co/positionnement">
+<meta property="og:title" content="Et vous, êtes-vous bien positionné ?">
+<meta property="og:description" content="Leçon 1 de la growth academy by mazeo : votre positionnement, lu comme un prospect le lit et noté sur quatre points. Trois minutes.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@500;600;800&display=swap">
+<style>
+:root { color-scheme:light;
+  --x:clamp(0px,calc((100vh - 715px) / 10),60px); --paper:#F7F7F5; --ink:#121212; --body:#3D3D3D; --meta:#767673; --meta2:#A3A3A0; --hair:#E4E4E1; --hair2:#CDCDC8; --card:#FFFFFF;
+  --blue:#007BFF; --blue-deep:#0066D6; --green:#00C774; --orange:#F59E0B; --red:#EF4444;
+  --font:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --serif:'Instrument Serif', 'Iowan Old Style', Georgia, serif; --logo:'Bricolage Grotesque', var(--font); --mono:'Inter', var(--font); }
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; }
+body { font-family:var(--font); font-size:clamp(18px,1.25vw,20px); line-height:1.55; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; overflow:hidden; }
+a { color:inherit; }
+button { font:inherit; }
+/* barre de progression */
+.bar { position:fixed; top:0; left:0; height:2px; width:100%; background:var(--hair); z-index:6; }
+.bar i { display:block; height:2px; width:0; background:var(--ink); transition:width .4s ease; }
+/* l'en-tête : la marque, « présentée par mazeo. », le fil, Partager, un filet */
+.entete { position:fixed; top:0; left:0; right:0; z-index:5; background:var(--paper); }
+.entete .in { max-width:1280px; margin:0 auto; padding:28px 48px 18px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+.logo { display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; color:var(--ink); }
+.logo .nm { display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:400; font-size:30px; letter-spacing:-0.01em; line-height:1; }
+.logo .nm svg { width:22px; height:22px; }
+.logo .par { margin-top:6px; font-size:12.5px; color:var(--meta); display:flex; align-items:baseline; gap:5px; }
+.logo .mz { font-family:var(--mono); font-weight:800; letter-spacing:-0.3px; color:var(--ink); font-size:14px; }
+.logo .mz i { font-style:normal; color:var(--green); }
+.entete .droite { display:flex; align-items:center; gap:16px; }
+.fil { font-family:var(--mono); font-size:12.5px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); }
+.partager { border:1px solid var(--hair2); background:transparent; border-radius:999px; padding:9px 18px; font-weight:600; font-size:15px; cursor:pointer; color:var(--ink); }
+.partager:hover { background:var(--card); }
+.nav { position:fixed; right:max(48px, calc((100vw - 1280px) / 2 + 48px)); bottom:36px; display:flex; gap:8px; z-index:5; }
+.cta { flex-wrap:nowrap; }
+.nav button { width:clamp(46px,3.2vw,56px); height:clamp(46px,3.2vw,56px); background:var(--ink); color:var(--paper); border:0; border-radius:3px; cursor:pointer; padding:0; display:inline-flex; align-items:center; justify-content:center; line-height:0; }
+.nav button:disabled { background:var(--hair); color:var(--meta2); cursor:default; }
+/* les écrans */
+.ecrans { position:relative; height:100vh; }
+.ecran { position:absolute; inset:0; display:flex; align-items:flex-start; overflow-y:auto; opacity:0; transform:translateY(40px); transition:opacity .35s ease, transform .35s ease; visibility:hidden; pointer-events:none; }
+.ecran.actif { opacity:1; transform:none; visibility:visible; pointer-events:auto; }
+.ecran.passe { transform:translateY(-40px); }
+.ecran.haut { align-items:flex-start; }
+.ecran:not(.haut) .contenu { margin:auto; padding-top:clamp(104px,11vh,150px); padding-bottom:clamp(40px,6vh,90px); }
+.ecran:not(.haut) .heros .cta, .ecran:not(.haut) .scinde .cta { margin-top:calc(16px + var(--x)); }
+.contenu { width:100%; max-width:1280px; margin:0 auto; padding:120px 48px 110px; }
+.scinde { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
+.scinde h1 { font-size:clamp(40px,4vw,60px); margin-bottom:calc(16px + var(--x) * .4); }
+.scinde p.th { font-size:clamp(19px,1.3vw,22px); margin-bottom:calc(20px + var(--x) * .6); }
+.scinde p.source { margin-top:calc(4px + var(--x) * .3); }
+.scinde .cta { margin-top:28px; }
+p.sur { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 20px; }
+p.sur b { color:var(--ink); margin-right:12px; }
+h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1; font-size:clamp(44px,4.6vw,68px); margin:0 0 24px; text-wrap:balance; }
+h1 span { font-style:italic; color:var(--blue); }
+p.th { font-size:clamp(19px,1.35vw,22px); line-height:1.65; color:var(--body); margin:0 0 26px; max-width:54ch; }
+p.th b { color:var(--ink); font-weight:600; }
+p.source { font-size:15.5px; color:var(--meta); margin:22px 0 0; }
+p.source i { font-style:italic; }
+.lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
+.lab.bleu { color:var(--blue); }
+/* les quatre questions, comme dans l'Academy */
+ul.liste-q { list-style:none; margin:0 0 calc(16px + var(--x) * .3); padding:0; max-width:36ch; counter-reset:q; }
+ul.liste-q li { padding:calc(8px + var(--x) * .35) 0; border-bottom:1px solid var(--hair); font-size:clamp(18px,1.3vw,21px); color:var(--ink); display:flex; gap:14px; align-items:flex-start; }
+ul.liste-q li::before { content:counter(q); counter-increment:q; font-family:var(--mono); font-weight:600; font-size:12px; color:var(--blue); width:24px; height:24px; border:1px solid rgba(0,123,255,.45); border-radius:3px; display:inline-flex; align-items:center; justify-content:center; flex:none; margin-top:3px; }
+.heros .lab { margin-bottom:calc(2px + var(--x) * .2); }
+/* encadrés : blanc filet = théorie, filet bleu = mazeo */
+.cadre { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:34px 36px; }
+.cadre.bleu { border-color:var(--blue); }
+.cadre p.ph { font-family:var(--serif); font-size:clamp(23px,1.8vw,32px); line-height:1.4; color:var(--ink); margin:0 0 32px; }
+.cadre p.qui { font-size:13px; color:var(--meta); margin:0 0 16px; }
+/* les quatre pastilles */
+.test { display:grid; gap:18px; }
+.test > div { display:grid; grid-template-columns:200px 1fr; gap:16px; align-items:center; font-size:clamp(17px,1.2vw,21px); line-height:1.4; white-space:nowrap; }
+.test .k { font-weight:600; color:var(--ink); display:flex; align-items:center; gap:8px; }
+.test .k i { width:20px; height:20px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+.test .k i svg { width:12px; height:12px; }
+.test .v { color:var(--body); }
+i.ok { background:var(--green); } i.moy { background:var(--orange); } i.ko { background:var(--red); }
+.defile { position:relative; margin-top:8px; }
+.fenetre { overflow:hidden; padding:3px; margin:-3px; }
+.piste { display:flex; gap:36px; transition:transform .45s ease; will-change:transform; }
+.piste > .cadre { flex:0 0 100%; min-width:0; }
+.fleche { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:1px solid var(--hair2); background:var(--card); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:0; box-shadow:0 2px 10px rgba(0,0,0,.06); }
+.fleche.suiv { right:-58px; } .fleche.prec { left:-58px; }
+.fleche:disabled { opacity:0; pointer-events:none; }
+.piste .cadre { padding:clamp(20px,2.4vh,30px) 40px clamp(18px,2.2vh,28px); }
+.piste .cadre h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 6px; line-height:1.1; }
+.piste .cadre .tag { font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 12px; display:block; }
+.piste .cadre p.ph { font-family:var(--serif); font-size:clamp(20px,1.4vw,25px); line-height:1.4; color:var(--ink); margin:0 0 16px; max-width:none; }
+.piste .test { gap:clamp(8px,1.2vh,14px); }
+.piste .test > div { grid-template-columns:210px 1fr; font-size:clamp(17px,1.2vw,21px); white-space:nowrap; align-items:center; }
+h1.h-compact { font-size:clamp(30px,2.8vw,44px); margin-bottom:6px; }
+.ecran .contenu.dense { padding-top:clamp(100px,10vh,130px); padding-bottom:40px; }
+.contenu.dense p.th { margin-bottom:0; }
+.titre-ligne { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; } .titre-ligne > div:first-child { max-width:62ch; } .titre-ligne .cta { flex:none; padding-bottom:14px; }
+p.morale { font-family:var(--serif); font-size:clamp(20px,1.5vw,26px); color:var(--ink); margin:clamp(12px,2vh,24px) 0 0; }
+/* boutons */
+.cta { margin-top:34px; display:flex; align-items:center; gap:18px; }
+.cta button, .cta a.btn { font-weight:600; font-size:clamp(17px,1.2vw,21px); color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 28px; cursor:pointer; text-decoration:none; display:inline-block; }
+.cta button:hover, .cta a.btn:hover { background:#000; }
+.cta button.second, .cta a.btn.second { background:transparent; color:var(--ink); border:1px solid var(--hair2); }
+.cta span { font-size:15px; color:var(--meta); }
+/* le héros de l'écran 1 */
+.heros { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 16px; }
+.heros h1 { font-size:clamp(46px,4.6vw,70px); line-height:.96; margin:0 0 calc(16px + var(--x) * .5); }
+.heros p.lede { font-family:var(--serif); font-size:clamp(21px,1.5vw,26px); line-height:1.3; color:var(--ink); margin:0 0 calc(16px + var(--x) * .6); max-width:52ch; }
+.heros p.th { font-size:clamp(18px,1.2vw,22px); line-height:1.6; max-width:56ch; margin-bottom:18px; }
+.heros .cta { margin-top:16px; }
+.heros p.verif { font-family:var(--serif); font-size:clamp(26px,2vw,36px); line-height:1.1; color:var(--ink); margin:0; }
+.citation { margin:0; border:1px solid var(--hair2); border-left:4px solid var(--blue); border-radius:4px; background:var(--card); padding:clamp(40px,5.5vh,72px) clamp(32px,2.8vw,48px) clamp(32px,4vh,56px); }
+.citation p { font-family:var(--serif); font-size:clamp(36px,3.1vw,56px); line-height:1.08; color:var(--ink); margin:0 0 clamp(16px,2.4vh,28px); }
+.citation p span { color:var(--blue); font-style:italic; }
+.citation p i { font-style:normal; color:var(--blue); }
+.citation footer { font-size:clamp(14px,1.05vw,17px); color:var(--meta); line-height:1.5; max-width:40ch; }
+.carte-action { border:1px solid var(--hair2); border-radius:4px; background:var(--card); padding:26px 26px 22px; }
+.carte-action h2 { font-family:var(--serif); font-size:clamp(26px,1.9vw,34px); font-weight:400; margin:0 0 8px; line-height:1.1; }
+.carte-action p.d { font-size:clamp(16px,1.1vw,19px); line-height:1.55; color:var(--body); margin:0 0 22px; }
+.carte-action .ligne-ch { display:grid; gap:8px; margin-bottom:12px; }
+.carte-action input[type=text], .carte-action input[type=email] { width:100%; border:0; border-bottom:1px solid var(--hair2); border-radius:0; padding:10px 0; font:inherit; font-size:18px; color:var(--ink); background:transparent; outline:0; }
+.carte-action input:focus { border-bottom-color:var(--ink); }
+.carte-action button { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 20px; cursor:pointer; margin-top:2px; }
+.carte-action button:hover { background:#000; } .carte-action button:disabled { opacity:.6; cursor:wait; }
+.carte-action .msg { min-height:20px; font-size:13.5px; color:#B45309; margin:8px 0 0; }
+.carte-action .note { font-size:14px; color:var(--meta); margin:20px 0 0; line-height:1.5; }
+/* « à vous » : sur le papier, le formulaire en lignes
+*/
+.ecran.avous .contenu { max-width:1100px; padding-top:116px; padding-bottom:110px; }
+.ecran.avous h1 { font-size:clamp(36px,3.6vw,56px); }
+.ecran.avous h1 { margin-bottom:18px; }
+.ecran.avous p.th { margin-bottom:22px; max-width:64ch; }
+.form { display:grid; gap:18px; margin-top:0; max-width:620px; }
+.tete-champ { display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-bottom:10px; }
+.tete-champ label.ch { margin-bottom:0; }
+.avis { font-size:15.5px; color:#B45309; margin:0 0 18px; max-width:64ch; }
+.form label.ch { font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); display:block; margin-bottom:10px; }
+.form input[type=text], .form input[type=email] { width:100%; border:1px solid var(--hair2); border-radius:4px; padding:14px 18px; font:inherit; font-size:19px; color:var(--ink); background:var(--card); outline:0; }
+.form input:focus { border-color:var(--ink); }
+.form .ligne { display:flex; gap:10px; align-items:flex-start; font-size:15.5px; color:var(--body); margin-top:2px; }
+.form .ligne input { margin-top:4px; }
+.form .cta-form { margin-top:4px; display:flex; align-items:center; }
+.form button { font-weight:600; font-size:18px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 28px; cursor:pointer; justify-self:start; }
+.form button:hover { background:#000; } .form button:disabled { opacity:.6; cursor:wait; }
+.form .msg { min-height:22px; font-size:14.5px; color:#B45309; margin:0; }
+.form .note { font-size:14px; color:var(--meta); margin:0; }
+/* l'entreprise : la saisie, la liste qui s'ouvre dessous, le site retenu */
+.champ-liste { position:relative; }
+.choix { position:absolute; left:0; right:0; top:calc(100% + 4px); z-index:6; background:var(--card); border:1px solid var(--hair2); border-radius:4px; box-shadow:0 10px 30px rgba(0,0,0,.08); max-height:340px; overflow:auto; }
+.choix button { display:flex; justify-content:space-between; gap:16px; width:100%; text-align:left; background:none; color:var(--ink); border:0; border-bottom:1px solid var(--hair); border-radius:0; padding:12px 18px; font:inherit; font-size:17px; font-weight:500; cursor:pointer; }
+.choix button:last-child { border-bottom:0; }
+.choix button:hover, .choix button.sur { background:var(--paper); }
+.choix button span { color:var(--meta); font-size:14px; font-weight:400; white-space:nowrap; }
+.choix p { margin:0; padding:14px 18px; font-size:15.5px; color:var(--body); }
+.form .retenu { font-size:14.5px; color:var(--meta); margin:6px 0 0; }
+.form .retenu:empty { display:none; }
+.form .lien { background:none; border:0; padding:0; font:inherit; font-size:15px; color:var(--blue); text-decoration:underline; text-underline-offset:3px; cursor:pointer; justify-self:start; font-weight:500; }
+.form .lien:hover { background:none; }
+.envoye { max-width:620px; }
+.envoye h2 { font-family:var(--serif); font-weight:400; font-size:clamp(30px,2.6vw,40px); line-height:1.1; margin:0 0 14px; }
+.envoye p { font-size:clamp(17px,1.2vw,19px); line-height:1.6; color:var(--body); margin:0 0 14px; }
+/* verdict : le grand encadré du client, comme ceux de l'écran 3, et à droite ce qui manque */
+.resultat { display:grid; grid-template-columns:1.45fr .85fr; gap:48px; align-items:start; }
+.cadre.grand { padding:42px 46px 38px; }
+.cadre.grand h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 8px; line-height:1.1; }
+.cadre.grand .tag { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 32px; display:block; }
+.cadre.grand .lab { margin-bottom:14px; }
+.cadre.grand p.ph { font-family:var(--serif); font-size:clamp(21px,1.55vw,28px); line-height:1.55; color:var(--ink); margin:0 0 34px; }
+.cadre.grand .test { gap:20px; }
+.cadre.grand .test > div { grid-template-columns:200px 1fr; font-size:clamp(17px,1.2vw,21px); white-space:normal; align-items:start; }
+.cote { padding-top:10px; }
+.cote p.synthese { font-family:var(--serif); font-size:clamp(23px,1.8vw,32px); line-height:1.4; color:var(--ink); margin:0 0 40px; }
+.cote .lab { margin-bottom:20px; }
+.manque { display:grid; gap:22px; }
+.manque > div { padding:0 0 22px; border-bottom:1px solid var(--hair); }
+.manque > div:last-child { border-bottom:0; padding-bottom:0; }
+.manque .k { font-weight:600; font-size:16px; display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.manque .k i { width:16px; height:16px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; } .manque .k i svg { width:11px; height:11px; }
+.manque p { margin:0; font-size:clamp(17px,1.2vw,21px); line-height:1.55; color:var(--ink); }
+.manque p.ex { margin-top:8px; color:var(--meta); font-size:14.5px; }
+.manque p.rien { color:var(--body); }
+.contenu.dense h1.h-compact { margin-bottom:30px; }
+.contenu.dense .cta { margin-top:clamp(12px,2vh,24px); }
+.illisible { max-width:62ch; }
+/* pont */
+.pont .cadre.bleu p { margin:0 0 18px; font-size:clamp(17px,1.2vw,21px); line-height:1.55; color:var(--ink); }
+.pont .cadre.bleu .cta a.btn { font-size:16px; padding:12px 20px; white-space:nowrap; }
+.pont .cadre.bleu { padding:30px 32px; }
+.pont .cadre.bleu p.m { font-family:var(--serif); font-size:clamp(24px,1.8vw,32px); line-height:1.3; }
+.suivante { margin-top:26px; font-size:15px; color:var(--meta); }
+@media (max-width: 900px) {
+  .nav { right:16px; bottom:16px; }
+  body { overflow:auto; }
+  .ecrans { height:auto; }
+  .ecran { position:relative; display:none; }
+  .ecran.actif { display:block; }
+  .contenu { padding:110px 20px 100px; }
+  .scinde, .verdict, .cartes, .heros { grid-template-columns:1fr; gap:24px; } .piste > .cadre { flex-basis:100%; } .piste .test > div { white-space:normal; }
+  .entete .in { padding:14px 20px 12px; flex-wrap:wrap; gap:10px; } .entete .fil { display:none; }
+  h1 { font-size:34px; } .heros h1 { font-size:40px; }
+}
+</style>
+</head>
+<body>
+<div class="bar"><i id="bar"></i></div>
+<header class="entete"><div class="in">
+  <a class="logo" href="/ressources" aria-label="growth academy, présentée par mazeo">
+    <span class="nm"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</span>
+    <span class="par">présentée par <span class="mz">mazeo<i>.</i></span></span>
+  </a>
+  <div class="droite"><div class="fil"><span id="fil">1 sur 6</span> · Leçon 1 · votre positionnement</div><button type="button" class="partager" id="partager">Partager</button></div>
+</div></header>
+
+<div class="ecrans" id="ecrans">
+
+<!-- 1 · Accroche -->
+<section class="ecran">
+  <div class="contenu heros">
+    <div>
+      <p class="accroche">Leçon 1 · 3 minutes · votre positionnement noté et réécrit</p>
+      <h1>Et vous, <span>êtes-vous bien positionné ?</span></h1>
+      <p class="lede">Vos prospects doivent comprendre en une phrase ce que vous vendez, à qui, et pourquoi vous. Testez la vôtre en trois minutes.</p>
+      <span class="lab">Votre positionnement répond à quatre questions</span>
+      <ul class="liste-q"><li>Quel est votre métier ?</li><li>À qui vous adressez-vous ?</li><li>Quel problème réglez-vous pour eux ?</li><li>Qu'est-ce qui vous rend unique ?</li></ul>
+      <p class="verif">Vérifions ce que vaut le vôtre.</p>
+      <div class="cta"><button type="button" data-suivant>Commencer</button></div>
+    </div>
+    <blockquote class="citation">
+      <p><i>«</i> Un prospect vous accorde <span>dix secondes</span>. S'il ne comprend pas ce que vous pouvez faire pour lui, il passe au suivant. <i>»</i></p>
+      <footer>Les dix premières secondes décident si un visiteur reste ou s'en va. Nielsen Norman Group, d'après les mesures de Microsoft Research.</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- 2 · Théorie -->
+<section class="ecran">
+  <div class="contenu scinde">
+    <div>
+      <p class="sur">Théorie</p>
+      <h1>Qu'est-ce qu'<span>un positionnement ?</span></h1>
+      <p class="th">Ce n'est pas la liste de vos prestations. C'est la place que vous occupez dans la tête d'un client, face à vos concurrents.</p>
+      <p class="th">Il répond à quatre questions : quel est votre métier, à qui vous vous adressez, quel problème vous réglez pour eux, et ce qui vous rend unique.</p>
+      <p class="source">Source : Al Ries et Jack Trout, inventeurs du mot « positionnement » en marketing, <i>Positioning</i> (1981).</p>
+      <div class="cta"><button type="button" data-suivant>Voir cinq exemples</button></div>
+    </div>
+    <div class="cadre">
+      <span class="lab">Exemple · un institut fictif · les quatre points en trois phrases</span>
+      <p class="ph">« Nous testons les packagings des marques de cosmétique, avant le lancement. Nos tests se font en magasin, le produit en rayon face à ses concurrents : vous savez s'il sera vu, et choisi. »</p>
+      <div class="test">
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Les tests de packaging.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les marques de cosmétique.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Savoir avant le lancement si le produit sera choisi.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le test en magasin, face aux concurrents.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Deux sites -->
+<section class="ecran haut">
+  <div class="contenu dense">
+    <p class="sur">Théorie</p>
+    <h1 class="h-compact">Comment cinq entreprises du secteur <span>se présentent.</span></h1>
+    <p class="th" style="max-width:none">Cinq entreprises que vous connaissez, une par une. Leur positionnement, tel qu'il est écrit sur leur site, noté sur les quatre points.</p>
+    <div class="defile" id="defile">
+      <div class="fenetre"><div class="piste" id="piste">
+      <div class="cadre">
+        <h3>Attest</h3><span class="tag">Logiciel d'enquêtes en ligne · Londres · 3 verts · 1 orange</span>
+        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <p class="ph">« Le moteur d'insights consommateurs par IA des grandes marques B2C. Reliez enquêtes et entretiens avec de vrais consommateurs pour décider plus vite, plus juste. La seule plateforme d'insights au prix fixe et prévisible, où que soit votre audience. »</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des enquêtes et des entretiens consommateurs, par IA.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les grandes marques B2C : une cible nommée.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Décider plus vite, plus juste » : générique.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le seul au prix fixe, où que soit l'audience : un fait.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <h3>Euromonitor International</h3><span class="tag">Éditeur d'études de marché · Londres · 2 verts · 1 orange · 1 rouge</span>
+        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <p class="ph">« Euromonitor International est un fournisseur reconnu d'intelligence de marché mondiale, qui vous aide à prendre des décisions à fort enjeu pour libérer la croissance. Plus de 50 ans de recherche indépendante. Des analystes dans plus de 100 pays. »</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des études de marché, à l'échelle mondiale.</span></div>
+          <div><span class="k"><i class="ko" data-ic="ko"></i>Pour qui</span><span class="v">« Vous » : personne n'est nommé.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Décider, croître » : générique.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">50 ans, des analystes dans 100 pays : des faits.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <h3>J.D. Power</h3><span class="tag">Données et études pour l'automobile · États-Unis · 3 verts · 1 orange</span>
+        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <p class="ph">« JD Power donne aux entreprises les données, les analyses et les insights pour prendre des décisions plus éclairées. Que vous conceviez des véhicules, les vendiez, les financiez ou les assuriez, JD Power vous aide à agir avec confiance à chaque étape. Des données propriétaires issues de millions d'expériences clients vérifiées. »</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Données, analyses et études pour l'automobile.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Constructeurs, distributeurs, financeurs, assureurs : nommés.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Agir avec confiance » : générique.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Des millions d'expériences clients vérifiées : un fait.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <h3>SurveyMonkey</h3><span class="tag">Logiciel d'enquêtes en ligne · États-Unis · 2 verts · 2 oranges</span>
+        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <p class="ph">« La plateforme d'enquêtes la plus populaire au monde. Comprenez les besoins changeants de vos salariés, clients, participants et acheteurs grâce au retour continu. Utilisée par plus de 260 000 organisations dans le monde. »</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Un logiciel d'enquêtes en ligne : c'est clair.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Pour qui</span><span class="v">« Des organisations » : tout le monde.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">« Comprendre les besoins » : tout outil l'écrit.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">260 000 organisations : un fait chiffré.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <h3>Mintel</h3><span class="tag">Études et veille de marché · Londres · 1 vert · 1 orange · 2 rouges</span>
+        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <p class="ph">« Agence mondiale d'intelligence de marché et d'études. Vous êtes une entreprise ambitieuse qui veut comprendre les consommateurs, prédire les tendances et garder une longueur d'avance. Avec notre intelligence de marché, vous aurez les insights pour agir avec décision. »</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Études et veille de marché : c'est dit.</span></div>
+          <div><span class="k"><i class="ko" data-ic="ko"></i>Pour qui</span><span class="v">« Une entreprise ambitieuse » : personne.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problème réglé</span><span class="v">Prédire les tendances : tout institut l'écrit.</span></div>
+          <div><span class="k"><i class="ko" data-ic="ko"></i>Ce qui rend unique</span><span class="v">Rien n'est dit.</span></div>
+        </div>
+      </div>
+      </div></div>
+      <button type="button" class="fleche prec" id="d-prec" aria-label="Entreprises précédentes"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <button type="button" class="fleche suiv" id="d-suiv" aria-label="Entreprises suivantes"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+    <p class="morale">Cinq entreprises connues de tous. Aucune ne dit, en une phrase, ce que son client obtient.</p>
+    <div class="cta"><button type="button" data-suivant>Testez votre positionnement</button></div>
+  </div>
+</section>
+
+<!-- 4 · Bascule : le formulaire -->
+<section class="ecran avous haut">
+  <div class="contenu">
+    <p class="sur">À vous</p>
+    <h1>Et vous, <span>êtes-vous bien positionné ?</span></h1>
+    <p class="th">Nous avons lu le site de 500 prestataires d'études, comme le ferait un prospect. Choisissez le vôtre. Il n'est pas dans la liste ? Signalez-le, nous l'ajoutons.</p>
+    <p class="avis" id="f-avis" hidden></p>
+    <form class="form js-noter" novalidate>
+      <div class="tete-champ"><label class="ch" id="f-lab" for="f-entreprise" style="margin:0">Votre entreprise</label><button type="button" class="lien" id="f-bascule">Pas dans la liste ? Signalez-la</button></div>
+      <div id="bloc-entreprise" style="margin-top:-8px">
+        <div class="champ-liste"><input type="text" id="f-entreprise" placeholder="Tapez son nom" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="f-liste" required><div class="choix" id="f-liste" role="listbox" hidden></div></div>
+        <p class="retenu" id="f-retenu"></p>
+      </div>
+      <div id="bloc-site" hidden style="margin-top:-8px"><input type="text" id="f-site" placeholder="www.votre-societe.fr" autocomplete="url" inputmode="url"><p class="retenu" id="f-retenu-site"></p></div>
+      <div><label class="ch" for="f-email">Votre email professionnel, pour recevoir le résultat</label><input type="email" id="f-email" placeholder="prenom@votre-societe.fr" autocomplete="email" required></div>
+      <label class="ligne"><input type="checkbox" class="js-non"> Je ne souhaite pas recevoir les prochaines ressources de mazeo.</label>
+      <div class="cta cta-form"><button type="submit">Noter mon positionnement</button></div>
+      <p class="msg" role="status" aria-live="polite"></p>
+      <p class="note" id="f-note">Avec une adresse de l'entreprise choisie, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.</p>
+    </form>
+    <div class="envoye" id="f-envoye" hidden>
+      <h2>Le résultat est dans votre boîte.</h2>
+      <p id="f-envoye-txt"></p>
+      <button type="button" class="lien" id="f-autre">Analyser une autre entreprise</button>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Verdict -->
+<section class="ecran haut">
+  <div class="contenu dense">
+    <p class="sur">Votre résultat</p>
+    <div id="v-ok" hidden>
+      <h1 class="h-compact">Ce que <span id="v-site">votre site</span> dit de vous</h1>
+      <div class="resultat">
+        <div class="cadre grand">
+          <h3 id="v-nom"></h3><span class="tag" id="v-tag"></span>
+          <span class="lab">Votre positionnement, tel qu'il est écrit sur votre site</span>
+          <p class="ph" id="v-actuel"></p>
+          <div class="test" id="v-lignes"></div>
+        </div>
+        <div class="cote">
+          <p class="synthese" id="v-synthese"></p>
+          <span class="lab" id="v-manque-lab">Ce qui manque, et où le trouver</span>
+          <div class="manque" id="v-manque"></div>
+        </div>
+      </div>
+      <div class="cta"><button type="button" data-suivant>Et maintenant ?</button></div>
+    </div>
+    <div id="v-ko" class="illisible" hidden>
+      <h1>Nous n'avons pas pu <span>lire votre site.</span></h1>
+      <p class="th" id="v-ko-txt"></p>
+      <div class="cta"><button type="button" data-precedent>Réessayer</button><button type="button" class="second" data-suivant>Passer</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Pont -->
+<section class="ecran pont">
+  <div class="contenu scinde">
+    <div>
+      <p class="sur">Et maintenant</p>
+      <h1>Un bon positionnement, c'est le début <span>d'une bonne prospection.</span></h1>
+      <p class="th">Il vous dit à qui vous adresser : vos cibles. Et il vous donne le message qui fait comprendre à votre interlocuteur en quoi vous êtes différent, et quel problème vous réglez pour lui.</p>
+      <p class="th">Reste à trouver la bonne entreprise, la bonne personne, et le bon moment.</p>
+      <p class="suivante">Leçon 2 · À qui vous adresser. Bientôt.</p>
+    </div>
+    <div class="cadre bleu">
+      <span class="lab bleu">Dans mazeo</span>
+      <p class="m">mazeo est le seul outil de prospection dédié au market research.</p>
+      <p>Il trouve pour vous la bonne entreprise et la bonne personne, et vous aide à délivrer le bon message au bon moment.</p>
+      <div class="cta" style="margin-top:18px"><a class="btn" href="/demo">Voir mazeo en démo</a><a class="btn second" href="/ressources">Les autres ressources</a></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="nav" id="nav"><button type="button" id="prec" aria-label="Écran précédent"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="suiv" aria-label="Écran suivant"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+
+<script>
+(function () {
+  var HOTE_PROD = /(^|\.)mazeo\.co$/.test(location.hostname);
+  var FONCTIONS = HOTE_PROD ? "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1" : "https://aipmpdzscqhsvteblajo.supabase.co/functions/v1";
+  var ICONES = {
+    ok: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 10.5l3 3 6-7" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"/></svg>',
+    moy: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 10h8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2.8"/></svg>',
+    ko: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6.5 6.5l7 7M13.5 6.5l-7 7" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2.6"/></svg>'
+  };
+  document.querySelectorAll("[data-ic]").forEach(function (i) { i.innerHTML = ICONES[i.getAttribute("data-ic")]; });
+
+  /* les écrans */
+  var ecrans = Array.prototype.slice.call(document.querySelectorAll(".ecran"));
+  var n = 0, VERDICT = null;
+  function aller(k) {
+    if (k < 0 || k >= ecrans.length) return;
+    if (k === 4 && !VERDICT) k = 3;  // pas de verdict : l'écran du résultat renvoie au formulaire
+    n = k;
+    ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
+    document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
+    document.getElementById("fil").textContent = (n + 1) + " sur " + ecrans.length;
+    document.getElementById("nav").style.display = n === 0 ? "none" : "";  // ecran 1 : le bouton Commencer suffit
+    document.getElementById("prec").disabled = n === 0;
+    document.getElementById("suiv").disabled = n === ecrans.length - 1 || (n === 3 && !VERDICT);
+    var champ = ecrans[n].querySelector("input, [contenteditable]");
+    if (champ && window.innerWidth > 900) setTimeout(function () { champ.focus(); }, 380);
+  }
+  document.getElementById("prec").addEventListener("click", function () { aller(n - 1); });
+  document.getElementById("suiv").addEventListener("click", function () { aller(n + 1); });
+  document.querySelectorAll("[data-suivant]").forEach(function (b) { b.addEventListener("click", function () { aller(n + 1); }); });
+  document.querySelectorAll("[data-precedent]").forEach(function (b) { b.addEventListener("click", function () { aller(n - 1); }); });
+  document.addEventListener("keydown", function (ev) {
+    var t = ev.target, saisie = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
+    if (saisie && ev.key !== "Escape") return;
+    if (ev.key === "ArrowRight" || ev.key === "PageDown") aller(n + 1);
+    if (ev.key === "ArrowLeft" || ev.key === "PageUp") aller(n - 1);
+  });
+  // ?e=3 ouvre directement un écran (relecture, captures) ; l'écran du verdict reste fermé sans verdict.
+  aller(Math.max(0, (parseInt(new URLSearchParams(location.search).get("e"), 10) || 1) - 1));
+
+  /* les deux formulaires (le héros et l'écran 4) : même mécanique, même fonction */
+  var GRATUITS = /@(gmail|googlemail|yahoo|ymail|hotmail|outlook|live|msn|icloud|me|mac|aol|protonmail|proton|pm|gmx|orange|wanadoo|free|sfr|neuf|laposte|bbox|numericable|yandex|mail|zoho|fastmail|hey)\.(com|fr|net|me|de)$/i;
+  var ERREURS = {
+    email: "Cette adresse ne ressemble pas à un email.",
+    email_pro: "Une adresse de votre entreprise, pour retrouver votre site : les adresses gmail, outlook, orange… ne passent pas.",
+    site: "Cette adresse de site ne passe pas. Essayez sous la forme www.votre-societe.fr.",
+    entreprise: "Choisissez votre entreprise dans la liste, ou signalez-la si elle n'y est pas.",
+    lien: "Ce lien n'est plus valable : il dure 30 jours. Refaites l'analyse ci-dessous.",
+    cap_email: "Trois analyses par jour et par adresse : revenez demain, ou écrivez à romain.barbet@mazeo.co.",
+    cap: "Beaucoup de demandes aujourd'hui : réessayez demain, ou écrivez à romain.barbet@mazeo.co.",
+    modele: "L'analyse n'a pas abouti. Réessayez dans un instant.",
+    reseau: "Ça n'a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co."
+  };
+  document.querySelectorAll(".js-noter").forEach(function (form) { form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var msg = form.querySelector(".msg"), go = form.querySelector("button[type=submit]"), texteGo = go.textContent;
+    var parSite = !document.getElementById("bloc-site").hidden;
+    var site = document.getElementById("f-site").value.trim(), email = form.querySelector("input[type=email]").value.trim().toLowerCase();
+    msg.textContent = "";
+    if (parSite && (!site || !/\./.test(site))) { msg.textContent = ERREURS.site; return; }
+    if (!parSite && !CHOISI) { msg.textContent = ERREURS.entreprise; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = ERREURS.email; return; }
+    if (GRATUITS.test(email)) { msg.textContent = ERREURS.email_pro; return; }
+    go.disabled = true; go.textContent = "Un instant…";
+    var attente = setTimeout(function () { go.textContent = "Nous notons les quatre points…"; }, 9000);
+    var demande = { email: email, lang: "fr", news: !form.querySelector(".js-non").checked, page: location.href };
+    if (parSite) demande.signaler = site; else demande.company_id = CHOISI.id;
+    var coupe = new AbortController(), minuterie = setTimeout(function () { coupe.abort(); }, 75000);
+    fetch(FONCTIONS + "/positionnement-score", {
+      method: "POST", headers: { "Content-Type": "application/json" }, signal: coupe.signal,
+      body: JSON.stringify(demande)
+    }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, status: r.status, d: d }; }); })
+      .then(function (x) {
+        if (!x.ok) { msg.textContent = ERREURS[x.d && x.d.error] || ERREURS.reseau; return; }
+        // Un site signalé : aucune analyse, Romain le reçoit.
+        if (x.d.signale) {
+          document.querySelector("#f-envoye h2").textContent = "C'est noté.";
+          document.getElementById("f-envoye-txt").textContent = "Nous ajoutons " + site.replace(/^https?:\/\//, "").replace(/\/$/, "") + " à la liste et revenons vers vous à " + email + ".";
+          form.hidden = true; document.getElementById("f-envoye").hidden = false;
+          return;
+        }
+        // Une autre entreprise que celle de l'adresse : rien à l'écran, le résultat part par mail (règle du 22/10).
+        if (x.d.lisible && x.d.affiche === false) {
+          document.querySelector("#f-envoye h2").textContent = "Le résultat est dans votre boîte.";
+          var nom = x.d.nom || (CHOISI && CHOISI.nom) || site;
+          document.getElementById("f-envoye-txt").textContent = "Votre adresse n'est pas celle de " + nom + " : le résultat passe par votre boîte, et le lien du mail l'ouvre. Il arrive dans la minute à " + email + ". Pensez à regarder vos indésirables.";
+          form.hidden = true; document.getElementById("f-envoye").hidden = false;
+          return;
+        }
+        afficher(x.d, parSite ? site : (CHOISI && CHOISI.hote) || "");
+        aller(4);
+      })
+      .catch(function () { msg.textContent = ERREURS.reseau; })
+      .then(function () { clearTimeout(attente); clearTimeout(minuterie); go.disabled = false; go.textContent = texteGo; });
+  }); });
+
+  /* l'entreprise : la recherche dans la liste notée, ou le site si elle n'y est pas */
+  var CHOISI = null;
+  (function () {
+    var champ = document.getElementById("f-entreprise"), liste = document.getElementById("f-liste"), retenu = document.getElementById("f-retenu");
+    var blocE = document.getElementById("bloc-entreprise"), blocS = document.getElementById("bloc-site"), bascule = document.getElementById("f-bascule");
+    if (!champ) return;
+    var minute = null, sur = -1, retenuSite = document.getElementById("f-retenu-site");
+    function fermer() { liste.hidden = true; champ.setAttribute("aria-expanded", "false"); sur = -1; }
+    function choisir(b) {
+      CHOISI = { id: b.getAttribute("data-id"), nom: b.getAttribute("data-nom"), hote: b.getAttribute("data-hote") };
+      champ.value = CHOISI.nom; retenu.textContent = CHOISI.hote ? "Son site : " + CHOISI.hote : ""; fermer();
+      // Une fiche sans site connu : on demande l'adresse.
+      if (!CHOISI.hote) { versSite(true); retenuSite.textContent = "Nous n'avons pas encore lu le site de " + CHOISI.nom + " : donnez son adresse, nous l'ajoutons."; CHOISI = null; }
+    }
+    champ.addEventListener("input", function () {
+      CHOISI = null; retenu.textContent = ""; clearTimeout(minute);
+      var q = champ.value.trim();
+      if (q.length < 2) { fermer(); return; }
+      minute = setTimeout(function () {
+        fetch(FONCTIONS + "/positionnement-score", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ recherche: q }) })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (champ.value.trim() !== q) return;
+            var es = (d && d.entreprises) || [];
+            liste.innerHTML = es.length ? es.map(function (e) {
+              return '<button type="button" role="option" data-id="' + esc(e.id) + '" data-nom="' + esc(e.nom) + '" data-hote="' + esc(e.hote || "") + '">' + esc(e.nom) + '<span>' + esc(e.hote || "") + '</span></button>';
+            }).join("") : '<p>Pas dans la liste. <button type="button" class="lien" data-vers-site>Signalez-la</button></p>';
+            liste.hidden = false; champ.setAttribute("aria-expanded", "true"); sur = -1;
+          })
+          .catch(function () { fermer(); });
+      }, 220);
+    });
+    champ.addEventListener("keydown", function (ev) {
+      var bs = liste.hidden ? [] : liste.querySelectorAll("button[role=option]");
+      if (ev.key === "ArrowDown" || ev.key === "ArrowUp") {
+        if (!bs.length) return; ev.preventDefault();
+        sur = (sur + (ev.key === "ArrowDown" ? 1 : -1) + bs.length) % bs.length;
+        bs.forEach(function (b, i) { b.classList.toggle("sur", i === sur); });
+      } else if (ev.key === "Enter" && bs.length) { ev.preventDefault(); choisir(bs[Math.max(sur, 0)]); }
+      else if (ev.key === "Escape") fermer();
+    });
+    liste.addEventListener("mousedown", function (ev) { ev.preventDefault(); });
+    liste.addEventListener("click", function (ev) {
+      var b = ev.target.closest("button");
+      if (!b) return;
+      if (b.hasAttribute("data-vers-site")) { versSite(true); return; }
+      choisir(b);
+    });
+    champ.addEventListener("blur", function () { setTimeout(fermer, 120); });
+    function versSite(oui) {
+      blocE.hidden = oui; blocS.hidden = !oui; fermer();
+      bascule.textContent = oui ? "Revenir à la liste" : "Pas dans la liste ? Signalez-la";
+      var go = document.querySelector(".js-noter button[type=submit]"); go.textContent = oui ? "Signaler mon entreprise" : "Noter mon positionnement";
+      document.getElementById("f-note").textContent = oui ? "Nous ajoutons son site à la liste et revenons vers vous. Gmail, outlook, orange… ne passent pas." : "Avec une adresse de l'entreprise choisie, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.";
+      var lab = document.getElementById("f-lab"); lab.textContent = oui ? "L'adresse de son site" : "Votre entreprise"; lab.setAttribute("for", oui ? "f-site" : "f-entreprise");
+      (oui ? document.getElementById("f-site") : champ).focus();
+    }
+    bascule.addEventListener("click", function () { versSite(blocS.hidden); });
+    document.getElementById("f-autre").addEventListener("click", function () {
+      document.getElementById("f-envoye").hidden = true; document.querySelector(".js-noter").hidden = false;
+      champ.value = ""; CHOISI = null; retenu.textContent = ""; champ.focus();
+    });
+  })();
+
+  /* le lien du mail : ?r=<id>&j=<jeton> ouvre directement le résultat */
+  (function () {
+    var q = new URLSearchParams(location.search), r = q.get("r"), j = q.get("j");
+    if (!r || !j) return;
+    fetch(FONCTIONS + "/positionnement-score", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ resultat: r, jeton: j }) })
+      .then(function (x) { return x.json().then(function (d) { return { ok: x.ok, d: d }; }); })
+      .then(function (x) {
+        if (!x.ok || !x.d.lisible) { aller(3); var a = document.getElementById("f-avis"); a.textContent = ERREURS.lien; a.hidden = false; return; }
+        afficher(x.d, x.d.site || "");
+        if (x.d.pour_soi === false) {
+          var nomE = x.d.verdict.nom || x.d.site;
+          document.querySelector("#v-ok h1").innerHTML = "Ce que <span>le site de " + esc(nomE) + "</span> dit de l'entreprise";
+          document.querySelector("#v-ok .cadre.grand .lab").textContent = "Son positionnement, tel qu'il est écrit sur son site";
+        }
+        aller(4);
+      })
+      .catch(function () { aller(3); var a = document.getElementById("f-avis"); a.textContent = ERREURS.reseau; a.hidden = false; });
+  })();
+
+  /* le défilement des cinq entreprises : deux visibles, la flèche avance d'une */
+  (function () {
+    var piste = document.getElementById("piste"), prec = document.getElementById("d-prec"), suiv = document.getElementById("d-suiv");
+    if (!piste) return;
+    var cartes = piste.children, i = 0;
+    function visibles() { return 1; }
+    function poser() {
+      var max = Math.max(0, cartes.length - visibles()); if (i > max) i = max;
+      var pas = cartes[0].getBoundingClientRect().width + 36;
+      piste.style.transform = "translateX(" + (-i * pas) + "px)";
+      prec.disabled = i === 0; suiv.disabled = i >= max;
+    }
+    prec.addEventListener("click", function () { i--; poser(); });
+    suiv.addEventListener("click", function () { i++; poser(); });
+    window.addEventListener("resize", poser);
+    poser();
+  })();
+
+  /* la carte « être informé » : content-signup, type « ressources », comme sur les autres pages */
+  document.querySelectorAll(".js-informer").forEach(function (form) { form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var msg = form.querySelector(".msg"), go = form.querySelector("button[type=submit]"), input = form.querySelector("input[type=email]"), v = input.value.trim().toLowerCase();
+    msg.textContent = "";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.textContent = ERREURS.email; return; }
+    go.disabled = true;
+    fetch(FONCTIONS + "/content-signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "ressources", email: v, lang: "fr", news: true, page: location.href, salons: [] }) })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function () { msg.style.color = "#006B3F"; msg.textContent = "C'est noté. Un mail vous le confirme."; input.value = ""; })
+      .catch(function () { msg.style.color = ""; msg.textContent = ERREURS.reseau; })
+      .then(function () { go.disabled = false; });
+  }); });
+
+  /* le verdict */
+  var LIBS = { metier: "Métier", pour_qui: "Pour qui", probleme: "Problème réglé", unique: "Ce qui rend unique" };
+  var CLASSE = { vert: "ok", orange: "moy", rouge: "ko" };
+  var MOTS = { vert: "vert", orange: "orange", rouge: "rouge" };
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function compte(v) {
+    var n = { vert: 0, orange: 0, rouge: 0 };
+    ["metier", "pour_qui", "probleme", "unique"].forEach(function (k) { n[v[k].note] = (n[v[k].note] || 0) + 1; });
+    return ["vert", "orange", "rouge"].filter(function (c) { return n[c]; }).map(function (c) { return n[c] + " " + MOTS[c] + (n[c] > 1 ? "s" : ""); }).join(" · ");
+  }
+  function afficher(d, saisi) {
+    var ok = document.getElementById("v-ok"), ko = document.getElementById("v-ko");
+    if (!d.lisible) {
+      VERDICT = { lisible: false };
+      ok.hidden = true; ko.hidden = false;
+      document.getElementById("v-ko-txt").textContent = d.raison === "injoignable"
+        ? "Votre site n'a pas répondu à notre lecture. Vérifiez l'adresse, ou réessayez dans un instant."
+        : "Votre page d'accueil ne contient presque pas de texte lisible sans votre navigateur : c'est le cas des sites dessinés entièrement par un script. Un prospect pressé, ou un moteur de recherche, voit la même chose.";
+      return;
+    }
+    var v = d.verdict; VERDICT = v;
+    ok.hidden = false; ko.hidden = true;
+    var hote = (d.site || saisi).replace(/^https?:\/\//, "").replace(/\/$/, "");
+    document.getElementById("v-site").textContent = hote;
+    document.getElementById("v-nom").textContent = v.nom || hote;
+    document.getElementById("v-tag").textContent = (v.categorie ? v.categorie + " · " : "") + compte(v);
+    document.getElementById("v-actuel").textContent = v.positionnement_actuel ? "« " + v.positionnement_actuel + " »" : "";
+    document.getElementById("v-lignes").innerHTML = ["metier", "pour_qui", "probleme", "unique"].map(function (k) {
+      var p = v[k], cl = CLASSE[p.note] || "ko";
+      return '<div><span class="k"><i class="' + cl + '">' + ICONES[cl] + '</i>' + LIBS[k] + '</span><span class="v">' + esc(p.commentaire) + '</span></div>';
+    }).join("");
+    document.getElementById("v-synthese").textContent = v.synthese;
+    var manques = ["metier", "pour_qui", "probleme", "unique"].filter(function (k) { return v[k].note !== "vert" && v[k].manque && v[k].manque.question; });
+    document.getElementById("v-manque-lab").textContent = manques.length ? "Ce qui manque, et où le trouver" : "Rien à ajouter";
+    document.getElementById("v-manque").innerHTML = manques.length ? manques.map(function (k) {
+      var p = v[k], cl = CLASSE[p.note] || "ko";
+      return '<div><span class="k"><i class="' + cl + '">' + ICONES[cl] + '</i>' + LIBS[k] + '</span><p>' + esc(p.manque.question) + '</p>' + (p.manque.exemple ? '<p class="ex">Par exemple : ' + esc(p.manque.exemple) + '</p>' : '') + '</div>';
+    }).join("") : '<div><p class="rien">Votre phrase est prête pour votre email de prospection.</p></div>';
+  }
+})();
+</script>
+</body>
+</html>

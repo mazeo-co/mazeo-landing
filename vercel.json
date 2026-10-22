@@ -5,6 +5,14 @@
       "destination": "/academy.html"
     },
     {
+      "source": "/positionnement",
+      "destination": "/positionnement.html"
+    },
+    {
+      "source": "/prise-de-rendez-vous",
+      "destination": "/prise-de-rendez-vous.html"
+    },
+    {
       "source": "/village-des-etudes",
       "destination": "/village-des-etudes.html"
     },
