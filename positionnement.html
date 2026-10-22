@@ -251,6 +251,18 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
 #v-ok .manque p { font-size:clamp(15px,min(1.05vw,2.2vh),17px); line-height:1.45; }
 #v-ok .manque p.ex { font-size:13.5px; margin-top:3px; }
 #v-ok .cta { margin-top:clamp(14px,2.6vh,28px); }
+/* 23/10 : écran 2, un positionnement par cible */
+.onglets { display:flex; gap:6px; margin:0 0 16px; padding:4px; background:var(--paper); border:1px solid var(--hair); border-radius:999px; width:max-content; max-width:100%; }
+.scinde > * { min-width:0; }
+@media (max-width:900px) { .onglets { width:auto; flex-wrap:wrap; border-radius:14px; } .onglets button { flex:1 1 auto; } .test > div, .piste .test > div, .cadre.grand .test > div { grid-template-columns:1fr; white-space:normal; gap:2px; } }
+.onglets button { border:0; background:none; border-radius:999px; padding:7px 14px; font-size:14px; font-weight:600; color:var(--meta); cursor:pointer; }
+.onglets button.on { background:var(--ink); color:var(--paper); }
+.version[hidden] { display:none; }
+.test > div.change .v { color:var(--blue); }
+.legende-change { margin:12px 0 0; font-size:13.5px; color:var(--blue); }
+.ecran .scinde .th + .th { margin-top:0; }
+.ecran:not(.haut) .scinde p.th { margin-bottom:clamp(10px,1.8vh,20px); }
+.ecran:not(.haut) .scinde .cta { margin-top:clamp(14px,2.4vh,28px); }
 </style>
 </head>
 <body>
@@ -291,19 +303,33 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       <p class="sur">Théorie</p>
       <h1>Qu'est-ce qu'<span>un positionnement ?</span></h1>
       <p class="th">Ce n'est pas la liste de vos prestations. C'est la place que vous occupez dans la tête d'un client, face à vos concurrents.</p>
-      <p class="th">Il répond à quatre questions : quel est votre métier, à qui vous vous adressez, quel problème vous réglez pour eux, et ce qui vous rend unique.</p>
-      <p class="source">Source : Al Ries et Jack Trout, inventeurs du mot « positionnement » en marketing, <i>Positioning</i> (1981).</p>
+      <p class="th">Il répond à quatre questions : votre métier, à qui vous vous adressez, le problème que vous réglez, ce qui vous rend unique.</p>
+      <p class="th">Et il se pense pour une cible. Changez de cible : votre métier reste, le problème réglé et la preuve changent.</p>
+      <p class="source">Sources : Ries et Trout, <i>Positioning</i> (1981), inventeurs du mot. Kotler et Keller, <i>Marketing Management</i> : une place distincte « dans l'esprit du marché cible ».</p>
       <div class="cta"><button type="button" data-suivant>Voir cinq exemples</button></div>
     </div>
     <div class="cadre">
-      <span class="lab">Exemple · un institut fictif · les quatre points en trois phrases</span>
-      <p class="ph">« Nous testons les packagings des marques de cosmétique, avant le lancement. Nos tests se font en magasin, le produit en rayon face à ses concurrents : vous savez s'il sera vu, et choisi. »</p>
+      <span class="lab">Exemple · un institut fictif · un positionnement par cible</span>
+      <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Pour les marques de cosmétique</button><button type="button" role="tab" data-cible="b" aria-selected="false">Pour les enseignes de distribution</button></div>
+      <div class="version" data-version="a">
+      <p class="ph">« Nous testons vos packagings en magasin, face à vos concurrents, avant le lancement : vous savez s'il sera vu, et choisi. »</p>
       <div class="test">
         <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Les tests de packaging.</span></div>
-        <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les marques de cosmétique.</span></div>
-        <div><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Savoir avant le lancement si le produit sera choisi.</span></div>
+        <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les marques de cosmétique.</span></div>
+        <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Savoir avant le lancement si le produit sera choisi.</span></div>
         <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le test en magasin, face aux concurrents.</span></div>
       </div>
+      </div>
+      <div class="version" data-version="b" hidden>
+      <p class="ph">« Nous testons en magasin les packagings des marques que vous référencez : vous savez lesquels feront tourner le rayon. »</p>
+      <div class="test">
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Les tests de packaging.</span></div>
+        <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les enseignes de distribution.</span></div>
+        <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Savoir quels produits feront tourner le rayon.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le test en magasin, face aux concurrents.</span></div>
+      </div>
+      </div>
+      <p class="legende-change">En bleu, ce qui change d'une cible à l'autre.</p>
     </div>
   </div>
 </section>
@@ -448,7 +474,8 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       <h1>Un bon positionnement, c'est le début <span>d'une bonne prospection.</span></h1>
       <p class="th">Il vous dit à qui vous adresser : vos cibles. Et il vous donne le message qui fait comprendre à votre interlocuteur en quoi vous êtes différent, et quel problème vous réglez pour lui.</p>
       <p class="th">Reste à trouver la bonne entreprise, la bonne personne, et le bon moment.</p>
-      <p class="suivante">Fiche pratique suivante : <a href="/prise-de-rendez-vous">votre prise de rendez-vous →</a></p>
+      <p class="th">Votre positionnement s'adapte à chaque cible : c'est l'objet de la fiche 2, votre cible. Bientôt.</p>
+      <p class="suivante">Fiche pratique disponible : <a href="/prise-de-rendez-vous">votre prise de rendez-vous →</a></p>
     </div>
     <div class="cadre bleu">
       <span class="lab bleu">Dans mazeo</span>
@@ -642,6 +669,12 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       .catch(function () { aller(3); var a = document.getElementById("f-avis"); a.textContent = ERREURS.reseau; a.hidden = false; });
   })();
 
+  /* écran 2 : un positionnement par cible, deux onglets (23/10) */
+  document.querySelectorAll(".onglets button").forEach(function (b) { b.addEventListener("click", function () {
+    var c = b.getAttribute("data-cible"), cadre = b.closest(".cadre");
+    cadre.querySelectorAll(".onglets button").forEach(function (x) { var on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-selected", String(on)); });
+    cadre.querySelectorAll(".version").forEach(function (v) { v.hidden = v.getAttribute("data-version") !== c; });
+  }); });
   /* le défilement des cinq entreprises : une à la fois ; le compteur et le bouton « Exemple suivant » (23/10) */
   (function () {
     var piste = document.getElementById("piste"), prec = document.getElementById("d-prec"), suiv = document.getElementById("d-suiv");
@@ -716,7 +749,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     document.getElementById("v-manque-lab").textContent = manques.length ? "Ce qui manque, et où le trouver" : "Rien à ajouter";
     document.getElementById("v-manque").innerHTML = manques.length ? manques.map(function (k) {
       var p = v[k], cl = CLASSE[p.note] || "ko";
-      return '<div><span class="k"><i class="' + cl + '">' + ICONES[cl] + '</i>' + LIBS[k] + '</span><p>' + esc(p.manque.question) + '</p>' + (p.manque.exemple ? '<p class="ex">Par exemple : ' + esc(p.manque.exemple) + '</p>' : '') + '</div>';
+      return '<div><span class="k"><i class="' + cl + '">' + ICONES[cl] + '</i>' + LIBS[k] + '</span><p>' + esc(p.manque.question) + '</p>' + (p.manque.exemple ? '<p class="ex">Par exemple : ' + esc(p.manque.exemple) + '</p>' : '') + (k === "pour_qui" ? '<p class="ex">Vous avez plusieurs cibles ? Écrivez une version par cible. Votre métier ne change pas ; le problème réglé, si.</p>' : '') + '</div>';
     }).join("") : '<div><p class="rien">Votre phrase est prête pour votre email de prospection.</p></div>';
   }
 })();
