@@ -65,16 +65,19 @@ h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-he
 h1 .l { display:block; white-space:nowrap; }
 h1 .b { font-style:italic; color:var(--blue); }
 p.lede { text-wrap:balance; font-family:var(--serif); font-style:italic; font-size:clamp(22px,min(2.2vw,4.3vh),34px); line-height:1.28; margin:0 0 clamp(14px,3vh,28px); max-width:600px; }
-p.th { font-size:clamp(16px,min(1.4vw,2.85vh),21px); line-height:1.6; color:var(--body); margin:0; max-width:600px; }
+p.th { font-size:clamp(16px,min(1.45vw,2.95vh),22px); line-height:1.65; color:var(--body); margin:0; max-width:600px; }
 .cta { margin-top:clamp(24px,5vh,52px); }
 .btn { font-weight:600; font-size:17px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 22px; text-decoration:none; display:inline-block; cursor:pointer; }
 .btn:hover { background:#000; }
 /* les fiches : chiffre en serif, titre et état sur une ligne, sous-titre sur la suivante ; réparties sur la hauteur du texte d'en face */
-ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:clamp(8px,1.4vh,18px); }
-ol.lecons li { display:grid; grid-template-columns:30px 1fr; column-gap:16px; align-items:start; }
+ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:0; }
+ol.lecons li { display:grid; grid-template-columns:30px 1fr; column-gap:16px; align-items:start; position:relative; padding:clamp(6px,1.1vh,14px) 0; }
+ol.lecons li:first-child { padding-top:0; } ol.lecons li:last-child { padding-bottom:0; }
+/* un petit trait entre deux fiches, sous le texte, pas sur toute la largeur */
+ol.lecons li + li::before { content:""; position:absolute; top:0; left:46px; width:56px; height:1px; background:var(--hair2); }
 ol.lecons .n { font-family:var(--serif); font-size:clamp(26px,4.2vh,34px); line-height:.9; color:var(--blue); }
 ol.lecons .t { font-weight:600; font-size:clamp(15px,min(1.15vw,2.3vh),17px); line-height:1.3; text-decoration:none; }
-ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(13px,min(.95vw,1.95vh),14.5px); color:var(--meta); margin-top:3px; white-space:nowrap; }
+ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(13px,min(.95vw,1.95vh),14.5px); color:var(--meta); margin-top:5px; white-space:nowrap; }
 ol.lecons .etat { font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--meta); white-space:nowrap; border-radius:999px; padding:3px 9px; background:#ECECE9; margin-left:10px; vertical-align:2px; }
 ol.lecons li.ouverte { position:relative; }
 ol.lecons li.ouverte a.t::after { content:""; position:absolute; inset:0; }
@@ -88,7 +91,7 @@ ol.lecons li.bientot .t { color:var(--meta); }
   .bas { grid-template-columns:1fr; grid-template-areas:"titre" "texte" "fiches"; }
   .bas .etiquette { margin:44px 0 18px; }
   .bas .texte .cta { margin-top:24px; padding-top:0; }
-  ol.lecons { gap:18px; } ol.lecons .t .s { white-space:normal; }
+  ol.lecons { gap:0; } ol.lecons .t .s { white-space:normal; }
   .logo .par { font-size:14px; } .logo .mz { font-size:18px; }
   h1 .l { white-space:normal; }
   .pill { padding:7px 14px; font-size:14px; }
