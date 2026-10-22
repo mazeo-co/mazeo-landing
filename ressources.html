@@ -26,7 +26,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,600..800&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@800&family=Instrument+Serif&display=swap">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "mazeo", "item": "https://www.mazeo.co/"}, {"@type": "ListItem", "position": 2, "name": "Ressources", "item": "https://www.mazeo.co/ressources"}]}</script>
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
@@ -282,6 +282,14 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .vl img { width: 100%; height: 100%; object-fit: cover; }
 .tools.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (max-width: 720px) { .tools.four { grid-template-columns: 1fr; } }
+/* growth academy : le papier et la marque de ses leçons (23/10/2026) */
+.ga { display: grid; place-content: center; justify-items: center; gap: 12px; padding: 16px; text-align: center; background: #F7F7F5; }
+.ga .nm { display: flex; align-items: center; gap: 10px; font-family: 'Instrument Serif', Georgia, serif; font-size: clamp(32px, 3.2vw, 46px); line-height: 1; color: var(--ink); }
+.ga .nm svg { width: .7em; height: .7em; }
+.ga .by { font-size: 12.5px; color: var(--meta); display: flex; align-items: baseline; gap: 6px; }
+.ga .by b { font-family: var(--logo-font); font-weight: 800; font-size: 15px; color: var(--ink); letter-spacing: -0.3px; }
+.ga .by b span { color: var(--green); }
+.ga .sub { font-size: 12.5px; font-weight: 600; color: var(--blue); }
 </style>
 </head>
 <body>
@@ -309,11 +317,30 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   <section class="intro container">
     <span class="eyebrow">Ressources</span>
     <h1>Des ressources gratuites pour le <em>market research.</em></h1>
-    <p class="stamp-page">Mis à jour le 8 octobre 2026</p>
+    <p class="stamp-page">Mis à jour le 23 octobre 2026</p>
   </section>
 
   <section class="container section-tools" aria-label="Ressources">
     <ul class="tools four">
+<li>
+<article class="tool">
+<div class="visual ga" aria-hidden="true">
+<p class="nm"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</p>
+<p class="by">présentée par <b>mazeo<span>.</span></b></p>
+<p class="sub">Mieux prospecter, leçon par leçon</p>
+</div>
+<div class="tool-body">
+<span class="eyebrow">Mieux prospecter</span>
+<h2><a href="/academy">La growth academy : mieux prospecter, leçon par leçon</a></h2>
+<p class="desc">Des leçons courtes pour trouver vos prochains clients : votre positionnement, votre cible, votre message, votre profil LinkedIn, votre prise de rendez-vous.</p>
+<ul class="facts"><li>Leçon 1 disponible</li><li>Quelques minutes</li><li>Sans inscription</li></ul>
+<div class="tool-foot">
+<span class="btn btn-primary go" aria-hidden="true">Voir les leçons <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+<span class="stamp">Gratuit</span>
+</div>
+</div>
+</article>
+</li>
 <li>
 <article class="tool">
 <div class="visual vl"><img src="/assets/village/carte.webp" width="900" height="506" alt="Le Village des études, présenté par mazeo" loading="lazy"></div>

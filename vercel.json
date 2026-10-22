@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/academy",
+      "destination": "/academy.html"
+    },
+    {
       "source": "/village-des-etudes",
       "destination": "/village-des-etudes.html"
     },
