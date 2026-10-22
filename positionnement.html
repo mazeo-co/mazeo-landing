@@ -273,6 +273,20 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
 #defile .piste .cadre p.ph { margin-bottom:clamp(14px,2.4vh,26px); }
 .ecran .contenu.dense h1.h-compact + p.th { margin-top:clamp(14px,2.6vh,30px); }
 .compteur { margin-bottom:clamp(20px,4.6vh,40px); }
+/* 23/10 nuit : écran 2 plus aéré, le premier paragraphe en serif ; carte plus compacte */
+p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px); line-height:1.3; color:var(--ink); margin:0 0 clamp(14px,2.6vh,26px); max-width:30em; }
+.ecran:not(.haut) .scinde p.th { margin-bottom:clamp(12px,2.4vh,24px); line-height:1.6; }
+.scinde .cadre { padding:clamp(22px,3.4vh,34px) clamp(24px,2.4vw,36px); }
+.scinde .cadre p.ph { font-size:clamp(18px,min(1.4vw,2.9vh),23px); line-height:1.4; margin-bottom:clamp(14px,2.4vh,24px); }
+.scinde .cadre .test { gap:clamp(6px,1.2vh,12px); }
+.scinde .cadre .test > div { font-size:clamp(15px,min(1.1vw,2.3vh),17px); grid-template-columns:minmax(140px,170px) 1fr; }
+.scinde .cadre .test .k i { width:18px; height:18px; }
+/* écran 3 : cartes allégées, plus de marge en haut et en bas, phrase plus petite */
+#defile .piste .cadre { padding:clamp(20px,3vh,36px) clamp(28px,3vw,44px); }
+#defile .piste .cadre p.ph { font-size:clamp(17px,min(1.25vw,2.6vh),21px); margin-bottom:4px; }
+#defile .piste .cadre p.trad { font-size:13px; color:var(--meta); margin:0 0 clamp(14px,2.4vh,24px); }
+#defile .piste .cadre .test > div { font-size:clamp(15px,min(1.1vw,2.3vh),17px); }
+.ecran .contenu.dense p.morale { font-size:clamp(17px,min(1.25vw,2.6vh),21px); }
 </style>
 </head>
 <body>
@@ -312,7 +326,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     <div>
       <p class="sur">Théorie</p>
       <h1>Qu'est-ce qu'<span>un positionnement ?</span></h1>
-      <p class="th">Ce n'est pas la liste de vos prestations. C'est la place que vous occupez dans la tête d'un client, face à vos concurrents.</p>
+      <p class="lede2">Ce n'est pas la liste de vos prestations. C'est la place que vous occupez dans la tête d'un client, face à vos concurrents.</p>
       <p class="th">Il répond à quatre questions : votre métier, à qui vous vous adressez, le problème que vous réglez, ce qui vous rend unique.</p>
       <p class="th">Et il se pense pour une cible. Changez de cible : votre métier reste, le problème réglé et la preuve changent.</p>
       <p class="source">Sources : Ries et Trout, <i>Positioning</i> (1981), inventeurs du mot. Kotler et Keller, <i>Marketing Management</i> : une place distincte « dans l'esprit du marché cible ».</p>
@@ -322,7 +336,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       <span class="lab">Exemple · un institut fictif, deux cibles</span>
       <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Marques de cosmétique</button><button type="button" role="tab" data-cible="b" aria-selected="false">Enseignes de distribution</button></div>
       <div class="version" data-version="a">
-      <p class="ph">« <span class="cible">Pour les marques de cosmétique</span>, nous testons vos packagings en magasin, face à vos concurrents, avant le lancement : vous savez s'il sera vu, et choisi. »</p>
+      <p class="ph">« Nous testons les packagings des <span class="cible">marques de cosmétique</span>, avant le lancement. Nos tests se font en magasin, le produit en rayon face à ses concurrents : <span class="cible">vous savez s'il sera vu, et choisi.</span> »</p>
       <div class="test">
         <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Les tests de packaging.</span></div>
         <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les marques de cosmétique.</span></div>
@@ -331,11 +345,11 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       </div>
       </div>
       <div class="version" data-version="b" hidden>
-      <p class="ph">« <span class="cible">Pour les enseignes de distribution</span>, nous testons en magasin les packagings des marques que vous référencez : vous savez lesquels feront tourner le rayon. »</p>
+      <p class="ph">« Nous testons les packagings pour les <span class="cible">enseignes de distribution</span>, avant le référencement. Nos tests se font en magasin, le produit en rayon face à ses concurrents : <span class="cible">vous savez lequel fera tourner le rayon.</span> »</p>
       <div class="test">
         <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Les tests de packaging.</span></div>
         <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les enseignes de distribution.</span></div>
-        <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Savoir quels produits feront tourner le rayon.</span></div>
+        <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Problème réglé</span><span class="v">Savoir avant le référencement quel produit fera tourner le rayon.</span></div>
         <div><span class="k"><i class="ok" data-ic="ok"></i>Ce qui rend unique</span><span class="v">Le test en magasin, face aux concurrents.</span></div>
       </div>
       </div>
@@ -354,8 +368,8 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     <div class="defile" id="defile">
       <div class="fenetre"><div class="piste" id="piste">
       <div class="cadre">
-        <div class="tete"><h3>Attest</h3><span class="tag">Logiciel d'enquêtes en ligne · Londres · 3 verts · 1 orange · traduit de l'anglais</span></div>
-        <p class="ph">« Le moteur d'insights consommateurs par IA des grandes marques B2C. Reliez enquêtes et entretiens avec de vrais consommateurs pour décider plus vite, plus juste. La seule plateforme d'insights au prix fixe et prévisible, où que soit votre audience. »</p>
+        <div class="tete"><h3>Attest</h3><span class="tag">Logiciel d'enquêtes en ligne · Londres</span></div>
+        <p class="ph">« Le moteur d'insights consommateurs par IA des grandes marques B2C. Reliez enquêtes et entretiens avec de vrais consommateurs pour décider plus vite, plus juste. La seule plateforme d'insights au prix fixe et prévisible, où que soit votre audience. »</p><p class="trad">Traduit de l'anglais, tel qu'il est écrit sur son site.</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des enquêtes et des entretiens consommateurs, par IA.</span></div>
           <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les grandes marques B2C : une cible nommée.</span></div>
@@ -364,8 +378,8 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
         </div>
       </div>
       <div class="cadre">
-        <div class="tete"><h3>Euromonitor International</h3><span class="tag">Éditeur d'études de marché · Londres · 2 verts · 1 orange · 1 rouge · traduit de l'anglais</span></div>
-        <p class="ph">« Euromonitor International est un fournisseur reconnu d'intelligence de marché mondiale, qui vous aide à prendre des décisions à fort enjeu pour libérer la croissance. Plus de 50 ans de recherche indépendante. Des analystes dans plus de 100 pays. »</p>
+        <div class="tete"><h3>Euromonitor International</h3><span class="tag">Éditeur d'études de marché · Londres</span></div>
+        <p class="ph">« Euromonitor International est un fournisseur reconnu d'intelligence de marché mondiale, qui vous aide à prendre des décisions à fort enjeu pour libérer la croissance. Plus de 50 ans de recherche indépendante. Des analystes dans plus de 100 pays. »</p><p class="trad">Traduit de l'anglais, tel qu'il est écrit sur son site.</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des études de marché, à l'échelle mondiale.</span></div>
           <div><span class="k"><i class="ko" data-ic="ko"></i>Pour qui</span><span class="v">« Vous » : personne n'est nommé.</span></div>
@@ -374,8 +388,8 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
         </div>
       </div>
       <div class="cadre">
-        <div class="tete"><h3>J.D. Power</h3><span class="tag">Données et études pour l'automobile · États-Unis · 3 verts · 1 orange · traduit de l'anglais</span></div>
-        <p class="ph">« JD Power donne aux entreprises les données, les analyses et les insights pour prendre des décisions plus éclairées. Que vous conceviez des véhicules, les vendiez, les financiez ou les assuriez, JD Power vous aide à agir avec confiance à chaque étape. Des données propriétaires issues de millions d'expériences clients vérifiées. »</p>
+        <div class="tete"><h3>J.D. Power</h3><span class="tag">Données et études pour l'automobile · États-Unis</span></div>
+        <p class="ph">« JD Power donne aux entreprises les données, les analyses et les insights pour prendre des décisions plus éclairées. Que vous conceviez des véhicules, les vendiez, les financiez ou les assuriez, JD Power vous aide à agir avec confiance à chaque étape. Des données propriétaires issues de millions d'expériences clients vérifiées. »</p><p class="trad">Traduit de l'anglais, tel qu'il est écrit sur son site.</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Données, analyses et études pour l'automobile.</span></div>
           <div><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Constructeurs, distributeurs, financeurs, assureurs : nommés.</span></div>
@@ -384,8 +398,8 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
         </div>
       </div>
       <div class="cadre">
-        <div class="tete"><h3>SurveyMonkey</h3><span class="tag">Logiciel d'enquêtes en ligne · États-Unis · 2 verts · 2 oranges · traduit de l'anglais</span></div>
-        <p class="ph">« La plateforme d'enquêtes la plus populaire au monde. Comprenez les besoins changeants de vos salariés, clients, participants et acheteurs grâce au retour continu. Utilisée par plus de 260 000 organisations dans le monde. »</p>
+        <div class="tete"><h3>SurveyMonkey</h3><span class="tag">Logiciel d'enquêtes en ligne · États-Unis</span></div>
+        <p class="ph">« La plateforme d'enquêtes la plus populaire au monde. Comprenez les besoins changeants de vos salariés, clients, participants et acheteurs grâce au retour continu. Utilisée par plus de 260 000 organisations dans le monde. »</p><p class="trad">Traduit de l'anglais, tel qu'il est écrit sur son site.</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Un logiciel d'enquêtes en ligne : c'est clair.</span></div>
           <div><span class="k"><i class="moy" data-ic="moy"></i>Pour qui</span><span class="v">« Des organisations » : tout le monde.</span></div>
@@ -394,8 +408,8 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
         </div>
       </div>
       <div class="cadre">
-        <div class="tete"><h3>Mintel</h3><span class="tag">Études et veille de marché · Londres · 1 vert · 1 orange · 2 rouges · traduit de l'anglais</span></div>
-        <p class="ph">« Agence mondiale d'intelligence de marché et d'études. Vous êtes une entreprise ambitieuse qui veut comprendre les consommateurs, prédire les tendances et garder une longueur d'avance. Avec notre intelligence de marché, vous aurez les insights pour agir avec décision. »</p>
+        <div class="tete"><h3>Mintel</h3><span class="tag">Études et veille de marché · Londres</span></div>
+        <p class="ph">« Agence mondiale d'intelligence de marché et d'études. Vous êtes une entreprise ambitieuse qui veut comprendre les consommateurs, prédire les tendances et garder une longueur d'avance. Avec notre intelligence de marché, vous aurez les insights pour agir avec décision. »</p><p class="trad">Traduit de l'anglais, tel qu'il est écrit sur son site.</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Études et veille de marché : c'est dit.</span></div>
           <div><span class="k"><i class="ko" data-ic="ko"></i>Pour qui</span><span class="v">« Une entreprise ambitieuse » : personne.</span></div>
@@ -509,9 +523,12 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
   /* les écrans */
   var ecrans = Array.prototype.slice.call(document.querySelectorAll(".ecran"));
   var n = 0, VERDICT = null;
-  function aller(k) {
+  /* 23/10 : chaque écran a son adresse (?e=N), le bouton Retour du navigateur ramène à l'écran d'avant */
+  function adresse(k) { var q = new URLSearchParams(location.search); q.set("e", k + 1); return location.pathname + "?" + q.toString() + location.hash; }
+  function aller(k, mode) {
     if (k < 0 || k >= ecrans.length) return;
     if (k === 4 && !VERDICT) k = 3;  // pas de verdict : l'écran du résultat renvoie au formulaire
+    if (mode !== "aucun" && k !== n) { try { history[mode === "remplacer" ? "replaceState" : "pushState"]({ e: k + 1 }, "", adresse(k)); } catch (x) {} }
     n = k;
     ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
     document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
@@ -533,7 +550,12 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     if (ev.key === "ArrowLeft" || ev.key === "PageUp") aller(n - 1);
   });
   // ?e=3 ouvre directement un écran (relecture, captures) ; l'écran du verdict reste fermé sans verdict.
-  aller(Math.max(0, (parseInt(new URLSearchParams(location.search).get("e"), 10) || 1) - 1));
+  n = -1;
+  aller(Math.max(0, (parseInt(new URLSearchParams(location.search).get("e"), 10) || 1) - 1), "remplacer");
+  window.addEventListener("popstate", function (ev) {
+    var e = (ev.state && ev.state.e) || parseInt(new URLSearchParams(location.search).get("e"), 10) || 1;
+    aller(e - 1, "aucun");
+  });
 
   /* les deux formulaires (le héros et l'écran 4) : même mécanique, même fonction */
   var GRATUITS = /@(gmail|googlemail|yahoo|ymail|hotmail|outlook|live|msn|icloud|me|mac|aol|protonmail|proton|pm|gmx|orange|wanadoo|free|sfr|neuf|laposte|bbox|numericable|yandex|mail|zoho|fastmail|hey)\.(com|fr|net|me|de)$/i;
