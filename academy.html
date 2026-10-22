@@ -45,35 +45,35 @@ button, input { font:inherit; }
 .retour { border:1px solid var(--hair2); border-radius:999px; padding:9px 18px; font-weight:600; font-size:15px; text-decoration:none; }
 .retour:hover { background:var(--card); }
 /* une seule page : à gauche l'accroche, à droite les leçons */
-.contenu { max-width:1280px; margin:0 auto; padding:clamp(8px,1.6vh,40px) 48px clamp(20px,4vh,56px); display:grid; grid-template-columns:1.05fr 1fr; gap:72px; align-items:stretch; min-height:calc(100vh - 104px); }
-.contenu > div { display:flex; flex-direction:column; }
-.contenu > div:first-child { justify-content:flex-start; gap:clamp(22px,5vh,56px); padding-top:clamp(0px,2vh,24px); }
-.lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
-h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:.98; font-size:clamp(48px,min(5.4vw,9.4vh),88px); margin:0 0 clamp(12px,2.6vh,32px); text-wrap:balance; }
-h1 span { font-style:italic; color:var(--blue); }
-p.lede { font-family:var(--serif); font-size:clamp(24px,min(2.1vw,3.9vh),34px); line-height:1.3; margin:0 0 clamp(12px,2.4vh,28px); max-width:36ch; }
-p.th { font-size:clamp(18px,min(1.5vw,2.85vh),24px); line-height:1.6; color:var(--body); margin:0 0 clamp(10px,2vh,20px); max-width:46ch; }
-.cta { margin-top:clamp(16px,3vh,32px); }
-.btn { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 22px; text-decoration:none; display:inline-block; cursor:pointer; }
+.contenu { max-width:1280px; margin:0 auto; padding:clamp(8px,2vh,40px) 48px clamp(24px,5vh,64px); display:grid; grid-template-columns:1.08fr .92fr; gap:72px; align-items:start; align-content:center; min-height:calc(100vh - 104px); }
+.lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:clamp(16px,3vh,28px); line-height:1; }
+h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.02; font-size:clamp(40px,min(4.3vw,8.2vh),74px); margin:0 0 clamp(22px,5vh,52px); }
+h1 .l { display:block; white-space:nowrap; }
+h1 .b { font-style:italic; color:var(--blue); }
+p.lede { font-family:var(--serif); font-style:italic; font-size:clamp(22px,min(2vw,3.9vh),32px); line-height:1.3; margin:0 0 clamp(12px,2.4vh,24px); max-width:560px; }
+p.th { font-size:clamp(16px,min(1.35vw,2.75vh),21px); line-height:1.6; color:var(--body); margin:0; max-width:560px; }
+.cta { margin-top:clamp(22px,5vh,52px); }
+.btn { font-weight:600; font-size:17px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 22px; text-decoration:none; display:inline-block; cursor:pointer; }
 .btn:hover { background:#000; }
 /* les leçons : grand numéro en serif, pastille d'état arrondie, aucun trait ; celles qui ne sont pas prêtes en gris */
-ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; gap:clamp(8px,1.4vh,14px); }
-ol.lecons li { display:grid; grid-template-columns:52px 1fr auto; gap:20px; align-items:center; flex:1; }
-ol.lecons .n { font-family:var(--serif); font-size:40px; line-height:1; color:var(--blue); }
-ol.lecons .t { font-weight:600; font-size:17px; line-height:1.3; text-decoration:none; }
-ol.lecons .t .s { display:block; font-weight:400; font-size:14px; color:var(--meta); margin-top:4px; }
+ol.lecons { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:clamp(14px,3.4vh,34px); }
+ol.lecons li { display:grid; grid-template-columns:24px 1fr auto; gap:18px; align-items:center; }
+ol.lecons .n { font-family:var(--serif); font-size:clamp(28px,5vh,38px); line-height:1; color:var(--blue); }
+ol.lecons .t { font-weight:600; font-size:clamp(16px,min(1.3vw,2.6vh),19px); line-height:1.3; text-decoration:none; }
+ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(13.5px,min(1.05vw,2.1vh),15.5px); color:var(--meta); margin-top:4px; }
 ol.lecons .etat { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--meta); white-space:nowrap; border-radius:999px; padding:5px 11px; background:#ECECE9; }
 ol.lecons li.ouverte { position:relative; }
 ol.lecons li.ouverte a.t::after { content:""; position:absolute; inset:0; }
 ol.lecons li.ouverte:hover .t { color:var(--blue); }
-ol.lecons li.ouverte .etat { background:var(--blue); color:#fff; }
-ol.lecons li.bientot .n { color:var(--hair2); }
+ol.lecons li.ouverte .etat { background:none; padding:5px 0; color:var(--ink); font-size:12px; }
+ol.lecons li.ouverte:hover .etat { color:var(--blue); }
+ol.lecons li.bientot .n { color:var(--meta2); }
 ol.lecons li.bientot .t { color:var(--meta); }
 @media (max-width:900px) {
   .entete .in { padding:20px 16px 12px; }
   .contenu { grid-template-columns:1fr; gap:40px; padding:24px 16px 56px; min-height:0; }
-  ol.lecons li { flex:none; grid-template-columns:30px 1fr auto; gap:14px; }
-  ol.lecons .n { font-size:34px; }
+  ol.lecons li { grid-template-columns:22px 1fr auto; gap:14px; }
+  h1 .l { white-space:normal; }
   .retour { padding:8px 14px; font-size:14px; white-space:nowrap; }
   .logo .nm { font-size:24px; white-space:nowrap; }
 }
@@ -90,16 +90,11 @@ ol.lecons li.bientot .t { color:var(--meta); }
 
 <main class="contenu">
   <div>
-    <div>
     <span class="lab">Ressource gratuite · prospection</span>
-    <h1 style="margin-bottom:0">Les bases de la prospection, <span>pour le secteur des études.</span></h1>
-    </div>
-    <div>
+    <h1><span class="l">Les bases de la prospection,</span><span class="l b">pour le secteur des études.</span></h1>
     <p class="lede">Chez mazeo, nous voulons aider les sociétés d'études à mieux prospecter.</p>
-    <p class="th">Nous commençons par les bases : savoir dire ce que vous faites, à qui vous souhaitez vous adresser, et comment.</p>
-    <p class="th">Une leçon courte à la fois, gratuite.</p>
+    <p class="th">Nous commençons par les bases : savoir dire ce que vous faites, à qui vous souhaitez vous adresser, et comment. Une leçon courte à la fois, gratuite.</p>
     <div class="cta"><a class="btn" href="/positionnement">Commencer la leçon 1</a></div>
-    </div>
   </div>
 
   <div>
@@ -108,7 +103,7 @@ ol.lecons li.bientot .t { color:var(--meta); }
       <li class="ouverte"><span class="n">1</span><a class="t" href="/positionnement">Votre positionnement<span class="s">3 minutes · noté sur quatre points d'après votre site</span></a><span class="etat">Commencer →</span></li>
       <li class="bientot"><span class="n">2</span><span class="t">Votre cible<span class="s">les entreprises et les personnes à qui vous adresser</span></span><span class="etat">Bientôt</span></li>
       <li class="bientot"><span class="n">3</span><span class="t">Votre premier message<span class="s">l'email et le message LinkedIn qui font répondre</span></span><span class="etat">Bientôt</span></li>
-      <li class="bientot"><span class="n">4</span><span class="t">Votre profil LinkedIn<span class="s">la page que vos prospects ouvrent avant de vous répondre</span></span><span class="etat">Bientôt</span></li>
+      <li class="bientot"><span class="n">4</span><span class="t">Votre profil LinkedIn<span class="s">la page que vos prospects ouvrent avant de répondre</span></span><span class="etat">Bientôt</span></li>
       <li class="bientot"><span class="n">5</span><span class="t">Votre prise de rendez-vous<span class="s">un lien d'agenda, avec Cal.com, prêt pour vos messages</span></span><span class="etat">Bientôt</span></li>
       <li class="bientot"><span class="n">6</span><span class="t">Votre rythme<span class="s">un objectif, et le temps à y consacrer chaque semaine</span></span><span class="etat">Bientôt</span></li>
     </ol>
