@@ -351,10 +351,10 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
   <div class="contenu">
     <p class="sur">À vous</p>
     <h1>Et vous, <span>êtes-vous bien positionné ?</span></h1>
-    <p class="th">Nous avons lu le site de 500 prestataires d'études, comme le ferait un prospect. Choisissez le vôtre. Il n'est pas dans la liste ? Donnez son adresse, nous le lisons en une minute.</p>
+    <p class="th">Nous avons lu le site de 500 prestataires d'études, comme le ferait un prospect. Choisissez le vôtre. Il n'est pas dans la liste ? Signalez-le, nous l'ajoutons.</p>
     <p class="avis" id="f-avis" hidden></p>
     <form class="form js-noter" novalidate>
-      <div class="tete-champ"><label class="ch" id="f-lab" for="f-entreprise" style="margin:0">Votre entreprise</label><button type="button" class="lien" id="f-bascule">Pas dans la liste ? Donnez son site</button></div>
+      <div class="tete-champ"><label class="ch" id="f-lab" for="f-entreprise" style="margin:0">Votre entreprise</label><button type="button" class="lien" id="f-bascule">Pas dans la liste ? Signalez-la</button></div>
       <div id="bloc-entreprise" style="margin-top:-8px">
         <div class="champ-liste"><input type="text" id="f-entreprise" placeholder="Tapez son nom" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="f-liste" required><div class="choix" id="f-liste" role="listbox" hidden></div></div>
         <p class="retenu" id="f-retenu"></p>
@@ -364,7 +364,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       <label class="ligne"><input type="checkbox" class="js-non"> Je ne souhaite pas recevoir les prochaines ressources de mazeo.</label>
       <div class="cta cta-form"><button type="submit">Noter mon positionnement</button></div>
       <p class="msg" role="status" aria-live="polite"></p>
-      <p class="note">Avec une adresse de l'entreprise analysée, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.</p>
+      <p class="note" id="f-note">Avec une adresse de l'entreprise choisie, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.</p>
     </form>
     <div class="envoye" id="f-envoye" hidden>
       <h2>Le résultat est dans votre boîte.</h2>
@@ -472,7 +472,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     email: "Cette adresse ne ressemble pas à un email.",
     email_pro: "Une adresse de votre entreprise, pour retrouver votre site : les adresses gmail, outlook, orange… ne passent pas.",
     site: "Cette adresse de site ne passe pas. Essayez sous la forme www.votre-societe.fr.",
-    entreprise: "Choisissez votre entreprise dans la liste, ou donnez l'adresse de son site.",
+    entreprise: "Choisissez votre entreprise dans la liste, ou signalez-la si elle n'y est pas.",
     lien: "Ce lien n'est plus valable : il dure 30 jours. Refaites l'analyse ci-dessous.",
     cap_email: "Trois analyses par jour et par adresse : revenez demain, ou écrivez à romain.barbet@mazeo.co.",
     cap: "Beaucoup de demandes aujourd'hui : réessayez demain, ou écrivez à romain.barbet@mazeo.co.",
@@ -489,10 +489,10 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     if (!parSite && !CHOISI) { msg.textContent = ERREURS.entreprise; return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = ERREURS.email; return; }
     if (GRATUITS.test(email)) { msg.textContent = ERREURS.email_pro; return; }
-    go.disabled = true; go.textContent = parSite ? "Nous lisons votre site…" : "Un instant…";
+    go.disabled = true; go.textContent = "Un instant…";
     var attente = setTimeout(function () { go.textContent = "Nous notons les quatre points…"; }, 9000);
     var demande = { email: email, lang: "fr", news: !form.querySelector(".js-non").checked, page: location.href };
-    if (parSite) demande.site = site; else demande.company_id = CHOISI.id;
+    if (parSite) demande.signaler = site; else demande.company_id = CHOISI.id;
     var coupe = new AbortController(), minuterie = setTimeout(function () { coupe.abort(); }, 75000);
     fetch(FONCTIONS + "/positionnement-score", {
       method: "POST", headers: { "Content-Type": "application/json" }, signal: coupe.signal,
@@ -500,8 +500,16 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, status: r.status, d: d }; }); })
       .then(function (x) {
         if (!x.ok) { msg.textContent = ERREURS[x.d && x.d.error] || ERREURS.reseau; return; }
+        // Un site signalé : aucune analyse, Romain le reçoit.
+        if (x.d.signale) {
+          document.querySelector("#f-envoye h2").textContent = "C'est noté.";
+          document.getElementById("f-envoye-txt").textContent = "Nous ajoutons " + site.replace(/^https?:\/\//, "").replace(/\/$/, "") + " à la liste et revenons vers vous à " + email + ".";
+          form.hidden = true; document.getElementById("f-envoye").hidden = false;
+          return;
+        }
         // Une autre entreprise que celle de l'adresse : rien à l'écran, le résultat part par mail (règle du 22/10).
         if (x.d.lisible && x.d.affiche === false) {
+          document.querySelector("#f-envoye h2").textContent = "Le résultat est dans votre boîte.";
           var nom = x.d.nom || (CHOISI && CHOISI.nom) || site;
           document.getElementById("f-envoye-txt").textContent = "Votre adresse n'est pas celle de " + nom + " : le résultat passe par votre boîte, et le lien du mail l'ouvre. Il arrive dans la minute à " + email + ". Pensez à regarder vos indésirables.";
           form.hidden = true; document.getElementById("f-envoye").hidden = false;
@@ -524,9 +532,9 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     function fermer() { liste.hidden = true; champ.setAttribute("aria-expanded", "false"); sur = -1; }
     function choisir(b) {
       CHOISI = { id: b.getAttribute("data-id"), nom: b.getAttribute("data-nom"), hote: b.getAttribute("data-hote") };
-      champ.value = CHOISI.nom; retenu.textContent = CHOISI.hote ? "Nous lisons " + CHOISI.hote : ""; fermer();
+      champ.value = CHOISI.nom; retenu.textContent = CHOISI.hote ? "Son site : " + CHOISI.hote : ""; fermer();
       // Une fiche sans site connu : on demande l'adresse.
-      if (!CHOISI.hote) { versSite(true); retenuSite.textContent = "Nous n'avons pas l'adresse du site de " + CHOISI.nom + " : donnez-la ici."; CHOISI = null; }
+      if (!CHOISI.hote) { versSite(true); retenuSite.textContent = "Nous n'avons pas encore lu le site de " + CHOISI.nom + " : donnez son adresse, nous l'ajoutons."; CHOISI = null; }
     }
     champ.addEventListener("input", function () {
       CHOISI = null; retenu.textContent = ""; clearTimeout(minute);
@@ -540,7 +548,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
             var es = (d && d.entreprises) || [];
             liste.innerHTML = es.length ? es.map(function (e) {
               return '<button type="button" role="option" data-id="' + esc(e.id) + '" data-nom="' + esc(e.nom) + '" data-hote="' + esc(e.hote || "") + '">' + esc(e.nom) + '<span>' + esc(e.hote || "") + '</span></button>';
-            }).join("") : '<p>Pas dans la liste. <button type="button" class="lien" data-vers-site>Donnez l\'adresse de son site</button></p>';
+            }).join("") : '<p>Pas dans la liste. <button type="button" class="lien" data-vers-site>Signalez-la</button></p>';
             liste.hidden = false; champ.setAttribute("aria-expanded", "true"); sur = -1;
           })
           .catch(function () { fermer(); });
@@ -565,7 +573,9 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     champ.addEventListener("blur", function () { setTimeout(fermer, 120); });
     function versSite(oui) {
       blocE.hidden = oui; blocS.hidden = !oui; fermer();
-      bascule.textContent = oui ? "Revenir à la liste" : "Pas dans la liste ? Donnez son site";
+      bascule.textContent = oui ? "Revenir à la liste" : "Pas dans la liste ? Signalez-la";
+      var go = document.querySelector(".js-noter button[type=submit]"); go.textContent = oui ? "Signaler mon entreprise" : "Noter mon positionnement";
+      document.getElementById("f-note").textContent = oui ? "Nous ajoutons son site à la liste et revenons vers vous. Gmail, outlook, orange… ne passent pas." : "Avec une adresse de l'entreprise choisie, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.";
       var lab = document.getElementById("f-lab"); lab.textContent = oui ? "L'adresse de son site" : "Votre entreprise"; lab.setAttribute("for", oui ? "f-site" : "f-entreprise");
       (oui ? document.getElementById("f-site") : champ).focus();
     }
