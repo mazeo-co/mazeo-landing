@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="fr">
+<script>(function(){var v=(location.search.match(/[?&]v=([abc])/)||[])[1];if(v)document.documentElement.setAttribute("data-v",v);})();</script>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -47,14 +48,14 @@ button, input { font:inherit; }
 /* une seule page : à gauche l'accroche, à droite les leçons */
 .contenu { max-width:1280px; margin:0 auto; padding:clamp(8px,1.6vh,40px) 48px clamp(20px,4vh,56px); display:grid; grid-template-columns:1.05fr 1fr; gap:72px; align-items:stretch; min-height:calc(100vh - 104px); }
 .contenu > div { display:flex; flex-direction:column; }
-.contenu > div:first-child { justify-content:space-between; gap:clamp(18px,3vh,40px); }
+.contenu > div:first-child { justify-content:flex-start; gap:clamp(22px,5vh,56px); padding-top:clamp(0px,2vh,24px); }
 .lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
 h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:.98; font-size:clamp(48px,min(5.4vw,9.4vh),88px); margin:0 0 clamp(12px,2.6vh,32px); text-wrap:balance; }
 h1 span { font-style:italic; color:var(--blue); }
 p.lede { font-family:var(--serif); font-size:clamp(24px,min(2.1vw,3.9vh),34px); line-height:1.3; margin:0 0 clamp(12px,2.4vh,28px); max-width:36ch; }
 p.th { font-size:clamp(18px,min(1.5vw,2.85vh),24px); line-height:1.6; color:var(--body); margin:0 0 clamp(10px,2vh,20px); max-width:46ch; }
-.cta { margin-top:0; }
-.btn { font-weight:600; font-size:clamp(18px,1.35vw,22px); color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 28px; text-decoration:none; display:inline-block; cursor:pointer; }
+.cta { margin-top:clamp(16px,3vh,32px); }
+.btn { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 22px; text-decoration:none; display:inline-block; cursor:pointer; }
 .btn:hover { background:#000; }
 /* les leçons : une ligne par leçon, numérotée ; celles qui ne sont pas prêtes en gris, « Bientôt » */
 ol.lecons { list-style:none; margin:0; padding:0; border-top:1px solid var(--hair2); flex:1; display:flex; flex-direction:column; }
@@ -69,23 +70,43 @@ ol.lecons li.ouverte:hover { background:var(--card); }
 ol.lecons li.ouverte .etat { color:var(--ink); }
 ol.lecons li.bientot .n { color:var(--meta2); border-color:var(--hair2); }
 ol.lecons li.bientot .t { color:var(--meta); }
-/* être prévenu de la leçon suivante : content-signup, type « ressources », comme sur les autres pages */
-.informer { margin-top:clamp(14px,2.4vh,32px); }
-.informer .lab { margin-bottom:10px; }
-.informer .ligne { display:flex; gap:10px; }
-.informer input { flex:1; min-width:0; border:1px solid var(--hair2); border-radius:4px; padding:13px 16px; font-size:17px; color:var(--ink); background:var(--card); outline:0; }
-.informer input:focus { border-color:var(--ink); }
-.informer button { font-weight:600; font-size:17px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:13px 22px; cursor:pointer; white-space:nowrap; }
-.informer button:disabled { opacity:.6; cursor:wait; }
-.informer .msg { min-height:20px; font-size:13.5px; color:#B45309; margin:6px 0 0; }
 @media (max-width:900px) {
   .entete .in { padding:20px 16px 12px; }
   .contenu { grid-template-columns:1fr; gap:40px; padding:24px 16px 56px; min-height:0; }
   ol.lecons li { flex:none; }
   .retour { padding:8px 14px; font-size:14px; white-space:nowrap; }
   .logo .nm { font-size:24px; white-space:nowrap; }
-  .informer .ligne { flex-direction:column; }
 }
+/* VARIANTES TEMPORAIRES de la liste des leçons (?v=a|b|c), pour choisir avec Romain */
+[data-v] ol.lecons { border-top:0; gap:clamp(8px,1.4vh,14px); }
+[data-v] ol.lecons li { border-bottom:0; padding:0; }
+[data-v] ol.lecons .t { font-size:17px; }
+[data-v] ol.lecons .t .s { font-size:14px; }
+[data-v] ol.lecons .etat { font-size:11px; }
+/* A · des cartes blanches, le numéro en chiffre de titre */
+[data-v=a] ol.lecons li { background:var(--card); border-radius:12px; padding:0 22px; grid-template-columns:34px 1fr auto; box-shadow:0 1px 0 rgba(0,0,0,.03); }
+[data-v=a] ol.lecons .n { border:0; width:auto; height:auto; font-family:var(--serif); font-size:34px; font-weight:400; color:var(--blue); }
+[data-v=a] ol.lecons li.bientot { background:transparent; border:1px dashed var(--hair2); }
+[data-v=a] ol.lecons li.bientot .n { color:var(--meta2); }
+[data-v=a] ol.lecons li.ouverte:hover { background:#fff; box-shadow:0 10px 24px -14px rgba(0,0,0,.25); }
+[data-v=a] ol.lecons li.ouverte .etat { background:var(--ink); color:var(--paper); padding:7px 12px; border-radius:999px; letter-spacing:.06em; }
+/* B · une grille de six tuiles */
+[data-v=b] ol.lecons { display:grid; grid-template-columns:1fr 1fr; grid-auto-rows:1fr; gap:12px; }
+[data-v=b] ol.lecons li { display:flex; flex-direction:column; align-items:flex-start; gap:6px; background:var(--card); border-radius:12px; padding:clamp(12px,2vh,20px) 20px; }
+[data-v=b] ol.lecons .n { border:0; width:auto; height:auto; font-family:var(--serif); font-size:30px; font-weight:400; line-height:1; color:var(--blue); }
+[data-v=b] ol.lecons .etat { margin-top:auto; }
+[data-v=b] ol.lecons li.bientot { background:rgba(255,255,255,.45); }
+[data-v=b] ol.lecons li.bientot .n { color:var(--meta2); }
+[data-v=b] ol.lecons li.ouverte { outline:1.5px solid var(--blue); }
+[data-v=b] ol.lecons li.ouverte .etat { color:var(--blue); }
+/* C · une liste nue : grand numéro en serif, pastille d'état arrondie, aucun trait */
+[data-v=c] ol.lecons li { grid-template-columns:52px 1fr auto; }
+[data-v=c] ol.lecons .n { border:0; width:auto; height:auto; font-family:var(--serif); font-size:40px; font-weight:400; line-height:1; color:var(--blue); justify-content:flex-start; }
+[data-v=c] ol.lecons li.bientot .n { color:var(--hair2); }
+[data-v=c] ol.lecons .etat { border-radius:999px; padding:5px 11px; background:#ECECE9; letter-spacing:.06em; }
+[data-v=c] ol.lecons li.ouverte .etat { background:var(--blue); color:#fff; }
+[data-v=c] ol.lecons li.ouverte:hover { background:transparent; }
+[data-v=c] ol.lecons li.ouverte:hover .t { color:var(--blue); }
 </style>
 </head>
 <body>
@@ -107,8 +128,8 @@ ol.lecons li.bientot .t { color:var(--meta); }
     <p class="lede">Des leçons courtes pour trouver vos prochains clients dans le market research.</p>
     <p class="th">Chacune traite un point de votre prospection : votre positionnement, votre cible, votre message, votre profil LinkedIn, votre prise de rendez-vous.</p>
     <p class="th">Quelques minutes par leçon, sans inscription. Vous repartez avec un résultat à vous, prêt à servir.</p>
+    <div class="cta"><a class="btn" href="/positionnement">Commencer la leçon 1</a></div>
     </div>
-    <div class="cta"><a class="btn" href="/positionnement">Commencer : leçon 1, votre positionnement</a></div>
   </div>
 
   <div>
@@ -121,32 +142,8 @@ ol.lecons li.bientot .t { color:var(--meta); }
       <li class="bientot"><span class="n">5</span><span class="t">Votre prise de rendez-vous<span class="s">un lien d'agenda, avec Cal.com, prêt pour vos messages</span></span><span class="etat">Bientôt</span></li>
       <li class="bientot"><span class="n">6</span><span class="t">Votre rythme<span class="s">un objectif, et le temps à y consacrer chaque semaine</span></span><span class="etat">Bientôt</span></li>
     </ol>
-    <form class="informer js-informer" novalidate>
-      <label class="lab" for="email">Être prévenu de la prochaine leçon</label>
-      <div class="ligne"><input type="email" id="email" autocomplete="email" placeholder="vous@votre-societe.fr"><button type="submit">Me prévenir</button></div>
-      <p class="msg" role="status"></p>
-    </form>
   </div>
 </main>
 
-<script>
-(function () {
-  var HOTE_PROD = /(^|\.)mazeo\.co$/.test(location.hostname);
-  var FONCTIONS = HOTE_PROD ? "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1" : "https://aipmpdzscqhsvteblajo.supabase.co/functions/v1";
-  /* la carte « être informé » : content-signup, type « ressources », comme sur les autres pages */
-  document.querySelectorAll(".js-informer").forEach(function (form) { form.addEventListener("submit", function (ev) {
-    ev.preventDefault();
-    var msg = form.querySelector(".msg"), go = form.querySelector("button[type=submit]"), input = form.querySelector("input[type=email]"), v = input.value.trim().toLowerCase();
-    msg.style.color = ""; msg.textContent = "";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.textContent = "Cette adresse ne ressemble pas à un email."; return; }
-    go.disabled = true;
-    fetch(FONCTIONS + "/content-signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "ressources", email: v, lang: "fr", news: true, page: location.href, salons: [] }) })
-      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
-      .then(function () { msg.style.color = "#006B3F"; msg.textContent = "C'est noté. Un mail vous le confirme."; input.value = ""; })
-      .catch(function () { msg.textContent = "L'envoi n'a pas marché. Réessayez dans un instant."; })
-      .then(function () { go.disabled = false; });
-  }); });
-})();
-</script>
 </body>
 </html>
