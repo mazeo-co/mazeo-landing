@@ -263,6 +263,16 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
 .ecran .scinde .th + .th { margin-top:0; }
 .ecran:not(.haut) .scinde p.th { margin-bottom:clamp(10px,1.8vh,20px); }
 .ecran:not(.haut) .scinde .cta { margin-top:clamp(14px,2.4vh,28px); }
+/* 23/10 soir : écran 2, la cible dans la phrase ; les notes passent à la ligne dans la carte */
+.ph .cible { color:var(--blue); }
+.scinde .cadre .test > div { white-space:normal; grid-template-columns:minmax(150px,200px) 1fr; align-items:start; }
+/* écran 3 : nom et détails sur une ligne, la phrase décollée des notes, le texte d'intro à mi-distance */
+.piste .cadre .tete { display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 14px; margin-bottom:clamp(10px,1.8vh,18px); }
+.piste .cadre .tete h3 { margin:0; }
+.piste .cadre .tete .tag { margin:0; font-size:11.5px; }
+#defile .piste .cadre p.ph { margin-bottom:clamp(14px,2.4vh,26px); }
+.ecran .contenu.dense h1.h-compact + p.th { margin-top:clamp(14px,2.6vh,30px); }
+.compteur { margin-bottom:clamp(20px,4.6vh,40px); }
 </style>
 </head>
 <body>
@@ -309,10 +319,10 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       <div class="cta"><button type="button" data-suivant>Voir cinq exemples</button></div>
     </div>
     <div class="cadre">
-      <span class="lab">Exemple · un institut fictif · un positionnement par cible</span>
-      <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Pour les marques de cosmétique</button><button type="button" role="tab" data-cible="b" aria-selected="false">Pour les enseignes de distribution</button></div>
+      <span class="lab">Exemple · un institut fictif, deux cibles</span>
+      <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Marques de cosmétique</button><button type="button" role="tab" data-cible="b" aria-selected="false">Enseignes de distribution</button></div>
       <div class="version" data-version="a">
-      <p class="ph">« Nous testons vos packagings en magasin, face à vos concurrents, avant le lancement : vous savez s'il sera vu, et choisi. »</p>
+      <p class="ph">« <span class="cible">Pour les marques de cosmétique</span>, nous testons vos packagings en magasin, face à vos concurrents, avant le lancement : vous savez s'il sera vu, et choisi. »</p>
       <div class="test">
         <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Les tests de packaging.</span></div>
         <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les marques de cosmétique.</span></div>
@@ -321,7 +331,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       </div>
       </div>
       <div class="version" data-version="b" hidden>
-      <p class="ph">« Nous testons en magasin les packagings des marques que vous référencez : vous savez lesquels feront tourner le rayon. »</p>
+      <p class="ph">« <span class="cible">Pour les enseignes de distribution</span>, nous testons en magasin les packagings des marques que vous référencez : vous savez lesquels feront tourner le rayon. »</p>
       <div class="test">
         <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Les tests de packaging.</span></div>
         <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Pour qui</span><span class="v">Les enseignes de distribution.</span></div>
@@ -344,8 +354,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     <div class="defile" id="defile">
       <div class="fenetre"><div class="piste" id="piste">
       <div class="cadre">
-        <h3>Attest</h3><span class="tag">Logiciel d'enquêtes en ligne · Londres · 3 verts · 1 orange</span>
-        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <div class="tete"><h3>Attest</h3><span class="tag">Logiciel d'enquêtes en ligne · Londres · 3 verts · 1 orange · traduit de l'anglais</span></div>
         <p class="ph">« Le moteur d'insights consommateurs par IA des grandes marques B2C. Reliez enquêtes et entretiens avec de vrais consommateurs pour décider plus vite, plus juste. La seule plateforme d'insights au prix fixe et prévisible, où que soit votre audience. »</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des enquêtes et des entretiens consommateurs, par IA.</span></div>
@@ -355,8 +364,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
         </div>
       </div>
       <div class="cadre">
-        <h3>Euromonitor International</h3><span class="tag">Éditeur d'études de marché · Londres · 2 verts · 1 orange · 1 rouge</span>
-        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <div class="tete"><h3>Euromonitor International</h3><span class="tag">Éditeur d'études de marché · Londres · 2 verts · 1 orange · 1 rouge · traduit de l'anglais</span></div>
         <p class="ph">« Euromonitor International est un fournisseur reconnu d'intelligence de marché mondiale, qui vous aide à prendre des décisions à fort enjeu pour libérer la croissance. Plus de 50 ans de recherche indépendante. Des analystes dans plus de 100 pays. »</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Des études de marché, à l'échelle mondiale.</span></div>
@@ -366,8 +374,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
         </div>
       </div>
       <div class="cadre">
-        <h3>J.D. Power</h3><span class="tag">Données et études pour l'automobile · États-Unis · 3 verts · 1 orange</span>
-        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <div class="tete"><h3>J.D. Power</h3><span class="tag">Données et études pour l'automobile · États-Unis · 3 verts · 1 orange · traduit de l'anglais</span></div>
         <p class="ph">« JD Power donne aux entreprises les données, les analyses et les insights pour prendre des décisions plus éclairées. Que vous conceviez des véhicules, les vendiez, les financiez ou les assuriez, JD Power vous aide à agir avec confiance à chaque étape. Des données propriétaires issues de millions d'expériences clients vérifiées. »</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Données, analyses et études pour l'automobile.</span></div>
@@ -377,8 +384,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
         </div>
       </div>
       <div class="cadre">
-        <h3>SurveyMonkey</h3><span class="tag">Logiciel d'enquêtes en ligne · États-Unis · 2 verts · 2 oranges</span>
-        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <div class="tete"><h3>SurveyMonkey</h3><span class="tag">Logiciel d'enquêtes en ligne · États-Unis · 2 verts · 2 oranges · traduit de l'anglais</span></div>
         <p class="ph">« La plateforme d'enquêtes la plus populaire au monde. Comprenez les besoins changeants de vos salariés, clients, participants et acheteurs grâce au retour continu. Utilisée par plus de 260 000 organisations dans le monde. »</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Un logiciel d'enquêtes en ligne : c'est clair.</span></div>
@@ -388,8 +394,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
         </div>
       </div>
       <div class="cadre">
-        <h3>Mintel</h3><span class="tag">Études et veille de marché · Londres · 1 vert · 1 orange · 2 rouges</span>
-        <span class="lab">Son positionnement, traduit de l'anglais</span>
+        <div class="tete"><h3>Mintel</h3><span class="tag">Études et veille de marché · Londres · 1 vert · 1 orange · 2 rouges · traduit de l'anglais</span></div>
         <p class="ph">« Agence mondiale d'intelligence de marché et d'études. Vous êtes une entreprise ambitieuse qui veut comprendre les consommateurs, prédire les tendances et garder une longueur d'avance. Avec notre intelligence de marché, vous aurez les insights pour agir avec décision. »</p>
         <div class="test">
           <div><span class="k"><i class="ok" data-ic="ok"></i>Métier</span><span class="v">Études et veille de marché : c'est dit.</span></div>
