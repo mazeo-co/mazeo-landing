@@ -57,11 +57,11 @@ button, input { font:inherit; }
 /* une seule page. Rangée 1 : le titre, et à droite l'étiquette des fiches posée sur sa dernière ligne.
    Rangée 2 : le texte à gauche, les fiches à droite ; les deux colonnes ont le même haut et le même bas. */
 .contenu { max-width:1280px; margin:0 auto; padding:clamp(16px,3.4vh,64px) 48px clamp(20px,4vh,56px); }
-.bas { display:grid; grid-template-columns:1.2fr .8fr; grid-template-areas:"titre etiquette" "texte fiches"; column-gap:clamp(48px,5vw,88px); }
-.bas h1 { grid-area:titre; } .bas .texte { grid-area:texte; display:flex; flex-direction:column; } .bas .texte .cta { margin-top:auto; padding-top:clamp(20px,4vh,44px); } .bas .fiches { grid-area:fiches; display:flex; }
-.bas .etiquette { grid-area:etiquette; align-self:end; margin-bottom:clamp(16px,3.4vh,48px); }
+.bas { display:grid; grid-template-columns:1.06fr .94fr; grid-template-areas:"titre ." "texte fiches"; column-gap:clamp(48px,5vw,88px); }
+.bas h1 { grid-area:titre; } .bas .texte { grid-area:texte; display:flex; flex-direction:column; } .bas .texte .cta { margin-top:auto; padding-top:clamp(20px,4vh,44px); } .bas .fiches { grid-area:fiches; display:flex; flex-direction:column; }
+.bas .etiquette { margin:clamp(6px,1vh,10px) 0 clamp(14px,2.6vh,30px); }
 .lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); line-height:1; }
-h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.02; font-size:clamp(42px,min(5.15vw,10vh),84px); margin:-.08em 0 clamp(16px,3.4vh,48px); }
+h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.02; font-size:clamp(40px,min(4.75vw,9.2vh),78px); margin:-.08em 0 clamp(16px,3.4vh,48px); }
 h1 .l { display:block; white-space:nowrap; }
 h1 .b { font-style:italic; color:var(--blue); }
 p.lede { text-wrap:balance; font-family:var(--serif); font-style:italic; font-size:clamp(22px,min(2.2vw,4.3vh),34px); line-height:1.28; margin:0 0 clamp(14px,3vh,28px); max-width:600px; }
@@ -70,7 +70,7 @@ p.th { font-size:clamp(16px,min(1.4vw,2.85vh),21px); line-height:1.6; color:var(
 .btn { font-weight:600; font-size:17px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 22px; text-decoration:none; display:inline-block; cursor:pointer; }
 .btn:hover { background:#000; }
 /* les fiches : chiffre en serif, titre et état sur une ligne, sous-titre sur la suivante ; réparties sur la hauteur du texte d'en face */
-ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:clamp(10px,2vh,22px); }
+ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:clamp(8px,1.4vh,18px); }
 ol.lecons li { display:grid; grid-template-columns:30px 1fr; column-gap:16px; align-items:start; }
 ol.lecons .n { font-family:var(--serif); font-size:clamp(26px,4.2vh,34px); line-height:.9; color:var(--blue); }
 ol.lecons .t { font-weight:600; font-size:clamp(15px,min(1.15vw,2.3vh),17px); line-height:1.3; text-decoration:none; }
@@ -85,7 +85,7 @@ ol.lecons li.bientot .t { color:var(--meta); }
 @media (max-width:900px) {
   .entete .in { padding:20px 16px 12px; }
   .contenu { padding:24px 16px 56px; min-height:0; }
-  .bas { grid-template-columns:1fr; grid-template-areas:"titre" "texte" "etiquette" "fiches"; }
+  .bas { grid-template-columns:1fr; grid-template-areas:"titre" "texte" "fiches"; }
   .bas .etiquette { margin:44px 0 18px; }
   .bas .texte .cta { margin-top:24px; padding-top:0; }
   ol.lecons { gap:18px; } ol.lecons .t .s { white-space:normal; }
@@ -114,8 +114,8 @@ ol.lecons li.bientot .t { color:var(--meta); }
     <div class="cta"><a class="btn" href="/positionnement">Commencer : votre positionnement</a></div>
   </div>
 
-  <span class="lab etiquette">Les fiches pratiques</span>
   <div class="fiches">
+    <span class="lab etiquette">Les fiches pratiques</span>
     <ol class="lecons">
       <li class="ouverte"><span class="n">1</span><a class="t" href="/positionnement">Votre positionnement<span class="etat">Commencer →</span><span class="s">3 minutes · noté d'après votre site</span></a></li>
       <li class="bientot"><span class="n">2</span><span class="t">Votre cible<span class="etat">Bientôt</span><span class="s">les entreprises et les personnes à contacter</span></span></li>
