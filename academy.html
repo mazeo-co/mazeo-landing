@@ -54,40 +54,42 @@ button, input { font:inherit; }
 .share-menu i { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px; font-style:normal; color:#fff; }
 .share-menu i svg { width:16px; height:16px; fill:currentColor; display:block; }
 .i-in { background:#0A66C2; } .i-wa { background:#25D366; } .i-x { background:#000; } .i-mail { background:#6B7280; } .i-link { background:#2B8FFF; }
-/* une seule page : à gauche le titre et le texte, à droite les fiches */
+/* une seule page. Rangée 1 : le titre, et à droite l'étiquette des fiches posée sur sa dernière ligne.
+   Rangée 2 : le texte à gauche, les fiches à droite ; les deux colonnes ont le même haut et le même bas. */
 .contenu { max-width:1280px; margin:0 auto; padding:clamp(16px,3.4vh,64px) 48px clamp(20px,4vh,56px); }
-.bas { display:grid; grid-template-columns:1.1fr .9fr; grid-template-areas:"titre ." "texte fiches"; column-gap:72px; align-items:start; }
-.bas h1 { grid-area:titre; } .bas .texte { grid-area:texte; } .bas .fiches { grid-area:fiches; }
-.lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:clamp(12px,2.4vh,28px); line-height:1; }
+.bas { display:grid; grid-template-columns:1.2fr .8fr; grid-template-areas:"titre etiquette" "texte fiches"; column-gap:clamp(48px,5vw,88px); }
+.bas h1 { grid-area:titre; } .bas .texte { grid-area:texte; display:flex; flex-direction:column; } .bas .texte .cta { margin-top:auto; padding-top:clamp(20px,4vh,44px); } .bas .fiches { grid-area:fiches; display:flex; }
+.bas .etiquette { grid-area:etiquette; align-self:end; margin-bottom:clamp(16px,3.4vh,48px); }
+.lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); line-height:1; }
 h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.02; font-size:clamp(42px,min(5.15vw,10vh),84px); margin:-.08em 0 clamp(16px,3.4vh,48px); }
 h1 .l { display:block; white-space:nowrap; }
 h1 .b { font-style:italic; color:var(--blue); }
-p.lede { font-family:var(--serif); font-style:italic; font-size:clamp(21px,min(1.8vw,3.5vh),28px); line-height:1.3; margin:0 0 clamp(12px,2.4vh,24px); max-width:560px; }
-p.th { font-size:clamp(16px,min(1.2vw,2.5vh),19px); line-height:1.6; color:var(--body); margin:0; max-width:560px; }
+p.lede { text-wrap:balance; font-family:var(--serif); font-style:italic; font-size:clamp(22px,min(2.2vw,4.3vh),34px); line-height:1.28; margin:0 0 clamp(14px,3vh,28px); max-width:600px; }
+p.th { font-size:clamp(16px,min(1.4vw,2.85vh),21px); line-height:1.6; color:var(--body); margin:0; max-width:600px; }
 .cta { margin-top:clamp(24px,5vh,52px); }
 .btn { font-weight:600; font-size:17px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 22px; text-decoration:none; display:inline-block; cursor:pointer; }
 .btn:hover { background:#000; }
-/* les leçons : grand numéro en serif, pastille d'état arrondie, aucun trait ; celles qui ne sont pas prêtes en gris */
-ol.lecons { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:clamp(8px,1.7vh,24px); }
-ol.lecons li { display:grid; grid-template-columns:24px 1fr auto; gap:18px; align-items:center; }
-ol.lecons .n { font-family:var(--serif); font-size:clamp(26px,4.4vh,38px); line-height:1; color:var(--blue); }
+/* les fiches : chiffre en serif, titre et état sur une ligne, sous-titre sur la suivante ; réparties sur la hauteur du texte d'en face */
+ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:clamp(10px,2vh,22px); }
+ol.lecons li { display:grid; grid-template-columns:30px 1fr; column-gap:16px; align-items:start; }
+ol.lecons .n { font-family:var(--serif); font-size:clamp(26px,4.2vh,34px); line-height:.9; color:var(--blue); }
 ol.lecons .t { font-weight:600; font-size:clamp(15px,min(1.15vw,2.3vh),17px); line-height:1.3; text-decoration:none; }
-ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(13px,min(.95vw,1.95vh),14.5px); color:var(--meta); margin-top:4px; }
-ol.lecons .etat { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--meta); white-space:nowrap; border-radius:999px; padding:5px 11px; background:#ECECE9; }
+ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(13px,min(.95vw,1.95vh),14.5px); color:var(--meta); margin-top:3px; white-space:nowrap; }
+ol.lecons .etat { font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--meta); white-space:nowrap; border-radius:999px; padding:3px 9px; background:#ECECE9; margin-left:10px; vertical-align:2px; }
 ol.lecons li.ouverte { position:relative; }
 ol.lecons li.ouverte a.t::after { content:""; position:absolute; inset:0; }
 ol.lecons li.ouverte:hover .t { color:var(--blue); }
-ol.lecons li.ouverte .etat { background:none; padding:5px 0; color:var(--ink); font-size:12px; }
-ol.lecons li.ouverte:hover .etat { color:var(--blue); }
+ol.lecons li.ouverte .etat { background:var(--blue); color:#fff; }
 ol.lecons li.bientot .n { color:var(--meta2); }
 ol.lecons li.bientot .t { color:var(--meta); }
 @media (max-width:900px) {
   .entete .in { padding:20px 16px 12px; }
   .contenu { padding:24px 16px 56px; min-height:0; }
-  .bas { grid-template-columns:1fr; grid-template-areas:"titre" "texte" "fiches"; row-gap:36px; }
-  .bas h1 { margin-bottom:0; }
+  .bas { grid-template-columns:1fr; grid-template-areas:"titre" "texte" "etiquette" "fiches"; }
+  .bas .etiquette { margin:44px 0 18px; }
+  .bas .texte .cta { margin-top:24px; padding-top:0; }
+  ol.lecons { gap:18px; } ol.lecons .t .s { white-space:normal; }
   .logo .par { font-size:14px; } .logo .mz { font-size:18px; }
-  ol.lecons li { grid-template-columns:22px 1fr auto; gap:14px; }
   h1 .l { white-space:normal; }
   .pill { padding:7px 14px; font-size:14px; }
   .logo .nm { font-size:24px; white-space:nowrap; }
@@ -112,15 +114,15 @@ ol.lecons li.bientot .t { color:var(--meta); }
     <div class="cta"><a class="btn" href="/positionnement">Commencer : votre positionnement</a></div>
   </div>
 
+  <span class="lab etiquette">Les fiches pratiques</span>
   <div class="fiches">
-    <span class="lab">Les fiches pratiques</span>
     <ol class="lecons">
-      <li class="ouverte"><span class="n">1</span><a class="t" href="/positionnement">Votre positionnement<span class="s">3 minutes · noté d'après votre site</span></a><span class="etat">Commencer →</span></li>
-      <li class="bientot"><span class="n">2</span><span class="t">Votre cible<span class="s">les entreprises et les personnes à contacter</span></span><span class="etat">Bientôt</span></li>
-      <li class="bientot"><span class="n">3</span><span class="t">Votre premier message<span class="s">l'email et le message LinkedIn</span></span><span class="etat">Bientôt</span></li>
-      <li class="bientot"><span class="n">4</span><span class="t">Votre profil LinkedIn<span class="s">ce que vos prospects voient de vous</span></span><span class="etat">Bientôt</span></li>
-      <li class="bientot"><span class="n">5</span><span class="t">Votre prise de rendez-vous<span class="s">un lien d'agenda Cal.com pour vos messages</span></span><span class="etat">Bientôt</span></li>
-      <li class="bientot"><span class="n">6</span><span class="t">Votre rythme<span class="s">un objectif, et du temps chaque semaine</span></span><span class="etat">Bientôt</span></li>
+      <li class="ouverte"><span class="n">1</span><a class="t" href="/positionnement">Votre positionnement<span class="etat">Commencer →</span><span class="s">3 minutes · noté d'après votre site</span></a></li>
+      <li class="bientot"><span class="n">2</span><span class="t">Votre cible<span class="etat">Bientôt</span><span class="s">les entreprises et les personnes à contacter</span></span></li>
+      <li class="bientot"><span class="n">3</span><span class="t">Votre premier message<span class="etat">Bientôt</span><span class="s">l'email et le message LinkedIn</span></span></li>
+      <li class="bientot"><span class="n">4</span><span class="t">Votre profil LinkedIn<span class="etat">Bientôt</span><span class="s">ce que vos prospects voient de vous</span></span></li>
+      <li class="bientot"><span class="n">5</span><span class="t">Votre prise de rendez-vous<span class="etat">Bientôt</span><span class="s">un lien d'agenda Cal.com pour vos messages</span></span></li>
+      <li class="bientot"><span class="n">6</span><span class="t">Votre rythme<span class="etat">Bientôt</span><span class="s">un objectif, et du temps chaque semaine</span></span></li>
     </ol>
   </div>
   </div>
