@@ -45,21 +45,23 @@ button, input { font:inherit; }
 .retour { border:1px solid var(--hair2); border-radius:999px; padding:9px 18px; font-weight:600; font-size:15px; text-decoration:none; }
 .retour:hover { background:var(--card); }
 /* une seule page : à gauche l'accroche, à droite les leçons */
-.contenu { max-width:1280px; margin:0 auto; padding:clamp(16px,3vh,56px) 48px 32px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:start; }
+.contenu { max-width:1280px; margin:0 auto; padding:clamp(8px,1.6vh,40px) 48px clamp(20px,4vh,56px); display:grid; grid-template-columns:1.05fr 1fr; gap:72px; align-items:stretch; min-height:calc(100vh - 104px); }
+.contenu > div { display:flex; flex-direction:column; }
+.contenu > div:first-child { justify-content:space-between; gap:clamp(18px,3vh,40px); }
 .lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
-h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:.98; font-size:clamp(46px,4.6vw,70px); margin:0 0 20px; text-wrap:balance; }
+h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:.98; font-size:clamp(48px,min(5.4vw,9.4vh),88px); margin:0 0 clamp(12px,2.6vh,32px); text-wrap:balance; }
 h1 span { font-style:italic; color:var(--blue); }
-p.lede { font-family:var(--serif); font-size:clamp(21px,1.5vw,26px); line-height:1.3; margin:0 0 18px; max-width:44ch; }
-p.th { font-size:clamp(17px,1.2vw,20px); line-height:1.6; color:var(--body); margin:0 0 14px; max-width:50ch; }
-.cta { margin-top:30px; }
-.btn { font-weight:600; font-size:clamp(17px,1.2vw,20px); color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 28px; text-decoration:none; display:inline-block; cursor:pointer; }
+p.lede { font-family:var(--serif); font-size:clamp(24px,min(2.1vw,3.9vh),34px); line-height:1.3; margin:0 0 clamp(12px,2.4vh,28px); max-width:36ch; }
+p.th { font-size:clamp(18px,min(1.5vw,2.85vh),24px); line-height:1.6; color:var(--body); margin:0 0 clamp(10px,2vh,20px); max-width:46ch; }
+.cta { margin-top:0; }
+.btn { font-weight:600; font-size:clamp(18px,1.35vw,22px); color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 28px; text-decoration:none; display:inline-block; cursor:pointer; }
 .btn:hover { background:#000; }
 /* les leçons : une ligne par leçon, numérotée ; celles qui ne sont pas prêtes en gris, « Bientôt » */
-ol.lecons { list-style:none; margin:0; padding:0; border-top:1px solid var(--hair2); }
-ol.lecons li { display:grid; grid-template-columns:34px 1fr auto; gap:16px; align-items:center; padding:9px 0; border-bottom:1px solid var(--hair); }
+ol.lecons { list-style:none; margin:0; padding:0; border-top:1px solid var(--hair2); flex:1; display:flex; flex-direction:column; }
+ol.lecons li { display:grid; grid-template-columns:36px 1fr auto; gap:20px; align-items:center; flex:1; padding:clamp(4px,1.1vh,20px) 0; border-bottom:1px solid var(--hair); }
 ol.lecons .n { font-family:var(--mono); font-weight:600; font-size:12px; color:var(--blue); width:26px; height:26px; border:1px solid rgba(0,123,255,.45); border-radius:3px; display:inline-flex; align-items:center; justify-content:center; }
-ol.lecons .t { font-weight:600; font-size:clamp(17px,1.2vw,20px); line-height:1.3; text-decoration:none; }
-ol.lecons .t .s { display:block; font-weight:400; font-size:14.5px; color:var(--meta); margin-top:2px; }
+ol.lecons .t { font-weight:600; font-size:clamp(19px,1.45vw,23px); line-height:1.3; text-decoration:none; }
+ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(15px,1.1vw,17px); color:var(--meta); margin-top:4px; }
 ol.lecons .etat { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); white-space:nowrap; }
 ol.lecons li.ouverte { position:relative; }
 ol.lecons li.ouverte a.t::after { content:""; position:absolute; inset:0; }
@@ -68,17 +70,18 @@ ol.lecons li.ouverte .etat { color:var(--ink); }
 ol.lecons li.bientot .n { color:var(--meta2); border-color:var(--hair2); }
 ol.lecons li.bientot .t { color:var(--meta); }
 /* être prévenu de la leçon suivante : content-signup, type « ressources », comme sur les autres pages */
-.informer { margin-top:18px; }
+.informer { margin-top:clamp(14px,2.4vh,32px); }
 .informer .lab { margin-bottom:10px; }
 .informer .ligne { display:flex; gap:10px; }
-.informer input { flex:1; min-width:0; border:1px solid var(--hair2); border-radius:4px; padding:11px 14px; font-size:16px; color:var(--ink); background:var(--card); outline:0; }
+.informer input { flex:1; min-width:0; border:1px solid var(--hair2); border-radius:4px; padding:13px 16px; font-size:17px; color:var(--ink); background:var(--card); outline:0; }
 .informer input:focus { border-color:var(--ink); }
-.informer button { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 20px; cursor:pointer; white-space:nowrap; }
+.informer button { font-weight:600; font-size:17px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:13px 22px; cursor:pointer; white-space:nowrap; }
 .informer button:disabled { opacity:.6; cursor:wait; }
 .informer .msg { min-height:20px; font-size:13.5px; color:#B45309; margin:6px 0 0; }
 @media (max-width:900px) {
   .entete .in { padding:20px 16px 12px; }
-  .contenu { grid-template-columns:1fr; gap:40px; padding:24px 16px 56px; }
+  .contenu { grid-template-columns:1fr; gap:40px; padding:24px 16px 56px; min-height:0; }
+  ol.lecons li { flex:none; }
   .retour { padding:8px 14px; font-size:14px; white-space:nowrap; }
   .logo .nm { font-size:24px; white-space:nowrap; }
   .informer .ligne { flex-direction:column; }
@@ -96,11 +99,15 @@ ol.lecons li.bientot .t { color:var(--meta); }
 
 <main class="contenu">
   <div>
+    <div>
     <span class="lab">Ressource gratuite · prospection</span>
-    <h1>Mieux prospecter, <span>leçon par leçon.</span></h1>
+    <h1 style="margin-bottom:0">Mieux prospecter, <span>leçon par leçon.</span></h1>
+    </div>
+    <div>
     <p class="lede">Des leçons courtes pour trouver vos prochains clients dans le market research.</p>
     <p class="th">Chacune traite un point de votre prospection : votre positionnement, votre cible, votre message, votre profil LinkedIn, votre prise de rendez-vous.</p>
     <p class="th">Quelques minutes par leçon, sans inscription. Vous repartez avec un résultat à vous, prêt à servir.</p>
+    </div>
     <div class="cta"><a class="btn" href="/positionnement">Commencer : leçon 1, votre positionnement</a></div>
   </div>
 
@@ -109,7 +116,7 @@ ol.lecons li.bientot .t { color:var(--meta); }
     <ol class="lecons">
       <li class="ouverte"><span class="n">1</span><a class="t" href="/positionnement">Votre positionnement<span class="s">3 minutes · noté sur quatre points d'après votre site</span></a><span class="etat">Commencer →</span></li>
       <li class="bientot"><span class="n">2</span><span class="t">Votre cible<span class="s">les entreprises et les personnes à qui vous adresser</span></span><span class="etat">Bientôt</span></li>
-      <li class="bientot"><span class="n">3</span><span class="t">Votre premier message<span class="s">l'email et le message LinkedIn qui donnent envie de répondre</span></span><span class="etat">Bientôt</span></li>
+      <li class="bientot"><span class="n">3</span><span class="t">Votre premier message<span class="s">l'email et le message LinkedIn qui font répondre</span></span><span class="etat">Bientôt</span></li>
       <li class="bientot"><span class="n">4</span><span class="t">Votre profil LinkedIn<span class="s">la page que vos prospects ouvrent avant de vous répondre</span></span><span class="etat">Bientôt</span></li>
       <li class="bientot"><span class="n">5</span><span class="t">Votre prise de rendez-vous<span class="s">un lien d'agenda, avec Cal.com, prêt pour vos messages</span></span><span class="etat">Bientôt</span></li>
       <li class="bientot"><span class="n">6</span><span class="t">Votre rythme<span class="s">un objectif, et le temps à y consacrer chaque semaine</span></span><span class="etat">Bientôt</span></li>
