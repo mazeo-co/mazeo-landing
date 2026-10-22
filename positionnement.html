@@ -217,6 +217,40 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
   .entete .in { padding:14px 20px 12px; flex-wrap:wrap; gap:10px; } .entete .fil { display:none; }
   h1 { font-size:34px; } .heros h1 { font-size:40px; }
 }
+/* 23/10 : le compteur des exemples */
+.compteur { display:flex; align-items:center; gap:16px; margin:0 0 12px; font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--meta); }
+.compteur .points { display:flex; gap:7px; }
+.compteur .points button { width:9px; height:9px; border-radius:50%; border:0; padding:0; background:var(--hair2); cursor:pointer; }
+.compteur .points button.on { background:var(--blue); }
+.cta button[hidden] { display:none; }
+.cta button.second:hover, .cta a.btn.second:hover { background:var(--card); }
+/* 23/10 : l'écran des exemples tient sur un écran */
+#defile .piste .cadre { padding-top:clamp(14px,2vh,26px); padding-bottom:clamp(12px,1.8vh,24px); }
+#defile .piste .cadre .tag { margin-bottom:8px; }
+#defile .piste .cadre p.ph { margin-bottom:10px; }
+.ecran .contenu.dense p.morale { margin-top:clamp(8px,1.4vh,20px); }
+.compteur { margin-bottom:6px; } #defile { margin-top:0; }
+#defile ~ .cta { margin-top:clamp(12px,2.2vh,28px); }
+.ecran .contenu.dense { padding-bottom:clamp(12px,2vh,40px); }
+/* 23/10 : le résultat tient sur un écran */
+#v-ok h1.h-compact { margin-bottom:clamp(12px,2.2vh,24px); }
+#v-ok .resultat { gap:40px; }
+#v-ok .cadre.grand { padding:clamp(18px,2.8vh,32px) 32px clamp(16px,2.6vh,28px); }
+#v-ok .cadre.grand h3 { font-size:24px; margin-bottom:4px; }
+#v-ok .cadre.grand .tag { margin-bottom:clamp(10px,2vh,20px); }
+#v-ok .cadre.grand .lab { margin-bottom:8px; font-size:12px; }
+#v-ok .cadre.grand p.ph { font-size:clamp(17px,min(1.3vw,2.7vh),22px); line-height:1.4; margin-bottom:clamp(12px,2.2vh,24px); }
+#v-ok .cadre.grand .test { gap:clamp(6px,1.2vh,12px); }
+#v-ok .cadre.grand .test > div { grid-template-columns:180px 1fr; font-size:clamp(15px,min(1.1vw,2.3vh),18px); line-height:1.4; }
+#v-ok .cote { padding-top:0; }
+#v-ok .cote p.synthese { font-size:clamp(19px,min(1.5vw,3.1vh),25px); line-height:1.35; margin-bottom:clamp(12px,2.4vh,26px); }
+#v-ok .cote .lab { margin-bottom:10px; }
+#v-ok .manque { gap:clamp(8px,1.4vh,14px); }
+#v-ok .manque > div { padding-bottom:clamp(8px,1.4vh,14px); }
+#v-ok .manque .k { margin-bottom:4px; font-size:15px; }
+#v-ok .manque p { font-size:clamp(15px,min(1.05vw,2.2vh),17px); line-height:1.45; }
+#v-ok .manque p.ex { font-size:13.5px; margin-top:3px; }
+#v-ok .cta { margin-top:clamp(14px,2.6vh,28px); }
 </style>
 </head>
 <body>
@@ -280,6 +314,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     <p class="sur">Théorie</p>
     <h1 class="h-compact">Comment cinq entreprises du secteur <span>se présentent.</span></h1>
     <p class="th" style="max-width:none">Cinq entreprises que vous connaissez, une par une. Leur positionnement, tel qu'il est écrit sur leur site, noté sur les quatre points.</p>
+    <div class="compteur" id="d-compteur" aria-live="polite"><span id="d-num">Exemple 1 sur 5</span><span class="points" id="d-points"></span></div>
     <div class="defile" id="defile">
       <div class="fenetre"><div class="piste" id="piste">
       <div class="cadre">
@@ -342,7 +377,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       <button type="button" class="fleche suiv" id="d-suiv" aria-label="Entreprises suivantes"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
     </div>
     <p class="morale">Cinq entreprises connues de tous. Aucune ne dit, en une phrase, ce que son client obtient.</p>
-    <div class="cta"><button type="button" data-suivant>Testez votre positionnement</button></div>
+    <div class="cta"><button type="button" id="d-suivant">Exemple suivant →</button><button type="button" class="second" id="d-passer" data-suivant>Passer directement au mien</button></div>
   </div>
 </section>
 
@@ -362,7 +397,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       <div id="bloc-site" hidden style="margin-top:-8px"><input type="text" id="f-site" placeholder="www.votre-societe.fr" autocomplete="url" inputmode="url"><p class="retenu" id="f-retenu-site"></p></div>
       <div><label class="ch" for="f-email">Votre email professionnel, pour recevoir le résultat</label><input type="email" id="f-email" placeholder="prenom@votre-societe.fr" autocomplete="email" required></div>
       <label class="ligne"><input type="checkbox" class="js-non"> Je ne souhaite pas recevoir les prochaines ressources de mazeo.</label>
-      <div class="cta cta-form"><button type="submit">Noter mon positionnement</button></div>
+      <div class="cta cta-form"><button type="submit">Recevoir mon analyse</button></div>
       <p class="msg" role="status" aria-live="polite"></p>
       <p class="note" id="f-note">Avec une adresse de l'entreprise choisie, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.</p>
     </form>
@@ -381,11 +416,14 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     <div id="v-ok" hidden>
       <h1 class="h-compact">Ce que <span id="v-site">votre site</span> dit de vous</h1>
       <div class="resultat">
+        <div class="gauche">
         <div class="cadre grand">
           <h3 id="v-nom"></h3><span class="tag" id="v-tag"></span>
           <span class="lab">Votre positionnement, tel qu'il est écrit sur votre site</span>
           <p class="ph" id="v-actuel"></p>
           <div class="test" id="v-lignes"></div>
+        </div>
+        <div class="cta"><button type="button" data-suivant>Et maintenant ?</button><a class="btn second" href="/academy">Revenir aux fiches pratiques</a></div>
         </div>
         <div class="cote">
           <p class="synthese" id="v-synthese"></p>
@@ -393,7 +431,6 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
           <div class="manque" id="v-manque"></div>
         </div>
       </div>
-      <div class="cta"><button type="button" data-suivant>Et maintenant ?</button></div>
     </div>
     <div id="v-ko" class="illisible" hidden>
       <h1>Nous n'avons pas pu <span>lire votre site.</span></h1>
@@ -447,7 +484,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
     document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
     document.getElementById("fil").textContent = (n + 1) + " sur " + ecrans.length;
-    document.getElementById("nav").style.display = n === 0 ? "none" : "";  // ecran 1 : le bouton Commencer suffit
+    document.getElementById("nav").style.display = "none";  // 23/10 : plus de flèches fixes, chaque écran a ses boutons
     document.getElementById("prec").disabled = n === 0;
     document.getElementById("suiv").disabled = n === ecrans.length - 1 || (n === 3 && !VERDICT);
     var champ = ecrans[n].querySelector("input, [contenteditable]");
@@ -574,7 +611,7 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
     function versSite(oui) {
       blocE.hidden = oui; blocS.hidden = !oui; fermer();
       bascule.textContent = oui ? "Revenir à la liste" : "Pas dans la liste ? Signalez-la";
-      var go = document.querySelector(".js-noter button[type=submit]"); go.textContent = oui ? "Signaler mon entreprise" : "Noter mon positionnement";
+      var go = document.querySelector(".js-noter button[type=submit]"); go.textContent = oui ? "Signaler mon entreprise" : "Recevoir mon analyse";
       document.getElementById("f-note").textContent = oui ? "Nous ajoutons son site à la liste et revenons vers vous. Gmail, outlook, orange… ne passent pas." : "Avec une adresse de l'entreprise choisie, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.";
       var lab = document.getElementById("f-lab"); lab.textContent = oui ? "L'adresse de son site" : "Votre entreprise"; lab.setAttribute("for", oui ? "f-site" : "f-entreprise");
       (oui ? document.getElementById("f-site") : champ).focus();
@@ -605,20 +642,26 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
       .catch(function () { aller(3); var a = document.getElementById("f-avis"); a.textContent = ERREURS.reseau; a.hidden = false; });
   })();
 
-  /* le défilement des cinq entreprises : deux visibles, la flèche avance d'une */
+  /* le défilement des cinq entreprises : une à la fois ; le compteur et le bouton « Exemple suivant » (23/10) */
   (function () {
     var piste = document.getElementById("piste"), prec = document.getElementById("d-prec"), suiv = document.getElementById("d-suiv");
     if (!piste) return;
-    var cartes = piste.children, i = 0;
-    function visibles() { return 1; }
+    var cartes = piste.children, i = 0, total = cartes.length;
+    var num = document.getElementById("d-num"), pts = document.getElementById("d-points"), bSuiv = document.getElementById("d-suivant"), bPasser = document.getElementById("d-passer");
+    pts.innerHTML = Array.prototype.map.call(cartes, function (c, k) { return '<button type="button" aria-label="Exemple ' + (k + 1) + '"></button>'; }).join("");
+    Array.prototype.forEach.call(pts.children, function (b, k) { b.addEventListener("click", function () { i = k; poser(); }); });
     function poser() {
-      var max = Math.max(0, cartes.length - visibles()); if (i > max) i = max;
+      if (i > total - 1) i = total - 1;
       var pas = cartes[0].getBoundingClientRect().width + 36;
       piste.style.transform = "translateX(" + (-i * pas) + "px)";
-      prec.disabled = i === 0; suiv.disabled = i >= max;
+      num.textContent = "Exemple " + (i + 1) + " sur " + total;
+      Array.prototype.forEach.call(pts.children, function (b, k) { b.classList.toggle("on", k === i); });
+      var dernier = i === total - 1;
+      bSuiv.textContent = dernier ? "Tester le mien" : "Exemple suivant →";
+      bPasser.hidden = dernier;
     }
-    prec.addEventListener("click", function () { i--; poser(); });
-    suiv.addEventListener("click", function () { i++; poser(); });
+    bSuiv.addEventListener("click", function () { if (i === total - 1) { bPasser.click(); return; } i++; poser(); });
+    prec.style.display = "none"; suiv.style.display = "none";
     window.addEventListener("resize", poser);
     poser();
   })();
