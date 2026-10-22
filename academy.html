@@ -1,11 +1,10 @@
 <!doctype html>
 <html lang="fr">
-<script>(function(){var v=(location.search.match(/[?&]v=([abc])/)||[])[1];if(v)document.documentElement.setAttribute("data-v",v);})();</script>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>growth academy · mieux prospecter, leçon par leçon · présentée par mazeo</title>
-<meta name="description" content="Des leçons courtes et gratuites pour mieux prospecter dans le market research : votre positionnement, votre cible, votre message, votre profil LinkedIn, votre prise de rendez-vous. Présentées par mazeo.">
+<title>growth academy · les bases de la prospection, pour le secteur des études · présentée par mazeo</title>
+<meta name="description" content="mazeo veut aider les sociétés d'études à mieux prospecter, en commençant par les bases : dire ce que vous faites, à qui vous souhaitez vous adresser, et comment. Des leçons courtes et gratuites.">
 <link rel="canonical" href="https://www.mazeo.co/academy">
 <link rel="alternate" hreflang="fr" href="https://www.mazeo.co/academy">
 <link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/academy">
@@ -13,8 +12,8 @@
 <meta property="og:site_name" content="mazeo">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://www.mazeo.co/academy">
-<meta property="og:title" content="growth academy · mieux prospecter, leçon par leçon">
-<meta property="og:description" content="Des leçons courtes et gratuites pour mieux prospecter : positionnement, cible, message, profil LinkedIn, prise de rendez-vous. Présentées par mazeo.">
+<meta property="og:title" content="growth academy · les bases de la prospection, pour le secteur des études">
+<meta property="og:description" content="mazeo veut aider les sociétés d'études à mieux prospecter, en commençant par les bases. Des leçons courtes et gratuites.">
 <meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
@@ -57,56 +56,27 @@ p.th { font-size:clamp(18px,min(1.5vw,2.85vh),24px); line-height:1.6; color:var(
 .cta { margin-top:clamp(16px,3vh,32px); }
 .btn { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 22px; text-decoration:none; display:inline-block; cursor:pointer; }
 .btn:hover { background:#000; }
-/* les leçons : une ligne par leçon, numérotée ; celles qui ne sont pas prêtes en gris, « Bientôt » */
-ol.lecons { list-style:none; margin:0; padding:0; border-top:1px solid var(--hair2); flex:1; display:flex; flex-direction:column; }
-ol.lecons li { display:grid; grid-template-columns:36px 1fr auto; gap:20px; align-items:center; flex:1; padding:clamp(4px,1.1vh,20px) 0; border-bottom:1px solid var(--hair); }
-ol.lecons .n { font-family:var(--mono); font-weight:600; font-size:12px; color:var(--blue); width:26px; height:26px; border:1px solid rgba(0,123,255,.45); border-radius:3px; display:inline-flex; align-items:center; justify-content:center; }
-ol.lecons .t { font-weight:600; font-size:clamp(19px,1.45vw,23px); line-height:1.3; text-decoration:none; }
-ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(15px,1.1vw,17px); color:var(--meta); margin-top:4px; }
-ol.lecons .etat { font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); white-space:nowrap; }
+/* les leçons : grand numéro en serif, pastille d'état arrondie, aucun trait ; celles qui ne sont pas prêtes en gris */
+ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; gap:clamp(8px,1.4vh,14px); }
+ol.lecons li { display:grid; grid-template-columns:52px 1fr auto; gap:20px; align-items:center; flex:1; }
+ol.lecons .n { font-family:var(--serif); font-size:40px; line-height:1; color:var(--blue); }
+ol.lecons .t { font-weight:600; font-size:17px; line-height:1.3; text-decoration:none; }
+ol.lecons .t .s { display:block; font-weight:400; font-size:14px; color:var(--meta); margin-top:4px; }
+ol.lecons .etat { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--meta); white-space:nowrap; border-radius:999px; padding:5px 11px; background:#ECECE9; }
 ol.lecons li.ouverte { position:relative; }
 ol.lecons li.ouverte a.t::after { content:""; position:absolute; inset:0; }
-ol.lecons li.ouverte:hover { background:var(--card); }
-ol.lecons li.ouverte .etat { color:var(--ink); }
-ol.lecons li.bientot .n { color:var(--meta2); border-color:var(--hair2); }
+ol.lecons li.ouverte:hover .t { color:var(--blue); }
+ol.lecons li.ouverte .etat { background:var(--blue); color:#fff; }
+ol.lecons li.bientot .n { color:var(--hair2); }
 ol.lecons li.bientot .t { color:var(--meta); }
 @media (max-width:900px) {
   .entete .in { padding:20px 16px 12px; }
   .contenu { grid-template-columns:1fr; gap:40px; padding:24px 16px 56px; min-height:0; }
-  ol.lecons li { flex:none; }
+  ol.lecons li { flex:none; grid-template-columns:30px 1fr auto; gap:14px; }
+  ol.lecons .n { font-size:34px; }
   .retour { padding:8px 14px; font-size:14px; white-space:nowrap; }
   .logo .nm { font-size:24px; white-space:nowrap; }
 }
-/* VARIANTES TEMPORAIRES de la liste des leçons (?v=a|b|c), pour choisir avec Romain */
-[data-v] ol.lecons { border-top:0; gap:clamp(8px,1.4vh,14px); }
-[data-v] ol.lecons li { border-bottom:0; padding:0; }
-[data-v] ol.lecons .t { font-size:17px; }
-[data-v] ol.lecons .t .s { font-size:14px; }
-[data-v] ol.lecons .etat { font-size:11px; }
-/* A · des cartes blanches, le numéro en chiffre de titre */
-[data-v=a] ol.lecons li { background:var(--card); border-radius:12px; padding:0 22px; grid-template-columns:34px 1fr auto; box-shadow:0 1px 0 rgba(0,0,0,.03); }
-[data-v=a] ol.lecons .n { border:0; width:auto; height:auto; font-family:var(--serif); font-size:34px; font-weight:400; color:var(--blue); }
-[data-v=a] ol.lecons li.bientot { background:transparent; border:1px dashed var(--hair2); }
-[data-v=a] ol.lecons li.bientot .n { color:var(--meta2); }
-[data-v=a] ol.lecons li.ouverte:hover { background:#fff; box-shadow:0 10px 24px -14px rgba(0,0,0,.25); }
-[data-v=a] ol.lecons li.ouverte .etat { background:var(--ink); color:var(--paper); padding:7px 12px; border-radius:999px; letter-spacing:.06em; }
-/* B · une grille de six tuiles */
-[data-v=b] ol.lecons { display:grid; grid-template-columns:1fr 1fr; grid-auto-rows:1fr; gap:12px; }
-[data-v=b] ol.lecons li { display:flex; flex-direction:column; align-items:flex-start; gap:6px; background:var(--card); border-radius:12px; padding:clamp(12px,2vh,20px) 20px; }
-[data-v=b] ol.lecons .n { border:0; width:auto; height:auto; font-family:var(--serif); font-size:30px; font-weight:400; line-height:1; color:var(--blue); }
-[data-v=b] ol.lecons .etat { margin-top:auto; }
-[data-v=b] ol.lecons li.bientot { background:rgba(255,255,255,.45); }
-[data-v=b] ol.lecons li.bientot .n { color:var(--meta2); }
-[data-v=b] ol.lecons li.ouverte { outline:1.5px solid var(--blue); }
-[data-v=b] ol.lecons li.ouverte .etat { color:var(--blue); }
-/* C · une liste nue : grand numéro en serif, pastille d'état arrondie, aucun trait */
-[data-v=c] ol.lecons li { grid-template-columns:52px 1fr auto; }
-[data-v=c] ol.lecons .n { border:0; width:auto; height:auto; font-family:var(--serif); font-size:40px; font-weight:400; line-height:1; color:var(--blue); justify-content:flex-start; }
-[data-v=c] ol.lecons li.bientot .n { color:var(--hair2); }
-[data-v=c] ol.lecons .etat { border-radius:999px; padding:5px 11px; background:#ECECE9; letter-spacing:.06em; }
-[data-v=c] ol.lecons li.ouverte .etat { background:var(--blue); color:#fff; }
-[data-v=c] ol.lecons li.ouverte:hover { background:transparent; }
-[data-v=c] ol.lecons li.ouverte:hover .t { color:var(--blue); }
 </style>
 </head>
 <body>
@@ -122,12 +92,12 @@ ol.lecons li.bientot .t { color:var(--meta); }
   <div>
     <div>
     <span class="lab">Ressource gratuite · prospection</span>
-    <h1 style="margin-bottom:0">Mieux prospecter, <span>leçon par leçon.</span></h1>
+    <h1 style="margin-bottom:0">Les bases de la prospection, <span>pour le secteur des études.</span></h1>
     </div>
     <div>
-    <p class="lede">Des leçons courtes pour trouver vos prochains clients dans le market research.</p>
-    <p class="th">Chacune traite un point de votre prospection : votre positionnement, votre cible, votre message, votre profil LinkedIn, votre prise de rendez-vous.</p>
-    <p class="th">Quelques minutes par leçon, sans inscription. Vous repartez avec un résultat à vous, prêt à servir.</p>
+    <p class="lede">Chez mazeo, nous voulons aider les sociétés d'études à mieux prospecter.</p>
+    <p class="th">Nous commençons par les bases : savoir dire ce que vous faites, à qui vous souhaitez vous adresser, et comment.</p>
+    <p class="th">Une leçon courte à la fois, gratuite.</p>
     <div class="cta"><a class="btn" href="/positionnement">Commencer la leçon 1</a></div>
     </div>
   </div>
