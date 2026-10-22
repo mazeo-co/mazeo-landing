@@ -71,18 +71,18 @@ p.th { font-size:clamp(16px,min(1.45vw,2.95vh),22px); line-height:1.65; color:va
 .btn:hover { background:#000; }
 /* les fiches : chiffre en serif, titre et état sur une ligne, sous-titre sur la suivante ; réparties sur la hauteur du texte d'en face */
 ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:0; }
-ol.lecons li { display:grid; grid-template-columns:30px 1fr; column-gap:16px; align-items:start; position:relative; padding:clamp(6px,1.1vh,14px) 0; }
+ol.lecons li { display:grid; grid-template-columns:30px 1fr auto; column-gap:16px; align-items:start; position:relative; padding:clamp(6px,1.1vh,14px) 0; }
 ol.lecons li:first-child { padding-top:0; } ol.lecons li:last-child { padding-bottom:0; }
-/* un petit trait entre deux fiches, sous le texte, pas sur toute la largeur */
-ol.lecons li + li::before { content:""; position:absolute; top:0; left:46px; width:56px; height:1px; background:var(--hair2); }
 ol.lecons .n { font-family:var(--serif); font-size:clamp(26px,4.2vh,34px); line-height:.9; color:var(--blue); }
 ol.lecons .t { font-weight:600; font-size:clamp(15px,min(1.15vw,2.3vh),17px); line-height:1.3; text-decoration:none; }
 ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(13px,min(.95vw,1.95vh),14.5px); color:var(--meta); margin-top:5px; white-space:nowrap; }
-ol.lecons .etat { font-family:var(--mono); font-size:10.5px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--meta); white-space:nowrap; border-radius:999px; padding:3px 9px; background:#ECECE9; margin-left:10px; vertical-align:2px; }
+/* l'état, à droite, centré sur les deux lignes de la fiche : un vrai bouton, au style du bouton noir de gauche */
+ol.lecons .etat { align-self:center; font-size:14.5px; font-weight:600; white-space:nowrap; border-radius:3px; padding:10px 18px; background:#ECECE9; color:var(--meta); line-height:1.2; min-width:124px; text-align:center; }
 ol.lecons li.ouverte { position:relative; }
 ol.lecons li.ouverte a.t::after { content:""; position:absolute; inset:0; }
 ol.lecons li.ouverte:hover .t { color:var(--blue); }
-ol.lecons li.ouverte .etat { background:var(--blue); color:#fff; }
+ol.lecons li.ouverte .etat { background:var(--ink); color:var(--paper); }
+ol.lecons li.ouverte:hover .etat { background:#000; }
 ol.lecons li.bientot .n { color:var(--meta2); }
 ol.lecons li.bientot .t { color:var(--meta); }
 @media (max-width:900px) {
@@ -92,6 +92,7 @@ ol.lecons li.bientot .t { color:var(--meta); }
   .bas .etiquette { margin:44px 0 18px; }
   .bas .texte .cta { margin-top:24px; padding-top:0; }
   ol.lecons { gap:0; } ol.lecons .t .s { white-space:normal; }
+  ol.lecons .etat { min-width:0; padding:8px 12px; font-size:13.5px; }
   .logo .par { font-size:14px; } .logo .mz { font-size:18px; }
   h1 .l { white-space:normal; }
   .pill { padding:7px 14px; font-size:14px; }
@@ -120,12 +121,12 @@ ol.lecons li.bientot .t { color:var(--meta); }
   <div class="fiches">
     <span class="lab etiquette">Les fiches pratiques</span>
     <ol class="lecons">
-      <li class="ouverte"><span class="n">1</span><a class="t" href="/positionnement">Votre positionnement<span class="etat">Commencer →</span><span class="s">3 minutes · noté d'après votre site</span></a></li>
-      <li class="bientot"><span class="n">2</span><span class="t">Votre cible<span class="etat">Bientôt</span><span class="s">les entreprises et les personnes à contacter</span></span></li>
-      <li class="bientot"><span class="n">3</span><span class="t">Votre premier message<span class="etat">Bientôt</span><span class="s">l'email et le message LinkedIn</span></span></li>
-      <li class="bientot"><span class="n">4</span><span class="t">Votre profil LinkedIn<span class="etat">Bientôt</span><span class="s">ce que vos prospects voient de vous</span></span></li>
-      <li class="bientot"><span class="n">5</span><span class="t">Votre prise de rendez-vous<span class="etat">Bientôt</span><span class="s">un lien d'agenda Cal.com pour vos messages</span></span></li>
-      <li class="bientot"><span class="n">6</span><span class="t">Votre rythme<span class="etat">Bientôt</span><span class="s">un objectif, et du temps chaque semaine</span></span></li>
+      <li class="ouverte"><span class="n">1</span><a class="t" href="/positionnement">Votre positionnement<span class="s">3 minutes · noté d'après votre site</span></a><span class="etat">Commencer →</span></li>
+      <li class="bientot"><span class="n">2</span><span class="t">Votre cible<span class="s">les entreprises et les personnes à contacter</span></span><span class="etat">Bientôt</span></li>
+      <li class="bientot"><span class="n">3</span><span class="t">Votre premier message<span class="s">l'email et le message LinkedIn</span></span><span class="etat">Bientôt</span></li>
+      <li class="bientot"><span class="n">4</span><span class="t">Votre profil LinkedIn<span class="s">ce que vos prospects voient de vous</span></span><span class="etat">Bientôt</span></li>
+      <li class="bientot"><span class="n">5</span><span class="t">Votre prise de rendez-vous<span class="s">un lien d'agenda Cal.com pour vos messages</span></span><span class="etat">Bientôt</span></li>
+      <li class="bientot"><span class="n">6</span><span class="t">Votre rythme<span class="s">un objectif, et du temps chaque semaine</span></span><span class="etat">Bientôt</span></li>
     </ol>
   </div>
   </div>
