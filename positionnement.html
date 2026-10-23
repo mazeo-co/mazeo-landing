@@ -459,7 +459,7 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
       <label class="ligne"><input type="checkbox" class="js-non"> Je ne souhaite pas recevoir les prochaines ressources de mazeo.</label>
       <div class="cta cta-form"><button type="submit">Recevoir mon analyse</button></div>
       <p class="msg" role="status" aria-live="polite"></p>
-      <p class="note" id="f-note">Avec une adresse de l'entreprise choisie, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.</p>
+      <p class="note" id="f-note">Le résultat s'affiche avec une adresse de l'entreprise choisie, et ne part à personne d'autre. Gmail, outlook, orange… ne passent pas.</p>
     </form>
     <div class="envoye" id="f-envoye" hidden>
       <h2>Le résultat est dans votre boîte.</h2>
@@ -605,19 +605,17 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
       body: JSON.stringify(demande)
     }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, status: r.status, d: d }; }); })
       .then(function (x) {
+        // 23/10 : une adresse d'un autre domaine que l'entreprise choisie ne reçoit rien (403, error « domaine »).
+        if (x.d && x.d.error === "domaine") {
+          var nomE = (CHOISI && CHOISI.nom) || x.d.hote || "cette entreprise";
+          msg.textContent = "Le résultat de " + nomE + " ne s'affiche qu'avec une adresse de l'entreprise (…@" + (x.d.hote || (CHOISI && CHOISI.hote) || "") + "). Nous ne l'envoyons à personne d'autre.";
+          return;
+        }
         if (!x.ok) { msg.textContent = ERREURS[x.d && x.d.error] || ERREURS.reseau; return; }
         // Un site signalé : aucune analyse, Romain le reçoit.
         if (x.d.signale) {
           document.querySelector("#f-envoye h2").textContent = "C'est noté.";
           document.getElementById("f-envoye-txt").textContent = "Nous ajoutons " + site.replace(/^https?:\/\//, "").replace(/\/$/, "") + " à la liste et revenons vers vous à " + email + ".";
-          form.hidden = true; document.getElementById("f-envoye").hidden = false;
-          return;
-        }
-        // Une autre entreprise que celle de l'adresse : rien à l'écran, le résultat part par mail (règle du 22/10).
-        if (x.d.lisible && x.d.affiche === false) {
-          document.querySelector("#f-envoye h2").textContent = "Le résultat est dans votre boîte.";
-          var nom = x.d.nom || (CHOISI && CHOISI.nom) || site;
-          document.getElementById("f-envoye-txt").textContent = "Votre adresse n'est pas celle de " + nom + " : le résultat passe par votre boîte, et le lien du mail l'ouvre. Il arrive dans la minute à " + email + ". Pensez à regarder vos indésirables.";
           form.hidden = true; document.getElementById("f-envoye").hidden = false;
           return;
         }
@@ -681,7 +679,7 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
       blocE.hidden = oui; blocS.hidden = !oui; fermer();
       bascule.textContent = oui ? "Revenir à la liste" : "Pas dans la liste ? Signalez-la";
       var go = document.querySelector(".js-noter button[type=submit]"); go.textContent = oui ? "Signaler mon entreprise" : "Recevoir mon analyse";
-      document.getElementById("f-note").textContent = oui ? "Nous ajoutons son site à la liste et revenons vers vous. Gmail, outlook, orange… ne passent pas." : "Avec une adresse de l'entreprise choisie, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.";
+      document.getElementById("f-note").textContent = oui ? "Nous ajoutons son site à la liste et revenons vers vous. Gmail, outlook, orange… ne passent pas." : "Le résultat s'affiche avec une adresse de l'entreprise choisie, et ne part à personne d'autre. Gmail, outlook, orange… ne passent pas.";
       var lab = document.getElementById("f-lab"); lab.textContent = oui ? "L'adresse de son site" : "Votre entreprise"; lab.setAttribute("for", oui ? "f-site" : "f-entreprise");
       (oui ? document.getElementById("f-site") : champ).focus();
     }
