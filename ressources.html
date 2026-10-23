@@ -305,8 +305,8 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
    (compteur dans un rond, comme dans l'app), puis la mosaïque. Un onglet choisi ne garde que ses ressources. */
 .mz { font-family: var(--logo-font); font-weight: 800; letter-spacing: -0.045em; }
 .mz i { font-style: normal; color: var(--green); }
-.g-tete { padding-block: 52px 0; }
-.g-tete .eyebrow { margin-bottom: 14px; }
+/* Pas de surtitre « Ressources » : le menu le dit déjà ; le titre colle au menu pour montrer plus de ressources (23/10/2026). */
+.g-tete { padding-block: 32px 0; }
 .g-tete h1 { font-size: clamp(38px, 4vw, 58px); letter-spacing: -0.04em; }
 .g-sous { margin-top: 18px; max-width: 660px; font-size: 19px; line-height: 1.55; color: var(--slate); text-wrap: pretty; }
 .g-onglets { display: flex; align-items: flex-end; gap: 36px; margin-top: 40px; border-bottom: 1px solid var(--line); }
@@ -376,7 +376,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   .galerie.filtre { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
-  .g-tete { padding-top: 36px; }
+  .g-tete { padding-top: 24px; }
   .g-onglets { overflow-x: auto; gap: 22px; scrollbar-width: none; }
   .g-onglets::-webkit-scrollbar { display: none; }
   .g-onglets button { white-space: nowrap; }
@@ -414,7 +414,6 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 <main id="top">
 
   <section class="container g-tete">
-    <span class="eyebrow">Ressources</span>
     <h1>Les ressources <span class="mz">mazeo<i>.</i></span></h1>
     <p class="g-sous">mazeo a cartographié tout le secteur des études. Nous partageons ici des ressources gratuites. Ces ressources aident à mieux prospecter, à connaître le secteur et à trouver des opportunités.</p>
     <div class="g-onglets" role="group" aria-label="Familles de ressources">
