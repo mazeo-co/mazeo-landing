@@ -300,6 +300,84 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .pt .by { font-size: 15px; color: var(--meta); display: flex; align-items: baseline; gap: 6px; margin: 0; }
 .pt .by b { font-family: var(--logo-font); font-weight: 800; font-size: 19px; color: var(--ink); letter-spacing: -0.3px; }
 .pt .by b span { color: var(--green); }
+
+/* La galerie (23/10/2026) : le titre « Les ressources mazeo », un sous-texte, les onglets des trois familles
+   (compteur dans un rond, comme dans l'app), puis la mosaïque. Un onglet choisi ne garde que ses ressources. */
+.mz { font-family: var(--logo-font); font-weight: 800; letter-spacing: -0.045em; }
+.mz i { font-style: normal; color: var(--green); }
+.g-tete { padding-block: 52px 0; }
+.g-tete .eyebrow { margin-bottom: 14px; }
+.g-tete h1 { font-size: clamp(38px, 4vw, 58px); letter-spacing: -0.04em; }
+.g-sous { margin-top: 18px; max-width: 660px; font-size: 19px; line-height: 1.55; color: var(--slate); text-wrap: pretty; }
+.g-onglets { display: flex; align-items: flex-end; gap: 36px; margin-top: 40px; border-bottom: 1px solid var(--line); }
+.g-onglets button { position: relative; display: inline-flex; align-items: center; gap: 8px; padding: 0 0 13px; border: 0; background: none; cursor: pointer; font-size: 16px; font-weight: 600; line-height: 22px; color: var(--meta); transition: color .15s; }
+.g-onglets .nb { display: inline-flex; align-items: center; justify-content: center; min-width: 20px; height: 20px; padding: 0 5px; border-radius: 10px; background: #F3F5F9; color: #5A6474; font-size: 11.5px; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; transition: background .15s, color .15s; }
+.g-onglets button::after { content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; background: var(--ink); transform: scaleX(0); transition: transform .2s; }
+.g-onglets button:hover, .g-onglets button.on { color: var(--ink); }
+.g-onglets button.on::after { transform: none; }
+.g-onglets button.on .nb { background: var(--ink); color: #fff; }
+.g-maj { margin-left: auto; padding-bottom: 13px; font-size: 13.5px; color: var(--meta); white-space: nowrap; }
+.galerie { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 216px; gap: 22px; padding-top: 34px; padding-bottom: 104px;
+  grid-template-areas: "aca aca vil vil" "aca aca pit qui" "sal sal da bou"; }
+.t-growth-academy { grid-area: aca; } .t-village { grid-area: vil; } .t-pitch { grid-area: pit; } .t-quiz { grid-area: qui; }
+.t-rencontres { grid-area: sal; } .t-dernier-appel { grid-area: da; } .t-bourse { grid-area: bou; }
+.tuile { position: relative; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: #fff; color: var(--ink); transition: transform .2s, box-shadow .2s; }
+.tuile:hover { transform: translateY(-3px); box-shadow: 0 28px 56px -32px rgba(10,24,48,.4); }
+.tuile:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 20px; }
+.tuile .visual { flex: 1; aspect-ratio: auto; min-height: 0; }
+.t-pitch .visual, .t-quiz .visual, .t-dernier-appel .visual, .t-bourse .visual { zoom: .84; }
+.t-pitch .visual .by, .t-quiz .visual .by, .t-quiz .visual .sub, .t-dernier-appel .visual .by, .t-bourse .visual .by, .t-bourse .visual .sub { display: none; }
+.tuile .visual.vl img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transform: scale(1.25); }
+.t-rencontres .sl { flex-direction: row; align-items: stretch; gap: 10px; padding: 16px 20px 0; }
+.t-rencontres .sl .rl { align-self: flex-start; }
+.t-rencontres .sl img { flex: 1; min-width: 0; height: 100%; margin-top: 0; object-position: 50% 100%; }
+.t-leg { position: relative; display: flex; flex-direction: column; gap: 1px; padding: 10px 50px 11px 16px; border-top: 1px solid var(--line); background: #fff; }
+.t-fam { display: none; font-size: 10.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--meta); margin-bottom: 2px; }
+.t-leg b { font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: -0.02em; line-height: 1.15; }
+.t-leg small { font-size: 13.5px; color: var(--meta); }
+.t-go { position: absolute; right: 14px; top: 50%; margin-top: -15px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--soft); color: var(--ink); transition: background .15s, color .15s; }
+.t-go svg { width: 16px; height: 16px; }
+.tuile:hover .t-go { background: var(--blue); color: #fff; }
+.t-growth-academy .visual { flex: 1.3; }
+.t-growth-academy .t-leg { padding: 18px 70px 20px 22px; gap: 4px; }
+.t-growth-academy .t-fam { display: block; }
+.t-growth-academy .t-leg b { font-size: 26px; }
+.t-growth-academy .t-leg small { display: none; }
+.t-growth-academy .desc { font-size: 15px; color: var(--body); margin-top: 4px; max-width: 52ch; }
+.t-growth-academy .facts { margin-top: 8px; }
+.t-growth-academy .t-go { width: 40px; height: 40px; right: 20px; top: auto; bottom: 20px; margin-top: 0; background: var(--blue); color: #fff; }
+/* Une famille choisie : seules ses ressources restent, trois par ligne, en grand. */
+.galerie.filtre { grid-template-areas: none; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 272px; }
+.galerie.filtre .tuile { grid-area: auto; animation: g-entre .35s ease both; }
+.galerie.filtre .tuile:not(.vue) { display: none; }
+.galerie.filtre .tuile .visual { zoom: 1; }
+.galerie.filtre .tuile .visual .by { display: flex; }
+.galerie.filtre .tuile .visual .sub { display: block; }
+.galerie.filtre .t-rencontres .sl { flex-direction: column; gap: 0; padding: 14px 18px 0; }
+.galerie.filtre .t-rencontres .sl img { height: auto; flex: 1; min-height: 0; margin-top: -14px; object-position: 70% 100%; }
+.galerie.filtre .t-growth-academy { grid-column: 1 / -1; flex-direction: row; }
+.galerie.filtre .t-growth-academy .visual { flex: 1.15; border-right: 1px solid var(--line); border-bottom: 0; }
+.galerie.filtre .t-growth-academy .t-leg { flex: 1; justify-content: center; border-top: 0; padding: 30px 90px 30px 36px; }
+.galerie.filtre .t-growth-academy .t-go { bottom: 30px; right: 30px; }
+@keyframes g-entre { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .galerie.filtre .tuile { animation: none; } .tuile, .tuile:hover { transform: none; transition: none; } }
+@media (max-width: 1100px) {
+  .galerie { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "aca aca" "aca aca" "vil vil" "pit qui" "sal sal" "da bou"; }
+  .galerie.filtre { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .g-tete { padding-top: 36px; }
+  .g-onglets { overflow-x: auto; gap: 22px; scrollbar-width: none; }
+  .g-onglets::-webkit-scrollbar { display: none; }
+  .g-onglets button { white-space: nowrap; }
+  .g-maj { display: none; }
+  .galerie, .galerie.filtre { grid-template-columns: 1fr; grid-auto-rows: auto; grid-template-areas: none; }
+  .tuile { grid-area: auto !important; }
+  .tuile .visual { aspect-ratio: 16 / 9; flex: none; zoom: 1 !important; }
+  .galerie.filtre .t-growth-academy { flex-direction: column; }
+  .galerie.filtre .t-growth-academy .visual { border-right: 0; }
+  .galerie.filtre .t-growth-academy .t-leg { padding: 18px 70px 20px 22px; }
+}
 </style>
 </head>
 <body>
@@ -324,91 +402,49 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 
 <main id="top">
 
-  <section class="intro container">
+  <section class="container g-tete">
     <span class="eyebrow">Resources</span>
-    <h1>Free resources for <em>market research.</em></h1>
-    <p class="stamp-page">Updated on 23 October 2026</p>
+    <h1>Resources by <span class="mz">mazeo<i>.</i></span></h1>
+    <p class="g-sous">mazeo has mapped the whole market research industry. Here we share free resources. These resources help you prospect better, know the industry and find opportunities.</p>
+    <div class="g-onglets" role="group" aria-label="Resource categories">
+      <button type="button" class="on" data-f="tout" aria-pressed="true">All <span class="nb">7</span></button>
+      <button type="button" data-f="prospecting" aria-pressed="false">Prospect better <span class="nb">1</span></button>
+      <button type="button" data-f="industry" aria-pressed="false">Know the industry <span class="nb">3</span></button>
+      <button type="button" data-f="opportunities" aria-pressed="false">Find opportunities <span class="nb">3</span></button>
+      <span class="g-maj">Updated on 23 October 2026</span>
+    </div>
   </section>
 
-  <section class="container section-tools" aria-label="Resources">
-    <ul class="tools four">
-<li>
-<article class="tool">
-<div class="visual ga" aria-hidden="true">
+  <section class="container galerie" aria-label="Resources by mazeo">
+    <a class="tuile t-growth-academy" data-f="prospecting" href="/en/academy">
+      <div class="visual ga" aria-hidden="true">
 <p class="nm"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</p>
 <p class="by">by <b>mazeo<span>.</span></b></p>
 </div>
-<div class="tool-body">
-<span class="eyebrow">Prospect better</span>
-<h2><a href="/en/academy">The growth academy: prospecting basics</a></h2>
-<p class="desc">Short practical guides to help research companies win more clients, starting with the basics: saying what you do, who you want to reach, and how.</p>
-<ul class="facts"><li>2 guides available</li><li>Short</li><li>Free</li></ul>
-<div class="tool-foot">
-<span class="btn btn-primary go" aria-hidden="true">See the guides <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-<span class="stamp">Free</span>
-</div>
-</div>
-</article>
-</li>
-<li>
-<article class="tool">
-<div class="visual vl"><img src="/assets/village/carte.webp" width="900" height="506" alt="Le Village des études, presented by mazeo" loading="lazy"></div>
-<div class="tool-body">
-<span class="eyebrow">Know the industry</span>
-<h2><a href="/en/market-research-in-figures">Le Village des études: the industry in figures</a></h2>
-<p class="desc">Over 13,000 research professionals, over 1,300 companies: who does research in France, for whom, in which words, and how it all moves.</p>
-<ul class="facts"><li>13 chapters</li><li>France</li><li>No sign-up</li></ul>
-<div class="tool-foot">
-<span class="btn btn-primary go" aria-hidden="true">Read the study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-<span class="stamp">mazeo database, 7 October 2026</span>
-</div>
-</div>
-</article>
-</li>
-<li>
-<article class="tool">
-<div class="visual pt" aria-hidden="true">
+      <div class="t-leg"><span class="t-fam">Prospect better</span><b>The growth academy</b><small>Prospecting basics</small><p class="desc">Short practical guides to help research companies win more clients, starting with the basics: saying what you do, who you want to reach, and how.</p><ul class="facts"><li>2 guides available</li><li>Short</li><li>Free</li></ul><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="tuile t-village" data-f="industry" href="/en/market-research-in-figures">
+      <div class="visual vl"><img src="/assets/village/carte.webp" width="900" height="506" alt="Le Village des études, presented by mazeo" loading="lazy"></div>
+      <div class="t-leg"><span class="t-fam">Know the industry</span><b>Le Village des études</b><small>The industry in figures</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="tuile t-pitch" data-f="industry" href="/en/market-research-positioning">
+      <div class="visual pt" aria-hidden="true">
 <p class="lgp"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></p>
 <p class="by">presented by <b>mazeo<span>.</span></b></p>
 </div>
-<div class="tool-body">
-<span class="eyebrow">Know the industry</span>
-<h2><a href="/en/market-research-positioning">Le Pitch des études: how research providers position themselves</a></h2>
-<p class="desc">The cobbler's children (often) have no shoes: only 6% of market research providers clearly say what problem they solve for their clients. The industry read the way a prospect reads it, and your website's score.</p>
-<ul class="facts"><li>299 websites read</li><li>8 chapters</li><li>Test yours</li></ul>
-<div class="tool-foot">
-<span class="btn btn-primary go" aria-hidden="true">Read the study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-<span class="stamp">Websites read on 22 October 2026</span>
-</div>
-</div>
-</article>
-</li>
-
-
-      <li>
-        <article class="tool">
-          <div class="visual qz" aria-hidden="true">
+      <div class="t-leg"><span class="t-fam">Know the industry</span><b>Le Pitch des études</b><small>How providers position themselves</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="tuile t-quiz" data-f="industry" href="/en/quiz">
+      <div class="visual qz" aria-hidden="true">
             <p class="by">presented by <b>mazeo<span>.</span></b></p>
             <p class="t">The Great Market<br><span>Research</span> Quiz</p>
             <div class="ladder"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
             <p class="sub">Question 4 <span>of 10</span></p>
           </div>
-          <div class="tool-body">
-            <span class="eyebrow">Know the industry</span>
-            <h2><a href="/en/quiz">The Great Market Research Quiz</a></h2>
-            <p class="desc">Ten questions on the history, the methods and the backstage of the trade. Your score, and your rank against the professionals of the sector.</p>
-            <ul class="facts"><li>10 questions</li><li>3 minutes</li><li>No sign-up</li></ul>
-            <div class="tool-foot">
-              <span class="btn btn-primary go" aria-hidden="true">Take the quiz <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-              <span class="stamp">Ten new questions every game</span>
-            </div>
-          </div>
-        </article>
-      </li>
-
-      <li>
-        <article class="tool">
-          <div class="visual sl">
+      <div class="t-leg"><span class="t-fam">Know the industry</span><b>The Great Market Research Quiz</b><small>Ten questions on the profession</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="tuile t-rencontres" data-f="opportunities" href="/en/market-research-conferences">
+      <div class="visual sl">
             <div class="rl" aria-hidden="true">
               <span class="l1">market research <span class="mk">events<svg viewBox="0 0 320 60" preserveAspectRatio="none" aria-hidden="true"><path d="M6 14 C 70 6, 170 4, 314 9 L 318 50 C 210 56, 100 58, 2 54 Z" fill="#FFD23F"/></svg></span></span>
               <span class="l2">Europe &amp; North America</span>
@@ -416,60 +452,24 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             </div>
             <img src="/assets/salons/badges-en.webp" width="900" height="700" alt="Three event badges: succeet in Wiesbaden, The Quirk&#x27;s Event in London, the Esomar Congress in Montreal." loading="lazy">
           </div>
-          <div class="tool-body">
-            <span class="eyebrow">Meet your clients</span>
-            <h2><a href="/en/market-research-conferences">Market research events</a></h2>
-            <p class="desc">Every market research trade show and conference in Europe, the United States and Canada. Dates, prices and audience, checked one by one.</p>
-            <ul class="facts"><li>43 events</li><li>Until the end of 2027</li><li>No sign-up</li></ul>
-            <div class="tool-foot">
-              <span class="btn btn-primary go" aria-hidden="true">See the events <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-              <span class="stamp">Checked on 28 September 2026</span>
-            </div>
-          </div>
-        </article>
-      </li>
-
-      <li>
-        <article class="tool">
-          <div class="visual be" aria-hidden="true">
-            <p class="by">presented by <b>mazeo<span>.</span></b></p>
-            <div class="lk"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="18" y="6" width="50" height="76" rx="6" fill="none" stroke="currentColor" stroke-width="9"/><path d="M41 82V12l40 10v60z" fill="currentColor"/><path d="M28 82 L84 82 L96 96 L8 96z" fill="currentColor" opacity=".28"/><circle cx="73" cy="48" r="3.8" fill="#fff"/></svg><div class="w">The insight<br>job board<small>France</small></div></div>
-            <p class="sub">Who is hiring in market research</p>
-          </div>
-          <div class="tool-body">
-            <span class="eyebrow">Follow the job market</span>
-            <h2><a href="/en/insight-jobs">The insight job board</a></h2>
-            <p class="desc">Market research and insight job postings in France, at agencies and client-side companies. Collected from every French job board, checked daily.</p>
-            <ul class="facts"><li>Checked daily</li><li>France</li><li>One email a month</li></ul>
-            <div class="tool-foot">
-              <span class="btn btn-primary go" aria-hidden="true">See the postings <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-              <span class="stamp">Free</span>
-            </div>
-          </div>
-        </article>
-      </li>
-
-      <li>
-        <article class="tool">
-          <div class="visual da" aria-hidden="true">
+      <div class="t-leg"><span class="t-fam">Find opportunities</span><b>Market research events</b><small>Conferences until the end of 2027</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="tuile t-dernier-appel" data-f="opportunities" href="/en/public-tenders">
+      <div class="visual da" aria-hidden="true">
             <p class="by">presented by <b>mazeo<span>.</span></b></p>
             <p class="t"><span class="w"><i>D</i><i>E</i><i>R</i><i>N</i><i>I</i><i>E</i><i>R</i></span><span class="w o"><i>A</i><i>P</i><i>P</i><i>E</i><i>L</i></span></p>
             <p class="sub">Open research tenders</p>
           </div>
-          <div class="tool-body">
-            <span class="eyebrow">Win public contracts</span>
-            <h2><a href="/en/public-tenders">Dernier appel: open research tenders</a></h2>
-            <p class="desc">Public research tenders open in France. Checked daily in the official journals, read one by one, sorted by deadline.</p>
-            <ul class="facts"><li>Updated daily</li><li>France</li><li>Monday alert</li></ul>
-            <div class="tool-foot">
-              <span class="btn btn-primary go" aria-hidden="true">See the tenders <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-              <span class="stamp">Free</span>
-            </div>
+      <div class="t-leg"><span class="t-fam">Find opportunities</span><b>Dernier appel</b><small>Open public research tenders</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="tuile t-bourse" data-f="opportunities" href="/en/insight-jobs">
+      <div class="visual be" aria-hidden="true">
+            <p class="by">presented by <b>mazeo<span>.</span></b></p>
+            <div class="lk"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="18" y="6" width="50" height="76" rx="6" fill="none" stroke="currentColor" stroke-width="9"/><path d="M41 82V12l40 10v60z" fill="currentColor"/><path d="M28 82 L84 82 L96 96 L8 96z" fill="currentColor" opacity=".28"/><circle cx="73" cy="48" r="3.8" fill="#fff"/></svg><div class="w">The insight<br>job board<small>France</small></div></div>
+            <p class="sub">Who is hiring in market research</p>
           </div>
-        </article>
-      </li>
-
-    </ul>
+      <div class="t-leg"><span class="t-fam">Find opportunities</span><b>The insight job board</b><small>Who is hiring in insight</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
   </section>
 
   <section class="alert" aria-labelledby="alerte-titre">
@@ -536,6 +536,23 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       .catch(function () { msg.className = "msg err"; msg.textContent = M.err; })
       .then(function () { b.disabled = false; });
   });
+})();
+</script>
+<script>
+/* Onglets de la galerie : une famille choisie ne garde que ses ressources ; l'adresse garde le choix (#famille). */
+(function () {
+  var gal = document.querySelector('.galerie'), bts = document.querySelectorAll('.g-onglets button');
+  if (!gal) return;
+  function choisir(f, garder) {
+    var ok = false;
+    bts.forEach(function (b) { var on = b.dataset.f === f; ok = ok || on; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+    if (!ok) return choisir('tout', garder);
+    gal.classList.toggle('filtre', f !== 'tout');
+    gal.querySelectorAll('.tuile').forEach(function (t) { t.classList.toggle('vue', t.dataset.f === f); });
+    if (garder) history.replaceState(null, '', f === 'tout' ? location.pathname + location.search : '#' + f);
+  }
+  bts.forEach(function (b) { b.addEventListener('click', function () { choisir(b.dataset.f, true); }); });
+  if (location.hash.length > 1) choisir(decodeURIComponent(location.hash.slice(1)), false);
 })();
 </script>
 </body>
