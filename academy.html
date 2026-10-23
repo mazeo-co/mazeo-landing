@@ -100,14 +100,17 @@ ol.lecons li.bientot .t { color:var(--meta); }
   .pill { padding:7px 14px; font-size:14px; }
   .logo .nm { font-size:24px; white-space:nowrap; }
 }
+/* 23/10 : le logo growth academy mène à l'accueil de l'academy, le logo mazeo à mazeo.co */
+.logo a { text-decoration:none; color:inherit; }
+.logo a.nm:hover, .logo a.mz:hover { opacity:.75; }
 </style>
 </head>
 <body>
 <header class="entete"><div class="in">
-  <a class="logo" href="/academy" aria-label="growth academy, présentée par mazeo">
-    <span class="nm"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</span>
-    <span class="par">présentée par <span class="mz">mazeo<i>.</i></span></span>
-  </a>
+  <div class="logo">
+    <a class="nm" href="/academy" aria-label="growth academy"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</a>
+    <span class="par">présentée par <a class="mz" href="/" aria-label="mazeo">mazeo<i>.</i></a></span>
+  </div>
   <div class="droite"><a class="lang" href="/en/academy" hreflang="en" aria-label="English" title="English"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
 </div></header>
 
