@@ -317,7 +317,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
         <div class="suite">
           <p class="bascule"><button type="button" class="lien" id="f-bascule">Pas dans la liste ? Signalez-la</button></p>
           <label class="champ"><input type="email" id="f-email" placeholder="prenom@votre-societe.fr" aria-label="Votre email professionnel" autocomplete="email"></label>
-          <p class="note" id="f-note">Avec une adresse de l'entreprise choisie, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.</p>
+          <p class="note" id="f-note">Le résultat s'affiche avec une adresse de l'entreprise choisie, et ne part à personne d'autre. Gmail, outlook, orange… ne passent pas.</p>
           <label class="coche"><input type="checkbox" id="f-news" checked> Recevoir les prochaines études de mazeo.</label>
         </div>
         <button class="btn" type="submit" id="f-go">Voir mon résultat</button>
@@ -491,7 +491,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
     $("f-bascule").textContent = oui ? "Revenir à la liste" : "Pas dans la liste ? Signalez-la";
     go.textContent = oui ? "Signaler mon entreprise" : "Voir mon résultat";
     $("f-note").textContent = oui ? "Nous ajoutons son site à la liste et revenons vers vous. Gmail, outlook, orange… ne passent pas."
-      : "Avec une adresse de l'entreprise choisie, le résultat s'affiche tout de suite. Avec une autre adresse, il part par mail. Gmail, outlook, orange… ne passent pas.";
+      : "Le résultat s'affiche avec une adresse de l'entreprise choisie, et ne part à personne d'autre. Gmail, outlook, orange… ne passent pas.";
     (oui ? $("f-site") : champ).focus();
   }
   champ.addEventListener("input", () => {
@@ -537,6 +537,10 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
     const demande = { email, lang: "fr", news: $("f-news").checked, page: location.href };
     if (viaSite) demande.signaler = site; else demande.company_id = CHOISI.id;
     appel(demande).then(x => {
+      if (!x.ok && x.d && x.d.error === "domaine") {
+        msg.textContent = "Le résultat de " + (CHOISI ? CHOISI.nom : "cette entreprise") + " ne s'affiche qu'avec une adresse de l'entreprise (…@" + (x.d.hote || (CHOISI && CHOISI.hote) || "") + "). Nous ne l'envoyons à personne d'autre.";
+        return;
+      }
       if (!x.ok) { msg.textContent = ERREURS[x.d && x.d.error] || ERREURS.reseau; return; }
       if (x.d.signale) { envoye("C'est noté.", "Nous ajoutons " + site.replace(/^https?:\/\//, "").replace(/\/$/, "") + " à la liste et revenons vers vous à " + email + "."); return; }
       if (x.d.lisible && x.d.affiche === false) {
