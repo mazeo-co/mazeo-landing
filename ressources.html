@@ -317,7 +317,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .g-onglets button.on::after { transform: none; }
 .g-onglets button.on .nb { background: var(--ink); color: #fff; }
 .g-maj { margin-left: auto; padding-bottom: 13px; font-size: 13.5px; color: var(--meta); white-space: nowrap; }
-.galerie { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 216px; gap: 22px; padding-top: 34px; padding-bottom: 104px;
+.galerie { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 274px; gap: 22px; padding-top: 34px; padding-bottom: 104px;
   grid-template-areas: "aca aca vil vil" "aca aca pit qui" "sal sal da bou"; }
 .t-growth-academy { grid-area: aca; } .t-village { grid-area: vil; } .t-pitch { grid-area: pit; } .t-quiz { grid-area: qui; }
 .t-rencontres { grid-area: sal; } .t-dernier-appel { grid-area: da; } .t-bourse { grid-area: bou; }
@@ -334,20 +334,29 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .t-leg { position: relative; display: flex; flex-direction: column; gap: 1px; padding: 10px 50px 11px 16px; border-top: 1px solid var(--line); background: #fff; }
 .t-fam { display: none; font-size: 10.5px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--meta); margin-bottom: 2px; }
 .t-leg b { font-family: var(--display); font-weight: 700; font-size: 18px; letter-spacing: -0.02em; line-height: 1.15; }
-.t-leg small { font-size: 13.5px; color: var(--meta); }
-.t-go { position: absolute; right: 14px; top: 50%; margin-top: -15px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--soft); color: var(--ink); transition: background .15s, color .15s; }
+.t-court { font-size: 13.5px; line-height: 1.45; color: var(--body); margin-top: 3px; text-wrap: pretty; }
+.t-long, .t-faits, .t-cta { display: none; }
+.t-go { position: absolute; right: 14px; top: 11px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--soft); color: var(--ink); transition: background .15s, color .15s; }
 .t-go svg { width: 16px; height: 16px; }
 .tuile:hover .t-go { background: var(--blue); color: #fff; }
 .t-growth-academy .visual { flex: 1.3; }
 .t-growth-academy .t-leg { padding: 18px 70px 20px 22px; gap: 4px; }
 .t-growth-academy .t-fam { display: block; }
 .t-growth-academy .t-leg b { font-size: 26px; }
-.t-growth-academy .t-leg small { display: none; }
 .t-growth-academy .desc { font-size: 15px; color: var(--body); margin-top: 4px; max-width: 52ch; }
 .t-growth-academy .facts { margin-top: 8px; }
 .t-growth-academy .t-go { width: 40px; height: 40px; right: 20px; top: auto; bottom: 20px; margin-top: 0; background: var(--blue); color: #fff; }
 /* Une famille choisie : seules ses ressources restent, trois par ligne, en grand. */
-.galerie.filtre { grid-template-areas: none; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 272px; }
+.galerie.filtre { grid-template-areas: none; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: auto; }
+.galerie.filtre .tuile .visual { flex: none; height: 200px; }
+.galerie.filtre .t-leg { flex: 1; padding: 16px 20px 20px; }
+.galerie.filtre .t-leg b { font-size: 20px; }
+.galerie.filtre .t-court, .galerie.filtre .t-go { display: none; }
+.galerie.filtre .t-long { display: block; margin-top: 6px; font-size: 14.5px; line-height: 1.5; color: var(--body); text-wrap: pretty; }
+.galerie.filtre .t-faits { display: flex; margin-top: 12px; }
+.galerie.filtre .t-cta { display: inline-flex; align-items: center; gap: 7px; margin-top: auto; padding-top: 16px; font-size: 15px; font-weight: 600; color: var(--blue-text); }
+.galerie.filtre .t-cta svg { width: 16px; height: 16px; transition: transform .18s; }
+.galerie.filtre .tuile:hover .t-cta svg { transform: translateX(3px); }
 .galerie.filtre .tuile { grid-area: auto; animation: g-entre .35s ease both; }
 .galerie.filtre .tuile:not(.vue) { display: none; }
 .galerie.filtre .tuile .visual { zoom: 1; }
@@ -357,8 +366,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .galerie.filtre .t-rencontres .sl img { height: auto; flex: 1; min-height: 0; margin-top: -14px; object-position: 70% 100%; }
 .galerie.filtre .t-growth-academy { grid-column: 1 / -1; flex-direction: row; }
 .galerie.filtre .t-growth-academy .visual { flex: 1.15; border-right: 1px solid var(--line); border-bottom: 0; }
-.galerie.filtre .t-growth-academy .t-leg { flex: 1; justify-content: center; border-top: 0; padding: 30px 90px 30px 36px; }
-.galerie.filtre .t-growth-academy .t-go { bottom: 30px; right: 30px; }
+.galerie.filtre .t-growth-academy .t-leg { flex: 1; justify-content: center; border-top: 0; padding: 30px 40px 30px 36px; }
+.galerie.filtre .t-growth-academy .visual { height: auto; min-height: 280px; }
+.galerie.filtre .t-growth-academy .t-cta { margin-top: 18px; padding-top: 0; }
 @keyframes g-entre { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .galerie.filtre .tuile { animation: none; } .tuile, .tuile:hover { transform: none; transition: none; } }
 @media (max-width: 1100px) {
@@ -376,7 +386,8 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
   .tuile .visual { aspect-ratio: 16 / 9; flex: none; zoom: 1 !important; }
   .galerie.filtre .t-growth-academy { flex-direction: column; }
   .galerie.filtre .t-growth-academy .visual { border-right: 0; }
-  .galerie.filtre .t-growth-academy .t-leg { padding: 18px 70px 20px 22px; }
+  .galerie.filtre .t-growth-academy .t-leg { padding: 18px 22px 20px 22px; }
+  .galerie.filtre .tuile .visual, .galerie.filtre .t-growth-academy .visual { height: auto; min-height: 0; }
 }
 </style>
 </head>
@@ -421,18 +432,18 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 <p class="nm"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</p>
 <p class="by">présentée par <b>mazeo<span>.</span></b></p>
 </div>
-      <div class="t-leg"><span class="t-fam">Mieux prospecter</span><b>La growth academy</b><small>Les bases de la prospection</small><p class="desc">Des fiches pratiques, courtes, pour aider les sociétés d'études à mieux prospecter, en commençant par les bases : dire ce que vous faites, à qui vous souhaitez vous adresser, et comment.</p><ul class="facts"><li>2 fiches disponibles</li><li>Courtes</li><li>Gratuites</li></ul><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="t-leg"><span class="t-fam">Mieux prospecter</span><b>La growth academy</b><p class="desc">Des fiches pratiques, courtes, pour aider les sociétés d'études à mieux prospecter, en commençant par les bases : dire ce que vous faites, à qui vous souhaitez vous adresser, et comment.</p><ul class="facts"><li>2 fiches disponibles</li><li>Courtes</li><li>Gratuites</li></ul><span class="t-cta">Voir les fiches <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </a>
     <a class="tuile t-village" data-f="secteur" href="/village-des-etudes">
       <div class="visual vl"><img src="/assets/village/carte.webp" width="900" height="506" alt="Le Village des études, présenté par mazeo" loading="lazy"></div>
-      <div class="t-leg"><span class="t-fam">Connaître le secteur</span><b>Le Village des études</b><small>Le secteur en chiffres</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="t-leg"><span class="t-fam">Connaître le secteur</span><b>Le Village des études</b><p class="t-court">Plus de 13 000 professionnels et 1 300 entreprises : qui fait les études en France.</p><p class="t-long">Plus de 13 000 professionnels des études, plus de 1 300 entreprises : qui fait les études en France, chez qui, avec quels mots, et comment tout cela bouge.</p><ul class="facts t-faits"><li>13 chapitres</li><li>France</li><li>Sans inscription</li></ul><span class="t-cta">Lire l'étude <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </a>
     <a class="tuile t-pitch" data-f="secteur" href="/pitch-des-etudes">
       <div class="visual pt" aria-hidden="true">
 <p class="lgp"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></p>
 <p class="by">présenté par <b>mazeo<span>.</span></b></p>
 </div>
-      <div class="t-leg"><span class="t-fam">Connaître le secteur</span><b>Le Pitch des études</b><small>Le positionnement des prestataires</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="t-leg"><span class="t-fam">Connaître le secteur</span><b>Le Pitch des études</b><p class="t-court">Nous avons analysé le positionnement des 299 prestataires d'études en France. Voyez le résultat de votre entreprise.</p><p class="t-long">Nous avons analysé le positionnement des 299 prestataires d'études basés en France, à partir de leur site. Seuls 6&nbsp;% disent clairement quel problème ils règlent pour leur client. Voyez le résultat de votre entreprise.</p><ul class="facts t-faits"><li>299 sites lus</li><li>8 chapitres</li><li>Testez le vôtre</li></ul><span class="t-cta">Lire l'étude <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </a>
     <a class="tuile t-quiz" data-f="secteur" href="/quiz.html">
       <div class="visual qz" aria-hidden="true">
@@ -441,7 +452,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             <div class="ladder"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="now"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
             <p class="sub">Question 4 <span>sur 10</span></p>
           </div>
-      <div class="t-leg"><span class="t-fam">Connaître le secteur</span><b>Le Grand Quiz des Études</b><small>Dix questions sur le métier</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="t-leg"><span class="t-fam">Connaître le secteur</span><b>Le Grand Quiz des Études</b><p class="t-court">Dix questions sur le métier. Votre score, et votre rang face au secteur.</p><p class="t-long">Dix questions sur l'histoire, les méthodes et les coulisses du métier. Votre score, et votre rang face aux professionnels du secteur.</p><ul class="facts t-faits"><li>10 questions</li><li>3 minutes</li><li>Sans inscription</li></ul><span class="t-cta">Faire le quiz <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </a>
     <a class="tuile t-rencontres" data-f="opportunites" href="/salons">
       <div class="visual sl">
@@ -452,7 +463,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             </div>
             <img src="/assets/salons/badges-fr.webp" width="900" height="700" alt="Trois badges de salon : succeet à Wiesbaden, The Quirk&#x27;s Event à Londres, le congrès Esomar à Montréal." loading="lazy">
           </div>
-      <div class="t-leg"><span class="t-fam">Trouver des opportunités</span><b>Les rencontres du market research</b><small>Les salons, jusqu'à fin 2027</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="t-leg"><span class="t-fam">Trouver des opportunités</span><b>Les rencontres du market research</b><p class="t-court">43 salons et congrès en Europe, aux États-Unis et au Canada, jusqu'à fin 2027.</p><p class="t-long">Tous les salons et congrès du market research en Europe, aux États-Unis et au Canada. Dates, prix et public vérifiés un par un.</p><ul class="facts t-faits"><li>43 salons</li><li>Jusqu'à fin 2027</li><li>Sans inscription</li></ul><span class="t-cta">Voir les salons <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </a>
     <a class="tuile t-dernier-appel" data-f="opportunites" href="/appels-offres">
       <div class="visual da" aria-hidden="true">
@@ -460,7 +471,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             <p class="t"><span class="w"><i>D</i><i>E</i><i>R</i><i>N</i><i>I</i><i>E</i><i>R</i></span><span class="w o"><i>A</i><i>P</i><i>P</i><i>E</i><i>L</i></span></p>
             <p class="sub">Les appels d'offres d'études ouverts</p>
           </div>
-      <div class="t-leg"><span class="t-fam">Trouver des opportunités</span><b>Dernier appel</b><small>Les marchés publics d'études</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="t-leg"><span class="t-fam">Trouver des opportunités</span><b>Dernier appel</b><p class="t-court">Les appels d'offres publics d'études ouverts en France, relevés chaque jour.</p><p class="t-long">Les appels d'offres publics d'études ouverts en France. Relevés chaque jour aux journaux officiels, lus un par un, classés par date limite.</p><ul class="facts t-faits"><li>Mis à jour chaque jour</li><li>France</li><li>Alerte le lundi</li></ul><span class="t-cta">Voir les appels d'offres <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </a>
     <a class="tuile t-bourse" data-f="opportunites" href="/bourse-emploi">
       <div class="visual be" aria-hidden="true">
@@ -468,7 +479,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             <div class="lk"><svg viewBox="0 0 100 100" aria-hidden="true"><rect x="18" y="6" width="50" height="76" rx="6" fill="none" stroke="currentColor" stroke-width="9"/><path d="M41 82V12l40 10v60z" fill="currentColor"/><path d="M28 82 L84 82 L96 96 L8 96z" fill="currentColor" opacity=".28"/><circle cx="73" cy="48" r="3.8" fill="#fff"/></svg><div class="w">La Bourse<br>de l'emploi<small>insight</small></div></div>
             <p class="sub">Qui recrute dans le market research</p>
           </div>
-      <div class="t-leg"><span class="t-fam">Trouver des opportunités</span><b>La Bourse de l'emploi insight</b><small>Qui recrute dans l'insight</small><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+      <div class="t-leg"><span class="t-fam">Trouver des opportunités</span><b>La Bourse de l'emploi insight</b><p class="t-court">Les offres d'emploi du market research et de l'insight en France, vérifiées chaque jour.</p><p class="t-long">Les annonces de recrutement du market research et de l'insight en France, chez les instituts et les annonceurs. Relevées sur tous les job boards français, vérifiées chaque jour.</p><ul class="facts t-faits"><li>Vérifiées chaque jour</li><li>France</li><li>Un email par mois</li></ul><span class="t-cta">Voir les annonces <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </a>
   </section>
 
@@ -552,7 +563,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     if (garder) history.replaceState(null, '', f === 'tout' ? location.pathname + location.search : '#' + f);
   }
   bts.forEach(function (b) { b.addEventListener('click', function () { choisir(b.dataset.f, true); }); });
-  if (location.hash.length > 1) choisir(decodeURIComponent(location.hash.slice(1)), false);
+  function lireAdresse() { choisir(location.hash.length > 1 ? decodeURIComponent(location.hash.slice(1)) : 'tout', false); }
+  window.addEventListener('hashchange', lireAdresse);
+  if (location.hash.length > 1) lireAdresse();
 })();
 </script>
 </body>
