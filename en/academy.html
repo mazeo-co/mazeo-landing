@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>growth academy · prospecting basics for the market research industry · by mazeo</title>
+<meta name="description" content="mazeo wants to help research companies win more clients, starting with the basics: saying what you do, who you want to reach, and how. Short, free practical guides.">
+<link rel="canonical" href="https://www.mazeo.co/en/academy">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/academy">
+<link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/academy">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/academy">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mazeo">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://www.mazeo.co/en/academy">
+<meta property="og:title" content="growth academy · prospecting basics for the market research industry">
+<meta property="og:description" content="Short, free practical guides to help research companies win more clients. By mazeo.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@500;600;800&display=swap">
+<style>
+/* même habillage que la leçon 1 (positionnement.html) : papier, Instrument Serif, en-tête growth academy */
+:root { color-scheme:light;
+  --paper:#F7F7F5; --ink:#121212; --body:#3D3D3D; --meta:#767673; --meta2:#A3A3A0; --hair:#E4E4E1; --hair2:#CDCDC8; --card:#FFFFFF;
+  --blue:#007BFF; --green:#00C774;
+  --font:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --serif:'Instrument Serif', 'Iowan Old Style', Georgia, serif; --mono:'Inter', var(--font); }
+* { box-sizing:border-box; }
+html, body { margin:0; }
+body { font-family:var(--font); font-size:clamp(17px,1.2vw,19px); line-height:1.55; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; }
+a { color:inherit; }
+button, input { font:inherit; }
+/* l'en-tête : la marque, « présentée par mazeo. », le lien vers les autres ressources */
+.entete .in { max-width:1280px; margin:0 auto; padding:26px 48px 20px; border-bottom:1px solid var(--hair); display:flex; align-items:center; justify-content:space-between; gap:22px; }
+.logo { display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; color:var(--ink); }
+.logo .nm { display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:400; font-size:35px; letter-spacing:-0.01em; line-height:1; }
+.logo .nm svg { width:25px; height:25px; }
+.logo .par { margin-top:10px; font-size:16px; color:var(--meta); display:flex; align-items:baseline; gap:6px; }
+.logo .mz { font-family:var(--mono); font-weight:800; letter-spacing:-0.4px; color:var(--ink); font-size:21px; }
+.logo .mz i { font-style:normal; color:var(--green); }
+/* à droite : le drapeau de la version anglaise et « Partager », comme le Village des études */
+.droite { display:flex; align-items:center; gap:10px; }
+.lang { display:inline-flex; align-items:center; height:38px; border-radius:100px; border:1px solid var(--hair2); background:var(--card); padding:3px 8px; text-decoration:none; }
+.lang .flag { display:inline-block; width:24px; height:16px; border-radius:3px; overflow:hidden; line-height:0; } .lang svg { width:24px; height:16px; display:block; }
+.pill { border:1px solid var(--hair2); background:var(--card); border-radius:999px; padding:8px 18px; font:inherit; font-weight:600; font-size:15px; cursor:pointer; color:var(--ink); }
+.share { position:relative; } .share-menu[hidden] { display:none; }
+.share-menu { position:absolute; right:0; top:calc(100% + 8px); z-index:40; min-width:220px; background:#fff; border:1px solid var(--hair2); border-radius:14px; padding:8px; display:grid; gap:2px; box-shadow:0 16px 40px rgba(10,10,10,.18); }
+.share-menu a, .share-menu button { display:flex; align-items:center; gap:10px; width:100%; text-align:left; background:none; border:0; border-radius:9px; padding:10px 12px; color:var(--ink); font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; }
+.share-menu a:hover, .share-menu button:hover { background:var(--paper); }
+.share-menu i { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px; font-style:normal; color:#fff; }
+.share-menu i svg { width:16px; height:16px; fill:currentColor; display:block; }
+.i-in { background:#0A66C2; } .i-wa { background:#25D366; } .i-x { background:#000; } .i-mail { background:#6B7280; } .i-link { background:#2B8FFF; }
+/* une seule page. Rangée 1 : le titre, et à droite l'étiquette des fiches posée sur sa dernière ligne.
+   Rangée 2 : le texte à gauche, les fiches à droite ; les deux colonnes ont le même haut et le même bas. */
+.contenu { max-width:1280px; margin:0 auto; padding:clamp(16px,3.4vh,64px) 48px clamp(14px,2.2vh,56px); }
+.bas { display:grid; grid-template-columns:1.06fr .94fr; grid-template-areas:"titre ." "texte fiches"; column-gap:clamp(48px,5vw,88px); }
+.bas h1 { grid-area:titre; } .bas .texte { grid-area:texte; align-self:center; } .bas .texte .cta { margin-top:clamp(22px,4.4vh,44px); } .bas .fiches { grid-area:fiches; display:flex; flex-direction:column; }
+.bas .etiquette { margin:clamp(6px,1vh,10px) 0 clamp(12px,2vh,26px); }
+.lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); line-height:1; }
+h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.02; font-size:clamp(40px,min(4.75vw,9.2vh),78px); margin:-.08em 0 clamp(14px,2.6vh,44px); }
+h1 .l { display:block; white-space:nowrap; }
+h1 .b { font-style:italic; color:var(--blue); }
+p.lede { text-wrap:balance; font-family:var(--serif); font-style:italic; font-size:clamp(22px,min(2.2vw,4.3vh),34px); line-height:1.28; margin:0 0 clamp(14px,3vh,28px); max-width:600px; }
+p.th { font-size:clamp(16px,min(1.45vw,2.95vh),22px); line-height:1.65; color:var(--body); margin:0; max-width:600px; }
+.cta { margin-top:clamp(24px,5vh,52px); }
+.btn { font-weight:600; font-size:17px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 22px; text-decoration:none; display:inline-block; cursor:pointer; }
+.btn:hover { background:#000; }
+/* les fiches : chiffre en serif, titre et état sur une ligne, sous-titre sur la suivante ; réparties sur la hauteur du texte d'en face */
+ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:0; }
+ol.lecons li { display:grid; grid-template-columns:30px 1fr auto; column-gap:18px; align-items:start; position:relative; padding:clamp(6px,1.05vh,14px) 0; }
+ol.lecons li > .t { margin-right:clamp(12px,1.4vw,32px); }
+ol.lecons li:first-child { padding-top:0; } ol.lecons li:last-child { padding-bottom:0; }
+ol.lecons .n { font-family:var(--serif); font-size:clamp(26px,4.2vh,34px); line-height:.9; color:var(--blue); align-self:center; text-align:center; }
+ol.lecons .t { font-weight:600; font-size:clamp(15px,min(1.15vw,2.3vh),17px); line-height:1.3; text-decoration:none; }
+ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(13px,min(.95vw,1.95vh),14.5px); color:var(--meta); margin-top:5px; white-space:nowrap; }
+/* l'état, à droite, centré sur les deux lignes de la fiche : un vrai bouton, au style du bouton noir de gauche */
+ol.lecons .etat { align-self:center; font-size:14.5px; font-weight:600; white-space:nowrap; border-radius:3px; padding:8px 16px; background:#ECECE9; color:var(--meta); line-height:1.2; min-width:132px; text-align:center; }
+ol.lecons li.ouverte { position:relative; }
+ol.lecons li.ouverte a.t::after { content:""; position:absolute; inset:0; }
+ol.lecons li.ouverte:hover .t { color:var(--blue); }
+ol.lecons li.ouverte .etat { background:var(--ink); color:var(--paper); }
+ol.lecons li.ouverte:hover .etat { background:#000; }
+ol.lecons li.bientot .n { color:var(--meta2); }
+ol.lecons li.bientot .t { color:var(--meta); }
+@media (max-width:900px) {
+  .entete .in { padding:20px 16px 12px; }
+  .contenu { padding:24px 16px 56px; min-height:0; }
+  .bas { grid-template-columns:1fr; grid-template-areas:"titre" "texte" "fiches"; }
+  .bas .etiquette { margin:44px 0 18px; }
+  .bas .texte .cta { margin-top:24px; }
+  ol.lecons { gap:0; } ol.lecons .t .s { white-space:normal; }
+  ol.lecons .etat { width:auto; padding:8px 12px; font-size:13.5px; }
+  .logo .par { font-size:14px; } .logo .mz { font-size:18px; }
+  h1 .l { white-space:normal; }
+  .pill { padding:7px 14px; font-size:14px; }
+  .logo .nm { font-size:24px; white-space:nowrap; }
+}
+</style>
+</head>
+<body>
+<header class="entete"><div class="in">
+  <a class="logo" href="/en/academy" aria-label="growth academy, by mazeo">
+    <span class="nm"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</span>
+    <span class="par">by <span class="mz">mazeo<i>.</i></span></span>
+  </a>
+  <div class="droite"><a class="lang" href="/academy" hreflang="fr" aria-label="Version française" title="Version française"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Share</button><div class="share-menu" id="share-menu" hidden></div></div></div>
+</div></header>
+
+<main class="contenu">
+  <div class="bas">
+    <h1><span class="l">Prospecting basics,</span><span class="l b">for the market research industry.</span></h1>
+  <div class="texte">
+    <p class="lede">At mazeo, we want to help research companies win more clients.</p>
+    <p class="th">We start with the basics: saying what you do, who you want to reach, and how. One short practical guide at a time, free.</p>
+    <div class="cta"><a class="btn" href="/en/booking-link">Start: your booking link</a></div>
+  </div>
+
+  <div class="fiches">
+    <span class="lab etiquette">Practical guides</span>
+    <ol class="lecons">
+      <li class="ouverte"><span class="n">1</span><a class="t" href="/positionnement">Your positioning<span class="s">3 minutes · in French for now</span></a><span class="etat">Start →</span></li>
+      <li class="bientot"><span class="n">2</span><span class="t">Your target<span class="s">the companies and people to contact</span></span><span class="etat">Coming soon</span></li>
+      <li class="bientot"><span class="n">3</span><span class="t">Your first message<span class="s">the email and the LinkedIn message</span></span><span class="etat">Coming soon</span></li>
+      <li class="bientot"><span class="n">4</span><span class="t">Your LinkedIn profile<span class="s">what prospects see about you</span></span><span class="etat">Coming soon</span></li>
+      <li class="ouverte"><span class="n">5</span><a class="t" href="/en/booking-link">Your booking link<span class="s">10 minutes · a scheduling link with Cal.com</span></a><span class="etat">Start →</span></li>
+      <li class="bientot"><span class="n">6</span><span class="t">Your rhythm<span class="s">a goal, and time set aside each week</span></span><span class="etat">Coming soon</span></li>
+    </ol>
+  </div>
+  </div>
+</main>
+
+<script>
+const ICONS = {
+  "in": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
+  wa: '<svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.9 9.88M20.47 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41"/></svg>',
+  x: '<svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>',
+  mail: '<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>',
+  link: '<svg viewBox="0 0 24 24"><path d="M3.9 12a3.1 3.1 0 0 1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7A3.1 3.1 0 0 1 3.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 1 1 0 6.2h-4V17h4a5 5 0 0 0 0-10z"/></svg>'
+};
+const FLAGS = {
+  en: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"></rect><path d="M0,0 30,20 M30,0 0,20" stroke="#fff" stroke-width="4"></path><path d="M0,0 30,20 M30,0 0,20" stroke="#C8102E" stroke-width="1.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#C8102E" stroke-width="4"></path></svg>',
+  fr: '<svg viewBox="0 0 30 20"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg>'
+};
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  $("flag").innerHTML = FLAGS.fr;
+  /* Partager : le même menu que le Village des études */
+  var URL_PAGE = "https://www.mazeo.co/en/academy", TXT = "The growth academy: prospecting basics for the market research industry. By mazeo.";
+  var u = encodeURIComponent(URL_PAGE), tx = encodeURIComponent(TXT + " " + URL_PAGE);
+  var links = [["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u], ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
+    ["x", "X", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(TXT) + "&url=" + u], ["mail", "Email", "mailto:?subject=" + encodeURIComponent("The growth academy, by mazeo") + "&body=" + tx]];
+  $("share-menu").innerHTML = links.map(function (l) { return '<a href="' + l[2] + '" target="_blank" rel="noopener"><i class="i-' + l[0] + '">' + ICONS[l[0]] + '</i>' + l[1] + '</a>'; }).join("") + '<button type="button" id="copy"><i class="i-link">' + ICONS.link + '</i><span>Copy link</span></button>';
+  $("copy").onclick = function (e) { var lab = e.currentTarget.lastChild; try { navigator.clipboard.writeText(URL_PAGE).then(function () { lab.textContent = "Link copied"; }, function () { lab.textContent = URL_PAGE; }); } catch (x) { lab.textContent = URL_PAGE; } };
+  var btn = $("share"), menu = $("share-menu");
+  btn.onclick = function (e) { e.stopPropagation(); var open = menu.hidden; menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
+  document.addEventListener("click", function (e) { if (!e.target.closest(".share")) { menu.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
+})();
+</script>
+
+</body>
+</html>

@@ -7,6 +7,7 @@
 <meta name="description" content="mazeo veut aider les sociétés d'études à mieux prospecter, en commençant par les bases : dire ce que vous faites, à qui vous souhaitez vous adresser, et comment. Des fiches pratiques, courtes et gratuites.">
 <link rel="canonical" href="https://www.mazeo.co/academy">
 <link rel="alternate" hreflang="fr" href="https://www.mazeo.co/academy">
+<link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/academy">
 <link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/academy">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="mazeo">
@@ -72,13 +73,13 @@ p.th { font-size:clamp(16px,min(1.45vw,2.95vh),22px); line-height:1.65; color:va
 /* les fiches : chiffre en serif, titre et état sur une ligne, sous-titre sur la suivante ; réparties sur la hauteur du texte d'en face */
 ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:0; }
 ol.lecons li { display:grid; grid-template-columns:30px 1fr auto; column-gap:18px; align-items:start; position:relative; padding:clamp(6px,1.05vh,14px) 0; }
-ol.lecons li > .t { margin-right:clamp(16px,2vw,32px); }
+ol.lecons li > .t { margin-right:clamp(12px,1.4vw,32px); }
 ol.lecons li:first-child { padding-top:0; } ol.lecons li:last-child { padding-bottom:0; }
 ol.lecons .n { font-family:var(--serif); font-size:clamp(26px,4.2vh,34px); line-height:.9; color:var(--blue); align-self:center; text-align:center; }
 ol.lecons .t { font-weight:600; font-size:clamp(15px,min(1.15vw,2.3vh),17px); line-height:1.3; text-decoration:none; }
 ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(13px,min(.95vw,1.95vh),14.5px); color:var(--meta); margin-top:5px; white-space:nowrap; }
 /* l'état, à droite, centré sur les deux lignes de la fiche : un vrai bouton, au style du bouton noir de gauche */
-ol.lecons .etat { align-self:center; font-size:14.5px; font-weight:600; white-space:nowrap; border-radius:3px; padding:8px 16px; background:#ECECE9; color:var(--meta); line-height:1.2; width:132px; text-align:center; }
+ol.lecons .etat { align-self:center; font-size:14.5px; font-weight:600; white-space:nowrap; border-radius:3px; padding:8px 16px; background:#ECECE9; color:var(--meta); line-height:1.2; min-width:132px; text-align:center; }
 ol.lecons li.ouverte { position:relative; }
 ol.lecons li.ouverte a.t::after { content:""; position:absolute; inset:0; }
 ol.lecons li.ouverte:hover .t { color:var(--blue); }
@@ -107,7 +108,7 @@ ol.lecons li.bientot .t { color:var(--meta); }
     <span class="nm"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</span>
     <span class="par">présentée par <span class="mz">mazeo<i>.</i></span></span>
   </a>
-  <div class="droite"><a class="lang" href="/en/resources" hreflang="en" aria-label="English" title="English"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
+  <div class="droite"><a class="lang" href="/en/academy" hreflang="en" aria-label="English" title="English"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
 </div></header>
 
 <main class="contenu">
