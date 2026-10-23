@@ -1,0 +1,828 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Are you well positioned? · practical guide 1 of the growth academy, by mazeo</title>
+<meta name="description" content="Your prospects need to understand in one sentence what you sell, to whom, and why you. Your positioning rated on four points from your website. Practical guide 1 of the growth academy, by mazeo.">
+<link rel="canonical" href="https://www.mazeo.co/en/positioning">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/positionnement">
+<link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/positioning">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/positionnement">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mazeo">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://www.mazeo.co/en/positioning">
+<meta property="og:title" content="Are you well positioned?">
+<meta property="og:description" content="Practical guide 1 of the growth academy by mazeo: your positioning, read the way a prospect reads it and rated on four points. Three minutes.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@500;600;800&display=swap">
+<style>
+:root { color-scheme:light;
+  --x:clamp(0px,calc((100vh - 715px) / 10),60px); --paper:#F7F7F5; --ink:#121212; --body:#3D3D3D; --meta:#767673; --meta2:#A3A3A0; --hair:#E4E4E1; --hair2:#CDCDC8; --card:#FFFFFF;
+  --blue:#007BFF; --blue-deep:#0066D6; --green:#00C774; --orange:#F59E0B; --red:#EF4444;
+  --font:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --serif:'Instrument Serif', 'Iowan Old Style', Georgia, serif; --logo:'Bricolage Grotesque', var(--font); --mono:'Inter', var(--font); }
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; }
+body { font-family:var(--font); font-size:clamp(18px,1.25vw,20px); line-height:1.55; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; overflow:hidden; }
+a { color:inherit; }
+button { font:inherit; }
+/* barre de progression */
+.bar { position:fixed; top:0; left:0; height:2px; width:100%; background:var(--hair); z-index:6; }
+.bar i { display:block; height:2px; width:0; background:var(--ink); transition:width .4s ease; }
+/* l'en-tête : la marque, « présentée par mazeo. », le fil, Partager, un filet */
+.entete { position:fixed; top:0; left:0; right:0; z-index:5; background:var(--paper); }
+.entete .in { max-width:1280px; margin:0 auto; padding:28px 48px 18px; display:flex; align-items:center; justify-content:space-between; gap:22px; }
+.logo { display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; color:var(--ink); }
+.logo .nm { display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:400; font-size:30px; letter-spacing:-0.01em; line-height:1; }
+.logo .nm svg { width:22px; height:22px; }
+.logo .par { margin-top:6px; font-size:12.5px; color:var(--meta); display:flex; align-items:baseline; gap:5px; }
+.logo .mz { font-family:var(--mono); font-weight:800; letter-spacing:-0.3px; color:var(--ink); font-size:14px; }
+.logo .mz i { font-style:normal; color:var(--green); }
+.entete .droite { display:flex; align-items:center; gap:16px; }
+.fil { font-family:var(--mono); font-size:12.5px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); }
+.partager { border:1px solid var(--hair2); background:transparent; border-radius:999px; padding:9px 18px; font-weight:600; font-size:15px; cursor:pointer; color:var(--ink); }
+.partager:hover { background:var(--card); }
+.nav { position:fixed; right:max(48px, calc((100vw - 1280px) / 2 + 48px)); bottom:36px; display:flex; gap:8px; z-index:5; }
+.cta { flex-wrap:nowrap; }
+.nav button { width:clamp(46px,3.2vw,56px); height:clamp(46px,3.2vw,56px); background:var(--ink); color:var(--paper); border:0; border-radius:3px; cursor:pointer; padding:0; display:inline-flex; align-items:center; justify-content:center; line-height:0; }
+.nav button:disabled { background:var(--hair); color:var(--meta2); cursor:default; }
+/* les écrans */
+.ecrans { position:relative; height:100vh; }
+.ecran { position:absolute; inset:0; display:flex; align-items:flex-start; overflow-y:auto; opacity:0; transform:translateY(40px); transition:opacity .35s ease, transform .35s ease; visibility:hidden; pointer-events:none; }
+.ecran.actif { opacity:1; transform:none; visibility:visible; pointer-events:auto; }
+.ecran.passe { transform:translateY(-40px); }
+.ecran.haut { align-items:flex-start; }
+.ecran:not(.haut) .contenu { margin:auto; padding-top:clamp(104px,11vh,150px); padding-bottom:clamp(40px,6vh,90px); }
+.ecran:not(.haut) .heros .cta, .ecran:not(.haut) .scinde .cta { margin-top:calc(16px + var(--x)); }
+.contenu { width:100%; max-width:1280px; margin:0 auto; padding:120px 48px 110px; }
+.scinde { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
+.scinde h1 { font-size:clamp(40px,4vw,60px); margin-bottom:calc(16px + var(--x) * .4); }
+.scinde p.th { font-size:clamp(19px,1.3vw,22px); margin-bottom:calc(20px + var(--x) * .6); }
+.scinde p.source { margin-top:calc(4px + var(--x) * .3); }
+.scinde .cta { margin-top:28px; }
+p.sur { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 20px; }
+p.sur b { color:var(--ink); margin-right:12px; }
+h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1; font-size:clamp(44px,4.6vw,68px); margin:0 0 24px; text-wrap:balance; }
+h1 span { font-style:italic; color:var(--blue); }
+p.th { font-size:clamp(19px,1.35vw,22px); line-height:1.65; color:var(--body); margin:0 0 26px; max-width:54ch; }
+p.th b { color:var(--ink); font-weight:600; }
+p.source { font-size:15.5px; color:var(--meta); margin:22px 0 0; }
+p.source i { font-style:italic; }
+.lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
+.lab.bleu { color:var(--blue); }
+/* les quatre questions, comme dans l'Academy */
+ul.liste-q { list-style:none; margin:0 0 calc(16px + var(--x) * .3); padding:0; max-width:36ch; counter-reset:q; }
+ul.liste-q li { padding:calc(8px + var(--x) * .35) 0; border-bottom:1px solid var(--hair); font-size:clamp(18px,1.3vw,21px); color:var(--ink); display:flex; gap:14px; align-items:flex-start; }
+ul.liste-q li::before { content:counter(q); counter-increment:q; font-family:var(--mono); font-weight:600; font-size:12px; color:var(--blue); width:24px; height:24px; border:1px solid rgba(0,123,255,.45); border-radius:3px; display:inline-flex; align-items:center; justify-content:center; flex:none; margin-top:3px; }
+.heros .lab { margin-bottom:calc(2px + var(--x) * .2); }
+/* encadrés : blanc filet = théorie, filet bleu = mazeo */
+.cadre { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:34px 36px; }
+.cadre.bleu { border-color:var(--blue); }
+.cadre p.ph { font-family:var(--serif); font-size:clamp(23px,1.8vw,32px); line-height:1.4; color:var(--ink); margin:0 0 32px; }
+.cadre p.qui { font-size:13px; color:var(--meta); margin:0 0 16px; }
+/* les quatre pastilles */
+.test { display:grid; gap:18px; }
+.test > div { display:grid; grid-template-columns:200px 1fr; gap:16px; align-items:center; font-size:clamp(17px,1.2vw,21px); line-height:1.4; white-space:nowrap; }
+.test .k { font-weight:600; color:var(--ink); display:flex; align-items:center; gap:8px; }
+.test .k i { width:20px; height:20px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+.test .k i svg { width:12px; height:12px; }
+.test .v { color:var(--body); }
+i.ok { background:var(--green); } i.moy { background:var(--orange); } i.ko { background:var(--red); }
+.defile { position:relative; margin-top:8px; }
+.fenetre { overflow:hidden; padding:3px; margin:-3px; }
+.piste { display:flex; gap:36px; transition:transform .45s ease; will-change:transform; }
+.piste > .cadre { flex:0 0 100%; min-width:0; }
+.fleche { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:1px solid var(--hair2); background:var(--card); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:0; box-shadow:0 2px 10px rgba(0,0,0,.06); }
+.fleche.suiv { right:-58px; } .fleche.prec { left:-58px; }
+.fleche:disabled { opacity:0; pointer-events:none; }
+.piste .cadre { padding:clamp(20px,2.4vh,30px) 40px clamp(18px,2.2vh,28px); }
+.piste .cadre h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 6px; line-height:1.1; }
+.piste .cadre .tag { font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 12px; display:block; }
+.piste .cadre p.ph { font-family:var(--serif); font-size:clamp(20px,1.4vw,25px); line-height:1.4; color:var(--ink); margin:0 0 16px; max-width:none; }
+.piste .test { gap:clamp(8px,1.2vh,14px); }
+.piste .test > div { grid-template-columns:210px 1fr; font-size:clamp(17px,1.2vw,21px); white-space:nowrap; align-items:center; }
+h1.h-compact { font-size:clamp(30px,2.8vw,44px); margin-bottom:6px; }
+.ecran .contenu.dense { padding-top:clamp(100px,10vh,130px); padding-bottom:40px; }
+.contenu.dense p.th { margin-bottom:0; }
+.titre-ligne { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; } .titre-ligne > div:first-child { max-width:62ch; } .titre-ligne .cta { flex:none; padding-bottom:14px; }
+p.morale { font-family:var(--serif); font-size:clamp(20px,1.5vw,26px); color:var(--ink); margin:clamp(12px,2vh,24px) 0 0; }
+/* boutons */
+.cta { margin-top:34px; display:flex; align-items:center; gap:18px; }
+.cta button, .cta a.btn { font-weight:600; font-size:clamp(17px,1.2vw,21px); color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 28px; cursor:pointer; text-decoration:none; display:inline-block; }
+.cta button:hover, .cta a.btn:hover { background:#000; }
+.cta button.second, .cta a.btn.second { background:transparent; color:var(--ink); border:1px solid var(--hair2); }
+.cta span { font-size:15px; color:var(--meta); }
+/* le héros de l'écran 1 */
+.heros { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 16px; }
+.heros h1 { font-size:clamp(46px,4.6vw,70px); line-height:.96; margin:0 0 calc(16px + var(--x) * .5); }
+.heros p.lede { font-family:var(--serif); font-size:clamp(21px,1.5vw,26px); line-height:1.3; color:var(--ink); margin:0 0 calc(16px + var(--x) * .6); max-width:52ch; }
+.heros p.th { font-size:clamp(18px,1.2vw,22px); line-height:1.6; max-width:56ch; margin-bottom:18px; }
+.heros .cta { margin-top:16px; }
+.heros p.verif { font-family:var(--serif); font-size:clamp(26px,2vw,36px); line-height:1.1; color:var(--ink); margin:0; }
+.citation { margin:0; border:1px solid var(--hair2); border-left:4px solid var(--blue); border-radius:4px; background:var(--card); padding:clamp(40px,5.5vh,72px) clamp(32px,2.8vw,48px) clamp(32px,4vh,56px); }
+.citation p { font-family:var(--serif); font-size:clamp(36px,3.1vw,56px); line-height:1.08; color:var(--ink); margin:0 0 clamp(16px,2.4vh,28px); }
+.citation p span { color:var(--blue); font-style:italic; }
+.citation p i { font-style:normal; color:var(--blue); }
+.citation footer { font-size:clamp(14px,1.05vw,17px); color:var(--meta); line-height:1.5; max-width:40ch; }
+.carte-action { border:1px solid var(--hair2); border-radius:4px; background:var(--card); padding:26px 26px 22px; }
+.carte-action h2 { font-family:var(--serif); font-size:clamp(26px,1.9vw,34px); font-weight:400; margin:0 0 8px; line-height:1.1; }
+.carte-action p.d { font-size:clamp(16px,1.1vw,19px); line-height:1.55; color:var(--body); margin:0 0 22px; }
+.carte-action .ligne-ch { display:grid; gap:8px; margin-bottom:12px; }
+.carte-action input[type=text], .carte-action input[type=email] { width:100%; border:0; border-bottom:1px solid var(--hair2); border-radius:0; padding:10px 0; font:inherit; font-size:18px; color:var(--ink); background:transparent; outline:0; }
+.carte-action input:focus { border-bottom-color:var(--ink); }
+.carte-action button { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 20px; cursor:pointer; margin-top:2px; }
+.carte-action button:hover { background:#000; } .carte-action button:disabled { opacity:.6; cursor:wait; }
+.carte-action .msg { min-height:20px; font-size:13.5px; color:#B45309; margin:8px 0 0; }
+.carte-action .note { font-size:14px; color:var(--meta); margin:20px 0 0; line-height:1.5; }
+/* « à vous » : sur le papier, le formulaire en lignes
+*/
+.ecran.avous .contenu { max-width:1100px; padding-top:116px; padding-bottom:110px; }
+.ecran.avous h1 { font-size:clamp(36px,3.6vw,56px); }
+.ecran.avous h1 { margin-bottom:18px; }
+.ecran.avous p.th { margin-bottom:22px; max-width:64ch; }
+.form { display:grid; gap:18px; margin-top:0; max-width:620px; }
+.tete-champ { display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-bottom:10px; }
+.tete-champ label.ch { margin-bottom:0; }
+.avis { font-size:15.5px; color:#B45309; margin:0 0 18px; max-width:64ch; }
+.form label.ch { font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); display:block; margin-bottom:10px; }
+.form input[type=text], .form input[type=email] { width:100%; border:1px solid var(--hair2); border-radius:4px; padding:14px 18px; font:inherit; font-size:19px; color:var(--ink); background:var(--card); outline:0; }
+.form input:focus { border-color:var(--ink); }
+.form .ligne { display:flex; gap:10px; align-items:flex-start; font-size:15.5px; color:var(--body); margin-top:2px; }
+.form .ligne input { margin-top:4px; }
+.form .cta-form { margin-top:4px; display:flex; align-items:center; }
+.form button { font-weight:600; font-size:18px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 28px; cursor:pointer; justify-self:start; }
+.form button:hover { background:#000; } .form button:disabled { opacity:.6; cursor:wait; }
+.form .msg { min-height:22px; font-size:14.5px; color:#B45309; margin:0; }
+.form .note { font-size:14px; color:var(--meta); margin:0; }
+/* l'entreprise : la saisie, la liste qui s'ouvre dessous, le site retenu */
+.champ-liste { position:relative; }
+.choix { position:absolute; left:0; right:0; top:calc(100% + 4px); z-index:6; background:var(--card); border:1px solid var(--hair2); border-radius:4px; box-shadow:0 10px 30px rgba(0,0,0,.08); max-height:340px; overflow:auto; }
+.choix button { display:flex; justify-content:space-between; gap:16px; width:100%; text-align:left; background:none; color:var(--ink); border:0; border-bottom:1px solid var(--hair); border-radius:0; padding:12px 18px; font:inherit; font-size:17px; font-weight:500; cursor:pointer; }
+.choix button:last-child { border-bottom:0; }
+.choix button:hover, .choix button.sur { background:var(--paper); }
+.choix button span { color:var(--meta); font-size:14px; font-weight:400; white-space:nowrap; }
+.choix p { margin:0; padding:14px 18px; font-size:15.5px; color:var(--body); }
+.form .retenu { font-size:14.5px; color:var(--meta); margin:6px 0 0; }
+.form .retenu:empty { display:none; }
+.form .lien { background:none; border:0; padding:0; font:inherit; font-size:15px; color:var(--blue); text-decoration:underline; text-underline-offset:3px; cursor:pointer; justify-self:start; font-weight:500; }
+.form .lien:hover { background:none; }
+.envoye { max-width:620px; }
+.envoye h2 { font-family:var(--serif); font-weight:400; font-size:clamp(30px,2.6vw,40px); line-height:1.1; margin:0 0 14px; }
+.envoye p { font-size:clamp(17px,1.2vw,19px); line-height:1.6; color:var(--body); margin:0 0 14px; }
+/* verdict : le grand encadré du client, comme ceux de l'écran 3, et à droite ce qui manque */
+.resultat { display:grid; grid-template-columns:1.45fr .85fr; gap:48px; align-items:start; }
+.cadre.grand { padding:42px 46px 38px; }
+.cadre.grand h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 8px; line-height:1.1; }
+.cadre.grand .tag { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 32px; display:block; }
+.cadre.grand .lab { margin-bottom:14px; }
+.cadre.grand p.ph { font-family:var(--serif); font-size:clamp(21px,1.55vw,28px); line-height:1.55; color:var(--ink); margin:0 0 34px; }
+.cadre.grand .test { gap:20px; }
+.cadre.grand .test > div { grid-template-columns:200px 1fr; font-size:clamp(17px,1.2vw,21px); white-space:normal; align-items:start; }
+.cote { padding-top:10px; }
+.cote p.synthese { font-family:var(--serif); font-size:clamp(23px,1.8vw,32px); line-height:1.4; color:var(--ink); margin:0 0 40px; }
+.cote .lab { margin-bottom:20px; }
+.manque { display:grid; gap:22px; }
+.manque > div { padding:0 0 22px; border-bottom:1px solid var(--hair); }
+.manque > div:last-child { border-bottom:0; padding-bottom:0; }
+.manque .k { font-weight:600; font-size:16px; display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.manque .k i { width:16px; height:16px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; } .manque .k i svg { width:11px; height:11px; }
+.manque p { margin:0; font-size:clamp(17px,1.2vw,21px); line-height:1.55; color:var(--ink); }
+.manque p.ex { margin-top:8px; color:var(--meta); font-size:14.5px; }
+.manque p.rien { color:var(--body); }
+.contenu.dense h1.h-compact { margin-bottom:30px; }
+.contenu.dense .cta { margin-top:clamp(12px,2vh,24px); }
+.illisible { max-width:62ch; }
+/* pont */
+.pont .cadre.bleu p { margin:0 0 18px; font-size:clamp(17px,1.2vw,21px); line-height:1.55; color:var(--ink); }
+.pont .cadre.bleu .cta a.btn { font-size:16px; padding:12px 20px; white-space:nowrap; }
+.pont .cadre.bleu { padding:30px 32px; }
+.pont .cadre.bleu p.m { font-family:var(--serif); font-size:clamp(24px,1.8vw,32px); line-height:1.3; }
+.suivante { margin-top:26px; font-size:15px; color:var(--meta); }
+@media (max-width: 900px) {
+  .nav { right:16px; bottom:16px; }
+  body { overflow:auto; }
+  .ecrans { height:auto; }
+  .ecran { position:relative; display:none; }
+  .ecran.actif { display:block; }
+  .contenu { padding:110px 20px 100px; }
+  .scinde, .verdict, .cartes, .heros { grid-template-columns:1fr; gap:24px; } .piste > .cadre { flex-basis:100%; } .piste .test > div { white-space:normal; }
+  .entete .in { padding:14px 20px 12px; flex-wrap:wrap; gap:10px; } .entete .fil { display:none; }
+  h1 { font-size:34px; } .heros h1 { font-size:40px; }
+}
+/* 23/10 : le compteur des exemples */
+.compteur { display:flex; align-items:center; gap:16px; margin:0 0 12px; font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--meta); }
+.compteur .points { display:flex; gap:7px; }
+.compteur .points button { width:9px; height:9px; border-radius:50%; border:0; padding:0; background:var(--hair2); cursor:pointer; }
+.compteur .points button.on { background:var(--blue); }
+.cta button[hidden] { display:none; }
+.cta button.second:hover, .cta a.btn.second:hover { background:var(--card); }
+/* 23/10 : l'écran des exemples tient sur un écran */
+#defile .piste .cadre { padding-top:clamp(14px,2vh,26px); padding-bottom:clamp(12px,1.8vh,24px); }
+#defile .piste .cadre .tag { margin-bottom:8px; }
+#defile .piste .cadre p.ph { margin-bottom:10px; }
+.ecran .contenu.dense p.morale { margin-top:clamp(8px,1.4vh,20px); }
+.compteur { margin-bottom:6px; } #defile { margin-top:0; }
+#defile ~ .cta { margin-top:clamp(12px,2.2vh,28px); }
+.ecran .contenu.dense { padding-bottom:clamp(12px,2vh,40px); }
+/* 23/10 : le résultat tient sur un écran */
+#v-ok h1.h-compact { margin-bottom:clamp(12px,2.2vh,24px); }
+#v-ok .resultat { gap:40px; }
+#v-ok .cadre.grand { padding:clamp(18px,2.8vh,32px) 32px clamp(16px,2.6vh,28px); }
+#v-ok .cadre.grand h3 { font-size:24px; margin-bottom:4px; }
+#v-ok .cadre.grand .tag { margin-bottom:clamp(10px,2vh,20px); }
+#v-ok .cadre.grand .lab { margin-bottom:8px; font-size:12px; }
+#v-ok .cadre.grand p.ph { font-size:clamp(17px,min(1.3vw,2.7vh),22px); line-height:1.4; margin-bottom:clamp(12px,2.2vh,24px); }
+#v-ok .cadre.grand .test { gap:clamp(6px,1.2vh,12px); }
+#v-ok .cadre.grand .test > div { grid-template-columns:180px 1fr; font-size:clamp(15px,min(1.1vw,2.3vh),18px); line-height:1.4; }
+#v-ok .cote { padding-top:0; }
+#v-ok .cote p.synthese { font-size:clamp(19px,min(1.5vw,3.1vh),25px); line-height:1.35; margin-bottom:clamp(12px,2.4vh,26px); }
+#v-ok .cote .lab { margin-bottom:10px; }
+#v-ok .manque { gap:clamp(8px,1.4vh,14px); }
+#v-ok .manque > div { padding-bottom:clamp(8px,1.4vh,14px); }
+#v-ok .manque .k { margin-bottom:4px; font-size:15px; }
+#v-ok .manque p { font-size:clamp(15px,min(1.05vw,2.2vh),17px); line-height:1.45; }
+#v-ok .manque p.ex { font-size:13.5px; margin-top:3px; }
+#v-ok .cta { margin-top:clamp(14px,2.6vh,28px); }
+/* 23/10 : écran 2, un positionnement par cible */
+.onglets { display:flex; gap:6px; margin:0 0 16px; padding:4px; background:var(--paper); border:1px solid var(--hair); border-radius:999px; width:max-content; max-width:100%; }
+.scinde > * { min-width:0; }
+@media (max-width:900px) { .onglets { width:auto; flex-wrap:wrap; border-radius:14px; } .onglets button { flex:1 1 auto; } .test > div, .piste .test > div, .cadre.grand .test > div { grid-template-columns:1fr; white-space:normal; gap:2px; } }
+.onglets button { border:0; background:none; border-radius:999px; padding:7px 14px; font-size:14px; font-weight:600; color:var(--meta); cursor:pointer; }
+.onglets button.on { background:var(--ink); color:var(--paper); }
+.version[hidden] { display:none; }
+.test > div.change .v { color:var(--blue); }
+.legende-change { margin:12px 0 0; font-size:13.5px; color:var(--blue); }
+.ecran .scinde .th + .th { margin-top:0; }
+.ecran:not(.haut) .scinde p.th { margin-bottom:clamp(10px,1.8vh,20px); }
+.ecran:not(.haut) .scinde .cta { margin-top:clamp(14px,2.4vh,28px); }
+/* 23/10 soir : écran 2, la cible dans la phrase ; les notes passent à la ligne dans la carte */
+.ph .cible { color:var(--blue); }
+.scinde .cadre .test > div { white-space:normal; grid-template-columns:minmax(150px,200px) 1fr; align-items:start; }
+/* écran 3 : nom et détails sur une ligne, la phrase décollée des notes, le texte d'intro à mi-distance */
+.piste .cadre .tete { display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 14px; margin-bottom:clamp(10px,1.8vh,18px); }
+.piste .cadre .tete h3 { margin:0; }
+.piste .cadre .tete .tag { margin:0; font-size:11.5px; }
+#defile .piste .cadre p.ph { margin-bottom:clamp(14px,2.4vh,26px); }
+.ecran .contenu.dense h1.h-compact + p.th { margin-top:clamp(14px,2.6vh,30px); }
+.compteur { margin-bottom:clamp(20px,4.6vh,40px); }
+/* 23/10 nuit : écran 2 plus aéré, le premier paragraphe en serif ; carte plus compacte */
+p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px); line-height:1.3; color:var(--ink); margin:0 0 clamp(14px,2.6vh,26px); max-width:30em; }
+.ecran:not(.haut) .scinde p.th { margin-bottom:clamp(12px,2.4vh,24px); line-height:1.6; }
+.scinde .cadre { padding:clamp(22px,3.4vh,34px) clamp(24px,2.4vw,36px); }
+.scinde .cadre p.ph { font-size:clamp(18px,min(1.4vw,2.9vh),23px); line-height:1.4; margin-bottom:clamp(14px,2.4vh,24px); }
+.scinde .cadre .test { gap:clamp(6px,1.2vh,12px); }
+.scinde .cadre .test > div { font-size:clamp(15px,min(1.1vw,2.3vh),17px); grid-template-columns:minmax(140px,170px) 1fr; }
+.scinde .cadre .test .k i { width:18px; height:18px; }
+/* écran 3 : cartes allégées, plus de marge en haut et en bas, phrase plus petite */
+#defile .piste .cadre { padding:clamp(20px,3vh,36px) clamp(28px,3vw,44px); }
+#defile .piste .cadre p.ph { font-size:clamp(17px,min(1.25vw,2.6vh),21px); margin-bottom:4px; }
+#defile .piste .cadre p.trad { font-size:13px; color:var(--meta); margin:0 0 clamp(14px,2.4vh,24px); }
+#defile .piste .cadre .test > div { font-size:clamp(15px,min(1.1vw,2.3vh),17px); }
+.ecran .contenu.dense p.morale { font-size:clamp(17px,min(1.25vw,2.6vh),21px); }
+/* 23/10 nuit : la carte des exemples à égale distance du texte du dessus et du texte du dessous */
+.compteur { margin-bottom:clamp(16px,3.2vh,32px); }
+.ecran .contenu.dense p.morale { margin-top:clamp(16px,3.2vh,32px); }
+/* 23/10 : le drapeau de la version anglaise, comme sur l'accueil de l'academy */
+.lang { display:inline-flex; align-items:center; height:38px; border-radius:100px; border:1px solid var(--hair2); background:var(--card); padding:3px 8px; }
+.lang svg { width:24px; height:16px; display:block; border-radius:3px; }
+/* 23/10 : le menu Partager, comme sur l'accueil de l'academy */
+.share { position:relative; } .share-menu[hidden] { display:none; }
+.share-menu { position:absolute; right:0; top:calc(100% + 8px); z-index:40; min-width:220px; background:#fff; border:1px solid var(--hair2); border-radius:14px; padding:8px; display:grid; gap:2px; box-shadow:0 16px 40px rgba(10,10,10,.18); }
+.share-menu a, .share-menu button { display:flex; align-items:center; gap:10px; width:100%; text-align:left; background:none; border:0; border-radius:9px; padding:10px 12px; color:var(--ink); font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; }
+.share-menu a:hover, .share-menu button:hover { background:var(--paper); }
+.share-menu i { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px; font-style:normal; color:#fff; }
+.share-menu i svg { width:16px; height:16px; fill:currentColor; display:block; }
+.i-in { background:#0A66C2; } .i-wa { background:#25D366; } .i-x { background:#000; } .i-mail { background:#6B7280; } .i-link { background:#2B8FFF; }
+.share-menu { text-align:left; }
+/* 23/10 : le logo growth academy mène à l'accueil de l'academy, le logo mazeo à mazeo.co */
+.logo a { text-decoration:none; color:inherit; }
+.logo a.nm:hover, .logo a.mz:hover { opacity:.75; }
+/* la page anglaise : les verdicts restent en français pour l'instant */
+p.en-fr { margin:-6px 0 14px; font-size:13.5px; color:var(--meta); }
+/* les citations d'origine sont plus longues qu'en français : un cran plus petites */
+#defile .piste .cadre p.ph { font-size:clamp(16px,min(1.12vw,2.35vh),19px); line-height:1.4; }
+</style>
+</head>
+<body>
+<div class="bar"><i id="bar"></i></div>
+<header class="entete"><div class="in">
+  <div class="logo">
+    <a class="nm" href="/en/academy" aria-label="growth academy"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</a>
+    <span class="par">by <a class="mz" href="/?lang=en" aria-label="mazeo">mazeo<i>.</i></a></span>
+  </div>
+  <div class="droite"><div class="fil"><span id="fil">1 of 6</span> · Practical guide 1 · your positioning</div><a class="lang" href="/positionnement" hreflang="fr" aria-label="Version française" title="Version française"><svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg></a><div class="share"><button type="button" class="partager" id="partager" aria-expanded="false">Share</button><div class="share-menu" id="share-menu" hidden></div></div></div>
+</div></header>
+
+<div class="ecrans" id="ecrans">
+
+<!-- 1 · Accroche -->
+<section class="ecran">
+  <div class="contenu heros">
+    <div>
+      <p class="accroche">Practical guide 1 · 3 minutes</p>
+      <h1>And you, <span>are you well positioned?</span></h1>
+      <p class="lede">Your prospects need to understand in one sentence what you sell, to whom, and why you. Test yours in three minutes.</p>
+      <span class="lab">Your positioning answers four questions</span>
+      <ul class="liste-q"><li>What do you do?</li><li>Who do you serve?</li><li>What problem do you solve for them?</li><li>What makes you unique?</li></ul>
+      <p class="verif">Let's see how yours holds up.</p>
+      <div class="cta"><button type="button" data-suivant>Start</button></div>
+    </div>
+    <blockquote class="citation">
+      <p><i>“</i>A prospect gives you <span>ten seconds</span>. If they can't see what you can do for them, they move on.<i>”</i></p>
+      <footer>The first ten seconds decide whether a visitor stays or leaves. Nielsen Norman Group, based on Microsoft Research data.</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- 2 · Théorie -->
+<section class="ecran">
+  <div class="contenu scinde">
+    <div>
+      <p class="sur">Theory</p>
+      <h1>What is <span>positioning?</span></h1>
+      <p class="lede2">It's not the list of your services. It's the place you hold in a client's mind, against your competitors.</p>
+      <p class="th">It answers four questions: what you do, who you serve, the problem you solve, what makes you unique.</p>
+      <p class="th">And it's built for a target. Change the target: what you do stays the same, but the problem solved and the proof change.</p>
+      <p class="source">Sources: Ries and Trout, <i>Positioning</i> (1981), who coined the term. Kotler and Keller, <i>Marketing Management</i>: a distinctive place “in the minds of the target market”.</p>
+      <div class="cta"><button type="button" data-suivant>See five examples</button></div>
+    </div>
+    <div class="cadre">
+      <span class="lab">Example · a fictional agency, two targets</span>
+      <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Cosmetics brands</button><button type="button" role="tab" data-cible="b" aria-selected="false">Retailers</button></div>
+      <div class="version" data-version="a">
+      <p class="ph">“We test packaging for <span class="cible">cosmetics brands</span>, before launch. Our tests take place in store, with the product on the shelf next to its competitors: <span class="cible">you know whether it will be seen, and chosen.</span>”</p>
+      <div class="test">
+        <div><span class="k"><i class="ok" data-ic="ok"></i>What you do</span><span class="v">Packaging tests.</span></div>
+        <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Who for</span><span class="v">Cosmetics brands.</span></div>
+        <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Problem solved</span><span class="v">Knowing before launch whether the product will be chosen.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>What makes you unique</span><span class="v">In-store testing, next to competitors.</span></div>
+      </div>
+      </div>
+      <div class="version" data-version="b" hidden>
+      <p class="ph">“We test packaging for <span class="cible">retailers</span>, before listing. Our tests take place in store, with the product on the shelf next to its competitors: <span class="cible">you know which one will sell through.</span>”</p>
+      <div class="test">
+        <div><span class="k"><i class="ok" data-ic="ok"></i>What you do</span><span class="v">Packaging tests.</span></div>
+        <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Who for</span><span class="v">Retailers.</span></div>
+        <div class="change"><span class="k"><i class="ok" data-ic="ok"></i>Problem solved</span><span class="v">Knowing before listing which product will sell through.</span></div>
+        <div><span class="k"><i class="ok" data-ic="ok"></i>What makes you unique</span><span class="v">In-store testing, next to competitors.</span></div>
+      </div>
+      </div>
+      <p class="legende-change">In blue, what changes from one target to the other.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Deux sites -->
+<section class="ecran haut">
+  <div class="contenu dense">
+    <p class="sur">Theory</p>
+    <h1 class="h-compact">How five companies in the industry <span>present themselves.</span></h1>
+    <p class="th" style="max-width:none">Five companies you know, one at a time. Their positioning, as written on their website, rated on the four points.</p>
+    <div class="compteur" id="d-compteur" aria-live="polite"><span id="d-num">Example 1 of 5</span><span class="points" id="d-points"></span></div>
+    <div class="defile" id="defile">
+      <div class="fenetre"><div class="piste" id="piste">
+      <div class="cadre">
+        <div class="tete"><h3>Attest</h3><span class="tag">Online survey software · London</span></div>
+        <p class="ph">“AI consumer insights engine for global B2C brands. Join the dots between surveys and interviews with real consumers to make decisions faster, sharper and more valuable. We’re the only consumer insights platform to give you flat, predictable pricing – no matter who or where your audience lives.”</p><p class="trad">As written on its website.</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>What you do</span><span class="v">Surveys and consumer interviews, with AI.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Who for</span><span class="v">Global B2C brands: a named target.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problem solved</span><span class="v">“Faster, sharper decisions”: generic.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>What makes you unique</span><span class="v">The only one with flat pricing, wherever the audience: a fact.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <div class="tete"><h3>Euromonitor International</h3><span class="tag">Market research publisher · London</span></div>
+        <p class="ph">“Euromonitor helps you unlock growth with our award-winning research into markets, industries, economies and consumers. 50+ years of independent research. Analysts in 100+ countries.”</p><p class="trad">As written on its website.</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>What you do</span><span class="v">Market research, worldwide.</span></div>
+          <div><span class="k"><i class="ko" data-ic="ko"></i>Who for</span><span class="v">“You”: no one is named.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problem solved</span><span class="v">“Unlock growth”: generic.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>What makes you unique</span><span class="v">50+ years, analysts in 100+ countries: facts.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <div class="tete"><h3>J.D. Power</h3><span class="tag">Automotive data and research · United States</span></div>
+        <p class="ph">“From the design studio to the boardroom to the showroom, JD Power gives companies the data, analytics, and insights to make smarter, more informed decisions. Whether you're shaping vehicles, selling them, financing them, or insuring them, JD Power helps you act with confidence at every stage. Proprietary data drawn from millions of verified customer experiences.”</p><p class="trad">As written on its website.</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>What you do</span><span class="v">Data, analytics and research for the automotive industry.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>Who for</span><span class="v">Carmakers, dealers, lenders, insurers: named.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problem solved</span><span class="v">“Act with confidence”: generic.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>What makes you unique</span><span class="v">Millions of verified customer experiences: a fact.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <div class="tete"><h3>SurveyMonkey</h3><span class="tag">Online survey software · United States</span></div>
+        <p class="ph">“Understand the changing needs of your employees, customers, attendees, and buyers with continuous feedback. The world's most popular survey platform used by 260K+ organizations worldwide.”</p><p class="trad">As written on its website.</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>What you do</span><span class="v">Online survey software: clear.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Who for</span><span class="v">“Organizations”: everyone.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problem solved</span><span class="v">“Understand needs”: every tool says it.</span></div>
+          <div><span class="k"><i class="ok" data-ic="ok"></i>What makes you unique</span><span class="v">260,000 organizations: a hard number.</span></div>
+        </div>
+      </div>
+      <div class="cadre">
+        <div class="tete"><h3>Mintel</h3><span class="tag">Market research and intelligence · London</span></div>
+        <p class="ph">“Global Market Intelligence &amp; Research Agency. You're an ambitious business driven to understand consumers, predict trends, and stay ahead in a rapidly evolving world. With our market intelligence, you'll gain the insights needed to act decisively.”</p><p class="trad">As written on its website.</p>
+        <div class="test">
+          <div><span class="k"><i class="ok" data-ic="ok"></i>What you do</span><span class="v">Market research and intelligence: stated.</span></div>
+          <div><span class="k"><i class="ko" data-ic="ko"></i>Who for</span><span class="v">“An ambitious business”: no one.</span></div>
+          <div><span class="k"><i class="moy" data-ic="moy"></i>Problem solved</span><span class="v">Predicting trends: every agency says it.</span></div>
+          <div><span class="k"><i class="ko" data-ic="ko"></i>What makes you unique</span><span class="v">Nothing is said.</span></div>
+        </div>
+      </div>
+      </div></div>
+      <button type="button" class="fleche prec" id="d-prec" aria-label="Previous companies"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <button type="button" class="fleche suiv" id="d-suiv" aria-label="Next companies"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </div>
+    <p class="morale">Five well-known companies. None says, in one sentence, what its client gets.</p>
+    <div class="cta"><button type="button" id="d-suivant">Next example →</button><button type="button" class="second" id="d-passer" data-suivant>Skip to mine</button></div>
+  </div>
+</section>
+
+<!-- 4 · Bascule : le formulaire -->
+<section class="ecran avous haut">
+  <div class="contenu">
+    <p class="sur">Your turn</p>
+    <h1>And you, <span>are you well positioned?</span></h1>
+    <p class="th">We've analysed the positioning of more than 500 research providers. Enter your company to see our analysis. Not on the list? Tell us, and we'll add it.</p>
+    <p class="avis" id="f-avis" hidden></p>
+    <form class="form js-noter" novalidate>
+      <div class="tete-champ"><label class="ch" id="f-lab" for="f-entreprise" style="margin:0">Your company</label><button type="button" class="lien" id="f-bascule">Not on the list? Tell us</button></div>
+      <div id="bloc-entreprise" style="margin-top:-8px">
+        <div class="champ-liste"><input type="text" id="f-entreprise" placeholder="Type its name" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="f-liste" required><div class="choix" id="f-liste" role="listbox" hidden></div></div>
+        <p class="retenu" id="f-retenu"></p>
+      </div>
+      <div id="bloc-site" hidden style="margin-top:-8px"><input type="text" id="f-site" placeholder="www.yourcompany.com" autocomplete="url" inputmode="url"><p class="retenu" id="f-retenu-site"></p></div>
+      <div><label class="ch" for="f-email">Your work email, to receive the result</label><input type="email" id="f-email" placeholder="firstname@yourcompany.com" autocomplete="email" required></div>
+      <label class="ligne"><input type="checkbox" class="js-non"> I don't want to receive future resources from mazeo.</label>
+      <div class="cta cta-form"><button type="submit">Get my analysis</button></div>
+      <p class="msg" role="status" aria-live="polite"></p>
+      <p class="note" id="f-note">The result shows with an email address from the company you chose, and goes to no one else. Gmail, Outlook, Orange… addresses are not accepted.</p>
+    </form>
+    <div class="envoye" id="f-envoye" hidden>
+      <h2>Done.</h2>
+      <p id="f-envoye-txt"></p>
+      <button type="button" class="lien" id="f-autre">Analyse another company</button>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Verdict -->
+<section class="ecran haut">
+  <div class="contenu dense">
+    <p class="sur">Your result</p>
+    <div id="v-ok" hidden>
+      <h1 class="h-compact">What <span id="v-site">your website</span> says about you</h1>
+      <p class="en-fr">The detailed analysis is in French for now.</p>
+      <div class="resultat">
+        <div class="gauche">
+        <div class="cadre grand">
+          <h3 id="v-nom"></h3><span class="tag" id="v-tag"></span>
+          <span class="lab">Your positioning, as written on your website</span>
+          <p class="ph" id="v-actuel"></p>
+          <div class="test" id="v-lignes"></div>
+        </div>
+        <div class="cta"><button type="button" data-suivant>What next?</button><a class="btn second" href="/en/academy">Back to the practical guides</a></div>
+        </div>
+        <div class="cote">
+          <p class="synthese" id="v-synthese"></p>
+          <span class="lab" id="v-manque-lab">What's missing, and where to find it</span>
+          <div class="manque" id="v-manque"></div>
+        </div>
+      </div>
+    </div>
+    <div id="v-ko" class="illisible" hidden>
+      <h1>We couldn't <span>read your website.</span></h1>
+      <p class="th" id="v-ko-txt"></p>
+      <div class="cta"><button type="button" data-precedent>Try again</button><button type="button" class="second" data-suivant>Skip</button></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Pont -->
+<section class="ecran pont">
+  <div class="contenu scinde">
+    <div>
+      <p class="sur">What next</p>
+      <h1>Good positioning is where <span>good prospecting starts.</span></h1>
+      <p class="th">It tells you who to reach out to: your targets. And it gives you the message that shows the person you're talking to how you're different, and what problem you solve for them.</p>
+      <p class="th">What's left is finding the right company, the right person, and the right moment.</p>
+      <p class="th">Your positioning adapts to each target: that's what guide 2, your target, is about. Coming soon.</p>
+      <p class="suivante">Available practical guide: <a href="/en/booking-link">your booking link →</a></p>
+    </div>
+    <div class="cadre bleu">
+      <span class="lab bleu">In mazeo</span>
+      <p class="m">mazeo is the only prospecting tool built for market research.</p>
+      <p>It finds the right company and the right person for you, and helps you deliver the right message at the right time.</p>
+      <div class="cta" style="margin-top:18px"><a class="btn" href="/en/demo">See mazeo in a demo</a><a class="btn second" href="/en/academy">All practical guides</a></div>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<div class="nav" id="nav"><button type="button" id="prec" aria-label="Previous screen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="suiv" aria-label="Next screen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+
+<script>
+(function () {
+  var HOTE_PROD = /(^|\.)mazeo\.co$/.test(location.hostname);
+  var FONCTIONS = HOTE_PROD ? "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1" : "https://aipmpdzscqhsvteblajo.supabase.co/functions/v1";
+  var ICONES = {
+    ok: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5.5 10.5l3 3 6-7" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.6"/></svg>',
+    moy: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6 10h8" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2.8"/></svg>',
+    ko: '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M6.5 6.5l7 7M13.5 6.5l-7 7" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2.6"/></svg>'
+  };
+  document.querySelectorAll("[data-ic]").forEach(function (i) { i.innerHTML = ICONES[i.getAttribute("data-ic")]; });
+
+  /* les écrans */
+  var ecrans = Array.prototype.slice.call(document.querySelectorAll(".ecran"));
+  var n = 0, VERDICT = null;
+  /* 23/10 : chaque écran a son adresse (?e=N), le bouton Retour du navigateur ramène à l'écran d'avant */
+  function adresse(k) { var q = new URLSearchParams(location.search); q.set("e", k + 1); return location.pathname + "?" + q.toString() + location.hash; }
+  function aller(k, mode) {
+    if (k < 0 || k >= ecrans.length) return;
+    if (k === 4 && !VERDICT) k = 3;  // pas de verdict : l'écran du résultat renvoie au formulaire
+    if (mode !== "aucun" && k !== n) { try { history[mode === "remplacer" ? "replaceState" : "pushState"]({ e: k + 1 }, "", adresse(k)); } catch (x) {} }
+    n = k;
+    ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
+    document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
+    document.getElementById("fil").textContent = (n + 1) + " of " + ecrans.length;
+    document.getElementById("nav").style.display = "none";  // 23/10 : plus de flèches fixes, chaque écran a ses boutons
+    document.getElementById("prec").disabled = n === 0;
+    document.getElementById("suiv").disabled = n === ecrans.length - 1 || (n === 3 && !VERDICT);
+    var champ = ecrans[n].querySelector("input, [contenteditable]");
+    if (champ && window.innerWidth > 900) setTimeout(function () { champ.focus(); }, 380);
+  }
+  document.getElementById("prec").addEventListener("click", function () { aller(n - 1); });
+  document.getElementById("suiv").addEventListener("click", function () { aller(n + 1); });
+  document.querySelectorAll("[data-suivant]").forEach(function (b) { b.addEventListener("click", function () { aller(n + 1); }); });
+  document.querySelectorAll("[data-precedent]").forEach(function (b) { b.addEventListener("click", function () { aller(n - 1); }); });
+  document.addEventListener("keydown", function (ev) {
+    var t = ev.target, saisie = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
+    if (saisie && ev.key !== "Escape") return;
+    if (ev.key === "ArrowRight" || ev.key === "PageDown") aller(n + 1);
+    if (ev.key === "ArrowLeft" || ev.key === "PageUp") aller(n - 1);
+  });
+  // ?e=3 ouvre directement un écran (relecture, captures) ; l'écran du verdict reste fermé sans verdict.
+  n = -1;
+  aller(Math.max(0, (parseInt(new URLSearchParams(location.search).get("e"), 10) || 1) - 1), "remplacer");
+  window.addEventListener("popstate", function (ev) {
+    var e = (ev.state && ev.state.e) || parseInt(new URLSearchParams(location.search).get("e"), 10) || 1;
+    aller(e - 1, "aucun");
+  });
+
+  /* les deux formulaires (le héros et l'écran 4) : même mécanique, même fonction */
+  var GRATUITS = /@(gmail|googlemail|yahoo|ymail|hotmail|outlook|live|msn|icloud|me|mac|aol|protonmail|proton|pm|gmx|orange|wanadoo|free|sfr|neuf|laposte|bbox|numericable|yandex|mail|zoho|fastmail|hey)\.(com|fr|net|me|de)$/i;
+  var ERREURS = {
+    email: "This doesn't look like an email address.",
+    email_pro: "Please use your work email: Gmail, Outlook, Orange… addresses are not accepted.",
+    site: "This website address doesn't work. Try the form www.yourcompany.com.",
+    entreprise: "Choose your company from the list, or tell us about it if it isn't there.",
+    lien: "This link has expired: it lasts 30 days. Run the analysis again below.",
+    cap_email: "Three analyses per day per address: come back tomorrow, or write to romain.barbet@mazeo.co.",
+    cap: "Lots of requests today: try again tomorrow, or write to romain.barbet@mazeo.co.",
+    modele: "The analysis didn't go through. Try again in a moment.",
+    reseau: "That didn't work. Try again in a moment, or write to romain.barbet@mazeo.co."
+  };
+  document.querySelectorAll(".js-noter").forEach(function (form) { form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var msg = form.querySelector(".msg"), go = form.querySelector("button[type=submit]"), texteGo = go.textContent;
+    var parSite = !document.getElementById("bloc-site").hidden;
+    var site = document.getElementById("f-site").value.trim(), email = form.querySelector("input[type=email]").value.trim().toLowerCase();
+    msg.textContent = "";
+    if (parSite && (!site || !/\./.test(site))) { msg.textContent = ERREURS.site; return; }
+    if (!parSite && !CHOISI) { msg.textContent = ERREURS.entreprise; return; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { msg.textContent = ERREURS.email; return; }
+    if (GRATUITS.test(email)) { msg.textContent = ERREURS.email_pro; return; }
+    go.disabled = true; go.textContent = "Un instant…";
+    var attente = setTimeout(function () { go.textContent = "Rating the four points…"; }, 9000);
+    var demande = { email: email, lang: "en", news: !form.querySelector(".js-non").checked, page: location.href };
+    if (parSite) demande.signaler = site; else demande.company_id = CHOISI.id;
+    var coupe = new AbortController(), minuterie = setTimeout(function () { coupe.abort(); }, 75000);
+    fetch(FONCTIONS + "/positionnement-score", {
+      method: "POST", headers: { "Content-Type": "application/json" }, signal: coupe.signal,
+      body: JSON.stringify(demande)
+    }).then(function (r) { return r.json().then(function (d) { return { ok: r.ok, status: r.status, d: d }; }); })
+      .then(function (x) {
+        // 23/10 : une adresse d'un autre domaine que l'entreprise choisie ne reçoit rien (403, error « domaine »).
+        if (x.d && x.d.error === "domaine") {
+          var nomE = (CHOISI && CHOISI.nom) || x.d.hote || "this company";
+          msg.textContent = "The result for " + nomE + " only shows with an email address from the company (…@" + (x.d.hote || (CHOISI && CHOISI.hote) || "") + "). We don't send it to anyone else.";
+          return;
+        }
+        if (!x.ok) { msg.textContent = ERREURS[x.d && x.d.error] || ERREURS.reseau; return; }
+        // Un site signalé : aucune analyse, Romain le reçoit.
+        if (x.d.signale) {
+          document.querySelector("#f-envoye h2").textContent = "Got it.";
+          document.getElementById("f-envoye-txt").textContent = "We'll add " + site.replace(/^https?:\/\//, "").replace(/\/$/, "") + " to the list and get back to you at " + email + ".";
+          form.hidden = true; document.getElementById("f-envoye").hidden = false;
+          return;
+        }
+        afficher(x.d, parSite ? site : (CHOISI && CHOISI.hote) || "");
+        aller(4);
+      })
+      .catch(function () { msg.textContent = ERREURS.reseau; })
+      .then(function () { clearTimeout(attente); clearTimeout(minuterie); go.disabled = false; go.textContent = texteGo; });
+  }); });
+
+  /* l'entreprise : la recherche dans la liste notée, ou le site si elle n'y est pas */
+  var CHOISI = null;
+  (function () {
+    var champ = document.getElementById("f-entreprise"), liste = document.getElementById("f-liste"), retenu = document.getElementById("f-retenu");
+    var blocE = document.getElementById("bloc-entreprise"), blocS = document.getElementById("bloc-site"), bascule = document.getElementById("f-bascule");
+    if (!champ) return;
+    var minute = null, sur = -1, retenuSite = document.getElementById("f-retenu-site");
+    function fermer() { liste.hidden = true; champ.setAttribute("aria-expanded", "false"); sur = -1; }
+    function choisir(b) {
+      CHOISI = { id: b.getAttribute("data-id"), nom: b.getAttribute("data-nom"), hote: b.getAttribute("data-hote") };
+      champ.value = CHOISI.nom; retenu.textContent = CHOISI.hote ? "Website: " + CHOISI.hote : ""; fermer();
+      // Une fiche sans site connu : on demande l'adresse.
+      if (!CHOISI.hote) { versSite(true); retenuSite.textContent = "We haven't read " + CHOISI.nom + "'s website yet: give us its address and we'll add it."; CHOISI = null; }
+    }
+    champ.addEventListener("input", function () {
+      CHOISI = null; retenu.textContent = ""; clearTimeout(minute);
+      var q = champ.value.trim();
+      if (q.length < 2) { fermer(); return; }
+      minute = setTimeout(function () {
+        fetch(FONCTIONS + "/positionnement-score", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ recherche: q }) })
+          .then(function (r) { return r.json(); })
+          .then(function (d) {
+            if (champ.value.trim() !== q) return;
+            var es = (d && d.entreprises) || [];
+            liste.innerHTML = es.length ? es.map(function (e) {
+              return '<button type="button" role="option" data-id="' + esc(e.id) + '" data-nom="' + esc(e.nom) + '" data-hote="' + esc(e.hote || "") + '">' + esc(e.nom) + '<span>' + esc(e.hote || "") + '</span></button>';
+            }).join("") : '<p>Not on the list. <button type="button" class="lien" data-vers-site>Tell us</button></p>';
+            liste.hidden = false; champ.setAttribute("aria-expanded", "true"); sur = -1;
+          })
+          .catch(function () { fermer(); });
+      }, 220);
+    });
+    champ.addEventListener("keydown", function (ev) {
+      var bs = liste.hidden ? [] : liste.querySelectorAll("button[role=option]");
+      if (ev.key === "ArrowDown" || ev.key === "ArrowUp") {
+        if (!bs.length) return; ev.preventDefault();
+        sur = (sur + (ev.key === "ArrowDown" ? 1 : -1) + bs.length) % bs.length;
+        bs.forEach(function (b, i) { b.classList.toggle("sur", i === sur); });
+      } else if (ev.key === "Enter" && bs.length) { ev.preventDefault(); choisir(bs[Math.max(sur, 0)]); }
+      else if (ev.key === "Escape") fermer();
+    });
+    liste.addEventListener("mousedown", function (ev) { ev.preventDefault(); });
+    liste.addEventListener("click", function (ev) {
+      var b = ev.target.closest("button");
+      if (!b) return;
+      if (b.hasAttribute("data-vers-site")) { versSite(true); return; }
+      choisir(b);
+    });
+    champ.addEventListener("blur", function () { setTimeout(fermer, 120); });
+    function versSite(oui) {
+      blocE.hidden = oui; blocS.hidden = !oui; fermer();
+      bascule.textContent = oui ? "Back to the list" : "Not on the list? Tell us";
+      var go = document.querySelector(".js-noter button[type=submit]"); go.textContent = oui ? "Report my company" : "Get my analysis";
+      document.getElementById("f-note").textContent = oui ? "We'll add its website to the list and get back to you. Gmail, Outlook, Orange… addresses are not accepted." : "The result shows with an email address from the company you chose, and goes to no one else. Gmail, Outlook, Orange… addresses are not accepted.";
+      var lab = document.getElementById("f-lab"); lab.textContent = oui ? "Its website address" : "Your company"; lab.setAttribute("for", oui ? "f-site" : "f-entreprise");
+      (oui ? document.getElementById("f-site") : champ).focus();
+    }
+    bascule.addEventListener("click", function () { versSite(blocS.hidden); });
+    document.getElementById("f-autre").addEventListener("click", function () {
+      document.getElementById("f-envoye").hidden = true; document.querySelector(".js-noter").hidden = false;
+      champ.value = ""; CHOISI = null; retenu.textContent = ""; champ.focus();
+    });
+  })();
+
+  /* le lien du mail : ?r=<id>&j=<jeton> ouvre directement le résultat */
+  (function () {
+    var q = new URLSearchParams(location.search), r = q.get("r"), j = q.get("j");
+    if (!r || !j) return;
+    fetch(FONCTIONS + "/positionnement-score", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ resultat: r, jeton: j }) })
+      .then(function (x) { return x.json().then(function (d) { return { ok: x.ok, d: d }; }); })
+      .then(function (x) {
+        if (!x.ok || !x.d.lisible) { aller(3); var a = document.getElementById("f-avis"); a.textContent = ERREURS.lien; a.hidden = false; return; }
+        afficher(x.d, x.d.site || "");
+        if (x.d.pour_soi === false) {
+          var nomE = x.d.verdict.nom || x.d.site;
+          document.querySelector("#v-ok h1").innerHTML = "What <span>" + esc(nomE) + "'s website</span> says about the company";
+          document.querySelector("#v-ok .cadre.grand .lab").textContent = "Its positioning, as written on its website";
+        }
+        aller(4);
+      })
+      .catch(function () { aller(3); var a = document.getElementById("f-avis"); a.textContent = ERREURS.reseau; a.hidden = false; });
+  })();
+
+  /* écran 2 : un positionnement par cible, deux onglets (23/10) */
+  document.querySelectorAll(".onglets button").forEach(function (b) { b.addEventListener("click", function () {
+    var c = b.getAttribute("data-cible"), cadre = b.closest(".cadre");
+    cadre.querySelectorAll(".onglets button").forEach(function (x) { var on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-selected", String(on)); });
+    cadre.querySelectorAll(".version").forEach(function (v) { v.hidden = v.getAttribute("data-version") !== c; });
+  }); });
+  /* le défilement des cinq entreprises : une à la fois ; le compteur et le bouton « Exemple suivant » (23/10) */
+  (function () {
+    var piste = document.getElementById("piste"), prec = document.getElementById("d-prec"), suiv = document.getElementById("d-suiv");
+    if (!piste) return;
+    var cartes = piste.children, i = 0, total = cartes.length;
+    var num = document.getElementById("d-num"), pts = document.getElementById("d-points"), bSuiv = document.getElementById("d-suivant"), bPasser = document.getElementById("d-passer");
+    pts.innerHTML = Array.prototype.map.call(cartes, function (c, k) { return '<button type="button" aria-label="Example ' + (k + 1) + '"></button>'; }).join("");
+    Array.prototype.forEach.call(pts.children, function (b, k) { b.addEventListener("click", function () { i = k; poser(); }); });
+    function poser() {
+      if (i > total - 1) i = total - 1;
+      var pas = cartes[0].getBoundingClientRect().width + 36;
+      piste.style.transform = "translateX(" + (-i * pas) + "px)";
+      num.textContent = "Example " + (i + 1) + " of " + total;
+      Array.prototype.forEach.call(pts.children, function (b, k) { b.classList.toggle("on", k === i); });
+      var dernier = i === total - 1;
+      bSuiv.textContent = dernier ? "Test mine" : "Next example →";
+      bPasser.hidden = dernier;
+    }
+    bSuiv.addEventListener("click", function () { if (i === total - 1) { bPasser.click(); return; } i++; poser(); });
+    prec.style.display = "none"; suiv.style.display = "none";
+    window.addEventListener("resize", poser);
+    poser();
+  })();
+
+  /* la carte « être informé » : content-signup, type « ressources », comme sur les autres pages */
+  document.querySelectorAll(".js-informer").forEach(function (form) { form.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var msg = form.querySelector(".msg"), go = form.querySelector("button[type=submit]"), input = form.querySelector("input[type=email]"), v = input.value.trim().toLowerCase();
+    msg.textContent = "";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) { msg.textContent = ERREURS.email; return; }
+    go.disabled = true;
+    fetch(FONCTIONS + "/content-signup", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ kind: "ressources", email: v, lang: "en", news: true, page: location.href, salons: [] }) })
+      .then(function (r) { if (!r.ok) throw new Error(String(r.status)); return r.json(); })
+      .then(function () { msg.style.color = "#006B3F"; msg.textContent = "Done. An email confirms it."; input.value = ""; })
+      .catch(function () { msg.style.color = ""; msg.textContent = ERREURS.reseau; })
+      .then(function () { go.disabled = false; });
+  }); });
+
+  /* le verdict */
+  var LIBS = { metier: "What you do", pour_qui: "Who for", probleme: "Problem solved", unique: "What makes you unique" };
+  var CLASSE = { vert: "ok", orange: "moy", rouge: "ko" };
+  var MOTS = { vert: "green", orange: "orange", rouge: "red" };
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
+  function compte(v) {
+    var n = { vert: 0, orange: 0, rouge: 0 };
+    ["metier", "pour_qui", "probleme", "unique"].forEach(function (k) { n[v[k].note] = (n[v[k].note] || 0) + 1; });
+    return ["vert", "orange", "rouge"].filter(function (c) { return n[c]; }).map(function (c) { return n[c] + " " + MOTS[c]; }).join(" · ");
+  }
+  function afficher(d, saisi) {
+    var ok = document.getElementById("v-ok"), ko = document.getElementById("v-ko");
+    if (!d.lisible) {
+      VERDICT = { lisible: false };
+      ok.hidden = true; ko.hidden = false;
+      document.getElementById("v-ko-txt").textContent = d.raison === "injoignable"
+        ? "Your website didn't respond when we tried to read it. Check the address, or try again in a moment."
+        : "Your home page has almost no readable text without a browser: that's the case for sites drawn entirely by a script. A busy prospect, or a search engine, sees the same thing.";
+      return;
+    }
+    var v = d.verdict; VERDICT = v;
+    ok.hidden = false; ko.hidden = true;
+    var hote = (d.site || saisi).replace(/^https?:\/\//, "").replace(/\/$/, "");
+    document.getElementById("v-site").textContent = hote;
+    document.getElementById("v-nom").textContent = v.nom || hote;
+    document.getElementById("v-tag").textContent = (v.categorie ? v.categorie + " · " : "") + compte(v);
+    document.getElementById("v-actuel").textContent = v.positionnement_actuel ? "“" + v.positionnement_actuel + "”" : "";
+    document.getElementById("v-lignes").innerHTML = ["metier", "pour_qui", "probleme", "unique"].map(function (k) {
+      var p = v[k], cl = CLASSE[p.note] || "ko";
+      return '<div><span class="k"><i class="' + cl + '">' + ICONES[cl] + '</i>' + LIBS[k] + '</span><span class="v">' + esc(p.commentaire) + '</span></div>';
+    }).join("");
+    document.getElementById("v-synthese").textContent = v.synthese;
+    var manques = ["metier", "pour_qui", "probleme", "unique"].filter(function (k) { return v[k].note !== "vert" && v[k].manque && v[k].manque.question; });
+    document.getElementById("v-manque-lab").textContent = manques.length ? "What's missing, and where to find it" : "Nothing to add";
+    document.getElementById("v-manque").innerHTML = manques.length ? manques.map(function (k) {
+      var p = v[k], cl = CLASSE[p.note] || "ko";
+      return '<div><span class="k"><i class="' + cl + '">' + ICONES[cl] + '</i>' + LIBS[k] + '</span><p>' + esc(p.manque.question) + '</p>' + (p.manque.exemple ? '<p class="ex">For example: ' + esc(p.manque.exemple) + '</p>' : '') + (k === "pour_qui" ? '<p class="ex">Several targets? Write one version per target. What you do doesn\'t change; the problem solved does.</p>' : '') + '</div>';
+    }).join("") : '<div><p class="rien">Your sentence is ready for your prospecting email.</p></div>';
+  }
+})();
+</script>
+<script>
+const ICONS = {
+  "in": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
+  wa: '<svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.9 9.88M20.47 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41"/></svg>',
+  x: '<svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>',
+  mail: '<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>',
+  link: '<svg viewBox="0 0 24 24"><path d="M3.9 12a3.1 3.1 0 0 1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7A3.1 3.1 0 0 1 3.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 1 1 0 6.2h-4V17h4a5 5 0 0 0 0-10z"/></svg>'
+};
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var URL_PAGE = "https://www.mazeo.co/en/positioning", TXT = "Are you well positioned? A practical guide from the growth academy, by mazeo.";
+  var u = encodeURIComponent(URL_PAGE), tx = encodeURIComponent(TXT + " " + URL_PAGE);
+  var links = [["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u], ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
+    ["x", "X", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(TXT) + "&url=" + u], ["mail", "Email", "mailto:?subject=" + encodeURIComponent("Are you well positioned?") + "&body=" + tx]];
+  $("share-menu").innerHTML = links.map(function (l) { return '<a href="' + l[2] + '" target="_blank" rel="noopener"><i class="i-' + l[0] + '">' + ICONS[l[0]] + '</i>' + l[1] + '</a>'; }).join("") + '<button type="button" id="copy"><i class="i-link">' + ICONS.link + '</i><span>Copy link</span></button>';
+  $("copy").onclick = function (e) { var lab = e.currentTarget.lastChild; try { navigator.clipboard.writeText(URL_PAGE).then(function () { lab.textContent = "Link copied"; }, function () { lab.textContent = URL_PAGE; }); } catch (x) { lab.textContent = URL_PAGE; } };
+  var btn = $("partager"), menu = $("share-menu");
+  btn.onclick = function (e) { e.stopPropagation(); var open = menu.hidden; menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
+  document.addEventListener("click", function (e) { if (!e.target.closest(".share")) { menu.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
+})();
+</script>
+</body>
+</html>
