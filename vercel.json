@@ -29,6 +29,10 @@
       "destination": "/pitch-des-etudes.html"
     },
     {
+      "source": "/en/market-research-positioning",
+      "destination": "/en/market-research-positioning.html"
+    },
+    {
       "source": "/en/market-research-in-figures",
       "destination": "/en/market-research-in-figures.html"
     },
