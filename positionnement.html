@@ -137,8 +137,9 @@ p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-
 */
 .ecran.avous .contenu { max-width:1100px; padding-top:116px; padding-bottom:110px; }
 .ecran.avous h1 { font-size:clamp(36px,3.6vw,56px); }
-.ecran.avous h1 { margin-bottom:18px; }
-.ecran.avous p.th { margin-bottom:22px; max-width:64ch; }
+.ecran.avous h1 { margin-bottom:26px; }
+.ecran.avous p.th { margin-bottom:30px; max-width:64ch; }
+.ecran.avous .form { gap:20px; }
 .form { display:grid; gap:18px; margin-top:0; max-width:620px; }
 .tete-champ { display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-bottom:10px; }
 .tete-champ label.ch { margin-bottom:0; }
@@ -299,7 +300,7 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
   .contenu { padding-top:102px; }
   .ecran:not(.haut) .contenu { padding-bottom:clamp(20px,calc(6vh - 20px),70px); }
   .ecran .contenu.dense { padding-top:clamp(86px,calc(10vh - 14px),116px); padding-bottom:8px; }
-  .ecran.avous .contenu { padding-top:98px; }
+  .ecran.avous .contenu { padding-top:117px; }
   .contenu.dense h1.h-compact { margin-bottom:14px; }
   .ecran .contenu.dense h1.h-compact + p.th { margin-top:clamp(8px,1.4vh,30px); }
   .compteur, .ecran .contenu.dense p.morale { --ecart:clamp(14px,2vh,32px); }
@@ -452,7 +453,6 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
 <!-- 4 · Bascule : le formulaire -->
 <section class="ecran avous haut">
   <div class="contenu">
-    <p class="sur">À vous</p>
     <h1>Et vous, <span>êtes-vous bien positionné ?</span></h1>
     <p class="th">Nous avons analysé le positionnement de plus de 500 prestataires d'études. Renseignez votre entreprise pour consulter notre analyse. Elle n'est pas dans la liste ? Signalez-la, nous l'ajoutons.</p>
     <p class="avis" id="f-avis" hidden></p>
