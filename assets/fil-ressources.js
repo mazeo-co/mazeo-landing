@@ -95,22 +95,26 @@
 
   // Le fil commence au bord gauche du logo de la page et finit au bord droit de son dernier bouton :
   // on prend les éléments visibles les plus fins de l'en-tête (textes, images, boutons), jamais ses enveloppes.
+  function texte(e) {
+    for (var n = e.firstChild; n; n = n.nextSibling) if (n.nodeType === 3 && n.nodeValue.trim()) return true;
+    return false;
+  }
   function aligner() {
-    var tete = document.querySelector('header');
+    var marque = document.querySelector('.brand');
+    var tete = document.querySelector('header') || (marque && marque.parentElement);
     var bloc = nav.firstChild;
     if (!tete || !bloc) return;
-    var els = tete.querySelectorAll('*'), g = Infinity, d = -Infinity;
+    var els = tete.querySelectorAll('*'), g = Infinity, d = -Infinity, large = document.documentElement.clientWidth;
     for (var j = 0; j < els.length; j++) {
       var e = els[j], t = e.tagName;
-      if (e.childElementCount && t !== 'svg' && t !== 'A' && t !== 'BUTTON') continue;
+      if (e.childElementCount && t !== 'svg' && t !== 'A' && t !== 'BUTTON' && !texte(e)) continue;
       if (e.closest('svg') && t !== 'svg') continue;
       var b = e.getBoundingClientRect();
-      if (!b.width || !b.height || getComputedStyle(e).visibility === 'hidden') continue;
+      if (!b.width || !b.height || b.width > large * 0.6 || getComputedStyle(e).visibility === 'hidden') continue;
       if (b.left < g) g = b.left;
       if (b.right > d) d = b.right;
     }
     if (g === Infinity) return;
-    var large = document.documentElement.clientWidth;
     if (large <= 640) { bloc.style.paddingLeft = bloc.style.paddingRight = ''; return; }
     bloc.style.paddingLeft = Math.max(16, Math.round(g)) + 'px';
     bloc.style.paddingRight = Math.max(16, Math.round(large - d)) + 'px';
