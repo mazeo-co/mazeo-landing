@@ -96,6 +96,10 @@ aside { position:sticky; top:24px; display:grid; gap:22px; }
 .chiffres span { font-size:15.5px; line-height:1.5; color:var(--body); }
 article p.src { font-size:13.5px; color:var(--meta); margin:0 0 28px; }
 article p.apres { margin-top:22px; }
+/* 23/10 soir : le lien vers l'outil, sous la phrase qui le présente */
+article p.vers { margin:-8px 0 0; font-weight:600; }
+article p.vers a { color:var(--blue); text-decoration:none; }
+article p.vers a:hover { text-decoration:underline; text-underline-offset:3px; }
 /* le bas de page : revenir aux fiches */
 .suite { margin-top:72px; display:flex; gap:14px; flex-wrap:wrap; }
 .btn { font-weight:600; font-size:17px; color:var(--paper); background:var(--ink); border:1px solid var(--ink); border-radius:3px; padding:12px 24px; text-decoration:none; display:inline-block; }
@@ -128,18 +132,18 @@ aside { gap:28px; }
 
 <main class="contenu">
   <h1>An interested prospect should be able to book straight away. <span class="b">Set up your booking link.</span></h1>
-  <p class="lede">A prospect's interest fades within hours. A booking link lets them pick a time the moment they say yes, without waiting for your reply.</p>
+  <p class="lede">A prospect's interest fades within hours. A booking link lets them book the very moment they understand the problem you can solve for them.</p>
 
   <div class="corps">
   <article>
     <section>
-      <h2>Meetings are won within the hour</h2>
+      <h2>Every hour counts to get a meeting</h2>
       <div class="chiffres">
         <div><b>7 times</b><span>more likely to reach a decision-maker if you reply within the hour, rather than an hour later.</span></div>
         <div><b>60 times</b><span>more likely than if you reply the next day.</span></div>
       </div>
       <p class="src">Harvard Business Review, 2011: 1.25 million contact requests received by 42 US companies.</p>
-      <p>A prospect needs you at a specific moment. If they have to wait for your reply, then settle on a date over three emails, the interest fades. The meeting is all but lost.</p>
+      <p>Without a link, the prospect has to wait for your reply. Finding a date can then take up to three or four messages. Each message costs hours, and their interest fades.</p>
       <p>With a booking link:</p>
       <ul class="points">
         <li><span><b>They book right away,</b> even when you're busy.</span></li>
@@ -164,6 +168,7 @@ aside { gap:28px; }
         <li><span><b>Calendly:</b> well known, free for one event type.</span></li>
       </ul>
       <p class="apres">Here we use <b>Cal.com</b>: it's free with unlimited bookings, works with Outlook and Google alike, and creates the Teams or Meet link for you.</p>
+      <p class="vers"><a href="https://cal.com" target="_blank" rel="noopener">→ cal.com</a></p>
     </section>
 
     <section>
