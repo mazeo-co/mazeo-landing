@@ -483,7 +483,7 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
       <div id="bloc-site" hidden style="margin-top:-8px"><input type="text" id="f-site" placeholder="www.votre-societe.fr" autocomplete="url" inputmode="url"><p class="retenu" id="f-retenu-site"></p></div>
       <div><label class="ch" for="f-email">Votre email professionnel, pour recevoir le résultat</label><input type="email" id="f-email" placeholder="prenom@votre-societe.fr" autocomplete="email" required></div>
       <label class="ligne"><input type="checkbox" class="js-non"> Je ne souhaite pas recevoir les prochaines ressources de mazeo.</label>
-      <div class="cta cta-form"><button type="submit">Recevoir mon analyse</button></div>
+      <div class="cta cta-form"><button type="submit">Recevoir mon analyse</button><button type="button" class="second" data-fin>Voir la suite sans analyse</button></div>
       <p class="msg" role="status" aria-live="polite"></p>
       <p class="note" id="f-note">Le résultat s'affiche avec une adresse de l'entreprise choisie, et ne part à personne d'autre. Gmail, outlook, orange… ne passent pas.</p>
     </form>
@@ -582,6 +582,8 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
   document.getElementById("prec").addEventListener("click", function () { aller(n - 1); });
   document.getElementById("suiv").addEventListener("click", function () { aller(n + 1); });
   document.querySelectorAll("[data-suivant]").forEach(function (b) { b.addEventListener("click", function () { aller(n + 1); }); });
+  /* 23/10 : « Voir la suite sans analyse » (écran 4) mène au dernier écran, sans passer par le résultat */
+  document.querySelectorAll("[data-fin]").forEach(function (b) { b.addEventListener("click", function () { aller(ecrans.length - 1); }); });
   document.querySelectorAll("[data-precedent]").forEach(function (b) { b.addEventListener("click", function () { aller(n - 1); }); });
   document.addEventListener("keydown", function (ev) {
     var t = ev.target, saisie = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
