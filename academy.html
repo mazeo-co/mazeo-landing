@@ -58,7 +58,7 @@ button, input { font:inherit; }
 /* une seule page. Rangée 1 : le titre, et à droite l'étiquette des fiches posée sur sa dernière ligne.
    Rangée 2 : le texte à gauche, les fiches à droite ; les deux colonnes ont le même haut et le même bas. */
 .contenu { max-width:1280px; margin:0 auto; padding:clamp(16px,3.4vh,64px) 48px clamp(14px,2.2vh,56px); }
-.bas { display:grid; grid-template-columns:1.06fr .94fr; grid-template-areas:"titre ." "texte fiches"; column-gap:clamp(48px,5vw,88px); }
+.bas { display:grid; grid-template-columns:minmax(0,1.06fr) minmax(0,.94fr); grid-template-areas:"titre ." "texte fiches"; column-gap:clamp(48px,5vw,88px); }
 .bas h1 { grid-area:titre; } .bas .texte { grid-area:texte; align-self:center; } .bas .texte .cta { margin-top:clamp(22px,4.4vh,44px); } .bas .fiches { grid-area:fiches; display:flex; flex-direction:column; }
 .bas .etiquette { margin:clamp(6px,1vh,10px) 0 clamp(12px,2vh,26px); }
 .lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); line-height:1; }
