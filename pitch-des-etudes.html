@@ -6,6 +6,9 @@
 <title>Le Pitch des études · le positionnement des prestataires d'études, en chiffres · présenté par mazeo</title>
 <meta name="description" content="6 % des prestataires d'études disent ce que leur client y gagne. mazeo a lu le site de 299 prestataires comme le ferait un prospect, et noté quatre points : le métier, pour qui, le problème réglé, ce qui rend unique.">
 <link rel="canonical" href="https://www.mazeo.co/pitch-des-etudes">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/pitch-des-etudes">
+<link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/market-research-positioning">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/pitch-des-etudes">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="mazeo">
 <meta property="og:locale" content="fr_FR">
@@ -58,7 +61,7 @@ a { color:inherit; }
 
 /* premier écran : titre, carte, quatre chiffres */
 .une { min-height:min(100vh, 900px); display:flex; flex-direction:column; }
-.hero { display:grid; grid-template-columns:1.2fr .8fr; gap:72px; padding-top:34px; align-items:start; }
+.hero { display:grid; grid-template-columns:1.2fr .8fr; gap:72px; padding-top:26px; align-items:start; }
 .sur { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 22px; }
 .sur i { width:8px; height:8px; border-radius:50%; background:var(--c); }
 h1 { font-size:clamp(44px,5vw,70px); line-height:1; }
@@ -74,8 +77,8 @@ h1 { font-size:clamp(44px,5vw,70px); line-height:1; }
 .btn { display:block; width:100%; border:0; cursor:pointer; text-align:center; background:var(--c); color:#fff; font:inherit; font-weight:700; font-size:16.5px; border-radius:10px; padding:14px 18px; margin-top:4px; }
 .coche { display:flex; gap:9px; align-items:flex-start; font-size:13px; color:var(--muted); margin-top:12px; line-height:1.45; }
 .coche input { accent-color:var(--c); margin:2px 0 0; }
-.chiffres { margin-top:90px; }
-.chiffres .in { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); padding:16px 0 22px; }
+.chiffres { margin-top:auto; padding-top:26px; }
+.chiffres .in { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); padding:14px 0 18px; }
 .chiffres b { display:block; font-family:var(--display); font-weight:800; font-stretch:90%; letter-spacing:-.04em; font-size:36px; line-height:1; color:var(--ink); }
 .chiffres span { display:block; font-size:14.5px; color:var(--muted); margin-top:6px; }
 .chiffres .c b { color:var(--c); }
@@ -206,19 +209,19 @@ h1 { font-size:clamp(44px,5vw,70px); line-height:1; }
 .method b { color:var(--ink); }
 
 .hero.h3 { grid-template-columns:1.15fr .85fr; gap:64px; }
-.hero.h3 h1 { font-size:clamp(44px,4.4vw,62px); line-height:.98; }
-.hero.h3 .def { margin:24px 0 0; max-width:52ch; color:var(--slate); font-size:17px; line-height:1.5; }
+.hero.h3 h1 { font-size:clamp(42px,4.1vw,58px); line-height:.98; }
+.hero.h3 .def { margin:18px 0 0; max-width:52ch; color:var(--slate); font-size:17px; line-height:1.5; }
 .hero.h3 .def b { color:var(--ink); }
-.q4 { margin:20px 0 4px; padding:0; list-style:none; counter-reset:q; display:grid; grid-template-columns:max-content max-content; gap:18px 36px; }
+.q4 { margin:14px 0 2px; padding:0; list-style:none; counter-reset:q; display:grid; grid-template-columns:max-content max-content; gap:14px 36px; }
 .q4 li { counter-increment:q; display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:700; font-stretch:95%; letter-spacing:-.015em; font-size:17px; color:var(--ink); line-height:1.2; white-space:nowrap; }
 .q4 li::before { content:counter(q); flex:none; width:22px; height:22px; border-radius:50%; background:var(--c); color:#fff; display:grid; place-items:center; font:800 12px/1 var(--sans); }
-.carte.stat { margin-top:6px; padding:24px 26px 20px; }
+.carte.stat { margin-top:0; padding:20px 24px 18px; }
 .carte.stat .choc { display:flex; align-items:center; gap:18px; }
-.carte.stat .choc b { font-family:var(--display); font-weight:800; font-stretch:90%; letter-spacing:-.05em; font-size:88px; line-height:.82; color:var(--c); white-space:nowrap; }
+.carte.stat .choc b { font-family:var(--display); font-weight:800; font-stretch:90%; letter-spacing:-.05em; font-size:80px; line-height:.82; color:var(--c); white-space:nowrap; }
 .carte.stat .choc p { margin:0; min-width:0; font-size:17px; line-height:1.38; color:var(--ink); font-weight:600; }
-.carte.stat .pourquoi { margin:16px 0 0; font-size:15px; color:var(--slate); line-height:1.5; }
+.carte.stat .pourquoi { margin:12px 0 0; font-size:15px; color:var(--slate); line-height:1.5; }
 .carte.stat .pourquoi span { display:block; margin-top:4px; font-size:12px; color:var(--muted); }
-.carte.stat .et { margin-top:16px; padding-top:16px; border-top:1px solid var(--line); }
+.carte.stat .et { margin-top:12px; padding-top:12px; border-top:1px solid var(--line); }
 .carte.stat .et h3 { font-size:22px; margin-bottom:6px; }
 .carte.stat .et .txt { margin:0 0 12px; font-size:15px; color:var(--slate); line-height:1.45; }
 .carte.stat .note { margin:-2px 0 8px; font-size:12.5px; color:var(--muted); }
@@ -297,7 +300,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
 <div class="une">
 <header class="nav">
   <a class="marque" href="#"><span class="lg"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></span><span class="sep"></span><span class="by">le positionnement des prestataires d'études, présenté par <span class="mz">mazeo<span>.</span></span></span></a>
-  <div class="nav-r"><!-- Le drapeau anglais revient avec la version anglaise. --><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
+  <div class="nav-r"><a class="lang" id="lang" href="/en/market-research-positioning" hreflang="en" aria-label="English version" title="English version"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
 </header>
 
 <section class="hero h3" id="hero">
@@ -346,6 +349,12 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
   </div>
   <div class="r-ko" id="r-ko" hidden><p id="r-ko-txt"></p><button type="button" class="cta violet" id="r-retour2">Revenir à l'étude</button></div>
 </section>
+<section class="chiffres"><div class="in">
+  <div><b>84&nbsp;%</b><span>disent clairement leur métier</span></div>
+  <div><b>29&nbsp;%</b><span>disent clairement leur cible</span></div>
+  <div class="c"><b>6&nbsp;%</b><span>disent clairement quel problème ils règlent</span></div>
+  <div><b>23&nbsp;%</b><span>prouvent leur différence</span></div>
+</div></section>
 
 
 
@@ -370,12 +379,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
       </div></div>
   </div>
 </section>
-<section class="chiffres"><div class="in">
-  <div><b>84&nbsp;%</b><span>disent clairement leur métier</span></div>
-  <div><b>29&nbsp;%</b><span>disent clairement leur cible</span></div>
-  <div class="c"><b>6&nbsp;%</b><span>disent clairement quel problème ils règlent</span></div>
-  <div><b>23&nbsp;%</b><span>prouvent leur différence</span></div>
-</div></section>
+
 
 <section class="photo">
   <div class="photo-top"><h2>299 sites de prestataires d'études, un carré par site</h2><span>Lus le 22 octobre 2026</span></div>
@@ -444,7 +448,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
 
 <section class="mzbox"><div><a class="mz" href="https://mazeo.co" style="font-size:22px">mazeo<span>.</span></a><p>mazeo a cartographié l'ensemble du secteur des études en France&nbsp;: plus de 1&nbsp;300 entreprises et plus de 13&nbsp;000 professionnels, et la base s'enrichit tous les jours. mazeo est le seul outil de prospection dédié au market research.</p><p class="q1">Vous voulez savoir quelles entreprises ont le plus besoin de vos études, et qui contacter chez elles&nbsp;?</p></div><a class="cta" href="https://www.mazeo.co/demo">Réserver une démo</a></section>
 
-<footer class="method"><p><b>Méthode.</b> Le 22 octobre 2026, nous avons lu la page d'accueil de 361 prestataires d'études basés en France, tirés de sa base. Une IA en a extrait le texte de présentation, puis l'a noté comme le ferait un prospect, sur les quatre questions du positionnement&nbsp;: le métier, la cible, le problème réglé, la différence. Chaque point est dit clairement, dit mais flou, ou absent, selon les règles de la leçon 1 de la growth academy. Les mots sont comptés sur les 252 sites écrits en français.</p><p><b>Limites.</b> 62 sites n'ont pas pu être notés&nbsp;: site injoignable, texte illisible ou note de l'IA inutilisable. Seule la page d'accueil est lue. La note d'un site peut se discuter&nbsp;: chacun peut voir la sienne en haut de cette page. Types de prestataires&nbsp;: ceux de la base mazeo. Hors de France&nbsp;: 110 sites notés selon les mêmes règles. Les chiffres datent du 22 octobre 2026.</p></footer>
+<footer class="method"><p><b>Méthode.</b> Le 22 octobre 2026, nous avons lu la page d'accueil de 361 prestataires d'études basés en France, tirés de la base mazeo. Une IA en a extrait le texte de présentation, puis l'a noté comme le ferait un prospect, sur les quatre questions du positionnement&nbsp;: le métier, la cible, le problème réglé, la différence. Chaque point est dit clairement, dit mais flou, ou absent, selon les règles de la leçon 1 de la growth academy. Les mots sont comptés sur les 252 sites écrits en français.</p><p><b>Limites.</b> 62 sites n'ont pas pu être notés&nbsp;: site injoignable, texte illisible ou note de l'IA inutilisable. Seule la page d'accueil est lue. La note d'un site peut se discuter&nbsp;: chacun peut voir la sienne en haut de cette page. Types de prestataires&nbsp;: ceux de la base mazeo. Hors de France&nbsp;: 110 sites notés selon les mêmes règles. Les chiffres datent du 22 octobre 2026.</p></footer>
 
 </div><script>
 /* « Testez votre positionnement » : la même mécanique que la fiche pratique (positionnement-score).
@@ -653,6 +657,7 @@ const FLAGS = {
   en: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"></rect><path d="M0,0 30,20 M30,0 0,20" stroke="#fff" stroke-width="4"></path><path d="M0,0 30,20 M30,0 0,20" stroke="#C8102E" stroke-width="1.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#C8102E" stroke-width="4"></path></svg>'
 };
 const $ = id => document.getElementById(id);
+$("flag").innerHTML = FLAGS.en;
 
 const URL_PAGE = "https://www.mazeo.co/pitch-des-etudes", LANG = "fr";
 const HOTE_PROD = /(^|\.)mazeo\.co$/.test(location.hostname);
