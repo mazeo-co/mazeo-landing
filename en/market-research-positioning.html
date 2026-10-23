@@ -61,7 +61,7 @@ a { color:inherit; }
 
 /* premier écran : titre, carte, quatre chiffres */
 .une { min-height:min(100vh, 900px); display:flex; flex-direction:column; }
-.hero { display:grid; grid-template-columns:1.2fr .8fr; gap:72px; padding-top:34px; align-items:start; }
+.hero { display:grid; grid-template-columns:1.2fr .8fr; gap:72px; padding-top:26px; align-items:start; }
 .sur { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 22px; }
 .sur i { width:8px; height:8px; border-radius:50%; background:var(--c); }
 h1 { font-size:clamp(44px,5vw,70px); line-height:1; }
@@ -77,8 +77,8 @@ h1 { font-size:clamp(44px,5vw,70px); line-height:1; }
 .btn { display:block; width:100%; border:0; cursor:pointer; text-align:center; background:var(--c); color:#fff; font:inherit; font-weight:700; font-size:16.5px; border-radius:10px; padding:14px 18px; margin-top:4px; }
 .coche { display:flex; gap:9px; align-items:flex-start; font-size:13px; color:var(--muted); margin-top:12px; line-height:1.45; }
 .coche input { accent-color:var(--c); margin:2px 0 0; }
-.chiffres { margin-top:90px; }
-.chiffres .in { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); padding:16px 0 22px; }
+.chiffres { margin-top:auto; padding-top:26px; }
+.chiffres .in { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--ink); padding:14px 0 18px; }
 .chiffres b { display:block; font-family:var(--display); font-weight:800; font-stretch:90%; letter-spacing:-.04em; font-size:36px; line-height:1; color:var(--ink); }
 .chiffres span { display:block; font-size:14.5px; color:var(--muted); margin-top:6px; }
 .chiffres .c b { color:var(--c); }
@@ -209,20 +209,20 @@ h1 { font-size:clamp(44px,5vw,70px); line-height:1; }
 .method b { color:var(--ink); }
 
 .hero.h3 { grid-template-columns:1.15fr .85fr; gap:64px; }
-.hero.h3 h1 { font-size:clamp(44px,4.4vw,62px); line-height:.98; }
-.hero.h3 .def { margin:24px 0 0; max-width:52ch; color:var(--slate); font-size:17px; line-height:1.5; }
+.hero.h3 h1 { font-size:clamp(42px,4.1vw,58px); line-height:.98; }
+.hero.h3 .def { margin:18px 0 0; max-width:52ch; color:var(--slate); font-size:17px; line-height:1.5; }
 .hero.h3 .def b { color:var(--ink); }
-.q4 { margin:20px 0 4px; padding:0; list-style:none; counter-reset:q; display:grid; grid-template-columns:max-content max-content; gap:18px 36px; }
+.q4 { margin:14px 0 2px; padding:0; list-style:none; counter-reset:q; display:grid; grid-template-columns:max-content max-content; gap:14px 36px; }
 .q4 li { counter-increment:q; display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:700; font-stretch:95%; letter-spacing:-.015em; font-size:17px; color:var(--ink); line-height:1.2; white-space:nowrap; }
 .q4 li::before { content:counter(q); flex:none; width:22px; height:22px; border-radius:50%; background:var(--c); color:#fff; display:grid; place-items:center; font:800 12px/1 var(--sans); }
-.carte.stat { margin-top:6px; padding:24px 26px 20px; }
+.carte.stat { margin-top:0; padding:20px 24px 18px; }
 .carte.stat .choc { display:flex; align-items:center; gap:18px; }
-.carte.stat .choc b { font-family:var(--display); font-weight:800; font-stretch:90%; letter-spacing:-.05em; font-size:88px; line-height:.82; color:var(--c); white-space:nowrap; }
+.carte.stat .choc b { font-family:var(--display); font-weight:800; font-stretch:90%; letter-spacing:-.05em; font-size:80px; line-height:.82; color:var(--c); white-space:nowrap; }
 .carte.stat .choc b small { display:block; font:700 13px/1 var(--sans); letter-spacing:.14em; text-transform:uppercase; margin:0 0 8px 4px; }
 .carte.stat .choc p { margin:0; min-width:0; font-size:17px; line-height:1.38; color:var(--ink); font-weight:600; }
-.carte.stat .pourquoi { margin:16px 0 0; font-size:15px; color:var(--slate); line-height:1.5; }
+.carte.stat .pourquoi { margin:12px 0 0; font-size:15px; color:var(--slate); line-height:1.5; }
 .carte.stat .pourquoi span { display:block; margin-top:4px; font-size:12px; color:var(--muted); }
-.carte.stat .et { margin-top:16px; padding-top:16px; border-top:1px solid var(--line); }
+.carte.stat .et { margin-top:12px; padding-top:12px; border-top:1px solid var(--line); }
 .carte.stat .et h3 { font-size:22px; margin-bottom:6px; }
 .carte.stat .et .txt { margin:0 0 12px; font-size:15px; color:var(--slate); line-height:1.45; }
 .carte.stat .note { margin:-2px 0 8px; font-size:12.5px; color:var(--muted); }
@@ -350,6 +350,12 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
   </div>
   <div class="r-ko" id="r-ko" hidden><p id="r-ko-txt"></p><button type="button" class="cta violet" id="r-retour2">Back to the study</button></div>
 </section>
+<section class="chiffres"><div class="in">
+  <div><b>84&nbsp;%</b><span>clearly state their business</span></div>
+  <div><b>29&nbsp;%</b><span>clearly state their target</span></div>
+  <div class="c"><b>6&nbsp;%</b><span>clearly say what problem they solve</span></div>
+  <div><b>23&nbsp;%</b><span>prove their difference</span></div>
+</div></section>
 
 
 
@@ -374,12 +380,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
       </div></div>
   </div>
 </section>
-<section class="chiffres"><div class="in">
-  <div><b>84&nbsp;%</b><span>clearly state their business</span></div>
-  <div><b>29&nbsp;%</b><span>clearly state their target</span></div>
-  <div class="c"><b>6&nbsp;%</b><span>clearly say what problem they solve</span></div>
-  <div><b>23&nbsp;%</b><span>prove their difference</span></div>
-</div></section>
+
 
 <section class="photo">
   <div class="photo-top"><h2>299 market research provider websites, one square per site</h2><span>Read on 22 October 2026</span></div>
