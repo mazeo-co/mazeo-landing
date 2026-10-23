@@ -1,6 +1,26 @@
 {
   "rewrites": [
     {
+      "source": "/academy",
+      "destination": "/academy.html"
+    },
+    {
+      "source": "/positionnement",
+      "destination": "/positionnement.html"
+    },
+    {
+      "source": "/prise-de-rendez-vous",
+      "destination": "/prise-de-rendez-vous.html"
+    },
+    {
+      "source": "/en/academy",
+      "destination": "/en/academy.html"
+    },
+    {
+      "source": "/en/booking-link",
+      "destination": "/en/booking-link.html"
+    },
+    {
       "source": "/village-des-etudes",
       "destination": "/village-des-etudes.html"
     },
