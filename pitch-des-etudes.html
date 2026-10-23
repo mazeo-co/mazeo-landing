@@ -297,7 +297,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
 <div class="une">
 <header class="nav">
   <a class="marque" href="#"><span class="lg"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></span><span class="sep"></span><span class="by">le positionnement des prestataires d'études, présenté par <span class="mz">mazeo<span>.</span></span></span></a>
-  <div class="nav-r"><a class="lang" id="lang" href="#" hreflang="en" aria-label="English version" title="English version"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
+  <div class="nav-r"><!-- Le drapeau anglais revient avec la version anglaise. --><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
 </header>
 
 <section class="hero h3" id="hero">
@@ -653,7 +653,7 @@ const FLAGS = {
   en: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"></rect><path d="M0,0 30,20 M30,0 0,20" stroke="#fff" stroke-width="4"></path><path d="M0,0 30,20 M30,0 0,20" stroke="#C8102E" stroke-width="1.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#C8102E" stroke-width="4"></path></svg>'
 };
 const $ = id => document.getElementById(id);
-$("flag").innerHTML = FLAGS.en;
+
 const URL_PAGE = "https://www.mazeo.co/pitch-des-etudes", LANG = "fr";
 const HOTE_PROD = /(^|\.)mazeo\.co$/.test(location.hostname);
 const EMAIL_URL = (HOTE_PROD ? "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1" : "https://aipmpdzscqhsvteblajo.supabase.co/functions/v1") + "/content-signup";
