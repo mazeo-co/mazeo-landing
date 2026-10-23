@@ -36,7 +36,8 @@ a { color:inherit; }
 
 /* en-tête */
 .nav { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:28px 0 24px; border-bottom:1px solid var(--line); }
-.marque { display:flex; align-items:center; gap:22px; text-decoration:none; color:var(--ink); }
+.marque { display:flex; align-items:center; gap:22px; color:var(--ink); }
+.lg-lien { text-decoration:none; color:inherit; }
 .lg { display:flex; flex-direction:column; line-height:1; }
 .lg .l { display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:800; font-stretch:90%; letter-spacing:-.045em; font-size:44px; color:var(--ink); }
 .lg .bulle { position:relative; background:var(--c); color:#fff; border-radius:12px; padding:2px 14px 8px; }
@@ -299,7 +300,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
 
 <div class="une">
 <header class="nav">
-  <a class="marque" href="#"><span class="lg"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></span><span class="sep"></span><span class="by">le positionnement des prestataires d'études, présenté par <span class="mz">mazeo<span>.</span></span></span></a>
+  <div class="marque"><a class="lg-lien" href="/pitch-des-etudes" aria-label="Le Pitch des études"><span class="lg"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></span></a><span class="sep"></span><span class="by">le positionnement des prestataires d'études, présenté par <a class="mz" href="https://www.mazeo.co">mazeo<span>.</span></a></span></div>
   <div class="nav-r"><a class="lang" id="lang" href="/en/market-research-positioning" hreflang="en" aria-label="English version" title="English version"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
 </header>
 
