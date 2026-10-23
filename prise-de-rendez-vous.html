@@ -95,7 +95,14 @@ aside { position:sticky; top:24px; display:grid; gap:22px; }
 .chiffres b { font-family:var(--serif); font-weight:400; font-size:clamp(40px,3.2vw,52px); line-height:1; color:var(--blue); }
 .chiffres span { font-size:15.5px; line-height:1.5; color:var(--body); }
 article p.src { font-size:13.5px; color:var(--meta); margin:0 0 28px; }
+/* 23/10 soir : la phrase qui pose la situation au-dessus des deux chiffres */
+article p.avant-chiffres { margin:0; }
+@media (max-width: 640px) { .chiffres { grid-template-columns:1fr; gap:14px; } }
 article p.apres { margin-top:22px; }
+/* 23/10 soir : le lien vers l'outil, sous la phrase qui le présente */
+article p.vers { margin:-8px 0 0; font-weight:600; }
+article p.vers a { color:var(--blue); text-decoration:none; }
+article p.vers a:hover { text-decoration:underline; text-underline-offset:3px; }
 /* le bas de page : revenir aux fiches */
 .suite { margin-top:72px; display:flex; gap:14px; flex-wrap:wrap; }
 .btn { font-weight:600; font-size:17px; color:var(--paper); background:var(--ink); border:1px solid var(--ink); border-radius:3px; padding:12px 24px; text-decoration:none; display:inline-block; }
@@ -128,18 +135,19 @@ aside { gap:28px; }
 
 <main class="contenu">
   <h1>Un prospect intéressé doit pouvoir réserver tout de suite. <span class="b">Préparez votre lien de prise de rendez-vous.</span></h1>
-  <p class="lede">L'intérêt d'un prospect retombe en quelques heures. Un lien de rendez-vous lui permet de réserver au moment même où il dit oui, sans attendre votre réponse.</p>
+  <p class="lede">L'intérêt d'un prospect retombe en quelques heures. Un lien de rendez-vous lui permet de réserver au moment même où il comprend le problème que vous pouvez régler pour lui.</p>
 
   <div class="corps">
   <article>
     <section>
-      <h2>Le rendez-vous se joue dans l'heure</h2>
+      <h2>Chaque heure compte pour obtenir un rendez-vous</h2>
+      <p class="avant-chiffres">Votre prospect lit votre message et il est intéressé. Bravo&nbsp;! <b>S'il peut réserver tout de suite</b>, vous avez&nbsp;:</p>
       <div class="chiffres">
-        <div><b>7 fois</b><span>plus de chances de parler à un décideur si vous répondez dans l'heure, plutôt qu'une heure après.</span></div>
-        <div><b>60 fois</b><span>plus de chances que si vous répondez le lendemain.</span></div>
+        <div><b>7 fois</b><span>plus de chances d'obtenir le rendez-vous que s'il doit attendre une heure pour recevoir des propositions de créneaux.</span></div>
+        <div><b>60 fois</b><span>plus de chances d'obtenir le rendez-vous que s'il doit attendre le lendemain pour recevoir des propositions de créneaux.</span></div>
       </div>
-      <p class="src">Harvard Business Review, 2011 : 1,25 million de demandes de contact, reçues par 42 entreprises américaines.</p>
-      <p>Un prospect a besoin de vous à un moment précis. S'il doit attendre votre réponse, puis caler une date en trois messages, son envie retombe. Le rendez-vous est presque perdu.</p>
+      <p class="src">Harvard Business Review, 2011 : délai de réponse mesuré sur 1,25 million de demandes de contact, reçues par 42 entreprises américaines.</p>
+      <p>Sans lien, le prospect doit attendre votre réponse. Il faut ensuite parfois jusqu'à trois ou quatre messages pour trouver une date. Chaque message fait perdre des heures, et son intérêt retombe.</p>
       <p>Avec un lien de rendez-vous&nbsp;:</p>
       <ul class="points">
         <li><span><b>Il réserve tout de suite,</b> même quand vous êtes occupé.</span></li>
@@ -164,6 +172,7 @@ aside { gap:28px; }
         <li><span><b>Calendly&nbsp;:</b> très connu, gratuit pour un seul type de rendez-vous.</span></li>
       </ul>
       <p class="apres">Ici, on prend <b>Cal.com</b>&nbsp;: gratuit, sans limite de rendez-vous, il marche avec Outlook comme avec Google, et crée tout seul le lien Teams ou Meet.</p>
+      <p class="vers"><a href="https://cal.com" target="_blank" rel="noopener">→ cal.com</a></p>
     </section>
 
     <section>
@@ -184,7 +193,7 @@ aside { gap:28px; }
   <aside>
     <div class="video">
       <video controls preload="none" playsinline poster="/assets/academy/guide-calcom-apercu.jpg" src="/assets/academy/guide-calcom.mp4"></video>
-      <p class="leg">Découvrez comment configurer Cal.com en 2 minutes.</p>
+      <p class="leg">Découvrez comment configurer Cal.com en 10 minutes.</p>
     </div>
     <div class="mazeo">
       <span class="lab bleu">Dans mazeo</span>
