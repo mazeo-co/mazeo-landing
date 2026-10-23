@@ -61,7 +61,7 @@ a { color:inherit; }
 .i-in { background:#0A66C2; } .i-wa { background:#25D366; } .i-x { background:#000; } .i-mail { background:#6B7280; } .i-link { background:#2B8FFF; }
 
 /* premier écran : titre, carte, quatre chiffres */
-.une { min-height:min(100vh, 900px); display:flex; flex-direction:column; }
+.une { min-height:min(calc(100vh - var(--fil-h, 0px)), 900px); display:flex; flex-direction:column; }
 .hero { display:grid; grid-template-columns:1.2fr .8fr; gap:72px; padding-top:26px; align-items:start; }
 .sur { display:flex; align-items:center; gap:10px; font-size:13px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin:0 0 22px; }
 .sur i { width:8px; height:8px; border-radius:50%; background:var(--c); }
@@ -298,7 +298,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
 }
 </style>
 </head>
-<body><div class="wrap">
+<body><script src="/assets/fil-ressources.js"></script><div class="wrap">
 
 <div class="une">
 <header class="nav">
