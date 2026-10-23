@@ -301,10 +301,8 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .pt .by b { font-family: var(--logo-font); font-weight: 800; font-size: 19px; color: var(--ink); letter-spacing: -0.3px; }
 .pt .by b span { color: var(--green); }
 
-/* La galerie (23/10/2026) : le titre « Les ressources mazeo », un sous-texte, les onglets des trois familles
+/* La galerie (23/10/2026) : le titre « Les ressources » (sans « mazeo », 23/10), un sous-texte, les onglets des trois familles
    (compteur dans un rond, comme dans l'app), puis la mosaïque. Un onglet choisi ne garde que ses ressources. */
-.mz { font-family: var(--logo-font); font-weight: 800; letter-spacing: -0.045em; }
-.mz i { font-style: normal; color: var(--green); }
 /* Pas de surtitre « Ressources » : le menu le dit déjà ; le titre colle au menu pour montrer plus de ressources (23/10/2026). */
 .g-tete { padding-block: 32px 0; }
 .g-tete h1 { font-size: clamp(38px, 4vw, 58px); letter-spacing: -0.04em; }
@@ -414,7 +412,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 <main id="top">
 
   <section class="container g-tete">
-    <h1>Les ressources <span class="mz">mazeo<i>.</i></span></h1>
+    <h1>Les ressources</h1>
     <p class="g-sous">mazeo a cartographié tout le secteur des études. Nous partageons ici des ressources gratuites. Ces ressources aident à mieux prospecter, à connaître le secteur et à trouver des opportunités.</p>
     <div class="g-onglets" role="group" aria-label="Familles de ressources">
       <button type="button" class="on" data-f="tout" aria-pressed="true">Tout <span class="nb">7</span></button>
@@ -425,7 +423,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     </div>
   </section>
 
-  <section class="container galerie" aria-label="Les ressources mazeo">
+  <section class="container galerie" aria-label="Les ressources">
     <a class="tuile t-growth-academy" data-f="prospecter" href="/academy">
       <div class="visual ga" aria-hidden="true">
 <p class="nm"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</p>
