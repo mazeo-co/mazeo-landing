@@ -36,7 +36,8 @@ a { color:inherit; }
 
 /* en-tête */
 .nav { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:28px 0 24px; border-bottom:1px solid var(--line); }
-.marque { display:flex; align-items:center; gap:22px; text-decoration:none; color:var(--ink); }
+.marque { display:flex; align-items:center; gap:22px; color:var(--ink); }
+.lg-lien { text-decoration:none; color:inherit; }
 .lg { display:flex; flex-direction:column; line-height:1; }
 .lg .l { display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:800; font-stretch:90%; letter-spacing:-.045em; font-size:44px; color:var(--ink); }
 .lg .bulle { position:relative; background:var(--c); color:#fff; border-radius:12px; padding:2px 14px 8px; }
@@ -97,16 +98,17 @@ h1 { font-size:clamp(44px,5vw,70px); line-height:1; }
 .exemple .cit u { text-decoration:none; background:linear-gradient(transparent 62%, var(--tint) 62%); }
 .exemple .cit sup { font:800 11px/1 var(--sans); color:#fff; background:var(--c); border-radius:50%; width:17px; height:17px; display:inline-grid; place-items:center; vertical-align:6px; margin-left:3px; }
 .ex4 { margin:0; border-top:1px solid var(--line); }
-.ex4 div { display:grid; grid-template-columns:22px 150px 1fr; gap:12px; align-items:baseline; padding:12px 0; border-bottom:1px solid var(--line); font-size:15.5px; }
+.ex4 div { display:grid; grid-template-columns:22px 150px 1fr; gap:12px; align-items:start; padding:12px 0; border-bottom:1px solid var(--line); font-size:15.5px; }
 .ex4 div:last-child { border-bottom:0; }
 .ex4 dt { font-weight:700; color:var(--ink); }
 .ex4 dd { margin:0; color:var(--text); }
-.ex4 .k { font:800 11px/1 var(--sans); color:#fff; background:var(--c); border-radius:50%; width:19px; height:19px; display:inline-grid; place-items:center; align-self:center; }
+.ex4 .k { font:800 11px/1 var(--sans); color:#fff; background:var(--c); border-radius:50%; width:19px; height:19px; display:inline-grid; place-items:center; margin-top:2px; }
 
 /* la photo : quatre gaufres */
 .photo { margin-top:120px; }
 .photo-top { display:flex; justify-content:space-between; align-items:baseline; gap:20px; border-top:1px solid var(--ink); padding-top:14px; margin-bottom:28px; }
 .photo-top h2 { font-size:24px; letter-spacing:-.03em; }
+.photo-top p { margin:6px 0 0; font-size:15.5px; color:var(--text); }
 .photo-top span { font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
 .gaufres { display:grid; grid-template-columns:repeat(4,1fr); gap:44px; }
 .gaufre h3 { font-family:var(--sans); font-stretch:100%; font-weight:700; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); margin:0 0 12px; }
@@ -300,7 +302,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
 
 <div class="une">
 <header class="nav">
-  <a class="marque" href="#"><span class="lg"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></span><span class="sep"></span><span class="by">how market research providers position themselves, presented by <span class="mz">mazeo<span>.</span></span></span></a>
+  <div class="marque"><a class="lg-lien" href="/en/market-research-positioning" aria-label="Le Pitch des études"><span class="lg"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></span></a><span class="sep"></span><span class="by">how market research providers position themselves, presented by <a class="mz" href="https://www.mazeo.co">mazeo<span>.</span></a></span></div>
   <div class="nav-r"><a class="lang" id="lang" href="/pitch-des-etudes" hreflang="fr" aria-label="Version française" title="Version française"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Share</button><div class="share-menu" id="share-menu" hidden></div></div></div>
 </header>
 
@@ -309,12 +311,12 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
     <h1>The cobbler's children <em>(often) have no shoes.</em></h1>
     <p class="def">Positioning is the place you hold in a client's mind, against your competitors. It answers four questions:</p>
     <ol class="q4"><li>What is your business?</li><li>Who are you talking to?</li><li>What problem do you solve for them?</li><li>What makes you unique?</li></ol>
-    <p class="def">Market research providers help brands position themselves. <b>For themselves, they rarely do.</b></p></div>
+    <p class="def">Market research providers help brands position themselves. <b>Our analysis shows they rarely follow their own advice.</b></p></div>
   <form class="carte stat" id="carte" novalidate>
     <div class="choc"><b><small>Only</small>6%</b><p>of market research providers clearly say what problem they solve for their clients.</p></div>
     <p class="pourquoi">That is where it all starts: in ten seconds, a prospect must understand what problem you will solve for them.<span>Based on Nielsen Norman Group and Microsoft Research measurements.</span></p>
     <div class="et"><h3>Test your positioning.</h3>
-      <p class="txt">Your company is probably one of the 400 providers we have already analysed. Your result is waiting.</p>
+      <p class="txt">Your company is probably one of the 400 providers we have already analysed, in France and abroad. Your result is waiting.</p>
       <div id="f-bloc">
         <div id="bloc-entreprise"><div class="champ-liste"><label class="champ"><svg viewBox="0 0 20 20" fill="none" stroke="#8A93A1" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg><input type="text" id="f-nom" placeholder="Your company name" aria-label="Your company name" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="f-liste"></label><div class="choix" id="f-liste" role="listbox" hidden></div></div><p class="retenu" id="f-retenu"></p></div>
         <div id="bloc-site" hidden><label class="champ"><input type="text" id="f-site" placeholder="www.your-company.com" aria-label="Your company website" autocomplete="url" inputmode="url"></label><p class="retenu" id="f-retenu-site"></p></div>
@@ -365,7 +367,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
   <div class="intro-g">
     <div class="intro-l">
       <div class="num"><span>Example · a fictional research agency</span></div>
-      <h2>Four answers, <em>in two sentences</em>.</h2>
+      <h2>Four answers, <em>in two sentences.</em></h2>
       <p class="lead">This is what a prospect should be able to read on a provider's website in ten seconds.</p>
       <p class="caption">The grid follows Geoffrey Moore's positioning statement, <i>Crossing the Chasm</i> (1991). The word “positioning” comes from Al Ries and Jack Trout, <i>Positioning</i> (1981).</p>
     </div>
@@ -383,9 +385,9 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
 
 
 <section class="photo">
-  <div class="photo-top"><h2>299 market research provider websites, one square per site</h2><span>Read on 22 October 2026</span></div>
+  <div class="photo-top"><div><h2>299 market research providers based in France</h2><p>We analysed how each one positions itself on its website. One square = one company.</p></div><span>Read on 22 October 2026</span></div>
   <div class="gaufres" id="gaufres"></div>
-  <div class="legende"><span><i style="background:var(--vert)"></i>Said clearly</span><span><i style="background:var(--orange)"></i>Said, but vague</span><span><i style="background:var(--rouge)"></i>Missing</span><span class="how">Each square is a website, scored on the four questions.</span></div>
+  <div class="legende"><span><i style="background:var(--vert)"></i>Said clearly</span><span><i style="background:var(--orange)"></i>Said, but vague</span><span><i style="background:var(--rouge)"></i>Missing</span><span class="how">Each square is a company, scored on the four questions.</span></div>
 </section>
 
 <section class="ch"><div class="ch-l"><div class="num">01<span>The business</span></div><h2>Their business: <em>more than eight sites in ten</em> state it.</h2><p class="sub">84% of websites clearly say what the company does. Consulting firms, far less often: 58%.</p><p class="you"><b>What it means</b>The business is the easiest point to state. Every competitor states it too. So it sets no one apart.</p></div>
@@ -397,14 +399,14 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
     <div class="b"><span class="l">Conseil</span><span class="t"><i style="width:61.7%"></i></span><span class="v">58&nbsp;%</span></div>
   </div><p class="caption">All 299 websites: 84%. Provider types from the mazeo database.</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">02<span>The target</span></div><h2>Seven in ten do not clearly say <em>who they serve</em>.</h2><p class="sub">37% do not say what type of client they serve. 34% address everyone: “companies”, “organisations”. 29% name a precise target.</p><p class="you"><b>What it means</b>Examples of precise targets: “cosmetics brands”, “the pharmaceutical industry”, “retailers”. A prospect knows at once whether the site speaks to them.</p></div>
+<section class="ch"><div class="ch-l"><div class="num">02<span>The target</span></div><h2>Seven in ten do not clearly say <em>who they serve.</em></h2><p class="sub">37% do not say what type of client they serve. 34% address everyone: “companies”, “organisations”. 29% name a precise target.</p><p class="you"><b>What it means</b>Examples of precise targets: “cosmetics brands”, “the pharmaceutical industry”, “retailers”. A prospect knows at once whether the site speaks to them.</p></div>
   <div class="ch-r"><h4>What websites say about their target</h4><div class="trio">
     <div><span class="pt" style="background:var(--rouge)"></span><b>37<small>%</small></b><span>do not say what type of client they serve</span></div>
     <div><span class="pt" style="background:var(--orange)"></span><b>34<small>%</small></b><span>address everyone</span></div>
     <div><span class="pt" style="background:var(--vert)"></span><b>29<small>%</small></b><span>name a precise target</span></div>
   </div><p class="caption">By type of provider, the target is named by 20% of consulting firms, and up to 42% of media agencies.</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">03<span>The problem solved</span></div><h2>Four in five promise a benefit, <em>without saying which</em>.</h2><p class="sub">81% mention a benefit, but in vague terms. 13% do not mention one. 6% clearly say what problem they solve.</p><p class="you"><b>What it means</b>The whole industry could sign “making better decisions” or “driving brand growth”. A problem solved is stated precisely, from the client's point of view. For example: “knowing before launch whether the product will be chosen”.</p></div>
+<section class="ch"><div class="ch-l"><div class="num">03<span>The problem solved</span></div><h2>Four in five promise a benefit, <em>without saying which.</em></h2><p class="sub">81% mention a benefit, but in vague terms. 13% do not mention one. 6% clearly say what problem they solve.</p><p class="you"><b>What it means</b>The whole industry could sign “making better decisions” or “driving brand growth”. A problem solved is stated precisely, from the client's point of view. For example: “knowing before launch whether the product will be chosen”.</p></div>
   <div class="ch-r"><h4>Clearly say what problem they solve, by type of provider</h4><div class="bars">
     <div class="b hl"><span class="l">Outils et tech</span><span class="t"><i style="width:100%"></i></span><span class="v">26&nbsp;%</span></div>
     <div class="b"><span class="l">Terrain et panels</span><span class="t"><i style="width:26.9%"></i></span><span class="v">7&nbsp;%</span></div>
@@ -413,19 +415,19 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
     <div class="b"><span class="l">Conseil</span><span class="t"><i style="width:11.5%"></i></span><span class="v">3&nbsp;%</span></div>
   </div><p class="caption">Tool vendors say it four times more often than websites overall (6%).</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">04<span>The difference</span></div><h2>To stand out, the most common argument is <em>seniority</em>.</h2><p class="sub">48% of French-language websites give the company's age: 25 years on median. Half the industry displays its seniority. So it sets no one apart. 23% of websites prove their difference with another fact.</p><p class="you"><b>What it means</b>A difference is proven by a fact a competitor cannot write. On the websites that prove it, that fact is a number eight times out of ten. For example: “120,000 surveys a year”.</p></div>
+<section class="ch"><div class="ch-l"><div class="num">04<span>The difference</span></div><h2>To stand out, the most common argument is <em>seniority.</em></h2><p class="sub">48% of French-language websites give the company's age: 25 years on median. Half the industry displays its seniority. So it sets no one apart. 23% of websites prove their difference with another fact.</p><p class="you"><b>What it means</b>A difference is proven by a fact a competitor cannot write. On the websites that prove it, that fact is a number eight times out of ten. For example: “120,000 surveys a year”.</p></div>
   <div class="ch-r"><div class="duo-num">
     <div><b>48<small>%</small></b><span>cite their seniority</span><p class="d">25 years on median, i.e. founded in 2001.</p></div>
     <div><b>23<small>%</small></b><span>prove their difference</span><p class="d">Eight times out of ten with a number.</p></div>
   </div><p class="caption">Seniority: French-language websites giving a founding date, an age or years of experience, out of 252 websites.</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">05<span>The words</span></div><h2>From one site to the next, <em>the same words</em>.</h2><p class="sub">“Accompagner” (to support) appears on 35% of websites, “clients” too. “Expert” on 30%, “stratégie” and “data” on 23%.</p><p class="you"><b>What it means</b>Put together, these words make a sentence any provider could sign. It says neither what the provider does, nor why to choose them.</p></div>
+<section class="ch"><div class="ch-l"><div class="num">05<span>The words</span></div><h2>From one site to the next, <em>the same words.</em></h2><p class="sub">“Accompagner” (to support) appears on 35% of websites, “clients” too. “Expert” on 30%, “stratégie” and “data” on 23%.</p><p class="you"><b>What it means</b>Put together, these words make a sentence any provider could sign. It says neither what the provider does, nor why to choose them.</p></div>
   <div class="ch-r"><h4>The typical sentence, made of the most frequent words</h4><div class="phrase"><p>“<span class="m"><i>48%</i>For 25&nbsp;years</span>, our <span class="m"><i>30%</i>experts</span> have <span class="m"><i>35%</i>supported</span> our <span class="m"><i>35%</i>clients</span> in their <span class="m"><i>23%</i>strategic</span> <span class="m"><i>19%</i>decisions</span>, thanks to <span class="m"><i>23%</i>data</span>.”</p></div><p class="caption">Share of the 252 French-language websites where the word appears, counted in French. Each word counts its derivatives: “accompagner” also counts “accompagnement”, “data” counts “données”.</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">06<span>Provider types</span></div><h2>Tool vendors and media agencies <em>present themselves best</em>.</h2><p class="sub">Average score out of 4: 1.9 for tool vendors and media agencies, 1.7 for fieldwork and panels, 1.4 for research agencies, 1.0 for consulting firms.</p><p class="you"><b>What it means</b>Research agencies make up half of the websites read. 3% of them clearly say what problem they solve. Consulting firms are below average on all four questions.</p></div>
+<section class="ch"><div class="ch-l"><div class="num">06<span>Provider types</span></div><h2>Tool vendors and media agencies <em>present themselves best.</em></h2><p class="sub">Average score out of 4: 1.9 for tool vendors and media agencies, 1.7 for fieldwork and panels, 1.4 for research agencies, 1.0 for consulting firms.</p><p class="you"><b>What it means</b>Research agencies make up half of the websites read. 3% of them clearly say what problem they solve. Consulting firms are below average on all four questions.</p></div>
   <div class="ch-r"><h4>Share of websites that clearly state each point</h4><div class="tab-w"><table class="tab" id="tab"></table></div><p class="caption">Score out of 4: average number of questions the website answers clearly.</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">07<span>Score out of 4</span></div><h2>One site in two clearly answers <em>only one question in four</em>.</h2><p class="sub">48% of websites clearly answer only one question: the business, nine times out of ten. 12% clearly answer none. 4 sites out of 299 answer all four.</p><p class="you"><b>What it means</b>The business tells the prospect they are in the right place. The other three answers give them a reason to choose this provider over another.</p></div>
+<section class="ch"><div class="ch-l"><div class="num">07<span>Score out of 4</span></div><h2>One site in two clearly answers <em>only one question in four.</em></h2><p class="sub">48% of websites clearly answer only one question: the business, nine times out of ten. 12% clearly answer none. 4 sites out of 299 answer all four.</p><p class="you"><b>What it means</b>The business tells the prospect they are in the right place. The other three answers give them a reason to choose this provider over another.</p></div>
   <div class="ch-r"><h4>Number of questions the website answers clearly</h4><div class="cols">
     <div class="c"><b>35</b><em>12&nbsp;%</em><i style="--p:24"></i><span>None</span></div>
     <div class="c hl"><b>143</b><em>48&nbsp;%</em><i style="--p:100"></i><span>One</span></div>
@@ -435,7 +437,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
   </div><p class="caption">Number of websites, out of 299.</p></div></section>
 
 <section class="night">
-  <div><div class="num">08<span>Abroad</span></div><h2>Abroad, one provider in two <em>proves its difference</em>.</h2><p class="sub">In France, one in four. Among 110 providers headquartered outside France, 50% prove their difference, against 23% in France. 15% clearly say what problem they solve, against 6%.</p><p class="you"><b>What it means</b>Large international groups pull this 50% up. They can cite their global rank, their volumes, their countries.</p></div>
+  <div><div class="num">08<span>Abroad</span></div><h2>Abroad, one provider in two <em>proves its difference.</em></h2><p class="sub">In France, one in four. Among 110 providers headquartered outside France, 50% prove their difference, against 23% in France. 15% clearly say what problem they solve, against 6%.</p><p class="you"><b>What it means</b>Large international groups pull this 50% up. They can cite their global rank, their volumes, their countries.</p></div>
   <div><h4>Prove their difference</h4><div class="pair"><div><b>50<small>%</small></b><span>Outside France · 110 sites</span></div><div><b>23<small>%</small></b><span>In France · 299 sites</span></div></div>
     <p class="arr">The target: 29% on both sides. The business: 77% outside France, 84% in France.</p></div>
 </section>
@@ -445,7 +447,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
   <a class="cta violet" href="/positionnement">Start the lesson</a>
 </section>
 
-<section class="strip"><div><h2>Be notified of every study mazeo publishes <em>on the industry</em>.</h2></div><form class="form js-signup" data-kind="ressources" novalidate><div class="line"><input type="email" placeholder="you@company.com" aria-label="Your email" autocomplete="email" required><button class="cta violet" type="submit">Notify me</button></div><p class="msg" role="status" aria-live="polite"></p></form></section>
+<section class="strip"><div><h2>Be notified of every study mazeo publishes <em>on the industry.</em></h2></div><form class="form js-signup" data-kind="ressources" novalidate><div class="line"><input type="email" placeholder="you@company.com" aria-label="Your email" autocomplete="email" required><button class="cta violet" type="submit">Notify me</button></div><p class="msg" role="status" aria-live="polite"></p></form></section>
 
 <section class="mzbox"><div><a class="mz" href="https://mazeo.co" style="font-size:22px">mazeo<span>.</span></a><p>mazeo has mapped the whole market research industry in France: over 1,300 companies and over 13,000 professionals, and the database grows every day. mazeo is the only prospecting tool built for market research.</p><p class="q1">Want to know which companies need your studies the most, and whom to contact there?</p></div><a class="cta" href="https://www.mazeo.co/en/demo">Book a demo</a></section>
 

@@ -36,7 +36,8 @@ a { color:inherit; }
 
 /* en-tête */
 .nav { display:flex; justify-content:space-between; align-items:center; gap:16px; padding:28px 0 24px; border-bottom:1px solid var(--line); }
-.marque { display:flex; align-items:center; gap:22px; text-decoration:none; color:var(--ink); }
+.marque { display:flex; align-items:center; gap:22px; color:var(--ink); }
+.lg-lien { text-decoration:none; color:inherit; }
 .lg { display:flex; flex-direction:column; line-height:1; }
 .lg .l { display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:800; font-stretch:90%; letter-spacing:-.045em; font-size:44px; color:var(--ink); }
 .lg .bulle { position:relative; background:var(--c); color:#fff; border-radius:12px; padding:2px 14px 8px; }
@@ -97,16 +98,17 @@ h1 { font-size:clamp(44px,5vw,70px); line-height:1; }
 .exemple .cit u { text-decoration:none; background:linear-gradient(transparent 62%, var(--tint) 62%); }
 .exemple .cit sup { font:800 11px/1 var(--sans); color:#fff; background:var(--c); border-radius:50%; width:17px; height:17px; display:inline-grid; place-items:center; vertical-align:6px; margin-left:3px; }
 .ex4 { margin:0; border-top:1px solid var(--line); }
-.ex4 div { display:grid; grid-template-columns:22px 150px 1fr; gap:12px; align-items:baseline; padding:12px 0; border-bottom:1px solid var(--line); font-size:15.5px; }
+.ex4 div { display:grid; grid-template-columns:22px 150px 1fr; gap:12px; align-items:start; padding:12px 0; border-bottom:1px solid var(--line); font-size:15.5px; }
 .ex4 div:last-child { border-bottom:0; }
 .ex4 dt { font-weight:700; color:var(--ink); }
 .ex4 dd { margin:0; color:var(--text); }
-.ex4 .k { font:800 11px/1 var(--sans); color:#fff; background:var(--c); border-radius:50%; width:19px; height:19px; display:inline-grid; place-items:center; align-self:center; }
+.ex4 .k { font:800 11px/1 var(--sans); color:#fff; background:var(--c); border-radius:50%; width:19px; height:19px; display:inline-grid; place-items:center; margin-top:2px; }
 
 /* la photo : quatre gaufres */
 .photo { margin-top:120px; }
 .photo-top { display:flex; justify-content:space-between; align-items:baseline; gap:20px; border-top:1px solid var(--ink); padding-top:14px; margin-bottom:28px; }
 .photo-top h2 { font-size:24px; letter-spacing:-.03em; }
+.photo-top p { margin:6px 0 0; font-size:15.5px; color:var(--text); }
 .photo-top span { font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); white-space:nowrap; }
 .gaufres { display:grid; grid-template-columns:repeat(4,1fr); gap:44px; }
 .gaufre h3 { font-family:var(--sans); font-stretch:100%; font-weight:700; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); margin:0 0 12px; }
@@ -299,7 +301,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
 
 <div class="une">
 <header class="nav">
-  <a class="marque" href="#"><span class="lg"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></span><span class="sep"></span><span class="by">le positionnement des prestataires d'études, présenté par <span class="mz">mazeo<span>.</span></span></span></a>
+  <div class="marque"><a class="lg-lien" href="/pitch-des-etudes" aria-label="Le Pitch des études"><span class="lg"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></span></a><span class="sep"></span><span class="by">le positionnement des prestataires d'études, présenté par <a class="mz" href="https://www.mazeo.co">mazeo<span>.</span></a></span></div>
   <div class="nav-r"><a class="lang" id="lang" href="/en/market-research-positioning" hreflang="en" aria-label="English version" title="English version"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
 </header>
 
@@ -308,12 +310,12 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
     <h1>Les cordonniers sont (souvent) <em>les plus mal chaussés.</em></h1>
     <p class="def">Le positionnement, c'est la place que vous occupez dans la tête d'un client, face à vos concurrents. Il répond à quatre questions&nbsp;:</p>
     <ol class="q4"><li>Quel est votre métier&nbsp;?</li><li>À qui vous adressez-vous&nbsp;?</li><li>Quel problème réglez-vous pour eux&nbsp;?</li><li>Qu'est-ce qui vous rend unique&nbsp;?</li></ol>
-    <p class="def">Les prestataires d'études aident les marques à se positionner. <b>Pour eux-mêmes, ils le font rarement.</b></p></div>
+    <p class="def">Les prestataires d'études aident les marques à se positionner. <b>D'après notre analyse, ils s'appliquent rarement leurs propres conseils.</b></p></div>
   <form class="carte stat" id="carte" novalidate>
     <div class="choc"><b>6&nbsp;%</b><p>seulement des prestataires d'études disent clairement quel problème ils règlent pour leur client.</p></div>
     <p class="pourquoi">Tout commence là&nbsp;: en dix secondes, un prospect doit comprendre quel problème vous allez lui régler.<span>D'après le Nielsen Norman Group et les mesures de Microsoft Research.</span></p>
     <div class="et"><h3>Testez votre positionnement.</h3>
-      <p class="txt">Votre entreprise fait sans doute partie des 400 prestataires déjà analysés. Votre résultat vous attend.</p>
+      <p class="txt">Votre entreprise fait sans doute partie des 400 prestataires déjà analysés, en France et à l'étranger. Votre résultat vous attend.</p>
       <div id="f-bloc">
         <div id="bloc-entreprise"><div class="champ-liste"><label class="champ"><svg viewBox="0 0 20 20" fill="none" stroke="#8A93A1" stroke-width="2"><circle cx="9" cy="9" r="6"/><path d="M14 14l4 4"/></svg><input type="text" id="f-nom" placeholder="Le nom de votre entreprise" aria-label="Le nom de votre entreprise" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="f-liste"></label><div class="choix" id="f-liste" role="listbox" hidden></div></div><p class="retenu" id="f-retenu"></p></div>
         <div id="bloc-site" hidden><label class="champ"><input type="text" id="f-site" placeholder="www.votre-societe.fr" aria-label="L'adresse du site de votre entreprise" autocomplete="url" inputmode="url"></label><p class="retenu" id="f-retenu-site"></p></div>
@@ -364,7 +366,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
   <div class="intro-g">
     <div class="intro-l">
       <div class="num"><span>Exemple · un institut fictif</span></div>
-      <h2>Quatre réponses, <em>en deux phrases</em>.</h2>
+      <h2>Quatre réponses, <em>en deux phrases.</em></h2>
       <p class="lead">Voici ce qu'un prospect doit pouvoir lire en dix secondes sur le site d'un prestataire.</p>
       <p class="caption">La grille suit la phrase de positionnement de Geoffrey Moore, <i>Crossing the Chasm</i> (1991). Le mot «&nbsp;positionnement&nbsp;» vient d'Al Ries et Jack Trout, <i>Positioning</i> (1981).</p>
     </div>
@@ -382,9 +384,9 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
 
 
 <section class="photo">
-  <div class="photo-top"><h2>299 sites de prestataires d'études, un carré par site</h2><span>Lus le 22 octobre 2026</span></div>
+  <div class="photo-top"><div><h2>299 prestataires d'études basés en France</h2><p>Nous avons analysé le positionnement de chacun sur son site. Un carré = une entreprise.</p></div><span>Lus le 22 octobre 2026</span></div>
   <div class="gaufres" id="gaufres"></div>
-  <div class="legende"><span><i style="background:var(--vert)"></i>Dit clairement</span><span><i style="background:var(--orange)"></i>Dit, mais flou</span><span><i style="background:var(--rouge)"></i>Absent</span><span class="how">Chaque carré est un site, noté sur les quatre questions.</span></div>
+  <div class="legende"><span><i style="background:var(--vert)"></i>Dit clairement</span><span><i style="background:var(--orange)"></i>Dit, mais flou</span><span><i style="background:var(--rouge)"></i>Absent</span><span class="how">Chaque carré est une entreprise, notée sur les quatre questions.</span></div>
 </section>
 
 <section class="ch"><div class="ch-l"><div class="num">01<span>Le métier</span></div><h2>Le métier, <em>plus de huit sites sur dix</em> le disent.</h2><p class="sub">84&nbsp;% des sites disent clairement ce que fait l'entreprise. Les cabinets de conseil, beaucoup moins souvent&nbsp;: 58&nbsp;%.</p><p class="you"><b>Ce que ça veut dire</b>Le métier est le point le plus simple à dire. Tous les concurrents le disent. Il ne distingue donc personne.</p></div>
@@ -396,14 +398,14 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
     <div class="b"><span class="l">Conseil</span><span class="t"><i style="width:61.7%"></i></span><span class="v">58&nbsp;%</span></div>
   </div><p class="caption">Ensemble des 299 sites&nbsp;: 84&nbsp;%. Types de prestataires de la base mazeo.</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">02<span>La cible</span></div><h2>Sept sur dix ne disent pas clairement <em>à qui ils s'adressent</em>.</h2><p class="sub">37&nbsp;% ne disent pas à quel type de client ils s'adressent. 34&nbsp;% s'adressent à tout le monde&nbsp;: «&nbsp;les entreprises&nbsp;», «&nbsp;les organisations&nbsp;». 29&nbsp;% nomment une cible précise.</p><p class="you"><b>Ce que ça veut dire</b>Exemples de cibles précises&nbsp;: «&nbsp;les marques de cosmétique&nbsp;», «&nbsp;l'industrie pharmaceutique&nbsp;», «&nbsp;les distributeurs&nbsp;». Le prospect sait tout de suite si le site s'adresse à lui.</p></div>
+<section class="ch"><div class="ch-l"><div class="num">02<span>La cible</span></div><h2>Sept sur dix ne disent pas clairement <em>à qui ils s'adressent.</em></h2><p class="sub">37&nbsp;% ne disent pas à quel type de client ils s'adressent. 34&nbsp;% s'adressent à tout le monde&nbsp;: «&nbsp;les entreprises&nbsp;», «&nbsp;les organisations&nbsp;». 29&nbsp;% nomment une cible précise.</p><p class="you"><b>Ce que ça veut dire</b>Exemples de cibles précises&nbsp;: «&nbsp;les marques de cosmétique&nbsp;», «&nbsp;l'industrie pharmaceutique&nbsp;», «&nbsp;les distributeurs&nbsp;». Le prospect sait tout de suite si le site s'adresse à lui.</p></div>
   <div class="ch-r"><h4>Ce que les sites disent de leur cible</h4><div class="trio">
     <div><span class="pt" style="background:var(--rouge)"></span><b>37<small>%</small></b><span>ne disent pas à quel type de client ils s'adressent</span></div>
     <div><span class="pt" style="background:var(--orange)"></span><b>34<small>%</small></b><span>s'adressent à tout le monde</span></div>
     <div><span class="pt" style="background:var(--vert)"></span><b>29<small>%</small></b><span>nomment une cible précise</span></div>
   </div><p class="caption">Par type de prestataire, la cible est nommée par 20&nbsp;% des cabinets de conseil, et jusqu'à 42&nbsp;% des agences média.</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">03<span>Le problème réglé</span></div><h2>Quatre sur cinq promettent un gain, <em>sans dire lequel</em>.</h2><p class="sub">81&nbsp;% parlent d'un gain, mais en termes vagues. 13&nbsp;% n'en parlent pas. 6&nbsp;% disent clairement quel problème ils règlent.</p><p class="you"><b>Ce que ça veut dire</b>Tout le secteur pourrait signer «&nbsp;prendre de meilleures décisions&nbsp;» ou «&nbsp;assurer la croissance des marques&nbsp;». Un problème réglé se dit précisément, du point de vue du client. Par exemple&nbsp;: «&nbsp;savoir avant le lancement si le produit sera choisi&nbsp;».</p></div>
+<section class="ch"><div class="ch-l"><div class="num">03<span>Le problème réglé</span></div><h2>Quatre sur cinq promettent un gain, <em>sans dire lequel.</em></h2><p class="sub">81&nbsp;% parlent d'un gain, mais en termes vagues. 13&nbsp;% n'en parlent pas. 6&nbsp;% disent clairement quel problème ils règlent.</p><p class="you"><b>Ce que ça veut dire</b>Tout le secteur pourrait signer «&nbsp;prendre de meilleures décisions&nbsp;» ou «&nbsp;assurer la croissance des marques&nbsp;». Un problème réglé se dit précisément, du point de vue du client. Par exemple&nbsp;: «&nbsp;savoir avant le lancement si le produit sera choisi&nbsp;».</p></div>
   <div class="ch-r"><h4>Disent clairement quel problème ils règlent, par type de prestataire</h4><div class="bars">
     <div class="b hl"><span class="l">Outils et tech</span><span class="t"><i style="width:100%"></i></span><span class="v">26&nbsp;%</span></div>
     <div class="b"><span class="l">Terrain et panels</span><span class="t"><i style="width:26.9%"></i></span><span class="v">7&nbsp;%</span></div>
@@ -412,19 +414,19 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
     <div class="b"><span class="l">Conseil</span><span class="t"><i style="width:11.5%"></i></span><span class="v">3&nbsp;%</span></div>
   </div><p class="caption">Les éditeurs d'outils le disent quatre fois plus souvent que l'ensemble des sites (6&nbsp;%).</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">04<span>La différence</span></div><h2>Pour se distinguer, l'argument le plus courant est <em>l'ancienneté</em>.</h2><p class="sub">48&nbsp;% des sites écrits en français donnent l'âge de l'entreprise&nbsp;: 25 ans en médiane. La moitié du secteur affiche son ancienneté. Elle ne distingue donc personne. 23&nbsp;% des sites prouvent leur différence par un autre fait.</p><p class="you"><b>Ce que ça veut dire</b>Une différence se prouve par un fait qu'un concurrent ne peut pas écrire. Chez les sites qui la prouvent, ce fait est un chiffre huit fois sur dix. Par exemple&nbsp;: «&nbsp;120&nbsp;000 enquêtes par an&nbsp;».</p></div>
+<section class="ch"><div class="ch-l"><div class="num">04<span>La différence</span></div><h2>Pour se distinguer, l'argument le plus courant est <em>l'ancienneté.</em></h2><p class="sub">48&nbsp;% des sites écrits en français donnent l'âge de l'entreprise&nbsp;: 25 ans en médiane. La moitié du secteur affiche son ancienneté. Elle ne distingue donc personne. 23&nbsp;% des sites prouvent leur différence par un autre fait.</p><p class="you"><b>Ce que ça veut dire</b>Une différence se prouve par un fait qu'un concurrent ne peut pas écrire. Chez les sites qui la prouvent, ce fait est un chiffre huit fois sur dix. Par exemple&nbsp;: «&nbsp;120&nbsp;000 enquêtes par an&nbsp;».</p></div>
   <div class="ch-r"><div class="duo-num">
     <div><b>48<small>%</small></b><span>citent leur ancienneté</span><p class="d">25 ans en médiane, soit une création en 2001.</p></div>
     <div><b>23<small>%</small></b><span>prouvent leur différence</span><p class="d">Huit fois sur dix avec un chiffre.</p></div>
   </div><p class="caption">Ancienneté&nbsp;: sites écrits en français qui donnent une date de création, un âge ou des années d'expérience, sur 252 sites.</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">05<span>Les mots</span></div><h2>D'un site à l'autre, <em>les mêmes mots</em>.</h2><p class="sub">«&nbsp;Accompagner&nbsp;» revient sur 35&nbsp;% des sites, «&nbsp;clients&nbsp;» aussi. «&nbsp;Expert&nbsp;» sur 30&nbsp;%, «&nbsp;stratégie&nbsp;» et «&nbsp;data&nbsp;» sur 23&nbsp;%.</p><p class="you"><b>Ce que ça veut dire</b>Mis bout à bout, ces mots font une phrase que tout prestataire pourrait signer. Cette phrase ne dit ni le métier du prestataire, ni pourquoi le choisir.</p></div>
+<section class="ch"><div class="ch-l"><div class="num">05<span>Les mots</span></div><h2>D'un site à l'autre, <em>les mêmes mots.</em></h2><p class="sub">«&nbsp;Accompagner&nbsp;» revient sur 35&nbsp;% des sites, «&nbsp;clients&nbsp;» aussi. «&nbsp;Expert&nbsp;» sur 30&nbsp;%, «&nbsp;stratégie&nbsp;» et «&nbsp;data&nbsp;» sur 23&nbsp;%.</p><p class="you"><b>Ce que ça veut dire</b>Mis bout à bout, ces mots font une phrase que tout prestataire pourrait signer. Cette phrase ne dit ni le métier du prestataire, ni pourquoi le choisir.</p></div>
   <div class="ch-r"><h4>La phrase type, faite des mots qui reviennent le plus</h4><div class="phrase"><p>«&nbsp;<span class="m"><i>48&nbsp;%</i>Depuis 25&nbsp;ans</span>, nos <span class="m"><i>30&nbsp;%</i>experts</span> <span class="m"><i>35&nbsp;%</i>accompagnent</span> nos <span class="m"><i>35&nbsp;%</i>clients</span> dans leurs <span class="m"><i>19&nbsp;%</i>décisions</span> <span class="m"><i>23&nbsp;%</i>stratégiques</span>, grâce à la <span class="m"><i>23&nbsp;%</i>data</span>.&nbsp;»</p></div><p class="caption">Part des 252 sites écrits en français où le mot apparaît. Chaque mot compte ses dérivés&nbsp;: «&nbsp;accompagner&nbsp;» compte aussi «&nbsp;accompagnement&nbsp;», «&nbsp;data&nbsp;» compte «&nbsp;données&nbsp;».</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">06<span>Les types de prestataires</span></div><h2>Les éditeurs d'outils et les agences média <em>se présentent le mieux</em>.</h2><p class="sub">Note moyenne sur 4&nbsp;: 1,9 pour les éditeurs d'outils et les agences média, 1,7 pour le terrain et les panels, 1,4 pour les instituts, 1,0 pour les cabinets de conseil.</p><p class="you"><b>Ce que ça veut dire</b>Les instituts font la moitié des sites lus. 3&nbsp;% d'entre eux disent clairement quel problème ils règlent. Le conseil est en dessous de la moyenne sur les quatre questions.</p></div>
+<section class="ch"><div class="ch-l"><div class="num">06<span>Les types de prestataires</span></div><h2>Les éditeurs d'outils et les agences média <em>se présentent le mieux.</em></h2><p class="sub">Note moyenne sur 4&nbsp;: 1,9 pour les éditeurs d'outils et les agences média, 1,7 pour le terrain et les panels, 1,4 pour les instituts, 1,0 pour les cabinets de conseil.</p><p class="you"><b>Ce que ça veut dire</b>Les instituts font la moitié des sites lus. 3&nbsp;% d'entre eux disent clairement quel problème ils règlent. Le conseil est en dessous de la moyenne sur les quatre questions.</p></div>
   <div class="ch-r"><h4>Part des sites qui disent clairement chaque point</h4><div class="tab-w"><table class="tab" id="tab"></table></div><p class="caption">Note sur 4&nbsp;: nombre moyen de questions auxquelles le site répond clairement.</p></div></section>
 
-<section class="ch"><div class="ch-l"><div class="num">07<span>La note sur 4</span></div><h2>Un site sur deux ne répond clairement <em>qu'à une question sur quatre</em>.</h2><p class="sub">48&nbsp;% des sites ne répondent clairement qu'à une question&nbsp;: le métier, neuf fois sur dix. 12&nbsp;% ne répondent clairement à aucune. 4 sites sur 299 répondent aux quatre.</p><p class="you"><b>Ce que ça veut dire</b>Le métier dit au prospect qu'il est au bon endroit. Les trois autres réponses lui donnent une raison de choisir ce prestataire plutôt qu'un autre.</p></div>
+<section class="ch"><div class="ch-l"><div class="num">07<span>La note sur 4</span></div><h2>Un site sur deux ne répond clairement <em>qu'à une question sur quatre.</em></h2><p class="sub">48&nbsp;% des sites ne répondent clairement qu'à une question&nbsp;: le métier, neuf fois sur dix. 12&nbsp;% ne répondent clairement à aucune. 4 sites sur 299 répondent aux quatre.</p><p class="you"><b>Ce que ça veut dire</b>Le métier dit au prospect qu'il est au bon endroit. Les trois autres réponses lui donnent une raison de choisir ce prestataire plutôt qu'un autre.</p></div>
   <div class="ch-r"><h4>Nombre de questions auxquelles le site répond clairement</h4><div class="cols">
     <div class="c"><b>35</b><em>12&nbsp;%</em><i style="--p:24"></i><span>Aucune</span></div>
     <div class="c hl"><b>143</b><em>48&nbsp;%</em><i style="--p:100"></i><span>1 point</span></div>
@@ -434,7 +436,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
   </div><p class="caption">Nombre de sites, sur 299.</p></div></section>
 
 <section class="night">
-  <div><div class="num">08<span>À l'étranger</span></div><h2>À l'étranger, un prestataire sur deux <em>prouve sa différence</em>.</h2><p class="sub">En France, un sur quatre. Sur 110 prestataires dont le siège est à l'étranger, 50&nbsp;% prouvent leur différence, contre 23&nbsp;% en France. 15&nbsp;% disent clairement quel problème ils règlent, contre 6&nbsp;%.</p><p class="you"><b>Ce que ça veut dire</b>Les grands groupes internationaux tirent ces 50&nbsp;% vers le haut. Ils peuvent citer leur rang mondial, leurs volumes, leurs pays.</p></div>
+  <div><div class="num">08<span>À l'étranger</span></div><h2>À l'étranger, un prestataire sur deux <em>prouve sa différence.</em></h2><p class="sub">En France, un sur quatre. Sur 110 prestataires dont le siège est à l'étranger, 50&nbsp;% prouvent leur différence, contre 23&nbsp;% en France. 15&nbsp;% disent clairement quel problème ils règlent, contre 6&nbsp;%.</p><p class="you"><b>Ce que ça veut dire</b>Les grands groupes internationaux tirent ces 50&nbsp;% vers le haut. Ils peuvent citer leur rang mondial, leurs volumes, leurs pays.</p></div>
   <div><h4>Prouvent leur différence</h4><div class="pair"><div><b>50<small>%</small></b><span>Hors de France · 110 sites</span></div><div><b>23<small>%</small></b><span>En France · 299 sites</span></div></div>
     <p class="arr">La cible&nbsp;: 29&nbsp;% des deux côtés. Le métier&nbsp;: 77&nbsp;% hors de France, 84&nbsp;% en France.</p></div>
 </section>
@@ -444,7 +446,7 @@ i.ok { background:var(--vert); } i.moy { background:var(--orange); } i.ko { back
   <a class="cta violet" href="/positionnement">Commencer la leçon</a>
 </section>
 
-<section class="strip"><div><h2>Soyez informé de toutes les études que mazeo publie <em>sur le secteur</em>.</h2></div><form class="form js-signup" data-kind="ressources" novalidate><div class="line"><input type="email" placeholder="vous@entreprise.fr" aria-label="Votre email" autocomplete="email" required><button class="cta violet" type="submit">Être informé</button></div><p class="msg" role="status" aria-live="polite"></p></form></section>
+<section class="strip"><div><h2>Soyez informé de toutes les études que mazeo publie <em>sur le secteur.</em></h2></div><form class="form js-signup" data-kind="ressources" novalidate><div class="line"><input type="email" placeholder="vous@entreprise.fr" aria-label="Votre email" autocomplete="email" required><button class="cta violet" type="submit">Être informé</button></div><p class="msg" role="status" aria-live="polite"></p></form></section>
 
 <section class="mzbox"><div><a class="mz" href="https://mazeo.co" style="font-size:22px">mazeo<span>.</span></a><p>mazeo a cartographié l'ensemble du secteur des études en France&nbsp;: plus de 1&nbsp;300 entreprises et plus de 13&nbsp;000 professionnels, et la base s'enrichit tous les jours. mazeo est le seul outil de prospection dédié au market research.</p><p class="q1">Vous voulez savoir quelles entreprises ont le plus besoin de vos études, et qui contacter chez elles&nbsp;?</p></div><a class="cta" href="https://www.mazeo.co/demo">Réserver une démo</a></section>
 
