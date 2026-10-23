@@ -34,7 +34,7 @@ Chaque ressource (growth academy et ses fiches, Village, Pitch, Quiz, salons, De
 - Nouvelle ressource : ajouter cette ligne dans sa page (FR et EN), et son chemin dans la liste `RESSOURCES` de `assets/fil-ressources.js`.
 - Les générateurs hors dépôt la posent déjà : `~/dev/quiz-build.py`, `~/dev/salons-etudes/site.py`, `~/dev/infographie-pistes/site_village.py`.
 - Une page calée sur la hauteur de l'écran retranche `var(--fil-h)` (exemple : `academy.html`, `pitch-des-etudes.html`).
-- La fiche 1 (`positionnement.html`, `en/positioning.html`) n'a pas la barre : ses écrans sont calés au pixel sur 1400 × 715 et son en-tête est fixe.
+- La fiche 1 (`positionnement.html`, `en/positioning.html`) a la barre depuis le 23/10/2026 : son en-tête fixe se pose dessous (`top: var(--fil-h)`) et s'est resserré. Ses écrans sont calés au pixel : tout changement se mesure écran par écran à 1400 × 715.
 
 ## Historique
 

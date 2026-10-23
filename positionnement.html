@@ -306,9 +306,32 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
 /* 23/10 : le logo growth academy mène à l'accueil de l'academy, le logo mazeo à mazeo.co */
 .logo a { text-decoration:none; color:inherit; }
 .logo a.nm:hover, .logo a.mz:hover { opacity:.75; }
+/* 23/10 soir : la barre « mazeo / Ressources » des ressources (assets/fil-ressources.js) tient le haut de l'écran.
+   Elle pose --fil-h : la barre de progression et l'en-tête se placent dessous, les écrans retranchent sa hauteur,
+   et l'en-tête se resserre de 24 px pour rendre une partie de la place. Sur téléphone, l'en-tête défile avec la page. */
+:root { --x:clamp(0px,calc((100vh - var(--fil-h,0px) - 715px) / 10),60px); }
+.bar, .entete { top:var(--fil-h,0px); }
+.ecrans { height:calc(100vh - var(--fil-h,0px)); }
+@media (min-width: 901px) {
+  .entete .in { padding-top:16px; padding-bottom:12px; }
+  .contenu { padding-top:102px; }
+  .ecran:not(.haut) .contenu { padding-bottom:clamp(20px,calc(6vh - 20px),70px); }
+  .ecran .contenu.dense { padding-top:clamp(86px,calc(10vh - 14px),116px); padding-bottom:8px; }
+  .ecran.avous .contenu { padding-top:98px; }
+  .contenu.dense h1.h-compact { margin-bottom:14px; }
+  .ecran .contenu.dense h1.h-compact + p.th { margin-top:clamp(8px,1.4vh,30px); }
+  .compteur, .ecran .contenu.dense p.morale { --ecart:clamp(14px,2vh,32px); }
+  .compteur { margin-bottom:var(--ecart); }
+  .ecran .contenu.dense p.morale { margin-top:var(--ecart); }
+}
+@media (max-width: 900px) {
+  .bar { top:0; }
+  .entete { position:relative; top:0; }
+  .contenu, .ecran:not(.haut) .contenu, .ecran .contenu.dense, .ecran.avous .contenu { padding-top:28px; }
+}
 </style>
 </head>
-<body>
+<body><script src="/assets/fil-ressources.js"></script>
 <div class="bar"><i id="bar"></i></div>
 <header class="entete"><div class="in">
   <div class="logo">
@@ -324,7 +347,6 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
 <section class="ecran">
   <div class="contenu heros">
     <div>
-      <p class="accroche">Fiche pratique 1 · 3 minutes</p>
       <h1>Et vous, <span>êtes-vous bien positionné ?</span></h1>
       <p class="lede">Vos prospects doivent comprendre en une phrase ce que vous vendez, à qui, et pourquoi vous. Testez la vôtre en trois minutes.</p>
       <span class="lab">Votre positionnement répond à quatre questions</span>
