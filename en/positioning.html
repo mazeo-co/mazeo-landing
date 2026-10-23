@@ -487,7 +487,7 @@ p.en-fr { margin:-6px 0 14px; font-size:13.5px; color:var(--meta); }
       <div id="bloc-site" hidden style="margin-top:-8px"><input type="text" id="f-site" placeholder="www.yourcompany.com" autocomplete="url" inputmode="url"><p class="retenu" id="f-retenu-site"></p></div>
       <div><label class="ch" for="f-email">Your work email, to receive the result</label><input type="email" id="f-email" placeholder="firstname@yourcompany.com" autocomplete="email" required></div>
       <label class="ligne"><input type="checkbox" class="js-non"> I don't want to receive future resources from mazeo.</label>
-      <div class="cta cta-form"><button type="submit">Get my analysis</button></div>
+      <div class="cta cta-form"><button type="submit">Get my analysis</button><button type="button" class="second" data-fin>Continue without an analysis</button></div>
       <p class="msg" role="status" aria-live="polite"></p>
       <p class="note" id="f-note">The result shows with an email address from the company you chose, and goes to no one else. Gmail, Outlook, Orange… addresses are not accepted.</p>
     </form>
@@ -587,6 +587,8 @@ p.en-fr { margin:-6px 0 14px; font-size:13.5px; color:var(--meta); }
   document.getElementById("prec").addEventListener("click", function () { aller(n - 1); });
   document.getElementById("suiv").addEventListener("click", function () { aller(n + 1); });
   document.querySelectorAll("[data-suivant]").forEach(function (b) { b.addEventListener("click", function () { aller(n + 1); }); });
+  /* 23/10 : « Voir la suite sans analyse » (écran 4) mène au dernier écran, sans passer par le résultat */
+  document.querySelectorAll("[data-fin]").forEach(function (b) { b.addEventListener("click", function () { aller(ecrans.length - 1); }); });
   document.querySelectorAll("[data-precedent]").forEach(function (b) { b.addEventListener("click", function () { aller(n - 1); }); });
   document.addEventListener("keydown", function (ev) {
     var t = ev.target, saisie = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
