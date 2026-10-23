@@ -287,6 +287,9 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
 #defile .piste .cadre p.trad { font-size:13px; color:var(--meta); margin:0 0 clamp(14px,2.4vh,24px); }
 #defile .piste .cadre .test > div { font-size:clamp(15px,min(1.1vw,2.3vh),17px); }
 .ecran .contenu.dense p.morale { font-size:clamp(17px,min(1.25vw,2.6vh),21px); }
+/* 23/10 nuit : la carte des exemples à égale distance du texte du dessus et du texte du dessous */
+.compteur { margin-bottom:clamp(16px,3.2vh,32px); }
+.ecran .contenu.dense p.morale { margin-top:clamp(16px,3.2vh,32px); }
 </style>
 </head>
 <body>
@@ -431,7 +434,7 @@ p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px);
   <div class="contenu">
     <p class="sur">À vous</p>
     <h1>Et vous, <span>êtes-vous bien positionné ?</span></h1>
-    <p class="th">Nous avons lu le site de 500 prestataires d'études, comme le ferait un prospect. Choisissez le vôtre. Il n'est pas dans la liste ? Signalez-le, nous l'ajoutons.</p>
+    <p class="th">Nous avons analysé le positionnement de plus de 500 prestataires d'études. Renseignez votre entreprise pour consulter notre analyse. Elle n'est pas dans la liste ? Signalez-la, nous l'ajoutons.</p>
     <p class="avis" id="f-avis" hidden></p>
     <form class="form js-noter" novalidate>
       <div class="tete-champ"><label class="ch" id="f-lab" for="f-entreprise" style="margin:0">Votre entreprise</label><button type="button" class="lien" id="f-bascule">Pas dans la liste ? Signalez-la</button></div>
