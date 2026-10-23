@@ -290,6 +290,16 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .ga .by b { font-family: var(--logo-font); font-weight: 800; font-size: 19px; color: var(--ink); letter-spacing: -0.3px; }
 .ga .by b span { color: var(--green); }
 .ga .sub { margin-top: 4px; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(20px, 1.9vw, 27px); font-weight: 400; color: var(--blue); }
+/* Le Pitch des études : la bulle violette (23/10/2026) */
+.pt { display: grid; place-content: center; justify-items: center; gap: 18px; padding: 20px; text-align: center; background: #fff; }
+.pt .lgp { display: flex; flex-direction: column; align-items: flex-start; line-height: 1; margin: 0; }
+.pt .lgp .l { display: flex; align-items: center; gap: 10px; font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-stretch: 90%; letter-spacing: -.045em; font-size: clamp(44px, 4.6vw, 64px); color: var(--ink); }
+.pt .lgp .bulle { position: relative; background: #6B3CF0; color: #fff; border-radius: 14px; padding: 2px 16px 9px; }
+.pt .lgp .bulle::after { content: ""; position: absolute; left: 16px; bottom: -12px; border-right: 18px solid transparent; border-top: 13px solid #6B3CF0; }
+.pt .lgp small { margin-top: 16px; font-weight: 700; font-size: 13px; letter-spacing: .32em; text-transform: uppercase; color: var(--ink); }
+.pt .by { font-size: 15px; color: var(--meta); display: flex; align-items: baseline; gap: 6px; margin: 0; }
+.pt .by b { font-family: var(--logo-font); font-weight: 800; font-size: 19px; color: var(--ink); letter-spacing: -0.3px; }
+.pt .by b span { color: var(--green); }
 </style>
 </head>
 <body>
@@ -351,6 +361,24 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 <div class="tool-foot">
 <span class="btn btn-primary go" aria-hidden="true">Lire l'étude <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
 <span class="stamp">Base mazeo au 7 octobre 2026</span>
+</div>
+</div>
+</article>
+</li>
+<li>
+<article class="tool">
+<div class="visual pt" aria-hidden="true">
+<p class="lgp"><span class="l">Le <span class="bulle">Pitch</span></span><small>des études</small></p>
+<p class="by">présenté par <b>mazeo<span>.</span></b></p>
+</div>
+<div class="tool-body">
+<span class="eyebrow">Connaître le secteur</span>
+<h2><a href="/pitch-des-etudes">Le Pitch des études : le positionnement des prestataires</a></h2>
+<p class="desc">Les cordonniers sont (souvent) les plus mal chaussés : 6&nbsp;% seulement des prestataires d'études disent clairement quel problème ils règlent pour leur client. Le secteur lu comme un prospect le lit, et la note de votre site.</p>
+<ul class="facts"><li>299 sites lus</li><li>8 chapitres</li><li>Testez le vôtre</li></ul>
+<div class="tool-foot">
+<span class="btn btn-primary go" aria-hidden="true">Lire l'étude <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+<span class="stamp">Sites lus le 22 octobre 2026</span>
 </div>
 </div>
 </article>
