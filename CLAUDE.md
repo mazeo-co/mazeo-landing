@@ -36,6 +36,10 @@ Chaque ressource (growth academy et ses fiches, Village, Pitch, Quiz, salons, De
 - Une page calée sur la hauteur de l'écran retranche `var(--fil-h)` (exemple : `academy.html`, `pitch-des-etudes.html`).
 - La fiche 1 (`positionnement.html`, `en/positioning.html`) a la barre depuis le 23/10/2026 : son en-tête fixe se pose dessous (`top: var(--fil-h)`) et s'est resserré. Ses écrans sont calés au pixel : tout changement se mesure écran par écran à 1400 × 715.
 
+## L'en-tête de la growth academy
+
+L'accueil et chaque fiche (FR et EN) chargent le même en-tête : `assets/academy/entete.css`, posé juste après le `<style>` de la page. La marque, « présentée par mazeo. », le drapeau, « Partager » et le filet se règlent là, jamais dans une page. Une nouvelle fiche ajoute cette ligne et reprend le même HTML d'en-tête que `prise-de-rendez-vous.html`.
+
 ## Historique
 
 Jusqu'au 05/10/2026, le site vivait sur la branche `fix/login-redirect-app` et `main` datait de mars 2026. Le 05/10/2026, `main` a été avancée jusqu'à la version en ligne, l'ancienne branche supprimée, et `main` verrouillée.

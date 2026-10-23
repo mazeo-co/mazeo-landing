@@ -1,0 +1,25 @@
+/* L'en-tête commun de la growth academy : l'accueil et chaque fiche, en français et en anglais.
+   La marque, « présentée par mazeo. », le drapeau, « Partager », et un filet fin dessous.
+   Chaque page le charge après son propre style : une seule taille partout, réglée ici et nulle part ailleurs.
+   Hauteur sur ordinateur : 87 px. La fiche 1 a calé ses écrans dessus : tout changement se remesure à 1400 × 715. */
+.entete .in { position:relative; max-width:1280px; margin:0 auto; padding:14px 48px 10px; border-bottom:1px solid var(--hair); display:flex; align-items:center; justify-content:space-between; gap:22px; }
+.logo { display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; color:var(--ink); }
+.logo a { text-decoration:none; color:inherit; }
+.logo a.nm:hover, .logo a.mz:hover { opacity:.75; }
+.logo .nm { display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:400; font-size:30px; letter-spacing:-0.01em; line-height:1; }
+.logo .nm svg { width:22px; height:22px; }
+.logo .par { margin-top:6px; font-size:13.5px; color:var(--meta); display:flex; align-items:baseline; gap:6px; }
+.logo .mz { font-family:var(--mono); font-weight:800; letter-spacing:-0.4px; color:var(--ink); font-size:17px; }
+.logo .mz i { font-style:normal; color:var(--green); }
+.entete .droite { display:flex; align-items:center; gap:10px; }
+.entete .lang { display:inline-flex; align-items:center; height:38px; border-radius:100px; border:1px solid var(--hair2); background:var(--card); padding:3px 8px; text-decoration:none; }
+.entete .lang .flag { display:inline-block; width:24px; height:16px; border-radius:3px; overflow:hidden; line-height:0; }
+.entete .lang svg { width:24px; height:16px; display:block; border-radius:3px; }
+.entete .pill { border:1px solid var(--hair2); background:var(--card); border-radius:999px; padding:8px 18px; font:inherit; font-weight:600; font-size:15px; line-height:1.55; cursor:pointer; color:var(--ink); }
+.entete .pill:hover { background:var(--paper); }
+@media (max-width:900px) {
+  .entete .in { padding:20px 16px 12px; }
+  .logo .nm { font-size:24px; white-space:nowrap; }
+  .logo .par { font-size:14px; } .logo .mz { font-size:18px; }
+  .entete .pill { padding:7px 14px; font-size:14px; }
+}

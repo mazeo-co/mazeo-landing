@@ -37,19 +37,7 @@ html, body { margin:0; }
 body { font-family:var(--font); font-size:clamp(17px,1.2vw,19px); line-height:1.55; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; }
 a { color:inherit; }
 button, input { font:inherit; }
-/* l'en-tête : la marque, « présentée par mazeo. », le lien vers les autres ressources */
-.entete .in { max-width:1280px; margin:0 auto; padding:26px 48px 20px; border-bottom:1px solid var(--hair); display:flex; align-items:center; justify-content:space-between; gap:22px; }
-.logo { display:flex; flex-direction:column; align-items:flex-start; text-decoration:none; color:var(--ink); }
-.logo .nm { display:flex; align-items:center; gap:10px; font-family:var(--serif); font-weight:400; font-size:35px; letter-spacing:-0.01em; line-height:1; }
-.logo .nm svg { width:25px; height:25px; }
-.logo .par { margin-top:10px; font-size:16px; color:var(--meta); display:flex; align-items:baseline; gap:6px; }
-.logo .mz { font-family:var(--mono); font-weight:800; letter-spacing:-0.4px; color:var(--ink); font-size:21px; }
-.logo .mz i { font-style:normal; color:var(--green); }
-/* à droite : le drapeau de la version anglaise et « Partager », comme le Village des études */
-.droite { display:flex; align-items:center; gap:10px; }
-.lang { display:inline-flex; align-items:center; height:38px; border-radius:100px; border:1px solid var(--hair2); background:var(--card); padding:3px 8px; text-decoration:none; }
-.lang .flag { display:inline-block; width:24px; height:16px; border-radius:3px; overflow:hidden; line-height:0; } .lang svg { width:24px; height:16px; display:block; }
-.pill { border:1px solid var(--hair2); background:var(--card); border-radius:999px; padding:8px 18px; font:inherit; font-weight:600; font-size:15px; cursor:pointer; color:var(--ink); }
+/* l'en-tête (marque, drapeau, « Partager », filet) est commun : assets/academy/entete.css */
 .share { position:relative; } .share-menu[hidden] { display:none; }
 .share-menu { position:absolute; right:0; top:calc(100% + 8px); z-index:40; min-width:220px; background:#fff; border:1px solid var(--hair2); border-radius:14px; padding:8px; display:grid; gap:2px; box-shadow:0 16px 40px rgba(10,10,10,.18); }
 .share-menu a, .share-menu button { display:flex; align-items:center; gap:10px; width:100%; text-align:left; background:none; border:0; border-radius:9px; padding:10px 12px; color:var(--ink); font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; }
@@ -90,22 +78,16 @@ ol.lecons li.ouverte:hover .etat { background:#000; }
 ol.lecons li.bientot .n { color:var(--meta2); }
 ol.lecons li.bientot .t { color:var(--meta); }
 @media (max-width:900px) {
-  .entete .in { padding:20px 16px 12px; }
   .contenu { padding:24px 16px 56px; min-height:0; }
   .bas { grid-template-columns:1fr; grid-template-areas:"titre" "texte" "fiches"; }
   .bas .etiquette { margin:44px 0 18px; }
   .bas .texte .cta { margin-top:24px; }
   ol.lecons { gap:0; } ol.lecons .t .s { white-space:normal; }
   ol.lecons .etat { width:auto; padding:8px 12px; font-size:13.5px; }
-  .logo .par { font-size:14px; } .logo .mz { font-size:18px; }
   h1 .l { white-space:normal; }
-  .pill { padding:7px 14px; font-size:14px; }
-  .logo .nm { font-size:24px; white-space:nowrap; }
 }
-/* 23/10 : le logo growth academy mène à l'accueil de l'academy, le logo mazeo à mazeo.co */
-.logo a { text-decoration:none; color:inherit; }
-.logo a.nm:hover, .logo a.mz:hover { opacity:.75; }
 </style>
+<link rel="stylesheet" href="/assets/academy/entete.css">
 </head>
 <body><script src="/assets/fil-ressources.js"></script>
 <header class="entete"><div class="in">
