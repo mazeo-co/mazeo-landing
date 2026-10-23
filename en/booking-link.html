@@ -95,6 +95,9 @@ aside { position:sticky; top:24px; display:grid; gap:22px; }
 .chiffres b { font-family:var(--serif); font-weight:400; font-size:clamp(40px,3.2vw,52px); line-height:1; color:var(--blue); }
 .chiffres span { font-size:15.5px; line-height:1.5; color:var(--body); }
 article p.src { font-size:13.5px; color:var(--meta); margin:0 0 28px; }
+/* 23/10 soir : la phrase qui pose la situation au-dessus des deux chiffres */
+article p.avant-chiffres { margin:0; }
+@media (max-width: 640px) { .chiffres { grid-template-columns:1fr; gap:14px; } }
 article p.apres { margin-top:22px; }
 /* 23/10 soir : le lien vers l'outil, sous la phrase qui le présente */
 article p.vers { margin:-8px 0 0; font-weight:600; }
@@ -138,11 +141,12 @@ aside { gap:28px; }
   <article>
     <section>
       <h2>Every hour counts to get a meeting</h2>
+      <p class="avant-chiffres">Your prospect reads your message and is interested. Well done! <b>If they can book right away</b>, you are:</p>
       <div class="chiffres">
-        <div><b>7 times</b><span>more likely to reach a decision-maker if you reply within the hour, rather than an hour later.</span></div>
-        <div><b>60 times</b><span>more likely than if you reply the next day.</span></div>
+        <div><b>7 times</b><span>more likely to get the meeting than if they have to wait an hour to receive time slots.</span></div>
+        <div><b>60 times</b><span>more likely to get the meeting than if they have to wait until the next day to receive time slots.</span></div>
       </div>
-      <p class="src">Harvard Business Review, 2011: 1.25 million contact requests received by 42 US companies.</p>
+      <p class="src">Harvard Business Review, 2011: response times measured across 1.25 million contact requests received by 42 US companies.</p>
       <p>Without a link, the prospect has to wait for your reply. Finding a date can then take up to three or four messages. Each message costs hours, and their interest fades.</p>
       <p>With a booking link:</p>
       <ul class="points">
