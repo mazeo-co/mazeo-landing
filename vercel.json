@@ -25,6 +25,10 @@
       "destination": "/village-des-etudes.html"
     },
     {
+      "source": "/pitch-des-etudes",
+      "destination": "/pitch-des-etudes.html"
+    },
+    {
       "source": "/en/market-research-in-figures",
       "destination": "/en/market-research-in-figures.html"
     },
