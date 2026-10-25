@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sur 60 leads contactés, 3 deviennent des rendez-vous : fixez votre objectif, nous calculons le reste · fiche pratique 6 de la growth academy, présentée par mazeo</title>
-<meta name="description" content="Combien de rendez-vous voulez-vous par mois ? D'après les chiffres de la séquence mazeo, cette fiche calcule les leads à garder dans votre Pipeline, le temps par semaine, et bloque votre créneau de prospection dans votre agenda. Fiche pratique 6 de la growth academy, présentée par mazeo.">
+<title>Combien de temps par semaine, pour vos rendez-vous du mois ? · fiche pratique 6 de la growth academy, présentée par mazeo</title>
+<meta name="description" content="Pour les clients de mazeo, et ceux qui le deviennent : fixez votre objectif de rendez-vous qualifiés par mois, et voyez les leads à garder dans votre Pipeline, le temps à bloquer chaque semaine, et votre créneau dans l'agenda. Fiche pratique 6 de la growth academy, présentée par mazeo.">
 <link rel="canonical" href="https://www.mazeo.co/votre-rythme">
 <link rel="alternate" hreflang="fr" href="https://www.mazeo.co/votre-rythme">
 <link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/votre-rythme">
@@ -12,8 +12,8 @@
 <meta property="og:site_name" content="mazeo">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://www.mazeo.co/votre-rythme">
-<meta property="og:title" content="Sur 60 leads contactés, 3 deviennent des rendez-vous. Fixez votre objectif, nous calculons le reste.">
-<meta property="og:description" content="Fiche pratique 6 de la growth academy by mazeo : votre objectif de rendez-vous, les leads qu'il vous faut, le temps par semaine, et votre créneau bloqué dans l'agenda. Cinq minutes.">
+<meta property="og:title" content="Combien de temps par semaine, pour vos rendez-vous du mois ?">
+<meta property="og:description" content="Fiche pratique 6 de la growth academy by mazeo : votre objectif de rendez-vous, les leads qu'il vous faut, le temps à bloquer chaque semaine, et votre créneau dans l'agenda. Cinq minutes.">
 <meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
@@ -164,6 +164,54 @@ p.rempli b { color:var(--ink); font-weight:600; }
   .tuiles, .temps { grid-template-columns:1fr; }
   .entonnoir > div { grid-template-columns:72px 1fr; } .entonnoir em { grid-column:2; }
 }
+
+/* 26/10 : relecture de Romain. L'ouverture dit à quoi sert la fiche ; le schéma du Pipeline en trois objectifs ; une heure par créneau. */
+.heros .note { font-size:15px; color:var(--meta); }
+.contenu.seq { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); align-items:start; }
+.schema { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:clamp(12px,1.6vh,18px) clamp(18px,1.8vw,24px) clamp(10px,1.4vh,16px); }
+.ecran .contenu.seq { padding-top:clamp(96px,calc(11vh + 20px),130px); }
+.objs { display:flex; gap:6px; padding:4px; background:var(--paper); border:1px solid var(--hair); border-radius:999px; margin:0 0 clamp(8px,1.2vh,14px); }
+.objs button { flex:1; border:0; background:none; border-radius:999px; padding:7px 10px; font-size:13.5px; font-weight:600; color:var(--meta); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:8px; white-space:nowrap; }
+.objs button .n { width:20px; height:20px; border-radius:50%; border:1.5px solid currentColor; display:inline-grid; place-items:center; font-size:11px; }
+.objs button.on { background:var(--ink); color:var(--paper); }
+.flux[hidden] { display:none; }
+.etape { display:grid; grid-template-columns:30px 1fr; gap:12px; align-items:center; padding:clamp(4px,.8vh,7px) 12px; border:1px solid var(--hair); border-radius:10px; background:var(--card); }
+.etape .ic { width:28px; height:28px; border-radius:8px; display:grid; place-items:center; font-style:normal; font-size:12px; font-weight:800; }
+.ic.li { background:#E8F1FB; color:#0A66C2; } .ic.li::before { content:"in"; }
+.ic.dual { background:linear-gradient(135deg,#E8F1FB 50%,#ECFBF3 50%); color:#3A4250; } .ic.dual::before { content:"✉"; font-weight:600; font-size:14px; }
+.ic.tel { background:#FEF3E7; color:#B45309; } .ic.tel::before { content:"☏"; font-size:15px; }
+.ic.neu { background:var(--paper); color:var(--meta); } .ic.neu::before { content:"•"; font-size:16px; }
+.etape b { font-size:14px; font-weight:600; line-height:1.2; display:flex; gap:8px; align-items:center; flex-wrap:wrap; color:var(--ink); }
+.etape span { display:block; font-size:12px; color:var(--meta); line-height:1.3; margin-top:0; }
+.qui { font-style:normal; font-size:10.5px; font-weight:600; border-radius:999px; padding:1px 7px; line-height:1.4; }
+.qui.m { background:#F1ECFB; color:#6B46C1; } .qui.v { background:#FFF1A8; color:#705A00; }
+.att { margin:0 0 0 26px; padding:clamp(2px,.4vh,4px) 0 clamp(2px,.4vh,4px) 16px; border-left:2px solid var(--hair2); font-size:12.5px; color:var(--meta); line-height:1.35; }
+.att b { color:var(--blue); font-weight:600; }
+.att .ou { display:block; font-size:11.5px; color:var(--meta2); }
+.att.fin { border-left:0; margin:10px 0 0; padding:0; font-size:13.5px; color:var(--body); }
+.att.debut { border-left:0; margin:0 0 8px; padding:0; font-size:13.5px; color:var(--body); }
+.att.fin b { color:var(--ink); }
+.cadre p.regle { margin:clamp(14px,2.4vh,22px) 0 0; padding-top:clamp(12px,2vh,18px); border-top:1px solid var(--hair); font-family:var(--serif); font-size:clamp(22px,1.7vw,28px); line-height:1.2; color:var(--ink); }
+.cadre p.regle b { font-weight:400; color:var(--blue); }
+.tuiles.lignes { grid-template-columns:1fr; gap:10px; }
+.tuiles.lignes > div { flex-direction:row; align-items:flex-start; gap:18px; padding:clamp(12px,2vh,18px) clamp(16px,1.4vw,22px); }
+.tuiles.lignes b { min-width:78px; font-size:clamp(34px,2.7vw,44px); }
+.tuiles.lignes .t { display:block; font-size:clamp(15.5px,1.05vw,17.5px); color:var(--ink); font-weight:600; line-height:1.35; }
+.tuiles.lignes .p { display:block; font-size:13.5px; color:var(--meta); margin-top:4px; line-height:1.45; }
+.creneau p.dl { margin:0 0 6px; font-size:15.5px; color:var(--body); } .creneau p.dl b { color:var(--ink); font-weight:600; }
+.lignes-c { display:grid; margin-top:2px; }
+.lc { display:grid; grid-template-columns:88px auto 1fr auto; gap:14px; align-items:center; padding:clamp(7px,1.2vh,10px) 0; border-top:1px solid var(--hair); }
+.lc b { font-weight:600; font-size:15.5px; }
+.lc .pl { font-size:15px; color:var(--body); white-space:nowrap; }
+.lc .ag { display:flex; gap:8px; }
+.lc .ag a { font-size:13.5px; font-weight:600; padding:8px 13px; border-radius:3px; background:var(--ink); color:var(--paper); text-decoration:none; white-space:nowrap; }
+.lc .ag a + a { background:transparent; color:var(--ink); border:1px solid var(--hair2); }
+.lc .ag a:hover { background:#000; color:var(--paper); }
+.lc select { appearance:none; -webkit-appearance:none; border:1px solid var(--hair2); border-radius:4px; color:var(--ink); font-size:15px; padding:7px 34px 7px 12px; min-width:92px; cursor:pointer;
+  background:var(--card) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121212' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 11px center / 14px 14px; }
+.lignes-c p.vide { margin:8px 0 0; font-size:14.5px; color:var(--meta); }
+.plan .v.petit { font-size:clamp(16px,1.2vw,20px); white-space:normal; max-width:17em; line-height:1.35; }
+@media (max-width:900px) { .lc { grid-template-columns:1fr 1fr; } .lc .ag { grid-column:1 / -1; } .objs button { font-size:12px; padding:6px 6px; } }
 </style>
 <link rel="stylesheet" href="/assets/academy/entete.css">
 </head>
@@ -178,70 +226,108 @@ p.rempli b { color:var(--ink); font-weight:600; }
 </div></header>
 
 <div class="ecrans" id="ecrans">
-<!-- 1 · Ouverture -->
+<!-- 1 · Ouverture : à quoi sert la fiche -->
 <section class="ecran">
   <div class="contenu deux heros">
     <div>
-      <h1>Sur 60 leads contactés, <span>3 deviennent des rendez-vous.</span></h1>
-      <p class="lede2">Fixez le nombre de rendez-vous que vous voulez chaque mois. Nous calculons les leads à contacter et le temps que cela vous prend, puis nous bloquons votre créneau dans votre agenda.</p>
-      <div class="cta"><button type="button" data-suivant>Commencer</button><span class="note" style="font-size:15px;color:var(--meta)">Cinq minutes.</span></div>
-      <p class="source">Source&nbsp;: la séquence de prospection de mazeo, mesurée sur ses propres leads.</p>
+      <p class="sur">Pour les clients de mazeo, et ceux qui le deviennent</p>
+      <h1>Combien de temps par semaine, <span>pour vos rendez-vous du mois&nbsp;?</span></h1>
+      <p class="lede2">Fixez votre objectif de rendez-vous qualifiés par mois. Cette fiche calcule le temps à bloquer dans votre agenda chaque semaine pour le tenir.</p>
+      <p class="th">mazeo fait le gros du travail. Mais il reste une chose qui dépend de vous&nbsp;: <b>la régularité</b>. Un créneau par semaine, toujours le même, pour nourrir votre Pipeline et répondre à ceux qui répondent.</p>
+      <div class="cta"><button type="button" data-suivant>Commencer</button><span class="note">Cinq minutes.</span></div>
     </div>
     <div class="cadre plan4">
-      <span class="lab">Vous repartez avec votre plan, en quatre nombres</span>
+      <span class="lab">Ce que mazeo fait pour vous</span>
       <ol class="quatre">
-        <li>Vos rendez-vous par mois</li>
-        <li>Les leads à garder dans votre Pipeline</li>
-        <li>Les leads à ajouter chaque semaine</li>
-        <li>Votre temps, et votre créneau</li>
+        <li>Trouve les nouveaux leads qui correspondent à ce que vous vendez</li>
+        <li>Repère le bon moment pour les contacter</li>
+        <li>Trouve la bonne personne dans l'entreprise</li>
+        <li>Simplifie tout, du premier contact jusqu'au rendez-vous</li>
       </ol>
     </div>
   </div>
 </section>
 
-<!-- 2 · La séquence -->
+<!-- 2 · La séquence : le schéma du Pipeline, en trois objectifs -->
 <section class="ecran">
-  <div class="contenu deux">
+  <div class="contenu deux seq">
     <div>
       <p class="sur">Comment ça marche</p>
-      <h1>Un lead n'est pas contacté une fois, mais <span>cinq fois en deux semaines.</span></h1>
-      <p class="lede2">Une invitation LinkedIn, un message quand elle est acceptée, puis trois emails.</p>
-      <p class="th">Les réponses arrivent surtout aux relances, deux à trois semaines après le premier message. Prospecter, ce n'est donc pas envoyer un gros lot une fois&nbsp;: <b>c'est nourrir la séquence chaque semaine</b>, avec de nouveaux leads.</p>
+      <h1>La prospection demande du suivi&nbsp;: <span>toujours avoir des leads dans le pipe.</span></h1>
+      <p class="lede2">Chaque lead ajouté à votre Pipeline suit une séquence&nbsp;: des messages LinkedIn et des emails, espacés de quelques jours, jusqu'à la réponse, puis jusqu'au rendez-vous.</p>
+      <p class="th">mazeo déroule la séquence et vous dit quoi faire chaque jour. Votre part&nbsp;: <b>ajouter de nouveaux leads chaque semaine</b>, pour que le pipe ne se vide jamais, et répondre quand quelqu'un répond.</p>
       <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: nos chiffres</button></div>
-      <p class="source">La séquence mazeo. Les délais sont ceux réglés dans l'outil, en jours ouvrés, depuis l'étape précédente.</p>
+      <p class="source">Le schéma complet est dans mazeo&nbsp;: Pipeline, «&nbsp;Pourquoi cette séquence&nbsp;?&nbsp;». Délais en jours ouvrés, au rythme Normal.</p>
     </div>
-    <div class="cadre">
-      <span class="lab">La séquence, étape par étape</span>
-      <ol class="sequence">
-        <li><i></i><div><em>Jour 1</em><b>Invitation LinkedIn</b><span>Sans message&nbsp;: elle se contente d'ouvrir la porte.</span></div></li>
-        <li><i></i><div><em>Dès qu'elle est acceptée</em><b>Message LinkedIn</b><span>Court&nbsp;: ce que vous faites, pour qui, et une question.</span></div></li>
-        <li class="mail"><i></i><div><em>2 jours après</em><b>Premier email</b><span>Votre message complet&nbsp;: le problème, la preuve, la proposition.</span></div></li>
-        <li class="mail"><i></i><div><em>3 jours après</em><b>Deuxième email</b><span>Une relance courte, avec un élément nouveau.</span></div></li>
-        <li class="mail"><i></i><div><em>5 jours après</em><b>Dernier email</b><span>La porte reste ouverte&nbsp;: la plupart des réponses arrivent ici.</span></div></li>
-      </ol>
+    <div class="schema">
+      <div class="objs" role="tablist" aria-label="Les trois objectifs de la séquence">
+        <button type="button" role="tab" class="on" data-obj="1" aria-selected="true"><span class="n">1</span>Obtenir une réponse</button>
+        <button type="button" role="tab" data-obj="2" aria-selected="false"><span class="n">2</span>Obtenir un rendez-vous</button>
+        <button type="button" role="tab" data-obj="3" aria-selected="false"><span class="n">3</span>En faire un client</button>
+      </div>
+      <div class="flux" data-flux="1">
+        <p class="att debut">Dès qu'un lead est ajouté au Pipeline <span class="ou">depuis une fiche, une liste ou «&nbsp;Contacts pour vous&nbsp;» ; rien ne part sans votre accord</span></p>
+        <div class="etape"><i class="ic li"></i><div><b>Visite du profil <em class="qui m">mazeo</em></b><span>Votre nom apparaît dans ses notifications.</span></div></div>
+        <p class="att">Attendre <b>1 jour ouvré</b></p>
+        <div class="etape"><i class="ic li"></i><div><b>Invitation LinkedIn <em class="qui m">mazeo</em></b><span>Sans note, depuis votre compte.</span></div></div>
+        <p class="att">Dès qu'elle est acceptée <span class="ou">sinon, le premier message part par email</span></p>
+        <div class="etape"><i class="ic li"></i><div><b>Premier message LinkedIn <em class="qui v">vous</em></b><span>Court. mazeo rédige, vous validez.</span></div></div>
+        <p class="att">Attendre <b>2 jours ouvrés</b></p>
+        <div class="etape"><i class="ic dual"></i><div><b>Message 2, sur l'autre canal <em class="qui v">vous</em></b><span>Email si le premier est parti sur LinkedIn.</span></div></div>
+        <p class="att">Attendre <b>3 jours ouvrés</b></p>
+        <div class="etape"><i class="ic dual"></i><div><b>Relance <em class="qui v">vous</em></b><span>La plupart des réponses arrivent ici.</span></div></div>
+        <p class="att">Attendre <b>5 jours ouvrés</b></p>
+        <div class="etape"><i class="ic dual"></i><div><b>Dernier message <em class="qui v">vous</em></b><span>Dire qu'on s'arrête déclenche souvent une réponse.</span></div></div>
+      </div>
+      <div class="flux" data-flux="2" hidden>
+        <p class="att">Tout de suite, sur le canal de sa réponse</p>
+        <div class="etape"><i class="ic dual"></i><div><b>Proposer un rendez-vous <em class="qui v">vous</em></b><span>Votre lien d'agenda, ou trois créneaux dans les dix jours.</span></div></div>
+        <p class="att">Attendre <b>3 jours ouvrés</b></p>
+        <div class="etape"><i class="ic dual"></i><div><b>Relancer dans le même fil <em class="qui v">vous</em></b><span>Un rappel court&nbsp;: votre nom est déjà connu.</span></div></div>
+        <p class="att">Attendre <b>3 jours ouvrés</b></p>
+        <div class="etape"><i class="ic dual"></i><div><b>Essayer l'autre canal <em class="qui v">vous</em></b><span>Email si votre proposition est partie sur LinkedIn, et inversement.</span></div></div>
+        <p class="att">Attendre <b>2 jours ouvrés</b></p>
+        <div class="etape"><i class="ic tel"></i><div><b>L'appeler <em class="qui v">vous</em></b><span>mazeo prépare la fiche d'appel.</span></div></div>
+        <p class="att">Attendre <b>4 jours ouvrés</b></p>
+        <div class="etape"><i class="ic dual"></i><div><b>Dernier message <em class="qui v">vous</em></b><span>Une date est plus facile à donner qu'un oui.</span></div></div>
+        <p class="att fin">Rendez-vous pris&nbsp;? <b>→ objectif 3</b>. Sinon&nbsp;: en pause, ou perdu.</p>
+      </div>
+      <div class="flux" data-flux="3" hidden>
+        <p class="att">Dès que le rendez-vous est pris</p>
+        <div class="etape"><i class="ic neu"></i><div><b>Fiche de préparation <em class="qui m">mazeo</em></b><span>Entreprise, contact, signaux, questions à poser.</span></div></div>
+        <p class="att">La veille</p>
+        <div class="etape"><i class="ic dual"></i><div><b>Confirmer le rendez-vous <em class="qui v">vous</em></b><span>Réduit fortement les absences.</span></div></div>
+        <p class="att">Le jour J</p>
+        <div class="etape"><i class="ic neu"></i><div><b>Le rendez-vous a lieu</b><span>Hors mazeo.</span></div></div>
+        <p class="att">Le jour même</p>
+        <div class="etape"><i class="ic dual"></i><div><b>Mot de remerciement <em class="qui v">vous</em></b><span>Vous restez présent pendant que le contact décide.</span></div></div>
+        <p class="att">Attendre <b>2 jours ouvrés</b></p>
+        <div class="etape"><i class="ic neu"></i><div><b>Dire comment s'est passé le rendez-vous <em class="qui v">vous</em></b><span>Deux lignes, puis l'issue&nbsp;: mazeo ne peut pas le savoir seul.</span></div></div>
+        <p class="att fin">Issue&nbsp;: <b>devenu client</b>, toujours en discussion, ou sans suite.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 3 · Nos chiffres -->
+<!-- 3 · Ce que nous constatons : 20 leads pour un rendez-vous -->
 <section class="ecran">
   <div class="contenu deux">
     <div>
       <p class="sur">Ce que nous constatons</p>
-      <h1>Sur 60 leads en séquence,<br><span>3 rendez-vous tenus et qualifiés.</span></h1>
-      <p class="lede2">7 répondent, 4 prennent rendez-vous, 3 viennent, et sont dans votre cible.</p>
-      <p class="th">Pour tenir trois rendez-vous par mois, votre Pipeline garde <b>60 leads en permanence</b>&nbsp;: chaque semaine, vous en ajoutez autant que la séquence en termine. Le premier mois, prévoyez <b>90</b>&nbsp;: les réponses tardent, et votre cible comme votre message se règlent encore.</p>
+      <h1>Comptez 20 leads en séquence <span>pour un rendez-vous tenu et qualifié.</span></h1>
+      <p class="lede2">Sur 100 leads&nbsp;: 12 répondent, 6 prennent rendez-vous, 5 viennent et sont dans votre cible. Vous voulez plus de rendez-vous&nbsp;? Il faut plus de leads&nbsp;: le reste ne change pas.</p>
+      <p class="th">Un lead reste environ <b>un mois en séquence</b>&nbsp;: deux semaines de messages, puis le temps que les réponses arrivent. Votre Pipeline doit donc toujours contenir les leads du mois en cours, et vous en ajoutez chaque semaine pour remplacer ceux qui en sortent.</p>
       <div class="cta"><button type="button" data-suivant>À vous&nbsp;: votre objectif</button></div>
-      <p class="source">Source&nbsp;: la séquence mazeo, sur ses propres leads. Un rendez-vous qualifié&nbsp;: avec la bonne personne, dans une entreprise de votre cible.</p>
+      <p class="source">Les taux de la séquence mazeo, sur ses propres leads. Un rendez-vous qualifié&nbsp;: avec la bonne personne, dans une entreprise de votre cible.</p>
     </div>
     <div class="cadre">
-      <span class="lab">Sur 60 leads dans votre Pipeline</span>
+      <span class="lab">Sur 100 leads en séquence</span>
       <div class="entonnoir">
-        <div><b>60</b><span>leads en séquence</span><em></em></div>
-        <div><b>7</b><span>répondent</span><em>12&nbsp;%</em></div>
-        <div><b>4</b><span>prennent rendez-vous</span><em>6&nbsp;%</em></div>
-        <div class="but"><b>3</b><span>rendez-vous tenus et qualifiés</span><em>5&nbsp;%</em></div>
+        <div><b>12</b><span>répondent</span><em>12&nbsp;%</em></div>
+        <div><b>6</b><span>prennent rendez-vous</span><em>6&nbsp;%</em></div>
+        <div class="but"><b>5</b><span>rendez-vous tenus et qualifiés</span><em>5&nbsp;%</em></div>
       </div>
+      <p class="regle">Soit <b>1 rendez-vous pour 20 leads</b>.</p>
     </div>
   </div>
 </section>
@@ -263,12 +349,11 @@ p.rempli b { color:var(--ink); font-weight:600; }
     </div>
     <div>
       <span class="lab">Ce qu'il vous faut</span>
-      <div class="tuiles">
-        <div><b data-calc="pipe1">90</b><span>leads dans votre Pipeline le premier mois</span></div>
-        <div><b data-calc="pipe">60</b><span>leads ensuite, en permanence</span></div>
-        <div class="large"><b data-calc="semaine">15</b><span>nouveaux leads à ajouter chaque semaine (<span data-calc="semaine1">23</span> le premier mois)</span></div>
+      <div class="tuiles lignes">
+        <div><b data-calc="pipe">60</b><div><span class="t">leads dans votre Pipeline, en permanence</span><span class="p"><span data-calc="rdv">3</span> rendez-vous × 20 leads.</span></div></div>
+        <div><b data-calc="pipe1">90</b><div><span class="t">leads le premier mois</span><span class="p">La moitié de plus&nbsp;: la séquence met deux à trois semaines à donner ses premiers rendez-vous, et vous affinez encore votre cible et vos messages.</span></div></div>
+        <div><b data-calc="semaine">15</b><div><span class="t">nouveaux leads à ajouter chaque semaine, <span data-calc="semaine1">23</span> le premier mois</span><span class="p">Un lead reste un mois en séquence&nbsp;: chaque semaine, vous remplacez un quart du Pipeline.</span></div></div>
       </div>
-      <p class="lecture">Sur <b data-calc="pipe">60</b> leads, <b data-calc="reponses">7</b> répondent, <b data-calc="pris">4</b> prennent rendez-vous, et <b data-calc="rdv">3</b> viennent&nbsp;: votre objectif.</p>
     </div>
   </div>
 </section>
@@ -279,10 +364,10 @@ p.rempli b { color:var(--ink); font-weight:600; }
     <div>
       <p class="sur">À vous · votre temps</p>
       <h1>Comptez 10 minutes par semaine <span>par rendez-vous visé.</span></h1>
-      <p class="lede2">Une fois rodé. Le premier mois, comptez le double.</p>
-      <p class="th">Au début, c'est plus long&nbsp;: votre cible et votre message se règlent, et vous apprenez à répondre. Après un mois, le geste est pris, et la séquence fait le reste.</p>
+      <p class="lede2">Une fois la séquence lancée. Le premier mois, comptez le double.</p>
+      <p class="th">Au début, c'est plus long&nbsp;: il faut <b>affiner votre ciblage et vos messages</b>, puis apprendre à répondre. Après un mois, la séquence tourne, et le temps se réduit de moitié.</p>
       <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre créneau</button></div>
-      <p class="source">Ordre de grandeur constaté chez les utilisateurs de mazeo, pour une séquence qui tourne.</p>
+      <p class="source">Ordre de grandeur constaté chez les utilisateurs de mazeo.</p>
     </div>
     <div>
       <span class="lab">Pour <span data-calc="rdv">3</span> rendez-vous par mois</span>
@@ -292,8 +377,8 @@ p.rempli b { color:var(--ink); font-weight:600; }
       </div>
       <ul class="dedans">
         <li><b>Ajouter vos nouveaux leads</b>&nbsp;: <span data-calc="semaine">15</span> par semaine, <span data-calc="semaine1">23</span> le premier mois.</li>
-        <li><b>Traiter ce que la séquence remonte</b>&nbsp;: les réponses, et les relances à valider.</li>
-        <li><b>Noter vos chiffres</b>&nbsp;: envoyés, réponses, rendez-vous. Une ligne par semaine.</li>
+        <li><b>Répondre</b> à ceux qui répondent, et valider les messages que mazeo prépare.</li>
+        <li><b>Le premier mois</b>&nbsp;: affiner votre cible et vos messages, d'après les premières réponses.</li>
       </ul>
     </div>
   </div>
@@ -304,11 +389,11 @@ p.rempli b { color:var(--ink); font-weight:600; }
   <div class="contenu deux">
     <div>
       <p class="sur">À vous · votre créneau</p>
-      <h1>Un créneau fixe dans votre agenda&nbsp;: <span>c'est lui qui fait tenir le plan.</span></h1>
-      <p class="lede2">Décider à l'avance du jour et de l'heure d'une action la rend nettement plus probable.</p>
-      <p class="th">Choisissez vos jours et votre heure. Nous calculons la durée d'après votre temps du premier mois. <b>Au-delà d'une heure et demie, prenez deux créneaux</b> dans la semaine&nbsp;: ils tiennent mieux qu'un seul long.</p>
+      <h1>Bloquez le créneau dans votre agenda&nbsp;: <span>un plan daté se tient.</span></h1>
+      <p class="lede2">Des étudiants devaient écrire, dans les deux jours après Noël, un compte rendu de leur soirée. Ceux qui avaient fixé à l'avance le jour, l'heure et le lieu l'ont fait à <b>71&nbsp;%</b>&nbsp;; les autres, à <b>32&nbsp;%</b>.</p>
+      <p class="th">Choisissez vos jours et votre heure. La durée vient de votre temps du premier mois. <b>Au-delà d'une heure et demie, prenez deux créneaux</b> dans la semaine, chacun à son heure.</p>
       <div class="cta"><button type="button" data-suivant>Voir mon plan</button></div>
-      <p class="source">Source&nbsp;: Peter Gollwitzer et Paschal Sheeran, méta-analyse de 94 études, <i>Advances in Experimental Social Psychology</i> (2006).</p>
+      <p class="source">Sources&nbsp;: Peter Gollwitzer et Veronika Brandstätter, <i>Journal of Personality and Social Psychology</i> (1997)&nbsp;; confirmé par une méta-analyse de 94 études, Gollwitzer et Sheeran, <i>Advances in Experimental Social Psychology</i> (2006).</p>
     </div>
     <div class="cadre creneau">
       <div class="bloc">
@@ -321,15 +406,11 @@ p.rempli b { color:var(--ink); font-weight:600; }
           <label><input type="checkbox" value="FR"><span>Vendredi</span></label>
         </div>
       </div>
-      <div class="bloc ligne-h">
-        <div><span class="lab">Votre heure</span><select id="heure" aria-label="Heure de début"></select></div>
-        <div><span class="lab">Durée de chaque créneau</span><div class="duree"><span data-calc="dureeCreneau">1 h</span><small>le premier mois&nbsp;; <span data-calc="dureeCreneau2">30 min</span> ensuite</small></div></div>
+      <div class="bloc">
+        <p class="dl">Chaque créneau&nbsp;: <b data-calc="dureeCreneau">1 h</b> le premier mois, <b data-calc="dureeCreneau2">30 min</b> ensuite.</p>
+        <div class="lignes-c" id="lignes-c"></div>
       </div>
-      <div class="agenda">
-        <a data-agenda="google" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Bloquer dans Google Agenda</a>
-        <a data-agenda="outlook" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Bloquer dans Outlook</a>
-      </div>
-      <p class="rempli">L'événement s'ouvre déjà rempli&nbsp;: <b data-creneau>lundi, 9 h – 10 h</b>, chaque semaine. Dans Outlook, choisissez «&nbsp;Répéter&nbsp;: chaque semaine&nbsp;» avant d'enregistrer.</p>
+      <p class="rempli">Chaque bouton ouvre l'événement déjà rempli, à répéter chaque semaine. Dans Outlook, choisissez «&nbsp;Répéter&nbsp;: chaque semaine&nbsp;» avant d'enregistrer.</p>
     </div>
   </div>
 </section>
@@ -345,7 +426,7 @@ p.rempli b { color:var(--ink); font-weight:600; }
         <div><span class="k">Leads dans votre Pipeline<small>le premier mois, puis en permanence</small></span><span class="v"><span data-calc="pipe1">90</span> <small><span data-calc="pipe">60</span> ensuite</small></span></div>
         <div><span class="k">Nouveaux leads à ajouter<small>chaque semaine</small></span><span class="v"><span data-calc="semaine1">23</span> <small><span data-calc="semaine">15</span> ensuite</small></span></div>
         <div><span class="k">Votre temps<small>par semaine</small></span><span class="v"><span data-calc="temps1">1 h</span> <small><span data-calc="temps">30 min</span> ensuite</small></span></div>
-        <div><span class="k">Votre créneau<small>bloqué dans votre agenda</small></span><span class="v" style="font-size:clamp(19px,1.5vw,25px);white-space:normal" data-creneau>lundi, 9 h – 10 h</span></div>
+        <div><span class="k">Vos créneaux<small>bloqués dans votre agenda</small></span><span class="v petit" data-creneau>lundi, 9 h – 10 h</span></div>
       </div>
     </div>
     <div class="cadre bleu">
@@ -380,64 +461,75 @@ p.rempli b { color:var(--ink); font-weight:600; }
   aller(Math.max(0, (parseInt(new URLSearchParams(location.search).get("e"), 10) || 1) - 1), "remplacer");
   window.addEventListener("popstate", function (ev) { aller(((ev.state && ev.state.e) || 1) - 1, "aucun"); });
 
+  /* écran 2 : les trois objectifs du schéma, un à la fois */
+  document.querySelectorAll(".objs button").forEach(function (b) { b.addEventListener("click", function () {
+    var o = b.getAttribute("data-obj");
+    document.querySelectorAll(".objs button").forEach(function (x) { var on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-selected", String(on)); });
+    document.querySelectorAll(".flux").forEach(function (f) { f.hidden = f.getAttribute("data-flux") !== o; });
+  }); });
+
   /* le calcul : un nombre saisi, le reste en découle. Règles de Romain (15/10/2026), celles de l'Academy des clients :
      Pipeline = rendez-vous × 20 ; premier mois = rendez-vous × 30 ; nouveaux leads par semaine = Pipeline ÷ 4 ;
-     7 répondent (12 %), 4 prennent rendez-vous (6 %), 3 tenus et qualifiés (5 %) sur 60 ;
-     temps = 10 minutes par semaine et par rendez-vous visé une fois rodé, le double le premier mois. */
-  var f = document.querySelector('[name="rdv"]'), heure = document.getElementById("heure"), jours = document.getElementById("jours");
+     12 répondent, 6 prennent rendez-vous, 5 tenus et qualifiés sur 100 ;
+     temps = 10 minutes par semaine et par rendez-vous visé une fois la séquence lancée, le double le premier mois. */
+  var f = document.querySelector('[name="rdv"]'), jours = document.getElementById("jours"), lignesC = document.getElementById("lignes-c");
   var NOMS = { MO: "lundi", TU: "mardi", WE: "mercredi", TH: "jeudi", FR: "vendredi" }, IDX = { MO: 1, TU: 2, WE: 3, TH: 4, FR: 5 };
-  for (var h = 7; h <= 20; h++) { var o = document.createElement("option"); o.value = h; o.textContent = h + " h"; if (h === 9) o.selected = true; heure.appendChild(o); }
+  var heures = { MO: 9, TU: 9, WE: 9, TH: 9, FR: 9 };   // une heure par jour choisi
   var pad = function (x) { return String(x).padStart(2, "0"); };
   var arr5 = function (x) { return Math.round(x / 5) * 5; };
   var arr15 = function (m) { return Math.max(30, Math.ceil(m / 15) * 15); };
   var duree = function (m) { var hh = Math.floor(m / 60), r = m % 60; return hh ? (r ? hh + " h " + pad(r) : hh + " h") : m + " min"; };
-  var liste = function (t) { return t.length < 2 ? (t[0] || "") : t.slice(0, -1).join(", ") + " et " + t[t.length - 1]; };
+  var plageDe = function (h, dc) { var fin = new Date(2000, 0, 1, h, dc); return h + " h – " + fin.getHours() + " h" + (fin.getMinutes() ? " " + pad(fin.getMinutes()) : ""); };
   var deuxProposes = false;
   function coches() { return Array.prototype.filter.call(jours.querySelectorAll("input"), function (i) { return i.checked; }).map(function (i) { return i.value; }); }
+  function liens(code, h, dc, v, nb) {
+    var d = new Date(); d.setHours(h, 0, 0, 0);
+    for (var k = 0; k < 8 && !(IDX[code] === d.getDay() && d > new Date()); k++) { d.setDate(d.getDate() + 1); d.setHours(h, 0, 0, 0); }
+    var e = new Date(d.getTime() + dc * 60000);
+    var g = function (x) { return x.getFullYear() + pad(x.getMonth() + 1) + pad(x.getDate()) + "T" + pad(x.getHours()) + pad(x.getMinutes()) + "00"; };
+    var iso = function (x) { return x.getFullYear() + "-" + pad(x.getMonth() + 1) + "-" + pad(x.getDate()) + "T" + pad(x.getHours()) + ":" + pad(x.getMinutes()) + ":00"; };
+    var titre = "Prospection", details = "Ajouter mes nouveaux leads (" + v.semaine1 + " par semaine le premier mois, " + v.semaine + " ensuite), puis répondre et valider les messages. Objectif : " + nb + " rendez-vous par mois. Fiche : https://www.mazeo.co/votre-rythme";
+    return {
+      outlook: "https://outlook.office.com/calendar/deeplink/compose?subject=" + encodeURIComponent(titre) + "&body=" + encodeURIComponent(details) + "&startdt=" + encodeURIComponent(iso(d)) + "&enddt=" + encodeURIComponent(iso(e)),
+      google: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(titre) + "&dates=" + g(d) + "/" + g(e) + "&details=" + encodeURIComponent(details) + "&recur=" + encodeURIComponent("RRULE:FREQ=WEEKLY;BYDAY=" + code)
+    };
+  }
   function calc() {
     var nb = parseInt(f.value, 10); if (!(nb >= 1)) nb = 1; if (nb > 20) nb = 20;
     var pipe = nb * 20, pipe1 = arr5(nb * 30), temps = nb * 10, temps1 = nb * 20;
     var codes = coches(), nbj = Math.max(1, codes.length);
     var dc = arr15(temps1 / nbj), dc2 = arr15(temps / nbj);
     var v = { rdv: nb, pipe: pipe, pipe1: pipe1, semaine: Math.round(pipe / 4), semaine1: Math.round(pipe1 / 4),
-              reponses: Math.round(pipe * 0.12), pris: Math.round(pipe * 0.06), temps: duree(temps), temps1: duree(temps1),
-              dureeCreneau: duree(dc), dureeCreneau2: duree(dc2) };
+              temps: duree(temps), temps1: duree(temps1), dureeCreneau: duree(dc), dureeCreneau2: duree(dc2) };
     document.querySelectorAll("[data-calc]").forEach(function (el) { el.textContent = v[el.getAttribute("data-calc")]; });
-    var hd = parseInt(heure.value, 10) || 9, fin = new Date(2000, 0, 1, hd, dc);
-    var plage = hd + " h – " + fin.getHours() + " h" + (fin.getMinutes() ? " " + pad(fin.getMinutes()) : "");
-    var noms = codes.map(function (c) { return NOMS[c]; });
-    document.querySelectorAll("[data-creneau]").forEach(function (el) { el.textContent = noms.length ? liste(noms) + ", " + plage : "aucun jour choisi"; });
     jours.querySelectorAll("label").forEach(function (l) { l.classList.toggle("on", l.querySelector("input").checked); });
-    /* le prochain créneau, puis la répétition hebdomadaire */
-    var d = new Date(); d.setHours(hd, 0, 0, 0);
-    for (var k = 0; k < 8 && codes.length && !(codes.some(function (c) { return IDX[c] === d.getDay(); }) && d > new Date()); k++) { d.setDate(d.getDate() + 1); d.setHours(hd, 0, 0, 0); }
-    var e = new Date(d.getTime() + dc * 60000);
-    var g = function (x) { return x.getFullYear() + pad(x.getMonth() + 1) + pad(x.getDate()) + "T" + pad(x.getHours()) + pad(x.getMinutes()) + "00"; };
-    var iso = function (x) { return x.getFullYear() + "-" + pad(x.getMonth() + 1) + "-" + pad(x.getDate()) + "T" + pad(x.getHours()) + ":" + pad(x.getMinutes()) + ":00"; };
-    var titre = "Prospection", details = "Ajouter mes nouveaux leads (" + v.semaine1 + " par semaine le premier mois, " + v.semaine + " ensuite), puis traiter les réponses et les relances. Objectif : " + nb + " rendez-vous par mois. Fiche : https://www.mazeo.co/votre-rythme";
-    var google = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(titre) + "&dates=" + g(d) + "/" + g(e)
-      + "&details=" + encodeURIComponent(details) + (codes.length ? "&recur=" + encodeURIComponent("RRULE:FREQ=WEEKLY;BYDAY=" + codes.join(",")) : "");
-    var outlook = "https://outlook.office.com/calendar/deeplink/compose?subject=" + encodeURIComponent(titre) + "&body=" + encodeURIComponent(details)
-      + "&startdt=" + encodeURIComponent(iso(d)) + "&enddt=" + encodeURIComponent(iso(e));
-    document.querySelectorAll('[data-agenda="google"]').forEach(function (a) { a.href = google; });
-    document.querySelectorAll('[data-agenda="outlook"]').forEach(function (a) { a.href = outlook; });
+    /* une ligne par jour choisi : le jour, son heure, la plage, les deux boutons */
+    lignesC.innerHTML = codes.length ? codes.map(function (c) {
+      var opts = ""; for (var h = 7; h <= 20; h++) opts += '<option value="' + h + '"' + (h === heures[c] ? " selected" : "") + ">" + h + " h</option>";
+      var l = liens(c, heures[c], dc, v, nb);
+      return '<div class="lc"><b>' + NOMS[c].charAt(0).toUpperCase() + NOMS[c].slice(1) + '</b><span class="sel"><select data-jour="' + c + '" aria-label="Heure du ' + NOMS[c] + '">' + opts + '</select></span><span class="pl">' + plageDe(heures[c], dc) + '</span>'
+        + '<span class="ag"><a href="' + l.outlook + '" target="_blank" rel="noopener">Outlook</a><a href="' + l.google + '" target="_blank" rel="noopener">Google Agenda</a></span></div>';
+    }).join("") : '<p class="vide">Choisissez au moins un jour.</p>';
+    var txt = codes.map(function (c) { return NOMS[c] + ", " + plageDe(heures[c], dc); });
+    document.querySelectorAll("[data-creneau]").forEach(function (el) { el.textContent = txt.length ? txt.join(" · ") : "aucun jour choisi"; });
   }
   /* au-delà d'une heure et demie le premier mois, deux jours cochés d'office (lundi et jeudi) ; en dessous, un seul */
   function ajusterJours() {
     var nb = Math.min(20, Math.max(1, parseInt(f.value, 10) || 3)), deux = nb * 20 > 90;
     if (deux === deuxProposes) return; deuxProposes = deux;
-    var inputs = jours.querySelectorAll("input");
-    inputs.forEach(function (i) { i.checked = i.value === "MO" || (deux && i.value === "TH"); });
+    jours.querySelectorAll("input").forEach(function (i) { i.checked = i.value === "MO" || (deux && i.value === "TH"); });
   }
   document.querySelectorAll("[data-pm]").forEach(function (b) { b.addEventListener("click", function () {
     f.value = Math.min(20, Math.max(1, (parseInt(f.value, 10) || 3) + parseInt(b.getAttribute("data-pm"), 10)));
     ajusterJours(); calc();
   }); });
   f.addEventListener("input", function () { ajusterJours(); calc(); });
-  jours.addEventListener("change", calc); heure.addEventListener("change", calc);
+  jours.addEventListener("change", calc);
+  lignesC.addEventListener("change", function (ev) { var s = ev.target; if (s.tagName === "SELECT") { heures[s.getAttribute("data-jour")] = parseInt(s.value, 10); calc(); } });
   calc();
 })();
 </script>
+
 <script>
 const ICONS = {
   "in": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
@@ -453,7 +545,7 @@ const FLAGS = {
   var $ = function (id) { return document.getElementById(id); };
   $("flag").innerHTML = FLAGS.en;
   /* Partager : le même menu que les autres fiches */
-  var URL_PAGE = "https://www.mazeo.co/votre-rythme", TXT = "Sur 60 leads contactés, 3 deviennent des rendez-vous. Fixez votre objectif, et calculez vos leads, votre temps et votre créneau. Une fiche pratique de la growth academy, présentée par mazeo.";
+  var URL_PAGE = "https://www.mazeo.co/votre-rythme", TXT = "Combien de temps par semaine, pour vos rendez-vous du mois ? Fixez votre objectif, et voyez vos leads, votre temps et votre créneau. Une fiche pratique de la growth academy, présentée par mazeo.";
   var u = encodeURIComponent(URL_PAGE), tx = encodeURIComponent(TXT + " " + URL_PAGE);
   var links = [["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u], ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
     ["x", "X", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(TXT) + "&url=" + u], ["mail", "Email", "mailto:?subject=" + encodeURIComponent("Votre rythme de prospection, par mazeo") + "&body=" + tx]];
