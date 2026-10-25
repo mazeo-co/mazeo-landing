@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Does your LinkedIn profile make people want to reply? · practical guide 4 of the growth academy, by mazeo</title>
+<meta name="description" content="Before replying, your prospect opens your LinkedIn profile. Seven rules, illustrated with real profiles from market research firms: photo, headline, banner, About, Featured, experience, recommendations. Practical guide 4 of the growth academy, by mazeo.">
+<link rel="canonical" href="https://www.mazeo.co/en/linkedin-profile">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/votre-profil-linkedin">
+<link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/linkedin-profile">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/votre-profil-linkedin">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mazeo">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://www.mazeo.co/en/linkedin-profile">
+<meta property="og:title" content="Does your LinkedIn profile make people want to reply?">
+<meta property="og:description" content="Practical guide 4 of the growth academy by mazeo: seven rules for a profile that inspires trust, illustrated with real profiles from market research firms. Ten minutes.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@500;600;800&display=swap">
+<style>
+:root { color-scheme:light;
+  --x:clamp(0px,calc((100vh - 715px) / 10),60px); --paper:#F7F7F5; --ink:#121212; --body:#3D3D3D; --meta:#767673; --meta2:#A3A3A0; --hair:#E4E4E1; --hair2:#CDCDC8; --card:#FFFFFF;
+  --blue:#007BFF; --blue-deep:#0066D6; --green:#00C774; --orange:#F59E0B; --red:#EF4444;
+  --font:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --serif:'Instrument Serif', 'Iowan Old Style', Georgia, serif; --logo:'Bricolage Grotesque', var(--font); --mono:'Inter', var(--font); }
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; }
+body { font-family:var(--font); font-size:clamp(18px,1.25vw,20px); line-height:1.55; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; overflow:hidden; }
+a { color:inherit; }
+button { font:inherit; }
+/* barre de progression : elle avance sur le filet de l'en-tête commun (assets/academy/entete.css) */
+.bar { position:absolute; left:0; right:0; bottom:-1px; height:2px; z-index:1; }
+.bar i { display:block; height:2px; width:0; background:var(--ink); transition:width .4s ease; }
+/* l'en-tête commun est dans assets/academy/entete.css ; ici, seulement sa position fixe */
+.entete { position:fixed; top:0; left:0; right:0; z-index:5; background:var(--paper); }
+.fil { font-family:var(--mono); font-size:12.5px; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); }
+.nav { position:fixed; right:max(48px, calc((100vw - 1280px) / 2 + 48px)); bottom:36px; display:flex; gap:8px; z-index:5; }
+.cta { flex-wrap:nowrap; }
+.nav button { width:clamp(46px,3.2vw,56px); height:clamp(46px,3.2vw,56px); background:var(--ink); color:var(--paper); border:0; border-radius:3px; cursor:pointer; padding:0; display:inline-flex; align-items:center; justify-content:center; line-height:0; }
+.nav button:disabled { background:var(--hair); color:var(--meta2); cursor:default; }
+/* les écrans */
+.ecrans { position:relative; height:100vh; }
+.ecran { position:absolute; inset:0; display:flex; align-items:flex-start; overflow-y:auto; opacity:0; transform:translateY(40px); transition:opacity .35s ease, transform .35s ease; visibility:hidden; pointer-events:none; }
+.ecran.actif { opacity:1; transform:none; visibility:visible; pointer-events:auto; }
+.ecran.passe { transform:translateY(-40px); }
+.ecran.haut { align-items:flex-start; }
+.ecran:not(.haut) .contenu { margin:auto; padding-top:clamp(104px,11vh,150px); padding-bottom:clamp(40px,6vh,90px); }
+.ecran:not(.haut) .heros .cta, .ecran:not(.haut) .scinde .cta { margin-top:calc(16px + var(--x)); }
+.contenu { width:100%; max-width:1280px; margin:0 auto; padding:120px 48px 110px; }
+.scinde { display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
+.scinde h1 { font-size:clamp(40px,4vw,60px); margin-bottom:calc(16px + var(--x) * .4); }
+.scinde p.th { font-size:clamp(19px,1.3vw,22px); margin-bottom:calc(20px + var(--x) * .6); }
+.scinde p.source { margin-top:calc(4px + var(--x) * .3); }
+.scinde .cta { margin-top:28px; }
+p.sur { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 20px; }
+p.sur b { color:var(--ink); margin-right:12px; }
+h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1; font-size:clamp(44px,4.6vw,68px); margin:0 0 24px; text-wrap:balance; }
+h1 span { font-style:italic; color:var(--blue); }
+p.th { font-size:clamp(19px,1.35vw,22px); line-height:1.65; color:var(--body); margin:0 0 26px; max-width:54ch; }
+p.th b { color:var(--ink); font-weight:600; }
+p.source { font-size:15.5px; color:var(--meta); margin:22px 0 0; }
+p.source i { font-style:italic; }
+.lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
+.lab.bleu { color:var(--blue); }
+/* les quatre questions, comme dans l'Academy */
+ul.liste-q { list-style:none; margin:0 0 calc(16px + var(--x) * .3); padding:0; max-width:36ch; counter-reset:q; }
+ul.liste-q li { padding:calc(8px + var(--x) * .35) 0; border-bottom:1px solid var(--hair); font-size:clamp(18px,1.3vw,21px); color:var(--ink); display:flex; gap:14px; align-items:flex-start; }
+ul.liste-q li::before { content:counter(q); counter-increment:q; font-family:var(--mono); font-weight:600; font-size:12px; color:var(--blue); width:24px; height:24px; border:1px solid rgba(0,123,255,.45); border-radius:3px; display:inline-flex; align-items:center; justify-content:center; flex:none; margin-top:3px; }
+.heros .lab { margin-bottom:calc(2px + var(--x) * .2); }
+/* encadrés : blanc filet = théorie, filet bleu = mazeo */
+.cadre { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:34px 36px; }
+.cadre.bleu { border-color:var(--blue); }
+.cadre p.ph { font-family:var(--serif); font-size:clamp(23px,1.8vw,32px); line-height:1.4; color:var(--ink); margin:0 0 32px; }
+.cadre p.qui { font-size:13px; color:var(--meta); margin:0 0 16px; }
+/* les quatre pastilles */
+.test { display:grid; gap:18px; }
+.test > div { display:grid; grid-template-columns:200px 1fr; gap:16px; align-items:center; font-size:clamp(17px,1.2vw,21px); line-height:1.4; white-space:nowrap; }
+.test .k { font-weight:600; color:var(--ink); display:flex; align-items:center; gap:8px; }
+.test .k i { width:20px; height:20px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; }
+.test .k i svg { width:12px; height:12px; }
+.test .v { color:var(--body); }
+i.ok { background:var(--green); } i.moy { background:var(--orange); } i.ko { background:var(--red); }
+.defile { position:relative; margin-top:8px; }
+.fenetre { overflow:hidden; padding:3px; margin:-3px; }
+.piste { display:flex; gap:36px; transition:transform .45s ease; will-change:transform; }
+.piste > .cadre { flex:0 0 100%; min-width:0; }
+.fleche { position:absolute; top:50%; transform:translateY(-50%); width:48px; height:48px; border-radius:50%; border:1px solid var(--hair2); background:var(--card); color:var(--ink); cursor:pointer; display:flex; align-items:center; justify-content:center; line-height:0; box-shadow:0 2px 10px rgba(0,0,0,.06); }
+.fleche.suiv { right:-58px; } .fleche.prec { left:-58px; }
+.fleche:disabled { opacity:0; pointer-events:none; }
+.piste .cadre { padding:clamp(20px,2.4vh,30px) 40px clamp(18px,2.2vh,28px); }
+.piste .cadre h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 6px; line-height:1.1; }
+.piste .cadre .tag { font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 12px; display:block; }
+.piste .cadre p.ph { font-family:var(--serif); font-size:clamp(20px,1.4vw,25px); line-height:1.4; color:var(--ink); margin:0 0 16px; max-width:none; }
+.piste .test { gap:clamp(8px,1.2vh,14px); }
+.piste .test > div { grid-template-columns:210px 1fr; font-size:clamp(17px,1.2vw,21px); white-space:nowrap; align-items:center; }
+h1.h-compact { font-size:clamp(30px,2.8vw,44px); margin-bottom:6px; }
+.ecran .contenu.dense { padding-top:clamp(100px,10vh,130px); padding-bottom:40px; }
+.contenu.dense p.th { margin-bottom:0; }
+.titre-ligne { display:flex; align-items:flex-end; justify-content:space-between; gap:40px; } .titre-ligne > div:first-child { max-width:62ch; } .titre-ligne .cta { flex:none; padding-bottom:14px; }
+p.morale { font-family:var(--serif); font-size:clamp(20px,1.5vw,26px); color:var(--ink); margin:clamp(12px,2vh,24px) 0 0; }
+/* boutons */
+.cta { margin-top:34px; display:flex; align-items:center; gap:18px; }
+.cta button, .cta a.btn { font-weight:600; font-size:clamp(17px,1.2vw,21px); color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 28px; cursor:pointer; text-decoration:none; display:inline-block; }
+.cta button:hover, .cta a.btn:hover { background:#000; }
+.cta button.second, .cta a.btn.second { background:transparent; color:var(--ink); border:1px solid var(--hair2); }
+.cta span { font-size:15px; color:var(--meta); }
+/* le héros de l'écran 1 */
+.heros { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
+p.accroche { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 16px; }
+.heros h1 { font-size:clamp(46px,4.6vw,70px); line-height:.96; margin:0 0 calc(16px + var(--x) * .5); }
+.heros p.lede { font-family:var(--serif); font-size:clamp(21px,1.5vw,26px); line-height:1.3; color:var(--ink); margin:0 0 calc(16px + var(--x) * .6); max-width:52ch; }
+.heros p.th { font-size:clamp(18px,1.2vw,22px); line-height:1.6; max-width:56ch; margin-bottom:18px; }
+.heros .cta { margin-top:16px; }
+.heros p.verif { font-family:var(--serif); font-size:clamp(26px,2vw,36px); line-height:1.1; color:var(--ink); margin:0; }
+.citation { margin:0; border:1px solid var(--hair2); border-left:4px solid var(--blue); border-radius:4px; background:var(--card); padding:clamp(40px,5.5vh,72px) clamp(32px,2.8vw,48px) clamp(32px,4vh,56px); }
+.citation p { font-family:var(--serif); font-size:clamp(36px,3.1vw,56px); line-height:1.08; color:var(--ink); margin:0 0 clamp(16px,2.4vh,28px); }
+.citation p span { color:var(--blue); font-style:italic; }
+.citation p i { font-style:normal; color:var(--blue); }
+.citation footer { font-size:clamp(14px,1.05vw,17px); color:var(--meta); line-height:1.5; max-width:40ch; }
+.carte-action { border:1px solid var(--hair2); border-radius:4px; background:var(--card); padding:26px 26px 22px; }
+.carte-action h2 { font-family:var(--serif); font-size:clamp(26px,1.9vw,34px); font-weight:400; margin:0 0 8px; line-height:1.1; }
+.carte-action p.d { font-size:clamp(16px,1.1vw,19px); line-height:1.55; color:var(--body); margin:0 0 22px; }
+.carte-action .ligne-ch { display:grid; gap:8px; margin-bottom:12px; }
+.carte-action input[type=text], .carte-action input[type=email] { width:100%; border:0; border-bottom:1px solid var(--hair2); border-radius:0; padding:10px 0; font:inherit; font-size:18px; color:var(--ink); background:transparent; outline:0; }
+.carte-action input:focus { border-bottom-color:var(--ink); }
+.carte-action button { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:11px 20px; cursor:pointer; margin-top:2px; }
+.carte-action button:hover { background:#000; } .carte-action button:disabled { opacity:.6; cursor:wait; }
+.carte-action .msg { min-height:20px; font-size:13.5px; color:#B45309; margin:8px 0 0; }
+.carte-action .note { font-size:14px; color:var(--meta); margin:20px 0 0; line-height:1.5; }
+/* « à vous » : sur le papier, le formulaire en lignes
+*/
+.ecran.avous .contenu { max-width:1100px; padding-top:116px; padding-bottom:110px; }
+.ecran.avous h1 { font-size:clamp(36px,3.6vw,56px); }
+.ecran.avous h1 { margin-bottom:26px; }
+.ecran.avous p.th { margin-bottom:30px; max-width:64ch; }
+.ecran.avous .form { gap:20px; }
+.form { display:grid; gap:18px; margin-top:0; max-width:620px; }
+.tete-champ { display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-bottom:10px; }
+.tete-champ label.ch { margin-bottom:0; }
+.avis { font-size:15.5px; color:#B45309; margin:0 0 18px; max-width:64ch; }
+.form label.ch { font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); display:block; margin-bottom:10px; }
+.form input[type=text], .form input[type=email] { width:100%; border:1px solid var(--hair2); border-radius:4px; padding:14px 18px; font:inherit; font-size:19px; color:var(--ink); background:var(--card); outline:0; }
+.form input:focus { border-color:var(--ink); }
+.form .ligne { display:flex; gap:10px; align-items:flex-start; font-size:15.5px; color:var(--body); margin-top:2px; }
+.form .ligne input { margin-top:4px; }
+.form .cta-form { margin-top:4px; display:flex; align-items:center; }
+.form button { font-weight:600; font-size:18px; color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:14px 28px; cursor:pointer; justify-self:start; }
+.form button:hover { background:#000; } .form button:disabled { opacity:.6; cursor:wait; }
+.form .msg { min-height:22px; font-size:14.5px; color:#B45309; margin:0; }
+.form .note { font-size:14px; color:var(--meta); margin:0; }
+/* l'entreprise : la saisie, la liste qui s'ouvre dessous, le site retenu */
+.champ-liste { position:relative; }
+.choix { position:absolute; left:0; right:0; top:calc(100% + 4px); z-index:6; background:var(--card); border:1px solid var(--hair2); border-radius:4px; box-shadow:0 10px 30px rgba(0,0,0,.08); max-height:340px; overflow:auto; }
+.choix button { display:flex; justify-content:space-between; gap:16px; width:100%; text-align:left; background:none; color:var(--ink); border:0; border-bottom:1px solid var(--hair); border-radius:0; padding:12px 18px; font:inherit; font-size:17px; font-weight:500; cursor:pointer; }
+.choix button:last-child { border-bottom:0; }
+.choix button:hover, .choix button.sur { background:var(--paper); }
+.choix button span { color:var(--meta); font-size:14px; font-weight:400; white-space:nowrap; }
+.choix p { margin:0; padding:14px 18px; font-size:15.5px; color:var(--body); }
+.form .retenu { font-size:14.5px; color:var(--meta); margin:6px 0 0; }
+.form .retenu:empty { display:none; }
+.form .lien { background:none; border:0; padding:0; font:inherit; font-size:15px; color:var(--blue); text-decoration:underline; text-underline-offset:3px; cursor:pointer; justify-self:start; font-weight:500; }
+.form .lien:hover { background:none; }
+.envoye { max-width:620px; }
+.envoye h2 { font-family:var(--serif); font-weight:400; font-size:clamp(30px,2.6vw,40px); line-height:1.1; margin:0 0 14px; }
+.envoye p { font-size:clamp(17px,1.2vw,19px); line-height:1.6; color:var(--body); margin:0 0 14px; }
+/* verdict : le grand encadré du client, comme ceux de l'écran 3, et à droite ce qui manque */
+.resultat { display:grid; grid-template-columns:1.45fr .85fr; gap:48px; align-items:start; }
+.cadre.grand { padding:42px 46px 38px; }
+.cadre.grand h3 { font-family:var(--serif); font-size:28px; font-weight:400; margin:0 0 8px; line-height:1.1; }
+.cadre.grand .tag { font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--meta); margin:0 0 32px; display:block; }
+.cadre.grand .lab { margin-bottom:14px; }
+.cadre.grand p.ph { font-family:var(--serif); font-size:clamp(21px,1.55vw,28px); line-height:1.55; color:var(--ink); margin:0 0 34px; }
+.cadre.grand .test { gap:20px; }
+.cadre.grand .test > div { grid-template-columns:200px 1fr; font-size:clamp(17px,1.2vw,21px); white-space:normal; align-items:start; }
+.cote { padding-top:10px; }
+.cote p.synthese { font-family:var(--serif); font-size:clamp(23px,1.8vw,32px); line-height:1.4; color:var(--ink); margin:0 0 40px; }
+.cote .lab { margin-bottom:20px; }
+.manque { display:grid; gap:22px; }
+.manque > div { padding:0 0 22px; border-bottom:1px solid var(--hair); }
+.manque > div:last-child { border-bottom:0; padding-bottom:0; }
+.manque .k { font-weight:600; font-size:16px; display:flex; align-items:center; gap:8px; margin-bottom:10px; }
+.manque .k i { width:16px; height:16px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; flex:none; } .manque .k i svg { width:11px; height:11px; }
+.manque p { margin:0; font-size:clamp(17px,1.2vw,21px); line-height:1.55; color:var(--ink); }
+.manque p.ex { margin-top:8px; color:var(--meta); font-size:14.5px; }
+.manque p.rien { color:var(--body); }
+.contenu.dense h1.h-compact { margin-bottom:30px; }
+.contenu.dense .cta { margin-top:clamp(12px,2vh,24px); }
+.illisible { max-width:62ch; }
+/* pont */
+.pont .cadre.bleu p { margin:0 0 18px; font-size:clamp(17px,1.2vw,21px); line-height:1.55; color:var(--ink); }
+.pont .cadre.bleu .cta a.btn { font-size:16px; padding:12px 20px; white-space:nowrap; }
+.pont .cadre.bleu { padding:30px 32px; }
+.pont .cadre.bleu p.m { font-family:var(--serif); font-size:clamp(24px,1.8vw,32px); line-height:1.3; }
+.suivante { margin-top:26px; font-size:15px; color:var(--meta); }
+@media (max-width: 900px) {
+  .nav { right:16px; bottom:16px; }
+  body { overflow:auto; }
+  .ecrans { height:auto; }
+  .ecran { position:relative; display:none; }
+  .ecran.actif { display:block; }
+  .contenu { padding:110px 20px 100px; }
+  .scinde, .verdict, .cartes, .heros { grid-template-columns:1fr; gap:24px; } .piste > .cadre { flex-basis:100%; } .piste .test > div { white-space:normal; }
+  h1 { font-size:34px; } .heros h1 { font-size:40px; }
+}
+/* 23/10 : le compteur des exemples */
+.compteur { display:flex; align-items:center; gap:16px; margin:0 0 12px; font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--meta); }
+.compteur .points { display:flex; gap:7px; }
+.compteur .points button { width:9px; height:9px; border-radius:50%; border:0; padding:0; background:var(--hair2); cursor:pointer; }
+.compteur .points button.on { background:var(--blue); }
+.cta button[hidden] { display:none; }
+.cta button.second:hover, .cta a.btn.second:hover { background:var(--card); }
+/* 23/10 : l'écran des exemples tient sur un écran */
+#defile .piste .cadre { padding-top:clamp(14px,2vh,26px); padding-bottom:clamp(12px,1.8vh,24px); }
+#defile .piste .cadre .tag { margin-bottom:8px; }
+#defile .piste .cadre p.ph { margin-bottom:10px; }
+.ecran .contenu.dense p.morale { margin-top:clamp(8px,1.4vh,20px); }
+.compteur { margin-bottom:6px; } #defile { margin-top:0; }
+#defile ~ .cta { margin-top:clamp(12px,2.2vh,28px); }
+.ecran .contenu.dense { padding-bottom:clamp(12px,2vh,40px); }
+/* 23/10 : le résultat tient sur un écran */
+#v-ok h1.h-compact { margin-bottom:clamp(12px,2.2vh,24px); }
+#v-ok .resultat { gap:40px; }
+#v-ok .cadre.grand { padding:clamp(18px,2.8vh,32px) 32px clamp(16px,2.6vh,28px); }
+#v-ok .cadre.grand h3 { font-size:24px; margin-bottom:4px; }
+#v-ok .cadre.grand .tag { margin-bottom:clamp(10px,2vh,20px); }
+#v-ok .cadre.grand .lab { margin-bottom:8px; font-size:12px; }
+#v-ok .cadre.grand p.ph { font-size:clamp(17px,min(1.3vw,2.7vh),22px); line-height:1.4; margin-bottom:clamp(12px,2.2vh,24px); }
+#v-ok .cadre.grand .test { gap:clamp(6px,1.2vh,12px); }
+#v-ok .cadre.grand .test > div { grid-template-columns:180px 1fr; font-size:clamp(15px,min(1.1vw,2.3vh),18px); line-height:1.4; }
+#v-ok .cote { padding-top:0; }
+#v-ok .cote p.synthese { font-size:clamp(19px,min(1.5vw,3.1vh),25px); line-height:1.35; margin-bottom:clamp(12px,2.4vh,26px); }
+#v-ok .cote .lab { margin-bottom:10px; }
+#v-ok .manque { gap:clamp(8px,1.4vh,14px); }
+#v-ok .manque > div { padding-bottom:clamp(8px,1.4vh,14px); }
+#v-ok .manque .k { margin-bottom:4px; font-size:15px; }
+#v-ok .manque p { font-size:clamp(15px,min(1.05vw,2.2vh),17px); line-height:1.45; }
+#v-ok .manque p.ex { font-size:13.5px; margin-top:3px; }
+#v-ok .cta { margin-top:clamp(14px,2.6vh,28px); }
+/* 23/10 : écran 2, un positionnement par cible */
+.onglets { display:flex; gap:6px; margin:0 0 16px; padding:4px; background:var(--paper); border:1px solid var(--hair); border-radius:999px; width:max-content; max-width:100%; }
+.scinde > * { min-width:0; }
+@media (max-width:900px) { .onglets { width:auto; flex-wrap:wrap; border-radius:14px; } .onglets button { flex:1 1 auto; } .test > div, .piste .test > div, .cadre.grand .test > div { grid-template-columns:1fr; white-space:normal; gap:2px; } }
+.onglets button { border:0; background:none; border-radius:999px; padding:7px 14px; font-size:14px; font-weight:600; color:var(--meta); cursor:pointer; }
+.onglets button.on { background:var(--ink); color:var(--paper); }
+.version[hidden] { display:none; }
+.test > div.change .v { color:var(--blue); }
+.legende-change { margin:12px 0 0; font-size:13.5px; color:var(--blue); }
+.ecran .scinde .th + .th { margin-top:0; }
+.ecran:not(.haut) .scinde p.th { margin-bottom:clamp(10px,1.8vh,20px); }
+.ecran:not(.haut) .scinde .cta { margin-top:clamp(14px,2.4vh,28px); }
+/* 23/10 soir : écran 2, la cible dans la phrase ; les notes passent à la ligne dans la carte */
+.ph .cible { color:var(--blue); }
+.scinde .cadre .test > div { white-space:normal; grid-template-columns:minmax(150px,200px) 1fr; align-items:start; }
+/* écran 3 : nom et détails sur une ligne, la phrase décollée des notes, le texte d'intro à mi-distance */
+.piste .cadre .tete { display:flex; align-items:baseline; flex-wrap:wrap; gap:4px 14px; margin-bottom:clamp(10px,1.8vh,18px); }
+.piste .cadre .tete h3 { margin:0; }
+.piste .cadre .tete .tag { margin:0; font-size:11.5px; }
+#defile .piste .cadre p.ph { margin-bottom:clamp(14px,2.4vh,26px); }
+.ecran .contenu.dense h1.h-compact + p.th { margin-top:clamp(14px,2.6vh,30px); }
+.compteur { margin-bottom:clamp(20px,4.6vh,40px); }
+/* 23/10 nuit : écran 2 plus aéré, le premier paragraphe en serif ; carte plus compacte */
+p.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.6vw,3.2vh),26px); line-height:1.3; color:var(--ink); margin:0 0 clamp(14px,2.6vh,26px); max-width:30em; }
+.ecran:not(.haut) .scinde p.th { margin-bottom:clamp(12px,2.4vh,24px); line-height:1.6; }
+.scinde .cadre { padding:clamp(22px,3.4vh,34px) clamp(24px,2.4vw,36px); }
+.scinde .cadre p.ph { font-size:clamp(18px,min(1.4vw,2.9vh),23px); line-height:1.4; margin-bottom:clamp(14px,2.4vh,24px); }
+.scinde .cadre .test { gap:clamp(6px,1.2vh,12px); }
+.scinde .cadre .test > div { font-size:clamp(15px,min(1.1vw,2.3vh),17px); grid-template-columns:minmax(140px,170px) 1fr; }
+.scinde .cadre .test .k i { width:18px; height:18px; }
+/* écran 3 : cartes allégées, plus de marge en haut et en bas, phrase plus petite */
+#defile .piste .cadre { padding:clamp(20px,3vh,36px) clamp(28px,3vw,44px); }
+#defile .piste .cadre p.ph { font-size:clamp(17px,min(1.25vw,2.6vh),21px); margin-bottom:4px; }
+#defile .piste .cadre p.trad { font-size:13px; color:var(--meta); margin:0 0 clamp(14px,2.4vh,24px); }
+#defile .piste .cadre .test > div { font-size:clamp(15px,min(1.1vw,2.3vh),17px); }
+.ecran .contenu.dense p.morale { font-size:clamp(17px,min(1.25vw,2.6vh),21px); }
+/* 23/10 nuit : la carte des exemples à égale distance du texte du dessus et du texte du dessous */
+.compteur { margin-bottom:clamp(16px,3.2vh,32px); }
+.ecran .contenu.dense p.morale { margin-top:clamp(16px,3.2vh,32px); }
+/* 23/10 : le menu Partager, comme sur l'accueil de l'academy */
+.share { position:relative; } .share-menu[hidden] { display:none; }
+.share-menu { position:absolute; right:0; top:calc(100% + 8px); z-index:40; min-width:220px; background:#fff; border:1px solid var(--hair2); border-radius:14px; padding:8px; display:grid; gap:2px; box-shadow:0 16px 40px rgba(10,10,10,.18); }
+.share-menu a, .share-menu button { display:flex; align-items:center; gap:10px; width:100%; text-align:left; background:none; border:0; border-radius:9px; padding:10px 12px; color:var(--ink); font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; }
+.share-menu a:hover, .share-menu button:hover { background:var(--paper); }
+.share-menu i { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px; font-style:normal; color:#fff; }
+.share-menu i svg { width:16px; height:16px; fill:currentColor; display:block; }
+.i-in { background:#0A66C2; } .i-wa { background:#25D366; } .i-x { background:#000; } .i-mail { background:#6B7280; } .i-link { background:#2B8FFF; }
+.share-menu { text-align:left; }
+/* la page anglaise : les verdicts restent en français pour l'instant */
+p.en-fr { margin:-6px 0 14px; font-size:13.5px; color:var(--meta); }
+/* les citations d'origine sont plus longues qu'en français : un cran plus petites */
+#defile .piste .cadre p.ph { font-size:clamp(16px,min(1.12vw,2.35vh),19px); line-height:1.4; }
+/* 23/10 soir : la barre « mazeo / Ressources » des ressources (assets/fil-ressources.js) tient le haut de l'écran.
+   Elle pose --fil-h : la barre de progression et l'en-tête se placent dessous, les écrans retranchent sa hauteur,
+   et l'en-tête commun (87 px) en rend une partie. Sur téléphone, l'en-tête défile avec la page. */
+:root { --x:clamp(0px,calc((100vh - var(--fil-h,0px) - 715px) / 10),60px); }
+.entete { top:var(--fil-h,0px); }
+.ecrans { height:calc(100vh - var(--fil-h,0px)); }
+@media (min-width: 901px) {
+  .contenu { padding-top:102px; }
+  .ecran:not(.haut) .contenu { padding-bottom:clamp(20px,calc(6vh - 20px),70px); }
+  .ecran .contenu.dense { padding-top:clamp(86px,calc(10vh - 14px),116px); padding-bottom:8px; }
+  .ecran .contenu.dense > p.sur { margin:10px 0 10px; } /* l'étiquette à mi-distance du filet et du titre, le titre ne bouge pas */
+  .ecran.avous .contenu { padding-top:117px; }
+  .contenu.dense h1.h-compact { margin-bottom:14px; }
+  .ecran .contenu.dense h1.h-compact + p.th { margin-top:clamp(8px,1.4vh,30px); }
+  .compteur, .ecran .contenu.dense p.morale { --ecart:clamp(14px,2vh,32px); }
+  .compteur { margin-bottom:var(--ecart); }
+  .ecran .contenu.dense p.morale { margin-top:var(--ecart); }
+}
+@media (max-width: 900px) {
+  .entete { position:relative; top:0; }
+  .contenu, .ecran:not(.haut) .contenu, .ecran .contenu.dense, .ecran.avous .contenu { padding-top:28px; }
+}
+</style>
+<link rel="stylesheet" href="/assets/academy/entete.css">
+<style>
+/* fiche 4, v6 (25/10/2026, troisième passe) · ce qui s'ajoute au gabarit de la fiche 1. Un écran = une règle à gauche, une capture à droite. */
+.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.45vw,3vh),24px); line-height:1.45; color:var(--ink); margin:0 0 clamp(20px,3.2vh,32px); max-width:30em; }
+
+/* ouverture : la statistique en titre ; à droite, les trois questions que le prospect se pose */
+.heros { grid-template-columns:1fr 1fr; gap:clamp(56px,7vw,110px); }
+.heros h1 { font-size:clamp(38px,3.5vw,54px); line-height:1.06; margin-bottom:clamp(20px,3.4vh,34px); }
+.heros p.lede { margin-bottom:calc(26px + var(--x) * .5); max-width:36ch; line-height:1.5; }
+.heros .cta { margin-top:0; }
+.heros p.source { margin-top:22px; max-width:40ch; line-height:1.6; }
+.cadre.questions { padding:clamp(32px,4.6vh,52px) clamp(32px,3vw,48px); }
+.cadre.questions .lab { margin-bottom:clamp(20px,3.2vh,32px); line-height:1.7; }
+ol.trois-q { list-style:none; margin:0; padding:0; counter-reset:q; display:grid; gap:0; }
+ol.trois-q li { counter-increment:q; display:grid; grid-template-columns:48px 1fr; align-items:baseline; padding:clamp(18px,3vh,30px) 0; border-top:1px solid var(--hair); font-family:var(--serif); font-size:clamp(23px,1.9vw,31px); line-height:1.25; color:var(--ink); }
+ol.trois-q li:first-child { border-top:0; padding-top:0; }
+ol.trois-q li:last-child { padding-bottom:0; }
+ol.trois-q li::before { content:counter(q); font-family:var(--serif); font-size:clamp(23px,1.9vw,31px); line-height:1; color:var(--blue); }
+
+/* un écran par élément : la règle à gauche, l'exemple à droite, plus large pour que le texte des captures se lise */
+.contenu.el { display:grid; grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr); gap:clamp(44px,4.6vw,76px); align-items:start; }
+.el .exemple { max-width:94%; }
+.el .sur { margin-bottom:clamp(14px,2.2vh,22px); }
+.el .regle h1 { font-size:clamp(30px,2.5vw,40px); line-height:1.1; margin:0 0 clamp(20px,3.2vh,32px); }
+.el .regle p.th { font-size:clamp(16px,1.1vw,18px); line-height:1.8; margin:0 0 clamp(16px,2.6vh,24px); max-width:44ch; }
+.el .cta { margin-top:clamp(18px,3vh,30px); }
+.el .source, .pont .source { font-size:13px; line-height:1.55; color:var(--meta); margin:12px 0 0; max-width:56ch; }
+
+/* le résumé : cinq temps, une ligne chacun */
+ol.etapes { list-style:none; margin:0 0 clamp(8px,1.4vh,14px); padding:0; counter-reset:e; display:grid; gap:clamp(10px,1.6vh,16px); max-width:44ch; }
+ol.etapes li { counter-increment:e; display:grid; grid-template-columns:34px 1fr; align-items:baseline; font-size:clamp(16px,1.1vw,18px); line-height:1.6; color:var(--ink); }
+ol.etapes li::before { content:counter(e); font-family:var(--serif); font-size:22px; line-height:1; color:var(--blue); }
+
+/* l'exemple : des onglets quand il y a un bon et un mauvais exemple, une capture, une légende lisible */
+.exemple .onglets { margin-bottom:16px; }
+.exemple .onglets button { font-size:14.5px; padding:8px 16px; }
+figure.li-cap { margin:0; }
+figure.li-cap img { display:block; width:100%; max-width:100%; height:auto; border:1px solid var(--hair2); border-radius:8px; background:#F4F2EE; box-shadow:0 10px 30px rgba(0,0,0,.06); cursor:zoom-in; }
+figure.li-cap figcaption { font-size:clamp(15px,1.1vw,17px); line-height:1.65; color:var(--body); margin-top:16px; max-width:62ch; }
+figure.li-cap figcaption b { color:var(--ink); font-weight:600; }
+
+/* agrandir une capture d'un clic */
+.zoom-cap { position:fixed; inset:0; z-index:2147483647; background:rgba(18,18,18,.82); display:flex; align-items:center; justify-content:center; padding:3vh 3vw; cursor:zoom-out; }
+.zoom-cap img { max-width:94vw; max-height:94vh; width:auto; height:auto; border-radius:6px; box-shadow:0 20px 60px rgba(0,0,0,.4); background:#fff; }
+.zoom-cap.long { align-items:flex-start; overflow:auto; }
+.zoom-cap.long img { max-height:none; max-width:min(94vw,1000px); }
+
+/* le profil complet : la longue capture à gauche ; à droite, les sept rubriques, cliquables, qui restent à l'écran */
+.contenu.complet { max-width:1200px; padding-bottom:70px; }
+.complet .intro { max-width:900px; }
+.complet .intro .lede2 { margin:clamp(10px,1.6vh,16px) 0 clamp(14px,2.2vh,22px); max-width:34em; }
+.complet .intro p.th.reponses { font-size:clamp(16px,1.1vw,18px); line-height:1.95; margin:0; max-width:none; }
+ol.reponses { list-style:none; margin:0; padding:0; counter-reset:r; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(16px,2vw,28px); }
+ol.reponses li { counter-increment:r; border-top:1px solid var(--hair2); padding-top:10px; }
+ol.reponses li b { display:block; font-family:var(--serif); font-weight:400; font-size:clamp(18px,1.35vw,22px); line-height:1.2; color:var(--ink); }
+ol.reponses li b::before { content:counter(r) "\00a0· "; color:var(--blue); }
+ol.reponses li span { display:block; font-size:clamp(14px,1vw,16px); line-height:1.45; color:var(--body); margin-top:5px; }
+figure.li-cap.long figcaption.note { font-size:12.5px; line-height:1.6; color:var(--meta); max-width:none; margin-top:12px; }
+figure.li-cap.long figcaption.note i { font-style:italic; }
+.legende-complet p.astuce { font-size:13px; color:var(--meta); margin:0 0 20px; }
+.complet-grille { display:grid; grid-template-columns:minmax(0,540px) minmax(0,1fr); gap:clamp(72px,8vw,128px); align-items:start; margin-top:clamp(40px,6.5vh,72px); }
+figure.li-cap.long .wrap { position:relative; display:block; }
+figure.li-cap.long img { width:100%; cursor:default; }
+figure.li-cap.long figcaption { font-size:12.5px; color:var(--meta); }
+.surligne { position:absolute; border:4px solid var(--blue); border-radius:10px; box-shadow:0 0 0 2px #fff, 0 0 0 9999px rgba(247,247,245,.0); pointer-events:none; transition:top .35s ease, left .35s ease, width .35s ease, height .35s ease; }
+.legende-complet { position:sticky; top:24px; max-width:460px; }
+ol.reperes { list-style:none; margin:0; padding:0; display:grid; gap:10px; }
+ol.reperes li button { width:100%; text-align:left; border:0; background:transparent; border-radius:8px; padding:14px 18px; cursor:pointer; display:grid; gap:8px; color:var(--ink); }
+ol.reperes li button:hover { background:var(--card); }
+ol.reperes li button b { font-family:var(--serif); font-weight:400; font-size:clamp(21px,1.6vw,26px); line-height:1.15; }
+ol.reperes li button span { display:none; font-size:clamp(14.5px,1.05vw,16px); line-height:1.55; color:var(--body); }
+ol.reperes li.on button { background:var(--card); border:1px solid var(--blue); padding:13px 17px; }
+ol.reperes li.on button b { color:var(--blue); }
+ol.reperes li.on button span { display:block; }
+.legende-complet .cta { margin-top:clamp(18px,3vh,30px); }
+
+/* à vous : sept lignes à cocher, une colonne, bien espacées */
+.contenu.avous2 { max-width:1100px; }
+.avous2 h1 { font-size:clamp(34px,3.2vw,50px); margin-bottom:clamp(8px,1.4vh,14px); }
+.avous2 .lede2 { margin-bottom:clamp(12px,2vh,22px); max-width:none; }
+ul.coches { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr; max-width:900px; }
+ul.coches li { border-bottom:1px solid var(--hair); }
+ul.coches label { display:grid; grid-template-columns:30px 200px 1fr; column-gap:20px; align-items:center; padding:clamp(9px,1.4vh,14px) 0; cursor:pointer; }
+ul.coches input { width:20px; height:20px; margin:0; accent-color:var(--green); cursor:pointer; }
+ul.coches b { font-size:clamp(16.5px,1.2vw,19px); font-weight:600; color:var(--ink); line-height:1.3; }
+ul.coches span { font-size:clamp(15px,1.05vw,17px); line-height:1.45; color:var(--body); }
+ul.coches li:has(input:checked) b { color:var(--meta); text-decoration:line-through; }
+p.test-final { margin:clamp(14px,2.4vh,24px) 0 0; padding:14px 18px; border-left:3px solid var(--blue); background:var(--card); font-size:clamp(15.5px,1.1vw,17.5px); line-height:1.55; color:var(--body); max-width:none; }
+p.test-final b { display:inline-block; margin-right:10px; font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--blue); }
+p.rappel { font-size:14px; color:var(--meta); margin:10px 0 0; }
+.avous2 .cta { margin-top:clamp(12px,2vh,22px); }
+
+/* et maintenant */
+.pont .scinde h1 { font-size:clamp(34px,3.1vw,48px); line-height:1.06; }
+.pont .scinde p.th { max-width:46ch; }
+.cadre.bleu p.m { font-family:var(--serif); font-size:clamp(22px,1.7vw,28px); line-height:1.3; margin:0 0 14px; color:var(--ink); }
+.cadre.bleu p { font-size:clamp(16px,1.1vw,18px); line-height:1.6; color:var(--body); margin:0; }
+
+@media (max-width:900px) {
+  .contenu.el, .complet-grille { grid-template-columns:1fr; }
+  .legende-complet { position:static; }
+  ul.coches label { grid-template-columns:30px 1fr; }
+  ul.coches span { grid-column:2; }
+}
+
+/* dans le dépôt, la barre « mazeo / Ressources » prend 40 px en haut : les deux derniers écrans se resserrent pour tenir à 1400 × 715 */
+.ecran:not(.haut) .contenu.avous2 { padding-top:clamp(80px,8.5vh,116px); padding-bottom:28px; }
+.ecran.pont:not(.haut) .contenu { padding-top:clamp(80px,8.5vh,116px); padding-bottom:28px; }
+ul.coches label { padding:clamp(7px,1.1vh,12px) 0; }
+p.test-final { margin-top:clamp(10px,1.6vh,18px); }
+.avous2 h1 { margin-bottom:clamp(6px,1.2vh,12px); }
+.pont .scinde h1 { font-size:clamp(31px,2.8vw,42px); margin-bottom:clamp(12px,2vh,20px); }
+.pont .scinde .lede2 { margin-bottom:clamp(12px,2vh,20px); }
+.exemple.seul figure.li-cap img { width:auto; max-width:100%; max-height:calc(100vh - 275px); }
+
+</style>
+</head>
+<body><script src="/assets/fil-ressources.js"></script>
+<header class="entete"><div class="in">
+  <div class="logo">
+    <a class="nm" href="/en/academy" aria-label="growth academy"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</a>
+    <span class="par">by <a class="mz" href="/?lang=en" aria-label="mazeo">mazeo<i>.</i></a></span>
+  </div>
+  <div class="droite"><a class="lang" href="/votre-profil-linkedin" hreflang="fr" aria-label="Version française" title="Version française"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Share</button><div class="share-menu" id="share-menu" hidden></div></div></div>
+  <div class="bar"><i id="bar"></i></div>
+</div></header>
+
+<div class="ecrans" id="ecrans">
+<!-- 1 · Ouverture -->
+<section class="ecran">
+  <div class="contenu heros">
+    <div>
+      <h1>Before choosing a provider, <span>99% of buyers</span> research them, including on LinkedIn.</h1>
+      <p class="lede">Your message has caught your prospect's attention. More often than not, they open your LinkedIn profile before they reply.</p>
+      <div class="cta"><button type="button" data-suivant>Start with the photo</button></div>
+      <p class="source">Source: Hinge Research Institute, <i>Beyond Referrals</i> (2014), 1,028 buyers of professional services.</p>
+    </div>
+    <div class="cadre questions">
+      <span class="lab">They're not there for your résumé. They want answers to three questions</span>
+      <ol class="trois-q">
+        <li>Can I trust this person?</li>
+        <li>Are they the right fit for my problem?</li>
+        <li>Do they have a track record?</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · La photo -->
+<section class="ecran">
+  <div class="contenu el">
+    <div class="regle">
+      <p class="sur">The photo</p>
+      <h1>A tenth of a second is all it takes to judge whether a face <span>looks trustworthy.</span></h1>
+      <p class="lede2">Your photo goes everywhere your name goes: invitations, messages, comments. It's the first thing your prospect sees.</p>
+      <p class="th">Choose a recent, sharp photo that shows your face clearly. No studio needed. But no blurry shots, nothing taken from a distance, nothing ten years old.</p>
+      <p class="th">And smile: people are more willing to trust a stranger who smiles.</p>
+      <div class="cta"><button type="button" data-suivant>Next: the headline</button></div>
+      <p class="source">Sources: Janine Willis and Alexander Todorov, Princeton University, <i>Psychological Science</i> (2006) · Jörn Scharlemann <i>et al.</i>, “The value of a smile,” <i>Journal of Economic Psychology</i> (2001).</p>
+    </div>
+    <div class="exemple seul">
+      <figure class="li-cap"><img src="/assets/academy/linkedin/en/bon-photo.webp" alt="The top of Kavitha Bradley's LinkedIn profile, Radiant Market Research: a sharp, smiling photo, framed in blue."><figcaption><b>Kavitha Bradley</b>, Radiant Market Research, a market research firm in Atlanta. A genuine smile, a face you can see clearly. And everything else follows: a banner that says what she delivers, a headline that says who she works for.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · La headline -->
+<section class="ecran">
+  <div class="contenu el">
+    <div class="regle">
+      <p class="sur">The headline</p>
+      <h1>Your prospect will accept your invitation if they can see, in one line, <span>what you can do for them.</span></h1>
+      <p class="lede2">Your headline, the line LinkedIn shows right under your name, follows you everywhere: every invitation, every message, every search result.</p>
+      <p class="th">By default, LinkedIn fills it with your job title. That describes your role, but it says nothing about what you do for your clients. Write your headline in their words: the problem you solve, and for whom.</p>
+      <p class="th">The more precise your target, the more you become the obvious choice. And your headline has to be readable at a glance, even on a phone.</p>
+      <div class="cta"><button type="button" data-suivant>Next: the banner</button></div>
+    </div>
+    <div class="exemple">
+      <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Good example</button><button type="button" role="tab" data-cible="b" aria-selected="false">Bad example</button></div>
+      <div class="version" data-version="a">
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/bon-headline.webp" alt="The top of Lisa Brick's LinkedIn profile, her headline framed: “I help brands understand messy customer decisions and build the strategy to win them over | Qualitative Research & Strategy | AI-Hybrid Methods | 300+ brands | Healthcare, Food & Beverage, Technology, Education.”"><figcaption><b>Lisa Brick</b>, director of qualitative research at Strategic Research Insights (SRI), a market research firm in New York. Her headline opens with what she does for her clients: understand their customers' decisions, and build the strategy to win them over. Then her method, proof (300 brands) and her sectors. A prospect in healthcare or food and beverage sees themselves in that one line.</figcaption></figure>
+      </div>
+      <div class="version" data-version="b" hidden>
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/mauvais-headline.webp" alt="A LinkedIn profile whose framed headline is nothing more than “Chief Research Officer at Varnel Research.”"><figcaption>The headline is nothing but a job title. A prospect learns neither what this person does for clients nor who they work for. Nothing here gives them a reason to accept.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · La bannière -->
+<section class="ecran">
+  <div class="contenu el">
+    <div class="regle">
+      <p class="sur">The banner</p>
+      <h1>A clear banner says what you do and makes people want <span>to explore your profile.</span></h1>
+      <p class="lede2">The banner is the background image behind your photo. By default, LinkedIn fills it with a gray pattern that says nothing about you.</p>
+      <p class="th">Write what you do and for whom, in one sentence. Add proof: a number, references, client logos.</p>
+      <p class="th">Photo, headline and banner should work as one: in two seconds, a stranger understands what you do, and for whom.</p>
+      <div class="cta"><button type="button" data-suivant>Next: the About section</button></div>
+      <p class="source">LinkedIn's recommended size: 1,584&nbsp;×&nbsp;396 pixels. Canva offers free templates in this format.</p>
+    </div>
+    <div class="exemple">
+      <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Good example</button><button type="button" role="tab" data-cible="b" aria-selected="false">Bad example</button></div>
+      <div class="version" data-version="a">
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/bon-banniere.webp" alt="The top of Lisa Brick's LinkedIn profile, her banner framed: “Why customers choose… and how to get chosen. AI-led research for speed. Human-led research for depth. 300+ brands.”"><figcaption><b>Lisa Brick</b>, Strategic Research Insights (SRI). A promise, “Why customers choose… and how to get chosen,” and the proof behind it: 300+ brands, across four named sectors.</figcaption></figure>
+      </div>
+      <div class="version" data-version="b" hidden>
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/mauvais-banniere.webp" alt="A LinkedIn profile whose framed banner is a generic stock visual: a hand, an infinity sign and the slogan Making the impossible a reality."><figcaption>A stock visual and a hollow slogan. This banner says neither what this person does nor for whom: the prospect has no reason to read on.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Le résumé -->
+<section class="ecran">
+  <div class="contenu el">
+    <div class="regle">
+      <p class="sur">The About section</p>
+      <h1>One in two buyers avoids salespeople whose LinkedIn profile <span>is incomplete.</span></h1>
+      <p class="lede2">A complete profile starts with the About section: that's where your prospect decides whether they can trust you.</p>
+      <p class="th">They'll read only two or three lines, the ones that show before “see more.” If those lines speak to their problem, they're more likely to keep reading, and to reply.</p>
+      <p class="th">Write in the first person, the way you'd describe your work in a first meeting. Five short paragraphs, in this order:</p>
+      <ol class="etapes">
+        <li>The problem your client is facing.</li>
+        <li>How you solve it.</li>
+        <li>Proof: a real number, a result you delivered.</li>
+        <li>Who you work for, and who you don't.</li>
+        <li>How to get in touch with you.</li>
+      </ol>
+      <div class="cta"><button type="button" data-suivant>Next: Featured</button></div>
+      <p class="source">Source: LinkedIn, survey of 1,500 B2B buyers (2014). 50% avoid salespeople whose profile is incomplete.</p>
+    </div>
+    <div class="exemple">
+      <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Good example</button><button type="button" role="tab" data-cible="b" aria-selected="false">Bad example</button></div>
+      <div class="version" data-version="a">
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/bon-infos.webp" alt="Mary Elzey's About section, her opening lines framed: 693 new product ideas researched, and the moment somebody on the client side suspects the working theory is wrong."><figcaption><b>Mary Elzey</b>, director of strategy at Stable Kernel (Atlanta), a research and innovation consultancy. Proof in the very first line (693 product ideas researched), then her client's problem: “something doesn't add up, but I don't know why.” And what she does about it: “we figure it out together.”</figcaption></figure>
+      </div>
+      <div class="version" data-version="b" hidden>
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/mauvais-infos.webp" alt="A LinkedIn profile whose framed About section is written in the third person and walks through a career."><figcaption>An About section in the third person, walking through a career. The prospect can't find the problem she solves for them.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · La sélection -->
+<section class="ecran">
+  <div class="contenu el">
+    <div class="regle">
+      <p class="sur">Featured</p>
+      <h1>73% of decision-makers trust a company's thought leadership more <span>than its marketing materials.</span></h1>
+      <p class="lede2">In the Featured section, you pin the content of your choice. It's almost always left empty. Yet that's where your prospect looks for a reason to write to you.</p>
+      <p class="th">Pin client cases, your best posts, or an interview that shows your expertise. Three or four strong pieces beat ten average ones.</p>
+      <div class="cta"><button type="button" data-suivant>Next: Experience</button></div>
+      <p class="source">Source: Edelman and LinkedIn, <i>B2B Thought Leadership Impact Report</i> (2024), survey of 3,484 decision-makers.</p>
+    </div>
+    <div class="exemple">
+      <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Good example</button><button type="button" role="tab" data-cible="b" aria-selected="false">Bad example</button></div>
+      <div class="version" data-version="a">
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/bon-selection.webp" alt="Lisa Brick's Featured section, framed: two pinned posts, including “A skincare brand paid me to find out why customers bought their $200 serum once and never came back.”"><figcaption><b>Lisa Brick</b>, SRI. Two pinned posts: a client case (why a $200 serum gets bought once and never again) and a point of view on her industry. Each has more than 200 comments.</figcaption></figure>
+      </div>
+      <div class="version" data-version="b" hidden>
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/mauvais-selection.webp" alt="A LinkedIn profile whose framed Featured section lines up links to the company's website and empty media tiles."><figcaption>A Featured section filled with links to their own website and tiles with nothing in them. Nothing that shows a result for a client, nothing that makes you want to write.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · L'expérience -->
+<section class="ecran">
+  <div class="contenu el">
+    <div class="regle">
+      <p class="sur">Experience</p>
+      <h1>By this point, your prospect is looking for a result you got for a client <span>who looks like them.</span></h1>
+      <p class="lede2">Describe your experience through the results you got for your clients, not the projects you ran.</p>
+      <p class="th">Under your current role, one or two sentences: your clients, named if you can, and what they got thanks to you. Previous roles: one or two lines each.</p>
+      <p class="th">Then reread it: whatever doesn't reassure your prospect, cut.</p>
+      <div class="cta"><button type="button" data-suivant>Next: Recommendations</button></div>
+    </div>
+    <div class="exemple">
+      <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Good example</button><button type="button" role="tab" data-cible="b" aria-selected="false">Bad example</button></div>
+      <div class="version" data-version="a">
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/bon-experience.webp" alt="Peter de Feijter's Experience section at Factworks, two lines framed: for a $30B financial institution, the priority customer segments for its credit card offer; for an online financial service provider, the pricing model behind its new remittance strategy."><figcaption><b>Peter de Feijter</b>, director of market research at Factworks, a market research firm (Berlin and Portland). Every line names the client and ends with what they got: the segments to target for a credit card offer; the pricing model behind a new remittance strategy.</figcaption></figure>
+      </div>
+      <div class="version" data-version="b" hidden>
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/mauvais-experience.webp" alt="A LinkedIn profile whose framed current role is described by a list of ten tasks."><figcaption>Ten lines that each start with a verb: build, facilitate… A task list. No client named, no result delivered for any of them.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · Les recommandations -->
+<section class="ecran">
+  <div class="contenu el">
+    <div class="regle">
+      <p class="sur">Recommendations</p>
+      <h1>69% of clients would gladly recommend their provider; <span>you still have to ask.</span></h1>
+      <p class="lede2">Three lines written by a client carry more weight than anything you say about yourself.</p>
+      <p class="th">Most of your studies are confidential? Turn to the clients already named on your website. And ask at the right moment: right after a successful study.</p>
+      <div class="cta"><button type="button" data-suivant>Next: the seven rules on one profile</button></div>
+      <p class="source">Source: Hinge Research Institute, <i>Referral Marketing for Professional Services Firms</i> (2015). The number one reason for not recommending, cited by 72% of clients: nobody asked them.</p>
+    </div>
+    <div class="exemple">
+      <div class="onglets" role="tablist"><button type="button" role="tab" class="on" data-cible="a" aria-selected="true">Good example</button><button type="button" role="tab" data-cible="b" aria-selected="false">Bad example</button></div>
+      <div class="version" data-version="a">
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/bon-recommandation.webp" alt="A recommendation received by Lisa Brick, the line “Micah Paul was Lisa's client” framed."><figcaption><b>Lisa Brick</b>, SRI. Written by a client, and LinkedIn says so under his name: “Micah Paul was Lisa's client.” It cites a result: high-performing new products in the brand's portfolio.</figcaption></figure>
+      </div>
+      <div class="version" data-version="b" hidden>
+        <figure class="li-cap"><img src="/assets/academy/linkedin/en/mauvais-recommandation.webp" alt="A recommendation written by a former colleague, the framed line: “Mark was senior to Laura but didn't manage Laura directly.”"><figcaption>Written by a former colleague, and LinkedIn says so too. It talks about the person, not about a result for a client.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · Le profil complet -->
+<section class="ecran haut">
+  <div class="contenu complet">
+    <div class="intro">
+      <p class="sur">A rock-solid profile</p>
+      <h1 class="h-compact">A rock-solid profile applies all seven rules, <span>from the photo to the recommendations.</span></h1>
+      <p class="lede2">Follow these seven rules: your profile will inspire trust and answer the three questions your prospect is asking.</p>
+      <p class="th reponses"><b>Can I trust this person?</b> The photo, the banner, the About section.<br><b>Are they the right fit for my problem?</b> The headline, Featured.<br><b>Do they have a track record?</b> Experience, Recommendations.</p>
+    </div>
+    <div class="complet-grille">
+      <figure class="li-cap long"><span class="wrap" id="pc-wrap"><img id="pc" src="/assets/academy/linkedin/en/lisa-profil-complet.webp" alt="A LinkedIn profile assembled from three real profiles: banner, photo, headline, Featured and recommendations from Lisa Brick; About section from Mary Elzey; Experience from Peter de Feijter."><span class="surligne" id="pc-cadre"></span></span><figcaption class="note"><i>None of the profiles we reviewed checks all seven boxes. This one is assembled from three real profiles at market research firms: Lisa Brick (SRI) for the banner, photo, headline, Featured and recommendations; Mary Elzey (Stable Kernel) for the About section; Peter de Feijter (Factworks) for Experience.</i> Screenshots taken October&nbsp;25, 2026 · <a href="https://www.linkedin.com/in/lisa-brick-120aa031/" target="_blank" rel="noopener">Lisa Brick</a> · <a href="https://www.linkedin.com/in/maryelzey/" target="_blank" rel="noopener">Mary Elzey</a> · <a href="https://www.linkedin.com/in/peterdefeijter/" target="_blank" rel="noopener">Peter de Feijter</a></figcaption></figure>
+      <div class="legende-complet">
+        <p class="astuce">Click a rule: it is framed on the profile.</p>
+        <ol class="reperes" id="reperes">
+          <li class="on"><button type="button" data-box="42,163,312,429"><b>The photo</b><span>A face in focus, a plain background, a hint of a smile.</span></button></li>
+          <li><button type="button" data-box="34,554,506,794"><b>The headline</b><span>What she does for her clients, her method, proof (300 brands), her sectors.</span></button></li>
+          <li><button type="button" data-box="0,76,1000,324"><b>The banner</b><span>A promise, “Why customers choose… and how to get chosen,” and the proof behind it.</span></button></li>
+          <li><button type="button" data-box="33,1100,967,1308"><b>The About section</b><span>Proof in the very first line, then the client's problem: “something doesn't add up, but I don't know why.”</span></button></li>
+          <li><button type="button" data-box="35,1638,963,2079"><b>Featured</b><span>A client case (the $200 serum) and a point of view on her industry.</span></button></li>
+          <li><button type="button" data-box="130,2438,961,2644"><b>Experience</b><span>Every line names the client and ends with what they got.</span></button></li>
+          <li><button type="button" data-box="29,2966,967,3397"><b>Recommendations</b><span>Written by clients, and LinkedIn says so. They cite results.</span></button></li>
+        </ol>
+        <div class="cta"><button type="button" data-suivant>Your turn</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · À vous -->
+<section class="ecran">
+  <div class="contenu avous2">
+    <p class="sur">Your turn</p>
+    <h1>What about you? Does your profile <span>make prospects want to reply?</span></h1>
+    <p class="lede2">Open your LinkedIn profile in another tab, and check off each item once it's done.</p>
+    <ul class="coches" id="coches">
+      <li><label><input type="checkbox"><b>Photo</b><span>Recent, sharp, smiling.</span></label></li>
+      <li><label><input type="checkbox"><b>Headline</b><span>What you do for your clients, not your job title.</span></label></li>
+      <li><label><input type="checkbox"><b>Banner</b><span>What you do and for whom, with proof: a number, references.</span></label></li>
+      <li><label><input type="checkbox"><b>About</b><span>In the first person; your client's problem in the very first line.</span></label></li>
+      <li><label><input type="checkbox"><b>Featured</b><span>Client cases, your best posts, an interview.</span></label></li>
+      <li><label><input type="checkbox"><b>Experience</b><span>The results you got for your clients, not your projects.</span></label></li>
+      <li><label><input type="checkbox"><b>Recommendations</b><span>Written by clients.</span></label></li>
+    </ul>
+    <p class="test-final"><b>Final test</b>Open your profile on your phone. Would a prospect who doesn't know you understand, within a few seconds, what you do for them? If not, rework your headline first.</p>
+    <p class="rappel">Reread your profile once or twice a year, or whenever your offer changes.</p>
+    <div class="cta"><a class="btn second" href="https://www.linkedin.com/in/me/" target="_blank" rel="noopener">Open my LinkedIn profile</a><button type="button" data-suivant>Last step</button></div>
+  </div>
+</section>
+
+<!-- 11 · Et maintenant -->
+<section class="ecran pont">
+  <div class="contenu scinde">
+    <div>
+      <p class="sur">What's next</p>
+      <h1>Every post, every comment keeps you <span>top of mind with your prospects.</span></h1>
+      <p class="lede2">Posting or commenting puts your name and your company in your network's feed. When you comment, the author gets a notification, and your comment shows up in the feed of everyone who follows them: you multiply your chances of getting noticed.</p>
+      <p class="th">The more often your prospects come across your name, the more familiar it becomes. And we like what we've already seen. In a famous experiment, four women attended a college class 0, 5, 10 or 15 times without speaking to anyone: at the end of the semester, the more often a woman had shown up, the more the other students liked her.</p>
+      <p class="source">Sources: Moreland and Beach, <i>Journal of Experimental Social Psychology</i> (1992); a principle established by Robert Zajonc (1968) and confirmed by a meta-analysis of more than 200 experiments (Bornstein, <i>Psychological Bulletin</i>, 1989). This guide's outline follows WriteHero's “<a href="https://writehero.io/blog/linkedin-profile-for-consultants" target="_blank" rel="noopener">LinkedIn Profile for Consultants</a>” (2026).</p>
+    </div>
+    <div class="cadre bleu">
+      <span class="lab bleu">In mazeo</span>
+      <p class="m">mazeo brings you the prospects. Your profile wins them over.</p>
+      <p>With mazeo, you write to new prospects every week, by email and on LinkedIn. Before they reply, they'll open your profile: that's what turns a message into a meeting.</p>
+      <div class="cta" style="margin-top:18px"><a class="btn" href="/en/demo">See mazeo in a demo</a><a class="btn second" href="/en/academy">All practical guides</a></div>
+    </div>
+  </div>
+</section>
+
+</div>
+<div class="nav" id="nav"><button type="button" id="prec" aria-label="Previous screen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" id="suiv" aria-label="Next screen"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+<script>
+(function () {
+  /* les écrans, comme la fiche 1 : ?e=N ouvre un écran, Retour du navigateur ramène au précédent */
+  var ecrans = Array.prototype.slice.call(document.querySelectorAll(".ecran")), n = -1;
+  function adresse(k) { var q = new URLSearchParams(location.search); q.set("e", k + 1); return location.pathname + "?" + q.toString(); }
+  function aller(k, mode) {
+    if (k < 0 || k >= ecrans.length) return;
+    if (mode !== "aucun" && k !== n) { try { history[mode === "remplacer" ? "replaceState" : "pushState"]({ e: k + 1 }, "", adresse(k)); } catch (x) {} }
+    n = k;
+    ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
+    ecrans[n].scrollTop = 0; fermerZoom();
+    document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
+    var nav = document.getElementById("nav"); if (nav) nav.style.display = "none";
+  }
+  document.querySelectorAll("[data-suivant]").forEach(function (b) { b.addEventListener("click", function () { aller(n + 1); }); });
+  document.addEventListener("keydown", function (ev) {
+    var t = ev.target; if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA")) return;
+    if (ev.key === "ArrowRight" || ev.key === "PageDown") aller(n + 1);
+    if (ev.key === "ArrowLeft" || ev.key === "PageUp") aller(n - 1);
+  });
+  aller(Math.max(0, (parseInt(new URLSearchParams(location.search).get("e"), 10) || 1) - 1), "remplacer");
+  window.addEventListener("popstate", function (ev) { aller(((ev.state && ev.state.e) || 1) - 1, "aucun"); });
+
+  /* bon exemple / mauvais exemple : deux onglets, comme les deux cibles de la fiche 1 */
+  document.querySelectorAll(".onglets button").forEach(function (b) { b.addEventListener("click", function () {
+    var bloc = b.closest(".exemple"), c = b.getAttribute("data-cible");
+    bloc.querySelectorAll(".onglets button").forEach(function (x) { var on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-selected", String(on)); });
+    bloc.querySelectorAll(".version").forEach(function (v) { v.hidden = v.getAttribute("data-version") !== c; });
+  }); });
+
+  /* le profil complet : une rubrique cliquée s'encadre sur la capture, et son explication s'ouvre */
+  var pc = document.getElementById("pc"), pcCadre = document.getElementById("pc-cadre"), reperes = document.getElementById("reperes");
+  function montrer(li, defiler) {
+    var box = li.querySelector("button").getAttribute("data-box").split(",").map(Number);
+    var W = pc.naturalWidth || 1000, H = pc.naturalHeight || 3757, m = 12;
+    box = [Math.max(0, box[0] - m), Math.max(0, box[1] - m), Math.min(W, box[2] + m), Math.min(H, box[3] + m)];
+    pcCadre.style.left = (box[0] / W * 100) + "%"; pcCadre.style.top = (box[1] / H * 100) + "%";
+    pcCadre.style.width = ((box[2] - box[0]) / W * 100) + "%"; pcCadre.style.height = ((box[3] - box[1]) / H * 100) + "%";
+    Array.prototype.forEach.call(reperes.children, function (x) { x.classList.toggle("on", x === li); });
+    if (defiler) {
+      var ecran = li.closest(".ecran"), y = pc.getBoundingClientRect().top - ecran.getBoundingClientRect().top + ecran.scrollTop + box[1] / H * pc.clientHeight;
+      ecran.scrollTo({ top: Math.max(0, y - 140), behavior: "smooth" });
+    }
+  }
+  if (pc && reperes) {
+    Array.prototype.forEach.call(reperes.children, function (li) { li.querySelector("button").addEventListener("click", function () { montrer(li, true); }); });
+    var premier = function () { montrer(reperes.children[0], false); };
+    if (pc.complete) premier(); else pc.addEventListener("load", premier);
+  }
+
+  /* une capture s'agrandit d'un clic ; un second clic, ou Échap, la referme */
+  function fermerZoom() { var z = document.querySelector(".zoom-cap"); if (z) z.remove(); }
+  document.querySelectorAll("figure.li-cap:not(.long) img").forEach(function (img) {
+    img.addEventListener("click", function () {
+      fermerZoom();
+      var z = document.createElement("div"); z.className = "zoom-cap" + (img.naturalHeight > img.naturalWidth * 1.4 ? " long" : "");
+      var g = document.createElement("img"); g.src = img.currentSrc || img.src; g.alt = img.alt;
+      z.appendChild(g); z.addEventListener("click", fermerZoom); document.body.appendChild(z);
+    });
+  });
+  document.addEventListener("keydown", function (ev) { if (ev.key === "Escape") fermerZoom(); });
+
+  /* à vous : la liste à cocher, gardée dans ce navigateur */
+  var CLE = "academy:fiche4:coches:v6", coches = Array.prototype.slice.call(document.querySelectorAll("#coches input"));
+  try { (JSON.parse(localStorage.getItem(CLE) || "[]")).forEach(function (v, i) { if (coches[i]) coches[i].checked = !!v; }); } catch (x) {}
+  coches.forEach(function (c) { c.addEventListener("change", function () {
+    try { localStorage.setItem(CLE, JSON.stringify(coches.map(function (c) { return c.checked; }))); } catch (x) {}
+  }); });
+})();
+
+</script>
+<script>
+const ICONS = {
+  "in": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
+  wa: '<svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.9 9.88M20.47 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41"/></svg>',
+  x: '<svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>',
+  mail: '<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>',
+  link: '<svg viewBox="0 0 24 24"><path d="M3.9 12a3.1 3.1 0 0 1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7A3.1 3.1 0 0 1 3.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 1 1 0 6.2h-4V17h4a5 5 0 0 0 0-10z"/></svg>'
+};
+const FLAGS = {
+  en: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"></rect><path d="M0,0 30,20 M30,0 0,20" stroke="#fff" stroke-width="4"></path><path d="M0,0 30,20 M30,0 0,20" stroke="#C8102E" stroke-width="1.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#C8102E" stroke-width="4"></path></svg>',
+  fr: '<svg viewBox="0 0 30 20"><rect width="10" height="20" fill="#0055A4"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#EF4135"/></svg>'
+};
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  $("flag").innerHTML = FLAGS.fr;
+  /* Partager : le même menu que le Village des études */
+  var URL_PAGE = "https://www.mazeo.co/en/booking-link", TXT = "An interested prospect should be able to book straight away: set up your booking link. A practical guide from the growth academy, by mazeo.";
+  var u = encodeURIComponent(URL_PAGE), tx = encodeURIComponent(TXT + " " + URL_PAGE);
+  var links = [["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u], ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
+    ["x", "X", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(TXT) + "&url=" + u], ["mail", "Email", "mailto:?subject=" + encodeURIComponent("Your booking link, by mazeo") + "&body=" + tx]];
+  $("share-menu").innerHTML = links.map(function (l) { return '<a href="' + l[2] + '" target="_blank" rel="noopener"><i class="i-' + l[0] + '">' + ICONS[l[0]] + '</i>' + l[1] + '</a>'; }).join("") + '<button type="button" id="copy"><i class="i-link">' + ICONS.link + '</i><span>Copy link</span></button>';
+  $("copy").onclick = function (e) { var lab = e.currentTarget.lastChild; try { navigator.clipboard.writeText(URL_PAGE).then(function () { lab.textContent = "Link copied"; }, function () { lab.textContent = URL_PAGE; }); } catch (x) { lab.textContent = URL_PAGE; } };
+  var btn = $("share"), menu = $("share-menu");
+  btn.onclick = function (e) { e.stopPropagation(); var open = menu.hidden; menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
+  document.addEventListener("click", function (e) { if (!e.target.closest(".share")) { menu.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
+})();
+</script>
+</body>
+</html>
