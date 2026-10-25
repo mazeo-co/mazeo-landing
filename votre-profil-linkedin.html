@@ -419,14 +419,27 @@ p.rappel { font-size:14px; color:var(--meta); margin:10px 0 0; }
 }
 
 /* dans le dépôt, la barre « mazeo / Ressources » prend 40 px en haut : les deux derniers écrans se resserrent pour tenir à 1400 × 715 */
-.ecran:not(.haut) .contenu.avous2 { padding-top:clamp(80px,8.5vh,116px); padding-bottom:28px; }
-.ecran.pont:not(.haut) .contenu { padding-top:clamp(80px,8.5vh,116px); padding-bottom:28px; }
+.ecran:not(.haut) .contenu.avous2 { padding-top:clamp(138px,15vh,160px); padding-bottom:24px; }
+.ecran.pont:not(.haut) .contenu { padding-top:clamp(138px,15vh,160px); padding-bottom:24px; }
 ul.coches label { padding:clamp(7px,1.1vh,12px) 0; }
 p.test-final { margin-top:clamp(10px,1.6vh,18px); }
 .avous2 h1 { margin-bottom:clamp(6px,1.2vh,12px); }
 .pont .scinde h1 { font-size:clamp(31px,2.8vw,42px); margin-bottom:clamp(12px,2vh,20px); }
 .pont .scinde .lede2 { margin-bottom:clamp(12px,2vh,20px); }
 .exemple.seul figure.li-cap img { width:auto; max-width:100%; max-height:calc(100vh - 275px); }
+/* 26/10 : l'étiquette passait sous l'en-tête fixe (87 px + barre Ressources 40 px) ; marge haute ≥ 138 px, le reste se resserre */
+ul.coches label { padding:clamp(6px,0.9vh,10px) 0; }
+.avous2 .lede2 { margin-bottom:clamp(8px,1.4vh,16px); }
+p.test-final { margin-top:clamp(8px,1.2vh,14px); padding:10px 16px; }
+p.rappel { margin-top:6px; }
+.avous2 .cta { margin-top:clamp(8px,1.4vh,16px); }
+.pont .scinde h1 { font-size:clamp(29px,2.5vw,38px); margin-bottom:clamp(8px,1.4vh,14px); }
+.pont .scinde .lede2 { margin-bottom:clamp(8px,1.4vh,14px); font-size:clamp(18px,1.3vw,21px); }
+.pont .scinde p.th { margin-bottom:clamp(8px,1.4vh,14px); line-height:1.6; }
+.pont .source { margin-top:8px; }
+ul.coches label { padding:clamp(4px,0.6vh,8px) 0; }
+.avous2 h1 { font-size:clamp(32px,3vw,46px); }
+p.test-final { font-size:clamp(14.5px,1.02vw,16.5px); line-height:1.45; }
 
 </style>
 </head>
