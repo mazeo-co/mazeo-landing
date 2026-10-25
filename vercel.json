@@ -17,6 +17,10 @@
       "destination": "/votre-profil-linkedin.html"
     },
     {
+      "source": "/en/linkedin-profile",
+      "destination": "/en/linkedin-profile.html"
+    },
+    {
       "source": "/en/academy",
       "destination": "/en/academy.html"
     },
