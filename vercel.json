@@ -13,6 +13,10 @@
       "destination": "/prise-de-rendez-vous.html"
     },
     {
+      "source": "/votre-profil-linkedin",
+      "destination": "/votre-profil-linkedin.html"
+    },
+    {
       "source": "/en/academy",
       "destination": "/en/academy.html"
     },
