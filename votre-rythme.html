@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sur 60 leads contactés, 3 deviennent des rendez-vous : fixez votre objectif, nous calculons le reste · fiche pratique 6 de la growth academy, présentée par mazeo</title>
+<meta name="description" content="Combien de rendez-vous voulez-vous par mois ? D'après les chiffres de la séquence mazeo, cette fiche calcule les leads à garder dans votre Pipeline, le temps par semaine, et bloque votre créneau de prospection dans votre agenda. Fiche pratique 6 de la growth academy, présentée par mazeo.">
+<link rel="canonical" href="https://www.mazeo.co/votre-rythme">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/votre-rythme">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/votre-rythme">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mazeo">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.mazeo.co/votre-rythme">
+<meta property="og:title" content="Sur 60 leads contactés, 3 deviennent des rendez-vous. Fixez votre objectif, nous calculons le reste.">
+<meta property="og:description" content="Fiche pratique 6 de la growth academy by mazeo : votre objectif de rendez-vous, les leads qu'il vous faut, le temps par semaine, et votre créneau bloqué dans l'agenda. Cinq minutes.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@500;600;800&display=swap">
+<style>
+/* fiche 6 · le gabarit des fiches 1 et 4 : papier, Instrument Serif, un écran à la fois, l'en-tête commun (assets/academy/entete.css) */
+:root { color-scheme:light;
+  --x:clamp(0px,calc((100vh - var(--fil-h,0px) - 715px) / 10),60px); --paper:#F7F7F5; --ink:#121212; --body:#3D3D3D; --meta:#767673; --meta2:#A3A3A0; --hair:#E4E4E1; --hair2:#CDCDC8; --card:#FFFFFF;
+  --blue:#007BFF; --blue-deep:#0066D6; --green:#00C774; --orange:#F59E0B; --red:#EF4444;
+  --font:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --serif:'Instrument Serif', 'Iowan Old Style', Georgia, serif; --logo:'Bricolage Grotesque', var(--font); --mono:'Inter', var(--font); }
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; }
+body { font-family:var(--font); font-size:clamp(18px,1.25vw,20px); line-height:1.55; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; overflow:hidden; }
+a { color:inherit; }
+button, input, select { font:inherit; }
+.bar { position:absolute; left:0; right:0; bottom:-1px; height:2px; z-index:1; }
+.bar i { display:block; height:2px; width:0; background:var(--ink); transition:width .4s ease; }
+.entete { position:fixed; top:var(--fil-h,0px); left:0; right:0; z-index:5; background:var(--paper); }
+.share { position:relative; } .share-menu[hidden] { display:none; }
+.share-menu { position:absolute; right:0; top:calc(100% + 8px); z-index:40; min-width:220px; background:#fff; border:1px solid var(--hair2); border-radius:14px; padding:8px; display:grid; gap:2px; box-shadow:0 16px 40px rgba(10,10,10,.18); }
+.share-menu a, .share-menu button { display:flex; align-items:center; gap:10px; width:100%; text-align:left; background:none; border:0; border-radius:9px; padding:10px 12px; color:var(--ink); font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; }
+.share-menu a:hover, .share-menu button:hover { background:var(--paper); }
+.share-menu i { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px; font-style:normal; color:#fff; }
+.share-menu i svg { width:16px; height:16px; fill:currentColor; display:block; }
+.i-in { background:#0A66C2; } .i-wa { background:#25D366; } .i-x { background:#000; } .i-mail { background:#6B7280; } .i-link { background:#2B8FFF; }
+/* les écrans */
+.ecrans { position:relative; height:calc(100vh - var(--fil-h,0px)); }
+.ecran { position:absolute; inset:0; display:flex; align-items:flex-start; overflow-y:auto; opacity:0; transform:translateY(40px); transition:opacity .35s ease, transform .35s ease; visibility:hidden; pointer-events:none; }
+.ecran.actif { opacity:1; transform:none; visibility:visible; pointer-events:auto; }
+.ecran.passe { transform:translateY(-40px); }
+.contenu { width:100%; max-width:1280px; margin:auto; padding:clamp(104px,11vh,150px) 48px clamp(20px,calc(6vh - 20px),70px); }
+p.sur { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 clamp(14px,2.2vh,22px); }
+h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.06; font-size:clamp(32px,2.7vw,44px); margin:0 0 clamp(16px,2.6vh,28px); text-wrap:balance; }
+h1 span { font-style:italic; color:var(--blue); }
+.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.45vw,3vh),24px); line-height:1.45; color:var(--ink); margin:0 0 clamp(14px,2.4vh,26px); max-width:30em; }
+p.th { font-size:clamp(16px,1.1vw,18px); line-height:1.75; color:var(--body); margin:0 0 clamp(14px,2.4vh,24px); max-width:46ch; }
+p.th b { color:var(--ink); font-weight:600; }
+p.source { font-size:13px; line-height:1.55; color:var(--meta); margin:12px 0 0; max-width:56ch; }
+p.source i { font-style:italic; }
+.lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
+.lab.bleu { color:var(--blue); }
+.cadre { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:clamp(24px,3.6vh,36px) clamp(28px,2.6vw,40px); }
+.cadre.bleu { border-color:var(--blue); }
+.cta { margin-top:clamp(16px,2.8vh,30px); display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.cta button, .cta a.btn { font-weight:600; font-size:clamp(17px,1.2vw,20px); color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:13px 26px; cursor:pointer; text-decoration:none; display:inline-block; }
+.cta button:hover, .cta a.btn:hover { background:#000; }
+.cta button.second, .cta a.btn.second { background:transparent; color:var(--ink); border:1px solid var(--hair2); }
+.cta button.second:hover, .cta a.btn.second:hover { background:var(--card); }
+/* un écran = à gauche ce qu'on explique ou ce qu'on demande, à droite ce qu'on produit */
+.contenu.deux { display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:clamp(44px,4.6vw,80px); align-items:center; }
+.contenu.deux > * { min-width:0; }
+/* l'ouverture */
+.heros h1 { font-size:clamp(40px,3.9vw,60px); line-height:1; margin-bottom:clamp(16px,2.8vh,30px); }
+.heros .lede2 { max-width:26em; }
+.cadre.plan4 .lab { margin-bottom:clamp(16px,2.8vh,28px); line-height:1.7; }
+ol.quatre { list-style:none; margin:0; padding:0; counter-reset:q; }
+ol.quatre li { counter-increment:q; display:grid; grid-template-columns:44px 1fr; align-items:baseline; padding:clamp(14px,2.4vh,24px) 0; border-top:1px solid var(--hair); font-family:var(--serif); font-size:clamp(21px,1.7vw,28px); line-height:1.25; }
+ol.quatre li:first-child { border-top:0; padding-top:0; } ol.quatre li:last-child { padding-bottom:0; }
+ol.quatre li::before { content:counter(q); font-family:var(--serif); font-size:clamp(21px,1.7vw,28px); line-height:1; color:var(--blue); }
+/* la séquence : cinq touches, les délais en jours ouvrés */
+ol.sequence { list-style:none; margin:0; padding:0; position:relative; }
+ol.sequence::before { content:""; position:absolute; left:11px; top:14px; bottom:14px; width:2px; background:var(--hair2); }
+ol.sequence li { display:grid; grid-template-columns:24px 1fr; gap:22px; align-items:start; padding:clamp(8px,1.5vh,14px) 0; position:relative; }
+ol.sequence li i { width:24px; height:24px; border-radius:50%; background:var(--card); border:2px solid var(--blue); display:block; margin-top:2px; }
+ol.sequence li.mail i { border-color:var(--ink); }
+ol.sequence li b { display:block; font-weight:600; font-size:clamp(17px,1.2vw,20px); line-height:1.3; }
+ol.sequence li span { display:block; font-size:14.5px; color:var(--meta); margin-top:2px; }
+ol.sequence li em { font-style:normal; font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); display:block; margin-bottom:2px; }
+ol.sequence li.mail em { color:var(--meta); }
+/* l'entonnoir de nos chiffres */
+.entonnoir { display:grid; gap:0; }
+.entonnoir > div { display:grid; grid-template-columns:96px 1fr auto; gap:18px; align-items:baseline; padding:clamp(12px,2.2vh,20px) 0; border-top:1px solid var(--hair); }
+.entonnoir > div:first-child { border-top:0; padding-top:0; } .entonnoir > div:last-child { padding-bottom:0; }
+.entonnoir b { font-family:var(--serif); font-weight:400; font-size:clamp(38px,3.2vw,54px); line-height:.95; color:var(--ink); }
+.entonnoir > div.but b { color:var(--blue); }
+.entonnoir span { font-size:clamp(17px,1.2vw,20px); color:var(--body); line-height:1.3; }
+.entonnoir em { font-style:normal; font-family:var(--mono); font-size:13px; font-weight:600; color:var(--meta); letter-spacing:.06em; }
+.entonnoir > div.but span { color:var(--ink); font-weight:600; }
+/* l'objectif : le compteur */
+.compteur { display:flex; align-items:center; gap:18px; margin:clamp(6px,1vh,12px) 0 0; }
+.compteur button { width:52px; height:52px; border-radius:50%; border:1px solid var(--hair2); background:var(--card); color:var(--ink); font-size:26px; line-height:1; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }
+.compteur button:hover { border-color:var(--ink); }
+.compteur input { width:92px; text-align:center; font-family:var(--serif); font-size:clamp(48px,4vw,64px); line-height:1; border:0; border-bottom:2px solid var(--ink); background:transparent; color:var(--ink); padding:0 0 4px; outline:0; -moz-appearance:textfield; }
+.compteur input::-webkit-outer-spin-button, .compteur input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+.compteur label { font-size:clamp(16px,1.1vw,19px); color:var(--body); line-height:1.3; max-width:12em; }
+/* les tuiles de résultat */
+.tuiles { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.tuiles > div { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:clamp(16px,2.6vh,24px) clamp(18px,1.6vw,24px); display:flex; flex-direction:column; gap:6px; }
+.tuiles > div.large { grid-column:1 / -1; flex-direction:row; align-items:baseline; gap:16px; }
+.tuiles b { font-family:var(--serif); font-weight:400; font-size:clamp(36px,3vw,50px); line-height:1; color:var(--blue); }
+.tuiles span { font-size:clamp(15px,1.05vw,17px); line-height:1.45; color:var(--body); }
+.tuiles > div.large span { font-size:clamp(16px,1.1vw,18px); }
+p.lecture { margin:clamp(14px,2.4vh,22px) 0 0; font-size:clamp(15.5px,1.05vw,17.5px); line-height:1.6; color:var(--body); }
+p.lecture b { color:var(--ink); font-weight:600; }
+/* le temps : deux moments */
+.temps { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.temps > div { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:clamp(18px,3vh,28px) clamp(20px,1.8vw,28px); }
+.temps > div.now { border-color:var(--blue); }
+.temps .lab { margin-bottom:10px; }
+.temps b { font-family:var(--serif); font-weight:400; font-size:clamp(40px,3.6vw,60px); line-height:1; color:var(--ink); display:block; }
+.temps > div.now b { color:var(--blue); }
+.temps span { display:block; margin-top:8px; font-size:clamp(15px,1.05vw,17px); color:var(--body); line-height:1.45; }
+ul.dedans { list-style:none; margin:clamp(14px,2.4vh,22px) 0 0; padding:0; display:grid; gap:8px; }
+ul.dedans li { position:relative; padding-left:22px; font-size:clamp(15.5px,1.05vw,17.5px); line-height:1.5; color:var(--body); }
+ul.dedans li::before { content:""; position:absolute; left:3px; top:.6em; width:8px; height:8px; border-radius:50%; background:var(--blue); }
+ul.dedans li b { color:var(--ink); font-weight:600; }
+/* le créneau : jours, heure, durée, agenda */
+.creneau .lab { margin-bottom:10px; }
+.creneau .bloc + .bloc { margin-top:clamp(14px,2.4vh,22px); }
+.jours { display:flex; gap:8px; flex-wrap:wrap; }
+.jours label { cursor:pointer; }
+.jours input { position:absolute; opacity:0; pointer-events:none; }
+.jours label span { display:inline-block; padding:9px 14px; border-radius:999px; border:1px solid var(--hair2); background:var(--card); font-size:15px; font-weight:600; color:var(--ink); line-height:1.2; }
+.jours label.on span { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.ligne-h { display:flex; gap:28px; flex-wrap:wrap; align-items:flex-end; }
+.ligne-h select { border:1px solid var(--hair2); border-radius:4px; background:var(--card); padding:9px 12px; font-size:17px; color:var(--ink); min-width:110px; }
+.duree { font-family:var(--serif); font-size:clamp(26px,2vw,34px); line-height:1; color:var(--blue); }
+.duree small { font-family:var(--font); font-size:14.5px; color:var(--meta); display:block; margin-top:6px; }
+.agenda { display:flex; gap:12px; flex-wrap:wrap; margin-top:clamp(14px,2.4vh,22px); }
+.agenda a { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border-radius:3px; padding:12px 20px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; }
+.agenda a:hover { background:#000; }
+.agenda a svg { width:18px; height:18px; display:block; }
+p.rempli { margin:12px 0 0; font-size:14px; color:var(--meta); line-height:1.5; }
+p.rempli b { color:var(--ink); font-weight:600; }
+/* le plan : la carte que le lecteur garde */
+.plan { display:grid; }
+.plan > div { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:baseline; padding:clamp(10px,1.8vh,16px) 0; border-top:1px solid var(--hair); }
+.plan > div:first-child { border-top:0; padding-top:0; } .plan > div:last-child { padding-bottom:0; }
+.plan .k { font-size:clamp(15.5px,1.05vw,17.5px); color:var(--body); }
+.plan .k small { display:block; font-size:13.5px; color:var(--meta); margin-top:2px; }
+.plan .v { font-family:var(--serif); font-size:clamp(24px,1.9vw,32px); line-height:1; color:var(--ink); text-align:right; white-space:nowrap; }
+.plan .v.b { color:var(--blue); }
+.plan .v small { font-family:var(--font); font-size:13.5px; color:var(--meta); display:block; margin-top:4px; }
+.pont .cadre.bleu p { margin:0 0 16px; font-size:clamp(16px,1.1vw,19px); line-height:1.6; color:var(--ink); }
+.pont .cadre.bleu p.m { font-family:var(--serif); font-size:clamp(23px,1.7vw,30px); line-height:1.3; }
+.pont .cadre.bleu .cta { margin-top:18px; } .pont .cadre.bleu .cta a.btn { font-size:16px; padding:12px 20px; white-space:nowrap; }
+@media (min-width: 901px) { .contenu { padding-top:clamp(100px,calc(11vh + 24px),140px); } }
+@media (max-width: 900px) {
+  body { overflow:auto; } .ecrans { height:auto; } .ecran { position:relative; display:none; } .ecran.actif { display:block; }
+  .entete { position:relative; top:0; }
+  .contenu, .contenu.deux { padding:28px 20px 60px; grid-template-columns:1fr; gap:28px; }
+  .heros h1 { font-size:38px; } h1 { font-size:30px; }
+  .tuiles, .temps { grid-template-columns:1fr; }
+  .entonnoir > div { grid-template-columns:72px 1fr; } .entonnoir em { grid-column:2; }
+}
+</style>
+<link rel="stylesheet" href="/assets/academy/entete.css">
+</head>
+<body><script src="/assets/fil-ressources.js"></script>
+<header class="entete"><div class="in">
+  <div class="logo">
+    <a class="nm" href="/academy" aria-label="growth academy"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</a>
+    <span class="par">présentée par <a class="mz" href="/" aria-label="mazeo">mazeo<i>.</i></a></span>
+  </div>
+  <div class="droite"><a class="lang" href="/en/academy" hreflang="en" aria-label="English" title="English"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
+  <div class="bar"><i id="bar"></i></div>
+</div></header>
+
+<div class="ecrans" id="ecrans">
+<!-- 1 · Ouverture -->
+<section class="ecran">
+  <div class="contenu deux heros">
+    <div>
+      <h1>Sur 60 leads contactés, <span>3 deviennent des rendez-vous.</span></h1>
+      <p class="lede2">Fixez le nombre de rendez-vous que vous voulez chaque mois. Nous calculons les leads à contacter et le temps que cela vous prend, puis nous bloquons votre créneau dans votre agenda.</p>
+      <div class="cta"><button type="button" data-suivant>Commencer</button><span class="note" style="font-size:15px;color:var(--meta)">Cinq minutes.</span></div>
+      <p class="source">Source&nbsp;: la séquence de prospection de mazeo, mesurée sur ses propres leads.</p>
+    </div>
+    <div class="cadre plan4">
+      <span class="lab">Vous repartez avec votre plan, en quatre nombres</span>
+      <ol class="quatre">
+        <li>Vos rendez-vous par mois</li>
+        <li>Les leads à garder dans votre Pipeline</li>
+        <li>Les leads à ajouter chaque semaine</li>
+        <li>Votre temps, et votre créneau</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 2 · La séquence -->
+<section class="ecran">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">Comment ça marche</p>
+      <h1>Un lead n'est pas contacté une fois, mais <span>cinq fois en deux semaines.</span></h1>
+      <p class="lede2">Une invitation LinkedIn, un message quand elle est acceptée, puis trois emails.</p>
+      <p class="th">Les réponses arrivent surtout aux relances, deux à trois semaines après le premier message. Prospecter, ce n'est donc pas envoyer un gros lot une fois&nbsp;: <b>c'est nourrir la séquence chaque semaine</b>, avec de nouveaux leads.</p>
+      <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: nos chiffres</button></div>
+      <p class="source">La séquence mazeo. Les délais sont ceux réglés dans l'outil, en jours ouvrés, depuis l'étape précédente.</p>
+    </div>
+    <div class="cadre">
+      <span class="lab">La séquence, étape par étape</span>
+      <ol class="sequence">
+        <li><i></i><div><em>Jour 1</em><b>Invitation LinkedIn</b><span>Sans message&nbsp;: elle se contente d'ouvrir la porte.</span></div></li>
+        <li><i></i><div><em>Dès qu'elle est acceptée</em><b>Message LinkedIn</b><span>Court&nbsp;: ce que vous faites, pour qui, et une question.</span></div></li>
+        <li class="mail"><i></i><div><em>2 jours après</em><b>Premier email</b><span>Votre message complet&nbsp;: le problème, la preuve, la proposition.</span></div></li>
+        <li class="mail"><i></i><div><em>3 jours après</em><b>Deuxième email</b><span>Une relance courte, avec un élément nouveau.</span></div></li>
+        <li class="mail"><i></i><div><em>5 jours après</em><b>Dernier email</b><span>La porte reste ouverte&nbsp;: la plupart des réponses arrivent ici.</span></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Nos chiffres -->
+<section class="ecran">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">Ce que nous constatons</p>
+      <h1>Sur 60 leads en séquence,<br><span>3 rendez-vous tenus et qualifiés.</span></h1>
+      <p class="lede2">7 répondent, 4 prennent rendez-vous, 3 viennent, et sont dans votre cible.</p>
+      <p class="th">Pour tenir trois rendez-vous par mois, votre Pipeline garde <b>60 leads en permanence</b>&nbsp;: chaque semaine, vous en ajoutez autant que la séquence en termine. Le premier mois, prévoyez <b>90</b>&nbsp;: les réponses tardent, et votre cible comme votre message se règlent encore.</p>
+      <div class="cta"><button type="button" data-suivant>À vous&nbsp;: votre objectif</button></div>
+      <p class="source">Source&nbsp;: la séquence mazeo, sur ses propres leads. Un rendez-vous qualifié&nbsp;: avec la bonne personne, dans une entreprise de votre cible.</p>
+    </div>
+    <div class="cadre">
+      <span class="lab">Sur 60 leads dans votre Pipeline</span>
+      <div class="entonnoir">
+        <div><b>60</b><span>leads en séquence</span><em></em></div>
+        <div><b>7</b><span>répondent</span><em>12&nbsp;%</em></div>
+        <div><b>4</b><span>prennent rendez-vous</span><em>6&nbsp;%</em></div>
+        <div class="but"><b>3</b><span>rendez-vous tenus et qualifiés</span><em>5&nbsp;%</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Votre objectif -->
+<section class="ecran">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">À vous · votre objectif</p>
+      <h1>Combien de rendez-vous <span>voulez-vous par mois&nbsp;?</span></h1>
+      <p class="lede2">Des rendez-vous tenus et qualifiés. Trois par mois est un bon objectif pour commencer&nbsp;: vous l'ajusterez après un mois, sur vos propres chiffres.</p>
+      <div class="compteur">
+        <button type="button" data-pm="-1" aria-label="Un rendez-vous de moins">−</button>
+        <input type="number" name="rdv" value="3" min="1" max="20" inputmode="numeric" aria-label="Rendez-vous par mois">
+        <button type="button" data-pm="1" aria-label="Un rendez-vous de plus">+</button>
+        <label>rendez-vous tenus et qualifiés, chaque mois</label>
+      </div>
+      <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre temps</button></div>
+    </div>
+    <div>
+      <span class="lab">Ce qu'il vous faut</span>
+      <div class="tuiles">
+        <div><b data-calc="pipe1">90</b><span>leads dans votre Pipeline le premier mois</span></div>
+        <div><b data-calc="pipe">60</b><span>leads ensuite, en permanence</span></div>
+        <div class="large"><b data-calc="semaine">15</b><span>nouveaux leads à ajouter chaque semaine (<span data-calc="semaine1">23</span> le premier mois)</span></div>
+      </div>
+      <p class="lecture">Sur <b data-calc="pipe">60</b> leads, <b data-calc="reponses">7</b> répondent, <b data-calc="pris">4</b> prennent rendez-vous, et <b data-calc="rdv">3</b> viennent&nbsp;: votre objectif.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Votre temps -->
+<section class="ecran">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">À vous · votre temps</p>
+      <h1>Comptez 10 minutes par semaine <span>par rendez-vous visé.</span></h1>
+      <p class="lede2">Une fois rodé. Le premier mois, comptez le double.</p>
+      <p class="th">Au début, c'est plus long&nbsp;: votre cible et votre message se règlent, et vous apprenez à répondre. Après un mois, le geste est pris, et la séquence fait le reste.</p>
+      <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre créneau</button></div>
+      <p class="source">Ordre de grandeur constaté chez les utilisateurs de mazeo, pour une séquence qui tourne.</p>
+    </div>
+    <div>
+      <span class="lab">Pour <span data-calc="rdv">3</span> rendez-vous par mois</span>
+      <div class="temps">
+        <div class="now"><span class="lab bleu">Le premier mois</span><b data-calc="temps1">1 h</b><span>par semaine</span></div>
+        <div><span class="lab">Ensuite</span><b data-calc="temps">30 min</b><span>par semaine</span></div>
+      </div>
+      <ul class="dedans">
+        <li><b>Ajouter vos nouveaux leads</b>&nbsp;: <span data-calc="semaine">15</span> par semaine, <span data-calc="semaine1">23</span> le premier mois.</li>
+        <li><b>Traiter ce que la séquence remonte</b>&nbsp;: les réponses, et les relances à valider.</li>
+        <li><b>Noter vos chiffres</b>&nbsp;: envoyés, réponses, rendez-vous. Une ligne par semaine.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Votre créneau -->
+<section class="ecran">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">À vous · votre créneau</p>
+      <h1>Un créneau fixe dans votre agenda&nbsp;: <span>c'est lui qui fait tenir le plan.</span></h1>
+      <p class="lede2">Décider à l'avance du jour et de l'heure d'une action la rend nettement plus probable.</p>
+      <p class="th">Choisissez vos jours et votre heure. Nous calculons la durée d'après votre temps du premier mois. <b>Au-delà d'une heure et demie, prenez deux créneaux</b> dans la semaine&nbsp;: ils tiennent mieux qu'un seul long.</p>
+      <div class="cta"><button type="button" data-suivant>Voir mon plan</button></div>
+      <p class="source">Source&nbsp;: Peter Gollwitzer et Paschal Sheeran, méta-analyse de 94 études, <i>Advances in Experimental Social Psychology</i> (2006).</p>
+    </div>
+    <div class="cadre creneau">
+      <div class="bloc">
+        <span class="lab">Vos jours</span>
+        <div class="jours" id="jours">
+          <label class="on"><input type="checkbox" value="MO" checked><span>Lundi</span></label>
+          <label><input type="checkbox" value="TU"><span>Mardi</span></label>
+          <label><input type="checkbox" value="WE"><span>Mercredi</span></label>
+          <label><input type="checkbox" value="TH"><span>Jeudi</span></label>
+          <label><input type="checkbox" value="FR"><span>Vendredi</span></label>
+        </div>
+      </div>
+      <div class="bloc ligne-h">
+        <div><span class="lab">Votre heure</span><select id="heure" aria-label="Heure de début"></select></div>
+        <div><span class="lab">Durée de chaque créneau</span><div class="duree"><span data-calc="dureeCreneau">1 h</span><small>le premier mois&nbsp;; <span data-calc="dureeCreneau2">30 min</span> ensuite</small></div></div>
+      </div>
+      <div class="agenda">
+        <a data-agenda="google" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Bloquer dans Google Agenda</a>
+        <a data-agenda="outlook" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Bloquer dans Outlook</a>
+      </div>
+      <p class="rempli">L'événement s'ouvre déjà rempli&nbsp;: <b data-creneau>lundi, 9 h – 10 h</b>, chaque semaine. Dans Outlook, choisissez «&nbsp;Répéter&nbsp;: chaque semaine&nbsp;» avant d'enregistrer.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · Votre plan -->
+<section class="ecran pont">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">Votre plan</p>
+      <h1><span data-calc="rdv">3</span> rendez-vous par mois. <span>Voici ce qu'il vous faut.</span></h1>
+      <div class="plan">
+        <div><span class="k">Rendez-vous tenus et qualifiés<small>chaque mois</small></span><span class="v b" data-calc="rdv">3</span></div>
+        <div><span class="k">Leads dans votre Pipeline<small>le premier mois, puis en permanence</small></span><span class="v"><span data-calc="pipe1">90</span> <small><span data-calc="pipe">60</span> ensuite</small></span></div>
+        <div><span class="k">Nouveaux leads à ajouter<small>chaque semaine</small></span><span class="v"><span data-calc="semaine1">23</span> <small><span data-calc="semaine">15</span> ensuite</small></span></div>
+        <div><span class="k">Votre temps<small>par semaine</small></span><span class="v"><span data-calc="temps1">1 h</span> <small><span data-calc="temps">30 min</span> ensuite</small></span></div>
+        <div><span class="k">Votre créneau<small>bloqué dans votre agenda</small></span><span class="v" style="font-size:clamp(19px,1.5vw,25px);white-space:normal" data-creneau>lundi, 9 h – 10 h</span></div>
+      </div>
+    </div>
+    <div class="cadre bleu">
+      <span class="lab bleu">Dans mazeo</span>
+      <p class="m">mazeo prépare la séquence et les tâches du jour. Vous tenez le créneau.</p>
+      <p>mazeo est un outil de prospection pour le secteur des études. Il trouve les entreprises et les personnes de votre cible, écrit vos messages et déroule la séquence. À chaque créneau, vous ajoutez vos leads et faites les tâches qu'il vous prépare.</p>
+      <div class="cta"><a class="btn" href="/demo">Voir mazeo en démo</a><a class="btn second" href="/academy">Toutes les fiches pratiques</a></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+(function () {
+  /* les écrans, comme les fiches 1 et 4 : ?e=N ouvre un écran, Retour du navigateur ramène au précédent */
+  var ecrans = Array.prototype.slice.call(document.querySelectorAll(".ecran")), n = -1;
+  function adresse(k) { var q = new URLSearchParams(location.search); q.set("e", k + 1); return location.pathname + "?" + q.toString(); }
+  function aller(k, mode) {
+    if (k < 0 || k >= ecrans.length) return;
+    if (mode !== "aucun" && k !== n) { try { history[mode === "remplacer" ? "replaceState" : "pushState"]({ e: k + 1 }, "", adresse(k)); } catch (x) {} }
+    n = k;
+    ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
+    ecrans[n].scrollTop = 0;
+    document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
+  }
+  document.querySelectorAll("[data-suivant]").forEach(function (b) { b.addEventListener("click", function () { aller(n + 1); }); });
+  document.addEventListener("keydown", function (ev) {
+    var t = ev.target; if (t && (t.tagName === "INPUT" || t.tagName === "SELECT" || t.tagName === "TEXTAREA")) return;
+    if (ev.key === "ArrowRight" || ev.key === "PageDown") aller(n + 1);
+    if (ev.key === "ArrowLeft" || ev.key === "PageUp") aller(n - 1);
+  });
+  aller(Math.max(0, (parseInt(new URLSearchParams(location.search).get("e"), 10) || 1) - 1), "remplacer");
+  window.addEventListener("popstate", function (ev) { aller(((ev.state && ev.state.e) || 1) - 1, "aucun"); });
+
+  /* le calcul : un nombre saisi, le reste en découle. Règles de Romain (15/10/2026), celles de l'Academy des clients :
+     Pipeline = rendez-vous × 20 ; premier mois = rendez-vous × 30 ; nouveaux leads par semaine = Pipeline ÷ 4 ;
+     7 répondent (12 %), 4 prennent rendez-vous (6 %), 3 tenus et qualifiés (5 %) sur 60 ;
+     temps = 10 minutes par semaine et par rendez-vous visé une fois rodé, le double le premier mois. */
+  var f = document.querySelector('[name="rdv"]'), heure = document.getElementById("heure"), jours = document.getElementById("jours");
+  var NOMS = { MO: "lundi", TU: "mardi", WE: "mercredi", TH: "jeudi", FR: "vendredi" }, IDX = { MO: 1, TU: 2, WE: 3, TH: 4, FR: 5 };
+  for (var h = 7; h <= 20; h++) { var o = document.createElement("option"); o.value = h; o.textContent = h + " h"; if (h === 9) o.selected = true; heure.appendChild(o); }
+  var pad = function (x) { return String(x).padStart(2, "0"); };
+  var arr5 = function (x) { return Math.round(x / 5) * 5; };
+  var arr15 = function (m) { return Math.max(30, Math.ceil(m / 15) * 15); };
+  var duree = function (m) { var hh = Math.floor(m / 60), r = m % 60; return hh ? (r ? hh + " h " + pad(r) : hh + " h") : m + " min"; };
+  var liste = function (t) { return t.length < 2 ? (t[0] || "") : t.slice(0, -1).join(", ") + " et " + t[t.length - 1]; };
+  var deuxProposes = false;
+  function coches() { return Array.prototype.filter.call(jours.querySelectorAll("input"), function (i) { return i.checked; }).map(function (i) { return i.value; }); }
+  function calc() {
+    var nb = parseInt(f.value, 10); if (!(nb >= 1)) nb = 1; if (nb > 20) nb = 20;
+    var pipe = nb * 20, pipe1 = arr5(nb * 30), temps = nb * 10, temps1 = nb * 20;
+    var codes = coches(), nbj = Math.max(1, codes.length);
+    var dc = arr15(temps1 / nbj), dc2 = arr15(temps / nbj);
+    var v = { rdv: nb, pipe: pipe, pipe1: pipe1, semaine: Math.round(pipe / 4), semaine1: Math.round(pipe1 / 4),
+              reponses: Math.round(pipe * 0.12), pris: Math.round(pipe * 0.06), temps: duree(temps), temps1: duree(temps1),
+              dureeCreneau: duree(dc), dureeCreneau2: duree(dc2) };
+    document.querySelectorAll("[data-calc]").forEach(function (el) { el.textContent = v[el.getAttribute("data-calc")]; });
+    var hd = parseInt(heure.value, 10) || 9, fin = new Date(2000, 0, 1, hd, dc);
+    var plage = hd + " h – " + fin.getHours() + " h" + (fin.getMinutes() ? " " + pad(fin.getMinutes()) : "");
+    var noms = codes.map(function (c) { return NOMS[c]; });
+    document.querySelectorAll("[data-creneau]").forEach(function (el) { el.textContent = noms.length ? liste(noms) + ", " + plage : "aucun jour choisi"; });
+    jours.querySelectorAll("label").forEach(function (l) { l.classList.toggle("on", l.querySelector("input").checked); });
+    /* le prochain créneau, puis la répétition hebdomadaire */
+    var d = new Date(); d.setHours(hd, 0, 0, 0);
+    for (var k = 0; k < 8 && codes.length && !(codes.some(function (c) { return IDX[c] === d.getDay(); }) && d > new Date()); k++) { d.setDate(d.getDate() + 1); d.setHours(hd, 0, 0, 0); }
+    var e = new Date(d.getTime() + dc * 60000);
+    var g = function (x) { return x.getFullYear() + pad(x.getMonth() + 1) + pad(x.getDate()) + "T" + pad(x.getHours()) + pad(x.getMinutes()) + "00"; };
+    var iso = function (x) { return x.getFullYear() + "-" + pad(x.getMonth() + 1) + "-" + pad(x.getDate()) + "T" + pad(x.getHours()) + ":" + pad(x.getMinutes()) + ":00"; };
+    var titre = "Prospection", details = "Ajouter mes nouveaux leads (" + v.semaine1 + " par semaine le premier mois, " + v.semaine + " ensuite), puis traiter les réponses et les relances. Objectif : " + nb + " rendez-vous par mois. Fiche : https://www.mazeo.co/votre-rythme";
+    var google = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(titre) + "&dates=" + g(d) + "/" + g(e)
+      + "&details=" + encodeURIComponent(details) + (codes.length ? "&recur=" + encodeURIComponent("RRULE:FREQ=WEEKLY;BYDAY=" + codes.join(",")) : "");
+    var outlook = "https://outlook.office.com/calendar/deeplink/compose?subject=" + encodeURIComponent(titre) + "&body=" + encodeURIComponent(details)
+      + "&startdt=" + encodeURIComponent(iso(d)) + "&enddt=" + encodeURIComponent(iso(e));
+    document.querySelectorAll('[data-agenda="google"]').forEach(function (a) { a.href = google; });
+    document.querySelectorAll('[data-agenda="outlook"]').forEach(function (a) { a.href = outlook; });
+  }
+  /* au-delà d'une heure et demie le premier mois, deux jours cochés d'office (lundi et jeudi) ; en dessous, un seul */
+  function ajusterJours() {
+    var nb = Math.min(20, Math.max(1, parseInt(f.value, 10) || 3)), deux = nb * 20 > 90;
+    if (deux === deuxProposes) return; deuxProposes = deux;
+    var inputs = jours.querySelectorAll("input");
+    inputs.forEach(function (i) { i.checked = i.value === "MO" || (deux && i.value === "TH"); });
+  }
+  document.querySelectorAll("[data-pm]").forEach(function (b) { b.addEventListener("click", function () {
+    f.value = Math.min(20, Math.max(1, (parseInt(f.value, 10) || 3) + parseInt(b.getAttribute("data-pm"), 10)));
+    ajusterJours(); calc();
+  }); });
+  f.addEventListener("input", function () { ajusterJours(); calc(); });
+  jours.addEventListener("change", calc); heure.addEventListener("change", calc);
+  calc();
+})();
+</script>
+<script>
+const ICONS = {
+  "in": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
+  wa: '<svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.9 9.88M20.47 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41"/></svg>',
+  x: '<svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>',
+  mail: '<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>',
+  link: '<svg viewBox="0 0 24 24"><path d="M3.9 12a3.1 3.1 0 0 1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7A3.1 3.1 0 0 1 3.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 1 1 0 6.2h-4V17h4a5 5 0 0 0 0-10z"/></svg>'
+};
+const FLAGS = {
+  en: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"></rect><path d="M0,0 30,20 M30,0 0,20" stroke="#fff" stroke-width="4"></path><path d="M0,0 30,20 M30,0 0,20" stroke="#C8102E" stroke-width="1.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#C8102E" stroke-width="4"></path></svg>'
+};
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  $("flag").innerHTML = FLAGS.en;
+  /* Partager : le même menu que les autres fiches */
+  var URL_PAGE = "https://www.mazeo.co/votre-rythme", TXT = "Sur 60 leads contactés, 3 deviennent des rendez-vous. Fixez votre objectif, et calculez vos leads, votre temps et votre créneau. Une fiche pratique de la growth academy, présentée par mazeo.";
+  var u = encodeURIComponent(URL_PAGE), tx = encodeURIComponent(TXT + " " + URL_PAGE);
+  var links = [["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u], ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
+    ["x", "X", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(TXT) + "&url=" + u], ["mail", "Email", "mailto:?subject=" + encodeURIComponent("Votre rythme de prospection, par mazeo") + "&body=" + tx]];
+  $("share-menu").innerHTML = links.map(function (l) { return '<a href="' + l[2] + '" target="_blank" rel="noopener"><i class="i-' + l[0] + '">' + ICONS[l[0]] + '</i>' + l[1] + '</a>'; }).join("") + '<button type="button" id="copy"><i class="i-link">' + ICONS.link + '</i><span>Copier le lien</span></button>';
+  $("copy").onclick = function (e) { var lab = e.currentTarget.lastChild; try { navigator.clipboard.writeText(URL_PAGE).then(function () { lab.textContent = "Lien copié"; }, function () { lab.textContent = URL_PAGE; }); } catch (x) { lab.textContent = URL_PAGE; } };
+  var btn = $("share"), menu = $("share-menu");
+  btn.onclick = function (e) { e.stopPropagation(); var open = menu.hidden; menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
+  document.addEventListener("click", function (e) { if (!e.target.closest(".share")) { menu.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
+})();
+</script>
+</body>
+</html>

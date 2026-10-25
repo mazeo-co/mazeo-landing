@@ -18,6 +18,8 @@
       accueil: ['/academy', '/en/academy'], sous: ['Fiche 4 : votre profil LinkedIn', 'Guide 4: your LinkedIn profile'] },
     { re: /^\/prise-de-rendez-vous$|^\/en\/booking-link$/, fam: ['prospecter', 'prospecting'], nom: ACADEMY,
       accueil: ['/academy', '/en/academy'], sous: ['Fiche 5 : votre lien de rendez-vous', 'Guide 5: your booking link'] },
+    { re: /^\/votre-rythme$/, fam: ['prospecter', 'prospecting'], nom: ACADEMY,
+      accueil: ['/academy', '/en/academy'], sous: ['Fiche 6 : votre rythme', 'Guide 6: your weekly rhythm'] },
     { re: /^\/village-des-etudes$|^\/en\/market-research-in-figures$/, fam: ['secteur', 'industry'],
       nom: ['Le Village des études', 'Le Village des études'] },
     { re: /^\/pitch-des-etudes$|^\/en\/market-research-positioning$/, fam: ['secteur', 'industry'],
