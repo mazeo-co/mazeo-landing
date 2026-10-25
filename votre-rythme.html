@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Combien de temps par semaine, pour vos rendez-vous du mois ? · fiche pratique 6 de la growth academy, présentée par mazeo</title>
-<meta name="description" content="Pour les clients de mazeo, et ceux qui le deviennent : fixez votre objectif de rendez-vous qualifiés par mois, et voyez les leads à garder dans votre Pipeline, le temps à bloquer chaque semaine, et votre créneau dans l'agenda. Fiche pratique 6 de la growth academy, présentée par mazeo.">
+<title>mazeo prospecte, vous répondez : calculez votre temps par semaine · fiche pratique 6 de la growth academy, présentée par mazeo</title>
+<meta name="description" content="Pour les clients de mazeo, et ceux qui le deviennent : fixez le nombre de rendez-vous que vous visez chaque mois, et voyez les leads à contacter, le temps à bloquer chaque semaine, et votre créneau dans l'agenda. Fiche pratique 6 de la growth academy, présentée par mazeo.">
 <link rel="canonical" href="https://www.mazeo.co/votre-rythme">
 <link rel="alternate" hreflang="fr" href="https://www.mazeo.co/votre-rythme">
 <link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/votre-rythme">
@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="mazeo">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://www.mazeo.co/votre-rythme">
-<meta property="og:title" content="Combien de temps par semaine, pour vos rendez-vous du mois ?">
+<meta property="og:title" content="mazeo prospecte, vous répondez : calculez votre temps par semaine.">
 <meta property="og:description" content="Fiche pratique 6 de la growth academy by mazeo : votre objectif de rendez-vous, les leads qu'il vous faut, le temps à bloquer chaque semaine, et votre créneau dans l'agenda. Cinq minutes.">
 <meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -167,7 +167,17 @@ p.rempli b { color:var(--ink); font-weight:600; }
 
 /* 26/10 : relecture de Romain. L'ouverture dit à quoi sert la fiche ; le schéma du Pipeline en trois objectifs ; une heure par créneau. */
 .heros .note { font-size:15px; color:var(--meta); }
-.contenu.seq { grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); align-items:start; }
+.contenu.seq { display:block; }
+.ecran .contenu.seq { padding-top:clamp(96px,calc(11vh + 20px),130px); padding-bottom:16px; }
+.seq-tete { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:40px; align-items:end; margin-bottom:clamp(12px,2vh,20px); }
+.seq-tete h1 { font-size:clamp(28px,2.3vw,38px); margin-bottom:10px; }
+.seq-tete .lede2 { font-size:clamp(17px,1.2vw,20px); margin:0; max-width:none; }
+.seq-tete .sur { margin-bottom:10px; }
+.seq-droite { display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+.seq-droite .objs { margin:0; width:max-content; max-width:100%; }
+.seq-droite .objs button { font-size:13px; padding:6px 10px; }
+.seq-droite .cta { margin:0; justify-content:flex-end; }
+.seq-droite .cta .note { font-size:13px; color:var(--meta); max-width:22em; text-align:right; }
 .schema { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:clamp(12px,1.6vh,18px) clamp(18px,1.8vw,24px) clamp(10px,1.4vh,16px); }
 .ecran .contenu.seq { padding-top:clamp(96px,calc(11vh + 20px),130px); }
 .objs { display:flex; gap:6px; padding:4px; background:var(--paper); border:1px solid var(--hair); border-radius:999px; margin:0 0 clamp(8px,1.2vh,14px); }
@@ -212,6 +222,15 @@ p.rempli b { color:var(--ink); font-weight:600; }
 .lignes-c p.vide { margin:8px 0 0; font-size:14.5px; color:var(--meta); }
 .plan .v.petit { font-size:clamp(16px,1.2vw,20px); white-space:normal; max-width:17em; line-height:1.35; }
 @media (max-width:900px) { .lc { grid-template-columns:1fr 1fr; } .lc .ag { grid-column:1 / -1; } .objs button { font-size:12px; padding:6px 6px; } }
+
+/* 26/10 soir : l'arbre de décision de l'app dans un cadre zoomable (comme « Pourquoi cette séquence ? ») ; titres dynamiques */
+.arbre { position:relative; border:1px solid var(--hair2); border-radius:10px; overflow:hidden; background:#F6F7FA; height:clamp(300px,calc(100vh - var(--fil-h,0px) - 318px),640px); }
+.arbre iframe { display:block; width:100%; height:100%; border:0; background:#F6F7FA; }
+.arbre .zoom { position:absolute; right:12px; bottom:12px; display:flex; flex-direction:column; gap:6px; }
+.arbre .zoom button { width:34px; height:34px; border-radius:8px; border:1px solid var(--hair2); background:var(--card); color:var(--ink); font-size:20px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+.arbre .zoom button:hover { background:var(--paper); }
+h1 span.noir { font-style:normal; color:var(--ink); }
+.entonnoir > div { grid-template-columns:96px 1fr; }
 </style>
 <link rel="stylesheet" href="/assets/academy/entete.css">
 </head>
@@ -226,108 +245,71 @@ p.rempli b { color:var(--ink); font-weight:600; }
 </div></header>
 
 <div class="ecrans" id="ecrans">
-<!-- 1 · Ouverture : à quoi sert la fiche -->
+<!-- 1 · Ouverture -->
 <section class="ecran">
   <div class="contenu deux heros">
     <div>
       <p class="sur">Pour les clients de mazeo, et ceux qui le deviennent</p>
-      <h1>Combien de temps par semaine, <span>pour vos rendez-vous du mois&nbsp;?</span></h1>
-      <p class="lede2">Fixez votre objectif de rendez-vous qualifiés par mois. Cette fiche calcule le temps à bloquer dans votre agenda chaque semaine pour le tenir.</p>
-      <p class="th">mazeo fait le gros du travail. Mais il reste une chose qui dépend de vous&nbsp;: <b>la régularité</b>. Un créneau par semaine, toujours le même, pour nourrir votre Pipeline et répondre à ceux qui répondent.</p>
-      <div class="cta"><button type="button" data-suivant>Commencer</button><span class="note">Cinq minutes.</span></div>
+      <h1>mazeo prospecte, vous répondez&nbsp;: <span>calculez votre temps par semaine.</span></h1>
+      <p class="lede2">mazeo fait l'essentiel de la prospection. Il vous reste à répondre à ceux qui répondent, et à garder une liste de contacts de qualité.</p>
+      <p class="th">Cette page calcule ce temps, selon le nombre de rendez-vous que vous visez chaque mois.</p>
+      <div class="cta"><button type="button" data-suivant>Commencer</button><span class="note">5 minutes.</span></div>
     </div>
     <div class="cadre plan4">
       <span class="lab">Ce que mazeo fait pour vous</span>
       <ol class="quatre">
-        <li>Trouve les nouveaux leads qui correspondent à ce que vous vendez</li>
-        <li>Repère le bon moment pour les contacter</li>
-        <li>Trouve la bonne personne dans l'entreprise</li>
-        <li>Simplifie tout, du premier contact jusqu'au rendez-vous</li>
+        <li>Trouver les entreprises qui ont besoin de ce que vous vendez</li>
+        <li>Trouver la bonne personne dans ces entreprises</li>
+        <li>Vous dire quand les contacter</li>
+        <li>Préparer vos messages et vos relances, du premier contact jusqu'au rendez-vous</li>
       </ol>
     </div>
   </div>
 </section>
 
-<!-- 2 · La séquence : le schéma du Pipeline, en trois objectifs -->
+<!-- 2 · La séquence : l'arbre de décision de l'app, en pleine largeur -->
 <section class="ecran">
-  <div class="contenu deux seq">
-    <div>
-      <p class="sur">Comment ça marche</p>
-      <h1>La prospection demande du suivi&nbsp;: <span>toujours avoir des leads dans le pipe.</span></h1>
-      <p class="lede2">Chaque lead ajouté à votre Pipeline suit une séquence&nbsp;: des messages LinkedIn et des emails, espacés de quelques jours, jusqu'à la réponse, puis jusqu'au rendez-vous.</p>
-      <p class="th">mazeo déroule la séquence et vous dit quoi faire chaque jour. Votre part&nbsp;: <b>ajouter de nouveaux leads chaque semaine</b>, pour que le pipe ne se vide jamais, et répondre quand quelqu'un répond.</p>
-      <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: nos chiffres</button></div>
-      <p class="source">Le schéma complet est dans mazeo&nbsp;: Pipeline, «&nbsp;Pourquoi cette séquence&nbsp;?&nbsp;». Délais en jours ouvrés, au rythme Normal.</p>
+  <div class="contenu seq">
+    <div class="seq-tete">
+      <div>
+        <p class="sur">Comment ça marche</p>
+        <h1>mazeo prépare chaque message et chaque relance. <span>Vous validez.</span></h1>
+        <p class="lede2">Le parcours d'une personne que vous ajoutez dans mazeo, de l'invitation LinkedIn jusqu'au rendez-vous. Dès qu'elle répond, mazeo passe à l'étape suivante.</p>
+      </div>
+      <div class="seq-droite">
+        <div class="objs" role="tablist" aria-label="Les trois objectifs de la séquence">
+          <button type="button" role="tab" class="on" data-obj="1" aria-selected="true"><span class="n">1</span>Obtenir une réponse</button>
+          <button type="button" role="tab" data-obj="2" aria-selected="false"><span class="n">2</span>Obtenir un rendez-vous</button>
+          <button type="button" role="tab" data-obj="3" aria-selected="false"><span class="n">3</span>En faire un client</button>
+        </div>
+        <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: nos résultats</button><span class="note">Le même schéma que dans l'outil mazeo. Délais en jours ouvrés.</span></div>
+      </div>
     </div>
-    <div class="schema">
-      <div class="objs" role="tablist" aria-label="Les trois objectifs de la séquence">
-        <button type="button" role="tab" class="on" data-obj="1" aria-selected="true"><span class="n">1</span>Obtenir une réponse</button>
-        <button type="button" role="tab" data-obj="2" aria-selected="false"><span class="n">2</span>Obtenir un rendez-vous</button>
-        <button type="button" role="tab" data-obj="3" aria-selected="false"><span class="n">3</span>En faire un client</button>
-      </div>
-      <div class="flux" data-flux="1">
-        <p class="att debut">Dès qu'un lead est ajouté au Pipeline <span class="ou">depuis une fiche, une liste ou «&nbsp;Contacts pour vous&nbsp;» ; rien ne part sans votre accord</span></p>
-        <div class="etape"><i class="ic li"></i><div><b>Visite du profil <em class="qui m">mazeo</em></b><span>Votre nom apparaît dans ses notifications.</span></div></div>
-        <p class="att">Attendre <b>1 jour ouvré</b></p>
-        <div class="etape"><i class="ic li"></i><div><b>Invitation LinkedIn <em class="qui m">mazeo</em></b><span>Sans note, depuis votre compte.</span></div></div>
-        <p class="att">Dès qu'elle est acceptée <span class="ou">sinon, le premier message part par email</span></p>
-        <div class="etape"><i class="ic li"></i><div><b>Premier message LinkedIn <em class="qui v">vous</em></b><span>Court. mazeo rédige, vous validez.</span></div></div>
-        <p class="att">Attendre <b>2 jours ouvrés</b></p>
-        <div class="etape"><i class="ic dual"></i><div><b>Message 2, sur l'autre canal <em class="qui v">vous</em></b><span>Email si le premier est parti sur LinkedIn.</span></div></div>
-        <p class="att">Attendre <b>3 jours ouvrés</b></p>
-        <div class="etape"><i class="ic dual"></i><div><b>Relance <em class="qui v">vous</em></b><span>La plupart des réponses arrivent ici.</span></div></div>
-        <p class="att">Attendre <b>5 jours ouvrés</b></p>
-        <div class="etape"><i class="ic dual"></i><div><b>Dernier message <em class="qui v">vous</em></b><span>Dire qu'on s'arrête déclenche souvent une réponse.</span></div></div>
-      </div>
-      <div class="flux" data-flux="2" hidden>
-        <p class="att">Tout de suite, sur le canal de sa réponse</p>
-        <div class="etape"><i class="ic dual"></i><div><b>Proposer un rendez-vous <em class="qui v">vous</em></b><span>Votre lien d'agenda, ou trois créneaux dans les dix jours.</span></div></div>
-        <p class="att">Attendre <b>3 jours ouvrés</b></p>
-        <div class="etape"><i class="ic dual"></i><div><b>Relancer dans le même fil <em class="qui v">vous</em></b><span>Un rappel court&nbsp;: votre nom est déjà connu.</span></div></div>
-        <p class="att">Attendre <b>3 jours ouvrés</b></p>
-        <div class="etape"><i class="ic dual"></i><div><b>Essayer l'autre canal <em class="qui v">vous</em></b><span>Email si votre proposition est partie sur LinkedIn, et inversement.</span></div></div>
-        <p class="att">Attendre <b>2 jours ouvrés</b></p>
-        <div class="etape"><i class="ic tel"></i><div><b>L'appeler <em class="qui v">vous</em></b><span>mazeo prépare la fiche d'appel.</span></div></div>
-        <p class="att">Attendre <b>4 jours ouvrés</b></p>
-        <div class="etape"><i class="ic dual"></i><div><b>Dernier message <em class="qui v">vous</em></b><span>Une date est plus facile à donner qu'un oui.</span></div></div>
-        <p class="att fin">Rendez-vous pris&nbsp;? <b>→ objectif 3</b>. Sinon&nbsp;: en pause, ou perdu.</p>
-      </div>
-      <div class="flux" data-flux="3" hidden>
-        <p class="att">Dès que le rendez-vous est pris</p>
-        <div class="etape"><i class="ic neu"></i><div><b>Fiche de préparation <em class="qui m">mazeo</em></b><span>Entreprise, contact, signaux, questions à poser.</span></div></div>
-        <p class="att">La veille</p>
-        <div class="etape"><i class="ic dual"></i><div><b>Confirmer le rendez-vous <em class="qui v">vous</em></b><span>Réduit fortement les absences.</span></div></div>
-        <p class="att">Le jour J</p>
-        <div class="etape"><i class="ic neu"></i><div><b>Le rendez-vous a lieu</b><span>Hors mazeo.</span></div></div>
-        <p class="att">Le jour même</p>
-        <div class="etape"><i class="ic dual"></i><div><b>Mot de remerciement <em class="qui v">vous</em></b><span>Vous restez présent pendant que le contact décide.</span></div></div>
-        <p class="att">Attendre <b>2 jours ouvrés</b></p>
-        <div class="etape"><i class="ic neu"></i><div><b>Dire comment s'est passé le rendez-vous <em class="qui v">vous</em></b><span>Deux lignes, puis l'issue&nbsp;: mazeo ne peut pas le savoir seul.</span></div></div>
-        <p class="att fin">Issue&nbsp;: <b>devenu client</b>, toujours en discussion, ou sans suite.</p>
-      </div>
+    <div class="arbre" id="arbre">
+      <iframe id="arbre-cadre" title="La séquence mazeo, objectif par objectif" src="about:blank" loading="eager"></iframe>
+      <div class="zoom"><button type="button" data-z="1" aria-label="Agrandir">+</button><button type="button" data-z="-1" aria-label="Réduire">−</button></div>
     </div>
   </div>
 </section>
 
-<!-- 3 · Ce que nous constatons : 20 leads pour un rendez-vous -->
+<!-- 3 · Nos résultats -->
 <section class="ecran">
   <div class="contenu deux">
     <div>
-      <p class="sur">Ce que nous constatons</p>
-      <h1>Comptez 20 leads en séquence <span>pour un rendez-vous tenu et qualifié.</span></h1>
-      <p class="lede2">Sur 100 leads&nbsp;: 12 répondent, 6 prennent rendez-vous, 5 viennent et sont dans votre cible. Vous voulez plus de rendez-vous&nbsp;? Il faut plus de leads&nbsp;: le reste ne change pas.</p>
-      <p class="th">Un lead reste environ <b>un mois en séquence</b>&nbsp;: deux semaines de messages, puis le temps que les réponses arrivent. Votre Pipeline doit donc toujours contenir les leads du mois en cours, et vous en ajoutez chaque semaine pour remplacer ceux qui en sortent.</p>
+      <p class="sur">Nos résultats</p>
+      <h1>Il faut contacter 20 personnes <span>pour obtenir un rendez-vous.</span></h1>
+      <p class="lede2">Ce sont les résultats de mazeo sur sa propre prospection. Un rendez-vous compte quand il a lieu, avec la bonne personne, dans une entreprise de la cible.</p>
+      <p class="th"><b>Toute la suite part de ce chiffre.</b></p>
       <div class="cta"><button type="button" data-suivant>À vous&nbsp;: votre objectif</button></div>
-      <p class="source">Les taux de la séquence mazeo, sur ses propres leads. Un rendez-vous qualifié&nbsp;: avec la bonne personne, dans une entreprise de votre cible.</p>
-    </div>
-    <div class="cadre">
-      <span class="lab">Sur 100 leads en séquence</span>
-      <div class="entonnoir">
-        <div><b>12</b><span>répondent</span><em>12&nbsp;%</em></div>
-        <div><b>6</b><span>prennent rendez-vous</span><em>6&nbsp;%</em></div>
-        <div class="but"><b>5</b><span>rendez-vous tenus et qualifiés</span><em>5&nbsp;%</em></div>
       </div>
-      <p class="regle">Soit <b>1 rendez-vous pour 20 leads</b>.</p>
+    <div class="cadre">
+      <span class="lab">Sur 100 personnes contactées</span>
+      <div class="entonnoir">
+        <div><b>100</b><span>contactées</span><em></em></div>
+        <div><b>12</b><span>répondent</span><em></em></div>
+        <div><b>6</b><span>acceptent un rendez-vous</span><em></em></div>
+        <div class="but"><b>5</b><span>viennent au rendez-vous</span><em></em></div>
+      </div>
     </div>
   </div>
 </section>
@@ -338,21 +320,21 @@ p.rempli b { color:var(--ink); font-weight:600; }
     <div>
       <p class="sur">À vous · votre objectif</p>
       <h1>Combien de rendez-vous <span>voulez-vous par mois&nbsp;?</span></h1>
-      <p class="lede2">Des rendez-vous tenus et qualifiés. Trois par mois est un bon objectif pour commencer&nbsp;: vous l'ajusterez après un mois, sur vos propres chiffres.</p>
+      <p class="lede2">Commencez par trois par mois. Après un mois, vous ajusterez selon vos propres chiffres.</p>
       <div class="compteur">
         <button type="button" data-pm="-1" aria-label="Un rendez-vous de moins">−</button>
         <input type="number" name="rdv" value="3" min="1" max="20" inputmode="numeric" aria-label="Rendez-vous par mois">
         <button type="button" data-pm="1" aria-label="Un rendez-vous de plus">+</button>
-        <label>rendez-vous tenus et qualifiés, chaque mois</label>
+        <label>rendez-vous par mois</label>
       </div>
       <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre temps</button></div>
     </div>
     <div>
       <span class="lab">Ce qu'il vous faut</span>
       <div class="tuiles lignes">
-        <div><b data-calc="pipe">60</b><div><span class="t">leads dans votre Pipeline, en permanence</span><span class="p"><span data-calc="rdv">3</span> rendez-vous × 20 leads.</span></div></div>
-        <div><b data-calc="pipe1">90</b><div><span class="t">leads le premier mois</span><span class="p">La moitié de plus&nbsp;: la séquence met deux à trois semaines à donner ses premiers rendez-vous, et vous affinez encore votre cible et vos messages.</span></div></div>
-        <div><b data-calc="semaine">15</b><div><span class="t">nouveaux leads à ajouter chaque semaine, <span data-calc="semaine1">23</span> le premier mois</span><span class="p">Un lead reste un mois en séquence&nbsp;: chaque semaine, vous remplacez un quart du Pipeline.</span></div></div>
+        <div><b data-calc="pipe">60</b><div><span class="t">leads à contacter chaque mois</span><span class="p"><span data-calc="rdv">3</span> rendez-vous × 20 personnes. mazeo vous les propose, vous les ajoutez.</span></div></div>
+        <div><b data-calc="semaine">15</b><div><span class="t">nouveaux leads à ajouter par semaine</span><span class="p"><span data-calc="pipe">60</span> ÷ 4 semaines.</span></div></div>
+        <div><b data-calc="pipe1">90</b><div><span class="t">le premier mois, soit <span data-calc="semaine1">23</span> par semaine</span><span class="p">Le premier mois, vous affinez votre cible et vos messages. Et les premières réponses mettent deux à trois semaines à venir.</span></div></div>
       </div>
     </div>
   </div>
@@ -363,11 +345,11 @@ p.rempli b { color:var(--ink); font-weight:600; }
   <div class="contenu deux">
     <div>
       <p class="sur">À vous · votre temps</p>
-      <h1>Comptez 10 minutes par semaine <span>par rendez-vous visé.</span></h1>
-      <p class="lede2">Une fois la séquence lancée. Le premier mois, comptez le double.</p>
-      <p class="th">Au début, c'est plus long&nbsp;: il faut <b>affiner votre ciblage et vos messages</b>, puis apprendre à répondre. Après un mois, la séquence tourne, et le temps se réduit de moitié.</p>
+      <h1><span data-calc="rdv" class="noir">3</span> rendez-vous par mois vous demandent <span><span data-calc="temps">30 min</span> par semaine.</span></h1>
+      <p class="lede2">Le premier mois, comptez <span data-calc="temps1">1 h</span>&nbsp;: le temps d'ajuster vos messages et de prendre vos habitudes.</p>
+      <p class="th">Ce temps sert à trois choses&nbsp;: ajouter vos nouveaux leads, valider les messages préparés par mazeo, répondre à ceux qui vous répondent.</p>
       <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre créneau</button></div>
-      <p class="source">Ordre de grandeur constaté chez les utilisateurs de mazeo.</p>
+      <p class="source">Règle&nbsp;: 10 minutes par semaine et par rendez-vous visé, le double le premier mois. Ordre de grandeur constaté chez les utilisateurs de mazeo.</p>
     </div>
     <div>
       <span class="lab">Pour <span data-calc="rdv">3</span> rendez-vous par mois</span>
@@ -375,11 +357,6 @@ p.rempli b { color:var(--ink); font-weight:600; }
         <div class="now"><span class="lab bleu">Le premier mois</span><b data-calc="temps1">1 h</b><span>par semaine</span></div>
         <div><span class="lab">Ensuite</span><b data-calc="temps">30 min</b><span>par semaine</span></div>
       </div>
-      <ul class="dedans">
-        <li><b>Ajouter vos nouveaux leads</b>&nbsp;: <span data-calc="semaine">15</span> par semaine, <span data-calc="semaine1">23</span> le premier mois.</li>
-        <li><b>Répondre</b> à ceux qui répondent, et valider les messages que mazeo prépare.</li>
-        <li><b>Le premier mois</b>&nbsp;: affiner votre cible et vos messages, d'après les premières réponses.</li>
-      </ul>
     </div>
   </div>
 </section>
@@ -389,9 +366,9 @@ p.rempli b { color:var(--ink); font-weight:600; }
   <div class="contenu deux">
     <div>
       <p class="sur">À vous · votre créneau</p>
-      <h1>Bloquez le créneau dans votre agenda&nbsp;: <span>un plan daté se tient.</span></h1>
-      <p class="lede2">Des étudiants devaient écrire, dans les deux jours après Noël, un compte rendu de leur soirée. Ceux qui avaient fixé à l'avance le jour, l'heure et le lieu l'ont fait à <b>71&nbsp;%</b>&nbsp;; les autres, à <b>32&nbsp;%</b>.</p>
-      <p class="th">Choisissez vos jours et votre heure. La durée vient de votre temps du premier mois. <b>Au-delà d'une heure et demie, prenez deux créneaux</b> dans la semaine, chacun à son heure.</p>
+      <h1>Bloquez votre créneau dans l'agenda&nbsp;: <span>ce qui est daté se fait.</span></h1>
+      <p class="lede2">Des étudiants devaient écrire un compte rendu de leur soirée de Noël dans les deux jours. Ceux qui avaient fixé à l'avance le jour, l'heure et le lieu l'ont rendu à <b>71&nbsp;%</b>, contre <b>32&nbsp;%</b> pour les autres.</p>
+      <p class="th">Choisissez vos jours et votre heure, la durée est calculée pour vous. <b>Au-delà d'une heure et demie par semaine, répartissez-la sur deux créneaux</b>, chacun à son heure.</p>
       <div class="cta"><button type="button" data-suivant>Voir mon plan</button></div>
       <p class="source">Sources&nbsp;: Peter Gollwitzer et Veronika Brandstätter, <i>Journal of Personality and Social Psychology</i> (1997)&nbsp;; confirmé par une méta-analyse de 94 études, Gollwitzer et Sheeran, <i>Advances in Experimental Social Psychology</i> (2006).</p>
     </div>
@@ -410,7 +387,7 @@ p.rempli b { color:var(--ink); font-weight:600; }
         <p class="dl">Chaque créneau&nbsp;: <b data-calc="dureeCreneau">1 h</b> le premier mois, <b data-calc="dureeCreneau2">30 min</b> ensuite.</p>
         <div class="lignes-c" id="lignes-c"></div>
       </div>
-      <p class="rempli">Chaque bouton ouvre l'événement déjà rempli, à répéter chaque semaine. Dans Outlook, choisissez «&nbsp;Répéter&nbsp;: chaque semaine&nbsp;» avant d'enregistrer.</p>
+      <p class="rempli">Un clic ajoute le créneau à votre agenda, chaque semaine. Dans Outlook, choisissez «&nbsp;Répéter&nbsp;: chaque semaine&nbsp;» avant d'enregistrer.</p>
     </div>
   </div>
 </section>
@@ -420,19 +397,19 @@ p.rempli b { color:var(--ink); font-weight:600; }
   <div class="contenu deux">
     <div>
       <p class="sur">Votre plan</p>
-      <h1><span data-calc="rdv">3</span> rendez-vous par mois. <span>Voici ce qu'il vous faut.</span></h1>
+      <h1>Votre plan pour <span><span data-calc="rdv">3</span> rendez-vous par mois.</span></h1>
       <div class="plan">
-        <div><span class="k">Rendez-vous tenus et qualifiés<small>chaque mois</small></span><span class="v b" data-calc="rdv">3</span></div>
-        <div><span class="k">Leads dans votre Pipeline<small>le premier mois, puis en permanence</small></span><span class="v"><span data-calc="pipe1">90</span> <small><span data-calc="pipe">60</span> ensuite</small></span></div>
-        <div><span class="k">Nouveaux leads à ajouter<small>chaque semaine</small></span><span class="v"><span data-calc="semaine1">23</span> <small><span data-calc="semaine">15</span> ensuite</small></span></div>
+        <div><span class="k">Rendez-vous<small>chaque mois</small></span><span class="v b" data-calc="rdv">3</span></div>
+        <div><span class="k">Leads à contacter<small>le premier mois, puis chaque mois</small></span><span class="v"><span data-calc="pipe1">90</span> <small><span data-calc="pipe">60</span> ensuite</small></span></div>
+        <div><span class="k">Nouveaux leads<small>chaque semaine</small></span><span class="v"><span data-calc="semaine1">23</span> <small><span data-calc="semaine">15</span> ensuite</small></span></div>
         <div><span class="k">Votre temps<small>par semaine</small></span><span class="v"><span data-calc="temps1">1 h</span> <small><span data-calc="temps">30 min</span> ensuite</small></span></div>
         <div><span class="k">Vos créneaux<small>bloqués dans votre agenda</small></span><span class="v petit" data-creneau>lundi, 9 h – 10 h</span></div>
       </div>
     </div>
     <div class="cadre bleu">
       <span class="lab bleu">Dans mazeo</span>
-      <p class="m">mazeo prépare la séquence et les tâches du jour. Vous tenez le créneau.</p>
-      <p>mazeo est un outil de prospection pour le secteur des études. Il trouve les entreprises et les personnes de votre cible, écrit vos messages et déroule la séquence. À chaque créneau, vous ajoutez vos leads et faites les tâches qu'il vous prépare.</p>
+      <p class="m">mazeo prépare le travail. Vous tenez le créneau.</p>
+      <p>mazeo trouve les entreprises et les personnes de votre cible, écrit vos messages et prépare vos tâches du jour. À chaque créneau, vous ajoutez vos leads et faites ces tâches.</p>
       <div class="cta"><a class="btn" href="/demo">Voir mazeo en démo</a><a class="btn second" href="/academy">Toutes les fiches pratiques</a></div>
     </div>
   </div>
@@ -451,6 +428,7 @@ p.rempli b { color:var(--ink); font-weight:600; }
     ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
     ecrans[n].scrollTop = 0;
     document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
+    if (n === 1) majArbre();
   }
   document.querySelectorAll("[data-suivant]").forEach(function (b) { b.addEventListener("click", function () { aller(n + 1); }); });
   document.addEventListener("keydown", function (ev) {
@@ -458,20 +436,32 @@ p.rempli b { color:var(--ink); font-weight:600; }
     if (ev.key === "ArrowRight" || ev.key === "PageDown") aller(n + 1);
     if (ev.key === "ArrowLeft" || ev.key === "PageUp") aller(n - 1);
   });
+
+  /* écran 2 : l'arbre de décision de l'app (assets/academy/sequence-mazeo.html), un objectif à la fois, zoom + / − comme dans mazeo.
+     L'objectif 1 a deux branches (deux colonnes de 460 px) : il se cale sur 1 000 px ; les objectifs 2 et 3 sur une colonne, 560 px. */
+  var arbre = document.getElementById("arbre"), cadre = document.getElementById("arbre-cadre"), obj = "1", facteur = 1, PAS = 1.15;
+  function majArbre() {
+    var w = arbre.clientWidth || 600, base = obj === "1" ? 1000 : 560;
+    var z = Math.min(1, w / base) * facteur;
+    var src = "/assets/academy/sequence-mazeo.html?obj=" + obj + "&z=" + z.toFixed(3);
+    if (cadre.getAttribute("src") !== src) cadre.setAttribute("src", src);
+  }
+  document.querySelectorAll(".objs button").forEach(function (b) { b.addEventListener("click", function () {
+    obj = b.getAttribute("data-obj"); facteur = 1;
+    document.querySelectorAll(".objs button").forEach(function (x) { var on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-selected", String(on)); });
+    majArbre();
+  }); });
+  document.querySelectorAll(".zoom button").forEach(function (b) { b.addEventListener("click", function () {
+    facteur = Math.max(0.6, Math.min(2.2, facteur * (b.getAttribute("data-z") === "1" ? PAS : 1 / PAS))); majArbre();
+  }); });
+  window.addEventListener("resize", function () { if (n === 1) majArbre(); });
+
   aller(Math.max(0, (parseInt(new URLSearchParams(location.search).get("e"), 10) || 1) - 1), "remplacer");
   window.addEventListener("popstate", function (ev) { aller(((ev.state && ev.state.e) || 1) - 1, "aucun"); });
 
-  /* écran 2 : les trois objectifs du schéma, un à la fois */
-  document.querySelectorAll(".objs button").forEach(function (b) { b.addEventListener("click", function () {
-    var o = b.getAttribute("data-obj");
-    document.querySelectorAll(".objs button").forEach(function (x) { var on = x === b; x.classList.toggle("on", on); x.setAttribute("aria-selected", String(on)); });
-    document.querySelectorAll(".flux").forEach(function (f) { f.hidden = f.getAttribute("data-flux") !== o; });
-  }); });
-
   /* le calcul : un nombre saisi, le reste en découle. Règles de Romain (15/10/2026), celles de l'Academy des clients :
-     Pipeline = rendez-vous × 20 ; premier mois = rendez-vous × 30 ; nouveaux leads par semaine = Pipeline ÷ 4 ;
-     12 répondent, 6 prennent rendez-vous, 5 tenus et qualifiés sur 100 ;
-     temps = 10 minutes par semaine et par rendez-vous visé une fois la séquence lancée, le double le premier mois. */
+     à contacter chaque mois = rendez-vous × 20 ; premier mois = rendez-vous × 30 ; par semaine = ÷ 4 ;
+     12 répondent, 6 acceptent, 5 viennent sur 100 ; temps = 10 minutes par semaine et par rendez-vous visé, le double le premier mois. */
   var f = document.querySelector('[name="rdv"]'), jours = document.getElementById("jours"), lignesC = document.getElementById("lignes-c");
   var NOMS = { MO: "lundi", TU: "mardi", WE: "mercredi", TH: "jeudi", FR: "vendredi" }, IDX = { MO: 1, TU: 2, WE: 3, TH: 4, FR: 5 };
   var heures = { MO: 9, TU: 9, WE: 9, TH: 9, FR: 9 };   // une heure par jour choisi
@@ -530,6 +520,7 @@ p.rempli b { color:var(--ink); font-weight:600; }
 })();
 </script>
 
+
 <script>
 const ICONS = {
   "in": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
@@ -545,7 +536,7 @@ const FLAGS = {
   var $ = function (id) { return document.getElementById(id); };
   $("flag").innerHTML = FLAGS.en;
   /* Partager : le même menu que les autres fiches */
-  var URL_PAGE = "https://www.mazeo.co/votre-rythme", TXT = "Combien de temps par semaine, pour vos rendez-vous du mois ? Fixez votre objectif, et voyez vos leads, votre temps et votre créneau. Une fiche pratique de la growth academy, présentée par mazeo.";
+  var URL_PAGE = "https://www.mazeo.co/votre-rythme", TXT = "mazeo prospecte, vous répondez : calculez votre temps par semaine. Une fiche pratique de la growth academy, présentée par mazeo.";
   var u = encodeURIComponent(URL_PAGE), tx = encodeURIComponent(TXT + " " + URL_PAGE);
   var links = [["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u], ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
     ["x", "X", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(TXT) + "&url=" + u], ["mail", "Email", "mailto:?subject=" + encodeURIComponent("Votre rythme de prospection, par mazeo") + "&body=" + tx]];
