@@ -444,6 +444,31 @@ p.rappel { margin-top:6px; }
 ul.coches label { padding:clamp(4px,0.6vh,8px) 0; }
 .avous2 h1 { font-size:clamp(32px,3vw,46px); }
 p.test-final { font-size:clamp(14.5px,1.02vw,16.5px); line-height:1.45; }
+/* 26/10 (2) : Romain veut de l'air sur les deux derniers écrans. L'étiquette et le titre montent juste sous l'en-tête (en-tête 87 + barre 40 = 127 px), et l'espace gagné va entre les lignes. */
+.ecran:not(.haut) .contenu.avous2, .ecran.pont:not(.haut) .contenu { padding-top:clamp(132px,13.5vh,150px); padding-bottom:24px; }
+.avous2 .sur, .pont .sur { margin-bottom:clamp(8px,1.4vh,14px); }
+.avous2 h1 { font-size:clamp(32px,3vw,46px); margin-bottom:clamp(6px,1vh,10px); }
+.avous2 .lede2 { margin-bottom:clamp(10px,1.8vh,18px); }
+ul.coches label { padding:clamp(8px,1.5vh,14px) 0; }
+p.test-final { margin-top:clamp(12px,2vh,20px); padding:12px 16px; }
+p.rappel { margin-top:8px; }
+.avous2 .cta { margin-top:clamp(12px,2vh,20px); }
+.pont .scinde h1 { font-size:clamp(30px,2.6vw,40px); margin-bottom:clamp(14px,2.4vh,22px); }
+.pont .scinde .lede2 { margin-bottom:clamp(14px,2.4vh,22px); line-height:1.5; }
+.pont .scinde p.th { line-height:1.75; margin-bottom:clamp(14px,2.4vh,22px); }
+.pont .source { margin-top:12px; line-height:1.6; }
+.ecran:not(.haut) .contenu.avous2, .ecran.pont:not(.haut) .contenu { padding-top:clamp(128px,13vh,144px); }
+ul.coches label { padding:clamp(7px,1.2vh,12px) 0; }
+.avous2 .lede2 { margin-bottom:clamp(8px,1.4vh,14px); }
+p.test-final { margin-top:clamp(10px,1.6vh,16px); padding:10px 16px; line-height:1.45; }
+.avous2 .cta { margin-top:clamp(10px,1.6vh,16px); }
+.pont .scinde p.th { line-height:1.65; margin-bottom:clamp(10px,1.8vh,16px); }
+.pont .scinde .lede2 { margin-bottom:clamp(10px,1.8vh,16px); }
+.pont .scinde h1 { margin-bottom:clamp(10px,1.8vh,16px); }
+.pont .source { margin-top:8px; line-height:1.5; }
+.avous2 p.rappel { display:inline; margin:0 0 0 14px; font-size:13.5px; }
+.avous2 p.test-final { margin-bottom:0; }
+.avous2 .cta { margin-top:clamp(10px,1.6vh,16px); align-items:center; }
 
 </style>
 </head>
@@ -687,8 +712,7 @@ p.test-final { font-size:clamp(14.5px,1.02vw,16.5px); line-height:1.45; }
       <li><label><input type="checkbox"><b>Recommendations</b><span>Written by clients.</span></label></li>
     </ul>
     <p class="test-final"><b>Final test</b>Open your profile on your phone. Would a prospect who doesn't know you understand, within a few seconds, what you do for them? If not, rework your headline first.</p>
-    <p class="rappel">Reread your profile once or twice a year, or whenever your offer changes.</p>
-    <div class="cta"><a class="btn second" href="https://www.linkedin.com/in/me/" target="_blank" rel="noopener">Open my LinkedIn profile</a><button type="button" data-suivant>Last step</button></div>
+    <div class="cta"><a class="btn second" href="https://www.linkedin.com/in/me/" target="_blank" rel="noopener">Open my LinkedIn profile</a><button type="button" data-suivant>Last step</button><p class="rappel">Reread your profile once or twice a year, or whenever your offer changes.</p></div>
   </div>
 </section>
 
