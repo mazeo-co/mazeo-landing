@@ -14,6 +14,8 @@
     { re: /^\/(en\/)?academy$/, fam: ['prospecter', 'prospecting'], nom: ACADEMY },
     { re: /^\/positionnement$|^\/en\/positioning$/, fam: ['prospecter', 'prospecting'], nom: ACADEMY,
       accueil: ['/academy', '/en/academy'], sous: ['Fiche 1 : votre positionnement', 'Guide 1: your positioning'] },
+    { re: /^\/votre-profil-linkedin$/, fam: ['prospecter', 'prospecting'], nom: ACADEMY,
+      accueil: ['/academy', '/en/academy'], sous: ['Fiche 4 : votre profil LinkedIn', 'Guide 4: your LinkedIn profile'] },
     { re: /^\/prise-de-rendez-vous$|^\/en\/booking-link$/, fam: ['prospecter', 'prospecting'], nom: ACADEMY,
       accueil: ['/academy', '/en/academy'], sous: ['Fiche 5 : votre lien de rendez-vous', 'Guide 5: your booking link'] },
     { re: /^\/village-des-etudes$|^\/en\/market-research-in-figures$/, fam: ['secteur', 'industry'],
