@@ -52,8 +52,8 @@ button, input, select { font:inherit; }
 .ecran.passe { transform:translateY(-40px); }
 .contenu { width:100%; max-width:1280px; margin:auto; padding:clamp(104px,11vh,150px) 48px clamp(20px,calc(6vh - 20px),70px); }
 p.sur { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 clamp(14px,2.2vh,22px); }
-h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.06; font-size:clamp(32px,2.7vw,44px); margin:0 0 clamp(16px,2.6vh,28px); text-wrap:balance; }
-h1 span { font-style:italic; color:var(--blue); }
+h1, h2.t1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.06; font-size:clamp(32px,2.7vw,44px); margin:0 0 clamp(16px,2.6vh,28px); text-wrap:balance; }
+h1 span, h2.t1 span { font-style:italic; color:var(--blue); }
 .lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.45vw,3vh),24px); line-height:1.45; color:var(--ink); margin:0 0 clamp(14px,2.4vh,26px); max-width:30em; }
 p.th { font-size:clamp(16px,1.1vw,18px); line-height:1.75; color:var(--body); margin:0 0 clamp(14px,2.4vh,24px); max-width:46ch; }
 p.th b { color:var(--ink); font-weight:600; }
@@ -72,7 +72,7 @@ p.source i { font-style:italic; }
 .contenu.deux { display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:clamp(44px,4.6vw,80px); align-items:center; }
 .contenu.deux > * { min-width:0; }
 /* l'ouverture */
-.heros h1 { font-size:clamp(40px,3.9vw,60px); line-height:1; margin-bottom:clamp(16px,2.8vh,30px); }
+.heros h1, .heros h2.t1 { font-size:clamp(40px,3.9vw,60px); line-height:1; margin-bottom:clamp(16px,2.8vh,30px); }
 .heros .lede2 { max-width:26em; }
 .cadre.plan4 .lab { margin-bottom:clamp(16px,2.8vh,28px); line-height:1.7; }
 ol.quatre { list-style:none; margin:0; padding:0; counter-reset:q; }
@@ -161,7 +161,7 @@ p.rempli b { color:var(--ink); font-weight:600; }
   body { overflow:auto; } .ecrans { height:auto; } .ecran { position:relative; display:none; } .ecran.actif { display:block; }
   .entete { position:relative; top:0; }
   .contenu, .contenu.deux { padding:28px 20px 60px; grid-template-columns:1fr; gap:28px; }
-  .heros h1 { font-size:38px; } h1 { font-size:30px; }
+  .heros h1, .heros h2.t1 { font-size:38px; } h1, h2.t1 { font-size:30px; }
   .tuiles, .temps { grid-template-columns:1fr; }
   .entonnoir > div { grid-template-columns:72px 1fr; } .entonnoir em { grid-column:2; }
 }
@@ -171,7 +171,7 @@ p.rempli b { color:var(--ink); font-weight:600; }
 .contenu.seq { display:block; }
 .ecran .contenu.seq { padding-top:clamp(96px,calc(11vh + 20px),130px); padding-bottom:16px; }
 .seq-tete { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:40px; align-items:end; margin-bottom:clamp(12px,2vh,20px); }
-.seq-tete h1 { font-size:clamp(28px,2.3vw,38px); margin-bottom:10px; }
+.seq-tete h1, .seq-tete h2.t1 { font-size:clamp(28px,2.3vw,38px); margin-bottom:10px; }
 .seq-tete .lede2 { font-size:clamp(17px,1.2vw,20px); margin:0; max-width:none; }
 .seq-tete .sur { margin-bottom:10px; }
 .seq-droite { display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
@@ -230,7 +230,7 @@ p.rempli b { color:var(--ink); font-weight:600; }
 .arbre .zoom { position:absolute; right:12px; bottom:12px; display:flex; flex-direction:column; gap:6px; }
 .arbre .zoom button { width:34px; height:34px; border-radius:8px; border:1px solid var(--hair2); background:var(--card); color:var(--ink); font-size:20px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.08); }
 .arbre .zoom button:hover { background:var(--paper); }
-h1 span.noir { font-style:normal; color:var(--ink); }
+h1 span.noir, h2.t1 span.noir { font-style:normal; color:var(--ink); }
 .cadre.plan4 p.reste { margin:clamp(14px,2.4vh,22px) 0 0; padding-top:clamp(12px,2vh,18px); border-top:1px solid var(--hair); font-size:clamp(15.5px,1.05vw,17.5px); color:var(--body); }
 .cadre.plan4 p.reste b { color:var(--ink); }
 .entonnoir > div { grid-template-columns:96px 1fr; }
@@ -274,7 +274,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
   <div class="contenu deux">
     <div>
       <p class="sur">Les chiffres de nos utilisateurs</p>
-      <h1>Sur 100 personnes contactées, <span>5 viennent à un rendez-vous.</span></h1>
+      <h2 class="t1">Sur 100 personnes contactées, <span>5 viennent à un rendez-vous.</span></h2>
       <p class="lede2">12 engagent une conversation. 6 acceptent un rendez-vous. 5 viennent vraiment. Ce sont les chiffres que nous mesurons chez les utilisateurs de mazeo.</p>
       <p class="th"><b>Pour un rendez-vous, il faut donc contacter 20 personnes.</b> Tous les calculs de cette page partent de ce chiffre.</p>
       <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre objectif</button></div>
@@ -297,7 +297,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
   <div class="contenu deux">
     <div>
       <p class="sur">À vous · votre objectif</p>
-      <h1>Combien de rendez-vous <span>voulez-vous par mois&nbsp;?</span></h1>
+      <h2 class="t1">Combien de rendez-vous <span>voulez-vous par mois&nbsp;?</span></h2>
       <p class="lede2">Commencez par 3. Après un mois, ajustez selon vos propres chiffres.</p>
       <div class="compteur">
         <button type="button" data-pm="-1" aria-label="Un rendez-vous de moins">−</button>
@@ -322,7 +322,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
   <div class="contenu deux">
     <div>
       <p class="sur">À vous · votre temps</p>
-      <h1><span data-calc="rdv" class="noir">3</span> rendez-vous par mois&nbsp;: <span><span data-calc="temps">30 min</span> par semaine.</span></h1>
+      <h2 class="t1"><span data-calc="rdv" class="noir">3</span> rendez-vous par mois&nbsp;: <span><span data-calc="temps">30 min</span> par semaine.</span></h2>
       <p class="lede2">Les deux premiers mois, comptez le double&nbsp;: <span data-calc="temps1">1 h</span>. Il faut ce temps pour améliorer vos messages et prendre le rythme.</p>
       <p class="th">Ce temps sert à trois choses. Choisir qui contacter parmi les personnes que mazeo vous propose&nbsp;: <span data-calc="semaine">15</span> nouvelles personnes par semaine. Relire et approuver les messages écrits par mazeo. Répondre à ceux qui vous répondent.</p>
       <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre créneau</button></div>
@@ -343,7 +343,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
   <div class="contenu deux">
     <div>
       <p class="sur">À vous · votre créneau</p>
-      <h1>Bloquez votre créneau <span>dans votre agenda.</span></h1>
+      <h2 class="t1">Bloquez votre créneau <span>dans votre agenda.</span></h2>
       <p class="lede2">Les résultats viennent de la régularité. Réservez le même moment chaque semaine pour votre prospection&nbsp;: c'est ce qui vous permet d'atteindre votre objectif.</p>
       <p class="th">Choisissez vos jours et votre heure. La page calcule la durée. <b>Au-delà d'une heure et demie par semaine, un seul créneau devient trop long&nbsp;: prenez-en deux.</b> Si vous choisissez deux jours, la durée se partage entre les deux.</p>
       <div class="cta"><button type="button" data-suivant>Voir mon plan</button></div>
@@ -373,7 +373,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
   <div class="contenu deux">
     <div>
       <p class="sur">Récapitulatif</p>
-      <h1>Votre plan pour <span><span data-calc="rdv">3</span> rendez-vous par mois.</span></h1>
+      <h2 class="t1">Votre plan pour <span><span data-calc="rdv">3</span> rendez-vous par mois.</span></h2>
       <div class="plan">
         <div><span class="k">Rendez-vous<small>chaque mois</small></span><span class="v b" data-calc="rdv">3</span></div>
         <div><span class="k">Personnes dans votre liste<small>dès aujourd'hui</small></span><span class="v" data-calc="pipe">60</span></div>

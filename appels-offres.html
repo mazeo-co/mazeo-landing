@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Dernier appel · les marchés publics d'études à gagner · présenté par mazeo</title>
 <meta name="description" content="Les appels d'offres publics d'études ouverts en France : enquêtes, baromètres, études de publics, panels. Relevés chaque jour au BOAMP et au TED, lus un par un.">
+<link rel="canonical" href="https://www.mazeo.co/appels-offres">
+<meta property="og:url" content="https://www.mazeo.co/appels-offres">
 <link rel="alternate" hreflang="fr" href="https://www.mazeo.co/appels-offres">
 <link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/public-tenders">
 <link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/appels-offres">
@@ -12,6 +14,10 @@
 <meta property="og:site_name" content="mazeo">
 <meta property="og:title" content="Dernier appel : les appels d'offres d'études ouverts">
 <meta property="og:description" content="Les marchés publics d'études à gagner en ce moment, relevés chaque jour au BOAMP et au TED.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <script>
 /* Une seule page sert deux adresses : /appels-offres (FR) et /en/public-tenders (EN).
    Adresse de référence, langue, titre et description sont posés ici selon l'adresse, avant tout le reste :
@@ -19,8 +25,8 @@
 (function () {
   var en = /^\/en(\/|$)/.test(location.pathname) || new URLSearchParams(location.search).get("lang") === "en";
   var url = en ? "https://www.mazeo.co/en/public-tenders" : "https://www.mazeo.co/appels-offres";
-  var l = document.createElement("link"); l.rel = "canonical"; l.href = url; document.head.appendChild(l);
-  var o = document.createElement("meta"); o.setAttribute("property", "og:url"); o.content = url; document.head.appendChild(o);
+  document.querySelector('link[rel="canonical"]').href = url;
+  document.querySelector('meta[property="og:url"]').content = url;
   if (!en) return;
   document.documentElement.lang = "en";
   document.title = "Last call · open public tenders for market research · by mazeo";

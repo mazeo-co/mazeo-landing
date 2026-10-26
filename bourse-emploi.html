@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La Bourse de l'emploi insight · les postes études et insight ouverts · présenté par mazeo</title>
 <meta name="description" content="Les postes études, insight et connaissance client ouverts en France, chez les instituts et les annonceurs. Repérés chaque semaine par mazeo sur LinkedIn, HelloWork, Indeed, Welcome to the Jungle et France Travail.">
+<link rel="canonical" href="https://www.mazeo.co/bourse-emploi">
+<meta property="og:url" content="https://www.mazeo.co/bourse-emploi">
 <link rel="alternate" hreflang="fr" href="https://www.mazeo.co/bourse-emploi">
 <link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/insight-jobs">
 <link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/bourse-emploi">
@@ -21,8 +23,8 @@
 (function () {
   var en = /^\/en(\/|$)/.test(location.pathname) || new URLSearchParams(location.search).get("lang") === "en";
   var url = en ? "https://www.mazeo.co/en/insight-jobs" : "https://www.mazeo.co/bourse-emploi";
-  var l = document.createElement("link"); l.rel = "canonical"; l.href = url; document.head.appendChild(l);
-  var o = document.createElement("meta"); o.setAttribute("property", "og:url"); o.content = url; document.head.appendChild(o);
+  document.querySelector('link[rel="canonical"]').href = url;
+  document.querySelector('meta[property="og:url"]').content = url;
   if (!en) return;
   document.documentElement.lang = "en";
   document.title = "The insight job board · who is hiring in market research · by mazeo";

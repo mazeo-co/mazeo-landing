@@ -1,2 +1,6 @@
 # Fichiers du dépôt que Vercel ne doit pas servir sur mazeo.co
 CLAUDE.md
+
+# Outils de fabrication et de contrôle (python), pas des pages
+outils/
+.github/

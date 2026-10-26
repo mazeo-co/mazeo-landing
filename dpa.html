@@ -41,10 +41,11 @@
   footer .lang-switch { font-weight: 600; }
 </style>
 <script>
-  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le navigateur (16/09) */
+  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le français.
+     Plus de choix selon le navigateur (26/10) : Google, réglé en anglais, aurait lu ces pages en anglais. */
   (function () {
     var q = /[?&]lang=(en|fr)\b/i.exec(location.search), s = null; try { s = localStorage.getItem("mazeo_lang"); } catch (e) {}
-    var b = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
+    var b = "fr";
     var l = q ? q[1].toLowerCase() : (s === "en" || s === "fr" ? s : b);
     if (q) { try { localStorage.setItem("mazeo_lang", l); } catch (e) {} }
     document.documentElement.lang = l;
@@ -63,14 +64,14 @@
   <h1>Accord de traitement des données</h1>
   <p class="updated">Mis à jour le 11 octobre 2026</p>
   <p class="updated">Annexe aux conditions d’utilisation · article 28 du règlement (UE) 2016/679 (RGPD)</p>
-  <p class="lead">Cet accord organise le traitement, par mazeo, des données personnelles que ses clients lui confient en utilisant le service : leur suivi commercial, les fichiers qu’ils importent, et la boîte mail ou le compte LinkedIn que leurs utilisateurs choisissent de connecter. Il fait partie des <a href="terms.html">conditions d’utilisation</a> (article 10) et s’applique dès l’ouverture d’un compte, sans signature séparée. Pour un client abonné, il fait partie des <a href="/conditions-de-vente">conditions générales de vente</a> (article 9.2) : les mentions « conditions d’utilisation » du présent accord désignent alors ces conditions générales de vente. Une version signée est disponible sur demande.</p>
+  <p class="lead">Cet accord organise le traitement, par mazeo, des données personnelles que ses clients lui confient en utilisant le service : leur suivi commercial, les fichiers qu’ils importent, et la boîte mail ou le compte LinkedIn que leurs utilisateurs choisissent de connecter. Il fait partie des <a href="/terms">conditions d’utilisation</a> (article 10) et s’applique dès l’ouverture d’un compte, sans signature séparée. Pour un client abonné, il fait partie des <a href="/conditions-de-vente">conditions générales de vente</a> (article 9.2) : les mentions « conditions d’utilisation » du présent accord désignent alors ces conditions générales de vente. Une version signée est disponible sur demande.</p>
 
   <h2>Parties</h2>
   <p><strong>Le Client</strong> : l’entreprise au nom de laquelle un compte mazeo est ouvert. Elle est responsable du traitement.</p>
   <p><strong>mazeo</strong> : MAZEO, SASU au capital de 5 000 €, 60 rue François Ier, 75008 Paris, RCS Paris 102 028 396. Elle est sous-traitant. Contact : <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>.</p>
 
   <h2>1. Objet et champ d’application</h2>
-  <p>Le présent accord s’applique aux données personnelles décrites à l’annexe 2 : ce que le Client et ses utilisateurs enregistrent sur leurs prospects (listes, étapes de suivi, notes), ce qu’ils importent depuis un fichier (par exemple l’export de leur CRM), et ce qui provient d’une boîte mail ou d’un compte LinkedIn connecté. Il ne s’applique pas à la base de professionnels de mazeo, aux demandes de démo ni aux données de compte de ses utilisateurs (adresse, nom, réglages), pour lesquelles mazeo est responsable du traitement (<a href="privacy.html">politique de confidentialité</a>, sections 2 à 4).</p>
+  <p>Le présent accord s’applique aux données personnelles décrites à l’annexe 2 : ce que le Client et ses utilisateurs enregistrent sur leurs prospects (listes, étapes de suivi, notes), ce qu’ils importent depuis un fichier (par exemple l’export de leur CRM), et ce qui provient d’une boîte mail ou d’un compte LinkedIn connecté. Il ne s’applique pas à la base de professionnels de mazeo, aux demandes de démo ni aux données de compte de ses utilisateurs (adresse, nom, réglages), pour lesquelles mazeo est responsable du traitement (<a href="/privacy">politique de confidentialité</a>, sections 2 à 4).</p>
   <p>En cas de contradiction entre cet accord et les conditions d’utilisation, l’accord prévaut pour ce qui concerne les données personnelles.</p>
 
   <h2>2. Rôles et obligations du Client</h2>
@@ -197,14 +198,14 @@
   <h1>Data processing agreement</h1>
   <p class="updated">Updated on October 11, 2026</p>
   <p class="updated">Annex to the terms of use · Article 28 of Regulation (EU) 2016/679 (GDPR). This English version is provided for convenience. The French version prevails.</p>
-  <p class="lead">This agreement governs the processing, by mazeo, of the personal data its customers entrust to it when using the service: their sales follow-up, the files they import, and the mailbox or LinkedIn account their users choose to connect. It forms part of the <a href="terms.html">terms of use</a> (article 10) and applies from the opening of an account, without a separate signature. For a subscribing customer, it forms part of the <a href="/en/terms-of-sale">terms of sale</a> (article 9.2): references to the “terms of use” in this agreement then mean those terms of sale. A signed version is available on request.</p>
+  <p class="lead">This agreement governs the processing, by mazeo, of the personal data its customers entrust to it when using the service: their sales follow-up, the files they import, and the mailbox or LinkedIn account their users choose to connect. It forms part of the <a href="/terms">terms of use</a> (article 10) and applies from the opening of an account, without a separate signature. For a subscribing customer, it forms part of the <a href="/en/terms-of-sale">terms of sale</a> (article 9.2): references to the “terms of use” in this agreement then mean those terms of sale. A signed version is available on request.</p>
 
   <h2>Parties</h2>
   <p><strong>The Customer</strong>: the company in whose name a mazeo account is opened. It is the controller.</p>
   <p><strong>mazeo</strong>: MAZEO, SASU with a share capital of €5,000, 60 rue François Ier, 75008 Paris, France, RCS Paris 102 028 396. It is the processor. Contact: <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>.</p>
 
   <h2>1. Purpose and scope</h2>
-  <p>This agreement applies to the personal data described in annex 2: what the Customer and its users record about their prospects (lists, follow-up stages, notes), what they import from a file (for example their CRM export), and what comes from a connected mailbox or LinkedIn account. It does not apply to mazeo’s database of professionals, to demo requests or to its users’ account data (address, name, settings), for which mazeo is the controller (<a href="privacy.html">privacy policy</a>, sections 2 to 4).</p>
+  <p>This agreement applies to the personal data described in annex 2: what the Customer and its users record about their prospects (lists, follow-up stages, notes), what they import from a file (for example their CRM export), and what comes from a connected mailbox or LinkedIn account. It does not apply to mazeo’s database of professionals, to demo requests or to its users’ account data (address, name, settings), for which mazeo is the controller (<a href="/privacy">privacy policy</a>, sections 2 to 4).</p>
   <p>In the event of a conflict between this agreement and the terms of use, this agreement prevails as regards personal data.</p>
 
   <h2>2. Roles and obligations of the Customer</h2>
@@ -329,9 +330,9 @@
 
 <footer>
   © 2026 mazeo ·
-  <a href="mentions-legales.html" data-en="Legal notice">Mentions légales</a> ·
-  <a href="privacy.html" data-en="Privacy">Confidentialité</a> ·
-  <a href="terms.html" data-en="Terms of use">Conditions d’utilisation</a> ·
+  <a href="/mentions-legales" data-en="Legal notice">Mentions légales</a> ·
+  <a href="/privacy" data-en="Privacy">Confidentialité</a> ·
+  <a href="/terms" data-en="Terms of use">Conditions d’utilisation</a> ·
   <a href="/conditions-de-vente" data-en="Terms of sale">Conditions de vente</a> ·
   <a href="/securite" data-en="Security">Sécurité</a> ·
   <a href="/dpa" data-en="Data processing agreement">Accord de traitement des données</a> ·

@@ -52,8 +52,8 @@ button, input, select { font:inherit; }
 .ecran.passe { transform:translateY(-40px); }
 .contenu { width:100%; max-width:1280px; margin:auto; padding:clamp(104px,11vh,150px) 48px clamp(20px,calc(6vh - 20px),70px); }
 p.sur { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 clamp(14px,2.2vh,22px); }
-h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.06; font-size:clamp(32px,2.7vw,44px); margin:0 0 clamp(16px,2.6vh,28px); text-wrap:balance; }
-h1 span { font-style:italic; color:var(--blue); }
+h1, h2.t1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.06; font-size:clamp(32px,2.7vw,44px); margin:0 0 clamp(16px,2.6vh,28px); text-wrap:balance; }
+h1 span, h2.t1 span { font-style:italic; color:var(--blue); }
 .lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.45vw,3vh),24px); line-height:1.45; color:var(--ink); margin:0 0 clamp(14px,2.4vh,26px); max-width:30em; }
 p.th { font-size:clamp(16px,1.1vw,18px); line-height:1.75; color:var(--body); margin:0 0 clamp(14px,2.4vh,24px); max-width:46ch; }
 p.th b { color:var(--ink); font-weight:600; }
@@ -72,7 +72,7 @@ p.source i { font-style:italic; }
 .contenu.deux { display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:clamp(44px,4.6vw,80px); align-items:center; }
 .contenu.deux > * { min-width:0; }
 /* l'ouverture */
-.heros h1 { font-size:clamp(40px,3.9vw,60px); line-height:1; margin-bottom:clamp(16px,2.8vh,30px); }
+.heros h1, .heros h2.t1 { font-size:clamp(40px,3.9vw,60px); line-height:1; margin-bottom:clamp(16px,2.8vh,30px); }
 .heros .lede2 { max-width:26em; }
 .cadre.plan4 .lab { margin-bottom:clamp(16px,2.8vh,28px); line-height:1.7; }
 ol.quatre { list-style:none; margin:0; padding:0; counter-reset:q; }
@@ -161,7 +161,7 @@ p.rempli b { color:var(--ink); font-weight:600; }
   body { overflow:auto; } .ecrans { height:auto; } .ecran { position:relative; display:none; } .ecran.actif { display:block; }
   .entete { position:relative; top:0; }
   .contenu, .contenu.deux { padding:28px 20px 60px; grid-template-columns:1fr; gap:28px; }
-  .heros h1 { font-size:38px; } h1 { font-size:30px; }
+  .heros h1, .heros h2.t1 { font-size:38px; } h1, h2.t1 { font-size:30px; }
   .tuiles, .temps { grid-template-columns:1fr; }
   .entonnoir > div { grid-template-columns:72px 1fr; } .entonnoir em { grid-column:2; }
 }
@@ -171,7 +171,7 @@ p.rempli b { color:var(--ink); font-weight:600; }
 .contenu.seq { display:block; }
 .ecran .contenu.seq { padding-top:clamp(96px,calc(11vh + 20px),130px); padding-bottom:16px; }
 .seq-tete { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:40px; align-items:end; margin-bottom:clamp(12px,2vh,20px); }
-.seq-tete h1 { font-size:clamp(28px,2.3vw,38px); margin-bottom:10px; }
+.seq-tete h1, .seq-tete h2.t1 { font-size:clamp(28px,2.3vw,38px); margin-bottom:10px; }
 .seq-tete .lede2 { font-size:clamp(17px,1.2vw,20px); margin:0; max-width:none; }
 .seq-tete .sur { margin-bottom:10px; }
 .seq-droite { display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
@@ -230,7 +230,7 @@ p.rempli b { color:var(--ink); font-weight:600; }
 .arbre .zoom { position:absolute; right:12px; bottom:12px; display:flex; flex-direction:column; gap:6px; }
 .arbre .zoom button { width:34px; height:34px; border-radius:8px; border:1px solid var(--hair2); background:var(--card); color:var(--ink); font-size:20px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.08); }
 .arbre .zoom button:hover { background:var(--paper); }
-h1 span.noir { font-style:normal; color:var(--ink); }
+h1 span.noir, h2.t1 span.noir { font-style:normal; color:var(--ink); }
 .cadre.plan4 p.reste { margin:clamp(14px,2.4vh,22px) 0 0; padding-top:clamp(12px,2vh,18px); border-top:1px solid var(--hair); font-size:clamp(15.5px,1.05vw,17.5px); color:var(--body); }
 .cadre.plan4 p.reste b { color:var(--ink); }
 .entonnoir > div { grid-template-columns:96px 1fr; }
@@ -274,7 +274,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
   <div class="contenu deux">
     <div>
       <p class="sur">Our users' numbers</p>
-      <h1>Out of 100 people contacted, <span>5 come to a meeting.</span></h1>
+      <h2 class="t1">Out of 100 people contacted, <span>5 come to a meeting.</span></h2>
       <p class="lede2">12 start a conversation. 6 accept a meeting. 5 actually show up. These are the numbers we measure across mazeo users.</p>
       <p class="th"><b>So for one meeting, you need to contact 20 people.</b> Every calculation on this page starts from that number.</p>
       <div class="cta"><button type="button" data-suivant>Next: your goal</button></div>
@@ -297,7 +297,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
   <div class="contenu deux">
     <div>
       <p class="sur">Your turn · your goal</p>
-      <h1>How many meetings <span>do you want each month?</span></h1>
+      <h2 class="t1">How many meetings <span>do you want each month?</span></h2>
       <p class="lede2">Start with 3. After a month, adjust based on your own numbers.</p>
       <div class="compteur">
         <button type="button" data-pm="-1" aria-label="One meeting fewer">−</button>
@@ -322,7 +322,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
   <div class="contenu deux">
     <div>
       <p class="sur">Your turn · your time</p>
-      <h1><span data-calc="rdv" class="noir">3</span> meetings a month: <span><span data-calc="temps">30 min</span> a week.</span></h1>
+      <h2 class="t1"><span data-calc="rdv" class="noir">3</span> meetings a month: <span><span data-calc="temps">30 min</span> a week.</span></h2>
       <p class="lede2">For the first two months, count double: <span data-calc="temps1">1 hr</span>. You need that time to improve your messages and find your rhythm.</p>
       <p class="th">That time goes to three things. Choosing who to contact among the people mazeo suggests: <span data-calc="semaine">15</span> new people a week. Reviewing and approving the messages mazeo has written. Replying to those who reply to you.</p>
       <div class="cta"><button type="button" data-suivant>Next: your slot</button></div>
@@ -343,7 +343,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
   <div class="contenu deux">
     <div>
       <p class="sur">Your turn · your slot</p>
-      <h1>Block your slot <span>in your calendar.</span></h1>
+      <h2 class="t1">Block your slot <span>in your calendar.</span></h2>
       <p class="lede2">Results come from consistency. Set aside the same moment every week for your prospecting: that is what gets you to your goal.</p>
       <p class="th">Choose your days and your time. The page works out the length. <b>Beyond an hour and a half a week, one slot gets too long: take two.</b> If you choose two days, the time is split between them.</p>
       <div class="cta"><button type="button" data-suivant>See my plan</button></div>
@@ -373,7 +373,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
   <div class="contenu deux">
     <div>
       <p class="sur">Summary</p>
-      <h1>Your plan for <span><span data-calc="rdv">3</span> meetings a month.</span></h1>
+      <h2 class="t1">Your plan for <span><span data-calc="rdv">3</span> meetings a month.</span></h2>
       <div class="plan">
         <div><span class="k">Meetings<small>each month</small></span><span class="v b" data-calc="rdv">3</span></div>
         <div><span class="k">People in your list<small>from today</small></span><span class="v" data-calc="pipe">60</span></div>
