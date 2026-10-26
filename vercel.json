@@ -45,18 +45,6 @@
       "permanent": false
     },
     {
-      "source": "/quiz.html",
-      "has": [
-        {
-          "type": "query",
-          "key": "lang",
-          "value": "en"
-        }
-      ],
-      "destination": "/en/quiz",
-      "permanent": false
-    },
-    {
       "source": "/conferences",
       "destination": "/en/market-research-conferences",
       "permanent": false
@@ -72,27 +60,17 @@
       "permanent": false
     },
     {
-      "source": "/souscrire.html",
-      "destination": "/#prix",
-      "permanent": true
-    },
-    {
-      "source": "/en/subscribe.html",
-      "destination": "/en#prix",
-      "permanent": true
-    },
-    {
-      "source": "/maquette.html",
+      "source": "/maquette",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/proposition.html",
+      "source": "/proposition",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/mazeo-app-built.html",
+      "source": "/mazeo-app-built",
       "destination": "/",
       "permanent": true
     }
