@@ -11,14 +11,18 @@ le fichier : Google et les robots qui n'exécutent pas le JavaScript le lisent t
 À relancer après chaque modification de index.html (le contrôle SEO le vérifie).
 """
 import html
+import os
 import re
+import shutil
 import subprocess
 import sys
 import tempfile
 from pathlib import Path
 
 DEPOT = Path(__file__).resolve().parent.parent
-CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+# Chrome du Mac, ou celui de la machine de GitHub (variable CHROME, ou google-chrome dans le PATH)
+CHROME = os.environ.get("CHROME") or next((c for c in ("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",)
+                                          if Path(c).exists()), None) or shutil.which("google-chrome") or "chromium"
 SORTIE = DEPOT / "en" / "index.html"
 
 TETE_EN = {
