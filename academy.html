@@ -62,12 +62,13 @@ p.th { font-size:clamp(16px,min(1.45vw,calc(2.95 * var(--vh))),22px); line-heigh
 .btn:hover { background:#000; }
 /* les fiches : chiffre en serif, titre et état sur une ligne, sous-titre sur la suivante ; réparties sur la hauteur du texte d'en face */
 ol.lecons { list-style:none; margin:0; padding:0; flex:1; display:flex; flex-direction:column; justify-content:space-between; gap:0; }
-ol.lecons li { display:grid; grid-template-columns:30px 1fr auto; column-gap:18px; align-items:start; position:relative; padding:clamp(6px,calc(1.05 * var(--vh)),14px) 0; }
+ol.lecons li { display:grid; grid-template-columns:30px minmax(0,1fr) auto; column-gap:18px; align-items:start; position:relative; padding:clamp(6px,calc(1.05 * var(--vh)),14px) 0; }
 ol.lecons li > .t { margin-right:clamp(12px,1.4vw,32px); }
 ol.lecons li:first-child { padding-top:0; } ol.lecons li:last-child { padding-bottom:0; }
 ol.lecons .n { font-family:var(--serif); font-size:clamp(26px,calc(4.2 * var(--vh)),34px); line-height:.9; color:var(--blue); align-self:center; text-align:center; }
 ol.lecons .t { font-weight:600; font-size:clamp(15px,min(1.15vw,calc(2.3 * var(--vh))),17px); line-height:1.3; text-decoration:none; }
-ol.lecons .t .s { display:block; font-weight:400; font-size:clamp(13px,min(.95vw,calc(1.95 * var(--vh))),14.5px); color:var(--meta); margin-top:5px; white-space:nowrap; }
+ol.lecons .t { min-width:0; }
+ol.lecons .t .s { display:block; overflow:hidden; text-overflow:ellipsis; font-weight:400; font-size:clamp(13px,min(.95vw,calc(1.95 * var(--vh))),14.5px); color:var(--meta); margin-top:5px; white-space:nowrap; }
 /* l'état, à droite, centré sur les deux lignes de la fiche : un vrai bouton, au style du bouton noir de gauche */
 ol.lecons .etat { align-self:center; font-size:14.5px; font-weight:600; white-space:nowrap; border-radius:3px; padding:8px 16px; background:#ECECE9; color:var(--meta); line-height:1.2; min-width:132px; text-align:center; }
 ol.lecons li.ouverte { position:relative; }
@@ -115,7 +116,7 @@ ol.lecons li.bientot .t { color:var(--meta); }
       <li class="bientot"><span class="n">3</span><span class="t">Votre premier message<span class="s">l'email et le message LinkedIn</span></span><span class="etat">Bientôt</span></li>
       <li class="ouverte"><span class="n">4</span><a class="t" href="/votre-profil-linkedin">Votre profil LinkedIn<span class="s">10 minutes · sept règles, sur de vrais profils</span></a><span class="etat">Commencer →</span></li>
       <li class="ouverte"><span class="n">5</span><a class="t" href="/prise-de-rendez-vous">Votre prise de rendez-vous<span class="s">10 minutes · un lien d'agenda avec Cal.com</span></a><span class="etat">Commencer →</span></li>
-      <li class="ouverte"><span class="n">6</span><a class="t" href="/votre-rythme">Votre rythme<span class="s">5 minutes · votre objectif, vos leads, votre créneau</span></a><span class="etat">Commencer →</span></li>
+      <li class="ouverte"><span class="n">6</span><a class="t" href="/votre-rythme">Votre rythme<span class="s">5 minutes · le temps à bloquer chaque semaine</span></a><span class="etat">Commencer →</span></li>
     </ol>
   </div>
   </div>
