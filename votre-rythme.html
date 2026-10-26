@@ -203,11 +203,11 @@ p.rempli b { color:var(--ink); font-weight:600; }
 .att.fin b { color:var(--ink); }
 .cadre p.regle { margin:clamp(14px,2.4vh,22px) 0 0; padding-top:clamp(12px,2vh,18px); border-top:1px solid var(--hair); font-family:var(--serif); font-size:clamp(22px,1.7vw,28px); line-height:1.2; color:var(--ink); }
 .cadre p.regle b { font-weight:400; color:var(--blue); }
-.tuiles.lignes { grid-template-columns:1fr; gap:10px; }
-.tuiles.lignes > div { flex-direction:row; align-items:flex-start; gap:18px; padding:clamp(12px,2vh,18px) clamp(16px,1.4vw,22px); }
+.tuiles.lignes { grid-template-columns:1fr; gap:8px; }
+.tuiles.lignes > div { flex-direction:row; align-items:flex-start; gap:18px; padding:clamp(10px,1.5vh,14px) clamp(16px,1.4vw,22px); }
 .tuiles.lignes b { min-width:78px; font-size:clamp(34px,2.7vw,44px); }
-.tuiles.lignes .t { display:block; font-size:clamp(15.5px,1.05vw,17.5px); color:var(--ink); font-weight:600; line-height:1.35; }
-.tuiles.lignes .p { display:block; font-size:13.5px; color:var(--meta); margin-top:4px; line-height:1.45; }
+.tuiles.lignes .t { display:block; font-size:clamp(15px,1vw,16.5px); color:var(--ink); font-weight:600; line-height:1.3; }
+.tuiles.lignes .p { display:block; font-size:13px; color:var(--meta); margin-top:3px; line-height:1.4; }
 .creneau p.dl { margin:0 0 6px; font-size:15.5px; color:var(--body); } .creneau p.dl b { color:var(--ink); font-weight:600; }
 .lignes-c { display:grid; margin-top:2px; }
 .lc { display:grid; grid-template-columns:88px auto 1fr auto; gap:14px; align-items:center; padding:clamp(7px,1.2vh,10px) 0; border-top:1px solid var(--hair); }
@@ -253,19 +253,19 @@ h1 span.noir { font-style:normal; color:var(--ink); }
     <div>
       <p class="sur">Pour les clients de mazeo, et ceux qui hésitent encore</p>
       <h1>mazeo accélère votre prospection. <span>Vous gardez la main.</span></h1>
-      <p class="lede2">Vous gardez la main&nbsp;: c'est vous qui choisissez qui contacter, qui validez les messages et qui répondez. Et ça ne marche qu'avec de la régularité&nbsp;: un peu de temps chaque semaine, toujours au même moment.</p>
-      <p class="th">Cette page calcule ce temps d'après le nombre de rendez-vous que vous visez, puis bloque le créneau dans votre agenda. Que vous soyez déjà client ou pas encore.</p>
-      <div class="cta"><button type="button" data-suivant>Commencer</button><span class="note">Lecture&nbsp;: 5 minutes.</span></div>
+      <p class="lede2">Vous choisissez qui contacter. Vous relisez et approuvez chaque message. Vous répondez vous-même. Cela demande de la régularité&nbsp;: un peu de temps chaque semaine, toujours au même moment.</p>
+      <p class="th">Cette page calcule ce temps d'après le nombre de rendez-vous que vous visez, puis vous aide à le réserver dans votre agenda.</p>
+      <div class="cta"><button type="button" data-suivant>Commencer</button><span class="note">5 minutes de lecture.</span></div>
     </div>
     <div class="cadre plan4">
       <span class="lab">Ce que mazeo fait pour vous</span>
       <ol class="quatre">
         <li>Trouver les entreprises qui ont besoin de ce que vous vendez</li>
         <li>Trouver la bonne personne dans ces entreprises</li>
-        <li>Vous dire quand les contacter</li>
+        <li>Vous dire quand les contacter&nbsp;: un changement de poste, une embauche, un appel d'offres</li>
         <li>Préparer vos messages et vos relances, du premier contact jusqu'au rendez-vous</li>
       </ol>
-      <p class="reste">Ce qui reste à vous&nbsp;: valider les messages, et répondre à ceux qui vous répondent.</p>
+      <p class="reste">Ce que vous faites&nbsp;: choisir qui contacter, approuver les messages, répondre à ceux qui vous répondent.</p>
     </div>
   </div>
 </section>
@@ -274,18 +274,18 @@ h1 span.noir { font-style:normal; color:var(--ink); }
 <section class="ecran">
   <div class="contenu deux">
     <div>
-      <p class="sur">Nos résultats</p>
+      <p class="sur">Les chiffres de nos utilisateurs</p>
       <h1>Sur 100 personnes contactées, <span>5 viennent à un rendez-vous.</span></h1>
-      <p class="lede2">12 répondent et engagent une conversation, 6 acceptent un rendez-vous, 5 viennent vraiment. C'est ce que nous constatons dans les statistiques de nos utilisateurs actuels.</p>
-      <p class="th"><b>Pour un rendez-vous, il faut donc contacter 20 personnes.</b> Toute la suite part de ce chiffre.</p>
+      <p class="lede2">12 engagent une conversation. 6 acceptent un rendez-vous. 5 viennent vraiment. Ce sont les chiffres que nous mesurons chez les utilisateurs de mazeo.</p>
+      <p class="th"><b>Pour un rendez-vous, il faut donc contacter 20 personnes.</b> Tous les calculs de cette page partent de ce chiffre.</p>
       <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre objectif</button></div>
-      <p class="source">Un rendez-vous compte quand il a lieu, avec la bonne personne, dans une entreprise que vous visez.</p>
+      <p class="source">Nous comptons un rendez-vous seulement s'il a lieu, avec la bonne personne, dans une entreprise que vous visez.</p>
       </div>
     <div class="cadre">
       <span class="lab">Sur 100 personnes contactées</span>
       <div class="entonnoir">
         <div><b>100</b><span>contactées</span><em></em></div>
-        <div><b>12</b><span>répondent et engagent une conversation</span><em></em></div>
+        <div><b>12</b><span>engagent une conversation</span><em></em></div>
         <div><b>6</b><span>acceptent un rendez-vous</span><em></em></div>
         <div class="but"><b>5</b><span>viennent au rendez-vous</span><em></em></div>
       </div>
@@ -299,7 +299,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
     <div>
       <p class="sur">À vous · votre objectif</p>
       <h1>Combien de rendez-vous <span>voulez-vous par mois&nbsp;?</span></h1>
-      <p class="lede2">Commencez par trois par mois. Après un mois, vous ajusterez selon vos propres chiffres.</p>
+      <p class="lede2">Commencez par 3. Après un mois, ajustez selon vos propres chiffres.</p>
       <div class="compteur">
         <button type="button" data-pm="-1" aria-label="Un rendez-vous de moins">−</button>
         <input type="number" name="rdv" value="3" min="1" max="20" inputmode="numeric" aria-label="Rendez-vous par mois">
@@ -311,9 +311,9 @@ h1 span.noir { font-style:normal; color:var(--ink); }
     <div>
       <span class="lab">Ce qu'il vous faut</span>
       <div class="tuiles lignes">
-        <div><b data-calc="pipe1">90</b><div><span class="t">personnes à contacter dès la première semaine</span><span class="p">Pour avoir des rendez-vous dès le premier mois, lancez tout de suite. <span data-calc="rdv">3</span> rendez-vous × 30 personnes&nbsp;: une marge de moitié, parce qu'au démarrage vos messages ne sont pas encore au point. mazeo vous propose des contacts dans votre cible&nbsp;; vous choisissez lesquels contacter.</span></div></div>
-        <div><b data-calc="pipe">60</b><div><span class="t">personnes en cours de contact, en permanence</span><span class="p">Une fois lancé&nbsp;: <span data-calc="rdv">3</span> rendez-vous × 20 personnes.</span></div></div>
-        <div><b data-calc="semaine">15</b><div><span class="t">nouvelles personnes à ajouter chaque semaine, ensuite</span><span class="p">Une personne reste environ un mois en séquence de messages&nbsp;: chaque semaine, un quart sort, et vous les remplacez. <span data-calc="pipe">60</span> ÷ 4 = <span data-calc="semaine">15</span>.</span></div></div>
+        <div><b data-calc="pipe1">90</b><div><span class="t">personnes à contacter la première semaine</span><span class="p">Une personne répond en général deux à trois semaines après votre premier message. Pour avoir vos <span data-calc="rdv">3</span> rendez-vous dès le premier mois, contactez donc ces <span data-calc="pipe1">90</span> personnes la première semaine. Vos premiers messages sont encore à améliorer&nbsp;: comptez 30 personnes par rendez-vous, au lieu de 20. <span data-calc="rdv">3</span> × 30 = <span data-calc="pipe1">90</span>. Les trois semaines suivantes, vous n'ajoutez personne&nbsp;: votre créneau sert à approuver les relances et à répondre.</span></div></div>
+        <div><b data-calc="pipe">60</b><div><span class="t">personnes dans votre liste de contacts, à partir du deuxième mois</span><span class="p">Après le premier mois, vos messages sont au point&nbsp;: 20 personnes suffisent pour un rendez-vous. <span data-calc="rdv">3</span> × 20 = <span data-calc="pipe">60</span>. Chaque personne reste environ un mois dans votre liste de contacts, le temps de recevoir vos messages et vos relances&nbsp;: la liste compte donc <span data-calc="pipe">60</span> personnes en permanence.</span></div></div>
+        <div><b data-calc="semaine">15</b><div><span class="t">nouvelles personnes à contacter chaque semaine, à partir du deuxième mois</span><span class="p">Chaque semaine, un quart de ces <span data-calc="pipe">60</span> personnes sortent de la liste, qu'elles aient répondu ou non. Vous les remplacez&nbsp;: <span data-calc="pipe">60</span> ÷ 4 = <span data-calc="semaine">15</span> nouvelles personnes par semaine.</span></div></div>
       </div>
     </div>
   </div>
@@ -325,10 +325,10 @@ h1 span.noir { font-style:normal; color:var(--ink); }
     <div>
       <p class="sur">À vous · votre temps</p>
       <h1><span data-calc="rdv" class="noir">3</span> rendez-vous par mois&nbsp;: <span><span data-calc="temps">30 min</span> par semaine.</span></h1>
-      <p class="lede2">Le premier mois, comptez le double&nbsp;: <span data-calc="temps1">1 h</span>. Le temps de roder vos messages et de prendre le rythme.</p>
-      <p class="th">Ce temps sert à trois choses&nbsp;: choisir, parmi les contacts que mazeo vous propose, les personnes à contacter (<span data-calc="pipe1">90</span> la première semaine, puis <span data-calc="semaine">15</span> chaque semaine)&nbsp;; valider les messages que mazeo a écrits&nbsp;; répondre à ceux qui vous répondent.</p>
+      <p class="lede2">Le premier mois, comptez le double&nbsp;: <span data-calc="temps1">1 h</span>. Il faut ce temps pour améliorer vos messages et prendre le rythme.</p>
+      <p class="th">Ce temps sert à trois choses. Choisir qui contacter parmi les personnes que mazeo vous propose&nbsp;: <span data-calc="pipe1">90</span> la première semaine, puis, à partir du deuxième mois, <span data-calc="semaine">15</span> par semaine. Relire et approuver les messages écrits par mazeo. Répondre à ceux qui vous répondent.</p>
       <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre créneau</button></div>
-      <p class="source">Règle&nbsp;: 10 minutes par semaine et par rendez-vous visé, le double le premier mois. Ordre de grandeur constaté chez les utilisateurs de mazeo. Les nombres suivent l'objectif que vous avez réglé.</p>
+      <p class="source">Le calcul&nbsp;: 10 minutes par semaine pour chaque rendez-vous visé, le double le premier mois. C'est l'ordre de grandeur observé chez les utilisateurs de mazeo. Les nombres changent avec votre objectif.</p>
     </div>
     <div>
       <span class="lab">Pour <span data-calc="rdv">3</span> rendez-vous par mois</span>
@@ -346,8 +346,8 @@ h1 span.noir { font-style:normal; color:var(--ink); }
     <div>
       <p class="sur">À vous · votre créneau</p>
       <h1>Bloquez votre créneau <span>dans votre agenda.</span></h1>
-      <p class="lede2">C'est la régularité qui donne des résultats. Un créneau fixe, chaque semaine, pour faire avancer votre pipeline et votre prospection&nbsp;: c'est lui qui fait tenir le plan.</p>
-      <p class="th">Choisissez vos jours et votre heure, la durée est calculée pour vous. <b>Au-delà d'une heure et demie par semaine, un seul créneau tient mal&nbsp;: prenez-en deux</b>, chacun à son heure.</p>
+      <p class="lede2">Les résultats viennent de la régularité. Réservez le même moment chaque semaine pour votre prospection&nbsp;: c'est ce qui vous permet d'atteindre votre objectif.</p>
+      <p class="th">Choisissez vos jours et votre heure. La page calcule la durée. <b>Au-delà d'une heure et demie par semaine, un seul créneau devient trop long&nbsp;: prenez-en deux.</b> Si vous choisissez deux jours, la durée se partage entre les deux.</p>
       <div class="cta"><button type="button" data-suivant>Voir mon plan</button></div>
     </div>
     <div class="cadre creneau">
@@ -362,10 +362,10 @@ h1 span.noir { font-style:normal; color:var(--ink); }
         </div>
       </div>
       <div class="bloc">
-        <p class="dl">Chaque créneau&nbsp;: <b data-calc="dureeCreneau">1 h</b> le premier mois, <b data-calc="dureeCreneau2">30 min</b> ensuite.</p>
+        <p class="dl">Durée de chaque créneau&nbsp;: <b data-calc="dureeCreneau">1 h</b> le premier mois, <b data-calc="dureeCreneau2">30 min</b> ensuite.</p>
         <div class="lignes-c" id="lignes-c"></div>
       </div>
-      <p class="rempli">Un clic ouvre le créneau dans votre agenda, déjà rempli. Google Agenda le répète chaque semaine tout seul&nbsp;; dans Outlook, cochez «&nbsp;Répéter&nbsp;: chaque semaine&nbsp;» avant d'enregistrer.</p>
+      <p class="rempli">Cliquez sur Outlook ou sur Google Agenda&nbsp;: le créneau s'ouvre dans votre agenda, déjà rempli. Dans Google Agenda, il se répète chaque semaine. Dans Outlook, cochez «&nbsp;Répéter&nbsp;: chaque semaine&nbsp;» avant d'enregistrer. Après le premier mois, raccourcissez-le à <span data-calc="dureeCreneau2">30 min</span>.</p>
     </div>
   </div>
 </section>
@@ -374,20 +374,20 @@ h1 span.noir { font-style:normal; color:var(--ink); }
 <section class="ecran pont">
   <div class="contenu deux">
     <div>
-      <p class="sur">Votre plan</p>
+      <p class="sur">Récapitulatif</p>
       <h1>Votre plan pour <span><span data-calc="rdv">3</span> rendez-vous par mois.</span></h1>
       <div class="plan">
         <div><span class="k">Rendez-vous<small>chaque mois</small></span><span class="v b" data-calc="rdv">3</span></div>
-        <div><span class="k">Personnes à contacter<small>dès la première semaine</small></span><span class="v" data-calc="pipe1">90</span></div>
-        <div><span class="k">Nouvelles personnes à ajouter<small>chaque semaine, ensuite</small></span><span class="v"><span data-calc="semaine">15</span> <small><span data-calc="pipe">60</span> en cours, en permanence</small></span></div>
-        <div><span class="k">Votre temps<small>par semaine</small></span><span class="v"><span data-calc="temps1">1 h</span> <small><span data-calc="temps">30 min</span> ensuite</small></span></div>
+        <div><span class="k">Personnes à contacter<small>la première semaine</small></span><span class="v" data-calc="pipe1">90</span></div>
+        <div><span class="k">Nouvelles personnes à contacter<small>chaque semaine, ensuite</small></span><span class="v"><span data-calc="semaine">15</span> <small><span data-calc="pipe">60</span> personnes dans votre liste en permanence</small></span></div>
+        <div><span class="k">Votre temps<small>par semaine</small></span><span class="v"><span data-calc="temps1">1 h</span> <small>le premier mois&nbsp;; <span data-calc="temps">30 min</span> ensuite</small></span></div>
         <div><span class="k">Vos créneaux<small>dans votre agenda, durée du premier mois</small></span><span class="v petit" data-creneau>lundi, 9 h – 10 h</span></div>
       </div>
     </div>
     <div class="cadre bleu">
       <span class="lab bleu">Dans mazeo</span>
-      <p class="m">mazeo prépare le travail. Vous tenez le créneau.</p>
-      <p>mazeo trouve les entreprises et les personnes de votre cible, écrit vos messages et prépare votre liste de choses à faire. À chaque créneau, vous choisissez qui contacter, vous validez, vous répondez.</p>
+      <p class="m">mazeo prépare le travail. Vous tenez votre créneau, chaque semaine.</p>
+      <p>mazeo trouve les entreprises et les personnes que vous visez, écrit vos messages et prépare votre liste de choses à faire. À chaque créneau, vous choisissez qui contacter, vous approuvez les messages, vous répondez.</p>
       <div class="cta"><a class="btn" href="/demo">Voir mazeo en démo</a><a class="btn second" href="/academy">Toutes les fiches pratiques</a></div>
     </div>
   </div>
@@ -436,7 +436,7 @@ h1 span.noir { font-style:normal; color:var(--ink); }
     var e = new Date(d.getTime() + dc * 60000);
     var g = function (x) { return x.getFullYear() + pad(x.getMonth() + 1) + pad(x.getDate()) + "T" + pad(x.getHours()) + pad(x.getMinutes()) + "00"; };
     var iso = function (x) { return x.getFullYear() + "-" + pad(x.getMonth() + 1) + "-" + pad(x.getDate()) + "T" + pad(x.getHours()) + ":" + pad(x.getMinutes()) + ":00"; };
-    var titre = "Prospection", details = "Choisir mes contacts dans mazeo (" + v.pipe1 + " la première semaine, puis " + v.semaine + " chaque semaine), valider les messages, répondre. Objectif : " + nb + " rendez-vous par mois. Fiche : https://www.mazeo.co/votre-rythme";
+    var titre = "Prospection", details = "Choisir qui contacter dans mazeo (" + v.pipe1 + " la première semaine, puis " + v.semaine + " par semaine à partir du deuxième mois), approuver les messages, répondre. Objectif : " + nb + " rendez-vous par mois. Fiche : https://www.mazeo.co/votre-rythme";
     return {
       outlook: "https://outlook.office.com/calendar/deeplink/compose?subject=" + encodeURIComponent(titre) + "&body=" + encodeURIComponent(details) + "&startdt=" + encodeURIComponent(iso(d)) + "&enddt=" + encodeURIComponent(iso(e)),
       google: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(titre) + "&dates=" + g(d) + "/" + g(e) + "&details=" + encodeURIComponent(details) + "&recur=" + encodeURIComponent("RRULE:FREQ=WEEKLY;BYDAY=" + code)
