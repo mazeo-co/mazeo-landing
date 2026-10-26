@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mazeo accélère votre prospection, vous gardez la main : le temps à bloquer chaque semaine · fiche pratique 6 de la growth academy, présentée par mazeo</title>
+<meta name="description" content="Pour les clients de mazeo, et ceux qui le deviennent : fixez le nombre de rendez-vous que vous visez chaque mois, et voyez les leads à contacter, le temps à bloquer chaque semaine, et votre créneau dans l'agenda. Fiche pratique 6 de la growth academy, présentée par mazeo.">
+<link rel="canonical" href="https://www.mazeo.co/votre-rythme">
+<link rel="alternate" hreflang="fr" href="https://www.mazeo.co/votre-rythme">
+<link rel="alternate" hreflang="x-default" href="https://www.mazeo.co/votre-rythme">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="mazeo">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:url" content="https://www.mazeo.co/votre-rythme">
+<meta property="og:title" content="mazeo accélère votre prospection. Vous gardez la main : le temps à bloquer chaque semaine.">
+<meta property="og:description" content="Fiche pratique 6 de la growth academy by mazeo : votre objectif de rendez-vous, les leads qu'il vous faut, le temps à bloquer chaque semaine, et votre créneau dans l'agenda. Cinq minutes.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700&family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600;700&family=Inter:wght@500;600;800&display=swap">
+<style>
+/* fiche 6 · le gabarit des fiches 1 et 4 : papier, Instrument Serif, un écran à la fois, l'en-tête commun (assets/academy/entete.css) */
+:root { color-scheme:light;
+  --x:clamp(0px,calc((100vh - var(--fil-h,0px) - 715px) / 10),60px); --paper:#F7F7F5; --ink:#121212; --body:#3D3D3D; --meta:#767673; --meta2:#A3A3A0; --hair:#E4E4E1; --hair2:#CDCDC8; --card:#FFFFFF;
+  --blue:#007BFF; --blue-deep:#0066D6; --green:#00C774; --orange:#F59E0B; --red:#EF4444;
+  --font:'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --serif:'Instrument Serif', 'Iowan Old Style', Georgia, serif; --logo:'Bricolage Grotesque', var(--font); --mono:'Inter', var(--font); }
+* { box-sizing:border-box; }
+html, body { margin:0; height:100%; }
+body { font-family:var(--font); font-size:clamp(18px,1.25vw,20px); line-height:1.55; color:var(--ink); background:var(--paper); -webkit-font-smoothing:antialiased; overflow:hidden; }
+a { color:inherit; }
+button, input, select { font:inherit; }
+.bar { position:absolute; left:0; right:0; bottom:-1px; height:2px; z-index:1; }
+.bar i { display:block; height:2px; width:0; background:var(--ink); transition:width .4s ease; }
+.entete { position:fixed; top:var(--fil-h,0px); left:0; right:0; z-index:5; background:var(--paper); }
+.share { position:relative; } .share-menu[hidden] { display:none; }
+.share-menu { position:absolute; right:0; top:calc(100% + 8px); z-index:40; min-width:220px; background:#fff; border:1px solid var(--hair2); border-radius:14px; padding:8px; display:grid; gap:2px; box-shadow:0 16px 40px rgba(10,10,10,.18); }
+.share-menu a, .share-menu button { display:flex; align-items:center; gap:10px; width:100%; text-align:left; background:none; border:0; border-radius:9px; padding:10px 12px; color:var(--ink); font-size:15px; font-weight:600; cursor:pointer; text-decoration:none; }
+.share-menu a:hover, .share-menu button:hover { background:var(--paper); }
+.share-menu i { display:inline-grid; place-items:center; width:28px; height:28px; border-radius:8px; font-style:normal; color:#fff; }
+.share-menu i svg { width:16px; height:16px; fill:currentColor; display:block; }
+.i-in { background:#0A66C2; } .i-wa { background:#25D366; } .i-x { background:#000; } .i-mail { background:#6B7280; } .i-link { background:#2B8FFF; }
+/* les écrans */
+.ecrans { position:relative; height:calc(100vh - var(--fil-h,0px)); }
+.ecran { position:absolute; inset:0; display:flex; align-items:flex-start; overflow-y:auto; opacity:0; transform:translateY(40px); transition:opacity .35s ease, transform .35s ease; visibility:hidden; pointer-events:none; }
+.ecran.actif { opacity:1; transform:none; visibility:visible; pointer-events:auto; }
+.ecran.passe { transform:translateY(-40px); }
+.contenu { width:100%; max-width:1280px; margin:auto; padding:clamp(104px,11vh,150px) 48px clamp(20px,calc(6vh - 20px),70px); }
+p.sur { font-family:var(--mono); font-size:13.5px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin:0 0 clamp(14px,2.2vh,22px); }
+h1 { font-family:var(--serif); font-weight:400; letter-spacing:-0.015em; line-height:1.06; font-size:clamp(32px,2.7vw,44px); margin:0 0 clamp(16px,2.6vh,28px); text-wrap:balance; }
+h1 span { font-style:italic; color:var(--blue); }
+.lede2 { font-family:var(--serif); font-size:clamp(20px,min(1.45vw,3vh),24px); line-height:1.45; color:var(--ink); margin:0 0 clamp(14px,2.4vh,26px); max-width:30em; }
+p.th { font-size:clamp(16px,1.1vw,18px); line-height:1.75; color:var(--body); margin:0 0 clamp(14px,2.4vh,24px); max-width:46ch; }
+p.th b { color:var(--ink); font-weight:600; }
+p.source { font-size:13px; line-height:1.55; color:var(--meta); margin:12px 0 0; max-width:56ch; }
+p.source i { font-style:italic; }
+.lab { display:block; font-family:var(--mono); font-size:13px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--meta); margin-bottom:16px; }
+.lab.bleu { color:var(--blue); }
+.cadre { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:clamp(24px,3.6vh,36px) clamp(28px,2.6vw,40px); }
+.cadre.bleu { border-color:var(--blue); }
+.cta { margin-top:clamp(16px,2.8vh,30px); display:flex; align-items:center; gap:16px; flex-wrap:wrap; }
+.cta button, .cta a.btn { font-weight:600; font-size:clamp(17px,1.2vw,20px); color:var(--paper); background:var(--ink); border:0; border-radius:3px; padding:13px 26px; cursor:pointer; text-decoration:none; display:inline-block; }
+.cta button:hover, .cta a.btn:hover { background:#000; }
+.cta button.second, .cta a.btn.second { background:transparent; color:var(--ink); border:1px solid var(--hair2); }
+.cta button.second:hover, .cta a.btn.second:hover { background:var(--card); }
+/* un écran = à gauche ce qu'on explique ou ce qu'on demande, à droite ce qu'on produit */
+.contenu.deux { display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:clamp(44px,4.6vw,80px); align-items:center; }
+.contenu.deux > * { min-width:0; }
+/* l'ouverture */
+.heros h1 { font-size:clamp(40px,3.9vw,60px); line-height:1; margin-bottom:clamp(16px,2.8vh,30px); }
+.heros .lede2 { max-width:26em; }
+.cadre.plan4 .lab { margin-bottom:clamp(16px,2.8vh,28px); line-height:1.7; }
+ol.quatre { list-style:none; margin:0; padding:0; counter-reset:q; }
+ol.quatre li { counter-increment:q; display:grid; grid-template-columns:44px 1fr; align-items:baseline; padding:clamp(14px,2.4vh,24px) 0; border-top:1px solid var(--hair); font-family:var(--serif); font-size:clamp(21px,1.7vw,28px); line-height:1.25; }
+ol.quatre li:first-child { border-top:0; padding-top:0; } ol.quatre li:last-child { padding-bottom:0; }
+ol.quatre li::before { content:counter(q); font-family:var(--serif); font-size:clamp(21px,1.7vw,28px); line-height:1; color:var(--blue); }
+/* la séquence : cinq touches, les délais en jours ouvrés */
+ol.sequence { list-style:none; margin:0; padding:0; position:relative; }
+ol.sequence::before { content:""; position:absolute; left:11px; top:14px; bottom:14px; width:2px; background:var(--hair2); }
+ol.sequence li { display:grid; grid-template-columns:24px 1fr; gap:22px; align-items:start; padding:clamp(8px,1.5vh,14px) 0; position:relative; }
+ol.sequence li i { width:24px; height:24px; border-radius:50%; background:var(--card); border:2px solid var(--blue); display:block; margin-top:2px; }
+ol.sequence li.mail i { border-color:var(--ink); }
+ol.sequence li b { display:block; font-weight:600; font-size:clamp(17px,1.2vw,20px); line-height:1.3; }
+ol.sequence li span { display:block; font-size:14.5px; color:var(--meta); margin-top:2px; }
+ol.sequence li em { font-style:normal; font-family:var(--mono); font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--blue); display:block; margin-bottom:2px; }
+ol.sequence li.mail em { color:var(--meta); }
+/* l'entonnoir de nos chiffres */
+.entonnoir { display:grid; gap:0; }
+.entonnoir > div { display:grid; grid-template-columns:96px 1fr auto; gap:18px; align-items:baseline; padding:clamp(12px,2.2vh,20px) 0; border-top:1px solid var(--hair); }
+.entonnoir > div:first-child { border-top:0; padding-top:0; } .entonnoir > div:last-child { padding-bottom:0; }
+.entonnoir b { font-family:var(--serif); font-weight:400; font-size:clamp(38px,3.2vw,54px); line-height:.95; color:var(--ink); }
+.entonnoir > div.but b { color:var(--blue); }
+.entonnoir span { font-size:clamp(17px,1.2vw,20px); color:var(--body); line-height:1.3; }
+.entonnoir em { font-style:normal; font-family:var(--mono); font-size:13px; font-weight:600; color:var(--meta); letter-spacing:.06em; }
+.entonnoir > div.but span { color:var(--ink); font-weight:600; }
+/* l'objectif : le compteur */
+.compteur { display:flex; align-items:center; gap:18px; margin:clamp(6px,1vh,12px) 0 0; }
+.compteur button { width:52px; height:52px; border-radius:50%; border:1px solid var(--hair2); background:var(--card); color:var(--ink); font-size:26px; line-height:1; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; }
+.compteur button:hover { border-color:var(--ink); }
+.compteur input { width:92px; text-align:center; font-family:var(--serif); font-size:clamp(48px,4vw,64px); line-height:1; border:0; border-bottom:2px solid var(--ink); background:transparent; color:var(--ink); padding:0 0 4px; outline:0; -moz-appearance:textfield; }
+.compteur input::-webkit-outer-spin-button, .compteur input::-webkit-inner-spin-button { -webkit-appearance:none; margin:0; }
+.compteur label { font-size:clamp(16px,1.1vw,19px); color:var(--body); line-height:1.3; max-width:12em; }
+/* les tuiles de résultat */
+.tuiles { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.tuiles > div { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:clamp(16px,2.6vh,24px) clamp(18px,1.6vw,24px); display:flex; flex-direction:column; gap:6px; }
+.tuiles > div.large { grid-column:1 / -1; flex-direction:row; align-items:baseline; gap:16px; }
+.tuiles b { font-family:var(--serif); font-weight:400; font-size:clamp(36px,3vw,50px); line-height:1; color:var(--blue); }
+.tuiles span { font-size:clamp(15px,1.05vw,17px); line-height:1.45; color:var(--body); }
+.tuiles > div.large span { font-size:clamp(16px,1.1vw,18px); }
+p.lecture { margin:clamp(14px,2.4vh,22px) 0 0; font-size:clamp(15.5px,1.05vw,17.5px); line-height:1.6; color:var(--body); }
+p.lecture b { color:var(--ink); font-weight:600; }
+/* le temps : deux moments */
+.temps { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.temps > div { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:clamp(18px,3vh,28px) clamp(20px,1.8vw,28px); }
+.temps > div.now { border-color:var(--blue); }
+.temps .lab { margin-bottom:10px; }
+.temps b { font-family:var(--serif); font-weight:400; font-size:clamp(40px,3.6vw,60px); line-height:1; color:var(--ink); display:block; }
+.temps > div.now b { color:var(--blue); }
+.temps span { display:block; margin-top:8px; font-size:clamp(15px,1.05vw,17px); color:var(--body); line-height:1.45; }
+ul.dedans { list-style:none; margin:clamp(14px,2.4vh,22px) 0 0; padding:0; display:grid; gap:8px; }
+ul.dedans li { position:relative; padding-left:22px; font-size:clamp(15.5px,1.05vw,17.5px); line-height:1.5; color:var(--body); }
+ul.dedans li::before { content:""; position:absolute; left:3px; top:.6em; width:8px; height:8px; border-radius:50%; background:var(--blue); }
+ul.dedans li b { color:var(--ink); font-weight:600; }
+/* le créneau : jours, heure, durée, agenda */
+.creneau .lab { margin-bottom:10px; }
+.creneau .bloc + .bloc { margin-top:clamp(14px,2.4vh,22px); }
+.jours { display:flex; gap:8px; flex-wrap:wrap; }
+.jours label { cursor:pointer; }
+.jours input { position:absolute; opacity:0; pointer-events:none; }
+.jours label span { display:inline-block; padding:9px 14px; border-radius:999px; border:1px solid var(--hair2); background:var(--card); font-size:15px; font-weight:600; color:var(--ink); line-height:1.2; }
+.jours label.on span { background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.ligne-h { display:flex; gap:28px; flex-wrap:wrap; align-items:flex-end; }
+.ligne-h select { border:1px solid var(--hair2); border-radius:4px; background:var(--card); padding:9px 12px; font-size:17px; color:var(--ink); min-width:110px; }
+.duree { font-family:var(--serif); font-size:clamp(26px,2vw,34px); line-height:1; color:var(--blue); }
+.duree small { font-family:var(--font); font-size:14.5px; color:var(--meta); display:block; margin-top:6px; }
+.agenda { display:flex; gap:12px; flex-wrap:wrap; margin-top:clamp(14px,2.4vh,22px); }
+.agenda a { font-weight:600; font-size:16px; color:var(--paper); background:var(--ink); border-radius:3px; padding:12px 20px; text-decoration:none; display:inline-flex; align-items:center; gap:10px; }
+.agenda a:hover { background:#000; }
+.agenda a svg { width:18px; height:18px; display:block; }
+p.rempli { margin:12px 0 0; font-size:14px; color:var(--meta); line-height:1.5; }
+p.rempli b { color:var(--ink); font-weight:600; }
+/* le plan : la carte que le lecteur garde */
+.plan { display:grid; }
+.plan > div { display:grid; grid-template-columns:1fr auto; gap:24px; align-items:baseline; padding:clamp(10px,1.8vh,16px) 0; border-top:1px solid var(--hair); }
+.plan > div:first-child { border-top:0; padding-top:0; } .plan > div:last-child { padding-bottom:0; }
+.plan .k { font-size:clamp(15.5px,1.05vw,17.5px); color:var(--body); }
+.plan .k small { display:block; font-size:13.5px; color:var(--meta); margin-top:2px; }
+.plan .v { font-family:var(--serif); font-size:clamp(24px,1.9vw,32px); line-height:1; color:var(--ink); text-align:right; white-space:nowrap; }
+.plan .v.b { color:var(--blue); }
+.plan .v small { font-family:var(--font); font-size:13.5px; color:var(--meta); display:block; margin-top:4px; }
+.pont .cadre.bleu p { margin:0 0 16px; font-size:clamp(16px,1.1vw,19px); line-height:1.6; color:var(--ink); }
+.pont .cadre.bleu p.m { font-family:var(--serif); font-size:clamp(23px,1.7vw,30px); line-height:1.3; }
+.pont .cadre.bleu .cta { margin-top:18px; } .pont .cadre.bleu .cta a.btn { font-size:16px; padding:12px 20px; white-space:nowrap; }
+@media (min-width: 901px) { .contenu { padding-top:clamp(100px,calc(11vh + 24px),140px); } }
+@media (max-width: 900px) {
+  body { overflow:auto; } .ecrans { height:auto; } .ecran { position:relative; display:none; } .ecran.actif { display:block; }
+  .entete { position:relative; top:0; }
+  .contenu, .contenu.deux { padding:28px 20px 60px; grid-template-columns:1fr; gap:28px; }
+  .heros h1 { font-size:38px; } h1 { font-size:30px; }
+  .tuiles, .temps { grid-template-columns:1fr; }
+  .entonnoir > div { grid-template-columns:72px 1fr; } .entonnoir em { grid-column:2; }
+}
+
+/* 26/10 : relecture de Romain. L'ouverture dit à quoi sert la fiche ; le schéma du Pipeline en trois objectifs ; une heure par créneau. */
+.heros .note { font-size:15px; color:var(--meta); }
+.contenu.seq { display:block; }
+.ecran .contenu.seq { padding-top:clamp(96px,calc(11vh + 20px),130px); padding-bottom:16px; }
+.seq-tete { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:40px; align-items:end; margin-bottom:clamp(12px,2vh,20px); }
+.seq-tete h1 { font-size:clamp(28px,2.3vw,38px); margin-bottom:10px; }
+.seq-tete .lede2 { font-size:clamp(17px,1.2vw,20px); margin:0; max-width:none; }
+.seq-tete .sur { margin-bottom:10px; }
+.seq-droite { display:flex; flex-direction:column; align-items:flex-end; gap:12px; }
+.seq-droite .objs { margin:0; width:max-content; max-width:100%; }
+.seq-droite .objs button { font-size:13px; padding:6px 10px; }
+.seq-droite .cta { margin:0; justify-content:flex-end; }
+.seq-droite .cta .note { font-size:13px; color:var(--meta); max-width:22em; text-align:right; }
+.schema { background:var(--card); border:1px solid var(--hair2); border-radius:4px; padding:clamp(12px,1.6vh,18px) clamp(18px,1.8vw,24px) clamp(10px,1.4vh,16px); }
+.ecran .contenu.seq { padding-top:clamp(96px,calc(11vh + 20px),130px); }
+.objs { display:flex; gap:6px; padding:4px; background:var(--paper); border:1px solid var(--hair); border-radius:999px; margin:0 0 clamp(8px,1.2vh,14px); }
+.objs button { flex:1; border:0; background:none; border-radius:999px; padding:7px 10px; font-size:13.5px; font-weight:600; color:var(--meta); cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:8px; white-space:nowrap; }
+.objs button .n { width:20px; height:20px; border-radius:50%; border:1.5px solid currentColor; display:inline-grid; place-items:center; font-size:11px; }
+.objs button.on { background:var(--ink); color:var(--paper); }
+.flux[hidden] { display:none; }
+.etape { display:grid; grid-template-columns:30px 1fr; gap:12px; align-items:center; padding:clamp(4px,.8vh,7px) 12px; border:1px solid var(--hair); border-radius:10px; background:var(--card); }
+.etape .ic { width:28px; height:28px; border-radius:8px; display:grid; place-items:center; font-style:normal; font-size:12px; font-weight:800; }
+.ic.li { background:#E8F1FB; color:#0A66C2; } .ic.li::before { content:"in"; }
+.ic.dual { background:linear-gradient(135deg,#E8F1FB 50%,#ECFBF3 50%); color:#3A4250; } .ic.dual::before { content:"✉"; font-weight:600; font-size:14px; }
+.ic.tel { background:#FEF3E7; color:#B45309; } .ic.tel::before { content:"☏"; font-size:15px; }
+.ic.neu { background:var(--paper); color:var(--meta); } .ic.neu::before { content:"•"; font-size:16px; }
+.etape b { font-size:14px; font-weight:600; line-height:1.2; display:flex; gap:8px; align-items:center; flex-wrap:wrap; color:var(--ink); }
+.etape span { display:block; font-size:12px; color:var(--meta); line-height:1.3; margin-top:0; }
+.qui { font-style:normal; font-size:10.5px; font-weight:600; border-radius:999px; padding:1px 7px; line-height:1.4; }
+.qui.m { background:#F1ECFB; color:#6B46C1; } .qui.v { background:#FFF1A8; color:#705A00; }
+.att { margin:0 0 0 26px; padding:clamp(2px,.4vh,4px) 0 clamp(2px,.4vh,4px) 16px; border-left:2px solid var(--hair2); font-size:12.5px; color:var(--meta); line-height:1.35; }
+.att b { color:var(--blue); font-weight:600; }
+.att .ou { display:block; font-size:11.5px; color:var(--meta2); }
+.att.fin { border-left:0; margin:10px 0 0; padding:0; font-size:13.5px; color:var(--body); }
+.att.debut { border-left:0; margin:0 0 8px; padding:0; font-size:13.5px; color:var(--body); }
+.att.fin b { color:var(--ink); }
+.cadre p.regle { margin:clamp(14px,2.4vh,22px) 0 0; padding-top:clamp(12px,2vh,18px); border-top:1px solid var(--hair); font-family:var(--serif); font-size:clamp(22px,1.7vw,28px); line-height:1.2; color:var(--ink); }
+.cadre p.regle b { font-weight:400; color:var(--blue); }
+.tuiles.lignes { grid-template-columns:1fr; gap:8px; }
+.tuiles.lignes > div { flex-direction:row; align-items:flex-start; gap:18px; padding:clamp(10px,1.5vh,14px) clamp(16px,1.4vw,22px); }
+.tuiles.lignes b { min-width:78px; font-size:clamp(34px,2.7vw,44px); }
+.tuiles.lignes .t { display:block; font-size:clamp(15px,1vw,16.5px); color:var(--ink); font-weight:600; line-height:1.3; }
+.tuiles.lignes .p { display:block; font-size:13px; color:var(--meta); margin-top:3px; line-height:1.4; }
+.creneau p.dl { margin:0 0 6px; font-size:15.5px; color:var(--body); } .creneau p.dl b { color:var(--ink); font-weight:600; }
+.lignes-c { display:grid; margin-top:2px; }
+.lc { display:grid; grid-template-columns:88px auto 1fr auto; gap:14px; align-items:center; padding:clamp(7px,1.2vh,10px) 0; border-top:1px solid var(--hair); }
+.lc b { font-weight:600; font-size:15.5px; }
+.lc .pl { font-size:15px; color:var(--body); white-space:nowrap; }
+.lc .ag { display:flex; gap:8px; }
+.lc .ag a { font-size:13.5px; font-weight:600; padding:8px 13px; border-radius:3px; background:var(--ink); color:var(--paper); text-decoration:none; white-space:nowrap; }
+.lc .ag a + a { background:transparent; color:var(--ink); border:1px solid var(--hair2); }
+.lc .ag a:hover { background:#000; color:var(--paper); }
+.lc select { appearance:none; -webkit-appearance:none; border:1px solid var(--hair2); border-radius:4px; color:var(--ink); font-size:15px; padding:7px 34px 7px 12px; min-width:92px; cursor:pointer;
+  background:var(--card) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23121212' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M6 9l6 6 6-6'/></svg>") no-repeat right 11px center / 14px 14px; }
+.lignes-c p.vide { margin:8px 0 0; font-size:14.5px; color:var(--meta); }
+.plan .v.petit { font-size:clamp(16px,1.2vw,20px); white-space:normal; max-width:17em; line-height:1.35; }
+@media (max-width:900px) { .lc { grid-template-columns:1fr 1fr; } .lc .ag { grid-column:1 / -1; } .objs button { font-size:12px; padding:6px 6px; } }
+
+/* 26/10 soir : l'arbre de décision de l'app dans un cadre zoomable (comme « Pourquoi cette séquence ? ») ; titres dynamiques */
+.arbre { position:relative; border:1px solid var(--hair2); border-radius:10px; overflow:hidden; background:#F6F7FA; height:clamp(300px,calc(100vh - var(--fil-h,0px) - 318px),640px); }
+.arbre iframe { display:block; width:100%; height:100%; border:0; background:#F6F7FA; }
+.arbre .zoom { position:absolute; right:12px; bottom:12px; display:flex; flex-direction:column; gap:6px; }
+.arbre .zoom button { width:34px; height:34px; border-radius:8px; border:1px solid var(--hair2); background:var(--card); color:var(--ink); font-size:20px; line-height:1; cursor:pointer; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+.arbre .zoom button:hover { background:var(--paper); }
+h1 span.noir { font-style:normal; color:var(--ink); }
+.cadre.plan4 p.reste { margin:clamp(14px,2.4vh,22px) 0 0; padding-top:clamp(12px,2vh,18px); border-top:1px solid var(--hair); font-size:clamp(15.5px,1.05vw,17.5px); color:var(--body); }
+.cadre.plan4 p.reste b { color:var(--ink); }
+.entonnoir > div { grid-template-columns:96px 1fr; }
+</style>
+<link rel="stylesheet" href="/assets/academy/entete.css">
+</head>
+<body><script src="/assets/fil-ressources.js"></script>
+<header class="entete"><div class="in">
+  <div class="logo">
+    <a class="nm" href="/academy" aria-label="growth academy"><svg viewBox="0 0 24 24" fill="none" stroke="#007BFF" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 21v-6M12 21V9M20 21V3"/></svg>growth academy</a>
+    <span class="par">présentée par <a class="mz" href="/" aria-label="mazeo">mazeo<i>.</i></a></span>
+  </div>
+  <div class="droite"><a class="lang" href="/en/academy" hreflang="en" aria-label="English" title="English"><span class="flag" id="flag"></span></a><div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div></div>
+  <div class="bar"><i id="bar"></i></div>
+</div></header>
+
+<div class="ecrans" id="ecrans">
+<!-- 1 · Ouverture -->
+<section class="ecran">
+  <div class="contenu deux heros">
+    <div>
+      <p class="sur">Pour les clients de mazeo, et ceux qui hésitent encore</p>
+      <h1>mazeo accélère votre prospection. <span>Vous gardez la main.</span></h1>
+      <p class="lede2">Vous choisissez qui contacter. Vous relisez et approuvez chaque message. Vous répondez vous-même. Cela demande de la régularité&nbsp;: un peu de temps chaque semaine, toujours au même moment.</p>
+      <p class="th">Cette page calcule ce temps d'après le nombre de rendez-vous que vous visez, puis vous aide à le réserver dans votre agenda.</p>
+      <div class="cta"><button type="button" data-suivant>Commencer</button><span class="note">5 minutes de lecture.</span></div>
+    </div>
+    <div class="cadre plan4">
+      <span class="lab">Ce que mazeo fait pour vous</span>
+      <ol class="quatre">
+        <li>Trouver les entreprises qui ont besoin de ce que vous vendez</li>
+        <li>Trouver la bonne personne dans ces entreprises</li>
+        <li>Vous dire quand les contacter&nbsp;: un changement de poste, une embauche, un appel d'offres</li>
+        <li>Préparer vos messages et vos relances, du premier contact jusqu'au rendez-vous</li>
+      </ol>
+      <p class="reste">Ce que vous faites&nbsp;: choisir qui contacter, approuver les messages, répondre à ceux qui vous répondent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · Nos résultats -->
+<section class="ecran">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">Les chiffres de nos utilisateurs</p>
+      <h1>Sur 100 personnes contactées, <span>5 viennent à un rendez-vous.</span></h1>
+      <p class="lede2">12 engagent une conversation. 6 acceptent un rendez-vous. 5 viennent vraiment. Ce sont les chiffres que nous mesurons chez les utilisateurs de mazeo.</p>
+      <p class="th"><b>Pour un rendez-vous, il faut donc contacter 20 personnes.</b> Tous les calculs de cette page partent de ce chiffre.</p>
+      <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre objectif</button></div>
+      <p class="source">Nous comptons un rendez-vous seulement s'il a lieu, avec la bonne personne, dans une entreprise que vous visez.</p>
+      </div>
+    <div class="cadre">
+      <span class="lab">Sur 100 personnes contactées</span>
+      <div class="entonnoir">
+        <div><b>100</b><span>contactées</span><em></em></div>
+        <div><b>12</b><span>engagent une conversation</span><em></em></div>
+        <div><b>6</b><span>acceptent un rendez-vous</span><em></em></div>
+        <div class="but"><b>5</b><span>viennent au rendez-vous</span><em></em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · Votre objectif -->
+<section class="ecran">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">À vous · votre objectif</p>
+      <h1>Combien de rendez-vous <span>voulez-vous par mois&nbsp;?</span></h1>
+      <p class="lede2">Commencez par 3. Après un mois, ajustez selon vos propres chiffres.</p>
+      <div class="compteur">
+        <button type="button" data-pm="-1" aria-label="Un rendez-vous de moins">−</button>
+        <input type="number" name="rdv" value="3" min="1" max="20" inputmode="numeric" aria-label="Rendez-vous par mois">
+        <button type="button" data-pm="1" aria-label="Un rendez-vous de plus">+</button>
+        <label>rendez-vous par mois</label>
+      </div>
+      <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre temps</button></div>
+    </div>
+    <div>
+      <span class="lab">Ce qu'il vous faut</span>
+      <div class="tuiles lignes">
+        <div><b data-calc="pipe">60</b><div><span class="t">personnes dans votre liste de contacts</span><span class="p">Il faut 20 personnes pour un rendez-vous&nbsp;: <span data-calc="rdv">3</span> × 20 = <span data-calc="pipe">60</span>. Contactez les <span data-calc="pipe">60</span> dès maintenant, pas 15 par 15&nbsp;: mazeo vous propose des personnes dans les entreprises que vous visez, vous choisissez lesquelles contacter.</span></div></div>
+        <div><b data-calc="semaine">15</b><div><span class="t">nouvelles personnes à contacter chaque semaine</span><span class="p">Chaque personne reste environ un mois dans votre liste, le temps de recevoir vos messages et vos relances. Chaque semaine, un quart en sort, qu'elles aient répondu ou non. Vous les remplacez&nbsp;: <span data-calc="pipe">60</span> ÷ 4 = <span data-calc="semaine">15</span>.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Votre temps -->
+<section class="ecran">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">À vous · votre temps</p>
+      <h1><span data-calc="rdv" class="noir">3</span> rendez-vous par mois&nbsp;: <span><span data-calc="temps">30 min</span> par semaine.</span></h1>
+      <p class="lede2">Les deux premiers mois, comptez le double&nbsp;: <span data-calc="temps1">1 h</span>. Il faut ce temps pour améliorer vos messages et prendre le rythme.</p>
+      <p class="th">Ce temps sert à trois choses. Choisir qui contacter parmi les personnes que mazeo vous propose&nbsp;: <span data-calc="semaine">15</span> nouvelles personnes par semaine. Relire et approuver les messages écrits par mazeo. Répondre à ceux qui vous répondent.</p>
+      <div class="cta"><button type="button" data-suivant>Suivant&nbsp;: votre créneau</button></div>
+      <p class="source">Le calcul&nbsp;: 10 minutes par semaine pour chaque rendez-vous visé, le double les deux premiers mois. C'est l'ordre de grandeur observé chez les utilisateurs de mazeo. Les nombres changent avec votre objectif.</p>
+    </div>
+    <div>
+      <span class="lab">Pour <span data-calc="rdv">3</span> rendez-vous par mois</span>
+      <div class="temps">
+        <div class="now"><span class="lab bleu">Les deux premiers mois</span><b data-calc="temps1">1 h</b><span>par semaine</span></div>
+        <div><span class="lab">Ensuite</span><b data-calc="temps">30 min</b><span>par semaine</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · Votre créneau -->
+<section class="ecran">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">À vous · votre créneau</p>
+      <h1>Bloquez votre créneau <span>dans votre agenda.</span></h1>
+      <p class="lede2">Les résultats viennent de la régularité. Réservez le même moment chaque semaine pour votre prospection&nbsp;: c'est ce qui vous permet d'atteindre votre objectif.</p>
+      <p class="th">Choisissez vos jours et votre heure. La page calcule la durée. <b>Au-delà d'une heure et demie par semaine, un seul créneau devient trop long&nbsp;: prenez-en deux.</b> Si vous choisissez deux jours, la durée se partage entre les deux.</p>
+      <div class="cta"><button type="button" data-suivant>Voir mon plan</button></div>
+    </div>
+    <div class="cadre creneau">
+      <div class="bloc">
+        <span class="lab">Vos jours</span>
+        <div class="jours" id="jours">
+          <label class="on"><input type="checkbox" value="MO" checked><span>Lundi</span></label>
+          <label><input type="checkbox" value="TU"><span>Mardi</span></label>
+          <label><input type="checkbox" value="WE"><span>Mercredi</span></label>
+          <label><input type="checkbox" value="TH"><span>Jeudi</span></label>
+          <label><input type="checkbox" value="FR"><span>Vendredi</span></label>
+        </div>
+      </div>
+      <div class="bloc">
+        <p class="dl">Durée de chaque créneau&nbsp;: <b data-calc="dureeCreneau">1 h</b> les deux premiers mois, <b data-calc="dureeCreneau2">30 min</b> ensuite.</p>
+        <div class="lignes-c" id="lignes-c"></div>
+      </div>
+      <p class="rempli">Cliquez sur Outlook ou sur Google Agenda&nbsp;: le créneau s'ouvre dans votre agenda, déjà rempli. Dans Google Agenda, il se répète chaque semaine. Dans Outlook, cochez «&nbsp;Répéter&nbsp;: chaque semaine&nbsp;» avant d'enregistrer. Après deux mois, raccourcissez-le à <span data-calc="dureeCreneau2">30 min</span>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · Votre plan -->
+<section class="ecran pont">
+  <div class="contenu deux">
+    <div>
+      <p class="sur">Récapitulatif</p>
+      <h1>Votre plan pour <span><span data-calc="rdv">3</span> rendez-vous par mois.</span></h1>
+      <div class="plan">
+        <div><span class="k">Rendez-vous<small>chaque mois</small></span><span class="v b" data-calc="rdv">3</span></div>
+        <div><span class="k">Personnes dans votre liste<small>dès aujourd'hui</small></span><span class="v" data-calc="pipe">60</span></div>
+        <div><span class="k">Nouvelles personnes à contacter<small>chaque semaine</small></span><span class="v" data-calc="semaine">15</span></div>
+        <div><span class="k">Votre temps<small>par semaine</small></span><span class="v"><span data-calc="temps1">1 h</span> <small>les deux premiers mois&nbsp;; <span data-calc="temps">30 min</span> ensuite</small></span></div>
+        <div><span class="k">Vos créneaux<small>dans votre agenda. Après deux mois, raccourcissez-les à <span data-calc="dureeCreneau2">30 min</span></small></span><span class="v petit" data-creneau>lundi, 9 h – 10 h</span></div>
+      </div>
+    </div>
+    <div class="cadre bleu">
+      <span class="lab bleu">Dans mazeo</span>
+      <p class="m">mazeo prépare le travail. Vous tenez votre créneau, chaque semaine.</p>
+      <p>mazeo trouve les entreprises et les personnes que vous visez, écrit vos messages et prépare votre liste de choses à faire. À chaque créneau, vous choisissez qui contacter, vous approuvez les messages, vous répondez.</p>
+      <div class="cta"><a class="btn" href="/demo">Voir mazeo en démo</a><a class="btn second" href="/academy">Toutes les fiches pratiques</a></div>
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+(function () {
+  /* les écrans, comme les fiches 1 et 4 : ?e=N ouvre un écran, Retour du navigateur ramène au précédent */
+  var ecrans = Array.prototype.slice.call(document.querySelectorAll(".ecran")), n = -1;
+  function adresse(k) { var q = new URLSearchParams(location.search); q.set("e", k + 1); return location.pathname + "?" + q.toString(); }
+  function aller(k, mode) {
+    if (k < 0 || k >= ecrans.length) return;
+    if (mode !== "aucun" && k !== n) { try { history[mode === "remplacer" ? "replaceState" : "pushState"]({ e: k + 1 }, "", adresse(k)); } catch (x) {} }
+    n = k;
+    ecrans.forEach(function (e, i) { e.classList.toggle("actif", i === n); e.classList.toggle("passe", i < n); });
+    ecrans[n].scrollTop = 0;
+    document.getElementById("bar").style.width = ((n + 1) / ecrans.length * 100) + "%";
+  }
+  document.querySelectorAll("[data-suivant]").forEach(function (b) { b.addEventListener("click", function () { aller(n + 1); }); });
+  document.addEventListener("keydown", function (ev) {
+    var t = ev.target; if (t && (t.tagName === "INPUT" || t.tagName === "SELECT" || t.tagName === "TEXTAREA")) return;
+    if (ev.key === "ArrowRight" || ev.key === "PageDown") aller(n + 1);
+    if (ev.key === "ArrowLeft" || ev.key === "PageUp") aller(n - 1);
+  });
+
+  aller(Math.max(0, (parseInt(new URLSearchParams(location.search).get("e"), 10) || 1) - 1), "remplacer");
+  window.addEventListener("popstate", function (ev) { aller(((ev.state && ev.state.e) || 1) - 1, "aucun"); });
+
+  /* le calcul : un nombre saisi, le reste en découle. Règles de Romain (15/10/2026), celles de l'Academy des clients :
+     à contacter chaque mois = rendez-vous × 20 ; premier mois = rendez-vous × 30 ; par semaine = ÷ 4 ;
+     12 répondent, 6 acceptent, 5 viennent sur 100 ; temps = 10 minutes par semaine et par rendez-vous visé, le double le premier mois. */
+  var f = document.querySelector('[name="rdv"]'), jours = document.getElementById("jours"), lignesC = document.getElementById("lignes-c");
+  var NOMS = { MO: "lundi", TU: "mardi", WE: "mercredi", TH: "jeudi", FR: "vendredi" }, IDX = { MO: 1, TU: 2, WE: 3, TH: 4, FR: 5 };
+  var heures = { MO: 9, TU: 9, WE: 9, TH: 9, FR: 9 };   // une heure par jour choisi
+  var pad = function (x) { return String(x).padStart(2, "0"); };
+  var arr5 = function (x) { return Math.round(x / 5) * 5; };
+  var arr15 = function (m) { return Math.max(30, Math.ceil(m / 15) * 15); };
+  var duree = function (m) { var hh = Math.floor(m / 60), r = m % 60; return hh ? (r ? hh + " h " + pad(r) : hh + " h") : m + " min"; };
+  var plageDe = function (h, dc) { var fin = new Date(2000, 0, 1, h, dc); return h + " h – " + fin.getHours() + " h" + (fin.getMinutes() ? " " + pad(fin.getMinutes()) : ""); };
+  var deuxProposes = false;
+  function coches() { return Array.prototype.filter.call(jours.querySelectorAll("input"), function (i) { return i.checked; }).map(function (i) { return i.value; }); }
+  function liens(code, h, dc, v, nb) {
+    var d = new Date(); d.setHours(h, 0, 0, 0);
+    for (var k = 0; k < 8 && !(IDX[code] === d.getDay() && d > new Date()); k++) { d.setDate(d.getDate() + 1); d.setHours(h, 0, 0, 0); }
+    var e = new Date(d.getTime() + dc * 60000);
+    var g = function (x) { return x.getFullYear() + pad(x.getMonth() + 1) + pad(x.getDate()) + "T" + pad(x.getHours()) + pad(x.getMinutes()) + "00"; };
+    var iso = function (x) { return x.getFullYear() + "-" + pad(x.getMonth() + 1) + "-" + pad(x.getDate()) + "T" + pad(x.getHours()) + ":" + pad(x.getMinutes()) + ":00"; };
+    var titre = "Prospection", details = "Choisir qui contacter dans mazeo (" + v.semaine + " nouvelles personnes par semaine), approuver les messages, répondre. Objectif : " + nb + " rendez-vous par mois. Fiche : https://www.mazeo.co/votre-rythme";
+    return {
+      outlook: "https://outlook.office.com/calendar/deeplink/compose?subject=" + encodeURIComponent(titre) + "&body=" + encodeURIComponent(details) + "&startdt=" + encodeURIComponent(iso(d)) + "&enddt=" + encodeURIComponent(iso(e)),
+      google: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(titre) + "&dates=" + g(d) + "/" + g(e) + "&details=" + encodeURIComponent(details) + "&recur=" + encodeURIComponent("RRULE:FREQ=WEEKLY;BYDAY=" + code)
+    };
+  }
+  function calc() {
+    var nb = parseInt(f.value, 10); if (!(nb >= 1)) nb = 1; if (nb > 20) nb = 20;
+    var pipe = nb * 20, pipe1 = arr5(nb * 30), temps = nb * 10, temps1 = nb * 20;
+    var codes = coches(), nbj = Math.max(1, codes.length);
+    var dc = arr15(temps1 / nbj), dc2 = arr15(temps / nbj);
+    var v = { rdv: nb, pipe: pipe, pipe1: pipe1, semaine: Math.round(pipe / 4), semaine1: Math.round(pipe1 / 4),
+              temps: duree(temps), temps1: duree(temps1), dureeCreneau: duree(dc), dureeCreneau2: duree(dc2) };
+    document.querySelectorAll("[data-calc]").forEach(function (el) { el.textContent = v[el.getAttribute("data-calc")]; });
+    jours.querySelectorAll("label").forEach(function (l) { l.classList.toggle("on", l.querySelector("input").checked); });
+    /* une ligne par jour choisi : le jour, son heure, la plage, les deux boutons */
+    lignesC.innerHTML = codes.length ? codes.map(function (c) {
+      var opts = ""; for (var h = 7; h <= 20; h++) opts += '<option value="' + h + '"' + (h === heures[c] ? " selected" : "") + ">" + h + " h</option>";
+      var l = liens(c, heures[c], dc, v, nb);
+      return '<div class="lc"><b>' + NOMS[c].charAt(0).toUpperCase() + NOMS[c].slice(1) + '</b><span class="sel"><select data-jour="' + c + '" aria-label="Heure du ' + NOMS[c] + '">' + opts + '</select></span><span class="pl">' + plageDe(heures[c], dc) + '</span>'
+        + '<span class="ag"><a href="' + l.outlook + '" target="_blank" rel="noopener">Outlook</a><a href="' + l.google + '" target="_blank" rel="noopener">Google Agenda</a></span></div>';
+    }).join("") : '<p class="vide">Choisissez au moins un jour.</p>';
+    var txt = codes.map(function (c) { return NOMS[c] + ", " + plageDe(heures[c], dc); });
+    document.querySelectorAll("[data-creneau]").forEach(function (el) { el.textContent = txt.length ? txt.join(" · ") : "aucun jour choisi"; });
+  }
+  /* au-delà d'une heure et demie le premier mois, deux jours cochés d'office (lundi et jeudi) ; en dessous, un seul */
+  function ajusterJours() {
+    var nb = Math.min(20, Math.max(1, parseInt(f.value, 10) || 3)), deux = nb * 20 > 90;
+    if (deux === deuxProposes) return; deuxProposes = deux;
+    jours.querySelectorAll("input").forEach(function (i) { i.checked = i.value === "MO" || (deux && i.value === "TH"); });
+  }
+  document.querySelectorAll("[data-pm]").forEach(function (b) { b.addEventListener("click", function () {
+    f.value = Math.min(20, Math.max(1, (parseInt(f.value, 10) || 3) + parseInt(b.getAttribute("data-pm"), 10)));
+    ajusterJours(); calc();
+  }); });
+  f.addEventListener("input", function () { ajusterJours(); calc(); });
+  jours.addEventListener("change", calc);
+  lignesC.addEventListener("change", function (ev) { var s = ev.target; if (s.tagName === "SELECT") { heures[s.getAttribute("data-jour")] = parseInt(s.value, 10); calc(); } });
+  calc();
+})();
+</script>
+
+
+<script>
+const ICONS = {
+  "in": '<svg viewBox="0 0 24 24"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>',
+  wa: '<svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.83 9.83 0 0 1 7 2.9 9.83 9.83 0 0 1 2.89 7c0 5.45-4.44 9.88-9.9 9.88M20.47 3.49A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.33.16 11.89c0 2.1.55 4.14 1.59 5.94L0 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.16-3.49-8.41"/></svg>',
+  x: '<svg viewBox="0 0 24 24"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.97 6.82H1.67l7.73-8.84L1.25 2.25h6.83l4.71 6.23 5.45-6.23zm-1.16 17.52h1.83L7.08 4.13H5.12l11.96 15.64z"/></svg>',
+  mail: '<svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.24-8 5-8-5V6l8 5 8-5v2.24z"/></svg>',
+  link: '<svg viewBox="0 0 24 24"><path d="M3.9 12a3.1 3.1 0 0 1 3.1-3.1h4V7H7a5 5 0 0 0 0 10h4v-1.9H7A3.1 3.1 0 0 1 3.9 12zM8 13h8v-2H8v2zm9-6h-4v1.9h4a3.1 3.1 0 1 1 0 6.2h-4V17h4a5 5 0 0 0 0-10z"/></svg>'
+};
+const FLAGS = {
+  en: '<svg viewBox="0 0 30 20"><rect width="30" height="20" fill="#012169"></rect><path d="M0,0 30,20 M30,0 0,20" stroke="#fff" stroke-width="4"></path><path d="M0,0 30,20 M30,0 0,20" stroke="#C8102E" stroke-width="1.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#fff" stroke-width="6.6"></path><path d="M15,0 V20 M0,10 H30" stroke="#C8102E" stroke-width="4"></path></svg>'
+};
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  $("flag").innerHTML = FLAGS.en;
+  /* Partager : le même menu que les autres fiches */
+  var URL_PAGE = "https://www.mazeo.co/votre-rythme", TXT = "mazeo accélère votre prospection, vous gardez la main : calculez le temps à bloquer chaque semaine. Une fiche pratique de la growth academy, présentée par mazeo.";
+  var u = encodeURIComponent(URL_PAGE), tx = encodeURIComponent(TXT + " " + URL_PAGE);
+  var links = [["in", "LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + u], ["wa", "WhatsApp", "https://wa.me/?text=" + tx],
+    ["x", "X", "https://twitter.com/intent/tweet?text=" + encodeURIComponent(TXT) + "&url=" + u], ["mail", "Email", "mailto:?subject=" + encodeURIComponent("Votre rythme de prospection, par mazeo") + "&body=" + tx]];
+  $("share-menu").innerHTML = links.map(function (l) { return '<a href="' + l[2] + '" target="_blank" rel="noopener"><i class="i-' + l[0] + '">' + ICONS[l[0]] + '</i>' + l[1] + '</a>'; }).join("") + '<button type="button" id="copy"><i class="i-link">' + ICONS.link + '</i><span>Copier le lien</span></button>';
+  $("copy").onclick = function (e) { var lab = e.currentTarget.lastChild; try { navigator.clipboard.writeText(URL_PAGE).then(function () { lab.textContent = "Lien copié"; }, function () { lab.textContent = URL_PAGE; }); } catch (x) { lab.textContent = URL_PAGE; } };
+  var btn = $("share"), menu = $("share-menu");
+  btn.onclick = function (e) { e.stopPropagation(); var open = menu.hidden; menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
+  document.addEventListener("click", function (e) { if (!e.target.closest(".share")) { menu.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
+})();
+</script>
+</body>
+</html>
