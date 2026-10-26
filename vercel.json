@@ -21,6 +21,10 @@
       "destination": "/votre-rythme.html"
     },
     {
+      "source": "/en/weekly-rhythm",
+      "destination": "/en/weekly-rhythm.html"
+    },
+    {
       "source": "/en/linkedin-profile",
       "destination": "/en/linkedin-profile.html"
     },
