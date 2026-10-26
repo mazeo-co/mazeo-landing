@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Politique de confidentialité — mazeo</title>
+<meta name="description" content="Comment mazeo collecte, utilise et protège les données personnelles, et comment exercer vos droits.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://www.mazeo.co/privacy">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,10 +43,11 @@
   .updated:has(+ .updated) { margin-bottom: 4px; }
 </style>
 <script>
-  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le navigateur (16/09) */
+  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le français.
+     Plus de choix selon le navigateur (26/10) : Google, réglé en anglais, aurait lu ces pages en anglais. */
   (function () {
     var q = /[?&]lang=(en|fr)\b/i.exec(location.search), s = null; try { s = localStorage.getItem("mazeo_lang"); } catch (e) {}
-    var b = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
+    var b = "fr";
     var l = q ? q[1].toLowerCase() : (s === "en" || s === "fr" ? s : b);
     if (q) { try { localStorage.setItem("mazeo_lang", l); } catch (e) {} }
     document.documentElement.lang = l;
@@ -189,9 +195,9 @@
 
 <footer>
   © 2026 mazeo ·
-  <a href="mentions-legales.html" data-en="Legal notice">Mentions légales</a> ·
-  <a href="privacy.html" data-en="Privacy">Confidentialité</a> ·
-  <a href="terms.html" data-en="Terms of use">Conditions d’utilisation</a> ·
+  <a href="/mentions-legales" data-en="Legal notice">Mentions légales</a> ·
+  <a href="/privacy" data-en="Privacy">Confidentialité</a> ·
+  <a href="/terms" data-en="Terms of use">Conditions d’utilisation</a> ·
   <a href="/conditions-de-vente" data-en="Terms of sale">Conditions de vente</a> ·
   <a href="?lang=en" id="lang-switch" class="lang-switch" hreflang="en" lang="en">English</a>
 </footer>

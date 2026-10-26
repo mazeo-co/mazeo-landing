@@ -1,0 +1,24 @@
+# Contrôle SEO de mazeo.co (outils/controle-seo.py).
+# À chaque PR vers main : une PR qui casse le référencement apparaît en rouge.
+# Chaque lundi à 7 h (heure de Paris en hiver) : attrape ce qui se périme seul, comme un salon passé.
+# Un passage en échec envoie un mail de GitHub.
+name: Contrôle SEO
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+jobs:
+  controle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Contrôle SEO
+        env:
+          CHROME: google-chrome
+        run: python3 outils/controle-seo.py

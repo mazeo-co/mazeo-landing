@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mentions légales — mazeo</title>
+<meta name="description" content="Mentions légales du site mazeo.co : éditeur, hébergement et contact.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="canonical" href="https://www.mazeo.co/mentions-legales">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,10 +43,11 @@
   .updated:has(+ .updated) { margin-bottom: 4px; }
 </style>
 <script>
-  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le navigateur (16/09) */
+  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le français.
+     Plus de choix selon le navigateur (26/10) : Google, réglé en anglais, aurait lu ces pages en anglais. */
   (function () {
     var q = /[?&]lang=(en|fr)\b/i.exec(location.search), s = null; try { s = localStorage.getItem("mazeo_lang"); } catch (e) {}
-    var b = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
+    var b = "fr";
     var l = q ? q[1].toLowerCase() : (s === "en" || s === "fr" ? s : b);
     if (q) { try { localStorage.setItem("mazeo_lang", l); } catch (e) {} }
     document.documentElement.lang = l;
@@ -75,7 +81,7 @@
   <p>Les logos et marques d’entreprises tierces affichés sur le site appartiennent à leurs propriétaires respectifs. Ils signalent la présence de ces entreprises dans la base mazeo et n’impliquent aucun partenariat ni aucune recommandation de leur part. Certains logos sont servis par le service Logo.dev.</p>
 
   <h2>Données personnelles</h2>
-  <p>Le traitement des données personnelles est décrit dans la <a href="privacy.html">politique de confidentialité</a>.</p>
+  <p>Le traitement des données personnelles est décrit dans la <a href="/privacy">politique de confidentialité</a>.</p>
 </div>
 
 <div class="content" data-lang="en" lang="en">
@@ -98,14 +104,14 @@
   <p>Third-party company logos and trademarks shown on the website belong to their respective owners. They indicate that these companies are included in the mazeo database and do not imply any partnership with or endorsement by them. Some logos are provided by the Logo.dev service.</p>
 
   <h2>Personal data</h2>
-  <p>The processing of personal data is described in the <a href="privacy.html">privacy policy</a>.</p>
+  <p>The processing of personal data is described in the <a href="/privacy">privacy policy</a>.</p>
 </div>
 
 <footer>
   © 2026 mazeo ·
-  <a href="mentions-legales.html" data-en="Legal notice">Mentions légales</a> ·
-  <a href="privacy.html" data-en="Privacy">Confidentialité</a> ·
-  <a href="terms.html" data-en="Terms of use">Conditions d’utilisation</a> ·
+  <a href="/mentions-legales" data-en="Legal notice">Mentions légales</a> ·
+  <a href="/privacy" data-en="Privacy">Confidentialité</a> ·
+  <a href="/terms" data-en="Terms of use">Conditions d’utilisation</a> ·
   <a href="/conditions-de-vente" data-en="Terms of sale">Conditions de vente</a> ·
   <a href="?lang=en" id="lang-switch" class="lang-switch" hreflang="en" lang="en">English</a>
 </footer>

@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sécurité et confidentialité — mazeo</title>
+<meta name="description" content="Comment mazeo protège vos données : hébergement, chiffrement, accès et sous-traitants.">
+<meta property="og:image" content="https://www.mazeo.co/og-image-v3.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <link rel="canonical" href="https://www.mazeo.co/securite">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,10 +42,11 @@
   footer .lang-switch { font-weight: 600; }
 </style>
 <script>
-  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le navigateur (16/09) */
+  /* Langue : ?lang=en|fr, sinon le choix mémorisé par l'accueil, sinon le français.
+     Plus de choix selon le navigateur (26/10) : Google, réglé en anglais, aurait lu ces pages en anglais. */
   (function () {
     var q = /[?&]lang=(en|fr)\b/i.exec(location.search), s = null; try { s = localStorage.getItem("mazeo_lang"); } catch (e) {}
-    var b = (navigator.languages || [navigator.language || "fr"]).some(function (l) { return /^fr/i.test(l); }) ? "fr" : "en";
+    var b = "fr";
     var l = q ? q[1].toLowerCase() : (s === "en" || s === "fr" ? s : b);
     if (q) { try { localStorage.setItem("mazeo_lang", l); } catch (e) {} }
     document.documentElement.lang = l;
@@ -115,7 +120,7 @@
     <li>Le suivi des erreurs est fait par Sentry, hébergé dans l’Union européenne, sans votre identité, sans contenu de message et sans cookie.</li>
     <li>Le chat en direct de l’application passe par Crisp, société française, hébergé dans l’Union européenne. Il reçoit vos messages, votre adresse email, votre nom et celui de votre entreprise, pour que nous sachions à qui nous répondons, ainsi que votre navigateur, votre adresse IP et le pays qui s’en déduit.</li>
   </ul>
-  <p>La liste complète des prestataires, leur lieu et le cadre des transferts hors de l’Union européenne sont dans la <a href="privacy.html">politique de confidentialité</a> (section 6) et à l’annexe 1 de l’<a href="/dpa">accord de traitement des données</a>.</p>
+  <p>La liste complète des prestataires, leur lieu et le cadre des transferts hors de l’Union européenne sont dans la <a href="/privacy">politique de confidentialité</a> (section 6) et à l’annexe 1 de l’<a href="/dpa">accord de traitement des données</a>.</p>
 
   <h2>6. Authentification et accès</h2>
   <ul>
@@ -136,7 +141,7 @@
   <p>Pour signaler une faille ou poser une question de sécurité : <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>. Nous accusons réception sous deux jours ouvrés.</p>
 
   <h2>9. Pour votre service informatique</h2>
-  <p>Dans l’application, l’écran de connexion d’une boîte mail (Réglages ▸ mazeo Connect) propose un texte prêt à transmettre à votre service informatique, qui reprend ces engagements à la première personne, autorisation par autorisation. Les documents de référence : la <a href="privacy.html">politique de confidentialité</a>, l’<a href="/dpa">accord de traitement des données</a> (article 28 du RGPD), les <a href="terms.html">conditions d’utilisation</a> et les <a href="mentions-legales.html">mentions légales</a>.</p>
+  <p>Dans l’application, l’écran de connexion d’une boîte mail (Réglages ▸ mazeo Connect) propose un texte prêt à transmettre à votre service informatique, qui reprend ces engagements à la première personne, autorisation par autorisation. Les documents de référence : la <a href="/privacy">politique de confidentialité</a>, l’<a href="/dpa">accord de traitement des données</a> (article 28 du RGPD), les <a href="/terms">conditions d’utilisation</a> et les <a href="/mentions-legales">mentions légales</a>.</p>
 
   <h2>10. Mise à jour</h2>
   <p>Cette page évolue avec le service. Tout élargissement de ce que mazeo lit ou conserve y est publié avant sa mise en service. La date en haut de page indique la dernière version.</p>
@@ -202,7 +207,7 @@
     <li>Error tracking is done by Sentry, hosted in the European Union, without your identity, without message content and without cookies.</li>
     <li>The application’s live chat goes through Crisp, a French company, hosted in the European Union. It receives your messages, your email address, your name and your company’s name, so that we know who we are replying to, along with your browser, your IP address and the country derived from it.</li>
   </ul>
-  <p>The full list of providers, their location and the framework for transfers outside the European Union are in the <a href="privacy.html">privacy policy</a> (section 6) and in annex 1 of the <a href="/dpa">data processing agreement</a>.</p>
+  <p>The full list of providers, their location and the framework for transfers outside the European Union are in the <a href="/privacy">privacy policy</a> (section 6) and in annex 1 of the <a href="/dpa">data processing agreement</a>.</p>
 
   <h2>6. Authentication and access</h2>
   <ul>
@@ -223,7 +228,7 @@
   <p>To report a vulnerability or ask a security question: <a href="mailto:romain.barbet@mazeo.co">romain.barbet@mazeo.co</a>. We acknowledge receipt within two working days.</p>
 
   <h2>9. For your IT department</h2>
-  <p>In the application, the mailbox connection screen (Settings ▸ mazeo Connect) offers a text ready to forward to your IT department, which restates these commitments in the first person, permission by permission. The reference documents: the <a href="privacy.html">privacy policy</a>, the <a href="/dpa">data processing agreement</a> (Article 28 GDPR), the <a href="terms.html">terms of use</a> and the <a href="mentions-legales.html">legal notice</a>.</p>
+  <p>In the application, the mailbox connection screen (Settings ▸ mazeo Connect) offers a text ready to forward to your IT department, which restates these commitments in the first person, permission by permission. The reference documents: the <a href="/privacy">privacy policy</a>, the <a href="/dpa">data processing agreement</a> (Article 28 GDPR), the <a href="/terms">terms of use</a> and the <a href="/mentions-legales">legal notice</a>.</p>
 
   <h2>10. Changes</h2>
   <p>This page evolves with the service. Any extension of what mazeo reads or keeps is published here before it goes live. The date at the top of the page shows the latest version.</p>
@@ -231,9 +236,9 @@
 
 <footer>
   © 2026 mazeo ·
-  <a href="mentions-legales.html" data-en="Legal notice">Mentions légales</a> ·
-  <a href="privacy.html" data-en="Privacy">Confidentialité</a> ·
-  <a href="terms.html" data-en="Terms of use">Conditions d’utilisation</a> ·
+  <a href="/mentions-legales" data-en="Legal notice">Mentions légales</a> ·
+  <a href="/privacy" data-en="Privacy">Confidentialité</a> ·
+  <a href="/terms" data-en="Terms of use">Conditions d’utilisation</a> ·
   <a href="/conditions-de-vente" data-en="Terms of sale">Conditions de vente</a> ·
   <a href="/securite" data-en="Security">Sécurité</a> ·
   <a href="/dpa" data-en="Data processing agreement">Accord de traitement des données</a> ·

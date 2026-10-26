@@ -1,165 +1,39 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/academy",
-      "destination": "/academy.html"
-    },
-    {
-      "source": "/positionnement",
-      "destination": "/positionnement.html"
-    },
-    {
-      "source": "/prise-de-rendez-vous",
-      "destination": "/prise-de-rendez-vous.html"
-    },
-    {
-      "source": "/votre-profil-linkedin",
-      "destination": "/votre-profil-linkedin.html"
-    },
-    {
-      "source": "/votre-rythme",
-      "destination": "/votre-rythme.html"
-    },
-    {
-      "source": "/en/weekly-rhythm",
-      "destination": "/en/weekly-rhythm.html"
-    },
-    {
-      "source": "/en/linkedin-profile",
-      "destination": "/en/linkedin-profile.html"
-    },
-    {
-      "source": "/en/academy",
-      "destination": "/en/academy.html"
-    },
-    {
-      "source": "/en/booking-link",
-      "destination": "/en/booking-link.html"
-    },
-    {
-      "source": "/en/positioning",
-      "destination": "/en/positioning.html"
-    },
-    {
-      "source": "/village-des-etudes",
-      "destination": "/village-des-etudes.html"
-    },
-    {
-      "source": "/pitch-des-etudes",
-      "destination": "/pitch-des-etudes.html"
-    },
-    {
-      "source": "/en/market-research-positioning",
-      "destination": "/en/market-research-positioning.html"
-    },
-    {
-      "source": "/en/market-research-in-figures",
-      "destination": "/en/market-research-in-figures.html"
-    },
-    {
-      "source": "/bourse-emploi",
-      "destination": "/bourse-emploi.html"
-    },
-    {
-      "source": "/en/insight-jobs",
-      "destination": "/bourse-emploi.html"
-    },
-    {
-      "source": "/appels-offres",
-      "destination": "/appels-offres.html"
-    },
-    {
-      "source": "/en/public-tenders",
-      "destination": "/appels-offres.html"
-    },
-    {
-      "source": "/securite",
-      "destination": "/securite.html"
-    },
-    {
-      "source": "/dpa",
-      "destination": "/dpa.html"
-    },
-    {
       "source": "/conditions-de-vente",
-      "destination": "/conditions-de-vente-2026-10-01.html"
+      "destination": "/conditions-de-vente-2026-10-01"
     },
     {
       "source": "/conditions-de-vente/2026-10-01",
-      "destination": "/conditions-de-vente-2026-10-01.html"
+      "destination": "/conditions-de-vente-2026-10-01"
     },
     {
       "source": "/en/terms-of-sale",
-      "destination": "/en/terms-of-sale-2026-10-01.html"
+      "destination": "/en/terms-of-sale-2026-10-01"
     },
     {
       "source": "/en/terms-of-sale/2026-10-01",
-      "destination": "/en/terms-of-sale-2026-10-01.html"
-    },
-    {
-      "source": "/bienvenue",
-      "destination": "/bienvenue.html"
-    },
-    {
-      "source": "/en/welcome",
-      "destination": "/en/welcome.html"
-    },
-    {
-      "source": "/salons",
-      "destination": "/salons.html"
-    },
-    {
-      "source": "/salons/:slug",
-      "destination": "/salons/:slug.html"
-    },
-    {
-      "source": "/en/market-research-conferences",
-      "destination": "/en/market-research-conferences.html"
-    },
-    {
-      "source": "/en/market-research-conferences/:slug",
-      "destination": "/en/market-research-conferences/:slug.html"
-    },
-    {
-      "source": "/en/quiz",
-      "destination": "/en/quiz.html"
-    },
-    {
-      "source": "/ressources",
-      "destination": "/ressources.html"
-    },
-    {
-      "source": "/en/resources",
-      "destination": "/en/resources.html"
-    },
-    {
-      "source": "/demo",
-      "destination": "/demo.html"
-    },
-    {
-      "source": "/en/demo",
-      "destination": "/en/demo.html"
-    },
-    {
-      "source": "/desinscription",
-      "destination": "/desinscription.html"
-    },
-    {
-      "source": "/en/unsubscribed",
-      "destination": "/en/unsubscribed.html"
-    },
-    {
-      "source": "/merci",
-      "destination": "/merci.html"
-    },
-    {
-      "source": "/en/thank-you",
-      "destination": "/en/thank-you.html"
+      "destination": "/en/terms-of-sale-2026-10-01"
     }
   ],
   "redirects": [
     {
-      "source": "/quiz.html",
+      "source": "/",
+      "has": [
+        {
+          "type": "query",
+          "key": "lang",
+          "value": "en"
+        }
+      ],
+      "destination": "/en",
+      "permanent": true
+    },
+    {
+      "source": "/quiz",
       "has": [
         {
           "type": "query",
@@ -182,31 +56,21 @@
     },
     {
       "source": "/en/subscribe",
-      "destination": "/?lang=en#prix",
+      "destination": "/en#prix",
       "permanent": false
     },
     {
-      "source": "/souscrire.html",
-      "destination": "/#prix",
-      "permanent": true
-    },
-    {
-      "source": "/en/subscribe.html",
-      "destination": "/?lang=en#prix",
-      "permanent": true
-    },
-    {
-      "source": "/maquette.html",
+      "source": "/maquette",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/proposition.html",
+      "source": "/proposition",
       "destination": "/",
       "permanent": true
     },
     {
-      "source": "/mazeo-app-built.html",
+      "source": "/mazeo-app-built",
       "destination": "/",
       "permanent": true
     }
