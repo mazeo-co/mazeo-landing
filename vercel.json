@@ -17,6 +17,10 @@
       "destination": "/votre-profil-linkedin.html"
     },
     {
+      "source": "/votre-rythme",
+      "destination": "/votre-rythme.html"
+    },
+    {
       "source": "/en/linkedin-profile",
       "destination": "/en/linkedin-profile.html"
     },
