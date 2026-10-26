@@ -25,13 +25,23 @@ Une PR fusionnée n'est donc pas en ligne tant que le « Promote » n'est pas fa
 
 Tout fichier du dépôt est lisible par tous sur mazeo.co, sauf ceux listés dans `.vercelignore`. Le dépôt lui-même est public. Ne rien poser ici qui ne doit pas être lu par tous.
 
+## Le référencement (depuis le 26/10/2026)
+
+- **Adresses** : `vercel.json` a `cleanUrls`. Une page `x.html` est servie à `/x`, et `/x.html` redirige vers `/x`. Une nouvelle page n'a plus besoin de ligne dans `vercel.json`. Liens internes et `canonical` : toujours sans `.html`.
+- **Langue** : elle suit l'adresse (`/…` en français, `/en/…` en anglais), jamais la langue du navigateur : Google lit le site avec un navigateur réglé en anglais.
+- **Accueil anglais `/en`** : `en/index.html` se fabrique depuis `index.html` et son dictionnaire `EN`. Après toute modification de `index.html` : `python3 outils/accueil-en.py`.
+- **Bourse de l'emploi, Dernier appel** : on ne modifie que la page française ; `python3 outils/pages-en.py` refait `en/insight-jobs.html` et `en/public-tenders.html`.
+- **Plan du site** : `python3 outils/plan-du-site.py` refait `sitemap.xml` depuis les pages (toute page avec `canonical` et sans `noindex`).
+- **Avant chaque PR** : `python3 outils/controle-seo.py` (titre ≤ 65 signes, description 50-165, `canonical`, `hreflang` croisés, un seul `h1`, `og:image`, liens, salons à venir, sources à jour). GitHub le relance à chaque PR et chaque lundi.
+- Une fiche Academy n'a qu'un `h1` (le premier écran) ; les titres des écrans suivants sont des `h2 class="t1"`, dessinés comme un `h1`.
+
 ## La barre « mazeo / Ressources » des ressources
 
 Chaque ressource (growth academy et ses fiches, Village, Pitch, Quiz, salons, Dernier appel, Bourse de l'emploi) porte en haut la barre « mazeo / Ressources / <la ressource> ». Elle vient d'une seule ligne posée juste après `<body>` :
 
 `<script src="/assets/fil-ressources.js"></script>`
 
-- Nouvelle ressource : ajouter cette ligne dans sa page (FR et EN), et son chemin dans la liste `RESSOURCES` de `assets/fil-ressources.js`.
+- Nouvelle ressource : ajouter cette ligne dans sa page (FR et EN), et son chemin dans la liste `RESSOURCES` de `assets/fil-ressources.js`. Puis `python3 outils/plan-du-site.py` et `python3 outils/controle-seo.py`.
 - Les générateurs hors dépôt la posent déjà : `~/dev/quiz-build.py`, `~/dev/salons-etudes/site.py`, `~/dev/infographie-pistes/site_village.py`.
 - Une page calée sur la hauteur de l'écran retranche `var(--fil-h)` (exemple : `academy.html`, `pitch-des-etudes.html`).
 - La fiche 1 (`positionnement.html`, `en/positioning.html`) a la barre depuis le 23/10/2026 : son en-tête fixe se pose dessous (`top: var(--fil-h)`) et s'est resserré. Ses écrans sont calés au pixel : tout changement se mesure écran par écran à 1400 × 715.
