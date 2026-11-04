@@ -268,7 +268,7 @@ const FLAGS = {
     tabs.forEach(function (x) {
       var on = x === t, p = document.getElementById(x.getAttribute("aria-controls"));
       x.setAttribute("aria-selected", String(on)); x.tabIndex = on ? 0 : -1; p.hidden = !on;
-      if (on && vid && vid.getAttribute("src") !== p.dataset.video) { vid.pause(); vid.setAttribute("poster", p.dataset.poster); vid.setAttribute("src", p.dataset.video); leg.textContent = p.dataset.leg; }
+      if (on && vid && vid.getAttribute("src") !== p.dataset.video) { vid.pause(); vid.setAttribute("poster", p.dataset.poster); vid.setAttribute("src", p.dataset.video); vid.load(); leg.textContent = p.dataset.leg; }
     });
     if (focus) t.focus();
   }
