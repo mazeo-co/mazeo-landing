@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Votre lien de prise de rendez-vous · growth academy | mazeo</title>
-<meta name="description" content="L'intérêt d'un prospect retombe en quelques heures. Pourquoi un lien de rendez-vous, quel outil choisir, et Cal.com en six étapes, en vidéo.">
+<meta name="description" content="L'intérêt d'un prospect retombe en quelques heures. Pourquoi un lien de rendez-vous, quand l'envoyer, et comment le créer avec Bookings, Google Agenda ou Cal.com.">
 <link rel="canonical" href="https://www.mazeo.co/prise-de-rendez-vous">
 <link rel="alternate" hreflang="fr" href="https://www.mazeo.co/prise-de-rendez-vous">
 <link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/booking-link">
@@ -14,7 +14,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta property="og:url" content="https://www.mazeo.co/prise-de-rendez-vous">
 <meta property="og:title" content="Un prospect intéressé doit pouvoir réserver tout de suite. Préparez votre lien de prise de rendez-vous.">
-<meta property="og:description" content="Pourquoi, quand, et comment, avec Cal.com. Fiche pratique de la growth academy by mazeo.">
+<meta property="og:description" content="Pourquoi, quand, et comment, avec Microsoft Bookings, Google Agenda ou Cal.com. Fiche pratique de la growth academy by mazeo.">
 <meta property="og:image" content="https://www.mazeo.co/assets/academy/guide-calcom-apercu.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
@@ -103,6 +103,15 @@ aside { gap:28px; }
   .corps { grid-template-columns:1fr; gap:40px; }
   aside { position:static; }
 }
+/* 05/11 : trois outils à égalité, en onglets (Microsoft Bookings, Google Agenda, Cal.com) */
+.onglets { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 8px; }
+.onglets button { font:600 16px var(--font); color:var(--ink); background:transparent; border:1px solid var(--hair2); border-radius:999px; padding:9px 18px; cursor:pointer; }
+.onglets button:hover { background:var(--card); }
+.onglets button[aria-selected="true"] { background:var(--ink); border-color:var(--ink); color:var(--paper); }
+.onglets button:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+.panneau { padding-top:18px; }
+.panneau p.pour-qui { margin:0 0 4px; }
+.panneau p.note { margin:26px 0 0; }
 </style>
 <link rel="stylesheet" href="/assets/academy/entete.css">
 </head>
@@ -157,28 +166,51 @@ aside { gap:28px; }
       <p class="note">La page s'ouvre compte par compte, en commençant par les boîtes Outlook. Vous ne la voyez pas encore dans Réglages › mazeo Connect&nbsp;? Prenez l'outil de votre choix, juste en dessous. Un lien Calendly ou Cal.com déjà enregistré dans votre profil reste en place tant que vous ne choisissez pas mazeo Calendar.</p>
     </section>
 
-    <section id="calcom">
-      <h2>Vous préférez Calendly ou Cal.com&nbsp;?</h2>
-      <p>Vous avez peut-être déjà ce qu'il faut. Outlook et Google Agenda ont chacun leur lien de réservation, et il marche très bien&nbsp;:</p>
-      <ul class="points">
-        <li><span><b>Outlook&nbsp;:</b> «&nbsp;Bookings with me&nbsp;», compris dans la plupart des abonnements Microsoft 365 professionnels.</span></li>
-        <li><span><b>Google Agenda&nbsp;:</b> la «&nbsp;planification de rendez-vous&nbsp;», gratuite pour une page.</span></li>
-        <li><span><b>Calendly&nbsp;:</b> très connu, gratuit pour un seul type de rendez-vous.</span></li>
-      </ul>
-      <p class="apres">Ici, on prend <b>Cal.com</b>&nbsp;: gratuit, sans limite de rendez-vous, il marche avec Outlook comme avec Google, et crée tout seul le lien Teams ou Meet.</p>
-      <p class="vers"><a href="https://cal.com" target="_blank" rel="noopener">→ cal.com</a></p>
-    </section>
-
-    <section>
-      <h2>Cal.com en six étapes</h2>
-      <ol class="etapes">
-        <li><span class="n">1</span><div><h3>Créez votre compte</h3><p>Sur cal.com, avec votre compte Microsoft ou Google. Choisissez une adresse courte&nbsp;: <b>cal.com/prenom-nom</b>. C'est elle que vos prospects verront.</p></div></li>
-        <li><span class="n">2</span><div><h3>Branchez votre agenda</h3><p>Outlook ou Google. Cal.com ne proposera que vos créneaux libres. Si une «&nbsp;Approbation requise&nbsp;» s'affiche chez Microsoft 365, votre administrateur valide la demande, en quelques minutes.</p></div></li>
-        <li><span class="n">3</span><div><h3>Réglez vos horaires</h3><p>Fuseau Europe/Paris, puis vos vraies plages, par exemple 9&nbsp;h-12&nbsp;h et 14&nbsp;h-18&nbsp;h. Mieux vaut moins de créneaux que trop.</p></div></li>
-        <li><span class="n">4</span><div><h3>Créez votre rendez-vous</h3><p>Dans le menu «&nbsp;Liens&nbsp;»&nbsp;: un «&nbsp;Échange découverte&nbsp;» de 20 minutes, sur Microsoft Teams ou Google Meet. Le lien de visio se crée tout seul.</p></div></li>
-        <li><span class="n">5</span><div><h3>Posez les limites et la question</h3><p>Un préavis de 24&nbsp;h, 10 minutes entre deux rendez-vous, 3 par jour au plus. Ajoutez une question «&nbsp;Entreprise&nbsp;» au formulaire.</p></div></li>
-        <li><span class="n">6</span><div><h3>Ajoutez le rappel, puis testez</h3><p>Dans «&nbsp;Workflows&nbsp;», le rappel par email 24&nbsp;h avant. Évitez les modèles de téléphonie, ils consomment des crédits. Enfin, réservez-vous un créneau en navigation privée, vérifiez qu'il arrive dans votre agenda, et annulez-le.</p></div></li>
-      </ol>
+    <section id="outils">
+      <h2>Vous préférez un autre outil&nbsp;?</h2>
+      <p>Trois outils simples, chacun avec son guide en vidéo. Le plus simple est souvent celui de votre messagerie.</p>
+      <div class="onglets" role="tablist" aria-label="Outils de prise de rendez-vous">
+        <button type="button" role="tab" id="t-bookings" aria-controls="bookings" aria-selected="true" tabindex="0">Microsoft Bookings</button>
+        <button type="button" role="tab" id="t-google" aria-controls="google" aria-selected="false" tabindex="-1">Google Agenda</button>
+        <button type="button" role="tab" id="t-calcom" aria-controls="calcom" aria-selected="false" tabindex="-1">Cal.com</button>
+      </div>
+      <div class="panneau" role="tabpanel" id="bookings" aria-labelledby="t-bookings" data-video="/assets/academy/guide-bookings.mp4" data-poster="/assets/academy/guide-bookings-apercu.jpg" data-leg="Découvrez comment créer votre lien Bookings en 5 minutes.">
+        <p class="pour-qui"><b>Pour qui&nbsp;:</b> vous êtes sur Outlook et Microsoft 365. Bookings y est déjà compris&nbsp;: rien à installer, rien à payer, et le lien Teams se crée tout seul.</p>
+        <ol class="etapes">
+          <li><span class="n">1</span><div><h3>Ouvrez votre page de réservation</h3><p>Dans Outlook sur le web, ouvrez le <b>Calendrier</b>, puis cliquez sur «&nbsp;Accéder à ma page de réservation&nbsp;», dans la colonne de gauche.</p></div></li>
+          <li><span class="n">2</span><div><h3>Créez votre rendez-vous</h3><p>«&nbsp;Créer un type de réunion&nbsp;»&nbsp;: un «&nbsp;Échange découverte&nbsp;» de 20 ou 30 minutes. Le lien Teams est déjà activé. Laissez-le en «&nbsp;Public&nbsp;»&nbsp;: c'est ce qui l'affiche sur votre page. Les rendez-vous proposés par défaut, passez-les en «&nbsp;Privé&nbsp;».</p></div></li>
+          <li><span class="n">3</span><div><h3>Réglez vos horaires</h3><p>Choisissez des heures personnalisées, puis vos vraies plages, par exemple 9&nbsp;h-18&nbsp;h en semaine.</p></div></li>
+          <li><span class="n">4</span><div><h3>Copiez votre lien</h3><p>Enregistrez, puis «&nbsp;Partager&nbsp;» et «&nbsp;Copier le lien&nbsp;». Collez-le dans votre profil mazeo.</p></div></li>
+          <li><span class="n">5</span><div><h3>Testez</h3><p>Ouvrez votre lien en navigation privée et réservez-vous un créneau. Sans compte Microsoft connecté, Bookings envoie d'abord un code par email&nbsp;: c'est normal, et un prospect connecté à son compte Microsoft ne le voit pas.</p></div></li>
+        </ol>
+        <p class="note">Outlook affiche «&nbsp;You do not have access to Bookings with me&nbsp;»&nbsp;? Bookings a été coupé dans votre entreprise&nbsp;: votre service informatique peut le rouvrir.</p>
+        <p class="vers"><a href="https://outlook.office.com/bookwithme/me" target="_blank" rel="noopener">→ outlook.office.com/bookwithme</a></p>
+      </div>
+      <div class="panneau" role="tabpanel" id="google" aria-labelledby="t-google" data-video="/assets/academy/guide-google.mp4" data-poster="/assets/academy/guide-google-apercu.jpg" data-leg="Découvrez comment créer votre lien Google Agenda en 5 minutes." hidden>
+        <p class="pour-qui"><b>Pour qui&nbsp;:</b> vous êtes sur Gmail ou Google Workspace. La page de réservation est comprise&nbsp;: rien à installer, et le lien Google Meet se crée tout seul.</p>
+        <ol class="etapes">
+          <li><span class="n">1</span><div><h3>Ouvrez les pages de réservation</h3><p>Dans Google Agenda, colonne de gauche sous le calendrier&nbsp;: le <b>+</b> de «&nbsp;Pages de réservation&nbsp;». Google vous propose un planning existant&nbsp;? Cliquez sur le crayon pour le modifier.</p></div></li>
+          <li><span class="n">2</span><div><h3>Réglez votre rendez-vous</h3><p>Un titre, par exemple «&nbsp;Échange découverte&nbsp;», la durée, puis vos disponibilités. Cliquez sur «&nbsp;Suiv.&nbsp;».</p></div></li>
+          <li><span class="n">3</span><div><h3>Ajoutez la visio</h3><p>Choisissez «&nbsp;Visioconférence Google Meet&nbsp;», puis «&nbsp;Enregistrer&nbsp;».</p></div></li>
+          <li><span class="n">4</span><div><h3>Copiez votre lien</h3><p>Cliquez sur votre page, puis «&nbsp;Copier le lien&nbsp;»&nbsp;: Google donne un lien court, du type calendar.app.google/…. Collez-le dans votre profil mazeo.</p></div></li>
+          <li><span class="n">5</span><div><h3>Testez</h3><p>Réservez-vous un créneau en navigation privée, vérifiez qu'il arrive dans votre agenda, et annulez-le.</p></div></li>
+        </ol>
+        <p class="note">Gratuit pour une page de réservation. Plusieurs pages, ou les rappels par email, demandent une offre Google payante.</p>
+        <p class="vers"><a href="https://calendar.google.com" target="_blank" rel="noopener">→ calendar.google.com</a></p>
+      </div>
+      <div class="panneau" role="tabpanel" id="calcom" aria-labelledby="t-calcom" data-video="/assets/academy/guide-calcom.mp4" data-poster="/assets/academy/guide-calcom-apercu.jpg" data-leg="Découvrez comment configurer Cal.com en 10 minutes." hidden>
+        <p class="pour-qui"><b>Pour qui&nbsp;:</b> vous voulez un outil à part, qui marche avec Outlook comme avec Google. Gratuit, sans limite de rendez-vous, il crée tout seul le lien Teams ou Meet.</p>
+        <ol class="etapes">
+          <li><span class="n">1</span><div><h3>Créez votre compte</h3><p>Sur cal.com, avec votre compte Microsoft ou Google. Choisissez une adresse courte&nbsp;: <b>cal.com/prenom-nom</b>. C'est elle que vos prospects verront.</p></div></li>
+          <li><span class="n">2</span><div><h3>Branchez votre agenda</h3><p>Outlook ou Google. Cal.com ne proposera que vos créneaux libres. Si une «&nbsp;Approbation requise&nbsp;» s'affiche chez Microsoft 365, votre administrateur valide la demande, en quelques minutes.</p></div></li>
+          <li><span class="n">3</span><div><h3>Réglez vos horaires</h3><p>Fuseau Europe/Paris, puis vos vraies plages, par exemple 9&nbsp;h-12&nbsp;h et 14&nbsp;h-18&nbsp;h. Mieux vaut moins de créneaux que trop.</p></div></li>
+          <li><span class="n">4</span><div><h3>Créez votre rendez-vous</h3><p>Dans le menu «&nbsp;Liens&nbsp;»&nbsp;: un «&nbsp;Échange découverte&nbsp;» de 20 minutes, sur Microsoft Teams ou Google Meet. Le lien de visio se crée tout seul.</p></div></li>
+          <li><span class="n">5</span><div><h3>Posez les limites et la question</h3><p>Un préavis de 24&nbsp;h, 10 minutes entre deux rendez-vous, 3 par jour au plus. Ajoutez une question «&nbsp;Entreprise&nbsp;» au formulaire.</p></div></li>
+          <li><span class="n">6</span><div><h3>Ajoutez le rappel, puis testez</h3><p>Dans «&nbsp;Workflows&nbsp;», le rappel par email 24&nbsp;h avant. Évitez les modèles de téléphonie, ils consomment des crédits. Enfin, réservez-vous un créneau en navigation privée, vérifiez qu'il arrive dans votre agenda, et annulez-le.</p></div></li>
+        </ol>
+        <p class="vers"><a href="https://cal.com" target="_blank" rel="noopener">→ cal.com</a></p>
+      </div>
+      <p class="apres">Vous avez déjà <b>Calendly</b>&nbsp;? Gardez-le&nbsp;: collez simplement son lien dans votre profil mazeo.</p>
     </section>
 
     <div class="suite"><a class="btn" href="/academy">Toutes les fiches pratiques</a><a class="btn second" href="/positionnement">Fiche 1&nbsp;: votre positionnement</a></div>
@@ -186,8 +218,8 @@ aside { gap:28px; }
 
   <aside>
     <div class="video">
-      <video controls preload="none" playsinline poster="/assets/academy/guide-calcom-apercu.jpg" src="/assets/academy/guide-calcom.mp4"></video>
-      <p class="leg">Découvrez comment configurer Cal.com en 10 minutes.</p>
+      <video controls preload="none" playsinline poster="/assets/academy/guide-bookings-apercu.jpg" src="/assets/academy/guide-bookings.mp4"></video>
+      <p class="leg">Découvrez comment créer votre lien Bookings en 5 minutes.</p>
     </div>
     <div class="mazeo">
       <span class="lab bleu">Dans mazeo</span>
@@ -225,6 +257,32 @@ const FLAGS = {
   var btn = $("share"), menu = $("share-menu");
   btn.onclick = function (e) { e.stopPropagation(); var open = menu.hidden; menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
   document.addEventListener("click", function (e) { if (!e.target.closest(".share")) { menu.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
+})();
+
+/* 05/11 : les onglets des trois outils ; la vidéo de l'encadré suit l'onglet ; #bookings, #google ou #calcom ouvre l'onglet */
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.onglets [role="tab"]'));
+  if (!tabs.length) return;
+  var vid = document.querySelector("aside .video video"), leg = document.querySelector("aside .video p.leg");
+  function choisir(t, focus) {
+    tabs.forEach(function (x) {
+      var on = x === t, p = document.getElementById(x.getAttribute("aria-controls"));
+      x.setAttribute("aria-selected", String(on)); x.tabIndex = on ? 0 : -1; p.hidden = !on;
+      if (on && vid && vid.getAttribute("src") !== p.dataset.video) { vid.pause(); vid.setAttribute("poster", p.dataset.poster); vid.setAttribute("src", p.dataset.video); leg.textContent = p.dataset.leg; }
+    });
+    if (focus) t.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { choisir(t); history.replaceState(null, "", "#" + t.getAttribute("aria-controls")); });
+    t.addEventListener("keydown", function (e) {
+      var j = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : null;
+      if (j === null) return; e.preventDefault(); choisir(tabs[(j + tabs.length) % tabs.length], true);
+    });
+  });
+  var vers = function () { document.getElementById("outils").scrollIntoView(); };
+  function depuisAdresse() { var h = location.hash.slice(1), t = tabs.filter(function (x) { return x.getAttribute("aria-controls") === h; })[0]; if (t) { choisir(t); vers(); } return !!t; }
+  if (depuisAdresse()) window.addEventListener("load", function () { setTimeout(vers, 0); }); else choisir(tabs[0]);
+  window.addEventListener("hashchange", depuisAdresse);
 })();
 </script>
 
