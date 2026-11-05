@@ -247,12 +247,11 @@ button, input { font: inherit; }
 .trusted-inner { display: flex; flex-direction: column; align-items: center; gap: 26px; padding-block: 30px; }
 .trusted .trusted-inner { padding-block: 40px 30px; }
 .trusted .lbl { text-align: center; line-height: 1.4; color: var(--slate); }
-/* Carrousel des logos : une ligne qui défile, bords estompés, pause au survol. Chaque logo est un <li> ; retirer un client = supprimer sa ligne. Le nom s'affiche dans l'infobulle de la page (attribut data-name). Gris par défaut ; ?logos=couleur montre les couleurs d'origine (bascule d'essai, à retirer une fois le choix fait). */
+/* Carrousel des logos : une ligne qui défile, bords estompés, pause au survol. Chaque logo est un <li> ; retirer un client = supprimer sa ligne. Le nom s'affiche dans l'infobulle de la page (attribut data-name). Logos aux couleurs d'origine (choix de Romain, 05/11/2026). */
 .trusted .marquee { width: 100%; overflow: hidden; padding-block: 14px 56px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
 .trusted .track { display: flex; align-items: center; width: max-content; margin: 0 0 0 56px; padding: 0; list-style: none; }
-.trusted .track li { flex: none; margin-right: 80px; border-radius: 14px; outline: none; filter: grayscale(1) contrast(1.08); transition: filter .2s, transform .2s; }
-.trusted .marquee.couleur .track li { filter: none; }
-.trusted .track li:hover, .trusted .track li:focus-visible { filter: none; transform: translateY(-2px) scale(1.06); }
+.trusted .track li { flex: none; margin-right: 80px; border-radius: 14px; outline: none; transition: transform .2s; }
+.trusted .track li:hover, .trusted .track li:focus-visible { transform: translateY(-2px) scale(1.06); }
 .trusted .track li:focus-visible { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ink); }
 .trusted .track img { display: block; width: 66px; height: 66px; border-radius: 15px; object-fit: contain; }
 .trusted .marquee.on .track { animation: defile var(--dur, 80s) linear infinite; }
@@ -2269,11 +2268,10 @@ document.documentElement.classList.add("js");
 })();
 </script>
 <script>
-/* Carrousel des logos : la liste est doublée pour que la boucle n'ait pas de couture ; la vitesse suit la largeur (environ 45 px par seconde). Sans JavaScript, ou si le visiteur a demandé moins d'animations, la bande reste fixe. ?logos=couleur : bascule d'essai, à retirer une fois le choix fait. */
+/* Carrousel des logos : la liste est doublée pour que la boucle n'ait pas de couture ; la vitesse suit la largeur (environ 45 px par seconde). Sans JavaScript, ou si le visiteur a demandé moins d'animations, la bande reste fixe. */
 (function () {
   var m = document.getElementById("clients-marquee"), t = m && m.querySelector(".track");
   if (!t) return;
-  if (/[?&]logos=couleur/.test(location.search)) m.classList.add("couleur");
   if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   [].slice.call(t.children).forEach(function (li) {
     var c = li.cloneNode(true); c.setAttribute("aria-hidden", "true"); c.setAttribute("tabindex", "-1");
