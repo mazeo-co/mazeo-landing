@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Your booking link · growth academy | mazeo</title>
-<meta name="description" content="A prospect's interest fades within hours. Why you need a booking link, when to send it, which tool to choose, and Cal.com in six steps.">
+<meta name="description" content="A prospect's interest fades within hours. Why you need a booking link, when to send it, and how to create it with Bookings, Google Calendar or Cal.com.">
 <link rel="canonical" href="https://www.mazeo.co/en/booking-link">
 <link rel="alternate" hreflang="fr" href="https://www.mazeo.co/prise-de-rendez-vous">
 <link rel="alternate" hreflang="en" href="https://www.mazeo.co/en/booking-link">
@@ -14,7 +14,7 @@
 <meta property="og:locale" content="en_GB">
 <meta property="og:url" content="https://www.mazeo.co/en/booking-link">
 <meta property="og:title" content="An interested prospect should be able to book straight away. Set up your booking link.">
-<meta property="og:description" content="Why, when and how, with Cal.com. A practical guide from the growth academy by mazeo.">
+<meta property="og:description" content="Why, when and how, with Microsoft Bookings, Google Calendar or Cal.com. A practical guide from the growth academy by mazeo.">
 <meta property="og:image" content="https://www.mazeo.co/assets/academy/guide-calcom-en-apercu.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#FFFFFF">
@@ -103,6 +103,17 @@ aside { gap:28px; }
   .corps { grid-template-columns:1fr; gap:40px; }
   aside { position:static; }
 }
+/* 05/11 : trois outils à égalité, en onglets (Microsoft Bookings, Google Agenda, Cal.com) */
+.onglets { display:flex; flex-wrap:wrap; gap:8px; margin:24px 0 8px; }
+.onglets button { font:600 16px var(--font); color:var(--ink); background:transparent; border:1px solid var(--hair2); border-radius:999px; padding:9px 18px; cursor:pointer; }
+.onglets button:hover { background:var(--card); }
+.onglets button[aria-selected="true"] { background:var(--ink); border-color:var(--ink); color:var(--paper); }
+.onglets button:focus-visible { outline:2px solid var(--blue); outline-offset:2px; }
+.panneau { padding-top:18px; }
+.panneau p.pour-qui { margin:0 0 4px; }
+.panneau p.note { margin:26px 0 0; }
+.panneau p.vers { margin:22px 0 0; }
+#outils > p.apres { margin-top:40px; padding-top:22px; border-top:1px solid var(--hair); }
 </style>
 <link rel="stylesheet" href="/assets/academy/entete.css">
 </head>
@@ -157,28 +168,51 @@ aside { gap:28px; }
       <p class="note">The page is opening account by account, starting with Outlook mailboxes. Don't see it yet under Settings › mazeo Connect? Pick the tool of your choice, just below. A Calendly or Cal.com link already saved in your profile stays in place until you choose mazeo Calendar.</p>
     </section>
 
-    <section id="calcom">
-      <h2>Prefer Calendly or Cal.com?</h2>
-      <p>You may already have what you need. Outlook and Google Calendar each have their own booking page, and it works very well:</p>
-      <ul class="points">
-        <li><span><b>Outlook:</b> "Bookings with me", included in most Microsoft 365 business plans.</span></li>
-        <li><span><b>Google Calendar:</b> "appointment schedules", free for one booking page.</span></li>
-        <li><span><b>Calendly:</b> well known, free for one event type.</span></li>
-      </ul>
-      <p class="apres">Here we use <b>Cal.com</b>: it's free with unlimited bookings, works with Outlook and Google alike, and creates the Teams or Meet link for you.</p>
-      <p class="vers"><a href="https://cal.com" target="_blank" rel="noopener">→ cal.com</a></p>
-    </section>
-
-    <section>
-      <h2>Cal.com in six steps</h2>
-      <ol class="etapes">
-        <li><span class="n">1</span><div><h3>Create your account</h3><p>On cal.com, with your Microsoft or Google account. Pick a short address: <b>cal.com/firstname-lastname</b>. That's what your prospects will see.</p></div></li>
-        <li><span class="n">2</span><div><h3>Connect your calendar</h3><p>Outlook or Google. Cal.com will only offer your free slots. If Microsoft 365 shows "Need admin approval", your administrator approves the request; it takes a few minutes.</p></div></li>
-        <li><span class="n">3</span><div><h3>Set your hours</h3><p>Your time zone, then your real availability, for example 9am to 12pm and 2pm to 6pm. Fewer slots beat too many.</p></div></li>
-        <li><span class="n">4</span><div><h3>Create your event</h3><p>In "Links": a 20-minute "Discovery call", on Microsoft Teams or Google Meet. The video link is created automatically.</p></div></li>
-        <li><span class="n">5</span><div><h3>Set limits and a question</h3><p>24 hours' minimum notice, 10 minutes between meetings, 3 a day at most. Add a "Company" question to the booking form.</p></div></li>
-        <li><span class="n">6</span><div><h3>Add a reminder, then test</h3><p>In "Workflows", an email reminder 24 hours before. Avoid the AI phone templates: they use up credits. Finally, book yourself a slot in a private window, check it lands in your calendar, and cancel it.</p></div></li>
-      </ol>
+    <section id="outils">
+      <h2>Prefer another tool?</h2>
+      <p>Three simple tools, each with its own video guide. The easiest is often the one from your email provider.</p>
+      <div class="onglets" role="tablist" aria-label="Booking tools">
+        <button type="button" role="tab" id="t-bookings" aria-controls="bookings" aria-selected="true" tabindex="0">Microsoft Bookings</button>
+        <button type="button" role="tab" id="t-google" aria-controls="google" aria-selected="false" tabindex="-1">Google Calendar</button>
+        <button type="button" role="tab" id="t-calcom" aria-controls="calcom" aria-selected="false" tabindex="-1">Cal.com</button>
+      </div>
+      <div class="panneau" role="tabpanel" id="bookings" aria-labelledby="t-bookings" data-video="/assets/academy/guide-bookings-en.mp4" data-poster="/assets/academy/guide-bookings-en-apercu.jpg" data-leg="See how to create your Bookings link in 5 minutes.">
+        <p class="pour-qui"><b>Who it's for:</b> you use Outlook and Microsoft 365. Bookings is already included: nothing to install, nothing to pay, and the Teams link is created for you.</p>
+        <ol class="etapes">
+          <li><span class="n">1</span><div><h3>Open your booking page</h3><p>In Outlook on the web, open your <b>Calendar</b>, then click "Go to my booking page" in the left pane.</p></div></li>
+          <li><span class="n">2</span><div><h3>Create your meeting</h3><p>"Create meeting type": a 20- or 30-minute "Discovery call". The Teams link is already on. Leave it "Public": that's what shows it on your page. Set the default meeting types to "Private".</p></div></li>
+          <li><span class="n">3</span><div><h3>Set your hours</h3><p>Choose custom availability hours, then your real slots, for example 9am to 6pm on weekdays.</p></div></li>
+          <li><span class="n">4</span><div><h3>Copy your link</h3><p>Save, then "Share" and "Copy link". Paste it into your mazeo profile.</p></div></li>
+          <li><span class="n">5</span><div><h3>Test it</h3><p>Open your link in a private window and book yourself a slot. Without a signed-in Microsoft account, Bookings first emails a code: that's expected, and prospects signed in to Microsoft don't see it.</p></div></li>
+        </ol>
+        <p class="note">Outlook shows "You do not have access to Bookings with me"? Bookings has been turned off in your company: your IT team can turn it back on.</p>
+        <p class="vers"><a href="https://outlook.office.com/bookwithme/me" target="_blank" rel="noopener">→ outlook.office.com/bookwithme</a></p>
+      </div>
+      <div class="panneau" role="tabpanel" id="google" aria-labelledby="t-google" data-video="/assets/academy/guide-google-en.mp4" data-poster="/assets/academy/guide-google-en-apercu.jpg" data-leg="See how to create your Google Calendar link in 5 minutes." hidden>
+        <p class="pour-qui"><b>Who it's for:</b> you use Gmail or Google Workspace. Booking pages are included: nothing to install, and the Google Meet link is created for you.</p>
+        <ol class="etapes">
+          <li><span class="n">1</span><div><h3>Open booking pages</h3><p>In Google Calendar, on the left under the calendar: the <b>+</b> next to "Booking pages". Google offers an existing schedule? Click the pencil to edit it.</p></div></li>
+          <li><span class="n">2</span><div><h3>Set up your meeting</h3><p>A title, for example "Discovery call", the length, then your availability. Click "Next".</p></div></li>
+          <li><span class="n">3</span><div><h3>Add video</h3><p>Choose "Google Meet video conferencing", then "Save".</p></div></li>
+          <li><span class="n">4</span><div><h3>Copy your link</h3><p>Click your page, then "Copy link": Google gives a short link, like calendar.app.google/…. Paste it into your mazeo profile.</p></div></li>
+          <li><span class="n">5</span><div><h3>Test it</h3><p>Book yourself a slot in a private window, check it lands in your calendar, and cancel it.</p></div></li>
+        </ol>
+        <p class="note">Free for one booking page. Several pages, or email reminders, need a paid Google plan.</p>
+        <p class="vers"><a href="https://calendar.google.com" target="_blank" rel="noopener">→ calendar.google.com</a></p>
+      </div>
+      <div class="panneau" role="tabpanel" id="calcom" aria-labelledby="t-calcom" data-video="/assets/academy/guide-calcom-en.mp4" data-poster="/assets/academy/guide-calcom-en-apercu.jpg" data-leg="See how to set up Cal.com in 10 minutes." hidden>
+        <p class="pour-qui"><b>Who it's for:</b> you want a separate tool that works with Outlook and Google alike. Free with unlimited bookings, it creates the Teams or Meet link for you.</p>
+        <ol class="etapes">
+          <li><span class="n">1</span><div><h3>Create your account</h3><p>On cal.com, with your Microsoft or Google account. Pick a short address: <b>cal.com/firstname-lastname</b>. That's what your prospects will see.</p></div></li>
+          <li><span class="n">2</span><div><h3>Connect your calendar</h3><p>Outlook or Google. Cal.com will only offer your free slots. If Microsoft 365 shows "Need admin approval", your administrator approves the request; it takes a few minutes.</p></div></li>
+          <li><span class="n">3</span><div><h3>Set your hours</h3><p>Your time zone, then your real availability, for example 9am to 12pm and 2pm to 6pm. Fewer slots beat too many.</p></div></li>
+          <li><span class="n">4</span><div><h3>Create your event</h3><p>In "Links": a 20-minute "Discovery call", on Microsoft Teams or Google Meet. The video link is created automatically.</p></div></li>
+          <li><span class="n">5</span><div><h3>Set limits and a question</h3><p>24 hours' minimum notice, 10 minutes between meetings, 3 a day at most. Add a "Company" question to the booking form.</p></div></li>
+          <li><span class="n">6</span><div><h3>Add a reminder, then test</h3><p>In "Workflows", an email reminder 24 hours before. Avoid the AI phone templates: they use up credits. Finally, book yourself a slot in a private window, check it lands in your calendar, and cancel it.</p></div></li>
+        </ol>
+        <p class="vers"><a href="https://cal.com" target="_blank" rel="noopener">→ cal.com</a></p>
+      </div>
+      <p class="apres">Already using <b>Calendly</b>? Keep it: just paste its link into your mazeo profile.</p>
     </section>
 
     <div class="suite"><a class="btn" href="/en/academy">All practical guides</a><a class="btn second" href="/en/positioning">Guide 1: your positioning</a></div>
@@ -186,8 +220,8 @@ aside { gap:28px; }
 
   <aside>
     <div class="video">
-      <video controls preload="none" playsinline poster="/assets/academy/guide-calcom-en-apercu.jpg" src="/assets/academy/guide-calcom-en.mp4"></video>
-      <p class="leg">See how to set up Cal.com in 10 minutes.</p>
+      <video controls preload="none" playsinline poster="/assets/academy/guide-bookings-en-apercu.jpg" src="/assets/academy/guide-bookings-en.mp4"></video>
+      <p class="leg">See how to create your Bookings link in 5 minutes.</p>
     </div>
     <div class="mazeo">
       <span class="lab bleu">In mazeo</span>
@@ -225,6 +259,32 @@ const FLAGS = {
   var btn = $("share"), menu = $("share-menu");
   btn.onclick = function (e) { e.stopPropagation(); var open = menu.hidden; menu.hidden = !open; btn.setAttribute("aria-expanded", String(open)); };
   document.addEventListener("click", function (e) { if (!e.target.closest(".share")) { menu.hidden = true; btn.setAttribute("aria-expanded", "false"); } });
+})();
+
+/* 05/11 : les onglets des trois outils ; la vidéo de l'encadré suit l'onglet ; #bookings, #google ou #calcom ouvre l'onglet */
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.onglets [role="tab"]'));
+  if (!tabs.length) return;
+  var vid = document.querySelector("aside .video video"), leg = document.querySelector("aside .video p.leg");
+  function choisir(t, focus) {
+    tabs.forEach(function (x) {
+      var on = x === t, p = document.getElementById(x.getAttribute("aria-controls"));
+      x.setAttribute("aria-selected", String(on)); x.tabIndex = on ? 0 : -1; p.hidden = !on;
+      if (on && vid && vid.getAttribute("src") !== p.dataset.video) { vid.pause(); vid.setAttribute("poster", p.dataset.poster); vid.setAttribute("src", p.dataset.video); vid.load(); leg.textContent = p.dataset.leg; }
+    });
+    if (focus) t.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { choisir(t); history.replaceState(null, "", "#" + t.getAttribute("aria-controls")); });
+    t.addEventListener("keydown", function (e) {
+      var j = e.key === "ArrowRight" ? i + 1 : e.key === "ArrowLeft" ? i - 1 : null;
+      if (j === null) return; e.preventDefault(); choisir(tabs[(j + tabs.length) % tabs.length], true);
+    });
+  });
+  var vers = function () { document.getElementById("outils").scrollIntoView(); };
+  function depuisAdresse() { var h = location.hash.slice(1), t = tabs.filter(function (x) { return x.getAttribute("aria-controls") === h; })[0]; if (t) { choisir(t); vers(); } return !!t; }
+  if (depuisAdresse()) window.addEventListener("load", function () { setTimeout(vers, 0); }); else choisir(tabs[0]);
+  window.addEventListener("hashchange", depuisAdresse);
 })();
 </script>
 
