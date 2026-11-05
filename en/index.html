@@ -246,22 +246,22 @@ button, input { font: inherit; }
 .trusted-inner { display: flex; flex-direction: column; align-items: center; gap: 26px; padding-block: 30px; }
 .trusted .trusted-inner { padding-block: 34px 26px; }
 .trusted .lbl { text-align: center; line-height: 1.4; color: var(--slate); }
-/* Carrousel des logos : une ligne qui défile, bords estompés, pause au survol. Chaque logo est un <li> ; retirer un client = supprimer sa ligne. */
-.trusted .marquee { width: 100%; overflow: hidden; padding-bottom: 40px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
-.trusted .track { display: flex; width: max-content; margin: 0 0 0 56px; padding: 0; list-style: none; }
-.trusted .track li { flex: none; display: flex; flex-direction: column; align-items: center; gap: 8px; margin-right: 64px; filter: grayscale(1); opacity: .85; transition: filter .2s, opacity .2s; }
-.trusted .track li:hover { filter: none; opacity: 1; }
-.trusted .track img { width: 48px; height: 48px; border-radius: 10px; object-fit: contain; }
-.trusted .track span { font-size: 13.5px; font-weight: 700; color: var(--ink); white-space: nowrap; letter-spacing: -0.01em; }
-.trusted .marquee.sans-noms .track span { display: none; }
+/* Carrousel des logos : une ligne qui défile, bords estompés, pause au survol. Chaque logo est un <li> ; retirer un client = supprimer sa ligne. Le nom s'affiche dans l'infobulle de la page (attribut data-name). Gris par défaut ; ?logos=couleur montre les couleurs d'origine (bascule d'essai, à retirer une fois le choix fait). */
+.trusted .marquee { width: 100%; overflow: hidden; padding-block: 12px 48px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.trusted .track { display: flex; align-items: center; width: max-content; margin: 0 0 0 56px; padding: 0; list-style: none; }
+.trusted .track li { flex: none; margin-right: 72px; border-radius: 14px; outline: none; filter: grayscale(1) contrast(1.08); transition: filter .2s, transform .2s; }
+.trusted .marquee.couleur .track li { filter: none; }
+.trusted .track li:hover, .trusted .track li:focus-visible { filter: none; transform: translateY(-2px) scale(1.06); }
+.trusted .track li:focus-visible { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ink); }
+.trusted .track img { display: block; width: 60px; height: 60px; border-radius: 14px; object-fit: contain; }
 .trusted .marquee.on .track { animation: defile var(--dur, 80s) linear infinite; }
 .trusted .marquee.on:hover .track { animation-play-state: paused; }
 @keyframes defile { to { transform: translateX(-50%); } }
-@media (max-width: 960px) { .trusted-inner { gap: 18px; } .trusted .track { margin-left: 28px; } .trusted .track li { margin-right: 44px; } }
+@media (max-width: 960px) { .trusted-inner { gap: 18px; } .trusted .track { margin-left: 28px; } .trusted .track li { margin-right: 48px; } .trusted .track img { width: 52px; height: 52px; } }
 @media (prefers-reduced-motion: reduce) {
   .trusted .marquee { -webkit-mask-image: none; mask-image: none; }
-  .trusted .track { width: auto; margin: 0; flex-wrap: wrap; justify-content: center; row-gap: 22px; padding-inline: 20px; }
-  .trusted .track li { margin: 0 24px; }
+  .trusted .track { width: auto; margin: 0; flex-wrap: wrap; justify-content: center; row-gap: 28px; padding-inline: 20px; }
+  .trusted .track li { margin: 0 28px; }
 }
 .marker { display: flex; align-items: center; gap: 22px; margin-bottom: 56px; }
 .marker::before, .marker::after { content: ""; flex: 1; height: 1px; background: var(--line); }
@@ -876,26 +876,26 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
       </div>
       <div class="marquee" id="clients-marquee">
         <ul class="track">
-          <li><img src="/assets/clients/kantar.jpg" alt="Kantar" width="48" height="48"><span aria-hidden="true">Kantar</span></li>
-          <li><img src="/assets/clients/gim-france.jpg" alt="GIM France" width="48" height="48"><span aria-hidden="true">GIM France</span></li>
-          <li><img src="/assets/dp-moai.jpg" alt="Moaï" width="48" height="48"><span aria-hidden="true">Moaï</span></li>
-          <li><img src="/assets/clients/sky-consulting.jpg" alt="Sky Consulting" width="48" height="48"><span aria-hidden="true">Sky Consulting</span></li>
-          <li><img src="/assets/dp-statmore.png" alt="Stat &amp; More" width="48" height="48"><span aria-hidden="true">Stat &amp; More</span></li>
-          <li><img src="/assets/clients/opinea.jpg" alt="Opinea" width="48" height="48"><span aria-hidden="true">Opinea</span></li>
-          <li><img src="/assets/clients/datelia.jpg" alt="Datelia" width="48" height="48"><span aria-hidden="true">Datelia</span></li>
-          <li><img src="/assets/dp-mainframe.png" alt="Main Frame" width="48" height="48"><span aria-hidden="true">Main Frame</span></li>
-          <li><img src="/assets/clients/nabel.jpg" alt="Nabel" width="48" height="48"><span aria-hidden="true">Nabel</span></li>
-          <li><img src="/assets/clients/egile-etudes.jpg" alt="Egile Études" width="48" height="48"><span aria-hidden="true">Egile Études</span></li>
-          <li><img src="/assets/clients/callson.jpg" alt="Callson" width="48" height="48"><span aria-hidden="true">Callson</span></li>
-          <li><img src="/assets/dp-licter.jpg" alt="Licter" width="48" height="48"><span aria-hidden="true">Licter</span></li>
-          <li><img src="/assets/clients/adwise.jpg" alt="Adwise" width="48" height="48"><span aria-hidden="true">Adwise</span></li>
-          <li><img src="/assets/clients/eurosyn.jpg" alt="Eurosyn" width="48" height="48"><span aria-hidden="true">Eurosyn</span></li>
-          <li><img src="/assets/dp-iligo.jpg" alt="iligo" width="48" height="48"><span aria-hidden="true">iligo</span></li>
-          <li><img src="/assets/clients/les-archetypes.jpg" alt="Les Archétypes" width="48" height="48"><span aria-hidden="true">Les Archétypes</span></li>
-          <li><img src="/assets/clients/limpid-insights.jpg" alt="Limpid Insights" width="48" height="48"><span aria-hidden="true">Limpid Insights</span></li>
-          <li><img src="/assets/clients/solutions-terrain.jpg" alt="Solutions Terrain" width="48" height="48"><span aria-hidden="true">Solutions Terrain</span></li>
-          <li><img src="/assets/clients/emazing-retailing.jpg" alt="eMazing Retailing" width="48" height="48"><span aria-hidden="true">eMazing Retailing</span></li>
-          <li><img src="/assets/dp-episto.jpg" alt="Episto" width="48" height="48"><span aria-hidden="true">Episto</span></li>
+          <li data-name="Kantar" tabindex="0"><img src="/assets/clients/kantar.jpg" alt="Kantar" width="60" height="60"></li>
+          <li data-name="GIM France" tabindex="0"><img src="/assets/clients/gim-france.jpg" alt="GIM France" width="60" height="60"></li>
+          <li data-name="Moaï" tabindex="0"><img src="/assets/dp-moai.jpg" alt="Moaï" width="60" height="60"></li>
+          <li data-name="Sky Consulting" tabindex="0"><img src="/assets/clients/sky-consulting.jpg" alt="Sky Consulting" width="60" height="60"></li>
+          <li data-name="Stat &amp; More" tabindex="0"><img src="/assets/dp-statmore.png" alt="Stat &amp; More" width="60" height="60"></li>
+          <li data-name="Opinea" tabindex="0"><img src="/assets/clients/opinea.jpg" alt="Opinea" width="60" height="60"></li>
+          <li data-name="Datelia" tabindex="0"><img src="/assets/clients/datelia.jpg" alt="Datelia" width="60" height="60"></li>
+          <li data-name="Main Frame" tabindex="0"><img src="/assets/dp-mainframe.png" alt="Main Frame" width="60" height="60"></li>
+          <li data-name="Nabel" tabindex="0"><img src="/assets/clients/nabel.jpg" alt="Nabel" width="60" height="60"></li>
+          <li data-name="Egile Études" tabindex="0"><img src="/assets/clients/egile-etudes.jpg" alt="Egile Études" width="60" height="60"></li>
+          <li data-name="Callson" tabindex="0"><img src="/assets/clients/callson.jpg" alt="Callson" width="60" height="60"></li>
+          <li data-name="Licter" tabindex="0"><img src="/assets/dp-licter.jpg" alt="Licter" width="60" height="60"></li>
+          <li data-name="Adwise" tabindex="0"><img src="/assets/clients/adwise.jpg" alt="Adwise" width="60" height="60"></li>
+          <li data-name="Eurosyn" tabindex="0"><img src="/assets/clients/eurosyn.jpg" alt="Eurosyn" width="60" height="60"></li>
+          <li data-name="iligo" tabindex="0"><img src="/assets/dp-iligo.jpg" alt="iligo" width="60" height="60"></li>
+          <li data-name="Les Archétypes" tabindex="0"><img src="/assets/clients/les-archetypes.jpg" alt="Les Archétypes" width="60" height="60"></li>
+          <li data-name="Limpid Insights" tabindex="0"><img src="/assets/clients/limpid-insights.jpg" alt="Limpid Insights" width="60" height="60"></li>
+          <li data-name="Solutions Terrain" tabindex="0"><img src="/assets/clients/solutions-terrain.jpg" alt="Solutions Terrain" width="60" height="60"></li>
+          <li data-name="eMazing Retailing" tabindex="0"><img src="/assets/clients/emazing-retailing.jpg" alt="eMazing Retailing" width="60" height="60"></li>
+          <li data-name="Episto" tabindex="0"><img src="/assets/dp-episto.jpg" alt="Episto" width="60" height="60"></li>
         </ul>
       </div>
     </div>
@@ -1429,7 +1429,7 @@ document.documentElement.classList.add("js");
   }
 
   /* ---------- Infobulles : une seule bulle posée sur la page, recalée dans l'écran (16/09) ---------- */
-  var TIP_SEL = ".tile[data-name], .chip[data-def], .pills .ov-signal-pill[data-def]";
+  var TIP_SEL = ".tile[data-name], .chip[data-def], .pills .ov-signal-pill[data-def], .trusted .track li[data-name]";
   var tip = document.createElement("div"); tip.className = "tip"; tip.setAttribute("role", "tooltip"); tip.setAttribute("aria-hidden", "true"); document.body.appendChild(tip);
   var tipFor = null;
   function tipHide() { tipFor = null; if (tip) tip.classList.remove("on"); }
@@ -2266,12 +2266,14 @@ document.documentElement.classList.add("js");
 })();
 </script>
 <script>
-/* Carrousel des logos : la liste est doublée pour que la boucle n'ait pas de couture ; la vitesse suit la largeur (environ 45 px par seconde). Sans JavaScript, ou si le visiteur a demandé moins d'animations, la bande reste fixe. */
+/* Carrousel des logos : la liste est doublée pour que la boucle n'ait pas de couture ; la vitesse suit la largeur (environ 45 px par seconde). Sans JavaScript, ou si le visiteur a demandé moins d'animations, la bande reste fixe. ?logos=couleur : bascule d'essai, à retirer une fois le choix fait. */
 (function () {
   var m = document.getElementById("clients-marquee"), t = m && m.querySelector(".track");
-  if (!t || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+  if (!t) return;
+  if (/[?&]logos=couleur/.test(location.search)) m.classList.add("couleur");
+  if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   [].slice.call(t.children).forEach(function (li) {
-    var c = li.cloneNode(true); c.setAttribute("aria-hidden", "true");
+    var c = li.cloneNode(true); c.setAttribute("aria-hidden", "true"); c.setAttribute("tabindex", "-1");
     [].forEach.call(c.querySelectorAll("img"), function (i) { i.alt = ""; });
     t.appendChild(c);
   });
