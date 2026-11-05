@@ -244,14 +244,25 @@ button, input { font: inherit; }
 /* La bande des clients */
 .trusted { margin-top: 72px; background: var(--soft); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
 .trusted-inner { display: flex; flex-direction: column; align-items: center; gap: 26px; padding-block: 30px; }
-.trusted .trusted-inner { padding-block: 34px 40px; }
+.trusted .trusted-inner { padding-block: 34px 26px; }
 .trusted .lbl { text-align: center; line-height: 1.4; color: var(--slate); }
-.trusted .logos { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px 24px; flex-wrap: wrap; }
-.trusted figure { margin: 0; display: flex; align-items: center; gap: 10px; filter: grayscale(1); opacity: .75; transition: filter .2s, opacity .2s; }
-.trusted figure:hover { filter: none; opacity: 1; }
-.trusted img { width: 34px; height: 34px; border-radius: 8px; object-fit: contain; }
-.trusted figcaption { font-size: 16px; font-weight: 700; color: var(--ink); white-space: nowrap; letter-spacing: -0.01em; }
-@media (max-width: 960px) { .trusted-inner { gap: 18px; } .trusted .logos { justify-content: center; gap: 16px 28px; } }
+/* Carrousel des logos : une ligne qui défile, bords estompés, pause au survol. Chaque logo est un <li> ; retirer un client = supprimer sa ligne. */
+.trusted .marquee { width: 100%; overflow: hidden; padding-bottom: 40px; -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+.trusted .track { display: flex; width: max-content; margin: 0 0 0 56px; padding: 0; list-style: none; }
+.trusted .track li { flex: none; display: flex; flex-direction: column; align-items: center; gap: 8px; margin-right: 64px; filter: grayscale(1); opacity: .85; transition: filter .2s, opacity .2s; }
+.trusted .track li:hover { filter: none; opacity: 1; }
+.trusted .track img { width: 48px; height: 48px; border-radius: 10px; object-fit: contain; }
+.trusted .track span { font-size: 13.5px; font-weight: 700; color: var(--ink); white-space: nowrap; letter-spacing: -0.01em; }
+.trusted .marquee.sans-noms .track span { display: none; }
+.trusted .marquee.on .track { animation: defile var(--dur, 80s) linear infinite; }
+.trusted .marquee.on:hover .track { animation-play-state: paused; }
+@keyframes defile { to { transform: translateX(-50%); } }
+@media (max-width: 960px) { .trusted-inner { gap: 18px; } .trusted .track { margin-left: 28px; } .trusted .track li { margin-right: 44px; } }
+@media (prefers-reduced-motion: reduce) {
+  .trusted .marquee { -webkit-mask-image: none; mask-image: none; }
+  .trusted .track { width: auto; margin: 0; flex-wrap: wrap; justify-content: center; row-gap: 22px; padding-inline: 20px; }
+  .trusted .track li { margin: 0 24px; }
+}
 .marker { display: flex; align-items: center; gap: 22px; margin-bottom: 56px; }
 .marker::before, .marker::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .marker .n { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 12px; background: var(--ink); color: #fff; font-family: var(--display); font-size: 19px; font-weight: 700; margin-right: -8px; }
@@ -861,15 +872,30 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 
     <div class="trusted">
       <div class="container trusted-inner">
-        <span class="lbl" data-t="hero.dp">Built with 8&nbsp;research providers</span>
-        <div class="logos">
-          <figure><img src="/assets/dp-episto.jpg" alt=""><figcaption>Episto</figcaption></figure>
-          <figure><img src="/assets/dp-moai.jpg" alt=""><figcaption>Moaï</figcaption></figure>
-          <figure><img src="/assets/dp-statmore.png" alt=""><figcaption>Stat &amp; More</figcaption></figure>
-          <figure><img src="/assets/dp-licter.jpg" alt=""><figcaption>Licter</figcaption></figure>
-          <figure><img src="/assets/dp-mainframe.png" alt=""><figcaption>Main Frame</figcaption></figure>
-          <figure><img src="/assets/dp-iligo.jpg" alt=""><figcaption>iligo</figcaption></figure>
-        </div>
+        <span class="lbl" data-t="hero.dp">They already trust us</span>
+      </div>
+      <div class="marquee" id="clients-marquee">
+        <ul class="track">
+          <li><img src="/assets/clients/kantar.jpg" alt="Kantar" width="48" height="48"><span aria-hidden="true">Kantar</span></li>
+          <li><img src="/assets/clients/gim-france.jpg" alt="GIM France" width="48" height="48"><span aria-hidden="true">GIM France</span></li>
+          <li><img src="/assets/dp-moai.jpg" alt="Moaï" width="48" height="48"><span aria-hidden="true">Moaï</span></li>
+          <li><img src="/assets/clients/sky-consulting.jpg" alt="Sky Consulting" width="48" height="48"><span aria-hidden="true">Sky Consulting</span></li>
+          <li><img src="/assets/dp-statmore.png" alt="Stat &amp; More" width="48" height="48"><span aria-hidden="true">Stat &amp; More</span></li>
+          <li><img src="/assets/clients/opinea.jpg" alt="Opinea" width="48" height="48"><span aria-hidden="true">Opinea</span></li>
+          <li><img src="/assets/clients/datelia.jpg" alt="Datelia" width="48" height="48"><span aria-hidden="true">Datelia</span></li>
+          <li><img src="/assets/dp-mainframe.png" alt="Main Frame" width="48" height="48"><span aria-hidden="true">Main Frame</span></li>
+          <li><img src="/assets/clients/nabel.jpg" alt="Nabel" width="48" height="48"><span aria-hidden="true">Nabel</span></li>
+          <li><img src="/assets/clients/callson.jpg" alt="Callson" width="48" height="48"><span aria-hidden="true">Callson</span></li>
+          <li><img src="/assets/dp-licter.jpg" alt="Licter" width="48" height="48"><span aria-hidden="true">Licter</span></li>
+          <li><img src="/assets/clients/adwise.jpg" alt="Adwise" width="48" height="48"><span aria-hidden="true">Adwise</span></li>
+          <li><img src="/assets/clients/eurosyn.jpg" alt="Eurosyn" width="48" height="48"><span aria-hidden="true">Eurosyn</span></li>
+          <li><img src="/assets/dp-iligo.jpg" alt="iligo" width="48" height="48"><span aria-hidden="true">iligo</span></li>
+          <li><img src="/assets/clients/les-archetypes.jpg" alt="Les Archétypes" width="48" height="48"><span aria-hidden="true">Les Archétypes</span></li>
+          <li><img src="/assets/clients/limpid-insights.jpg" alt="Limpid Insights" width="48" height="48"><span aria-hidden="true">Limpid Insights</span></li>
+          <li><img src="/assets/clients/solutions-terrain.jpg" alt="Solutions Terrain" width="48" height="48"><span aria-hidden="true">Solutions Terrain</span></li>
+          <li><img src="/assets/clients/emazing-retailing.jpg" alt="eMazing Retailing" width="48" height="48"><span aria-hidden="true">eMazing Retailing</span></li>
+          <li><img src="/assets/dp-episto.jpg" alt="Episto" width="48" height="48"><span aria-hidden="true">Episto</span></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -1311,7 +1337,7 @@ document.documentElement.classList.add("js");
     "hero.lead": "The entire industry, scored &amp; updated in real time.", "hero.promise": "Your next clients are already on mazeo.", "hero.promise2": "The right company, the right person, at the right time.", "hero.playClose": "Close the video", "hero.play": "Discover mazeo on video", "nav.market": "The Market", "mk.name": "The Market",
     "form.email": "Work email", "form.submit": "Book a demo",
     "hero.helper": "Then pick your slot for a 30-minute demo.",
-    "hero.dp": "Built with 8&nbsp;research providers", "dp.more": "+ 2 more",
+    "hero.dp": "They already trust us", "dp.more": "+ 2 more",
     "video.aria": "Product video",
     "pb.eyebrow": "The problem",
     "pb.h2": "No tool gave an exhaustive view of the players in market research.",
@@ -2236,6 +2262,22 @@ document.documentElement.classList.add("js");
     var partir = function () { window.scrollTo({ top: 0, behavior: "instant" }); defiler(versSection(cibleAncre)); setTimeout(function () { if (window.scrollY > 0) caler(cibleAncre); }, 1200); };
     if (document.readyState === "complete") setTimeout(partir, 60); else window.addEventListener("load", function () { setTimeout(partir, 60); });
   }
+})();
+</script>
+<script>
+/* Carrousel des logos : la liste est doublée pour que la boucle n'ait pas de couture ; la vitesse suit la largeur (environ 45 px par seconde). Sans JavaScript, ou si le visiteur a demandé moins d'animations, la bande reste fixe. */
+(function () {
+  var m = document.getElementById("clients-marquee"), t = m && m.querySelector(".track");
+  if (!t || (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches)) return;
+  [].slice.call(t.children).forEach(function (li) {
+    var c = li.cloneNode(true); c.setAttribute("aria-hidden", "true");
+    [].forEach.call(c.querySelectorAll("img"), function (i) { i.alt = ""; });
+    t.appendChild(c);
+  });
+  function vitesse() { m.style.setProperty("--dur", Math.round(t.offsetWidth / 2 / 45) + "s"); }
+  vitesse(); m.classList.add("on");
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(vitesse);
+  window.addEventListener("load", vitesse);
 })();
 </script>
 
