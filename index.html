@@ -2268,20 +2268,38 @@ document.documentElement.classList.add("js");
 })();
 </script>
 <script>
-/* Carrousel des logos : la liste est doublée pour que la boucle n'ait pas de couture ; la vitesse suit la largeur (environ 45 px par seconde). Sans JavaScript, ou si le visiteur a demandé moins d'animations, la bande reste fixe. */
+/* Carrousel des logos : la liste est doublée pour que la boucle n'ait pas de couture ; la vitesse suit la largeur (environ 45 px par seconde). Kantar est répété à intervalles réguliers pour qu'au moins un logo Kantar reste toujours à l'écran : plus l'écran est étroit, plus il revient souvent. Sans JavaScript, ou si le visiteur a demandé moins d'animations, la bande reste fixe (chaque logo une seule fois). */
 (function () {
   var m = document.getElementById("clients-marquee"), t = m && m.querySelector(".track");
   if (!t) return;
   if (window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  [].slice.call(t.children).forEach(function (li) {
+  var base = [].slice.call(t.children);
+  var kantar = base.filter(function (li) { return li.getAttribute("data-name") === "Kantar"; })[0];
+  var autres = base.filter(function (li) { return li !== kantar; });
+  function copie(li) {
     var c = li.cloneNode(true); c.setAttribute("aria-hidden", "true"); c.setAttribute("tabindex", "-1");
     [].forEach.call(c.querySelectorAll("img"), function (i) { i.alt = ""; });
-    t.appendChild(c);
-  });
-  function vitesse() { m.style.setProperty("--dur", Math.round(t.offsetWidth / 2 / 45) + "s"); }
-  vitesse(); m.classList.add("on");
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(vitesse);
-  window.addEventListener("load", vitesse);
+    return c;
+  }
+  var dernier = 0;
+  function monter() {
+    var pas = base[0].offsetWidth + parseFloat(getComputedStyle(base[0]).marginRight);
+    var L = m.clientWidth * 0.86 / pas; /* logos nets à l'écran : les bords estompés en cachent environ 14 % */
+    var r = Math.max(2, Math.floor(L - 1)); /* au plus r logos d'affilée sans Kantar : au moins la moitié d'un logo Kantar est toujours visible */
+    if (r === dernier) return; dernier = r;
+    var n = kantar ? Math.ceil(autres.length / r) : 1, long = Math.floor(autres.length / n), reste = autres.length % n, suite = [], i = 0;
+    for (var j = 0; j < n; j++) {
+      if (kantar) suite.push(j === 0 ? kantar : copie(kantar));
+      for (var q = 0, len = long + (j < reste ? 1 : 0); q < len; q++) suite.push(autres[i++]);
+    }
+    t.textContent = "";
+    suite.forEach(function (li) { t.appendChild(li); });
+    suite.forEach(function (li) { t.appendChild(copie(li)); });
+    m.style.setProperty("--dur", Math.round(t.offsetWidth / 2 / 45) + "s");
+    m.classList.add("on");
+  }
+  monter();
+  var attente; window.addEventListener("resize", function () { clearTimeout(attente); attente = setTimeout(monter, 250); });
 })();
 </script>
 </body>
