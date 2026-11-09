@@ -68,6 +68,16 @@
       "permanent": false
     },
     {
+      "source": "/demo",
+      "destination": "https://app.mazeo.co/r/mazeo/romain-barbet?lang=fr",
+      "permanent": false
+    },
+    {
+      "source": "/en/demo",
+      "destination": "https://app.mazeo.co/r/mazeo/romain-barbet?lang=en",
+      "permanent": false
+    },
+    {
       "source": "/maquette",
       "destination": "/",
       "permanent": true
