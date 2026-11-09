@@ -1821,8 +1821,9 @@ document.documentElement.classList.add("js");
 
   /* ---------- Formulaires : fonction waitlist-signup ---------- */
   var FN = "https://sumzzdcvwsvehlksrzkh.supabase.co/functions/v1/waitlist-signup";
-  /* Après l'envoi de l'email (02/10) : le calendrier de démo s'ouvre, l'email déjà rempli (window.mazeoDemo, défini avec la prise de rendez-vous en bas de page).
-     Le lien du message rouvre le calendrier ; sans le script de rendez-vous, il mène à la page /demo. */
+  /* Après l'envoi de l'email (09/11) : la page de rendez-vous mazeo de Romain s'ouvre dans le même onglet.
+     /demo et /en/demo y redirigent (vercel.json), comme tous les liens « Réserver une démo » du site. La page ne reçoit pas l'email : la personne le retape.
+     Le lien du message mène au même endroit, si l'ouverture tarde. */
   var DEMO = "/demo";
   var MSG = {
     fr: { ok: "C’est noté. <a href=\"" + DEMO + "\">Choisissez votre créneau</a> pour une démo de 30 minutes.", bad: "Entrez une adresse email valide.", err: "Ça n’a pas fonctionné. Réessayez dans un instant, ou écrivez à romain.barbet@mazeo.co." },
@@ -1841,7 +1842,7 @@ document.documentElement.classList.add("js");
       fetch(FN, { signal: ac ? ac.signal : undefined, method: "POST", headers: { "Content-Type": "application/json", "Accept-Language": lang === "fr" ? "fr-FR,fr;q=0.9" : "en-US,en;q=0.9" }, body: JSON.stringify({ email: email, lang: lang, source: "landing-2026-09" }) })
         .then(function (r) { return r.json().catch(function () { return {}; }).then(function (d) { return { ok: r.ok && d.ok !== false }; }); })
         .then(function (res) {
-          if (res.ok) { msg.innerHTML = MSG[lang].ok; msg.classList.add("ok"); if (window.mazeoDemo) window.mazeoDemo(email); form.querySelector(".signup-fields").style.display = "none"; var h = form.querySelector(".helper"); if (h) h.style.display = "none"; msg.tabIndex = -1; msg.focus(); }
+          if (res.ok) { msg.innerHTML = MSG[lang].ok; msg.classList.add("ok"); window.location.href = (lang === "en" ? "/en" : "") + DEMO; form.querySelector(".signup-fields").style.display = "none"; var h = form.querySelector(".helper"); if (h) h.style.display = "none"; msg.tabIndex = -1; msg.focus(); }
           else { msg.textContent = MSG[lang].err; msg.classList.add("err"); btn.disabled = false; btn.style.opacity = ""; }
         })
         .catch(function () { msg.textContent = MSG[lang].err; msg.classList.add("err"); btn.disabled = false; btn.style.opacity = ""; });
@@ -2157,28 +2158,6 @@ document.documentElement.classList.add("js");
     io.observe(duel);
     window.addEventListener("scroll", voir, { passive: true });
   }
-
-  /* « Réserver une démo » (01/10) : la prise de rendez-vous Cal.com s'ouvre par-dessus la page.
-     Rien de Cal.com n'est chargé avant le premier clic (le site ne dépose aucun cookie). Tout lien vers /demo ou /en/demo ouvre la fenêtre. CAL_LINK vide : la page /demo s'ouvre. */
-  var CAL_LINK = "romain-barbet-mazeo/demo-mazeo", calPret = false, calEmail = "";
-  function calCharger() {
-    if (calPret) return; calPret = true;
-    (function (C, A, L) { var p = function (a, ar) { a.q.push(ar); }; var d = C.document; C.Cal = C.Cal || function () { var cal = C.Cal; var ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { var api = function () { p(api, arguments); }; var namespace = ar[1]; api.q = api.q || []; if (typeof namespace === "string") { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ["initNamespace", namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-    Cal("init", "demo", { origin: "https://app.cal.com" });
-    Cal.ns.demo("ui", { hideEventTypeDetails: false, layout: "month_view" });
-  }
-  if (CAL_LINK) document.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest('a[href="/demo"], a[href="/en/demo"]');
-    if (!a) return;
-    e.preventDefault(); calOuvrir();
-  });
-  function calOuvrir() {
-    calCharger();
-    var config = { layout: "month_view" }; if (calEmail) config.email = calEmail;
-    Cal.ns.demo("modal", { calLink: CAL_LINK, config: config });
-  }
-  /* Appelé par les formulaires une fois l'email enregistré. */
-  if (CAL_LINK) window.mazeoDemo = function (email) { calEmail = email || ""; calOuvrir(); };
 
   /* L'ancre #prix tient malgré le chargement de la carte du marché et des images au-dessus :
      pendant 3 s, chaque changement de hauteur de la page recale la section en haut de l'écran,
