@@ -571,6 +571,17 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 /* ---- Le prix (v6, 01/10/2026) : premier écran = titre, sélecteur, deux grandes offres ; recharges puis comparatif en dessous ---- */
 .title em { font-style: normal; color: var(--blue); }
 /* Rythme des fonds (02/10) : témoignages gris clair, prix bleu très pâle, comparatif blanc, ressources gris clair, FAQ et appel final blancs. 120 px en haut et en bas, comme les autres sections. */
+/* ---------- QUI SOMMES-NOUS (25/11/2026) : photo des fondateurs à gauche, l'histoire à droite, une phrase par ligne ---------- */
+.equipe { padding-block: 88px; }
+.equipe-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 64px; align-items: center; }
+.equipe-photo { margin: 0; }
+.equipe-photo img { display: block; width: 100%; height: auto; border-radius: 18px; }
+.equipe-photo figcaption { margin-top: 12px; font-size: 13.5px; color: var(--meta); }
+.equipe-h2 { font-size: clamp(32px, 3.4vw, 46px); margin-bottom: 20px; }
+.equipe-txt p { margin: 0 0 10px; font-size: 16.5px; line-height: 1.5; text-wrap: pretty; }
+.equipe-sign { margin-top: 18px !important; color: var(--ink); font-weight: 600; }
+@media (max-width: 900px) { .equipe { padding-block: 72px; } .equipe-grid { grid-template-columns: 1fr; gap: 32px; } .equipe-photo { max-width: 560px; } }
+
 .px { padding-block: 120px; background: var(--blue-pale); }
 .px-vs { padding-block: 120px; }
 #prix [hidden], #comparatif [hidden] { display: none !important; }
@@ -1062,6 +1073,29 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     </div>
   </section>
 
+  <!-- ================= QUI SOMMES-NOUS (25/11/2026) : les deux fondateurs, photo du café et l'histoire du post LinkedIn du 19/11.
+       Pas d'entrée dans le menu (choix du 25/11) ; lien « Qui sommes-nous » dans le pied de page. ================= -->
+  <section class="section equipe" id="equipe">
+    <div class="container equipe-grid">
+      <figure class="equipe-photo reveal">
+        <img src="/assets/fondateurs.jpg" alt="Romain Barbet et Paul-Henri Blaiset, fondateurs de mazeo" width="960" height="720" loading="lazy">
+        <figcaption data-t="eq.cap">Paris, a Monday morning.</figcaption>
+      </figure>
+      <div class="equipe-txt reveal">
+        <span class="eyebrow" data-t="eq.eyebrow">Who we are</span>
+        <h2 class="equipe-h2" data-t="eq.h2">Partners since 2010.</h2>
+        <p data-t="eq.p1">We met at business school.</p>
+        <p data-t="eq.p2">Our first project together: cycling across Europe, from Reims to Istanbul, asking young people how attached they felt to Europe.</p>
+        <p data-t="eq.p3">Without knowing it, we already had a foot in market research.</p>
+        <p data-t="eq.p4">After graduating, we started our first company, Pixopolitan. It lasted six years.</p>
+        <p data-t="eq.p5">Then our paths split. Romain went into research, five years running Norstat France. Paul-Henri went into fintech, where he launched Blank, Crédit Agricole’s business neobank.</p>
+        <p data-t="eq.p6">Sixteen years after that bike trip, we are back together.</p>
+        <p data-t="eq.p7">Romain knows the industry from the inside. Paul-Henri builds the product. And we prospect with mazeo every day (it is our best test).</p>
+        <p class="equipe-sign" data-t="eq.sign">Romain and Paul-Henri</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= LE PRIX (v3, 08/11/2026) : tout visible d'un coup, sans sélecteur ; deux cartes : sans engagement (pausable), engagement 12 mois.
        Plus de Freelance. Recharges et report ; comparatif en dessous. data-stripe : liens de paiement (STRIPE, bas de page). ================= -->
   <section class="px" id="prix">
@@ -1306,6 +1340,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     </div>
     <nav aria-label="Links" data-aria-en="Links">
       <a href="/en/resources" data-href-en="/en/resources" data-t="foot.res">Resources</a>
+      <a href="#equipe" data-t="foot.team">Who we are</a>
       <a href="https://app.mazeo.co/?hl=en" data-t="nav.login">Log in</a>
       <a href="mailto:romain.barbet@mazeo.co">Contact</a>
       <a href="https://www.linkedin.com/company/mazeo-tech/" rel="noopener" target="_blank">LinkedIn</a>
@@ -1373,6 +1408,8 @@ document.documentElement.classList.add("js");
     "ml.to": "<b>To:</b> Camille Moreau · Head of Consumer Research", "ml.ctx": "Context: connected on LinkedIn · Hiring signal", "ml.btn": "Send via LinkedIn",
     "dp.eyebrow": "They use <span class=\"lc\">mazeo</span>",
     "dp.h2": "What our first users say about us.",
+    "eq.eyebrow": "Who we are", "eq.h2": "Partners since 2010.", "eq.cap": "Paris, a Monday morning.", "eq.sign": "Romain and Paul-Henri", "foot.team": "Who we are",
+    "eq.p1": "We met at business school.", "eq.p2": "Our first project together: cycling across Europe, from Reims to Istanbul, asking young people how attached they felt to Europe.", "eq.p3": "Without knowing it, we already had a foot in market research.", "eq.p4": "After graduating, we started our first company, Pixopolitan. It lasted six years.", "eq.p5": "Then our paths split. Romain went into research, five years running Norstat France. Paul-Henri went into fintech, where he launched Blank, Crédit Agricole’s business neobank.", "eq.p6": "Sixteen years after that bike trip, we are back together.", "eq.p7": "Romain knows the industry from the inside. Paul-Henri builds the product. And we prospect with mazeo every day (it is our best test).",
     "q1.t": "“I have structured, reliable information concentrated in one place. In practice, it is a real time saver.”", "q1.r": "CEO, Stat &amp; More",
     "q2.t": "“In two weeks, mazeo introduced us to some twenty research agencies we had never contacted. For each one, we knew who to call.”", "q2.r": "Head of Sales, Norstat France",
     "q3.t": "“Signals change everything: we write when something happens at the client, not at random.”", "q3.r": "Founder, JLD Insights",
