@@ -540,7 +540,8 @@ html.js .tiles.pre .tile.in:hover { transform: translateY(-3px) scale(1.08); tra
 @media (max-width: 640px) { .quote { flex-basis: 86vw; } }
 .car-track { display: flex; gap: 20px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 4px 4px 12px; scrollbar-width: none; -ms-overflow-style: none; }
 .car-track::-webkit-scrollbar { display: none; }
-.quote { flex: 0 0 calc((100% - 40px) / 3); scroll-snap-align: start; background: #fff; border: 1px solid var(--line); border-radius: var(--r-card); padding: 30px 32px; display: flex; flex-direction: column; justify-content: space-between; gap: 26px; min-height: 260px; }
+.quote { flex: 0 0 calc((100% - 20px) / 2); scroll-snap-align: start; background: #fff; border: 1px solid var(--line); border-radius: var(--r-card); padding: 30px 36px; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; min-height: 220px; }
+@media (max-width: 900px) { .quote { flex-basis: calc(100% - 72px); } }
 .quote blockquote { flex: 1; display: flex; align-items: center; margin: 0; font-family: var(--display); font-weight: 600; font-size: 19px; line-height: 1.32; letter-spacing: -0.02em; color: var(--ink); text-wrap: pretty; }
 .quote .who { display: flex; align-items: center; gap: 12px; }
 .quote .who img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
