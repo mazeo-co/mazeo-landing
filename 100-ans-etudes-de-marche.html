@@ -42,7 +42,7 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;color:var(--ink);margin:0;lett
 .tete{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px 0}
 .marque{display:flex;align-items:baseline;gap:8px 18px;flex-wrap:wrap}
 .marque b{font:700 25px/1.2 var(--titre);color:var(--ink);letter-spacing:-.01em}
-.marque b span{background:var(--ambre);border-radius:6px;padding:1px 8px 3px;margin-right:6px}
+.marque b span{background:linear-gradient(transparent 60%,var(--ambre) 60%,var(--ambre) 92%,transparent 92%);white-space:nowrap}
 .par{font-size:14.5px;color:var(--muted);font-weight:500}
 .mz{font:800 18px/1 Inter,var(--sans);letter-spacing:-.4px;color:var(--ink);text-decoration:none}
 .mz span{color:var(--ok)}
@@ -170,7 +170,7 @@ section.bloc{padding-block:72px 8px}
 
   <header class="tete">
     <div class="marque">
-      <b><span>100 ans</span>d'études de marché</b>
+      <b><span>100 ans</span> d'études de marché</b>
       <span class="par">un film présenté par <a class="mz" href="https://mazeo.co">mazeo<span>.</span></a></span>
     </div>
     <div class="share"><button class="pill" id="share" type="button" aria-expanded="false">Partager</button><div class="share-menu" id="share-menu" hidden></div></div>
