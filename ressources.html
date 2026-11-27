@@ -316,9 +316,9 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .g-onglets button.on .nb { background: var(--ink); color: #fff; }
 .g-maj { margin-left: auto; padding-bottom: 13px; font-size: 13.5px; color: var(--meta); white-space: nowrap; }
 .galerie { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-auto-rows: 274px; gap: 22px; padding-top: 34px; padding-bottom: 104px;
-  grid-template-areas: "aca aca vil vil" "aca aca pit qui" "sal sal da bou"; }
+  grid-template-areas: "aca aca vil vil" "aca aca pit qui" "film film sal sal" "film film da bou"; }
 .t-growth-academy { grid-area: aca; } .t-village { grid-area: vil; } .t-pitch { grid-area: pit; } .t-quiz { grid-area: qui; }
-.t-rencontres { grid-area: sal; } .t-dernier-appel { grid-area: da; } .t-bourse { grid-area: bou; }
+.t-film { grid-area: film; } .t-rencontres { grid-area: sal; } .t-dernier-appel { grid-area: da; } .t-bourse { grid-area: bou; }
 .tuile { position: relative; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; background: #fff; color: var(--ink); transition: transform .2s, box-shadow .2s; }
 .tuile:hover { transform: translateY(-3px); box-shadow: 0 28px 56px -32px rgba(10,24,48,.4); }
 .tuile:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 20px; }
@@ -344,6 +344,20 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 .t-growth-academy .desc { font-size: 15px; color: var(--body); margin-top: 4px; max-width: 52ch; }
 .t-growth-academy .facts { margin-top: 8px; }
 .t-growth-academy .t-go { width: 40px; height: 40px; right: 20px; top: auto; bottom: 20px; margin-top: 0; background: var(--blue); color: #fff; }
+/* Le film « 100 ans d'études de marché » : une grande tuile, comme la growth academy. */
+.t-film .visual { flex: 1.3; background: #151210; }
+.t-film .visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.t-film .t-leg { padding: 18px 70px 20px 22px; gap: 4px; }
+.t-film .t-fam { display: block; }
+.t-film .t-leg b { font-size: 26px; }
+.t-film .desc { font-size: 15px; color: var(--body); margin-top: 4px; max-width: 52ch; }
+.t-film .facts { margin-top: 8px; }
+.t-film .t-go { width: 40px; height: 40px; right: 20px; top: auto; bottom: 20px; margin-top: 0; background: var(--blue); color: #fff; }
+.galerie.filtre .t-film .desc, .galerie.filtre .t-film .facts { display: none; }
+.galerie.filtre .t-film .t-fam { display: none; }
+.galerie.filtre .t-film .t-leg { padding: 16px 20px 20px; }
+.galerie.filtre .t-film .t-leg b { font-size: 20px; }
+.galerie.filtre .t-film .t-go { display: none; }
 /* Une famille choisie : seules ses ressources restent, trois par ligne, en grand. */
 .galerie.filtre { grid-template-areas: none; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: auto; }
 .galerie.filtre .tuile .visual { flex: none; height: 200px; }
@@ -370,7 +384,7 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
 @keyframes g-entre { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .galerie.filtre .tuile { animation: none; } .tuile, .tuile:hover { transform: none; transition: none; } }
 @media (max-width: 1100px) {
-  .galerie { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "aca aca" "aca aca" "vil vil" "pit qui" "sal sal" "da bou"; }
+  .galerie { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-areas: "aca aca" "aca aca" "vil vil" "pit qui" "film film" "film film" "sal sal" "da bou"; }
   .galerie.filtre { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 640px) {
@@ -415,11 +429,11 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
     <h1>Les ressources</h1>
     <p class="g-sous">mazeo a cartographié tout le secteur des études. Nous partageons ici des ressources gratuites. Ces ressources aident à mieux prospecter, à connaître le secteur et à trouver des opportunités.</p>
     <div class="g-onglets" role="group" aria-label="Familles de ressources">
-      <button type="button" class="on" data-f="tout" aria-pressed="true">Tout <span class="nb">7</span></button>
+      <button type="button" class="on" data-f="tout" aria-pressed="true">Tout <span class="nb">8</span></button>
       <button type="button" data-f="prospecter" aria-pressed="false">Mieux prospecter <span class="nb">1</span></button>
-      <button type="button" data-f="secteur" aria-pressed="false">Connaître le secteur <span class="nb">3</span></button>
+      <button type="button" data-f="secteur" aria-pressed="false">Connaître le secteur <span class="nb">4</span></button>
       <button type="button" data-f="opportunites" aria-pressed="false">Trouver des opportunités <span class="nb">3</span></button>
-      <span class="g-maj">Mises à jour le 23 octobre 2026</span>
+      <span class="g-maj">Mises à jour le 27 novembre 2026</span>
     </div>
   </section>
 
@@ -450,6 +464,10 @@ footer { border-top: 1px solid var(--line); padding-block: 44px; }
             <p class="sub">Question 4 <span>sur 10</span></p>
           </div>
       <div class="t-leg"><span class="t-fam">Connaître le secteur</span><b>Le Grand Quiz des Études</b><p class="t-court">Dix questions sur le métier. Votre score, et votre rang face au secteur.</p><p class="t-long">Dix questions sur l'histoire, les méthodes et les coulisses du métier. Votre score, et votre rang face aux professionnels du secteur.</p><ul class="facts t-faits"><li>10 questions</li><li>3 minutes</li><li>Sans inscription</li></ul><span class="t-cta">Faire le quiz <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
+    </a>
+    <a class="tuile t-film" data-f="secteur" href="/100-ans-etudes-de-marche">
+      <div class="visual fm"><img src="/assets/100-ans/intro.jpg" width="1280" height="720" alt="100 ans d'études de marché, un film présenté par mazeo" loading="lazy"></div>
+      <div class="t-leg"><span class="t-fam">Connaître le secteur</span><b>100 ans d'études de marché</b><p class="desc">Un film en neuf chapitres. Depuis cent ans, les études de marché cherchent à comprendre ce que veulent les gens : voici leurs méthodes, leurs questions et leurs erreurs.</p><p class="t-long">Un film en neuf chapitres sur cent ans d'études de marché : les méthodes, les questions et les erreurs. Avec les sources de chaque chapitre.</p><ul class="facts"><li>2 épisodes en ligne</li><li>9 chapitres</li><li>Sans inscription</li></ul><ul class="facts t-faits"><li>2 épisodes en ligne</li><li>9 chapitres</li><li>Sans inscription</li></ul><span class="t-cta">Voir le film <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
     </a>
     <a class="tuile t-rencontres" data-f="opportunites" href="/salons">
       <div class="visual sl">
