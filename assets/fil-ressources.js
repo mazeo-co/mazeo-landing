@@ -24,6 +24,8 @@
       nom: ['Le Village des études', 'Le Village des études'] },
     { re: /^\/pitch-des-etudes$|^\/en\/market-research-positioning$/, fam: ['secteur', 'industry'],
       nom: ['Le Pitch des études', 'Le Pitch des études'] },
+    { re: /^\/100-ans-etudes-de-marche$/, fam: ['secteur', 'industry'],
+      nom: ["100 ans d'études de marché", "100 ans d'études de marché"] },
     { re: /^\/quiz$|^\/en\/quiz$/, fam: ['secteur', 'industry'],
       nom: ['Le Grand Quiz des Études', 'The Great Market Research Quiz'] },
     { re: /^\/salons$|^\/en\/market-research-conferences$/, fam: ['opportunites', 'opportunities'],
