@@ -57,18 +57,19 @@ h1,h2,h3{font-family:var(--titre);font-weight:700;color:var(--ink);margin:0;lett
 .i-in{background:#0A66C2}.i-wa{background:#25D366}.i-x{background:#0A0A0A}.i-mail{background:#6B7280}.i-link{background:#2B8FFF}
 
 /* premier écran */
-.hero{display:grid;grid-template-columns:.86fr 1.14fr;gap:52px;align-items:center;padding-block:18px 16px}
-.sur{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:12px;margin:0 0 16px}
+.hero{display:grid;grid-template-columns:.78fr 1.22fr;gap:72px;align-items:center;padding-block:56px 64px}
+.sur{font-size:12.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);display:flex;align-items:center;gap:12px;margin:0 0 20px}
 .sur::before{content:"";width:28px;height:3px;background:var(--ambre);border-radius:2px}
-h1{font-size:44px;line-height:1.08}
+h1{font-size:46px;line-height:1.1}
 h1 em{font-style:normal;white-space:nowrap;background:linear-gradient(transparent 62%,var(--ambre) 62%,var(--ambre) 92%,transparent 92%)}
-.chapo{margin:14px 0 16px;font-size:17px;max-width:46ch}
-.faits{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px;padding:0;list-style:none}
-.faits li{font-size:13.5px;font-weight:600;color:var(--ink);background:var(--soft);border-radius:999px;padding:5px 12px}
-.faits li.on{background:var(--ambre-clair)}
-.form .ligne{display:flex;gap:8px;max-width:440px}
+.chapo{margin:22px 0 30px;font-size:17.5px;line-height:1.6;max-width:40ch}
+.actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.cta{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:13px 20px;font:700 15px var(--sans);white-space:nowrap;text-decoration:none;display:inline-block;cursor:pointer}
+.cta.lecture::before{content:"";display:inline-block;margin-right:10px;border-left:10px solid currentColor;border-top:6px solid transparent;border-bottom:6px solid transparent}
+.discret{font-weight:600;font-size:15px;color:var(--ink);text-underline-offset:4px;text-decoration-color:#C9CBD0}
+.form .ligne{display:flex;gap:8px;max-width:440px;width:100%}
+.form{width:100%}
 .form input{flex:1;min-width:0;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font:inherit;font-size:15px}
-.cta{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:12px 18px;font:700 15px var(--sans);white-space:nowrap;text-decoration:none;display:inline-block;cursor:pointer}
 .msg{margin:6px 0 0;font-size:13.5px;min-height:1.3em}
 .msg.ok{color:#0A7A4B;font-weight:600}.msg.err{color:#C2410C;font-weight:600}
 
@@ -79,37 +80,25 @@ h1 em{font-style:normal;white-space:nowrap;background:linear-gradient(transparen
 .jouer:hover span{transform:scale(1.06)}
 .jouer span::after{content:"";margin-left:7px;border-left:26px solid var(--ink);border-top:16px solid transparent;border-bottom:16px solid transparent}
 .jouer:focus-visible{outline:3px solid var(--ambre);outline-offset:-6px;border-radius:16px}
-.sous-ecran{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0 0;font-size:14.5px;color:var(--muted)}
+.sous-ecran{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:14px 0 0;font-size:14.5px;color:var(--muted)}
 .sous-ecran b{color:var(--ink);font-weight:700}
 .sous-ecran a{color:var(--ink);font-weight:600;text-underline-offset:3px;white-space:nowrap}
 
-/* la frise des chapitres */
-.frise{border-top:1px solid var(--line);padding-block:14px 6px}
-.frise ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(11,1fr);position:relative}
-.frise ol::before{content:"";position:absolute;left:4.5%;right:4.5%;top:13px;height:2px;background:var(--line)}
-.frise ol::after{content:"";position:absolute;left:4.5%;width:9.1%;top:13px;height:2px;background:var(--ambre)}
-.frise li{position:relative;text-align:center;font-size:12.5px;line-height:1.3;color:var(--muted)}
-.frise .pt{width:28px;height:28px;border-radius:50%;background:#fff;border:2px solid var(--line);margin:0 auto 8px;position:relative;z-index:1;display:grid;place-items:center;font:700 12px var(--sans);color:var(--muted)}
-.frise a{text-decoration:none;color:inherit;display:block}
-.frise .vu .pt{background:var(--ambre);border-color:var(--ambre)}
-.frise .vu .pt::after{content:"";margin-left:2px;border-left:8px solid var(--ink);border-top:5px solid transparent;border-bottom:5px solid transparent}
-.frise .prochain .pt{border-color:var(--ink);color:var(--ink)}
-.frise b{display:block;font:700 15px var(--titre);color:var(--ink)}
-.frise .avenir b{color:#8E9197}
-.frise .et{display:inline-block;margin-top:3px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);background:var(--ambre-clair);border-radius:4px;padding:1px 6px}
-
 /* sections */
-section.bloc{padding-block:64px 8px}
-.bloc h2{font-size:32px;margin-bottom:6px}
-.bloc .intro{color:var(--muted);margin:0 0 26px;max-width:70ch}
+section.bloc{padding-block:72px 8px}
+.bloc h2{font-size:34px;margin-bottom:8px}
+.bloc .intro{color:var(--muted);margin:0;max-width:62ch;font-size:17px}
+.groupe{margin-top:56px}
+.groupe .sur{margin-bottom:22px}
+.groupe .sur span{color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:none;font-size:14px}
 
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:32px}
 .carte{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#fff;display:flex;flex-direction:column;text-decoration:none;transition:transform .2s,box-shadow .2s}
 .carte:hover{transform:translateY(-3px);box-shadow:0 28px 56px -32px rgba(21,18,16,.45)}
 .carte .img{position:relative;aspect-ratio:16/9;background:var(--nuit)}
 .carte .img img{width:100%;height:100%;object-fit:cover;display:block}
 .carte .duree{position:absolute;right:12px;bottom:12px;background:rgba(11,11,12,.82);color:#fff;font-size:12.5px;font-weight:600;border-radius:6px;padding:3px 8px}
-.carte .corps{padding:20px 24px 22px}
+.carte .corps{padding:24px 28px 26px}
 .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--ambre);color:var(--ink);border-radius:5px;padding:3px 9px;margin-bottom:10px}
 .carte h3{font-size:23px;line-height:1.2;margin-bottom:8px}
 .carte p{margin:0 0 14px;font-size:15.5px}
@@ -118,20 +107,23 @@ section.bloc{padding-block:64px 8px}
 
 /* le prochain chapitre */
 .prochain-bloc{display:grid;grid-template-columns:1.05fr .95fr;border-radius:18px;overflow:hidden;background:var(--nuit);color:#EDE6DA}
-.prochain-bloc .img{min-height:330px;background:url(/assets/100-ans/ch2.jpg) center/cover}
-.prochain-bloc .txt{padding:36px 40px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.prochain-bloc .img{min-height:360px;background:url(/assets/100-ans/ch2.jpg) center/cover}
+.prochain-bloc .txt{padding:44px 48px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 .prochain-bloc h3{color:#fff;font-size:28px;line-height:1.18;margin-bottom:12px}
-.prochain-bloc p{margin:0 0 20px;font-size:16px;color:#CFC6B8}
+.prochain-bloc p{margin:0 0 22px;font-size:16px;color:#CFC6B8}
 .prochain-bloc .cta{background:var(--ambre);color:var(--ink)}
+.prochain-bloc .form input{border-color:transparent;background:#fff;color:var(--ink)}
+.prochain-bloc .msg{margin-bottom:0;font-size:13.5px}
+.prochain-bloc .msg.ok{color:var(--ok)}.prochain-bloc .msg.err{color:#FFB199}
 
-.liste{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;margin-top:34px}
-.rang{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
-.rang .n{font:700 28px/1 var(--titre);color:#C9CBD0}
-.rang .quand{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-.rang h3{font-size:18.5px;line-height:1.25;margin:3px 0 0}
+.avenir{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.av{background:var(--soft);border-radius:16px;padding:22px 24px 26px;display:flex;flex-direction:column;min-height:196px}
+.av .n{font:700 34px/1 var(--titre);color:#C2C5CB;padding-bottom:22px}
+.av .quand{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.av h3{font-size:17.5px;line-height:1.3;margin:6px 0 0}
 
 /* les sources */
-.sources{border-top:1px solid var(--line)}
+.sources{border-top:1px solid var(--line);margin-top:28px}
 .sources details{border-bottom:1px solid var(--line)}
 .sources summary{list-style:none;cursor:pointer;padding:18px 4px;display:flex;justify-content:space-between;align-items:center;gap:16px;font:700 19px var(--titre);color:var(--ink)}
 .sources summary::-webkit-details-marker{display:none}
@@ -141,30 +133,34 @@ section.bloc{padding-block:64px 8px}
 .sources td:first-child{width:46%;color:var(--ink);font-weight:600;padding-right:28px}
 .sources .vide{padding:0 4px 20px;color:var(--muted);font-size:15px;margin:0}
 
-.mzbox{margin-block:64px 72px;border-radius:18px;padding:30px 36px;display:flex;gap:40px;align-items:center;justify-content:space-between;background:var(--soft)}
+.mzbox{margin-block:88px 72px;border-radius:18px;padding:30px 36px;display:flex;gap:40px;align-items:center;justify-content:space-between;background:var(--soft)}
 .mzbox p{margin:10px 0 0;max-width:74ch;font-size:15.5px}
 .mzbox .q{font-weight:700;color:var(--ink)}
 
 @media (max-width:1000px){
   .wrap{padding-inline:24px}
-  .hero{grid-template-columns:1fr;gap:28px}
+  .hero{grid-template-columns:1fr;gap:28px;padding-block:24px 40px}
   .hero > div:last-child{order:-1}
   h1{font-size:36px}
-  .frise{overflow-x:auto;scrollbar-width:none}
-  .frise::-webkit-scrollbar{display:none}
-  .frise ol{min-width:860px}
-  .duo,.liste,.prochain-bloc{grid-template-columns:1fr}
+  .duo,.prochain-bloc{grid-template-columns:1fr}
+  .avenir{grid-template-columns:1fr 1fr}
+  .groupe{margin-top:44px}
   .prochain-bloc .img{min-height:220px}
   .prochain-bloc .txt{padding:26px 24px}
   .mzbox{flex-direction:column;align-items:flex-start;gap:20px;padding:26px 24px}
 }
 @media (max-width:560px){
   .marque b{font-size:20px}
-  h1{font-size:30px} h1 em{white-space:normal}
+  h1{font-size:min(30px,7.9vw)}
+  .groupe .sur span{display:none}
   .form .ligne{flex-direction:column}
   .sources td{display:block;width:auto!important;padding-right:4px}
   .sources td:last-child{border-top:0;padding-top:0}
   section.bloc{padding-top:48px}
+  .avenir{grid-template-columns:1fr}
+  .av{min-height:0}
+  .av .n{padding-bottom:14px}
+  .bloc h2{font-size:28px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.carte,.carte:hover,.jouer span{transform:none;transition:none}}
 </style>
@@ -185,86 +181,77 @@ section.bloc{padding-block:64px 8px}
     <div>
       <p class="sur">Un film en neuf chapitres</p>
       <h1>Ils ont tout essayé pour savoir <em>ce que vous pensez.</em></h1>
-      <p class="chapo">Depuis cent ans, les études de marché poursuivent une même quête : comprendre ce que veulent les consommateurs, les professionnels et les citoyens. Ce film la raconte, une méthode après l'autre.</p>
-      <ul class="faits"><li class="on">2 épisodes en ligne</li><li>Prochain : chapitre 2</li><li>Gratuit</li></ul>
-      <form class="form" id="alerte" novalidate>
-        <div class="ligne"><input type="email" id="alerte-email" placeholder="Email professionnel" aria-label="Email professionnel" autocomplete="email" required><button class="cta" type="submit">Me prévenir du prochain chapitre</button></div>
-        <p class="msg" id="alerte-msg" role="status" aria-live="polite"></p>
-      </form>
+      <p class="chapo">Depuis cent ans, les études de marché poursuivent une même quête : comprendre ce que veulent les consommateurs, les professionnels et les citoyens.</p>
+      <div class="actions">
+        <a class="cta lecture" href="#haut" data-film="introduction">Regarder l'introduction</a>
+        <a class="discret" href="#chapitres">Voir les épisodes</a>
+      </div>
     </div>
     <div>
       <div class="ecran" id="ecran">
         <img id="affiche" src="/assets/100-ans/intro.jpg" width="1280" height="720" alt="100 ans d'études de marché : ils ont tout essayé pour savoir ce que vous pensez.">
         <button class="jouer" id="jouer" type="button" aria-label="Lire l'introduction"><span></span></button>
       </div>
-      <p class="sous-ecran"><span><b id="titre-film">L'introduction</b> · <span id="duree-film">1 min 25</span></span><a href="#chapitres">Voir tous les chapitres ↓</a></p>
+      <p class="sous-ecran"><span><b id="titre-film">L'introduction</b> · <span id="duree-film">1 min 25</span></span></p>
     </div>
   </section>
-
-  <nav class="frise" aria-label="Les chapitres du film">
-    <ol>
-      <li class="vu"><a href="#haut" data-film="introduction"><span class="pt"></span><b>Intro</b>L'énigme</a></li>
-      <li class="vu"><a href="#haut" data-film="chapitre-1"><span class="pt"></span><b>1923</b>Demander</a></li>
-      <li class="prochain"><span class="pt">2</span><b>1936</b>L'échantillon<br><span class="et">Prochain</span></li>
-      <li class="avenir"><span class="pt">3</span><b>1941</b>Le pourquoi</li>
-      <li class="avenir"><span class="pt">4</span><b>1985</b>La question</li>
-      <li class="avenir"><span class="pt">5</span><b>1995</b>Observer</li>
-      <li class="avenir"><span class="pt">6</span><b>2000</b>Les panels</li>
-      <li class="avenir"><span class="pt">7</span><b>2004</b>Le scanner</li>
-      <li class="avenir"><span class="pt">8</span><b>2010</b>Les réseaux</li>
-      <li class="avenir"><span class="pt">9</span><b>2025</b>L'IA</li>
-      <li class="avenir"><span class="pt"></span><b>Fin</b>Conclusion</li>
-    </ol>
-  </nav>
 
   <section class="bloc" id="chapitres">
-    <h2>À voir maintenant</h2>
-    <p class="intro">Deux épisodes sont en ligne. Chacun se regarde seul, en moins de trois minutes.</p>
-    <div class="duo">
-      <a class="carte" href="#haut" data-film="introduction">
-        <div class="img"><img src="/assets/100-ans/intro.jpg" width="1280" height="720" alt="" loading="lazy"><span class="duree">1 min 25</span></div>
-        <div class="corps">
-          <span class="tag">Introduction</span>
-          <h3>190 000 personnes ont goûté. Et pourtant, l'erreur.</h3>
-          <p>En 1985, Coca-Cola change sa recette après un test de goût auprès de 190 000 personnes. 79 jours plus tard, la marque recule. Pour comprendre pourquoi, il faut remonter cent ans en arrière.</p>
-          <span class="lien">Regarder</span>
-        </div>
-      </a>
-      <a class="carte" href="#haut" data-film="chapitre-1">
-        <div class="img"><img src="/assets/100-ans/ch1.jpg" width="1280" height="720" alt="" loading="lazy"><span class="duree">2 min 35</span></div>
-        <div class="corps">
-          <span class="tag">Chapitre 1 · 1923 · Demander</span>
-          <h3>Cette publicité, qui l'a vraiment vue ?</h3>
-          <p>Les marques se disputent les pages des magazines sans savoir si on les regarde. Un chercheur envoie des enquêteurs frapper aux portes, le magazine sous le bras. Ainsi naît la mesure publicitaire.</p>
-          <span class="lien">Regarder</span>
-        </div>
-      </a>
-    </div>
-  </section>
+    <h2>Les épisodes</h2>
+    <p class="intro">Le film sort épisode par épisode : une introduction, neuf chapitres, une conclusion. Deux sont en ligne. Les suivants arrivent un par un.</p>
 
-  <section class="bloc" id="suite">
-    <h2>La suite</h2>
-    <p class="intro">Chaque chapitre répond à une question, et en laisse une autre ouverte. Voici celles qui arrivent.</p>
-
-    <div class="prochain-bloc">
-      <div class="img" role="img" aria-label="Le plateau du chapitre 2 : un immeuble de presse, des maisons, des pions de couleur."></div>
-      <div class="txt">
-        <span class="tag">Prochain chapitre · 1936 · L'échantillon</span>
-        <h3>Pour savoir ce que pense tout un pays, combien de gens faut-il interroger ?</h3>
-        <p>Un grand magazine écrit à dix millions d'Américains. Un jeune chercheur en interroge beaucoup moins. Un seul des deux aura raison.</p>
-        <a class="cta" href="#haut" id="vers-alerte">Me prévenir de sa sortie</a>
+    <div class="groupe">
+      <p class="sur">En ligne <span>2 épisodes, moins de trois minutes chacun</span></p>
+      <div class="duo">
+        <a class="carte" href="#haut" data-film="introduction">
+          <div class="img"><img src="/assets/100-ans/intro.jpg" width="1280" height="720" alt="" loading="lazy"><span class="duree">1 min 25</span></div>
+          <div class="corps">
+            <span class="tag">Introduction</span>
+            <h3>190 000 personnes ont goûté. Et pourtant, l'erreur.</h3>
+            <p>En 1985, Coca-Cola change sa recette après un test de goût auprès de 190 000 personnes. 79 jours plus tard, la marque recule. Pour comprendre pourquoi, il faut remonter cent ans en arrière.</p>
+            <span class="lien">Regarder</span>
+          </div>
+        </a>
+        <a class="carte" href="#haut" data-film="chapitre-1">
+          <div class="img"><img src="/assets/100-ans/ch1.jpg" width="1280" height="720" alt="" loading="lazy"><span class="duree">2 min 35</span></div>
+          <div class="corps">
+            <span class="tag">Chapitre 1 · 1923 · Demander</span>
+            <h3>Cette publicité, qui l'a vraiment vue ?</h3>
+            <p>Les marques se disputent les pages des magazines sans savoir si on les regarde. Un chercheur envoie des enquêteurs frapper aux portes, le magazine sous le bras. Ainsi naît la mesure publicitaire.</p>
+            <span class="lien">Regarder</span>
+          </div>
+        </a>
       </div>
     </div>
 
-    <div class="liste">
-      <div class="rang"><span class="n">3</span><div><span class="quand">1941 · Le pourquoi</span><h3>Comment savoir pourquoi les gens aiment ce qu'ils aiment ?</h3></div></div>
-      <div class="rang"><span class="n">4</span><div><span class="quand">1985 · La question</span><h3>Une étude peut-elle être juste, et mener quand même à une erreur ?</h3></div></div>
-      <div class="rang"><span class="n">5</span><div><span class="quand">1995 · Observer</span><h3>Comment savoir ce que les gens font, sans rien leur demander ?</h3></div></div>
-      <div class="rang"><span class="n">6</span><div><span class="quand">2000 · Les panels en ligne</span><h3>Comment interroger des milliers de personnes en quelques jours ?</h3></div></div>
-      <div class="rang"><span class="n">7</span><div><span class="quand">2004 · Le scanner</span><h3>Peut-on voir ce que les gens ne savent pas dire ?</h3></div></div>
-      <div class="rang"><span class="n">8</span><div><span class="quand">2010 · L'écoute des réseaux sociaux</span><h3>Comment entendre ce que les gens disent quand on ne leur demande rien ?</h3></div></div>
-      <div class="rang"><span class="n">9</span><div><span class="quand">2025 · L'intelligence artificielle</span><h3>Peut-on connaître l'avis des gens sans interroger personne ?</h3></div></div>
-      <div class="rang"><span class="n">★</span><div><span class="quand">Conclusion</span><h3>Et si l'on refaisait le test de 1985 avec les outils d'aujourd'hui ?</h3></div></div>
+    <div class="groupe" id="prochain">
+      <p class="sur">Prochain épisode</p>
+      <div class="prochain-bloc">
+        <div class="img" role="img" aria-label="Le plateau du chapitre 2 : un immeuble de presse, des maisons, des pions de couleur."></div>
+        <div class="txt">
+          <span class="tag">Chapitre 2 · 1936 · L'échantillon</span>
+          <h3>Pour savoir ce que pense tout un pays, combien de gens faut-il interroger ?</h3>
+          <p>Un grand magazine écrit à dix millions d'Américains. Un jeune chercheur en interroge beaucoup moins. Un seul des deux aura raison.</p>
+          <form class="form" id="alerte" novalidate>
+            <div class="ligne"><input type="email" id="alerte-email" placeholder="Email professionnel" aria-label="Email professionnel" autocomplete="email" required><button class="cta" type="submit">Me prévenir de sa sortie</button></div>
+            <p class="msg" id="alerte-msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="groupe">
+      <p class="sur">À venir <span>chaque chapitre répond à une question</span></p>
+      <div class="avenir">
+        <div class="av"><span class="n">3</span><span class="quand">1941 · Le pourquoi</span><h3>Comment savoir pourquoi les gens aiment ce qu'ils aiment ?</h3></div>
+        <div class="av"><span class="n">4</span><span class="quand">1985 · La question</span><h3>Une étude peut-elle être juste, et mener quand même à une erreur ?</h3></div>
+        <div class="av"><span class="n">5</span><span class="quand">1995 · Observer</span><h3>Comment savoir ce que les gens font, sans rien leur demander ?</h3></div>
+        <div class="av"><span class="n">6</span><span class="quand">2000 · Les panels en ligne</span><h3>Comment interroger des milliers de personnes en quelques jours ?</h3></div>
+        <div class="av"><span class="n">7</span><span class="quand">2004 · Le scanner</span><h3>Peut-on voir ce que les gens ne savent pas dire ?</h3></div>
+        <div class="av"><span class="n">8</span><span class="quand">2010 · Les réseaux sociaux</span><h3>Comment entendre ce que les gens disent quand on ne leur demande rien ?</h3></div>
+        <div class="av"><span class="n">9</span><span class="quand">2025 · L'IA</span><h3>Peut-on connaître l'avis des gens sans interroger personne ?</h3></div>
+        <div class="av"><span class="n">★</span><span class="quand">Conclusion</span><h3>Et si l'on refaisait le test de 1985 avec les outils d'aujourd'hui ?</h3></div>
+      </div>
     </div>
   </section>
 
@@ -308,8 +295,8 @@ section.bloc{padding-block:64px 8px}
 
 <script>
 /* Les épisodes en ligne. Pour chacun : un identifiant YouTube (youtube), ou à défaut un fichier vidéo (fichier).
-   Sortie d'un chapitre : l'ajouter ici, lui donner sa carte dans « À voir maintenant », le passer en « vu » dans la frise,
-   avancer le trait ambre de la frise (.frise ol::after), et ouvrir ses sources. */
+   Sortie d'un chapitre : l'ajouter ici, lui donner sa carte dans le groupe « En ligne », retirer sa case du groupe « À venir »,
+   mettre le chapitre suivant dans « Prochain épisode », et ouvrir ses sources. */
 const FILMS = {
   "introduction": { titre: "L'introduction", duree: "1 min 25", affiche: "/assets/100-ans/intro.jpg", youtube: "k-MqhRSUmSs", fichier: "/assets/100-ans/films/introduction.mp4" },
   "chapitre-1": { titre: "Chapitre 1 · 1923 · Demander", duree: "2 min 35", affiche: "/assets/100-ans/ch1.jpg", youtube: "7z2y_jWrFrw", fichier: "/assets/100-ans/films/chapitre-1.mp4" }
@@ -339,7 +326,6 @@ const $ = id => document.getElementById(id);
   }
   $("jouer").addEventListener("click", lire);
   document.querySelectorAll("[data-film]").forEach(a => a.addEventListener("click", () => { poser(a.dataset.film); setTimeout(lire, 400); }));
-  $("vers-alerte").addEventListener("click", () => setTimeout(() => $("alerte-email").focus({ preventScroll: true }), 500));
 })();
 
 /* Partage : les mêmes briques que le Grand Quiz des Études. */
